@@ -120,10 +120,10 @@ def calcular_nota(nivel_actual, historial_respuestas, usar_promedio_total=False)
 
 # Función para verificar estabilización
 def verificar_estabilizacion(historial_notas, umbral=0.15):
-    if len(historial_notas) < 4:
+    if len(historial_notas) < 6:
         return False
-    ultimas_3 = historial_notas[-3:]
-    variacion = max(ultimas_3) - min(ultimas_3)
+    ultimas_5 = historial_notas[-5:]
+    variacion = max(ultimas_5) - min(ultimas_5)
     return variacion < umbral
 
 # Función para seleccionar pregunta
