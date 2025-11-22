@@ -3,7 +3,8 @@ import json
 import pandas as pd
 from datetime import datetime
 import random
-import os
+from google.oauth2 import service_account
+from googleapiclient.discovery import build
 
 # Configuración de la página
 st.set_page_config(
@@ -11,6 +12,20 @@ st.set_page_config(
     page_icon="🎓",
     layout="centered"
 )
+
+# Función para obtener servicio de Google Sheets
+@st.cache_resource
+def get_sheets_service():
+    try:
+        credentials = service_account.Credentials.from_service_account_info(
+            st.secrets["gcp_service_account"],
+            scopes=['https://www.googleapis.com/auth/spreadsheets']
+        )
+        service = build('sheets', 'v4', credentials=credentials)
+        return service
+    except Exception as e:
+        st.error(f"Error al crear servicio: {str(e)}")
+        return None
 
 # Función para cargar preguntas
 @st.cache_data
@@ -24,132 +39,97 @@ def cargar_preguntas():
             return preguntas
     except FileNotFoundError:
         st.error("❌ Error: No se encontró el archivo 'preguntas.json'")
-        st.info("Asegúrate de que el archivo esté en el mismo directorio que el script")
         st.stop()
     except json.JSONDecodeError as e:
         st.error(f"❌ Error al leer el archivo JSON: {str(e)}")
-        st.info("El archivo preguntas.json está mal formateado. Verifica que:")
-        st.markdown("""
-        - Sea un array JSON válido que comience con `[` y termine con `]`
-        - No tenga comas extra al final
-        - Todas las comillas estén balanceadas
-        - No haya múltiples objetos JSON separados
-        """)
         st.stop()
     except Exception as e:
         st.error(f"❌ Error inesperado: {str(e)}")
         st.stop()
 
-# Función para guardar resultados (MEJORADA CON DEBUGGING)
+# Función para guardar resultados en Google Sheets CON DEBUGGING
 def guardar_resultado(codigo_estudiante, resultados, historial_respuestas):
     """
-    Guarda los resultados en CSV incluyendo las preguntas respondidas
+    Guarda los resultados en Google Sheets
     """
     try:
-        timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        # Debug 1: Verificar servicio
+        service = get_sheets_service()
+        if not service:
+            return False, "❌ No se pudo crear el servicio de Google Sheets"
         
-        # Crear lista de códigos de preguntas respondidas
+        # Debug 2: Verificar ID
+        spreadsheet_id = st.secrets.get("SPREADSHEET_ID", "")
+        if not spreadsheet_id:
+            return False, "❌ SPREADSHEET_ID no encontrado en secrets"
+        
+        # Debug 3: Preparar datos
+        timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         preguntas_respondidas = ','.join([r['pregunta_id'] for r in historial_respuestas])
         
-        datos = {
-            'Fecha': timestamp,
-            'Código': codigo_estudiante,
-            'Preguntas_Respondidas': resultados['total_preguntas'],
-            'Correctas': resultados['correctas'],
-            'Incorrectas': resultados['incorrectas'],
-            'Nivel_Final': round(resultados['nivel_final'], 2),
-            'Nota_Final': round(resultados['nota_final'], 2),
-            'Preguntas': preguntas_respondidas
-        }
+        valores = [[
+            timestamp,
+            codigo_estudiante,
+            resultados['total_preguntas'],
+            resultados['correctas'],
+            resultados['incorrectas'],
+            round(resultados['nivel_final'], 2),
+            round(resultados['nota_final'], 2),
+            preguntas_respondidas
+        ]]
         
-        # Guardar en CSV
-        archivo = 'resultados_examen.csv'
-        df_nuevo = pd.DataFrame([datos])
+        # Debug 4: Intentar escribir
+        result = service.spreadsheets().values().append(
+            spreadsheetId=spreadsheet_id,
+            range='A:H',
+            valueInputOption='RAW',
+            insertDataOption='INSERT_ROWS',
+            body={'values': valores}
+        ).execute()
         
-        # Verificar directorio actual
-        directorio_actual = os.getcwd()
-        ruta_completa = os.path.join(directorio_actual, archivo)
+        # Debug 5: Verificar resultado
+        updates = result.get('updates', {})
+        updated_cells = updates.get('updatedCells', 0)
         
-        if os.path.exists(archivo):
-            df_existente = pd.read_csv(archivo)
-            df_final = pd.concat([df_existente, df_nuevo], ignore_index=True)
-        else:
-            df_final = df_nuevo
+        return True, f"✅ Guardado exitoso ({updated_cells} celdas actualizadas)"
         
-        # Intentar guardar
-        df_final.to_csv(archivo, index=False, encoding='utf-8')
-        
-        # Verificar que se guardó correctamente
-        if os.path.exists(archivo):
-            tamaño = os.path.getsize(archivo)
-            return True, f"✅ Guardado exitoso\n📁 Ruta: {ruta_completa}\n📊 Tamaño: {tamaño} bytes\n📝 Total registros: {len(df_final)}", df_final
-        else:
-            return False, f"❌ Error: el archivo no se pudo crear en {ruta_completa}", None
-            
-    except PermissionError:
-        return False, f"❌ Error de permisos en: {os.getcwd()}", None
     except Exception as e:
-        return False, f"❌ Error al guardar: {type(e).__name__}: {str(e)}", None
+        # Mostrar error completo
+        import traceback
+        error_detail = traceback.format_exc()
+        return False, f"❌ Error: {str(e)}\n\nDetalle:\n{error_detail}"
 
 # Función para calcular nota estimada
 def calcular_nota(nivel_actual, historial_respuestas, usar_promedio_total=False):
-    """
-    Calcula la nota basándose en el nivel alcanzado y el desempeño
-    
-    Si usar_promedio_total=True, calcula basándose SOLO en porcentaje de aciertos
-    (esto se usa cuando el estudiante llega al máximo sin estabilizar)
-    
-    Si usar_promedio_total=False (por defecto):
-    Nota = (nivel_actual / 5) * 5.0
-    Ajuste por desempeño: +/- según porcentaje de aciertos
-    """
     if not historial_respuestas:
         return 3.0
     
-    # Si llegó al límite sin estabilizar, usar solo promedio total
     if usar_promedio_total:
         total = len(historial_respuestas)
         aciertos = sum(1 for r in historial_respuestas if r['correcta'])
         porcentaje = aciertos / total
-        # Convertir a nota: 0% = 0.0, 50% = 2.5, 100% = 5.0
         return porcentaje * 5.0
     
-    # Lógica normal cuando se estabilizó
-    # Nota base según nivel
     nota_base = (nivel_actual / 5) * 5.0
-    
-    # Calcular porcentaje de aciertos en las últimas preguntas
     ultimas = historial_respuestas[-min(5, len(historial_respuestas)):]
     aciertos = sum(1 for r in ultimas if r['correcta'])
     porcentaje = aciertos / len(ultimas)
-    
-    # Ajuste fino según desempeño
-    ajuste = (porcentaje - 0.5) * 0.5  # Ajuste de +/- 0.25
-    
+    ajuste = (porcentaje - 0.5) * 0.5
     nota_final = max(0, min(5.0, nota_base + ajuste))
     return nota_final
 
 # Función para verificar estabilización
 def verificar_estabilizacion(historial_notas, umbral=0.15):
-    """
-    Verifica si la nota se ha estabilizado en las últimas 3 preguntas
-    """
     if len(historial_notas) < 4:
         return False
-    
     ultimas_3 = historial_notas[-3:]
     variacion = max(ultimas_3) - min(ultimas_3)
-    
     return variacion < umbral
 
 # Función para seleccionar pregunta
 def seleccionar_pregunta(preguntas, nivel, preguntas_usadas):
-    """
-    Selecciona una pregunta del nivel especificado que no haya sido usada
-    """
     candidatas = [p for p in preguntas if p['dificultad'] == nivel and p['id'] not in preguntas_usadas]
     
-    # Si no hay preguntas de ese nivel, buscar en nivel cercano
     if not candidatas:
         for offset in [1, -1, 2, -2]:
             nuevo_nivel = nivel + offset
@@ -212,7 +192,6 @@ if not st.session_state.iniciado:
             st.session_state.codigo_estudiante = codigo.strip()
             st.session_state.iniciado = True
             st.session_state.preguntas = cargar_preguntas()
-            # Seleccionar primera pregunta
             st.session_state.pregunta_actual = seleccionar_pregunta(
                 st.session_state.preguntas, 
                 st.session_state.nivel_actual,
@@ -226,7 +205,6 @@ if not st.session_state.iniciado:
 
 # Pantalla de examen
 elif st.session_state.iniciado and not st.session_state.finalizado:
-    # Header con información
     col1, col2, col3 = st.columns(3)
     with col1:
         st.metric("Estudiante", st.session_state.codigo_estudiante)
@@ -238,26 +216,19 @@ elif st.session_state.iniciado and not st.session_state.finalizado:
     
     st.write("---")
     
-    # Mostrar pregunta actual
     if st.session_state.pregunta_actual and st.session_state.esperando_respuesta:
         pregunta = st.session_state.pregunta_actual
         
-        # Aleatorizar opciones si no se ha hecho aún para esta pregunta
         if 'opciones_mezcladas' not in st.session_state or st.session_state.pregunta_mezclada_id != pregunta['id']:
-            # Crear lista de tuplas (clave, texto)
             opciones_lista = list(pregunta['opciones'].items())
-            # Mezclar aleatoriamente
             random.shuffle(opciones_lista)
-            # Guardar el orden mezclado
             st.session_state.opciones_mezcladas = opciones_lista
             st.session_state.pregunta_mezclada_id = pregunta['id']
         
-        # Mostrar la pregunta
         st.markdown(f"### Pregunta {len(st.session_state.historial_respuestas) + 1}")
         st.markdown(f"**Nivel de dificultad:** {'⭐' * pregunta['dificultad']}")
         st.write(pregunta['pregunta'])
         
-        # Mostrar opciones en orden aleatorizado
         respuesta_seleccionada = st.radio(
             "Selecciona tu respuesta:",
             options=[clave for clave, _ in st.session_state.opciones_mezcladas],
@@ -265,35 +236,29 @@ elif st.session_state.iniciado and not st.session_state.finalizado:
             key=f"radio_{pregunta['id']}"
         )
         
-        # Botón para confirmar respuesta
         if st.button("Confirmar Respuesta", type="primary", use_container_width=True):
             es_correcta = respuesta_seleccionada == pregunta['respuesta_correcta']
             
-            # Registrar respuesta
             st.session_state.historial_respuestas.append({
                 'pregunta_id': pregunta['id'],
                 'nivel': pregunta['dificultad'],
                 'correcta': es_correcta
             })
             
-            # Ajustar nivel
             if es_correcta:
                 st.session_state.nivel_actual = min(5, st.session_state.nivel_actual + 1)
             else:
                 st.session_state.nivel_actual = max(1, st.session_state.nivel_actual - 1)
             
-            # Calcular nota actual
             nota_actual = calcular_nota(st.session_state.nivel_actual, st.session_state.historial_respuestas)
             st.session_state.historial_notas.append(nota_actual)
             
-            # Preparar feedback
             st.session_state.respuesta_correcta = es_correcta
             st.session_state.explicacion = pregunta.get('explicacion', '')
             st.session_state.esperando_respuesta = False
             st.session_state.mostrar_feedback = True
             st.rerun()
     
-    # Mostrar feedback
     elif st.session_state.mostrar_feedback:
         if st.session_state.respuesta_correcta:
             st.success("✅ ¡Respuesta correcta!")
@@ -304,20 +269,18 @@ elif st.session_state.iniciado and not st.session_state.finalizado:
             with st.expander("📝 Explicación", expanded=True):
                 st.write(st.session_state.explicacion)
         
-        # Verificar condiciones de finalización
         debe_finalizar = False
         razon_finalizacion = ""
         
         if len(st.session_state.historial_respuestas) >= 30:
             debe_finalizar = True
-            # Verificar si se estabilizó antes de llegar al máximo
             if verificar_estabilizacion(st.session_state.historial_notas):
                 razon_finalizacion = "Se alcanzó el número máximo de preguntas (30)"
                 st.session_state.usar_promedio_final = False
             else:
                 razon_finalizacion = "Se alcanzó el número máximo de preguntas sin estabilización"
                 st.session_state.usar_promedio_final = True
-        elif len(st.session_state.historial_respuestas) >= 15:  # CAMBIADO DE 8 A 15
+        elif len(st.session_state.historial_respuestas) >= 15:
             if verificar_estabilizacion(st.session_state.historial_notas):
                 debe_finalizar = True
                 razon_finalizacion = "Tu nota se ha estabilizado"
@@ -330,7 +293,6 @@ elif st.session_state.iniciado and not st.session_state.finalizado:
                 st.rerun()
         else:
             if st.button("Siguiente Pregunta ➡️", type="primary", use_container_width=True):
-                # Seleccionar siguiente pregunta
                 siguiente = seleccionar_pregunta(
                     st.session_state.preguntas,
                     st.session_state.nivel_actual,
@@ -352,27 +314,19 @@ else:
     st.title("📊 Resultados del Examen")
     st.write("---")
     
-    # Calcular estadísticas finales
     total_preguntas = len(st.session_state.historial_respuestas)
     correctas = sum(1 for r in st.session_state.historial_respuestas if r['correcta'])
     incorrectas = total_preguntas - correctas
     nivel_final = st.session_state.nivel_actual
     
-    # Calcular nota final según el método apropiado
     if st.session_state.usar_promedio_final:
-        # Usar promedio total (cuando llegó a 30 sin estabilizar)
-        nota_final = calcular_nota(
-            nivel_final,
-            st.session_state.historial_respuestas,
-            usar_promedio_total=True
-        )
+        nota_final = calcular_nota(nivel_final, st.session_state.historial_respuestas, usar_promedio_total=True)
         metodo_calculo = "promedio total"
     else:
-        # Usar última nota estabilizada
         nota_final = st.session_state.historial_notas[-1] if st.session_state.historial_notas else 0
         metodo_calculo = "nivel alcanzado"
     
-    # Guardar resultados (solo una vez)
+    # GUARDAR CON DEBUG VISIBLE
     if not st.session_state.resultado_guardado:
         resultados = {
             'total_preguntas': total_preguntas,
@@ -381,30 +335,29 @@ else:
             'nota_final': nota_final,
             'nivel_final': nivel_final
         }
-        exito, mensaje, df = guardar_resultado(
-            st.session_state.codigo_estudiante, 
-            resultados,
-            st.session_state.historial_respuestas
-        )
+        
+        with st.spinner("Guardando resultados..."):
+            exito, mensaje = guardar_resultado(
+                st.session_state.codigo_estudiante, 
+                resultados,
+                st.session_state.historial_respuestas
+            )
+        
         st.session_state.resultado_guardado = True
         st.session_state.mensaje_guardado = mensaje
         
-        # MOSTRAR MENSAJE TEMPORAL DE DEBUG (Puedes comentar esto en producción)
+        # MOSTRAR MENSAJE SIEMPRE (temporal para debugging)
         if exito:
             st.success(mensaje)
         else:
             st.error(mensaje)
-            # Intentar crear en directorio home del usuario
-            try:
-                home_dir = os.path.expanduser("~")
-                archivo_alt = os.path.join(home_dir, "resultados_examen.csv")
-                if df is not None:
-                    df.to_csv(archivo_alt, index=False, encoding='utf-8')
-                    st.warning(f"Se guardó en ubicación alternativa: {archivo_alt}")
-            except:
-                st.error("No se pudo guardar en ninguna ubicación")
+            st.warning("⚠️ Verifica que:")
+            st.markdown("""
+            1. El Google Sheet está compartido con: `examen-python-387@utility-zenith-191222.iam.gserviceaccount.com`
+            2. La API de Google Sheets está habilitada en tu proyecto
+            3. El ID de la hoja es correcto
+            """)
     
-    # Mostrar métricas principales
     col1, col2, col3, col4 = st.columns(4)
     with col1:
         st.metric("Nota Final", f"{nota_final:.2f}")
@@ -418,14 +371,11 @@ else:
     
     st.write("---")
     
-    # Mostrar método de cálculo si fue por promedio
     if st.session_state.usar_promedio_final:
         st.info(f"ℹ️ Nota calculada por {metodo_calculo} de respuestas correctas ({correctas}/{total_preguntas} = {correctas/total_preguntas*100:.1f}%)")
     
-    # Análisis de desempeño
     st.subheader("📈 Análisis de Desempeño")
     
-    # Gráfico de evolución de nota
     if st.session_state.historial_notas:
         df_notas = pd.DataFrame({
             'Pregunta': range(1, len(st.session_state.historial_notas) + 1),
@@ -433,7 +383,6 @@ else:
         })
         st.line_chart(df_notas.set_index('Pregunta'))
     
-    # Desempeño por nivel
     st.subheader("📊 Desempeño por Nivel de Dificultad")
     niveles_data = {}
     for respuesta in st.session_state.historial_respuestas:
@@ -451,7 +400,6 @@ else:
     
     st.write("---")
     
-    # Mensaje final
     if nota_final >= 4.5:
         st.success("🎉 ¡Excelente desempeño! Dominas muy bien los conceptos de programación.")
     elif nota_final >= 3.5:
@@ -460,8 +408,6 @@ else:
         st.info("📚 Aprobado. Te recomiendo repasar algunos conceptos para mejorar tu dominio.")
     else:
         st.warning("📖 Te sugerimos dedicar más tiempo a practicar y repasar los conceptos fundamentales.")
-    
-    st.info("✅ Tus resultados han sido guardados automáticamente.")
     
     if st.button("Cerrar", type="primary"):
         st.balloons()
