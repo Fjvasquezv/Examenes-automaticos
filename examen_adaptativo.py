@@ -15,10 +15,32 @@ st.set_page_config(
 # Función para cargar preguntas
 @st.cache_data
 def cargar_preguntas():
-    with open('preguntas.json', 'r', encoding='utf-8') as f:
-        return json.load(f)
+    try:
+        with open('preguntas.json', 'r', encoding='utf-8') as f:
+            preguntas = json.load(f)
+            if not isinstance(preguntas, list):
+                st.error("❌ Error: El archivo preguntas.json debe contener una lista de preguntas")
+                st.stop()
+            return preguntas
+    except FileNotFoundError:
+        st.error("❌ Error: No se encontró el archivo 'preguntas.json'")
+        st.info("Asegúrate de que el archivo esté en el mismo directorio que el script")
+        st.stop()
+    except json.JSONDecodeError as e:
+        st.error(f"❌ Error al leer el archivo JSON: {str(e)}")
+        st.info("El archivo preguntas.json está mal formateado. Verifica que:")
+        st.markdown("""
+        - Sea un array JSON válido que comience con `[` y termine con `]`
+        - No tenga comas extra al final
+        - Todas las comillas estén balanceadas
+        - No haya múltiples objetos JSON separados
+        """)
+        st.stop()
+    except Exception as e:
+        st.error(f"❌ Error inesperado: {str(e)}")
+        st.stop()
 
-# Función para guardar resultados
+# Función para guardar resultados (MEJORADA CON DEBUGGING)
 def guardar_resultado(codigo_estudiante, resultados, historial_respuestas):
     """
     Guarda los resultados en CSV incluyendo las preguntas respondidas
@@ -44,25 +66,30 @@ def guardar_resultado(codigo_estudiante, resultados, historial_respuestas):
         archivo = 'resultados_examen.csv'
         df_nuevo = pd.DataFrame([datos])
         
+        # Verificar directorio actual
+        directorio_actual = os.getcwd()
+        ruta_completa = os.path.join(directorio_actual, archivo)
+        
         if os.path.exists(archivo):
             df_existente = pd.read_csv(archivo)
             df_final = pd.concat([df_existente, df_nuevo], ignore_index=True)
         else:
             df_final = df_nuevo
         
+        # Intentar guardar
         df_final.to_csv(archivo, index=False, encoding='utf-8')
         
         # Verificar que se guardó correctamente
-        ruta_completa = os.path.abspath(archivo)
         if os.path.exists(archivo):
-            return True, f"Guardado exitosamente en: {ruta_completa}"
+            tamaño = os.path.getsize(archivo)
+            return True, f"✅ Guardado exitoso\n📁 Ruta: {ruta_completa}\n📊 Tamaño: {tamaño} bytes\n📝 Total registros: {len(df_final)}", df_final
         else:
-            return False, "Error: el archivo no se pudo crear"
+            return False, f"❌ Error: el archivo no se pudo crear en {ruta_completa}", None
             
     except PermissionError:
-        return False, "Error: No hay permisos de escritura en el directorio"
+        return False, f"❌ Error de permisos en: {os.getcwd()}", None
     except Exception as e:
-        return False, f"Error al guardar: {str(e)}"
+        return False, f"❌ Error al guardar: {type(e).__name__}: {str(e)}", None
 
 # Función para calcular nota estimada
 def calcular_nota(nivel_actual, historial_respuestas, usar_promedio_total=False):
@@ -151,6 +178,7 @@ if 'iniciado' not in st.session_state:
     st.session_state.pregunta_mezclada_id = None
     st.session_state.usar_promedio_final = False
     st.session_state.resultado_guardado = False
+    st.session_state.mensaje_guardado = ""
 
 # Pantalla de inicio
 if not st.session_state.iniciado:
@@ -164,7 +192,7 @@ if not st.session_state.iniciado:
     - Si respondes correctamente, las preguntas se vuelven más difíciles
     - Si fallas, las preguntas se vuelven más fáciles
     - El examen termina automáticamente cuando tu nota se estabiliza
-    - Mínimo 8 preguntas, máximo 30 preguntas
+    - Mínimo 15 preguntas, máximo 30 preguntas
     - **No puedes regresar a preguntas anteriores**
     - Tómate tu tiempo para leer cada pregunta cuidadosamente
     
@@ -289,7 +317,7 @@ elif st.session_state.iniciado and not st.session_state.finalizado:
             else:
                 razon_finalizacion = "Se alcanzó el número máximo de preguntas sin estabilización"
                 st.session_state.usar_promedio_final = True
-        elif len(st.session_state.historial_respuestas) >= 8:
+        elif len(st.session_state.historial_respuestas) >= 15:  # CAMBIADO DE 8 A 15
             if verificar_estabilizacion(st.session_state.historial_notas):
                 debe_finalizar = True
                 razon_finalizacion = "Tu nota se ha estabilizado"
@@ -353,12 +381,28 @@ else:
             'nota_final': nota_final,
             'nivel_final': nivel_final
         }
-        exito, mensaje = guardar_resultado(
+        exito, mensaje, df = guardar_resultado(
             st.session_state.codigo_estudiante, 
             resultados,
             st.session_state.historial_respuestas
         )
         st.session_state.resultado_guardado = True
+        st.session_state.mensaje_guardado = mensaje
+        
+        # MOSTRAR MENSAJE TEMPORAL DE DEBUG (Puedes comentar esto en producción)
+        if exito:
+            st.success(mensaje)
+        else:
+            st.error(mensaje)
+            # Intentar crear en directorio home del usuario
+            try:
+                home_dir = os.path.expanduser("~")
+                archivo_alt = os.path.join(home_dir, "resultados_examen.csv")
+                if df is not None:
+                    df.to_csv(archivo_alt, index=False, encoding='utf-8')
+                    st.warning(f"Se guardó en ubicación alternativa: {archivo_alt}")
+            except:
+                st.error("No se pudo guardar en ninguna ubicación")
     
     # Mostrar métricas principales
     col1, col2, col3, col4 = st.columns(4)
