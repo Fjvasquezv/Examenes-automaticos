@@ -19,30 +19,50 @@ def cargar_preguntas():
         return json.load(f)
 
 # Función para guardar resultados
-def guardar_resultado(codigo_estudiante, resultados):
-    timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-    
-    datos = {
-        'Fecha': timestamp,
-        'Código': codigo_estudiante,
-        'Preguntas_Respondidas': resultados['total_preguntas'],
-        'Correctas': resultados['correctas'],
-        'Incorrectas': resultados['incorrectas'],
-        'Nivel_Final': round(resultados['nivel_final'], 2),
-        'Nota_Final': round(resultados['nota_final'], 2)
-    }
-    
-    # Guardar en CSV
-    archivo = 'resultados_examen.csv'
-    df_nuevo = pd.DataFrame([datos])
-    
-    if os.path.exists(archivo):
-        df_existente = pd.read_csv(archivo)
-        df_final = pd.concat([df_existente, df_nuevo], ignore_index=True)
-    else:
-        df_final = df_nuevo
-    
-    df_final.to_csv(archivo, index=False)
+def guardar_resultado(codigo_estudiante, resultados, historial_respuestas):
+    """
+    Guarda los resultados en CSV incluyendo las preguntas respondidas
+    """
+    try:
+        timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        
+        # Crear lista de códigos de preguntas respondidas
+        preguntas_respondidas = ','.join([r['pregunta_id'] for r in historial_respuestas])
+        
+        datos = {
+            'Fecha': timestamp,
+            'Código': codigo_estudiante,
+            'Preguntas_Respondidas': resultados['total_preguntas'],
+            'Correctas': resultados['correctas'],
+            'Incorrectas': resultados['incorrectas'],
+            'Nivel_Final': round(resultados['nivel_final'], 2),
+            'Nota_Final': round(resultados['nota_final'], 2),
+            'Preguntas': preguntas_respondidas
+        }
+        
+        # Guardar en CSV
+        archivo = 'resultados_examen.csv'
+        df_nuevo = pd.DataFrame([datos])
+        
+        if os.path.exists(archivo):
+            df_existente = pd.read_csv(archivo)
+            df_final = pd.concat([df_existente, df_nuevo], ignore_index=True)
+        else:
+            df_final = df_nuevo
+        
+        df_final.to_csv(archivo, index=False, encoding='utf-8')
+        
+        # Verificar que se guardó correctamente
+        ruta_completa = os.path.abspath(archivo)
+        if os.path.exists(archivo):
+            return True, f"Guardado exitosamente en: {ruta_completa}"
+        else:
+            return False, "Error: el archivo no se pudo crear"
+            
+    except PermissionError:
+        return False, "Error: No hay permisos de escritura en el directorio"
+    except Exception as e:
+        return False, f"Error al guardar: {str(e)}"
 
 # Función para calcular nota estimada
 def calcular_nota(nivel_actual, historial_respuestas, usar_promedio_total=False):
@@ -130,6 +150,7 @@ if 'iniciado' not in st.session_state:
     st.session_state.opciones_mezcladas = []
     st.session_state.pregunta_mezclada_id = None
     st.session_state.usar_promedio_final = False
+    st.session_state.resultado_guardado = False
 
 # Pantalla de inicio
 if not st.session_state.iniciado:
@@ -143,7 +164,7 @@ if not st.session_state.iniciado:
     - Si respondes correctamente, las preguntas se vuelven más difíciles
     - Si fallas, las preguntas se vuelven más fáciles
     - El examen termina automáticamente cuando tu nota se estabiliza
-    - Mínimo 8 preguntas, máximo 20 preguntas
+    - Mínimo 8 preguntas, máximo 30 preguntas
     - **No puedes regresar a preguntas anteriores**
     - Tómate tu tiempo para leer cada pregunta cuidadosamente
     
@@ -151,7 +172,7 @@ if not st.session_state.iniciado:
     1. Tipos de datos y operadores
     2. Control de flujo y funciones
     3. Estructuras de datos (listas, diccionarios, tuplas)
-    4. Manejo de excepciones y archivos
+    4. Manejo de excepciones
     5. Programación Orientada a Objetos (POO)
     """)
     
@@ -323,15 +344,21 @@ else:
         nota_final = st.session_state.historial_notas[-1] if st.session_state.historial_notas else 0
         metodo_calculo = "nivel alcanzado"
     
-    # Guardar resultados
-    resultados = {
-        'total_preguntas': total_preguntas,
-        'correctas': correctas,
-        'incorrectas': incorrectas,
-        'nota_final': nota_final,
-        'nivel_final': nivel_final
-    }
-    guardar_resultado(st.session_state.codigo_estudiante, resultados)
+    # Guardar resultados (solo una vez)
+    if not st.session_state.resultado_guardado:
+        resultados = {
+            'total_preguntas': total_preguntas,
+            'correctas': correctas,
+            'incorrectas': incorrectas,
+            'nota_final': nota_final,
+            'nivel_final': nivel_final
+        }
+        exito, mensaje = guardar_resultado(
+            st.session_state.codigo_estudiante, 
+            resultados,
+            st.session_state.historial_respuestas
+        )
+        st.session_state.resultado_guardado = True
     
     # Mostrar métricas principales
     col1, col2, col3, col4 = st.columns(4)
