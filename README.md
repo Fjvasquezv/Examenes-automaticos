@@ -16,8 +16,12 @@ Sistema de evaluación adaptativa que ajusta la dificultad de las preguntas seg�
 1. Tipos de datos y operadores
 2. Control de flujo y funciones
 3. Estructuras de datos (listas, diccionarios, tuplas)
-4. Manejo de excepciones y archivos
+4. Manejo de excepciones
 5. Programación Orientada a Objetos (POO)
+
+**Total de preguntas en el banco:** 75 preguntas
+**Distribución:** 15 preguntas por cada nivel de dificultad (1-5)
+**Opciones de respuesta:** Aleatorizadas en cada pregunta
 
 ## Archivos del proyecto
 
@@ -154,7 +158,13 @@ Los resultados se guardan automáticamente en `resultados_examen.csv` en el serv
 4. **Finalización:** El examen termina cuando:
    - La nota se estabiliza (variación < 0.15 en últimas 3 preguntas) Y
    - Ha respondido mínimo 8 preguntas
-   - O ha respondido 20 preguntas (máximo)
+   - O ha respondido 30 preguntas (máximo)
+
+**IMPORTANTE - Sistema de calificación justo:**
+- Si el examen **se estabiliza**: La nota se basa en el nivel alcanzado + desempeño reciente
+- Si se llega a **30 preguntas sin estabilizar**: La nota se calcula por **promedio total** de aciertos (más justo)
+  - Ejemplo: 18/30 correctas = 60% = 3.0 de nota
+  - Esto evita que alguien obtenga 5.0 por suerte en las últimas preguntas
 
 ## Personalizar el banco de preguntas
 
@@ -200,7 +210,7 @@ def verificar_estabilizacion(historial_notas, umbral=0.15):
     # Aumentar umbral = menos preguntas
 
 # Línea ~398 - Límites de preguntas
-if len(st.session_state.historial_respuestas) >= 20:  # Máximo
+if len(st.session_state.historial_respuestas) >= 30:  # Máximo
 elif len(st.session_state.historial_respuestas) >= 8:  # Mínimo
 ```
 
@@ -228,7 +238,7 @@ elif len(st.session_state.historial_respuestas) >= 8:  # Mínimo
 
 - ⏱️ Tiempo promedio por pregunta: 2-3 minutos
 - 📊 Preguntas promedio por estudiante: 10-15
-- ⏰ Duración total del examen: 20-40 minutos
+- ⏰ Duración total del examen: 25-45 minutos
 - 👥 Capacidad: 30+ estudiantes simultáneos (Streamlit Cloud gratuito)
 
 ## Soporte

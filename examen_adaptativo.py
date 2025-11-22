@@ -45,15 +45,29 @@ def guardar_resultado(codigo_estudiante, resultados):
     df_final.to_csv(archivo, index=False)
 
 # Función para calcular nota estimada
-def calcular_nota(nivel_actual, historial_respuestas):
+def calcular_nota(nivel_actual, historial_respuestas, usar_promedio_total=False):
     """
     Calcula la nota basándose en el nivel alcanzado y el desempeño
+    
+    Si usar_promedio_total=True, calcula basándose SOLO en porcentaje de aciertos
+    (esto se usa cuando el estudiante llega al máximo sin estabilizar)
+    
+    Si usar_promedio_total=False (por defecto):
     Nota = (nivel_actual / 5) * 5.0
     Ajuste por desempeño: +/- según porcentaje de aciertos
     """
     if not historial_respuestas:
         return 3.0
     
+    # Si llegó al límite sin estabilizar, usar solo promedio total
+    if usar_promedio_total:
+        total = len(historial_respuestas)
+        aciertos = sum(1 for r in historial_respuestas if r['correcta'])
+        porcentaje = aciertos / total
+        # Convertir a nota: 0% = 0.0, 50% = 2.5, 100% = 5.0
+        return porcentaje * 5.0
+    
+    # Lógica normal cuando se estabilizó
     # Nota base según nivel
     nota_base = (nivel_actual / 5) * 5.0
     
@@ -113,6 +127,9 @@ if 'iniciado' not in st.session_state:
     st.session_state.mostrar_feedback = False
     st.session_state.respuesta_correcta = False
     st.session_state.explicacion = ""
+    st.session_state.opciones_mezcladas = []
+    st.session_state.pregunta_mezclada_id = None
+    st.session_state.usar_promedio_final = False
 
 # Pantalla de inicio
 if not st.session_state.iniciado:
@@ -176,16 +193,26 @@ elif st.session_state.iniciado and not st.session_state.finalizado:
     if st.session_state.pregunta_actual and st.session_state.esperando_respuesta:
         pregunta = st.session_state.pregunta_actual
         
+        # Aleatorizar opciones si no se ha hecho aún para esta pregunta
+        if 'opciones_mezcladas' not in st.session_state or st.session_state.pregunta_mezclada_id != pregunta['id']:
+            # Crear lista de tuplas (clave, texto)
+            opciones_lista = list(pregunta['opciones'].items())
+            # Mezclar aleatoriamente
+            random.shuffle(opciones_lista)
+            # Guardar el orden mezclado
+            st.session_state.opciones_mezcladas = opciones_lista
+            st.session_state.pregunta_mezclada_id = pregunta['id']
+        
         # Mostrar la pregunta
         st.markdown(f"### Pregunta {len(st.session_state.historial_respuestas) + 1}")
         st.markdown(f"**Nivel de dificultad:** {'⭐' * pregunta['dificultad']}")
         st.write(pregunta['pregunta'])
         
-        # Mostrar opciones
+        # Mostrar opciones en orden aleatorizado
         respuesta_seleccionada = st.radio(
             "Selecciona tu respuesta:",
-            options=list(pregunta['opciones'].keys()),
-            format_func=lambda x: pregunta['opciones'][x],
+            options=[clave for clave, _ in st.session_state.opciones_mezcladas],
+            format_func=lambda x: dict(st.session_state.opciones_mezcladas)[x],
             key=f"radio_{pregunta['id']}"
         )
         
@@ -232,13 +259,20 @@ elif st.session_state.iniciado and not st.session_state.finalizado:
         debe_finalizar = False
         razon_finalizacion = ""
         
-        if len(st.session_state.historial_respuestas) >= 20:
+        if len(st.session_state.historial_respuestas) >= 30:
             debe_finalizar = True
-            razon_finalizacion = "Se alcanzó el número máximo de preguntas (20)"
+            # Verificar si se estabilizó antes de llegar al máximo
+            if verificar_estabilizacion(st.session_state.historial_notas):
+                razon_finalizacion = "Se alcanzó el número máximo de preguntas (30)"
+                st.session_state.usar_promedio_final = False
+            else:
+                razon_finalizacion = "Se alcanzó el número máximo de preguntas sin estabilización"
+                st.session_state.usar_promedio_final = True
         elif len(st.session_state.historial_respuestas) >= 8:
             if verificar_estabilizacion(st.session_state.historial_notas):
                 debe_finalizar = True
                 razon_finalizacion = "Tu nota se ha estabilizado"
+                st.session_state.usar_promedio_final = False
         
         if debe_finalizar:
             st.info(f"🎯 {razon_finalizacion}")
@@ -273,8 +307,21 @@ else:
     total_preguntas = len(st.session_state.historial_respuestas)
     correctas = sum(1 for r in st.session_state.historial_respuestas if r['correcta'])
     incorrectas = total_preguntas - correctas
-    nota_final = st.session_state.historial_notas[-1] if st.session_state.historial_notas else 0
     nivel_final = st.session_state.nivel_actual
+    
+    # Calcular nota final según el método apropiado
+    if st.session_state.usar_promedio_final:
+        # Usar promedio total (cuando llegó a 30 sin estabilizar)
+        nota_final = calcular_nota(
+            nivel_final,
+            st.session_state.historial_respuestas,
+            usar_promedio_total=True
+        )
+        metodo_calculo = "promedio total"
+    else:
+        # Usar última nota estabilizada
+        nota_final = st.session_state.historial_notas[-1] if st.session_state.historial_notas else 0
+        metodo_calculo = "nivel alcanzado"
     
     # Guardar resultados
     resultados = {
@@ -299,6 +346,10 @@ else:
         st.metric("% Aciertos", f"{porcentaje:.1f}%")
     
     st.write("---")
+    
+    # Mostrar método de cálculo si fue por promedio
+    if st.session_state.usar_promedio_final:
+        st.info(f"ℹ️ Nota calculada por {metodo_calculo} de respuestas correctas ({correctas}/{total_preguntas} = {correctas/total_preguntas*100:.1f}%)")
     
     # Análisis de desempeño
     st.subheader("📈 Análisis de Desempeño")

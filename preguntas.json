@@ -43,314 +43,6 @@
   },
   {
     "id": "p004",
-    "dificultad": 2,
-    "categoria": "Control de flujo",
-    "pregunta": "¿Qué imprime este código?\n\n```python\nfor i in range(3, 8, 2):\n    print(i, end=' ')\n```",
-    "opciones": {
-      "a": "3 4 5 6 7",
-      "b": "3 5 7",
-      "c": "3 5 7 9",
-      "d": "2 4 6 8"
-    },
-    "respuesta_correcta": "b",
-    "explicacion": "range(3, 8, 2) genera números desde 3 hasta 8 (sin incluir 8) con paso de 2: 3, 5, 7"
-  },
-  {
-    "id": "p005",
-    "dificultad": 2,
-    "categoria": "Control de flujo",
-    "pregunta": "Analice el siguiente código:\n\n```python\nx = 15\nif x > 10:\n    if x < 20:\n        print('A')\n    else:\n        print('B')\nelse:\n    print('C')\n```\n\n¿Qué imprime?",
-    "opciones": {
-      "a": "A",
-      "b": "B",
-      "c": "C",
-      "d": "No imprime nada"
-    },
-    "respuesta_correcta": "a",
-    "explicacion": "x=15 cumple x > 10 y x < 20, por lo tanto imprime 'A'"
-  },
-  {
-    "id": "p006",
-    "dificultad": 2,
-    "categoria": "Listas",
-    "pregunta": "¿Qué imprime este código?\n\n```python\nconcentraciones = [0.5, 1.0, 1.5, 2.0, 2.5]\nprint(concentraciones[1:4])\n```",
-    "opciones": {
-      "a": "[1.0, 1.5, 2.0]",
-      "b": "[0.5, 1.0, 1.5, 2.0]",
-      "c": "[1.0, 1.5, 2.0, 2.5]",
-      "d": "[1.5, 2.0, 2.5]"
-    },
-    "respuesta_correcta": "a",
-    "explicacion": "El slicing [1:4] toma elementos desde índice 1 hasta 4 (sin incluir 4): posiciones 1, 2 y 3"
-  },
-  {
-    "id": "p007",
-    "dificultad": 3,
-    "categoria": "Funciones",
-    "pregunta": "¿Qué imprime este código?\n\n```python\ndef calcular_densidad(masa, volumen=100):\n    return masa / volumen\n\nprint(calcular_densidad(500))\n```",
-    "opciones": {
-      "a": "5",
-      "b": "5.0",
-      "c": "0.2",
-      "d": "Error: falta un argumento"
-    },
-    "respuesta_correcta": "b",
-    "explicacion": "volumen tiene valor por defecto 100, entonces 500/100 = 5.0"
-  },
-  {
-    "id": "p008",
-    "dificultad": 3,
-    "categoria": "Diccionarios",
-    "pregunta": "Examine este código:\n\n```python\npropiedades = {'temp': 25, 'presion': 1.0}\npropiedades['temp'] = 30\npropiedades['volumen'] = 50\nprint(len(propiedades))\n```\n\n¿Qué imprime?",
-    "opciones": {
-      "a": "2",
-      "b": "3",
-      "c": "4",
-      "d": "Error: no se puede modificar un diccionario"
-    },
-    "respuesta_correcta": "b",
-    "explicacion": "El diccionario termina con 3 claves: 'temp', 'presion' y 'volumen'"
-  },
-  {
-    "id": "p009",
-    "dificultad": 3,
-    "categoria": "Listas",
-    "pregunta": "¿Qué imprime este código?\n\n```python\ndatos = [1, 2, 3, 4, 5]\ndatos.append(6)\ndatos.remove(3)\nprint(sum(datos))\n```",
-    "opciones": {
-      "a": "18",
-      "b": "21",
-      "c": "15",
-      "d": "Error"
-    },
-    "respuesta_correcta": "a",
-    "explicacion": "Después de append(6) y remove(3), la lista es [1, 2, 4, 5, 6]. La suma es 18."
-  },
-  {
-    "id": "p010",
-    "dificultad": 3,
-    "categoria": "Excepciones",
-    "pregunta": "¿Qué imprime este código?\n\n```python\ntry:\n    x = 10 / 0\n    print('A')\nexcept ZeroDivisionError:\n    print('B')\nfinally:\n    print('C')\n```",
-    "opciones": {
-      "a": "A C",
-      "b": "B C",
-      "c": "C",
-      "d": "Error sin manejar"
-    },
-    "respuesta_correcta": "b",
-    "explicacion": "Se genera ZeroDivisionError, se ejecuta el except imprimiendo 'B', y finally siempre se ejecuta imprimiendo 'C'"
-  },
-  {
-    "id": "p011",
-    "dificultad": 4,
-    "categoria": "POO",
-    "pregunta": "Analice esta clase:\n\n```python\nclass Reactor:\n    def __init__(self, volumen, temperatura=25):\n        self.volumen = volumen\n        self.temperatura = temperatura\n        self.presion = self.calcular_presion()\n    \n    def calcular_presion(self):\n        return self.temperatura * 0.082\n\nR1 = Reactor(100)\nR2 = Reactor(100, 50)\nprint(f\"{R1.presion:.1f} {R2.presion:.1f}\")\n```\n\n¿Qué imprime?",
-    "opciones": {
-      "a": "2.0 4.1",
-      "b": "25.0 50.0",
-      "c": "100.0 100.0",
-      "d": "Error de atributo"
-    },
-    "respuesta_correcta": "a",
-    "explicacion": "R1 usa temperatura=25 por defecto: 25*0.082=2.05≈2.0. R2 usa temperatura=50: 50*0.082=4.1"
-  },
-  {
-    "id": "p012",
-    "dificultad": 4,
-    "categoria": "POO",
-    "pregunta": "Examine estas clases:\n\n```python\nclass Equipo:\n    def __init__(self, nombre):\n        self.nombre = nombre\n        self.encendido = False\n    \n    def activar(self):\n        self.encendido = True\n        return \"Equipo activado\"\n\nclass Bomba(Equipo):\n    def activar(self):\n        super().activar()\n        return f\"Bomba {self.nombre} operando\"\n\nB1 = Bomba(\"B-101\")\nprint(B1.activar())\nprint(B1.encendido)\n```\n\n¿Qué se imprime?",
-    "opciones": {
-      "a": "Equipo activado\\nFalse",
-      "b": "Bomba B-101 operando\\nTrue",
-      "c": "Bomba B-101 operando\\nFalse",
-      "d": "Error de herencia"
-    },
-    "respuesta_correcta": "b",
-    "explicacion": "El método activar() de Bomba llama a super().activar() que pone encendido=True, luego retorna el mensaje personalizado"
-  },
-  {
-    "id": "p013",
-    "dificultad": 4,
-    "categoria": "Funciones avanzadas",
-    "pregunta": "¿Qué imprime este código?\n\n```python\ndef procesar(*args, **kwargs):\n    return len(args) + len(kwargs)\n\nresultado = procesar(1, 2, 3, temp=25, presion=1.0)\nprint(resultado)\n```",
-    "opciones": {
-      "a": "3",
-      "b": "5",
-      "c": "2",
-      "d": "Error de sintaxis"
-    },
-    "respuesta_correcta": "b",
-    "explicacion": "args tiene 3 elementos (1, 2, 3) y kwargs tiene 2 elementos (temp y presion). Total: 3+2=5"
-  },
-  {
-    "id": "p014",
-    "dificultad": 4,
-    "categoria": "List comprehension",
-    "pregunta": "¿Cuál es el resultado?\n\n```python\ntemperaturas = [20, 25, 30, 35, 40]\ncelsius_altas = [t for t in temperaturas if t > 28]\nprint(len(celsius_altas))\n```",
-    "opciones": {
-      "a": "2",
-      "b": "3",
-      "c": "4",
-      "d": "5"
-    },
-    "respuesta_correcta": "b",
-    "explicacion": "Las temperaturas mayores a 28 son: 30, 35, 40. Total: 3 elementos"
-  },
-  {
-    "id": "p015",
-    "dificultad": 5,
-    "categoria": "POO avanzado",
-    "pregunta": "Analice el uso de property:\n\n```python\nclass Proceso:\n    def __init__(self, temp):\n        self._temp = temp\n    \n    @property\n    def temp(self):\n        return self._temp\n    \n    @temp.setter\n    def temp(self, valor):\n        if valor > 0:\n            self._temp = valor\n\nP = Proceso(100)\nP.temp = 200\nprint(P.temp)\n```\n\n¿Qué imprime?",
-    "opciones": {
-      "a": "100",
-      "b": "200",
-      "c": "Error de atributo",
-      "d": "0"
-    },
-    "respuesta_correcta": "b",
-    "explicacion": "El setter valida que valor > 0 (200 > 0 es True), entonces actualiza _temp a 200"
-  },
-  {
-    "id": "p016",
-    "dificultad": 5,
-    "categoria": "POO composición",
-    "pregunta": "Examine esta relación de composición:\n\n```python\nclass Motor:\n    def __init__(self, potencia):\n        self.potencia = potencia\n\nclass Bomba:\n    def __init__(self, motor_potencia):\n        self.motor = Motor(motor_potencia)\n    \n    def get_potencia(self):\n        return self.motor.potencia\n\nB = Bomba(50)\nprint(B.get_potencia())\n```\n\n¿Qué imprime?",
-    "opciones": {
-      "a": "50",
-      "b": "Error de atributo",
-      "c": "None",
-      "d": "Motor"
-    },
-    "respuesta_correcta": "a",
-    "explicacion": "Bomba crea un objeto Motor con potencia=50 y get_potencia() retorna ese valor"
-  },
-  {
-    "id": "p017",
-    "dificultad": 5,
-    "categoria": "POO métodos especiales",
-    "pregunta": "Examine esta clase con método especial:\n\n```python\nclass Muestra:\n    def __init__(self, id, concentracion):\n        self.id = id\n        self.concentracion = concentracion\n    \n    def __str__(self):\n        return f\"Muestra-{self.id}\"\n\nM = Muestra(\"A1\", 0.5)\nprint(M)\n```\n\n¿Qué imprime?",
-    "opciones": {
-      "a": "<Muestra object at 0x...>",
-      "b": "Muestra-A1",
-      "c": "A1",
-      "d": "0.5"
-    },
-    "respuesta_correcta": "b",
-    "explicacion": "El método __str__ define la representación en string del objeto. print(M) llama a __str__"
-  },
-  {
-    "id": "p018",
-    "dificultad": 2,
-    "categoria": "Cadenas",
-    "pregunta": "¿Qué imprime este código?\n\n```python\ncompuesto = \"H2SO4\"\nprint(compuesto[0] + compuesto[-1])\n```",
-    "opciones": {
-      "a": "H2",
-      "b": "H4",
-      "c": "HS",
-      "d": "24"
-    },
-    "respuesta_correcta": "b",
-    "explicacion": "compuesto[0] es 'H' (primer carácter) y compuesto[-1] es '4' (último carácter). Concatenados: 'H4'"
-  },
-  {
-    "id": "p019",
-    "dificultad": 1,
-    "categoria": "Operadores lógicos",
-    "pregunta": "¿Cuál es el resultado de esta expresión?\n\n```python\nx = 10\ny = 5\nresultado = (x > 5) and (y < 10)\nprint(resultado)\n```",
-    "opciones": {
-      "a": "True",
-      "b": "False",
-      "c": "1",
-      "d": "Error"
-    },
-    "respuesta_correcta": "a",
-    "explicacion": "(10 > 5) es True y (5 < 10) es True. True and True = True"
-  },
-  {
-    "id": "p020",
-    "dificultad": 3,
-    "categoria": "Funciones",
-    "pregunta": "¿Qué imprime este código?\n\n```python\ndef sumar_lista(numeros):\n    total = 0\n    for num in numeros:\n        total += num\n    return total\n\ndatos = [10, 20, 30]\nprint(sumar_lista(datos))\n```",
-    "opciones": {
-      "a": "0",
-      "b": "60",
-      "c": "[10, 20, 30]",
-      "d": "Error"
-    },
-    "respuesta_correcta": "b",
-    "explicacion": "La función suma todos los elementos de la lista: 10 + 20 + 30 = 60"
-  },
-  {
-    "id": "p021",
-    "dificultad": 2,
-    "categoria": "While",
-    "pregunta": "¿Cuántas veces se ejecuta el print?\n\n```python\ni = 0\nwhile i < 3:\n    print(i)\n    i += 1\n```",
-    "opciones": {
-      "a": "2 veces",
-      "b": "3 veces",
-      "c": "4 veces",
-      "d": "Bucle infinito"
-    },
-    "respuesta_correcta": "b",
-    "explicacion": "El bucle se ejecuta mientras i < 3: i=0, i=1, i=2. Total: 3 veces"
-  },
-  {
-    "id": "p022",
-    "dificultad": 4,
-    "categoria": "Diccionarios avanzados",
-    "pregunta": "¿Qué imprime este código?\n\n```python\nreacciones = {'A': 100, 'B': 200, 'C': 150}\nreacciones['D'] = reacciones.pop('B')\nprint(len(reacciones))\n```",
-    "opciones": {
-      "a": "3",
-      "b": "4",
-      "c": "2",
-      "d": "Error"
-    },
-    "respuesta_correcta": "a",
-    "explicacion": "pop('B') elimina 'B' y retorna su valor (200), que se asigna a 'D'. Total de claves: 3 (A, C, D)"
-  },
-  {
-    "id": "p023",
-    "dificultad": 3,
-    "categoria": "Tuplas",
-    "pregunta": "¿Qué ocurre con este código?\n\n```python\ncoordenadas = (10, 20, 30)\ncoordenadas[1] = 25\nprint(coordenadas)\n```",
-    "opciones": {
-      "a": "(10, 25, 30)",
-      "b": "(10, 20, 30)",
-      "c": "Error: las tuplas son inmutables",
-      "d": "None"
-    },
-    "respuesta_correcta": "c",
-    "explicacion": "Las tuplas son inmutables, no se pueden modificar sus elementos después de creadas"
-  },
-  {
-    "id": "p024",
-    "dificultad": 4,
-    "categoria": "Archivos",
-    "pregunta": "Examine este código de lectura de archivo:\n\n```python\ncontador = 0\nwith open(\"datos.txt\", \"r\") as archivo:\n    for linea in archivo:\n        if linea.strip():\n            contador += 1\nprint(archivo.closed)\n```\n\nAsuma que datos.txt existe. ¿Qué imprime al final?",
-    "opciones": {
-      "a": "True",
-      "b": "False",
-      "c": "Error: el archivo no está cerrado",
-      "d": "None"
-    },
-    "respuesta_correcta": "a",
-    "explicacion": "El contexto 'with' cierra automáticamente el archivo al salir del bloque. archivo.closed será True"
-  },
-  {
-    "id": "p025",
-    "dificultad": 5,
-    "categoria": "POO herencia múltiple",
-    "pregunta": "Observe esta herencia:\n\n```python\nclass Base1:\n    def metodo(self):\n        return \"Base1\"\n\nclass Base2:\n    def metodo(self):\n        return \"Base2\"\n\nclass Derivada(Base1, Base2):\n    pass\n\nobj = Derivada()\nprint(obj.metodo())\n```\n\n¿Qué imprime?",
-    "opciones": {
-      "a": "Base1",
-      "b": "Base2",
-      "c": "Derivada",
-      "d": "Error"
-    },
-    "respuesta_correcta": "a",
-    "explicacion": "Python resuelve la herencia múltiple con MRO (Method Resolution Order). La primera clase en la lista tiene prioridad: Base1"
-  },
-  {
-    "id": "p026",
     "dificultad": 1,
     "categoria": "Tipos de datos",
     "pregunta": "¿Qué tipo de dato es el resultado?\n\n```python\nx = 10 / 2\nprint(type(x).__name__)\n```",
@@ -364,7 +56,105 @@
     "explicacion": "El operador / siempre retorna float en Python 3, incluso si el resultado es un número entero"
   },
   {
-    "id": "p027",
+    "id": "p005",
+    "dificultad": 1,
+    "categoria": "Operadores lógicos",
+    "pregunta": "¿Cuál es el resultado de esta expresión?\n\n```python\nx = 10\ny = 5\nresultado = (x > 5) and (y < 10)\nprint(resultado)\n```",
+    "opciones": {
+      "a": "True",
+      "b": "False",
+      "c": "1",
+      "d": "Error"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "(10 > 5) es True y (5 < 10) es True. True and True = True"
+  },
+  {
+    "id": "p006",
+    "dificultad": 1,
+    "categoria": "Cadenas",
+    "pregunta": "¿Qué imprime este código?\n\n```python\ncompuesto = \"H2SO4\"\nprint(compuesto[0] + compuesto[-1])\n```",
+    "opciones": {
+      "a": "H2",
+      "b": "H4",
+      "c": "HS",
+      "d": "24"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "compuesto[0] es 'H' (primer carácter) y compuesto[-1] es '4' (último carácter). Concatenados: 'H4'"
+  },
+  {
+    "id": "p007",
+    "dificultad": 1,
+    "categoria": "Operadores",
+    "pregunta": "¿Qué imprime este código?\n\n```python\nx = 17\ny = 5\nprint(x % y)\n```",
+    "opciones": {
+      "a": "2",
+      "b": "3",
+      "c": "3.4",
+      "d": "12"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "El operador % calcula el residuo de la división. 17 % 5 = 2 (17 dividido 5 es 3 con residuo 2)"
+  },
+  {
+    "id": "p008",
+    "dificultad": 2,
+    "categoria": "Control de flujo",
+    "pregunta": "¿Qué imprime este código?\n\n```python\nfor i in range(3, 8, 2):\n    print(i, end=' ')\n```",
+    "opciones": {
+      "a": "3 4 5 6 7",
+      "b": "3 5 7",
+      "c": "3 5 7 9",
+      "d": "2 4 6 8"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "range(3, 8, 2) genera números desde 3 hasta 8 (sin incluir 8) con paso de 2: 3, 5, 7"
+  },
+  {
+    "id": "p009",
+    "dificultad": 2,
+    "categoria": "Control de flujo",
+    "pregunta": "Analice el siguiente código:\n\n```python\nx = 15\nif x > 10:\n    if x < 20:\n        print('A')\n    else:\n        print('B')\nelse:\n    print('C')\n```\n\n¿Qué imprime?",
+    "opciones": {
+      "a": "A",
+      "b": "B",
+      "c": "C",
+      "d": "No imprime nada"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "x=15 cumple x > 10 y x < 20, por lo tanto imprime 'A'"
+  },
+  {
+    "id": "p010",
+    "dificultad": 2,
+    "categoria": "While",
+    "pregunta": "¿Cuántas veces se ejecuta el print?\n\n```python\ni = 0\nwhile i < 3:\n    print(i)\n    i += 1\n```",
+    "opciones": {
+      "a": "2 veces",
+      "b": "3 veces",
+      "c": "4 veces",
+      "d": "Bucle infinito"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "El bucle se ejecuta mientras i < 3: i=0, i=1, i=2. Total: 3 veces"
+  },
+  {
+    "id": "p011",
+    "dificultad": 2,
+    "categoria": "Listas",
+    "pregunta": "¿Qué imprime este código?\n\n```python\nconcentraciones = [0.5, 1.0, 1.5, 2.0, 2.5]\nprint(concentraciones[1:4])\n```",
+    "opciones": {
+      "a": "[1.0, 1.5, 2.0]",
+      "b": "[0.5, 1.0, 1.5, 2.0]",
+      "c": "[1.0, 1.5, 2.0, 2.5]",
+      "d": "[1.5, 2.0, 2.5]"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "El slicing [1:4] toma elementos desde índice 1 hasta 4 (sin incluir 4): posiciones 1, 2 y 3"
+  },
+  {
+    "id": "p012",
     "dificultad": 2,
     "categoria": "Listas métodos",
     "pregunta": "¿Qué imprime este código?\n\n```python\nnumeros = [3, 1, 4, 1, 5]\nnumeros.sort()\nprint(numeros[2])\n```",
@@ -378,7 +168,119 @@
     "explicacion": "Después de sort(), la lista es [1, 1, 3, 4, 5]. El índice 2 contiene el valor 3"
   },
   {
-    "id": "p028",
+    "id": "p013",
+    "dificultad": 2,
+    "categoria": "Cadenas métodos",
+    "pregunta": "¿Qué imprime este código?\n\n```python\nmolecule = \"glucose\"\nprint(molecule.upper()[:3])\n```",
+    "opciones": {
+      "a": "GLU",
+      "b": "glu",
+      "c": "GLUCOSE",
+      "d": "Glu"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "upper() convierte a mayúsculas ('GLUCOSE') y [:3] toma los primeros 3 caracteres: 'GLU'"
+  },
+  {
+    "id": "p014",
+    "dificultad": 2,
+    "categoria": "Listas",
+    "pregunta": "¿Qué imprime este código?\n\n```python\nnumeros = [1, 2, 3]\nnumeros.extend([4, 5])\nprint(len(numeros))\n```",
+    "opciones": {
+      "a": "3",
+      "b": "5",
+      "c": "2",
+      "d": "Error"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "extend() agrega todos los elementos de la lista [4, 5] a números. Resultado: [1, 2, 3, 4, 5] con longitud 5"
+  },
+  {
+    "id": "p015",
+    "dificultad": 3,
+    "categoria": "Funciones",
+    "pregunta": "¿Qué imprime este código?\n\n```python\ndef calcular_densidad(masa, volumen=100):\n    return masa / volumen\n\nprint(calcular_densidad(500))\n```",
+    "opciones": {
+      "a": "5",
+      "b": "5.0",
+      "c": "0.2",
+      "d": "Error: falta un argumento"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "volumen tiene valor por defecto 100, entonces 500/100 = 5.0"
+  },
+  {
+    "id": "p016",
+    "dificultad": 3,
+    "categoria": "Diccionarios",
+    "pregunta": "Examine este código:\n\n```python\npropiedades = {'temp': 25, 'presion': 1.0}\npropiedades['temp'] = 30\npropiedades['volumen'] = 50\nprint(len(propiedades))\n```\n\n¿Qué imprime?",
+    "opciones": {
+      "a": "2",
+      "b": "3",
+      "c": "4",
+      "d": "Error: no se puede modificar un diccionario"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "El diccionario termina con 3 claves: 'temp', 'presion' y 'volumen'"
+  },
+  {
+    "id": "p017",
+    "dificultad": 3,
+    "categoria": "Listas",
+    "pregunta": "¿Qué imprime este código?\n\n```python\ndatos = [1, 2, 3, 4, 5]\ndatos.append(6)\ndatos.remove(3)\nprint(sum(datos))\n```",
+    "opciones": {
+      "a": "18",
+      "b": "21",
+      "c": "15",
+      "d": "Error"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "Después de append(6) y remove(3), la lista es [1, 2, 4, 5, 6]. La suma es 18."
+  },
+  {
+    "id": "p018",
+    "dificultad": 3,
+    "categoria": "Funciones",
+    "pregunta": "¿Qué imprime este código?\n\n```python\ndef sumar_lista(numeros):\n    total = 0\n    for num in numeros:\n        total += num\n    return total\n\ndatos = [10, 20, 30]\nprint(sumar_lista(datos))\n```",
+    "opciones": {
+      "a": "0",
+      "b": "60",
+      "c": "[10, 20, 30]",
+      "d": "Error"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "La función suma todos los elementos de la lista: 10 + 20 + 30 = 60"
+  },
+  {
+    "id": "p019",
+    "dificultad": 3,
+    "categoria": "Tuplas",
+    "pregunta": "¿Qué ocurre con este código?\n\n```python\ncoordenadas = (10, 20, 30)\ncoordenadas[1] = 25\nprint(coordenadas)\n```",
+    "opciones": {
+      "a": "(10, 25, 30)",
+      "b": "(10, 20, 30)",
+      "c": "Error: las tuplas son inmutables",
+      "d": "None"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "Las tuplas son inmutables, no se pueden modificar sus elementos después de creadas"
+  },
+  {
+    "id": "p020",
+    "dificultad": 3,
+    "categoria": "Excepciones",
+    "pregunta": "¿Qué imprime este código?\n\n```python\ntry:\n    x = 10 / 0\n    print('A')\nexcept ZeroDivisionError:\n    print('B')\nfinally:\n    print('C')\n```",
+    "opciones": {
+      "a": "A C",
+      "b": "B C",
+      "c": "C",
+      "d": "Error sin manejar"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Se genera ZeroDivisionError, se ejecuta el except imprimiendo 'B', y finally siempre se ejecuta imprimiendo 'C'"
+  },
+  {
+    "id": "p021",
     "dificultad": 3,
     "categoria": "Funciones lambda",
     "pregunta": "¿Qué imprime?\n\n```python\nconvertir = lambda c: c * 9/5 + 32\nprint(convertir(0))\n```",
@@ -392,7 +294,119 @@
     "explicacion": "La función lambda convierte Celsius a Fahrenheit. 0°C = 32°F, y el resultado es float"
   },
   {
+    "id": "p022",
+    "dificultad": 3,
+    "categoria": "Listas anidadas",
+    "pregunta": "¿Qué imprime este código?\n\n```python\nmatriz = [[1, 2], [3, 4], [5, 6]]\nprint(matriz[1][1])\n```",
+    "opciones": {
+      "a": "2",
+      "b": "3",
+      "c": "4",
+      "d": "[3, 4]"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "matriz[1] accede a [3, 4] y [1] accede al segundo elemento: 4"
+  },
+  {
+    "id": "p023",
+    "dificultad": 3,
+    "categoria": "Control de flujo",
+    "pregunta": "¿Qué imprime este código?\n\n```python\nfor i in range(5):\n    if i == 2:\n        continue\n    if i == 4:\n        break\n    print(i, end=' ')\n```",
+    "opciones": {
+      "a": "0 1 2 3",
+      "b": "0 1 3",
+      "c": "0 1 3 4",
+      "d": "0 1 2 3 4"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "continue salta i=2, break termina el bucle en i=4. Imprime: 0 1 3"
+  },
+  {
+    "id": "p024",
+    "dificultad": 3,
+    "categoria": "Diccionarios",
+    "pregunta": "¿Qué imprime este código?\n\n```python\ndata = {'a': 1, 'b': 2, 'c': 3}\nprint(list(data.keys())[0])\n```",
+    "opciones": {
+      "a": "a",
+      "b": "1",
+      "c": "['a']",
+      "d": "Error"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "keys() retorna las claves del diccionario, list() las convierte a lista, [0] toma el primer elemento: 'a'"
+  },
+  {
+    "id": "p025",
+    "dificultad": 4,
+    "categoria": "POO",
+    "pregunta": "Analice esta clase:\n\n```python\nclass Reactor:\n    def __init__(self, volumen, temperatura=25):\n        self.volumen = volumen\n        self.temperatura = temperatura\n        self.presion = self.calcular_presion()\n    \n    def calcular_presion(self):\n        return self.temperatura * 0.082\n\nR1 = Reactor(100)\nR2 = Reactor(100, 50)\nprint(f\"{R1.presion:.1f} {R2.presion:.1f}\")\n```\n\n¿Qué imprime?",
+    "opciones": {
+      "a": "2.0 4.1",
+      "b": "25.0 50.0",
+      "c": "100.0 100.0",
+      "d": "Error de atributo"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "R1 usa temperatura=25 por defecto: 25*0.082=2.05≈2.0. R2 usa temperatura=50: 50*0.082=4.1"
+  },
+  {
+    "id": "p026",
+    "dificultad": 4,
+    "categoria": "POO",
+    "pregunta": "Examine estas clases:\n\n```python\nclass Equipo:\n    def __init__(self, nombre):\n        self.nombre = nombre\n        self.encendido = False\n    \n    def activar(self):\n        self.encendido = True\n        return \"Equipo activado\"\n\nclass Bomba(Equipo):\n    def activar(self):\n        super().activar()\n        return f\"Bomba {self.nombre} operando\"\n\nB1 = Bomba(\"B-101\")\nprint(B1.activar())\nprint(B1.encendido)\n```\n\n¿Qué se imprime?",
+    "opciones": {
+      "a": "Equipo activado\\nFalse",
+      "b": "Bomba B-101 operando\\nTrue",
+      "c": "Bomba B-101 operando\\nFalse",
+      "d": "Error de herencia"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "El método activar() de Bomba llama a super().activar() que pone encendido=True, luego retorna el mensaje personalizado"
+  },
+  {
+    "id": "p027",
+    "dificultad": 4,
+    "categoria": "Funciones avanzadas",
+    "pregunta": "¿Qué imprime este código?\n\n```python\ndef procesar(*args, **kwargs):\n    return len(args) + len(kwargs)\n\nresultado = procesar(1, 2, 3, temp=25, presion=1.0)\nprint(resultado)\n```",
+    "opciones": {
+      "a": "3",
+      "b": "5",
+      "c": "2",
+      "d": "Error de sintaxis"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "args tiene 3 elementos (1, 2, 3) y kwargs tiene 2 elementos (temp y presion). Total: 3+2=5"
+  },
+  {
+    "id": "p028",
+    "dificultad": 4,
+    "categoria": "List comprehension",
+    "pregunta": "¿Cuál es el resultado?\n\n```python\ntemperaturas = [20, 25, 30, 35, 40]\ncelsius_altas = [t for t in temperaturas if t > 28]\nprint(len(celsius_altas))\n```",
+    "opciones": {
+      "a": "2",
+      "b": "3",
+      "c": "4",
+      "d": "5"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Las temperaturas mayores a 28 son: 30, 35, 40. Total: 3 elementos"
+  },
+  {
     "id": "p029",
+    "dificultad": 4,
+    "categoria": "Diccionarios avanzados",
+    "pregunta": "¿Qué imprime este código?\n\n```python\nreacciones = {'A': 100, 'B': 200, 'C': 150}\nreacciones['D'] = reacciones.pop('B')\nprint(len(reacciones))\n```",
+    "opciones": {
+      "a": "3",
+      "b": "4",
+      "c": "2",
+      "d": "Error"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "pop('B') elimina 'B' y retorna su valor (200), que se asigna a 'D'. Total de claves: 3 (A, C, D)"
+  },
+  {
+    "id": "p030",
     "dificultad": 4,
     "categoria": "Comprehension avanzado",
     "pregunta": "¿Qué contiene el resultado?\n\n```python\ndatos = [1, 2, 3, 4, 5, 6]\nresultado = [x**2 for x in datos if x % 2 == 0]\nprint(resultado)\n```",
@@ -406,7 +420,119 @@
     "explicacion": "Filtra números pares (2, 4, 6) y los eleva al cuadrado: [4, 16, 36]"
   },
   {
-    "id": "p030",
+    "id": "p031",
+    "dificultad": 4,
+    "categoria": "Excepciones múltiples",
+    "pregunta": "¿Qué imprime este código?\n\n```python\ntry:\n    valores = [1, 2, 3]\n    print(valores[5])\nexcept IndexError:\n    print('A')\nexcept ValueError:\n    print('B')\n```",
+    "opciones": {
+      "a": "A",
+      "b": "B",
+      "c": "A B",
+      "d": "Error sin manejar"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "Acceder a índice 5 en una lista de 3 elementos genera IndexError, se ejecuta el primer except"
+  },
+  {
+    "id": "p032",
+    "dificultad": 4,
+    "categoria": "Diccionarios métodos",
+    "pregunta": "¿Qué imprime este código?\n\n```python\ndata = {'x': 10, 'y': 20, 'z': 30}\nresult = data.get('w', 0)\nprint(result)\n```",
+    "opciones": {
+      "a": "None",
+      "b": "0",
+      "c": "Error",
+      "d": "w"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "get('w', 0) busca la clave 'w', como no existe retorna el valor por defecto 0"
+  },
+  {
+    "id": "p033",
+    "dificultad": 4,
+    "categoria": "Funciones",
+    "pregunta": "¿Qué imprime este código?\n\n```python\ndef multiplicar(a, b=2, c=3):\n    return a * b * c\n\nresult = multiplicar(5, c=4)\nprint(result)\n```",
+    "opciones": {
+      "a": "40",
+      "b": "60",
+      "c": "30",
+      "d": "Error"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "a=5, b=2 (valor por defecto), c=4 (especificado). Resultado: 5 * 2 * 4 = 40"
+  },
+  {
+    "id": "p034",
+    "dificultad": 4,
+    "categoria": "POO",
+    "pregunta": "Examine esta clase:\n\n```python\nclass Tanque:\n    capacidad_maxima = 1000\n    \n    def __init__(self, volumen_actual):\n        self.volumen_actual = volumen_actual\n    \n    def llenar(self, cantidad):\n        self.volumen_actual += cantidad\n        if self.volumen_actual > self.capacidad_maxima:\n            self.volumen_actual = self.capacidad_maxima\n\nT1 = Tanque(800)\nT2 = Tanque(500)\nT1.llenar(300)\nTanque.capacidad_maxima = 1200\nprint(T1.volumen_actual, T2.volumen_actual)\n```\n\n¿Qué imprime?",
+    "opciones": {
+      "a": "1000 500",
+      "b": "1100 500",
+      "c": "1000 600",
+      "d": "1200 500"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "T1 llega a 1100 pero se limita a capacidad_maxima (1000 al momento del llenado). T2 permanece en 500. El cambio posterior de capacidad_maxima no afecta a T1 que ya se llenó"
+  },
+  {
+    "id": "p035",
+    "dificultad": 5,
+    "categoria": "POO avanzado",
+    "pregunta": "Analice el uso de property:\n\n```python\nclass Proceso:\n    def __init__(self, temp):\n        self._temp = temp\n    \n    @property\n    def temp(self):\n        return self._temp\n    \n    @temp.setter\n    def temp(self, valor):\n        if valor > 0:\n            self._temp = valor\n\nP = Proceso(100)\nP.temp = 200\nprint(P.temp)\n```\n\n¿Qué imprime?",
+    "opciones": {
+      "a": "100",
+      "b": "200",
+      "c": "Error de atributo",
+      "d": "0"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "El setter valida que valor > 0 (200 > 0 es True), entonces actualiza _temp a 200"
+  },
+  {
+    "id": "p036",
+    "dificultad": 5,
+    "categoria": "POO composición",
+    "pregunta": "Examine esta relación de composición:\n\n```python\nclass Motor:\n    def __init__(self, potencia):\n        self.potencia = potencia\n\nclass Bomba:\n    def __init__(self, motor_potencia):\n        self.motor = Motor(motor_potencia)\n    \n    def get_potencia(self):\n        return self.motor.potencia\n\nB = Bomba(50)\nprint(B.get_potencia())\n```\n\n¿Qué imprime?",
+    "opciones": {
+      "a": "50",
+      "b": "Error de atributo",
+      "c": "None",
+      "d": "Motor"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "Bomba crea un objeto Motor con potencia=50 y get_potencia() retorna ese valor"
+  },
+  {
+    "id": "p037",
+    "dificultad": 5,
+    "categoria": "POO métodos especiales",
+    "pregunta": "Examine esta clase con método especial:\n\n```python\nclass Muestra:\n    def __init__(self, id, concentracion):\n        self.id = id\n        self.concentracion = concentracion\n    \n    def __str__(self):\n        return f\"Muestra-{self.id}\"\n\nM = Muestra(\"A1\", 0.5)\nprint(M)\n```\n\n¿Qué imprime?",
+    "opciones": {
+      "a": "<Muestra object at 0x...>",
+      "b": "Muestra-A1",
+      "c": "A1",
+      "d": "0.5"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "El método __str__ define la representación en string del objeto. print(M) llama a __str__"
+  },
+  {
+    "id": "p038",
+    "dificultad": 5,
+    "categoria": "POO herencia múltiple",
+    "pregunta": "Observe esta herencia:\n\n```python\nclass Base1:\n    def metodo(self):\n        return \"Base1\"\n\nclass Base2:\n    def metodo(self):\n        return \"Base2\"\n\nclass Derivada(Base1, Base2):\n    pass\n\nobj = Derivada()\nprint(obj.metodo())\n```\n\n¿Qué imprime?",
+    "opciones": {
+      "a": "Base1",
+      "b": "Base2",
+      "c": "Derivada",
+      "d": "Error"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "Python resuelve la herencia múltiple con MRO (Method Resolution Order). La primera clase en la lista tiene prioridad: Base1"
+  },
+  {
+    "id": "p039",
     "dificultad": 5,
     "categoria": "POO métodos de clase",
     "pregunta": "Analice esta clase con métodos de clase:\n\n```python\nclass Conversor:\n    factor = 1.8\n    \n    @classmethod\n    def celsius_fahrenheit(cls, celsius):\n        return cls.factor * celsius + 32\n    \n    @staticmethod\n    def kelvin_celsius(kelvin):\n        return kelvin - 273.15\n\ntemp_f = Conversor.celsius_fahrenheit(100)\ntemp_c = Conversor.kelvin_celsius(373.15)\nprint(f\"{temp_f} {temp_c}\")\n```\n\n¿Qué imprime?",
@@ -418,5 +544,509 @@
     },
     "respuesta_correcta": "a",
     "explicacion": "100°C = 212°F y 373.15K = 100°C. Los métodos de clase y estáticos no requieren instancia"
+  },
+  {
+    "id": "p040",
+    "dificultad": 5,
+    "categoria": "POO herencia",
+    "pregunta": "Analice la inicialización en herencia:\n\n```python\nclass Equipo:\n    def __init__(self, nombre):\n        self.nombre = nombre\n        self.estado = \"Apagado\"\n\nclass Compresor(Equipo):\n    def __init__(self, nombre, presion):\n        super().__init__(nombre)\n        self.presion = presion\n\nC = Compresor(\"C-100\", 150)\nprint(C.estado, C.presion)\n```\n\n¿Qué imprime?",
+    "opciones": {
+      "a": "Apagado 150",
+      "b": "None 150",
+      "c": "Apagado None",
+      "d": "Error"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "super().__init__(nombre) llama al constructor de Equipo que establece estado='Apagado', luego se establece presion=150"
+  },
+  {
+    "id": "p041",
+    "dificultad": 1,
+    "categoria": "Tipos de datos",
+    "pregunta": "¿Qué imprime este código?\n\n```python\nx = 7\ny = 2\nprint(x / y)\n```",
+    "opciones": {
+      "a": "3",
+      "b": "3.5",
+      "c": "3.0",
+      "d": "4"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "El operador / realiza división normal y siempre retorna float. 7 / 2 = 3.5"
+  },
+  {
+    "id": "p042",
+    "dificultad": 1,
+    "categoria": "Cadenas",
+    "pregunta": "¿Qué imprime este código?\n\n```python\ntexto = \"Python\"\nprint(len(texto))\n```",
+    "opciones": {
+      "a": "5",
+      "b": "6",
+      "c": "7",
+      "d": "Error"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "len() cuenta el número de caracteres en la cadena 'Python', que son 6"
+  },
+  {
+    "id": "p043",
+    "dificultad": 1,
+    "categoria": "Operadores",
+    "pregunta": "¿Cuál es el resultado?\n\n```python\na = 10\nb = 3\nprint(a > b)\n```",
+    "opciones": {
+      "a": "True",
+      "b": "False",
+      "c": "1",
+      "d": "10"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "10 es mayor que 3, por lo tanto la expresión a > b es True"
+  },
+  {
+    "id": "p044",
+    "dificultad": 1,
+    "categoria": "Tipos de datos",
+    "pregunta": "¿Qué imprime este código?\n\n```python\nx = \"123\"\nprint(type(x).__name__)\n```",
+    "opciones": {
+      "a": "int",
+      "b": "float",
+      "c": "str",
+      "d": "number"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "\"123\" está entre comillas, por lo tanto es una cadena (str), no un número"
+  },
+  {
+    "id": "p045",
+    "dificultad": 1,
+    "categoria": "Operadores lógicos",
+    "pregunta": "¿Qué imprime este código?\n\n```python\nx = True\ny = False\nprint(x or y)\n```",
+    "opciones": {
+      "a": "True",
+      "b": "False",
+      "c": "None",
+      "d": "Error"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "El operador 'or' retorna True si al menos uno de los valores es True. True or False = True"
+  },
+  {
+    "id": "p046",
+    "dificultad": 1,
+    "categoria": "Cadenas",
+    "pregunta": "¿Qué imprime este código?\n\n```python\nmolecule = \"NaCl\"\nprint(molecule[2])\n```",
+    "opciones": {
+      "a": "N",
+      "b": "a",
+      "c": "C",
+      "d": "l"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "Los índices comienzan en 0. Posición 0='N', 1='a', 2='C'"
+  },
+  {
+    "id": "p047",
+    "dificultad": 1,
+    "categoria": "Operadores",
+    "pregunta": "¿Qué imprime este código?\n\n```python\nx = 8\ny = 2\nprint(x * y)\n```",
+    "opciones": {
+      "a": "10",
+      "b": "16",
+      "c": "4",
+      "d": "6"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "El operador * realiza multiplicación. 8 * 2 = 16"
+  },
+  {
+    "id": "p048",
+    "dificultad": 1,
+    "categoria": "Tipos de datos",
+    "pregunta": "¿Qué imprime este código?\n\n```python\nx = 5\ny = 5\nprint(x == y)\n```",
+    "opciones": {
+      "a": "True",
+      "b": "False",
+      "c": "5",
+      "d": "10"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "El operador == compara si dos valores son iguales. 5 == 5 es True"
+  },
+  {
+    "id": "p049",
+    "dificultad": 2,
+    "categoria": "Control de flujo",
+    "pregunta": "¿Qué imprime este código?\n\n```python\nx = 5\nif x % 2 == 0:\n    print('Par')\nelse:\n    print('Impar')\n```",
+    "opciones": {
+      "a": "Par",
+      "b": "Impar",
+      "c": "5",
+      "d": "No imprime nada"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "5 % 2 = 1 (no es 0), por lo tanto no es par. Imprime 'Impar'"
+  },
+  {
+    "id": "p050",
+    "dificultad": 2,
+    "categoria": "Listas",
+    "pregunta": "¿Qué imprime este código?\n\n```python\nnumeros = [1, 2, 3]\nnumeros.insert(1, 10)\nprint(numeros)\n```",
+    "opciones": {
+      "a": "[1, 10, 2, 3]",
+      "b": "[10, 1, 2, 3]",
+      "c": "[1, 2, 10, 3]",
+      "d": "[1, 2, 3, 10]"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "insert(1, 10) inserta 10 en la posición 1, desplazando los demás elementos"
+  },
+  {
+    "id": "p051",
+    "dificultad": 2,
+    "categoria": "While",
+    "pregunta": "¿Qué imprime este código?\n\n```python\nx = 1\nwhile x < 4:\n    x += 1\nprint(x)\n```",
+    "opciones": {
+      "a": "3",
+      "b": "4",
+      "c": "5",
+      "d": "Bucle infinito"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "El bucle se ejecuta mientras x < 4. Cuando x=4, el bucle termina y se imprime 4"
+  },
+  {
+    "id": "p052",
+    "dificultad": 2,
+    "categoria": "Listas",
+    "pregunta": "¿Qué imprime este código?\n\n```python\nvalores = [5, 10, 15, 20]\nprint(valores[-2])\n```",
+    "opciones": {
+      "a": "10",
+      "b": "15",
+      "c": "20",
+      "d": "5"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Índices negativos cuentan desde el final. -1 es el último (20), -2 es el penúltimo (15)"
+  },
+  {
+    "id": "p053",
+    "dificultad": 2,
+    "categoria": "Cadenas",
+    "pregunta": "¿Qué imprime este código?\n\n```python\ntexto = \"hola\"\nprint(texto * 2)\n```",
+    "opciones": {
+      "a": "holahola",
+      "b": "hola 2",
+      "c": "Error",
+      "d": "hola hola"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "El operador * con cadenas repite la cadena. 'hola' * 2 = 'holahola'"
+  },
+  {
+    "id": "p054",
+    "dificultad": 2,
+    "categoria": "Control de flujo",
+    "pregunta": "¿Qué imprime este código?\n\n```python\nfor i in range(2):\n    for j in range(2):\n        print(i + j, end=' ')\n```",
+    "opciones": {
+      "a": "0 1 1 2",
+      "b": "0 0 1 1",
+      "c": "1 2 2 3",
+      "d": "2 2 2 2"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "Bucles anidados: (i=0,j=0)→0, (i=0,j=1)→1, (i=1,j=0)→1, (i=1,j=1)→2"
+  },
+  {
+    "id": "p055",
+    "dificultad": 2,
+    "categoria": "Listas",
+    "pregunta": "¿Qué imprime este código?\n\n```python\nlista = [1, 2, 3, 2, 1]\nprint(lista.count(2))\n```",
+    "opciones": {
+      "a": "1",
+      "b": "2",
+      "c": "3",
+      "d": "5"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "count(2) cuenta cuántas veces aparece el número 2 en la lista: 2 veces"
+  },
+  {
+    "id": "p056",
+    "dificultad": 2,
+    "categoria": "Cadenas",
+    "pregunta": "¿Qué imprime este código?\n\n```python\ntexto = \"agua\"\nprint(texto.replace('a', 'o'))\n```",
+    "opciones": {
+      "a": "agua",
+      "b": "oguo",
+      "c": "aguo",
+      "d": "ogua"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "replace('a', 'o') reemplaza todas las 'a' por 'o': 'agua' → 'oguo'"
+  },
+  {
+    "id": "p057",
+    "dificultad": 3,
+    "categoria": "Funciones",
+    "pregunta": "¿Qué imprime este código?\n\n```python\ndef doble(x):\n    return x * 2\n\nresult = doble(doble(3))\nprint(result)\n```",
+    "opciones": {
+      "a": "6",
+      "b": "9",
+      "c": "12",
+      "d": "3"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "doble(3) = 6, luego doble(6) = 12. Las funciones se evalúan de adentro hacia afuera"
+  },
+  {
+    "id": "p058",
+    "dificultad": 3,
+    "categoria": "Diccionarios",
+    "pregunta": "¿Qué imprime este código?\n\n```python\ndata = {'a': 1, 'b': 2}\ndata.update({'c': 3})\nprint(len(data))\n```",
+    "opciones": {
+      "a": "2",
+      "b": "3",
+      "c": "4",
+      "d": "1"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "update() agrega nuevos elementos al diccionario. Ahora tiene 3 claves: a, b, c"
+  },
+  {
+    "id": "p059",
+    "dificultad": 3,
+    "categoria": "Listas",
+    "pregunta": "¿Qué imprime este código?\n\n```python\nnums = [3, 1, 4, 1, 5]\nmax_val = max(nums)\nmin_val = min(nums)\nprint(max_val - min_val)\n```",
+    "opciones": {
+      "a": "2",
+      "b": "4",
+      "c": "5",
+      "d": "1"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "max(nums) = 5, min(nums) = 1, diferencia = 5 - 1 = 4"
+  },
+  {
+    "id": "p060",
+    "dificultad": 3,
+    "categoria": "Control de flujo",
+    "pregunta": "¿Qué imprime este código?\n\n```python\nvalor = 10\nif valor > 5 and valor < 15:\n    print('A')\nelif valor >= 15:\n    print('B')\nelse:\n    print('C')\n```",
+    "opciones": {
+      "a": "A",
+      "b": "B",
+      "c": "C",
+      "d": "No imprime nada"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "10 > 5 y 10 < 15, ambas condiciones son True, imprime 'A'"
+  },
+  {
+    "id": "p061",
+    "dificultad": 3,
+    "categoria": "Cadenas",
+    "pregunta": "¿Qué imprime este código?\n\n```python\ntexto = \"1,2,3,4\"\nlista = texto.split(',')\nprint(len(lista))\n```",
+    "opciones": {
+      "a": "1",
+      "b": "3",
+      "c": "4",
+      "d": "7"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "split(',') separa por comas, creando ['1', '2', '3', '4'], que tiene longitud 4"
+  },
+  {
+    "id": "p062",
+    "dificultad": 4,
+    "categoria": "List comprehension",
+    "pregunta": "¿Qué imprime este código?\n\n```python\nnums = [1, 2, 3, 4, 5]\ncuadrados = [x**2 for x in nums if x > 2]\nprint(sum(cuadrados))\n```",
+    "opciones": {
+      "a": "50",
+      "b": "29",
+      "c": "25",
+      "d": "55"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "Filtra x > 2: [3, 4, 5]. Cuadrados: [9, 16, 25]. Suma: 9 + 16 + 25 = 50"
+  },
+  {
+    "id": "p063",
+    "dificultad": 4,
+    "categoria": "Funciones",
+    "pregunta": "¿Qué imprime este código?\n\n```python\ndef suma(*numeros):\n    total = 0\n    for n in numeros:\n        total += n\n    return total\n\nprint(suma(1, 2, 3, 4))\n```",
+    "opciones": {
+      "a": "4",
+      "b": "10",
+      "c": "[1, 2, 3, 4]",
+      "d": "Error"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "*numeros captura todos los argumentos en una tupla. La función los suma: 1+2+3+4 = 10"
+  },
+  {
+    "id": "p064",
+    "dificultad": 4,
+    "categoria": "Diccionarios",
+    "pregunta": "¿Qué imprime este código?\n\n```python\ndata = {'x': 10, 'y': 20}\nfor clave in data:\n    print(data[clave], end=' ')\n```",
+    "opciones": {
+      "a": "x y",
+      "b": "10 20",
+      "c": "x 10 y 20",
+      "d": "{'x': 10, 'y': 20}"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Iterar sobre un diccionario itera sobre las claves. data[clave] obtiene el valor"
+  },
+  {
+    "id": "p065",
+    "dificultad": 4,
+    "categoria": "Excepciones",
+    "pregunta": "¿Qué imprime este código?\n\n```python\ntry:\n    lista = [1, 2]\n    print(lista[1])\nexcept IndexError:\n    print('Error')\nelse:\n    print('OK')\n```",
+    "opciones": {
+      "a": "2",
+      "b": "2\\nOK",
+      "c": "Error",
+      "d": "OK"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "lista[1] = 2 (sin error), imprime '2'. Como no hubo excepción, se ejecuta el else: 'OK'"
+  },
+  {
+    "id": "p066",
+    "dificultad": 4,
+    "categoria": "Listas",
+    "pregunta": "¿Qué imprime este código?\n\n```python\nlista1 = [1, 2]\nlista2 = lista1\nlista2.append(3)\nprint(len(lista1))\n```",
+    "opciones": {
+      "a": "2",
+      "b": "3",
+      "c": "5",
+      "d": "Error"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "lista2 = lista1 crea una referencia, no una copia. Ambas apuntan a la misma lista"
+  },
+  {
+    "id": "p067",
+    "dificultad": 5,
+    "categoria": "POO",
+    "pregunta": "¿Qué imprime este código?\n\n```python\nclass Contador:\n    total = 0\n    \n    def __init__(self):\n        Contador.total += 1\n\nC1 = Contador()\nC2 = Contador()\nC3 = Contador()\nprint(Contador.total)\n```",
+    "opciones": {
+      "a": "0",
+      "b": "1",
+      "c": "3",
+      "d": "Error"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "total es un atributo de clase compartido. Cada instancia incrementa el contador"
+  },
+  {
+    "id": "p068",
+    "dificultad": 5,
+    "categoria": "POO",
+    "pregunta": "¿Qué imprime este código?\n\n```python\nclass Animal:\n    def sonido(self):\n        return \"Sonido\"\n\nclass Perro(Animal):\n    def sonido(self):\n        return \"Guau\"\n\np = Perro()\nprint(p.sonido())\n```",
+    "opciones": {
+      "a": "Sonido",
+      "b": "Guau",
+      "c": "SonidoGuau",
+      "d": "Error"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Polimorfismo: el método sonido() de Perro sobrescribe el de Animal"
+  },
+  {
+    "id": "p069",
+    "dificultad": 5,
+    "categoria": "Funciones avanzadas",
+    "pregunta": "¿Qué imprime este código?\n\n```python\ndef exterior():\n    x = 10\n    def interior():\n        return x * 2\n    return interior()\n\nprint(exterior())\n```",
+    "opciones": {
+      "a": "10",
+      "b": "20",
+      "c": "Error",
+      "d": "None"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Función anidada (closure): interior() accede a la variable x de exterior(). 10 * 2 = 20"
+  },
+  {
+    "id": "p070",
+    "dificultad": 5,
+    "categoria": "POO",
+    "pregunta": "¿Qué imprime este código?\n\n```python\nclass Producto:\n    def __init__(self, nombre, precio):\n        self.nombre = nombre\n        self.precio = precio\n    \n    def __repr__(self):\n        return f\"{self.nombre}: ${self.precio}\"\n\np = Producto(\"Reactivo\", 100)\nprint(p)\n```",
+    "opciones": {
+      "a": "<Producto object at 0x...>",
+      "b": "Reactivo: $100",
+      "c": "Reactivo",
+      "d": "100"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "__repr__ define la representación oficial del objeto. print() llama a __repr__"
+  },
+  {
+    "id": "p071",
+    "dificultad": 5,
+    "categoria": "List comprehension avanzado",
+    "pregunta": "¿Qué imprime este código?\n\n```python\nmatriz = [[1, 2], [3, 4], [5, 6]]\nplana = [num for fila in matriz for num in fila]\nprint(len(plana))\n```",
+    "opciones": {
+      "a": "3",
+      "b": "6",
+      "c": "2",
+      "d": "9"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Comprehension anidada aplana la matriz: [1, 2, 3, 4, 5, 6], longitud 6"
+  },
+  {
+    "id": "p072",
+    "dificultad": 5,
+    "categoria": "POO",
+    "pregunta": "¿Qué imprime este código?\n\n```python\nclass Test:\n    def __init__(self, valor):\n        self.__privado = valor\n    \n    def get_valor(self):\n        return self.__privado\n\nt = Test(42)\nprint(t.get_valor())\n```",
+    "opciones": {
+      "a": "42",
+      "b": "None",
+      "c": "Error",
+      "d": "privado"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "El atributo __privado es privado pero accesible mediante el método get_valor()"
+  },
+  {
+    "id": "p073",
+    "dificultad": 5,
+    "categoria": "Funciones lambda avanzadas",
+    "pregunta": "¿Qué imprime este código?\n\n```python\noperaciones = [lambda x: x+1, lambda x: x*2, lambda x: x**2]\nresultado = [op(5) for op in operaciones]\nprint(resultado)\n```",
+    "opciones": {
+      "a": "[6, 10, 25]",
+      "b": "[5, 5, 5]",
+      "c": "[1, 2, 2]",
+      "d": "Error"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "Lista de funciones lambda. Se aplican a 5: 5+1=6, 5*2=10, 5²=25"
+  },
+  {
+    "id": "p074",
+    "dificultad": 5,
+    "categoria": "POO avanzado",
+    "pregunta": "¿Qué imprime este código?\n\n```python\nclass Temperatura:\n    def __init__(self, celsius):\n        self._celsius = celsius\n    \n    @property\n    def fahrenheit(self):\n        return self._celsius * 9/5 + 32\n\nt = Temperatura(0)\nprint(t.fahrenheit)\n```",
+    "opciones": {
+      "a": "0",
+      "b": "32",
+      "c": "32.0",
+      "d": "Error"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "@property permite acceder a fahrenheit como atributo. 0°C = 32°F (tipo float)"
+  },
+  {
+    "id": "p075",
+    "dificultad": 5,
+    "categoria": "Diccionarios avanzados",
+    "pregunta": "¿Qué imprime este código?\n\n```python\nfrom collections import defaultdict\n\nd = defaultdict(int)\nd['a'] += 1\nd['b'] += 2\nprint(d['a'] + d['c'])\n```",
+    "opciones": {
+      "a": "1",
+      "b": "3",
+      "c": "Error",
+      "d": "None"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "defaultdict(int) inicializa claves inexistentes con 0. d['c'] = 0, entonces 1 + 0 = 1"
   }
 ]
