@@ -1,2 +1,6 @@
-streamlit>=1.29.0
-pandas>=2.2.0
+streamlit
+pandas
+google-auth
+google-auth-oauthlib
+google-auth-httplib2
+google-api-python-client
