@@ -1048,9 +1048,7 @@
     },
     "respuesta_correcta": "a",
     "explicacion": "defaultdict(int) inicializa claves inexistentes con 0. d['c'] = 0, entonces 1 + 0 = 1"
-  }
-]
-[
+  },
   {
     "id": "p076",
     "dificultad": 3,
