@@ -5,12 +5,8 @@ Implementa la lógica CAT (Computerized Adaptive Testing)
 import random
 from typing import Dict, List, Any, Optional
 
-try:
-    from src.question_manager import QuestionManager
-    from src.scoring_systems import crear_sistema_calificacion
-except ImportError:
-    from question_manager import QuestionManager
-    from scoring_systems import crear_sistema_calificacion
+from question_manager import QuestionManager
+from scoring_systems import crear_sistema_calificacion
 
 
 class ExamLogic:
