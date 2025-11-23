@@ -253,6 +253,29 @@ El sistema proporciona:
 
 ## 🐛 Solución de Problemas
 
+### Error: ModuleNotFoundError en Streamlit Cloud
+
+Si ves un error como `ModuleNotFoundError: No module named 'src'` al desplegar:
+
+**Solución 1**: Verifica la estructura de archivos
+```bash
+# Asegúrate de que existan estos archivos:
+src/__init__.py
+utils/__init__.py
+```
+
+**Solución 2**: Haz commit y push de todos los archivos
+```bash
+git add .
+git commit -m "Fix module imports"
+git push
+```
+
+**Solución 3**: Reboot la app en Streamlit Cloud
+1. Ve a "Manage app"
+2. Click en "⋮" (menú)
+3. Selecciona "Reboot app"
+
 ### Error al conectar con Google Sheets
 
 - Verifica que las credenciales en `secrets.toml` sean correctas

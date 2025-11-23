@@ -1,0 +1,114 @@
+# Sistema de Examen Adaptativo - Inicio Rápido
+
+## 📦 Contenido del ZIP
+
+Este archivo contiene el Sistema de Examen Adaptativo completo con:
+
+- ✅ Código fuente completo y documentado
+- ✅ 3 sistemas de calificación (IRT, Elo, Híbrido)
+- ✅ Configuración lista para usar
+- ✅ 10 preguntas de ejemplo
+- ✅ Documentación completa
+- ✅ Guías de despliegue y expansión
+
+## 🚀 Inicio Rápido (5 pasos)
+
+### 1. Descomprimir
+```bash
+unzip examen-adaptativo.zip
+cd examen-adaptativo
+```
+
+### 2. Instalar dependencias
+```bash
+pip install -r requirements.txt
+```
+
+### 3. Configurar Google Sheets
+
+Crea el archivo `.streamlit/secrets.toml`:
+```toml
+[gcp_service_account]
+type = "service_account"
+project_id = "tu-project-id"
+private_key = "-----BEGIN PRIVATE KEY-----\n...\n-----END PRIVATE KEY-----\n"
+client_email = "tu-service-account@tu-project.iam.gserviceaccount.com"
+# ... (resto de credenciales)
+```
+
+### 4. Actualizar configuración
+
+Edita `config/examen_python.json` y actualiza el `spreadsheet_id`
+
+### 5. Ejecutar
+```bash
+streamlit run app.py
+```
+
+## 📁 Estructura
+
+```
+examen-adaptativo/
+├── app.py                          # ⭐ Archivo principal
+├── requirements.txt                # Dependencias
+├── README.md                       # 📖 Documentación completa
+├── DEPLOYMENT.md                   # 🚀 Guía de despliegue
+├── EXPANSION_PREGUNTAS.md          # 📝 Guía para expandir preguntas
+├── .gitignore
+├── config/
+│   ├── examen_python.json         # Configuración del examen
+│   └── examen_template.json       # Template para nuevos exámenes
+├── data/
+│   └── preguntas_ejemplo.json     # 10 preguntas de ejemplo
+├── src/
+│   ├── __init__.py
+│   ├── config_loader.py
+│   ├── question_manager.py
+│   ├── scoring_systems.py         # ⭐ IRT, Elo, Híbrido
+│   ├── exam_logic.py
+│   ├── ui_components.py
+│   └── data_persistence.py
+└── utils/
+    ├── __init__.py
+    └── validators.py
+```
+
+## 📚 Documentación
+
+- **README.md**: Documentación completa del proyecto
+- **DEPLOYMENT.md**: Guía paso a paso para Streamlit Cloud
+- **EXPANSION_PREGUNTAS.md**: Cómo expandir de 75 a 120 preguntas
+
+## 🎯 Próximos Pasos
+
+1. Lee el **README.md** completo
+2. Configura Google Cloud (ver DEPLOYMENT.md)
+3. Agrega tus 75 preguntas a `data/preguntas_python.json`
+4. Expande a 120 preguntas (ver EXPANSION_PREGUNTAS.md)
+5. Despliega en Streamlit Cloud
+
+## 💡 Características Principales
+
+- ✨ Examen adaptativo (CAT)
+- 🎓 3 sistemas de calificación (IRT, Elo, Híbrido)
+- 📊 Análisis detallado con gráficos
+- 💾 Persistencia en Google Sheets
+- 🎨 UI profesional con Streamlit
+- 🔀 Opciones aleatorizadas
+- ✅ Feedback inmediato
+
+## ❓ ¿Necesitas Ayuda?
+
+1. Revisa el README.md para documentación completa
+2. Consulta DEPLOYMENT.md para problemas de despliegue
+3. Verifica los logs en la consola
+
+## 🎉 ¡Listo!
+
+El sistema está completo y listo para usar. Solo necesitas:
+- Configurar Google Sheets
+- Agregar tus preguntas
+- ¡Ejecutar!
+
+---
+Universidad ECCI - Ingeniería Química

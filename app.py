@@ -4,17 +4,31 @@ Orquestador Principal
 """
 import streamlit as st
 import sys
+import os
 from pathlib import Path
 
-# Agregar rutas al path
-sys.path.insert(0, str(Path(__file__).parent))
+# Agregar el directorio actual y subdirectorios al path
+current_dir = Path(__file__).parent.absolute()
+sys.path.insert(0, str(current_dir))
+sys.path.insert(0, str(current_dir / "src"))
+sys.path.insert(0, str(current_dir / "utils"))
 
-from src.config_loader import ConfigLoader
-from src.question_manager import QuestionManager
-from src.exam_logic import ExamLogic
-from src.ui_components import UIComponents
-from src.data_persistence import DataPersistence
-from utils.validators import validate_codigo_estudiante
+# Importaciones del proyecto
+try:
+    from src.config_loader import ConfigLoader
+    from src.question_manager import QuestionManager
+    from src.exam_logic import ExamLogic
+    from src.ui_components import UIComponents
+    from src.data_persistence import DataPersistence
+    from utils.validators import validate_codigo_estudiante
+except ImportError:
+    # Intento alternativo sin el prefijo src/utils
+    from config_loader import ConfigLoader
+    from question_manager import QuestionManager
+    from exam_logic import ExamLogic
+    from ui_components import UIComponents
+    from data_persistence import DataPersistence
+    from validators import validate_codigo_estudiante
 
 
 def inicializar_session_state():
