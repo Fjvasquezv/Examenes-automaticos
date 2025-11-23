@@ -4,37 +4,20 @@ Orquestador Principal
 """
 import streamlit as st
 import sys
-import importlib.util
-from pathlib import Path
+import os
 
-# Función para cargar módulos dinámicamente
-def load_module(module_name, file_path):
-    spec = importlib.util.spec_from_file_location(module_name, file_path)
-    module = importlib.util.module_from_spec(spec)
-    sys.modules[module_name] = module
-    spec.loader.exec_module(module)
-    return module
+# Agregar directorios al path
+current_dir = os.path.dirname(os.path.abspath(__file__))
+sys.path.append(os.path.join(current_dir, 'src'))
+sys.path.append(os.path.join(current_dir, 'utils'))
 
-# Directorio base
-base_dir = Path(__file__).parent
-
-# Cargar módulos
-config_loader = load_module("config_loader", base_dir / "src" / "config_loader.py")
-question_manager = load_module("question_manager", base_dir / "src" / "question_manager.py")
-exam_logic = load_module("exam_logic", base_dir / "src" / "exam_logic.py")
-ui_components = load_module("ui_components", base_dir / "src" / "ui_components.py")
-data_persistence = load_module("data_persistence", base_dir / "src" / "data_persistence.py")
-validators = load_module("validators", base_dir / "utils" / "validators.py")
-scoring_systems = load_module("scoring_systems", base_dir / "src" / "scoring_systems.py")
-
-# Obtener las clases/funciones necesarias
-ConfigLoader = config_loader.ConfigLoader
-QuestionManager = question_manager.QuestionManager
-ExamLogic = exam_logic.ExamLogic
-UIComponents = ui_components.UIComponents
-DataPersistence = data_persistence.DataPersistence
-validate_codigo_estudiante = validators.validate_codigo_estudiante
-
+# Importaciones normales
+from config_loader import ConfigLoader
+from question_manager import QuestionManager
+from exam_logic import ExamLogic
+from ui_components import UIComponents
+from data_persistence import DataPersistence
+from validators import validate_codigo_estudiante
 
 def inicializar_session_state():
     """Inicializa las variables de session state necesarias"""
