@@ -1,0 +1,142 @@
+[
+  {
+    "id": "p001",
+    "dificultad": 1,
+    "categoria": "Tipos de datos",
+    "pregunta": "¿Cuál es el resultado de la siguiente operación?\n\n```python\nx = 10 // 3\nprint(x)\n```",
+    "opciones": {
+      "a": "3.333",
+      "b": "3",
+      "c": "4",
+      "d": "3.0"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "El operador // realiza división entera, que devuelve el cociente sin decimales. 10 dividido entre 3 es 3 con resto 1, por lo que el resultado es 3."
+  },
+  {
+    "id": "p002",
+    "dificultad": 1,
+    "categoria": "Tipos de datos",
+    "pregunta": "¿Qué tipo de dato es el valor `True` en Python?",
+    "opciones": {
+      "a": "str",
+      "b": "int",
+      "c": "bool",
+      "d": "float"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "True es un valor booleano en Python. Los booleanos solo pueden tener dos valores: True o False."
+  },
+  {
+    "id": "p003",
+    "dificultad": 2,
+    "categoria": "Operadores",
+    "pregunta": "¿Cuál es el resultado?\n\n```python\nprint(5 ** 2)\n```",
+    "opciones": {
+      "a": "10",
+      "b": "25",
+      "c": "7",
+      "d": "Error"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "El operador ** es el operador de potenciación en Python. 5 ** 2 significa 5 elevado a la potencia 2, que es 25."
+  },
+  {
+    "id": "p004",
+    "dificultad": 2,
+    "categoria": "Strings",
+    "pregunta": "¿Qué imprime el siguiente código?\n\n```python\ntexto = \"Python\"\nprint(texto[1:4])\n```",
+    "opciones": {
+      "a": "Pyt",
+      "b": "yth",
+      "c": "ytho",
+      "d": "tho"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "El slicing en Python con [1:4] toma los caracteres desde el índice 1 (incluido) hasta el índice 4 (excluido). Los índices son: P(0), y(1), t(2), h(3), o(4), n(5). Por lo tanto, [1:4] da 'yth'."
+  },
+  {
+    "id": "p005",
+    "dificultad": 3,
+    "categoria": "Listas",
+    "pregunta": "¿Cuál es el resultado?\n\n```python\nlista = [1, 2, 3, 4, 5]\nprint(lista[-2])\n```",
+    "opciones": {
+      "a": "2",
+      "b": "3",
+      "c": "4",
+      "d": "5"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "Los índices negativos en Python cuentan desde el final. -1 es el último elemento, -2 es el penúltimo. En [1, 2, 3, 4, 5], el penúltimo elemento es 4."
+  },
+  {
+    "id": "p006",
+    "dificultad": 3,
+    "categoria": "Estructuras de control",
+    "pregunta": "¿Qué imprimirá este código?\n\n```python\nfor i in range(3):\n    if i == 1:\n        continue\n    print(i)\n```",
+    "opciones": {
+      "a": "0 1 2",
+      "b": "0 2",
+      "c": "1 2",
+      "d": "0 1"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "La instrucción continue salta a la siguiente iteración del bucle. Cuando i es 1, se ejecuta continue y no se imprime. Por lo tanto, solo se imprimen 0 y 2."
+  },
+  {
+    "id": "p007",
+    "dificultad": 4,
+    "categoria": "Funciones",
+    "pregunta": "¿Cuál es el resultado?\n\n```python\ndef funcion(a, b=5):\n    return a + b\n\nprint(funcion(3))\n```",
+    "opciones": {
+      "a": "3",
+      "b": "5",
+      "c": "8",
+      "d": "Error"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "El parámetro b tiene un valor por defecto de 5. Cuando llamamos funcion(3), a=3 y b usa su valor por defecto (5). Por lo tanto, 3 + 5 = 8."
+  },
+  {
+    "id": "p008",
+    "dificultad": 4,
+    "categoria": "Diccionarios",
+    "pregunta": "¿Qué imprime este código?\n\n```python\nd = {'a': 1, 'b': 2}\nprint(d.get('c', 0))\n```",
+    "opciones": {
+      "a": "None",
+      "b": "0",
+      "c": "Error",
+      "d": "c"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "El método get() de los diccionarios devuelve el valor de una clave si existe, o un valor por defecto si no existe. Como 'c' no está en el diccionario, devuelve 0 (el valor por defecto especificado)."
+  },
+  {
+    "id": "p009",
+    "dificultad": 5,
+    "categoria": "Comprensión de listas",
+    "pregunta": "¿Cuál es el resultado?\n\n```python\nlista = [x**2 for x in range(5) if x % 2 == 0]\nprint(lista)\n```",
+    "opciones": {
+      "a": "[0, 1, 4, 9, 16]",
+      "b": "[0, 4, 16]",
+      "c": "[1, 9]",
+      "d": "[0, 2, 4]"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Esta comprensión de lista eleva al cuadrado los números de 0 a 4 que son pares (x % 2 == 0). Los números pares son 0, 2, 4. Sus cuadrados son 0, 4, 16."
+  },
+  {
+    "id": "p010",
+    "dificultad": 5,
+    "categoria": "Programación orientada a objetos",
+    "pregunta": "¿Qué imprime este código?\n\n```python\nclass Clase:\n    contador = 0\n    \n    def __init__(self):\n        Clase.contador += 1\n\na = Clase()\nb = Clase()\nprint(Clase.contador)\n```",
+    "opciones": {
+      "a": "0",
+      "b": "1",
+      "c": "2",
+      "d": "Error"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "contador es una variable de clase (compartida entre todas las instancias). Cada vez que se crea una instancia, __init__ incrementa contador. Se crean dos instancias (a y b), por lo que contador es 2."
+  }
+]
