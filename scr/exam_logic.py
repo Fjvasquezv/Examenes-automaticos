@@ -3,11 +3,31 @@ Lógica del Examen Adaptativo
 Implementa la lógica CAT (Computerized Adaptive Testing)
 """
 import random
+import sys
+import importlib.util
 from typing import Dict, List, Any, Optional
+from pathlib import Path
 
-from question_manager import QuestionManager
-from scoring_systems import crear_sistema_calificacion
+# Cargar módulos si no están ya cargados
+if 'question_manager' not in sys.modules:
+    base_dir = Path(__file__).parent
+    spec = importlib.util.spec_from_file_location("question_manager", base_dir / "question_manager.py")
+    question_manager = importlib.util.module_from_spec(spec)
+    sys.modules['question_manager'] = question_manager
+    spec.loader.exec_module(question_manager)
+    QuestionManager = question_manager.QuestionManager
+else:
+    from question_manager import QuestionManager
 
+if 'scoring_systems' not in sys.modules:
+    base_dir = Path(__file__).parent
+    spec = importlib.util.spec_from_file_location("scoring_systems", base_dir / "scoring_systems.py")
+    scoring_systems = importlib.util.module_from_spec(spec)
+    sys.modules['scoring_systems'] = scoring_systems
+    spec.loader.exec_module(scoring_systems)
+    crear_sistema_calificacion = scoring_systems.crear_sistema_calificacion
+else:
+    from scoring_systems import crear_sistema_calificacion
 
 class ExamLogic:
     """Clase que implementa la lógica del examen adaptativo"""
