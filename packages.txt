@@ -1,2 +1,1 @@
-# Sistema de paquetes del sistema que Streamlit Cloud debe instalar
-# Este archivo puede estar vacío si no necesitas paquetes del sistema
+
