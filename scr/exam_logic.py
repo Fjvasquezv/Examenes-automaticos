@@ -5,8 +5,8 @@ Implementa la lógica CAT (Computerized Adaptive Testing)
 import random
 from typing import Dict, List, Any, Optional
 
-from question_manager import QuestionManager
-from scoring_systems import crear_sistema_calificacion
+from .question_manager import QuestionManager
+from .scoring_systems import crear_sistema_calificacion
 
 class ExamLogic:
     """Clase que implementa la lógica del examen adaptativo"""
