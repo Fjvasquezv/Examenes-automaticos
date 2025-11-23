@@ -7,20 +7,23 @@ import sys
 import os
 from pathlib import Path
 
-# Agregar el directorio actual y subdirectorios al path
+# Configurar paths ANTES de cualquier importación
 current_dir = Path(__file__).parent.absolute()
-sys.path.insert(0, str(current_dir))
-sys.path.insert(0, str(current_dir / "src"))
-sys.path.insert(0, str(current_dir / "utils"))
+src_dir = current_dir / "src"
+utils_dir = current_dir / "utils"
 
-# Importaciones del proyecto
-try:
-    from src.config_loader import ConfigLoader
-    from src.question_manager import QuestionManager
-    from src.exam_logic import ExamLogic
-    from src.ui_components import UIComponents
-    from src.data_persistence import DataPersistence
-    from utils.validators import validate_codigo_estudiante
+# Agregar directorios al path si no están
+for directory in [str(current_dir), str(src_dir), str(utils_dir)]:
+    if directory not in sys.path:
+        sys.path.insert(0, directory)
+
+# Importaciones del proyecto (ahora sin prefijo)
+from config_loader import ConfigLoader
+from question_manager import QuestionManager
+from exam_logic import ExamLogic
+from ui_components import UIComponents
+from data_persistence import DataPersistence
+from validators import validate_codigo_estudiante
 except ImportError:
     # Intento alternativo sin el prefijo src/utils
     from config_loader import ConfigLoader
