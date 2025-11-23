@@ -24,14 +24,6 @@ from exam_logic import ExamLogic
 from ui_components import UIComponents
 from data_persistence import DataPersistence
 from validators import validate_codigo_estudiante
-except ImportError:
-    # Intento alternativo sin el prefijo src/utils
-    from config_loader import ConfigLoader
-    from question_manager import QuestionManager
-    from exam_logic import ExamLogic
-    from ui_components import UIComponents
-    from data_persistence import DataPersistence
-    from validators import validate_codigo_estudiante
 
 
 def inicializar_session_state():
