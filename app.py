@@ -8,7 +8,7 @@ from pathlib import Path
 
 # Agregar AMBOS directorios al path
 base = Path(__file__).parent
-sys.path.insert(0, str(base / "scr"))
+sys.path.insert(0, str(base / "src"))
 sys.path.insert(0, str(base / "utils"))
 
 # Importar SIN prefijos
