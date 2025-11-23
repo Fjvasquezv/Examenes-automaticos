@@ -6,16 +6,18 @@ import streamlit as st
 import sys
 from pathlib import Path
 
-# CRÍTICO: Agregar el directorio raíz al path primero
-sys.path.insert(0, str(Path(__file__).parent))
+# Agregar AMBOS directorios al path
+base = Path(__file__).parent
+sys.path.insert(0, str(base / "src"))
+sys.path.insert(0, str(base / "utils"))
 
-# Ahora sí importar
-from src.config_loader import ConfigLoader
-from src.question_manager import QuestionManager
-from src.exam_logic import ExamLogic
-from src.ui_components import UIComponents
-from src.data_persistence import DataPersistence
-from utils.validators import validate_codigo_estudiante
+# Importar SIN prefijos
+from config_loader import ConfigLoader
+from question_manager import QuestionManager
+from exam_logic import ExamLogic
+from ui_components import UIComponents
+from data_persistence import DataPersistence
+from validators import validate_codigo_estudiante
 
 def inicializar_session_state():
     """Inicializa las variables de session state necesarias"""
