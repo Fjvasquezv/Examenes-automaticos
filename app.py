@@ -4,20 +4,30 @@ Orquestador Principal
 """
 import streamlit as st
 import sys
+import importlib.util
 from pathlib import Path
 
-# Agregar src y utils al path
-sys.path.insert(0, str(Path(__file__).parent / "src"))
-sys.path.insert(0, str(Path(__file__).parent / "utils"))
+# Función para cargar módulos dinámicamente
+def load_module(module_name, file_path):
+    spec = importlib.util.spec_from_file_location(module_name, file_path)
+    module = importlib.util.module_from_spec(spec)
+    sys.modules[module_name] = module
+    spec.loader.exec_module(module)
+    return module
 
-# Ahora importar directamente
-import config_loader
-import question_manager
-import exam_logic
-import ui_components
-import data_persistence
-import validators
+# Directorio base
+base_dir = Path(__file__).parent
 
+# Cargar módulos
+config_loader = load_module("config_loader", base_dir / "src" / "config_loader.py")
+question_manager = load_module("question_manager", base_dir / "src" / "question_manager.py")
+exam_logic = load_module("exam_logic", base_dir / "src" / "exam_logic.py")
+ui_components = load_module("ui_components", base_dir / "src" / "ui_components.py")
+data_persistence = load_module("data_persistence", base_dir / "src" / "data_persistence.py")
+validators = load_module("validators", base_dir / "utils" / "validators.py")
+scoring_systems = load_module("scoring_systems", base_dir / "src" / "scoring_systems.py")
+
+# Obtener las clases/funciones necesarias
 ConfigLoader = config_loader.ConfigLoader
 QuestionManager = question_manager.QuestionManager
 ExamLogic = exam_logic.ExamLogic
