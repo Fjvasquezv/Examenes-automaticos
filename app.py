@@ -4,26 +4,26 @@ Orquestador Principal
 """
 import streamlit as st
 import sys
-import os
 from pathlib import Path
 
-# Configurar paths ANTES de cualquier importación
-current_dir = Path(__file__).parent.absolute()
-src_dir = current_dir / "src"
-utils_dir = current_dir / "utils"
+# Agregar src y utils al path
+sys.path.insert(0, str(Path(__file__).parent / "src"))
+sys.path.insert(0, str(Path(__file__).parent / "utils"))
 
-# Agregar directorios al path si no están
-for directory in [str(current_dir), str(src_dir), str(utils_dir)]:
-    if directory not in sys.path:
-        sys.path.insert(0, directory)
+# Ahora importar directamente
+import config_loader
+import question_manager
+import exam_logic
+import ui_components
+import data_persistence
+import validators
 
-# Importaciones del proyecto (ahora sin prefijo)
-from config_loader import ConfigLoader
-from question_manager import QuestionManager
-from exam_logic import ExamLogic
-from ui_components import UIComponents
-from data_persistence import DataPersistence
-from validators import validate_codigo_estudiante
+ConfigLoader = config_loader.ConfigLoader
+QuestionManager = question_manager.QuestionManager
+ExamLogic = exam_logic.ExamLogic
+UIComponents = ui_components.UIComponents
+DataPersistence = data_persistence.DataPersistence
+validate_codigo_estudiante = validators.validate_codigo_estudiante
 
 
 def inicializar_session_state():
