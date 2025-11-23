@@ -3,21 +3,9 @@ Sistema de Examen Adaptativo Modular
 Orquestador Principal
 """
 import streamlit as st
-import sys
-import os
 
-# Agregar directorios al path
-current_dir = os.path.dirname(os.path.abspath(__file__))
-sys.path.append(os.path.join(current_dir, 'src'))
-sys.path.append(os.path.join(current_dir, 'utils'))
-
-# Importaciones normales
-from config_loader import ConfigLoader
-from question_manager import QuestionManager
-from exam_logic import ExamLogic
-from ui_components import UIComponents
-from data_persistence import DataPersistence
-from validators import validate_codigo_estudiante
+from src import ConfigLoader, QuestionManager, ExamLogic, UIComponents, DataPersistence
+from utils import validate_codigo_estudiante
 
 def inicializar_session_state():
     """Inicializa las variables de session state necesarias"""
