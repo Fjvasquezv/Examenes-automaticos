@@ -101,6 +101,9 @@ def guardar_resultado(codigo_estudiante, resultados, historial_respuestas):
 
 # Función para calcular nota estimada
 def calcular_nota(nivel_actual, historial_respuestas, usar_promedio_total=False):
+    """
+    Sistema híbrido: 60% nivel alcanzado + 40% desempeño global
+    """
     if not historial_respuestas:
         return 3.0
     
@@ -110,12 +113,25 @@ def calcular_nota(nivel_actual, historial_respuestas, usar_promedio_total=False)
         porcentaje = aciertos / total
         return porcentaje * 5.0
     
-    nota_base = (nivel_actual / 5) * 5.0
-    ultimas = historial_respuestas[-min(5, len(historial_respuestas)):]
-    aciertos = sum(1 for r in ultimas if r['correcta'])
-    porcentaje = aciertos / len(ultimas)
-    ajuste = (porcentaje - 0.5) * 0.5
-    nota_final = max(0, min(5.0, nota_base + ajuste))
+    # Componente 1: Nota base por nivel (60% del peso)
+    nota_nivel = (nivel_actual / 5) * 5.0 * 0.6
+    
+    # Componente 2: Nota por desempeño global (40% del peso)
+    total = len(historial_respuestas)
+    aciertos = sum(1 for r in historial_respuestas if r['correcta'])
+    porcentaje_global = aciertos / total
+    nota_desempeño = porcentaje_global * 5.0 * 0.4
+    
+    # Nota final combinada
+    nota_final = nota_nivel + nota_desempeño
+    
+    # Ajuste fino basado en últimas respuestas (bonus/penalty pequeño)
+    ultimas = historial_respuestas[-min(3, len(historial_respuestas)):]
+    aciertos_recientes = sum(1 for r in ultimas if r['correcta'])
+    porcentaje_reciente = aciertos_recientes / len(ultimas)
+    ajuste_fino = (porcentaje_reciente - 0.5) * 0.3
+    
+    nota_final = max(0, min(5.0, nota_final + ajuste_fino))
     return nota_final
 
 # Función para verificar estabilización
