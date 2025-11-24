@@ -36,13 +36,13 @@ class UIComponents:
              margin-bottom: 2px;
              display: flex; justify-content: space-between;'>
             <div style='display: flex; flex-direction: column; justify-content: center;'>
-                <span style='color: #003366; font-weight: bold; font-size: 15px;'>
+                <span style='color: #003366; font-weight: bold; font-size: 15px; line-height: 1.2;'>
                     {self.metadata['institucion']}
                 </span>
-                <span style='color: #003366; font-size: 12px;'>
+                <span style='color: #003366; font-size: 12px; line-height: 1.2;'>
                     Facultad de Ingeniería
                 </span>
-                <span style='color: #003366; font-size: 12px;'>
+                <span style='color: #003366; font-size: 12px; line-height: 1.2;'>
                     Ingeniería Química
                 </span>
             </div>
