@@ -38,10 +38,10 @@ class UIComponents:
                 <span style='color: #003366; font-weight: bold; font-size: 15px; line-height: 1.2;'>
                     {self.metadata['institucion']}
                 </span>
-                <span style='color: #003366; font-size: 12px; line-height: 1.2;'>
+                <span style='color: #003366; font-weight: bold; font-size: 12px; line-height: 1.2;'>
                     Facultad de Ingeniería
                 </span>
-                <span style='color: #003366; font-size: 12px; line-height: 1.2;'>
+                <span style='color: #003366; font-weight: bold; font-size: 12px; line-height: 1.2;'>
                     Ingeniería Química
                 </span>
             </div>
@@ -49,10 +49,10 @@ class UIComponents:
                 <span style='color: #003366; font-weight: bold; font-size: 14px;'>
                     {self.metadata['asignatura']}
                 </span>
-                {f"<span style='color: #003366; font-size: 12px;'>{periodo_activo}</span>" if periodo_activo else ""}
+                {f"<span style='color: #003366; font-weight: bold; font-size: 12px;'>{periodo_activo}</span>" if periodo_activo else ""}
             </div>
             <div style='display: flex; flex-direction: column; justify-content: center; text-align: right;'>
-                <span style='color: #003366; font-size: 11px;'>
+                <span style='color: #003366; font-weight: bold; font-size: 11px;'>
                     Docente
                 </span>
                 <span style='color: #003366; font-weight: bold; font-size: 13px;'>
