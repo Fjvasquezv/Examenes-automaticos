@@ -96,10 +96,10 @@ def main():
         st.exception(e)
 
 
-def verificar_disponibilidad(config):
+def verificar_disponibilidad():
     """
-    Verifica si el examen está disponible según el calendario.
-    Solo está disponible DENTRO de las franjas horarias definidas.
+    Verifica qué examen está disponible según el calendario.
+    Retorna: (disponible, examen_config, mensaje, periodos)
     """
     # Cargar archivo de disponibilidad
     try:
@@ -107,21 +107,19 @@ def verificar_disponibilidad(config):
         with open(ruta_disponibilidad, 'r', encoding='utf-8') as f:
             disponibilidad = json.load(f)
     except FileNotFoundError:
-        # Si no existe el archivo, permitir siempre
-        return True, "", None
+        return False, None, "No se encontró archivo de disponibilidad", None
     
-    # Si no está habilitado, permitir siempre
+    # Si no está habilitado, no hay exámenes disponibles
     if not disponibilidad.get('habilitado', False):
-        return True, "", None
+        return False, None, "Sistema de exámenes deshabilitado", None
     
     # Configurar zona horaria
     zona = ZoneInfo(disponibilidad.get('zona_horaria', 'America/Bogota'))
     ahora = datetime.now(zona)
     
-    # Obtener periodos
     periodos = disponibilidad.get('periodos', [])
     if not periodos:
-        return True, "", None
+        return False, None, "No hay periodos configurados", None
     
     # Buscar si estamos DENTRO de algún periodo
     for periodo in periodos:
@@ -129,10 +127,19 @@ def verificar_disponibilidad(config):
         fin = datetime.strptime(periodo['fin'], "%Y-%m-%d %H:%M").replace(tzinfo=zona)
         
         if inicio <= ahora <= fin:
-            # ✅ Estamos dentro de un periodo válido
-            return True, periodo.get('nombre', 'Examen activo'), periodos
+            # ✅ Estamos dentro de un periodo válido - cargar config del examen
+            examen_id = periodo.get('examen')
+            ruta_examen = Path(__file__).parent / "config" / "examenes" / f"{examen_id}.json"
+            
+            try:
+                with open(ruta_examen, 'r', encoding='utf-8') as f:
+                    config_examen = json.load(f)
+                    config_examen['_examen_id'] = examen_id  # Guardar ID para referencia
+                    return True, config_examen, periodo.get('nombre', 'Examen activo'), periodos
+            except FileNotFoundError:
+                return False, None, f"Error: No se encontró configuración para {examen_id}", periodos
     
-    # ❌ NO estamos en ningún periodo - buscar el próximo para informar
+    # ❌ NO estamos en ningún periodo - buscar el próximo
     proximos = []
     for periodo in periodos:
         inicio = datetime.strptime(periodo['inicio'], "%Y-%m-%d %H:%M").replace(tzinfo=zona)
@@ -142,13 +149,12 @@ def verificar_disponibilidad(config):
     if proximos:
         proximos.sort(key=lambda x: x[0])
         proximo = proximos[0][1]
-        mensaje = f"Próxima disponibilidad: {proximo.get('nombre', '')} - {proximo['inicio']}"
+        mensaje = f"Próximo examen: {proximo.get('nombre', '')} - {proximo['inicio']}"
     else:
-        # Todos los periodos ya pasaron
-        mensaje = "No hay periodos de disponibilidad programados"
+        mensaje = "No hay exámenes programados"
     
-    # Siempre retorna False si no estamos dentro de un periodo
-    return False, mensaje, periodos
+    return False, None, mensaje, periodos
+
 
 def mostrar_pantalla_inicio(config, ui):
     """Muestra la pantalla de inicio del examen"""
