@@ -75,20 +75,6 @@ class UIComponents:
                 st.markdown("**⚠️ Advertencias:**")
                 for adv in advertencias:
                     st.warning(adv)
-        
-        # Instrucciones generales
-        titulo = instrucciones.get('titulo', 'Instrucciones')
-        st.markdown(f"### 📋 {titulo}")
-        
-        items = instrucciones.get('items', [])
-        for item in items:
-            st.write(f"✅ {item}")
-        
-        advertencias = instrucciones.get('advertencias', [])
-        if advertencias:
-            st.markdown("**⚠️ Advertencias:**")
-            for adv in advertencias:
-                st.warning(adv)
     
     def mostrar_metricas_progreso(
         self,
