@@ -30,8 +30,8 @@ class UIComponents:
         
         st.markdown(f"""
         <div style='background-color: #FFB81C;
-             padding: 30px 20px 8px 20px;
-             border-bottom: 4px solid #003366;
+             padding: 30px 15px 8px 20px;
+             border-bottom: 8px solid #003366;
              margin-bottom: 2px;
              display: flex; justify-content: space-between;'>
             <div style='display: flex; flex-direction: column; justify-content: center;'>
