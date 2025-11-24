@@ -33,7 +33,7 @@ class UIComponents:
         <div style='background-color: #FFB81C;
              padding: 12px 20px;
              border-bottom: 4px solid #003366;
-             margin-bottom: 5px;
+             margin-bottom: 2px;
              display: flex; justify-content: space-between;'>
             <div style='display: flex; flex-direction: column; justify-content: center;'>
                 <span style='color: #003366; font-weight: bold; font-size: 15px;'>
