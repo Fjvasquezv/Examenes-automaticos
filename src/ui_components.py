@@ -26,7 +26,7 @@ class UIComponents:
     def mostrar_header(self):
         """Muestra el encabezado de la aplicación"""
         st.markdown(f"""
-        <div style='text-align: center; padding: 10px 15px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); 
+        <div style='text-align: center; padding: 8px 12px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); 
              border-radius: 5px; margin-bottom: 5px;'>
             <h3 style='color: white; margin: 0;'>{self.instrucciones['titulo']}</h3>
             <p style='color: white; margin: 5px 0 0 0; font-size: 14px;'>
