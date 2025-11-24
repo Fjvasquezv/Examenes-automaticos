@@ -35,7 +35,7 @@ class UIComponents:
              border-bottom: 4px solid #003366;
              margin-bottom: 15px;
              display: flex; justify-content: space-between;'>
-            <div style='display: flex; flex-direction: column; justify-content: flex-start;'>
+            <div style='display: flex; flex-direction: column; justify-content: center;'>
                 <span style='color: #003366; font-weight: bold; font-size: 15px;'>
                     {self.metadata['institucion']}
                 </span>
@@ -46,13 +46,13 @@ class UIComponents:
                     Ingeniería Química
                 </span>
             </div>
-            <div style='display: flex; flex-direction: column; justify-content: flex-start; text-align: center;'>
+            <div style='display: flex; flex-direction: column; justify-content: center; text-align: center;'>
                 <span style='color: #003366; font-weight: bold; font-size: 14px;'>
                     {self.metadata['asignatura']}
                 </span>
                 {f"<span style='color: #003366; font-size: 12px;'>{periodo_activo}</span>" if periodo_activo else ""}
             </div>
-            <div style='display: flex; flex-direction: column; justify-content: flex-end; text-align: right;'>
+            <div style='display: flex; flex-direction: column; justify-content: center; text-align: right;'>
                 <span style='color: #003366; font-size: 11px;'>
                     Docente
                 </span>
