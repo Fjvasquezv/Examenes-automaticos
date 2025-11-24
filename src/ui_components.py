@@ -25,17 +25,16 @@ class UIComponents:
     
     def mostrar_header(self, periodo_activo=None):
         """Muestra el header del examen"""
-        # Construir línea del periodo si existe
         periodo_html = ""
         if periodo_activo:
-            periodo_html = f"<p style='color: #90EE90; margin: 5px 0 0 0; font-size: 13px;'>✅ {periodo_activo}</p>"
+            periodo_html = f"<p style='color: #90EE90; margin: 2px 0 0 0; font-size: 13px;'>✅ {periodo_activo}</p>"
         
         st.markdown(f"""
         <div style='background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
              padding: 10px 15px; text-align: center;
              border-radius: 10px; margin-bottom: 15px;'>
-            <h3 style='color: white; margin: 0;'>{self.instrucciones['titulo']}</h3>
-            <p style='color: white; margin: 3px 0 0 0; font-size: 14px;'>
+            <h3 style='color: white; margin: 0; line-height: 1;'>{self.instrucciones['titulo']}</h3>
+            <p style='color: white; margin: 0; font-size: 14px; line-height: 1.2;'>
                 {self.metadata['institucion']} - {self.metadata['asignatura']}
             </p>
             {periodo_html}
