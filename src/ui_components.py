@@ -107,9 +107,15 @@ class UIComponents:
             
             advertencias = instrucciones.get('advertencias', [])
             if advertencias:
-                st.markdown("**⚠️ Advertencias:**")
-                for adv in advertencias:
-                    st.warning(adv)
+                adv_html = "".join([f"<li>{adv}</li>" for adv in advertencias])
+                st.markdown(f"""
+                <div style='background-color: #fff3cd; border-left: 4px solid #ffc107; padding: 10px 15px; border-radius: 4px;'>
+                    <strong>⚠️ Advertencias:</strong>
+                    <ul style='margin: 5px 0 0 0; padding-left: 20px; line-height: 1.4;'>
+                        {adv_html}
+                    </ul>
+                </div>
+                """, unsafe_allow_html=True)
                 
     def mostrar_metricas_progreso(
         self,
