@@ -359,7 +359,6 @@ class UIComponents:
         
         # Layout
         fig.update_layout(
-            title="Evolución de la Nota Durante el Examen",
             xaxis_title="Número de Pregunta",
             yaxis_title="Nota Estimada",
             yaxis_range=[0, 5.5],
