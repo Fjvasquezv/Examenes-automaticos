@@ -35,44 +35,44 @@ class UIComponents:
         </div>
         """, unsafe_allow_html=True)
     
-def mostrar_instrucciones(self):
-    """Muestra las instrucciones del examen"""
-    instrucciones = self.config.get('instrucciones', {})
-    descripcion = self.config.get('descripcion', {})
-    
-    # Descripción del examen (específica)
-    if descripcion:
-        st.markdown("### 📚 Sobre este examen")
+    def mostrar_instrucciones(self):
+        """Muestra las instrucciones del examen"""
+        instrucciones = self.config.get('instrucciones', {})
+        descripcion = self.config.get('descripcion', {})
         
-        texto = descripcion.get('texto', '')
-        if texto:
-            st.write(texto)
+        # Descripción del examen (específica)
+        if descripcion:
+            st.markdown("### 📚 Sobre este examen")
+            
+            texto = descripcion.get('texto', '')
+            if texto:
+                st.write(texto)
+            
+            temas = descripcion.get('temas', [])
+            if temas:
+                st.markdown("**Temas evaluados:**")
+                for tema in temas:
+                    st.write(f"• {tema}")
+            
+            duracion = descripcion.get('duracion_estimada', '')
+            if duracion:
+                st.info(f"⏱️ Duración estimada: {duracion}")
+            
+            st.markdown("---")
         
-        temas = descripcion.get('temas', [])
-        if temas:
-            st.markdown("**Temas evaluados:**")
-            for tema in temas:
-                st.write(f"• {tema}")
+        # Instrucciones generales
+        titulo = instrucciones.get('titulo', 'Instrucciones')
+        st.markdown(f"### 📋 {titulo}")
         
-        duracion = descripcion.get('duracion_estimada', '')
-        if duracion:
-            st.info(f"⏱️ Duración estimada: {duracion}")
+        items = instrucciones.get('items', [])
+        for item in items:
+            st.write(f"✅ {item}")
         
-        st.markdown("---")
-    
-    # Instrucciones generales
-    titulo = instrucciones.get('titulo', 'Instrucciones')
-    st.markdown(f"### 📋 {titulo}")
-    
-    items = instrucciones.get('items', [])
-    for item in items:
-        st.write(f"✅ {item}")
-    
-    advertencias = instrucciones.get('advertencias', [])
-    if advertencias:
-        st.markdown("**⚠️ Advertencias:**")
-        for adv in advertencias:
-            st.warning(adv)
+        advertencias = instrucciones.get('advertencias', [])
+        if advertencias:
+            st.markdown("**⚠️ Advertencias:**")
+            for adv in advertencias:
+                st.warning(adv)
     
     def mostrar_metricas_progreso(
         self,
