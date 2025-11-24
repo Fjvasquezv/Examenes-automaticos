@@ -174,11 +174,11 @@ class UIComponents:
     def _get_dificultad_color(self, dificultad: int) -> str:
         """Retorna el color según el nivel de dificultad"""
         colores = {
-            1: "#28a745",  # Verde
-            2: "#90ee90",  # Verde claro
-            3: "#ffc107",  # Amarillo
-            4: "#ff8c00",  # Naranja
-            5: "#dc3545"   # Rojo
+            1: "#dc3545",  # Rojo (básico)
+            2: "#ff8c00",  # Naranja
+            3: "#ffc107",  # Amarillo (intermedio)
+            4: "#90ee90",  # Verde claro
+            5: "#28a745"   # Verde (avanzado)
         }
         return colores.get(dificultad, "#9E9E9E")
     
