@@ -46,7 +46,7 @@ def main():
     
     # Configuración de la página
     st.set_page_config(
-        page_title="Examen Adaptativo",
+        page_title="Sistema de Exámenes - ECCI",
         page_icon="🎓",
         layout="wide",
         initial_sidebar_state="collapsed"
@@ -55,11 +55,35 @@ def main():
     # Inicializar session state
     inicializar_session_state()
     
-    try:
-        # Cargar configuración
-        config_loader = ConfigLoader()
-        config = config_loader.load_config("config/examen_python.json")
+    # ============================================
+    # VERIFICAR DISPONIBILIDAD Y OBTENER EXAMEN
+    # ============================================
+    disponible, config, mensaje, periodos = verificar_disponibilidad()
+    
+    if not disponible:
+        # Mostrar pantalla de "no disponible"
+        st.title("🎓 Sistema de Exámenes")
+        st.error("⏰ No hay exámenes disponibles en este momento")
+        st.warning(f"📅 {mensaje}")
         
+        # Mostrar hora actual
+        zona = ZoneInfo("America/Bogota")
+        ahora = datetime.now(zona)
+        st.info(f"🕐 Hora actual: {ahora.strftime('%d/%m/%Y %H:%M')} (Colombia)")
+        
+        # Mostrar calendario
+        if periodos:
+            st.markdown("### 📆 Próximos exámenes programados")
+            for p in periodos:
+                inicio = datetime.strptime(p['inicio'], "%Y-%m-%d %H:%M")
+                if inicio > ahora.replace(tzinfo=None):
+                    st.write(f"📝 **{p.get('nombre', 'Examen')}:** {p['inicio']} → {p['fin']}")
+        return
+    
+    # ============================================
+    # EXAMEN DISPONIBLE - CONTINUAR NORMALMENTE
+    # ============================================
+    try:
         # Cargar banco de preguntas
         question_manager = QuestionManager(config['archivo_preguntas'])
         
@@ -69,32 +93,27 @@ def main():
         # Verificar que hay suficientes preguntas
         total_preguntas = len(question_manager.preguntas)
         if total_preguntas < config['parametros']['preguntas_minimas']:
-            st.error(f"⚠️ Error: El banco de preguntas tiene {total_preguntas} preguntas, "
-                    f"pero se necesitan al menos {config['parametros']['preguntas_minimas']}")
+            st.error(f"⚠️ Error: El banco tiene {total_preguntas} preguntas, "
+                    f"se necesitan al menos {config['parametros']['preguntas_minimas']}")
             return
         
-        # Mostrar header
+        # Mostrar header con nombre del examen
         ui.mostrar_header()
+        st.success(f"✅ {mensaje}")
         
-        # Flujo principal de la aplicación
+        # Flujo principal
         if not st.session_state.exam_started:
-            # Pantalla de inicio
             mostrar_pantalla_inicio(config, ui)
-            
         elif st.session_state.exam_finished:
-            # Pantalla de resultados
             mostrar_resultados(config, ui)
-            
         else:
-            # Examen en progreso
             ejecutar_examen(config, question_manager, ui)
             
     except FileNotFoundError as e:
-        st.error(f"❌ Error: No se encontró el archivo de configuración.\n{str(e)}")
+        st.error(f"❌ Error: No se encontró archivo.\n{str(e)}")
     except Exception as e:
         st.error(f"❌ Error inesperado: {str(e)}")
         st.exception(e)
-
 
 def verificar_disponibilidad():
     """
