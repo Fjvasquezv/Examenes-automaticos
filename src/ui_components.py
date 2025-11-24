@@ -23,45 +23,45 @@ class UIComponents:
         self.metadata = config['metadata']
         self.instrucciones = config['instrucciones']
     
-    def mostrar_header(self, periodo_activo=None):
-        """Muestra el header del examen - Estilo institucional ECCI"""
-        periodo_html = ""
-        if periodo_activo:
-            periodo_html = f"<span style='color: #003366; font-size: 12px;'>✅ {periodo_activo}</span>"
-        
-        st.markdown(f"""
-        <div style='background-color: #FFB81C;
-             padding: 8px 20px;
-             border-bottom: 4px solid #003366;
-             margin-bottom: 15px;
-             display: flex; justify-content: space-between; align-items: center;'>
-            <div>
-                <span style='color: #003366; font-weight: bold; font-size: 15px;'>
-                    {self.metadata['institucion']}
-                </span><br>
-                <span style='color: #003366; font-size: 12px;'>
-                    Facultad de Ingeniería - Programa de Ingeniería Química
-                </span>
+        def mostrar_header(self, periodo_activo=None):
+            """Muestra el header del examen - Estilo institucional ECCI"""
+            periodo_html = ""
+            if periodo_activo:
+                periodo_html = f"""<span style='color: #003366; font-size: 12px;'>{periodo_activo}</span>"""
+            
+            st.markdown(f"""
+            <div style='background-color: #FFB81C;
+                 padding: 8px 20px;
+                 border-bottom: 4px solid #003366;
+                 margin-bottom: 15px;
+                 display: flex; justify-content: space-between;'>
+                <div style='display: flex; flex-direction: column; justify-content: flex-start;'>
+                    <span style='color: #003366; font-weight: bold; font-size: 15px;'>
+                        {self.metadata['institucion']}
+                    </span>
+                    <span style='color: #003366; font-size: 12px;'>
+                        Facultad de Ingeniería
+                    </span>
+                    <span style='color: #003366; font-size: 12px;'>
+                        Ingeniería Química
+                    </span>
+                </div>
+                <div style='display: flex; flex-direction: column; justify-content: center; text-align: center;'>
+                    <span style='color: #003366; font-weight: bold; font-size: 14px;'>
+                        {self.metadata['asignatura']}
+                    </span>
+                    {f"<span style='color: #003366; font-size: 12px;'>{periodo_activo}</span>" if periodo_activo else ""}
+                </div>
+                <div style='display: flex; flex-direction: column; justify-content: flex-end; text-align: right;'>
+                    <span style='color: #003366; font-size: 11px;'>
+                        Docente
+                    </span>
+                    <span style='color: #003366; font-weight: bold; font-size: 13px;'>
+                        Prof. Francisco Javier Vásquez V.
+                    </span>
+                </div>
             </div>
-            <div style='text-align: center;'>
-                <span style='color: #003366; font-weight: bold; font-size: 14px;'>
-                    {self.metadata['nombre_examen']}
-                </span><br>
-                <span style='color: #003366; font-size: 12px;'>
-                    {self.metadata['asignatura']}
-                </span>
-                {f"<br>{periodo_html}" if periodo_activo else ""}
-            </div>
-            <div style='text-align: right;'>
-                <span style='color: #003366; font-weight: bold; font-size: 13px;'>
-                    Prof. Francisco Javier Vásquez V.
-                </span><br>
-                <span style='color: #003366; font-size: 11px;'>
-                    Docente
-                </span>
-            </div>
-        </div>
-        """, unsafe_allow_html=True)
+            """, unsafe_allow_html=True)
     
     def mostrar_instrucciones(self):
         """Muestra las instrucciones del examen en dos columnas"""
