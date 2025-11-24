@@ -157,13 +157,12 @@ def verificar_disponibilidad():
                     ruta_instrucciones = Path(__file__).parent / "config" / "instrucciones.json"
                     try:
                         with open(ruta_instrucciones, 'r', encoding='utf-8') as f:
-                            config_examen['instrucciones'] = json.load(f)
+                            instrucciones = json.load(f)
                     except FileNotFoundError:
-                        config_examen['instrucciones'] = {
-                            "titulo": "Instrucciones",
-                            "items": ["Lea cada pregunta cuidadosamente"],
-                            "advertencias": []
-                        }
+                        instrucciones = {"titulo": "Instrucciones", "items": [], "advertencias": []}
+                    # Combinar con descripción del examen
+                    config_examen['instrucciones'] = instrucciones
+                    config_examen['instrucciones']['descripcion'] = config_examen.get('descripcion', {})
                     return True, config_examen, periodo.get('nombre', 'Examen activo'), periodos
             except FileNotFoundError:
                 return False, None, f"Error: No se encontró configuración para {examen_id}", periodos
