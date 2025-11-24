@@ -307,8 +307,12 @@ def ejecutar_examen(config, question_manager, ui):
         categoria = pregunta_obj.get('categoria', '')
         categoria_html = f"<span style='color: #6c757d;'>📂 {categoria}</span>" if categoria else ""
         
-        html_pregunta = f"<div style='background-color: #ffffff; border: 1px solid #dee2e6; border-radius: 8px; overflow: hidden;'><div style='background-color: #f8f9fa; padding: 10px 15px; border-bottom: 1px solid #dee2e6; display: flex; justify-content: space-between; align-items: center;'><span style='font-weight: bold;'>Pregunta {exam_logic.pregunta_actual + 1}</span><div>{categoria_html}<span style='background-color: {color}; color: white; padding: 3px 10px; border-radius: 12px; font-size: 11px; margin-left: 10px;'>Nivel {dificultad}</span></div></div><div style='padding: 15px;'>{pregunta_obj['pregunta']}</div></div>"
-        st.markdown(html_pregunta, unsafe_allow_html=True)
+        # Header de la tarjeta
+        html_header = f"<div style='background-color: #ffffff; border: 1px solid #dee2e6; border-radius: 8px 8px 0 0; overflow: hidden;'><div style='background-color: #f8f9fa; padding: 10px 15px; border-bottom: 1px solid #dee2e6; display: flex; justify-content: space-between; align-items: center;'><span style='font-weight: bold;'>Pregunta {exam_logic.pregunta_actual + 1}</span><div>{categoria_html}<span style='background-color: {color}; color: white; padding: 3px 10px; border-radius: 12px; font-size: 11px; margin-left: 10px;'>Nivel {dificultad}</span></div></div></div>"
+        st.markdown(html_header, unsafe_allow_html=True)
+        
+        # Contenido de la pregunta (separado para que el código se renderice bien)
+        st.markdown(pregunta_obj['pregunta'])
     
     with col_opciones:
         html_header = "<div style='background-color: #f8f9fa; padding: 8px 15px; border: 1px solid #dee2e6; border-radius: 8px 8px 0 0; border-bottom: none;'><span style='font-weight: bold; color: #495057;'>Seleccione su respuesta:</span></div>"
