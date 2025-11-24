@@ -107,8 +107,7 @@ def main():
             return
         
         # Mostrar header con nombre del examen
-        ui.mostrar_header()
-        st.success(f"✅ {mensaje}")
+        ui.mostrar_header(periodo_activo=mensaje)
         
         # Flujo principal
         if not st.session_state.exam_started:
