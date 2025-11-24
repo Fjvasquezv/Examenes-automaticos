@@ -255,7 +255,6 @@ def ejecutar_examen(config, question_manager, ui):
     # Inicializar lógica del examen si es necesario
     if 'exam_logic' not in st.session_state:
         st.session_state.exam_logic = ExamLogic(config, question_manager)
-        # Guardar inicio del examen
         try:
             persistence = DataPersistence(config)
             persistence.guardar_inicio_examen(st.session_state.codigo_estudiante)
@@ -280,11 +279,10 @@ def ejecutar_examen(config, question_manager, ui):
         incorrectas=exam_logic.incorrectas
     )
     
-    # Obtener pregunta actual - GUARDAR en session_state para que no cambie
+    # Obtener pregunta actual
     pregunta_key = f"pregunta_actual_{exam_logic.pregunta_actual}"
     opciones_key = f"opciones_pregunta_{exam_logic.pregunta_actual}"
     
-    # Si no existe la pregunta guardada, obtenerla y guardarla
     if pregunta_key not in st.session_state:
         pregunta_obj = exam_logic.obtener_siguiente_pregunta()
         
@@ -294,19 +292,13 @@ def ejecutar_examen(config, question_manager, ui):
             st.rerun()
             return
         
-        # Guardar pregunta en session_state
         st.session_state[pregunta_key] = pregunta_obj
-        
-        # Mezclar y guardar opciones JUNTO con la pregunta
         st.session_state[opciones_key] = exam_logic.mezclar_opciones(pregunta_obj['opciones'])
     
-    # Usar pregunta y opciones guardadas (NO cambiarán aunque Streamlit re-ejecute)
     pregunta_obj = st.session_state[pregunta_key]
     opciones_mezcladas = st.session_state[opciones_key]
     
-    # ========================================
-    # LAYOUT DOS COLUMNAS: Pregunta | Opciones
-    # ========================================
+    # Layout dos columnas
     col_pregunta, col_opciones = st.columns([3, 2])
     
     with col_pregunta:
@@ -315,31 +307,12 @@ def ejecutar_examen(config, question_manager, ui):
         categoria = pregunta_obj.get('categoria', '')
         categoria_html = f"<span style='color: #6c757d;'>📂 {categoria}</span>" if categoria else ""
         
-        st.markdown(f"""
-        <div style='background-color: #ffffff; border: 1px solid #dee2e6; border-radius: 8px; 
-             overflow: hidden;'>
-            <div style='background-color: #f8f9fa; padding: 10px 15px; border-bottom: 1px solid #dee2e6;
-                 display: flex; justify-content: space-between; align-items: center;'>
-                <span style='font-weight: bold;'>Pregunta {exam_logic.pregunta_actual + 1}</span>
-                <div>
-                    {categoria_html}
-                    <span style='background-color: {color}; color: white; padding: 3px 10px; 
-                          border-radius: 12px; font-size: 11px; margin-left: 10px;'>Nivel {dificultad}</span>
-                </div>
-            </div>
-            <div style='padding: 15px;'>
-                {pregunta_obj['pregunta']}
-            </div>
-        </div>
-        """, unsafe_allow_html=True)
+        html_pregunta = f"<div style='background-color: #ffffff; border: 1px solid #dee2e6; border-radius: 8px; overflow: hidden;'><div style='background-color: #f8f9fa; padding: 10px 15px; border-bottom: 1px solid #dee2e6; display: flex; justify-content: space-between; align-items: center;'><span style='font-weight: bold;'>Pregunta {exam_logic.pregunta_actual + 1}</span><div>{categoria_html}<span style='background-color: {color}; color: white; padding: 3px 10px; border-radius: 12px; font-size: 11px; margin-left: 10px;'>Nivel {dificultad}</span></div></div><div style='padding: 15px;'>{pregunta_obj['pregunta']}</div></div>"
+        st.markdown(html_pregunta, unsafe_allow_html=True)
     
     with col_opciones:
-        st.markdown("""
-        <div style='background-color: #f8f9fa; padding: 8px 15px; border: 1px solid #dee2e6; 
-             border-radius: 8px 8px 0 0; border-bottom: none;'>
-            <span style='font-weight: bold; color: #495057;'>Seleccione su respuesta:</span>
-        </div>
-        """, unsafe_allow_html=True)
+        html_header = "<div style='background-color: #f8f9fa; padding: 8px 15px; border: 1px solid #dee2e6; border-radius: 8px 8px 0 0; border-bottom: none;'><span style='font-weight: bold; color: #495057;'>Seleccione su respuesta:</span></div>"
+        st.markdown(html_header, unsafe_allow_html=True)
         
         respuesta_seleccionada = st.radio(
             "Respuesta:",
@@ -350,20 +323,17 @@ def ejecutar_examen(config, question_manager, ui):
         )
         
         if st.button("🚀 Confirmar Respuesta", type="primary", use_container_width=True):
-            # Procesar respuesta (sin mostrar feedback)
             exam_logic.procesar_respuesta(
                 pregunta_obj,
                 respuesta_seleccionada,
                 opciones_mezcladas
             )
             
-            # Limpiar pregunta Y opciones guardadas para la siguiente
             if pregunta_key in st.session_state:
                 del st.session_state[pregunta_key]
             if opciones_key in st.session_state:
                 del st.session_state[opciones_key]
             
-            # Actualizar progreso en Google Sheets
             try:
                 persistence = DataPersistence(config)
                 persistence.actualizar_progreso_examen(
@@ -376,7 +346,7 @@ def ejecutar_examen(config, question_manager, ui):
                 pass
             
             st.rerun()
-                
+            
 def guardar_resultados(config, exam_logic):
     """Guarda los resultados del examen en Google Sheets"""
     try:
