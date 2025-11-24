@@ -46,7 +46,7 @@ class UIComponents:
                     Ingeniería Química
                 </span>
             </div>
-            <div style='display: flex; flex-direction: column; justify-content: center; text-align: center;'>
+            <div style='display: flex; flex-direction: column; justify-content: flex-end; text-align: center;'>
                 <span style='color: #003366; font-weight: bold; font-size: 14px;'>
                     {self.metadata['asignatura']}
                 </span>
