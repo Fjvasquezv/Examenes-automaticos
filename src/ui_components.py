@@ -34,7 +34,7 @@ class UIComponents:
              padding: 10px 15px; text-align: center;
              border-radius: 10px; margin-bottom: 15px;'>
             <h3 style='color: white; margin: 0; line-height: 1;'>{self.instrucciones['titulo']}</h3>
-            <p style='color: white; margin: 0; font-size: 14px; line-height: 1.2;'>
+            <p style='color: white; margin: 0; font-size: 14px; line-height: 1;'>
                 {self.metadata['institucion']} - {self.metadata['asignatura']}
             </p>
             {periodo_html}
