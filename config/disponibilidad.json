@@ -3,9 +3,9 @@
     "zona_horaria": "America/Bogota",
     "periodos": [
         {
-            "nombre": "Parcial que ya pasó",
-            "inicio": "2025-01-01 08:00",
-            "fin": "2025-01-01 10:00"
+            "nombre": "Parcial futuro",
+            "inicio": "2025-12-01 08:00",
+            "fin": "2025-12-01 10:00"
         }
     ]
 }
