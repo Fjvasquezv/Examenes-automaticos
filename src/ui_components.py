@@ -8,7 +8,6 @@ import plotly.graph_objects as go
 import plotly.express as px
 from typing import Dict, Any, List
 
-
 class UIComponents:
     """Clase para manejar componentes de UI con Streamlit"""
     
@@ -31,7 +30,7 @@ class UIComponents:
         
         st.markdown(f"""
         <div style='background-color: #FFB81C;
-             padding: 20px;
+             padding: 30px;
              border-bottom: 4px solid #003366;
              margin-bottom: 2px;
              display: flex; justify-content: space-between;'>
