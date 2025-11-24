@@ -5,6 +5,17 @@
         "institucion": "Universidad ECCI",
         "codigo_asignatura": "PRG101"
     },
+    "descripcion": {
+        "texto": "Este examen evalúa los conocimientos fundamentales de programación en Python.",
+        "temas": [
+            "Variables y tipos de datos",
+            "Estructuras de control",
+            "Funciones",
+            "Listas y diccionarios",
+            "Manejo de archivos"
+        ],
+        "duracion_estimada": "1 hora 45 minutos"
+    },
     "parametros": {
         "preguntas_minimas": 15,
         "preguntas_maximas": 25,
