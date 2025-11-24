@@ -3,9 +3,28 @@
     "zona_horaria": "America/Bogota",
     "periodos": [
         {
-            "nombre": "Parcial corte III",
-            "inicio": "2025-11-24 10:00",
-            "fin": "2025-11-24 12:00"
+            "nombre": "Parcial 1 - Programación",
+            "examen": "programacion",
+            "inicio": "2025-03-15 08:00",
+            "fin": "2025-03-15 10:00"
+        },
+        {
+            "nombre": "Parcial 1 - Control",
+            "examen": "control",
+            "inicio": "2025-03-15 14:00",
+            "fin": "2025-03-15 16:00"
+        },
+        {
+            "nombre": "Parcial 1 - Optimización",
+            "examen": "optimizacion",
+            "inicio": "2025-03-16 08:00",
+            "fin": "2025-03-16 10:00"
+        },
+        {
+            "nombre": "Supletorio - Programación",
+            "examen": "programacion",
+            "inicio": "2025-03-20 14:00",
+            "fin": "2025-03-20 16:00"
         }
     ]
 }
