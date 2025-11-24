@@ -28,8 +28,8 @@ class UIComponents:
         st.markdown(f"""
         <div style='text-align: center; padding: 20px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); 
              border-radius: 10px; margin-bottom: 30px;'>
-            <h1 style='color: white; margin: 0;'>{self.instrucciones['titulo']}</h1>
-            <p style='color: white; margin: 10px 0 0 0; font-size: 18px;'>
+            <h3 style='color: white; margin: 0;'>{self.instrucciones['titulo']}</h3>
+            <p style='color: white; margin: 5px 0 0 0; font-size: 14px;'>
                 {self.metadata['institucion']} - {self.metadata['asignatura']}
             </p>
         </div>
