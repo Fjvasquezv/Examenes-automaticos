@@ -1,0 +1,24 @@
+{
+    "metadata": {
+        "nombre_examen": "Examen de Programación en Python",
+        "asignatura": "Programación y Algoritmos",
+        "institucion": "Universidad ECCI",
+        "codigo_asignatura": "PRG101"
+    },
+    "parametros": {
+        "preguntas_minimas": 15,
+        "preguntas_maximas": 25,
+        "nivel_inicial": 3,
+        "umbral_estabilizacion": 0.20,
+        "ventana_estabilizacion": 3
+    },
+    "sistema_calificacion": {
+        "tipo": "irt_simplificado",
+        "parametros": {"max_iteraciones": 10}
+    },
+    "persistencia": {
+        "metodo": "google_sheets",
+        "spreadsheet_id": "TU_SPREADSHEET_ID_PROGRAMACION"
+    },
+    "archivo_preguntas": "data/preguntas/programacion.json"
+}
