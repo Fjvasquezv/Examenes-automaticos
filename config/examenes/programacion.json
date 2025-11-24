@@ -20,5 +20,5 @@
         "metodo": "google_sheets",
         "spreadsheet_id": "TU_SPREADSHEET_ID_PROGRAMACION"
     },
-    "archivo_preguntas": "data/preguntas/programacion.json"
+    "archivo_preguntas": "data/preguntas/Programación_CIII.json"
 }
