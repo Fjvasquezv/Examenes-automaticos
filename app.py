@@ -241,8 +241,8 @@ def mostrar_pantalla_inicio(config, ui):
                 st.rerun()
     
     with col3:
-        if st.button("ℹ️ Más información", use_container_width=True):
-            st.info(f"""
+        with st.expander("ℹ️ Más información"):
+            st.write(f"""
             **{config['metadata']['asignatura']}**
             - ✅ Preguntas adaptadas a tu nivel
             - ✅ Entre {config['parametros']['preguntas_minimas']} y {config['parametros']['preguntas_maximas']} preguntas
