@@ -1,0 +1,14 @@
+{
+    "titulo": "Instrucciones del Examen",
+    "items": [
+        "Lea cuidadosamente cada pregunta antes de responder",
+        "Solo tiene un intento para presentar el examen",
+        "Las preguntas se adaptan a su nivel de conocimiento",
+        "No recargue la página durante el examen",
+        "Al finalizar verá su calificación y retroalimentación"
+    ],
+    "advertencias": [
+        "No use material de consulta externo",
+        "No comparta las preguntas con otros estudiantes"
+    ]
+}
