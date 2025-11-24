@@ -46,7 +46,7 @@ class UIComponents:
                 </span>
             </div>
             <div style='display: flex; flex-direction: column; justify-content: center; text-align: center;'>
-                <span style='color: #003366; font-weight: bold; font-size: 14px;'>
+                <span style='color: #003366; font-weight: bold; font-size: 18px;'>
                     {self.metadata['asignatura']}
                 </span>
                 {f"<span style='color: #003366; font-weight: bold; font-size: 12px;'>{periodo_activo}</span>" if periodo_activo else ""}
