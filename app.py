@@ -199,59 +199,56 @@ def mostrar_pantalla_inicio(config, ui):
     ui.mostrar_instrucciones()
     
     st.markdown("<hr style='margin: 10px 0;'>", unsafe_allow_html=True)
+    st.markdown("### 📝 Para comenzar")
+
+    col1, col2, col3 = st.columns([2, 1, 1])
     
-    # Formulario de inicio
-    col1, col2, col3 = st.columns([1, 2, 1])
-    
-    with col2:
-        st.markdown("### 📝 Para comenzar")
-        
+    with col1:
         codigo = st.text_input(
-            "Ingrese su código de estudiante:",
+            "Código de estudiante:",
             placeholder="Ejemplo: 12345678",
             max_chars=20,
-            key="input_codigo"
+            key="input_codigo",
+            label_visibility="collapsed"
         )
-        
-        col_a, col_b = st.columns(2)
-        
-        with col_a:
-            if st.button("🚀 Comenzar Examen", type="primary", use_container_width=True):
-                if not codigo:
-                    st.error("⚠️ Por favor ingrese su código de estudiante")
-                elif not validate_codigo_estudiante(codigo):
-                    st.error("⚠️ Código inválido. Debe contener solo números y letras")
-                else:
-                    codigo_limpio = codigo.strip().upper()
+    
+    with col2:
+        if st.button("🚀 Comenzar Examen", type="primary", use_container_width=True):
+            if not codigo:
+                st.error("⚠️ Por favor ingrese su código de estudiante")
+            elif not validate_codigo_estudiante(codigo):
+                st.error("⚠️ Código inválido. Debe contener solo números y letras")
+            else:
+                codigo_limpio = codigo.strip().upper()
+                
+                try:
+                    persistence = DataPersistence(config)
                     
-                    # Verificaciones de seguridad
-                    try:
-                        persistence = DataPersistence(config)
-                        
-                        if persistence.verificar_examen_completado(codigo_limpio):
-                            st.error("⚠️ Ya completaste este examen anteriormente.")
-                            st.info("💡 Solo se permite un intento por estudiante.")
-                            return
-                        
-                        if persistence.verificar_examen_en_curso(codigo_limpio):
-                            st.error("⚠️ Ya tienes un examen en curso.")
-                            st.info("💡 Contacta al profesor si refrescaste la página.")
-                            return
-                    except:
-                        pass
+                    if persistence.verificar_examen_completado(codigo_limpio):
+                        st.error("⚠️ Ya completaste este examen anteriormente.")
+                        st.info("💡 Solo se permite un intento por estudiante.")
+                        return
                     
-                    st.session_state.codigo_estudiante = codigo_limpio
-                    st.session_state.exam_started = True
-                    st.rerun()
-        
-        with col_b:
-            if st.button("ℹ️ Más información", use_container_width=True):
-                st.info(f"""
-                **{config['metadata']['asignatura']}**
-                - ✅ Preguntas adaptadas a tu nivel
-                - ✅ Entre {config['parametros']['preguntas_minimas']} y {config['parametros']['preguntas_maximas']} preguntas
-                - ✅ Calificación basada en IRT
-                """)
+                    if persistence.verificar_examen_en_curso(codigo_limpio):
+                        st.error("⚠️ Ya tienes un examen en curso.")
+                        st.info("💡 Contacta al profesor si refrescaste la página.")
+                        return
+                except:
+                    pass
+                
+                st.session_state.codigo_estudiante = codigo_limpio
+                st.session_state.exam_started = True
+                st.rerun()
+    
+    with col3:
+        if st.button("ℹ️ Más información", use_container_width=True):
+            st.info(f"""
+            **{config['metadata']['asignatura']}**
+            - ✅ Preguntas adaptadas a tu nivel
+            - ✅ Entre {config['parametros']['preguntas_minimas']} y {config['parametros']['preguntas_maximas']} preguntas
+            - ✅ Calificación basada en IRT
+            """)
+
 def ejecutar_examen(config, question_manager, ui):
     """Ejecuta la lógica del examen"""
     
