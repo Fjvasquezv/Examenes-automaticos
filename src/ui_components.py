@@ -363,7 +363,7 @@ class UIComponents:
             yaxis_title="Nota Estimada",
             yaxis_range=[0, 5.5],
             hovermode='x unified',
-            height=400
+            height=350,
             margin=dict(t=20, l=50, r=20, b=50)
         )
         
