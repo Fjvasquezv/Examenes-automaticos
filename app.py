@@ -46,19 +46,20 @@ def main():
     
     # Configuración de la página
     st.set_page_config(
-        # Reducir espacio superior de Streamlit
-        st.markdown("""
-        <style>
-            .block-container {
-                padding-top: 1rem;
-            }
-        </style>
-        """, unsafe_allow_html=True)
         page_title="Sistema de Exámenes - ECCI",
         page_icon="🎓",
         layout="wide",
         initial_sidebar_state="collapsed"
     )
+
+    # Reducir espacio superior de Streamlit
+    st.markdown("""
+    <style>
+        .block-container {
+            padding-top: 1rem;
+        }
+    </style>
+    """, unsafe_allow_html=True)
     
     # Inicializar session state
     inicializar_session_state()
