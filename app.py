@@ -159,37 +159,6 @@ def verificar_disponibilidad():
 def mostrar_pantalla_inicio(config, ui):
     """Muestra la pantalla de inicio del examen"""
     
-    # ============================================
-    # VERIFICAR DISPONIBILIDAD SEGÚN CALENDARIO
-    # ============================================
-    disponible, mensaje, periodos = verificar_disponibilidad(config)
-    
-    if not disponible:
-        st.error("⏰ El examen no está disponible en este momento")
-        st.warning(f"📅 {mensaje}")
-        
-        # Mostrar hora actual
-        zona = ZoneInfo("America/Bogota")
-        ahora = datetime.now(zona)
-        st.info(f"🕐 Hora actual: {ahora.strftime('%d/%m/%Y %H:%M')} (Colombia)")
-        
-        # Mostrar calendario de disponibilidad
-        if periodos:
-            st.markdown("### 📆 Calendario de disponibilidad")
-            for p in periodos:
-                st.write(f"**{p.get('nombre', 'Periodo')}:** {p['inicio']} → {p['fin']}")
-        
-        # Detener aquí - NO mostrar el formulario de inicio
-        return
-    
-    # Si hay un periodo activo, mostrar mensaje
-    if mensaje:
-        st.success(f"✅ {mensaje}")
-    
-    # ============================================
-    # PANTALLA DE INICIO NORMAL
-    # ============================================
-    
     # Mostrar instrucciones
     ui.mostrar_instrucciones()
     
@@ -223,19 +192,17 @@ def mostrar_pantalla_inicio(config, ui):
                     try:
                         persistence = DataPersistence(config)
                         
-                        # 1. Verificar si ya completó el examen
                         if persistence.verificar_examen_completado(codigo_limpio):
                             st.error("⚠️ Ya completaste este examen anteriormente.")
-                            st.info("💡 Solo se permite un intento por estudiante. Si crees que esto es un error, contacta al profesor.")
+                            st.info("💡 Solo se permite un intento por estudiante.")
                             return
                         
-                        # 2. Verificar si tiene un examen en curso
                         if persistence.verificar_examen_en_curso(codigo_limpio):
-                            st.error("⚠️ Ya tienes un examen en curso. No puedes iniciar otro hasta terminar el actual.")
-                            st.info("💡 Si refrescaste la página por accidente, contacta al profesor.")
+                            st.error("⚠️ Ya tienes un examen en curso.")
+                            st.info("💡 Contacta al profesor si refrescaste la página.")
                             return
                     except:
-                        pass  # Si falla la verificación, permitir continuar
+                        pass
                     
                     st.session_state.codigo_estudiante = codigo_limpio
                     st.session_state.exam_started = True
@@ -243,14 +210,12 @@ def mostrar_pantalla_inicio(config, ui):
         
         with col_b:
             if st.button("ℹ️ Más información", use_container_width=True):
-                st.info("""
-                **Características del examen:**
+                st.info(f"""
+                **{config['metadata']['asignatura']}**
                 - ✅ Preguntas adaptadas a tu nivel
-                - ✅ Entre 15 y 30 preguntas
-                - ✅ Tiempo sugerido: 1:45 horas
+                - ✅ Entre {config['parametros']['preguntas_minimas']} y {config['parametros']['preguntas_maximas']} preguntas
                 - ✅ Calificación basada en IRT
                 """)
-
 def ejecutar_examen(config, question_manager, ui):
     """Ejecuta la lógica del examen"""
     
