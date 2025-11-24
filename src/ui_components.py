@@ -146,40 +146,30 @@ class UIComponents:
         """, unsafe_allow_html=True)
     
     def mostrar_pregunta(self, pregunta: Dict[str, Any], numero_pregunta: int):
-        """
-        Muestra una pregunta
+        """Muestra una pregunta en formato tarjeta compacta"""
+        dificultad = pregunta['dificultad']
+        color = self._get_dificultad_color(dificultad)
+        categoria = pregunta.get('categoria', '')
         
-        Args:
-            pregunta: Diccionario con la pregunta
-            numero_pregunta: Número de la pregunta
-        """
-        # Encabezado de la pregunta
-        col1, col2 = st.columns([3, 1])
+        categoria_html = f"<span style='color: #6c757d; margin-right: 15px;'>📂 {categoria}</span>" if categoria else ""
         
-        with col1:
-            st.markdown(f"### 📌 Pregunta {numero_pregunta}")
-        
-        with col2:
-            # Badge de dificultad
-            dificultad = pregunta['dificultad']
-            color = self._get_dificultad_color(dificultad)
-            st.markdown(f"""
-            <div style='text-align: right;'>
-                <span style='background-color: {color}; color: white; padding: 5px 15px; 
-                      border-radius: 20px; font-weight: bold;'>
-                    Nivel {dificultad}
-                </span>
+        st.markdown(f"""
+        <div style='background-color: #ffffff; border: 1px solid #dee2e6; border-radius: 8px; 
+             overflow: hidden; margin-bottom: 15px;'>
+            <div style='background-color: #f8f9fa; padding: 10px 15px; border-bottom: 1px solid #dee2e6;
+                 display: flex; justify-content: space-between; align-items: center;'>
+                <span style='font-weight: bold; font-size: 16px;'>Pregunta {numero_pregunta}</span>
+                <div>
+                    {categoria_html}
+                    <span style='background-color: {color}; color: white; padding: 3px 12px; 
+                          border-radius: 12px; font-size: 12px;'>Nivel {dificultad}</span>
+                </div>
             </div>
-            """, unsafe_allow_html=True)
-        
-        # Categoría
-        if 'categoria' in pregunta:
-            st.caption(f"📂 Categoría: {pregunta['categoria']}")
-        
-        # Pregunta
-        st.markdown("---")
-        st.markdown(pregunta['pregunta'])
-        st.markdown("---")
+            <div style='padding: 20px;'>
+                {pregunta['pregunta']}
+            </div>
+        </div>
+        """, unsafe_allow_html=True)
     
     def _get_dificultad_color(self, dificultad: int) -> str:
         """Retorna el color según el nivel de dificultad"""
