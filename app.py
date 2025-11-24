@@ -96,9 +96,11 @@ def main():
         st.exception(e)
 
 
-def verificar_disponibilidad(config_examen_actual):
-    """Verifica si el examen está disponible según el calendario"""
-    
+def verificar_disponibilidad(config):
+    """
+    Verifica si el examen está disponible según el calendario.
+    Solo está disponible DENTRO de las franjas horarias definidas.
+    """
     # Cargar archivo de disponibilidad
     try:
         ruta_disponibilidad = Path(__file__).parent / "config" / "disponibilidad.json"
@@ -112,33 +114,27 @@ def verificar_disponibilidad(config_examen_actual):
     if not disponibilidad.get('habilitado', False):
         return True, "", None
     
+    # Configurar zona horaria
     zona = ZoneInfo(disponibilidad.get('zona_horaria', 'America/Bogota'))
     ahora = datetime.now(zona)
     
-    # Obtener nombre del archivo de config actual
-    nombre_config_actual = config_examen_actual.get('_archivo_config', '')
-    
-    # Filtrar periodos para este examen (o todos si no se especifica examen)
+    # Obtener periodos
     periodos = disponibilidad.get('periodos', [])
-    periodos_este_examen = [
-        p for p in periodos 
-        if p.get('examen', nombre_config_actual) == nombre_config_actual or 'examen' not in p
-    ]
-    
-    if not periodos_este_examen:
+    if not periodos:
         return True, "", None
     
-    # Buscar si estamos dentro de algún periodo
-    for periodo in periodos_este_examen:
+    # Buscar si estamos DENTRO de algún periodo
+    for periodo in periodos:
         inicio = datetime.strptime(periodo['inicio'], "%Y-%m-%d %H:%M").replace(tzinfo=zona)
         fin = datetime.strptime(periodo['fin'], "%Y-%m-%d %H:%M").replace(tzinfo=zona)
         
         if inicio <= ahora <= fin:
-            return True, periodo.get('nombre', ''), None
+            # ✅ Estamos dentro de un periodo válido
+            return True, periodo.get('nombre', 'Examen activo'), periodos
     
-    # Buscar próximo periodo
+    # ❌ NO estamos en ningún periodo - buscar el próximo para informar
     proximos = []
-    for periodo in periodos_este_examen:
+    for periodo in periodos:
         inicio = datetime.strptime(periodo['inicio'], "%Y-%m-%d %H:%M").replace(tzinfo=zona)
         if inicio > ahora:
             proximos.append((inicio, periodo))
@@ -148,9 +144,11 @@ def verificar_disponibilidad(config_examen_actual):
         proximo = proximos[0][1]
         mensaje = f"Próxima disponibilidad: {proximo.get('nombre', '')} - {proximo['inicio']}"
     else:
-        mensaje = "No hay más periodos programados para este examen"
+        # Todos los periodos ya pasaron
+        mensaje = "No hay periodos de disponibilidad programados"
     
-    return False, mensaje, periodos_este_examen
+    # Siempre retorna False si no estamos dentro de un periodo
+    return False, mensaje, periodos
 
 def mostrar_pantalla_inicio(config, ui):
     """Muestra la pantalla de inicio del examen"""
