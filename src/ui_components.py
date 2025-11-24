@@ -40,12 +40,11 @@ class UIComponents:
         instrucciones = self.config.get('instrucciones', {})
         descripcion = self.config.get('descripcion', {})
         
-        # Crear dos columnas
         col1, col2 = st.columns(2)
         
         # Columna izquierda: Descripción del examen
         with col1:
-            st.markdown("### 📚 Sobre este examen")
+            st.markdown("**📚 Sobre este examen**")
             
             texto = descripcion.get('texto', '')
             if texto:
@@ -54,8 +53,12 @@ class UIComponents:
             temas = descripcion.get('temas', [])
             if temas:
                 st.markdown("**Temas evaluados:**")
-                for tema in temas:
-                    st.write(f"• {tema}")
+                temas_html = "".join([f"<li>{tema}</li>" for tema in temas])
+                st.markdown(f"""
+                <ul style='margin: 0; padding-left: 20px; line-height: 1.4;'>
+                    {temas_html}
+                </ul>
+                """, unsafe_allow_html=True)
             
             duracion = descripcion.get('duracion_estimada', '')
             if duracion:
@@ -64,18 +67,23 @@ class UIComponents:
         # Columna derecha: Instrucciones generales
         with col2:
             titulo = instrucciones.get('titulo', 'Instrucciones')
-            st.markdown(f"### 📋 {titulo}")
+            st.markdown(f"**📋 {titulo}**")
             
             items = instrucciones.get('items', [])
-            for item in items:
-                st.write(f"✅ {item}")
+            if items:
+                items_html = "".join([f"<li>✅ {item}</li>" for item in items])
+                st.markdown(f"""
+                <ul style='margin: 0; padding-left: 20px; line-height: 1.4; list-style: none;'>
+                    {items_html}
+                </ul>
+                """, unsafe_allow_html=True)
             
             advertencias = instrucciones.get('advertencias', [])
             if advertencias:
                 st.markdown("**⚠️ Advertencias:**")
                 for adv in advertencias:
                     st.warning(adv)
-    
+                
     def mostrar_metricas_progreso(
         self,
         codigo: str,
