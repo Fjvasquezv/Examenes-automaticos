@@ -35,43 +35,44 @@ class UIComponents:
         </div>
         """, unsafe_allow_html=True)
     
-    def mostrar_instrucciones(self):
-        """Muestra las instrucciones del examen"""
-        st.markdown("### 📋 Instrucciones")
+def mostrar_instrucciones(self):
+    """Muestra las instrucciones del examen"""
+    instrucciones = self.config.get('instrucciones', {})
+    descripcion = self.config.get('descripcion', {})
+    
+    # Descripción del examen (específica)
+    if descripcion:
+        st.markdown("### 📚 Sobre este examen")
         
-        # Descripción
-        for parrafo in self.instrucciones['descripcion']:
-            st.markdown(f"- {parrafo}")
+        texto = descripcion.get('texto', '')
+        if texto:
+            st.write(texto)
         
-        # Temas
-        if self.instrucciones.get('temas'):
-            st.markdown("### 📚 Temas evaluados:")
-            cols = st.columns(2)
-            for i, tema in enumerate(self.instrucciones['temas']):
-                with cols[i % 2]:
-                    st.markdown(f"✓ {tema}")
+        temas = descripcion.get('temas', [])
+        if temas:
+            st.markdown("**Temas evaluados:**")
+            for tema in temas:
+                st.write(f"• {tema}")
         
-        # Parámetros del examen
-        st.markdown("### ⚙️ Parámetros del examen:")
-        col1, col2, col3 = st.columns(3)
+        duracion = descripcion.get('duracion_estimada', '')
+        if duracion:
+            st.info(f"⏱️ Duración estimada: {duracion}")
         
-        with col1:
-            st.metric(
-                "Preguntas mínimas",
-                self.config['parametros']['preguntas_minimas']
-            )
-        
-        with col2:
-            st.metric(
-                "Preguntas máximas",
-                self.config['parametros']['preguntas_maximas']
-            )
-        
-        with col3:
-            st.metric(
-                "Nivel inicial",
-                self.config['parametros']['nivel_inicial']
-            )
+        st.markdown("---")
+    
+    # Instrucciones generales
+    titulo = instrucciones.get('titulo', 'Instrucciones')
+    st.markdown(f"### 📋 {titulo}")
+    
+    items = instrucciones.get('items', [])
+    for item in items:
+        st.write(f"✅ {item}")
+    
+    advertencias = instrucciones.get('advertencias', [])
+    if advertencias:
+        st.markdown("**⚠️ Advertencias:**")
+        for adv in advertencias:
+            st.warning(adv)
     
     def mostrar_metricas_progreso(
         self,
