@@ -5,6 +5,9 @@ Orquestador Principal
 import streamlit as st
 import sys
 from pathlib import Path
+from datetime import datetime
+from zoneinfo import ZoneInfo
+import json
 
 # Agregar AMBOS directorios al path
 base = Path(__file__).parent
@@ -93,8 +96,96 @@ def main():
         st.exception(e)
 
 
+def verificar_disponibilidad(config_examen_actual):
+    """Verifica si el examen está disponible según el calendario"""
+    
+    # Cargar archivo de disponibilidad
+    try:
+        ruta_disponibilidad = Path(__file__).parent / "config" / "disponibilidad.json"
+        with open(ruta_disponibilidad, 'r', encoding='utf-8') as f:
+            disponibilidad = json.load(f)
+    except FileNotFoundError:
+        # Si no existe el archivo, permitir siempre
+        return True, "", None
+    
+    # Si no está habilitado, permitir siempre
+    if not disponibilidad.get('habilitado', False):
+        return True, "", None
+    
+    zona = ZoneInfo(disponibilidad.get('zona_horaria', 'America/Bogota'))
+    ahora = datetime.now(zona)
+    
+    # Obtener nombre del archivo de config actual
+    nombre_config_actual = config_examen_actual.get('_archivo_config', '')
+    
+    # Filtrar periodos para este examen (o todos si no se especifica examen)
+    periodos = disponibilidad.get('periodos', [])
+    periodos_este_examen = [
+        p for p in periodos 
+        if p.get('examen', nombre_config_actual) == nombre_config_actual or 'examen' not in p
+    ]
+    
+    if not periodos_este_examen:
+        return True, "", None
+    
+    # Buscar si estamos dentro de algún periodo
+    for periodo in periodos_este_examen:
+        inicio = datetime.strptime(periodo['inicio'], "%Y-%m-%d %H:%M").replace(tzinfo=zona)
+        fin = datetime.strptime(periodo['fin'], "%Y-%m-%d %H:%M").replace(tzinfo=zona)
+        
+        if inicio <= ahora <= fin:
+            return True, periodo.get('nombre', ''), None
+    
+    # Buscar próximo periodo
+    proximos = []
+    for periodo in periodos_este_examen:
+        inicio = datetime.strptime(periodo['inicio'], "%Y-%m-%d %H:%M").replace(tzinfo=zona)
+        if inicio > ahora:
+            proximos.append((inicio, periodo))
+    
+    if proximos:
+        proximos.sort(key=lambda x: x[0])
+        proximo = proximos[0][1]
+        mensaje = f"Próxima disponibilidad: {proximo.get('nombre', '')} - {proximo['inicio']}"
+    else:
+        mensaje = "No hay más periodos programados para este examen"
+    
+    return False, mensaje, periodos_este_examen
+
 def mostrar_pantalla_inicio(config, ui):
     """Muestra la pantalla de inicio del examen"""
+    
+    # ============================================
+    # VERIFICAR DISPONIBILIDAD SEGÚN CALENDARIO
+    # ============================================
+    disponible, mensaje, periodos = verificar_disponibilidad(config)
+    
+    if not disponible:
+        st.error("⏰ El examen no está disponible en este momento")
+        st.warning(f"📅 {mensaje}")
+        
+        # Mostrar hora actual
+        zona = ZoneInfo("America/Bogota")
+        ahora = datetime.now(zona)
+        st.info(f"🕐 Hora actual: {ahora.strftime('%d/%m/%Y %H:%M')} (Colombia)")
+        
+        # Mostrar calendario de disponibilidad
+        if periodos:
+            st.markdown("### 📆 Calendario de disponibilidad")
+            for p in periodos:
+                st.write(f"**{p.get('nombre', 'Periodo')}:** {p['inicio']} → {p['fin']}")
+        
+        # Detener aquí - NO mostrar el formulario de inicio
+        return
+    
+    # Si hay un periodo activo, mostrar mensaje
+    if mensaje:
+        st.success(f"✅ {mensaje}")
+    
+    # ============================================
+    # PANTALLA DE INICIO NORMAL
+    # ============================================
+    
     # Mostrar instrucciones
     ui.mostrar_instrucciones()
     
@@ -151,12 +242,10 @@ def mostrar_pantalla_inicio(config, ui):
                 st.info("""
                 **Características del examen:**
                 - ✅ Preguntas adaptadas a tu nivel
-                - ✅ Feedback inmediato
                 - ✅ Entre 15 y 30 preguntas
-                - ✅ Tiempo ilimitado
+                - ✅ Tiempo sugerido: 1:45 horas
                 - ✅ Calificación basada en IRT
                 """)
-
 
 def ejecutar_examen(config, question_manager, ui):
     """Ejecuta la lógica del examen"""
@@ -256,8 +345,6 @@ def ejecutar_examen(config, question_manager, ui):
                 pass  # Si falla, continuar igual
             
             st.rerun()
-
-
 def guardar_resultados(config, exam_logic):
     """Guarda los resultados del examen en Google Sheets"""
     try:
