@@ -200,30 +200,40 @@ class DataPersistence:
             True si se guardó exitosamente, False en caso contrario
         """
         try:
+            st.write("🔍 DEBUG: Iniciando guardar_resultados")
+            
             # Preparar datos
             datos = self._preparar_datos(codigo_estudiante, stats)
+            st.write(f"🔍 DEBUG: Datos preparados, {len(datos)} columnas")
             
             # Verificar si existe la hoja
             self._verificar_o_crear_hoja()
+            st.write("🔍 DEBUG: Hoja verificada")
             
             # Buscar si hay una fila EN_CURSO para este estudiante
             try:
+                st.write("🔍 DEBUG: Buscando fila EN_CURSO...")
                 result = self.service.spreadsheets().values().get(
                     spreadsheetId=self.spreadsheet_id,
                     range='Resultados!A:P'
                 ).execute()
                 
                 values = result.get('values', [])
+                st.write(f"🔍 DEBUG: Encontradas {len(values)} filas en total")
+                
                 fila_a_actualizar = None
                 
                 # Buscar la última fila EN_CURSO de este estudiante
                 for i in range(len(values) - 1, 0, -1):
                     if len(values[i]) > 1 and values[i][1] == codigo_estudiante:
+                        st.write(f"🔍 DEBUG: Fila {i+1} pertenece al estudiante {codigo_estudiante}")
                         if len(values[i]) > 14 and values[i][14] == 'EN_CURSO':
                             fila_a_actualizar = i + 1  # +1 porque sheets es 1-indexed
+                            st.write(f"🔍 DEBUG: Fila {fila_a_actualizar} está EN_CURSO")
                             break
                 
                 if fila_a_actualizar:
+                    st.write(f"🔍 DEBUG: Actualizando fila {fila_a_actualizar}")
                     # Actualizar la fila existente
                     range_to_update = f'Resultados!A{fila_a_actualizar}:P{fila_a_actualizar}'
                     body = {'values': [datos]}
@@ -233,14 +243,18 @@ class DataPersistence:
                         valueInputOption='RAW',
                         body=body
                     ).execute()
+                    st.write("✅ DEBUG: Fila actualizada exitosamente")
                 else:
+                    st.write("🔍 DEBUG: No se encontró fila EN_CURSO, creando nueva")
                     # Agregar nueva fila
                     self._agregar_fila(datos)
+                    st.write("✅ DEBUG: Nueva fila agregada")
                 
                 return True
                 
             except HttpError as e:
                 st.error(f"⚠️ Error HTTP al acceder a Google Sheets: {e.status_code}")
+                st.code(str(e))
                 return False
             
         except Exception as e:
