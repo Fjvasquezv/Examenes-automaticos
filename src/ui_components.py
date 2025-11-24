@@ -125,59 +125,25 @@ class UIComponents:
         correctas: int,
         incorrectas: int
     ):
-        """
-        Muestra métricas de progreso durante el examen
+        """Muestra métricas de progreso en una barra compacta"""
+        total_respondidas = correctas + incorrectas
+        porcentaje = (correctas / total_respondidas * 100) if total_respondidas > 0 else 0
+        progreso = (pregunta_actual / total_preguntas) * 100
         
-        Args:
-            codigo: Código del estudiante
-            pregunta_actual: Número de pregunta actual
-            total_preguntas: Total de preguntas máximas
-            correctas: Número de respuestas correctas
-            incorrectas: Número de respuestas incorrectas
-        """
-        # Información del estudiante
         st.markdown(f"""
-        <div style='background-color: #f0f2f6; padding: 15px; border-radius: 10px; margin-bottom: 20px;'>
-            <p style='margin: 0; font-size: 18px;'><strong>👤 Estudiante:</strong> {codigo}</p>
+        <div style='background-color: #f8f9fa; padding: 10px 20px; border-radius: 8px; 
+             margin-bottom: 15px; display: flex; justify-content: space-between; align-items: center;
+             border: 1px solid #dee2e6;'>
+            <span>👤 <strong>{codigo}</strong></span>
+            <span>📝 {pregunta_actual}/{total_preguntas}</span>
+            <span>✅ {correctas}</span>
+            <span>❌ {incorrectas}</span>
+            <span>📊 {porcentaje:.0f}%</span>
+            <div style='width: 100px; background-color: #e9ecef; border-radius: 4px; height: 8px;'>
+                <div style='width: {progreso}%; background-color: #003366; border-radius: 4px; height: 8px;'></div>
+            </div>
         </div>
         """, unsafe_allow_html=True)
-        
-        # Métricas en columnas
-        col1, col2, col3, col4 = st.columns(4)
-        
-        with col1:
-            st.metric(
-                "📝 Pregunta",
-                f"{pregunta_actual}/{total_preguntas}"
-            )
-        
-        with col2:
-            st.metric(
-                "✅ Correctas",
-                correctas,
-                delta=None
-            )
-        
-        with col3:
-            st.metric(
-                "❌ Incorrectas",
-                incorrectas,
-                delta=None
-            )
-        
-        with col4:
-            total_respondidas = correctas + incorrectas
-            porcentaje = (correctas / total_respondidas * 100) if total_respondidas > 0 else 0
-            st.metric(
-                "📊 Aciertos",
-                f"{porcentaje:.1f}%"
-            )
-        
-        # Barra de progreso
-        progreso = pregunta_actual / total_preguntas
-        st.progress(progreso)
-        
-        st.markdown("---")
     
     def mostrar_pregunta(self, pregunta: Dict[str, Any], numero_pregunta: int):
         """
