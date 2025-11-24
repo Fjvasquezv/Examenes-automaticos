@@ -131,7 +131,7 @@ class IRTSimplificado(ScoringSystem):
         """
         # Rango efectivo de theta basado en dificultades reales
         theta_min_efectivo = -2.0
-        theta_max_efectivo = 2.0
+        theta_max_efectivo = 2.5
         
         # Limitar theta al rango efectivo
         theta_limitado = max(theta_min_efectivo, min(theta_max_efectivo, theta))
