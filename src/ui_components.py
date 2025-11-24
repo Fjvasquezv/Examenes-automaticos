@@ -36,12 +36,15 @@ class UIComponents:
         """, unsafe_allow_html=True)
     
     def mostrar_instrucciones(self):
-        """Muestra las instrucciones del examen"""
+        """Muestra las instrucciones del examen en dos columnas"""
         instrucciones = self.config.get('instrucciones', {})
         descripcion = self.config.get('descripcion', {})
         
-        # Descripción del examen (específica)
-        if descripcion:
+        # Crear dos columnas
+        col1, col2 = st.columns(2)
+        
+        # Columna izquierda: Descripción del examen
+        with col1:
             st.markdown("### 📚 Sobre este examen")
             
             texto = descripcion.get('texto', '')
@@ -57,8 +60,21 @@ class UIComponents:
             duracion = descripcion.get('duracion_estimada', '')
             if duracion:
                 st.info(f"⏱️ Duración estimada: {duracion}")
+        
+        # Columna derecha: Instrucciones generales
+        with col2:
+            titulo = instrucciones.get('titulo', 'Instrucciones')
+            st.markdown(f"### 📋 {titulo}")
             
-            st.markdown("---")
+            items = instrucciones.get('items', [])
+            for item in items:
+                st.write(f"✅ {item}")
+            
+            advertencias = instrucciones.get('advertencias', [])
+            if advertencias:
+                st.markdown("**⚠️ Advertencias:**")
+                for adv in advertencias:
+                    st.warning(adv)
         
         # Instrucciones generales
         titulo = instrucciones.get('titulo', 'Instrucciones')
