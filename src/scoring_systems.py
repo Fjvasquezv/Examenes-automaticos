@@ -127,23 +127,19 @@ class IRTSimplificado(ScoringSystem):
     def theta_a_nota(self, theta: float) -> float:
         """
         Convierte theta a una nota en escala 0-5
-        
-        Args:
-            theta: Habilidad estimada
-            
-        Returns:
-            Nota entre 0 y 5
+        Usa transformación ajustada para permitir alcanzar 5.0
         """
-        # Mapear theta (típicamente entre -3 y 3) a escala 0-5
-        # theta = -3 → nota = 0
-        # theta = 0 → nota = 3
-        # theta = 3 → nota = 5
+        # Rango efectivo de theta basado en dificultades reales
+        theta_min_efectivo = -2.0
+        theta_max_efectivo = 2.0
         
-        # Transformación lineal
-        nota = ((theta - self.theta_min) / (self.theta_max - self.theta_min)) * 5.0
+        # Limitar theta al rango efectivo
+        theta_limitado = max(theta_min_efectivo, min(theta_max_efectivo, theta))
         
-        # Asegurar que esté en rango [0, 5]
-        return max(0.0, min(5.0, nota))
+        # Transformación lineal al rango 0-5
+        nota = ((theta_limitado - theta_min_efectivo) / (theta_max_efectivo - theta_min_efectivo)) * 5.0
+        
+        return round(max(0.0, min(5.0, nota)), 2)
     
     def calcular_nota(self, respuestas: List[Dict[str, Any]]) -> float:
         """
