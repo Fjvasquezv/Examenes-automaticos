@@ -239,6 +239,26 @@ class UIComponents:
         
         st.markdown("---")
         
+        # NUEVO: Retroalimentación detallada de cada pregunta
+        if 'detalle_respuestas' in stats:
+            st.markdown("### 📝 Retroalimentación Detallada")
+            
+            for i, detalle in enumerate(stats['detalle_respuestas'], 1):
+                with st.expander(f"Pregunta {i} - {'✅ Correcta' if detalle['correcta'] else '❌ Incorrecta'}"):
+                    st.markdown(f"**Pregunta:** {detalle['pregunta']}")
+                    st.markdown(f"**Categoría:** {detalle['categoria']} | **Dificultad:** Nivel {detalle['dificultad']}")
+                    
+                    if detalle['correcta']:
+                        st.success("✅ Tu respuesta fue correcta")
+                    else:
+                        st.error("❌ Tu respuesta fue incorrecta")
+                        st.info(f"**Respuesta correcta:** {detalle['respuesta_correcta']}")
+                    
+                    st.markdown("**💡 Explicación:**")
+                    st.info(detalle['explicacion'])
+            
+            st.markdown("---")
+        
         # Gráfico de evolución de la nota
         self._mostrar_grafico_evolucion(stats['historial_notas'])
         

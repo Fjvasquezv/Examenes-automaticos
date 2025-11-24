@@ -8,6 +8,7 @@ from typing import Dict, List, Any, Optional
 from question_manager import QuestionManager
 from scoring_systems import crear_sistema_calificacion
 
+
 class ExamLogic:
     """Clase que implementa la lógica del examen adaptativo"""
     
@@ -124,13 +125,18 @@ class ExamLogic:
         else:
             self.incorrectas += 1
         
-        # Guardar respuesta
+        # Guardar respuesta con TODOS los detalles para retroalimentación final
         respuesta_info = {
             'pregunta_id': pregunta['id'],
             'dificultad': pregunta['dificultad'],
             'categoria': pregunta.get('categoria', 'Sin categoría'),
             'correcta': es_correcta,
-            'nivel_en_pregunta': self.nivel_actual
+            'nivel_en_pregunta': self.nivel_actual,
+            # NUEVO: Guardar detalles para retroalimentación
+            'pregunta_texto': pregunta['pregunta'],
+            'respuesta_correcta_texto': texto_correcto,
+            'respuesta_estudiante_texto': texto_seleccionado,
+            'explicacion': pregunta.get('explicacion', 'Sin explicación disponible')
         }
         self.preguntas_respondidas.append(respuesta_info)
         
@@ -244,6 +250,19 @@ class ExamLogic:
         # Progresión de dificultad
         niveles_progresion = [r['nivel_en_pregunta'] for r in self.preguntas_respondidas]
         
+        # NUEVO: Preparar detalle de respuestas para retroalimentación
+        detalle_respuestas = []
+        for respuesta in self.preguntas_respondidas:
+            detalle_respuestas.append({
+                'pregunta': respuesta['pregunta_texto'],
+                'categoria': respuesta['categoria'],
+                'dificultad': respuesta['dificultad'],
+                'correcta': respuesta['correcta'],
+                'respuesta_correcta': respuesta['respuesta_correcta_texto'],
+                'respuesta_estudiante': respuesta['respuesta_estudiante_texto'],
+                'explicacion': respuesta['explicacion']
+            })
+        
         return {
             'preguntas_respondidas': len(self.preguntas_respondidas),
             'correctas': self.correctas,
@@ -258,7 +277,8 @@ class ExamLogic:
             'stats_por_categoria': stats_por_categoria,
             'niveles_progresion': niveles_progresion,
             'preguntas_ids': [r['pregunta_id'] for r in self.preguntas_respondidas],
-            'razon_terminacion': self._obtener_razon_terminacion()
+            'razon_terminacion': self._obtener_razon_terminacion(),
+            'detalle_respuestas': detalle_respuestas  # NUEVO
         }
     
     def _calcular_stats_por_nivel(self) -> Dict[int, Dict[str, Any]]:
