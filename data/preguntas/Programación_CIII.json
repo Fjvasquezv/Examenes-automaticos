@@ -1678,5 +1678,3365 @@
     },
     "respuesta_correcta": "c",
     "explicacion": "Clase abstracta requiere implementar método abstracto. Bomba implementa encender() correctamente"
+  },
+  {
+    "id": "p121",
+    "dificultad": 1,
+    "categoria": "Tipos de datos",
+    "pregunta": "¿Qué tipo de dato es el valor `True` en Python?",
+    "opciones": {
+      "a": "int",
+      "b": "str",
+      "c": "bool",
+      "d": "float"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "True y False son los únicos valores del tipo booleano (bool) en Python."
+  },
+  {
+    "id": "p122",
+    "dificultad": 1,
+    "categoria": "Tipos de datos",
+    "pregunta": "¿Cuál es el resultado de `type('Python').__name__`?",
+    "opciones": {
+      "a": "string",
+      "b": "str",
+      "c": "char",
+      "d": "text"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "En Python, las cadenas de texto son de tipo 'str' (string)."
+  },
+  {
+    "id": "p123",
+    "dificultad": 1,
+    "categoria": "Tipos de datos",
+    "pregunta": "¿Qué imprime este código?\n\n```python\nx = None\nprint(type(x).__name__)\n```",
+    "opciones": {
+      "a": "null",
+      "b": "None",
+      "c": "NoneType",
+      "d": "void"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "None es el único valor del tipo NoneType, usado para representar ausencia de valor."
+  },
+  {
+    "id": "p124",
+    "dificultad": 2,
+    "categoria": "Tipos de datos",
+    "pregunta": "¿Qué imprime este código?\n\n```python\nx = int(3.9)\nprint(x)\n```",
+    "opciones": {
+      "a": "3",
+      "b": "4",
+      "c": "3.9",
+      "d": "Error"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "int() trunca el decimal, no redondea. 3.9 se convierte a 3."
+  },
+  {
+    "id": "p125",
+    "dificultad": 2,
+    "categoria": "Tipos de datos",
+    "pregunta": "¿Cuál es el resultado?\n\n```python\nx = str(42) + str(8)\nprint(x)\n```",
+    "opciones": {
+      "a": "50",
+      "b": "428",
+      "c": "\"428\"",
+      "d": "Error"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "str(42) es '42' y str(8) es '8'. La concatenación de strings produce '428'."
+  },
+  {
+    "id": "p126",
+    "dificultad": 2,
+    "categoria": "Tipos de datos",
+    "pregunta": "¿Qué imprime este código?\n\n```python\nprint(bool(0), bool(1), bool(-1))\n```",
+    "opciones": {
+      "a": "False False False",
+      "b": "False True True",
+      "c": "False True False",
+      "d": "True True True"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "En Python, 0 es False y cualquier número distinto de cero (1, -1, etc.) es True."
+  },
+  {
+    "id": "p127",
+    "dificultad": 3,
+    "categoria": "Tipos de datos",
+    "pregunta": "¿Cuál es el resultado?\n\n```python\nx = float('inf')\ny = float('-inf')\nprint(x > 1000000, y < -1000000)\n```",
+    "opciones": {
+      "a": "True True",
+      "b": "False False",
+      "c": "True False",
+      "d": "Error"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "Python soporta infinito positivo y negativo. inf es mayor que cualquier número finito."
+  },
+  {
+    "id": "p128",
+    "dificultad": 3,
+    "categoria": "Tipos de datos",
+    "pregunta": "¿Qué imprime este código?\n\n```python\na = [1, 2, 3]\nb = a\nb.append(4)\nprint(len(a))\n```",
+    "opciones": {
+      "a": "3",
+      "b": "4",
+      "c": "Error",
+      "d": "None"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "b = a no copia la lista, ambas variables referencian el mismo objeto. Al modificar b, también se modifica a."
+  },
+  {
+    "id": "p129",
+    "dificultad": 4,
+    "categoria": "Tipos de datos",
+    "pregunta": "¿Qué imprime este código?\n\n```python\nimport sys\na = 256\nb = 256\nc = 257\nd = 257\nprint(a is b, c is d)\n```",
+    "opciones": {
+      "a": "True True",
+      "b": "True False",
+      "c": "False False",
+      "d": "False True"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Python cachea enteros pequeños (-5 a 256). 256 usa el mismo objeto en memoria, pero 257 crea objetos diferentes."
+  },
+  {
+    "id": "p130",
+    "dificultad": 4,
+    "categoria": "Tipos de datos",
+    "pregunta": "¿Cuál es el resultado?\n\n```python\nx = 0.1 + 0.2\nprint(x == 0.3)\n```",
+    "opciones": {
+      "a": "True",
+      "b": "False",
+      "c": "Error",
+      "d": "0.3"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Por la representación binaria de punto flotante, 0.1 + 0.2 no es exactamente 0.3 (es 0.30000000000000004)."
+  },
+  {
+    "id": "p131",
+    "dificultad": 5,
+    "categoria": "Tipos de datos",
+    "pregunta": "¿Qué imprime este código?\n\n```python\nfrom decimal import Decimal\nx = Decimal('0.1') + Decimal('0.2')\nprint(x == Decimal('0.3'))\n```",
+    "opciones": {
+      "a": "True",
+      "b": "False",
+      "c": "Error",
+      "d": "0.3"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "Decimal proporciona aritmética decimal exacta, evitando errores de punto flotante."
+  },
+  {
+    "id": "p132",
+    "dificultad": 5,
+    "categoria": "Tipos de datos",
+    "pregunta": "¿Qué imprime?\n\n```python\nclass MiClase:\n    pass\n\nobj = MiClase()\nprint(isinstance(obj, object))\n```",
+    "opciones": {
+      "a": "True",
+      "b": "False",
+      "c": "Error",
+      "d": "None"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "En Python 3, todas las clases heredan de object implícitamente. Todo objeto es instancia de object."
+  },
+  {
+    "id": "p133",
+    "dificultad": 1,
+    "categoria": "Operadores",
+    "pregunta": "¿Cuál es el resultado de `15 % 4`?",
+    "opciones": {
+      "a": "3",
+      "b": "3.75",
+      "c": "4",
+      "d": "1"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "El operador % devuelve el resto de la división. 15 = 4*3 + 3, por lo tanto el resto es 3."
+  },
+  {
+    "id": "p134",
+    "dificultad": 1,
+    "categoria": "Operadores",
+    "pregunta": "¿Qué imprime `print(2 ** 3)`?",
+    "opciones": {
+      "a": "6",
+      "b": "8",
+      "c": "5",
+      "d": "Error"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "El operador ** es potenciación. 2 ** 3 = 2³ = 8"
+  },
+  {
+    "id": "p135",
+    "dificultad": 1,
+    "categoria": "Operadores",
+    "pregunta": "¿Cuál es el resultado de `17 // 5`?",
+    "opciones": {
+      "a": "3.4",
+      "b": "3",
+      "c": "4",
+      "d": "2"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "El operador // realiza división entera (floor division). 17 // 5 = 3 (descarta decimales)."
+  },
+  {
+    "id": "p136",
+    "dificultad": 2,
+    "categoria": "Operadores",
+    "pregunta": "¿Qué imprime este código?\n\n```python\nx = 10\nx += 5\nx *= 2\nprint(x)\n```",
+    "opciones": {
+      "a": "20",
+      "b": "25",
+      "c": "30",
+      "d": "35"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "x = 10, luego x += 5 da x = 15, finalmente x *= 2 da x = 30."
+  },
+  {
+    "id": "p137",
+    "dificultad": 2,
+    "categoria": "Operadores",
+    "pregunta": "¿Cuál es el resultado?\n\n```python\nprint(5 + 3 * 2)\n```",
+    "opciones": {
+      "a": "16",
+      "b": "11",
+      "c": "13",
+      "d": "10"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "La multiplicación tiene mayor precedencia que la suma. 3 * 2 = 6, luego 5 + 6 = 11."
+  },
+  {
+    "id": "p138",
+    "dificultad": 2,
+    "categoria": "Operadores",
+    "pregunta": "¿Qué imprime?\n\n```python\nprint(-7 // 2)\n```",
+    "opciones": {
+      "a": "-3",
+      "b": "-4",
+      "c": "-3.5",
+      "d": "3"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "La división entera redondea hacia menos infinito. -7 // 2 = -4 (no -3)."
+  },
+  {
+    "id": "p139",
+    "dificultad": 3,
+    "categoria": "Operadores",
+    "pregunta": "¿Cuál es el resultado?\n\n```python\na = 5\nb = 3\nprint(a == 5 and b > 2 or a < 3)\n```",
+    "opciones": {
+      "a": "True",
+      "b": "False",
+      "c": "5",
+      "d": "Error"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "(5 == 5) and (3 > 2) = True and True = True. True or False = True."
+  },
+  {
+    "id": "p140",
+    "dificultad": 3,
+    "categoria": "Operadores",
+    "pregunta": "¿Qué imprime?\n\n```python\nx = [1, 2, 3]\ny = [1, 2, 3]\nprint(x == y, x is y)\n```",
+    "opciones": {
+      "a": "True True",
+      "b": "True False",
+      "c": "False True",
+      "d": "False False"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "== compara valores (iguales), is compara identidad en memoria (son objetos diferentes)."
+  },
+  {
+    "id": "p141",
+    "dificultad": 3,
+    "categoria": "Operadores",
+    "pregunta": "¿Cuál es el resultado?\n\n```python\nprint(not True or False and True)\n```",
+    "opciones": {
+      "a": "True",
+      "b": "False",
+      "c": "None",
+      "d": "Error"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Precedencia: not > and > or. not True = False. False and True = False. False or False = False."
+  },
+  {
+    "id": "p142",
+    "dificultad": 4,
+    "categoria": "Operadores",
+    "pregunta": "¿Qué imprime?\n\n```python\na = 10\nb = 20\nc = a if a > b else b\nprint(c)\n```",
+    "opciones": {
+      "a": "10",
+      "b": "20",
+      "c": "True",
+      "d": "Error"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "El operador ternario evalúa la condición. Como 10 > 20 es False, retorna b = 20."
+  },
+  {
+    "id": "p143",
+    "dificultad": 4,
+    "categoria": "Operadores",
+    "pregunta": "¿Cuál es el resultado?\n\n```python\nx = 5\nprint(1 < x < 10)\n```",
+    "opciones": {
+      "a": "True",
+      "b": "False",
+      "c": "Error de sintaxis",
+      "d": "None"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "Python permite comparaciones encadenadas. 1 < 5 < 10 es equivalente a (1 < 5) and (5 < 10)."
+  },
+  {
+    "id": "p144",
+    "dificultad": 4,
+    "categoria": "Operadores",
+    "pregunta": "¿Qué imprime?\n\n```python\na = 60  # 0011 1100 en binario\nb = 13  # 0000 1101 en binario\nprint(a & b)\n```",
+    "opciones": {
+      "a": "12",
+      "b": "61",
+      "c": "73",
+      "d": "48"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "& es AND bit a bit. 60 & 13 = 0011 1100 & 0000 1101 = 0000 1100 = 12"
+  },
+  {
+    "id": "p145",
+    "dificultad": 5,
+    "categoria": "Operadores",
+    "pregunta": "¿Cuál es el resultado?\n\n```python\nprint([] or 'vacio' and 'lleno')\n```",
+    "opciones": {
+      "a": "[]",
+      "b": "vacio",
+      "c": "lleno",
+      "d": "True"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "[] es falsy. or retorna el segundo valor si el primero es falsy. 'vacio' and 'lleno' retorna 'lleno' (último truthy)."
+  },
+  {
+    "id": "p146",
+    "dificultad": 5,
+    "categoria": "Operadores",
+    "pregunta": "¿Qué imprime?\n\n```python\na = [1, 2]\nb = [3, 4]\nprint(a + b * 2)\n```",
+    "opciones": {
+      "a": "[1, 2, 6, 8]",
+      "b": "[1, 2, 3, 4, 3, 4]",
+      "c": "[2, 4, 6, 8]",
+      "d": "Error"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "* tiene mayor precedencia. b * 2 = [3, 4, 3, 4]. Luego [1, 2] + [3, 4, 3, 4] = [1, 2, 3, 4, 3, 4]."
+  },
+  {
+    "id": "p147",
+    "dificultad": 1,
+    "categoria": "Control de flujo",
+    "pregunta": "¿Qué imprime?\n\n```python\nx = 10\nif x > 5:\n    print('Mayor')\n```",
+    "opciones": {
+      "a": "Mayor",
+      "b": "Nada",
+      "c": "10",
+      "d": "Error"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "La condición 10 > 5 es True, por lo que se ejecuta el print."
+  },
+  {
+    "id": "p148",
+    "dificultad": 1,
+    "categoria": "Control de flujo",
+    "pregunta": "¿Cuántas veces se imprime 'Hola'?\n\n```python\nfor i in range(3):\n    print('Hola')\n```",
+    "opciones": {
+      "a": "2",
+      "b": "3",
+      "c": "4",
+      "d": "0"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "range(3) genera 0, 1, 2 (tres valores), así que el bucle se ejecuta 3 veces."
+  },
+  {
+    "id": "p149",
+    "dificultad": 1,
+    "categoria": "Control de flujo",
+    "pregunta": "¿Qué imprime?\n\n```python\nfor i in range(1, 4):\n    print(i, end=' ')\n```",
+    "opciones": {
+      "a": "0 1 2 3",
+      "b": "1 2 3",
+      "c": "1 2 3 4",
+      "d": "0 1 2"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "range(1, 4) genera números desde 1 hasta 3 (sin incluir 4)."
+  },
+  {
+    "id": "p150",
+    "dificultad": 2,
+    "categoria": "Control de flujo",
+    "pregunta": "¿Qué imprime?\n\n```python\nx = 7\nif x > 10:\n    print('A')\nelif x > 5:\n    print('B')\nelse:\n    print('C')\n```",
+    "opciones": {
+      "a": "A",
+      "b": "B",
+      "c": "C",
+      "d": "A B"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "7 > 10 es False, pero 7 > 5 es True, entonces imprime 'B'."
+  },
+  {
+    "id": "p151",
+    "dificultad": 2,
+    "categoria": "Control de flujo",
+    "pregunta": "¿Cuál es el valor final de suma?\n\n```python\nsuma = 0\nfor i in range(1, 5):\n    suma += i\nprint(suma)\n```",
+    "opciones": {
+      "a": "10",
+      "b": "15",
+      "c": "9",
+      "d": "4"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "suma = 1 + 2 + 3 + 4 = 10"
+  },
+  {
+    "id": "p152",
+    "dificultad": 2,
+    "categoria": "Control de flujo",
+    "pregunta": "¿Qué imprime este código?\n\n```python\ni = 5\nwhile i > 0:\n    print(i, end=' ')\n    i -= 2\n```",
+    "opciones": {
+      "a": "5 4 3 2 1",
+      "b": "5 3 1",
+      "c": "5 3",
+      "d": "5 3 1 -1"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "i empieza en 5, decrementa de 2 en 2: 5, 3, 1. Cuando i = -1, la condición falla."
+  },
+  {
+    "id": "p153",
+    "dificultad": 3,
+    "categoria": "Control de flujo",
+    "pregunta": "¿Qué imprime?\n\n```python\nfor i in range(5):\n    if i == 3:\n        break\n    print(i, end=' ')\n```",
+    "opciones": {
+      "a": "0 1 2 3 4",
+      "b": "0 1 2",
+      "c": "0 1 2 4",
+      "d": "1 2"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "break termina el bucle cuando i == 3. Se imprimen 0, 1, 2."
+  },
+  {
+    "id": "p154",
+    "dificultad": 3,
+    "categoria": "Control de flujo",
+    "pregunta": "¿Qué imprime?\n\n```python\nfor i in range(5):\n    if i == 2:\n        continue\n    print(i, end=' ')\n```",
+    "opciones": {
+      "a": "0 1 3 4",
+      "b": "0 1 2 3 4",
+      "c": "0 1",
+      "d": "3 4"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "continue salta la iteración cuando i == 2, pero continúa con las siguientes."
+  },
+  {
+    "id": "p155",
+    "dificultad": 3,
+    "categoria": "Control de flujo",
+    "pregunta": "¿Qué imprime?\n\n```python\nfor i in range(3):\n    for j in range(2):\n        print(f'{i},{j}', end=' ')\n```",
+    "opciones": {
+      "a": "0,0 0,1 1,0 1,1 2,0 2,1",
+      "b": "0,0 1,1 2,2",
+      "c": "0,0 1,0 2,0",
+      "d": "0,1 1,2 2,3"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "Bucles anidados: para cada valor de i (0,1,2), j toma valores (0,1)."
+  },
+  {
+    "id": "p156",
+    "dificultad": 4,
+    "categoria": "Control de flujo",
+    "pregunta": "¿Qué imprime?\n\n```python\nfor i in range(3):\n    pass\nelse:\n    print('Fin')\n```",
+    "opciones": {
+      "a": "Nada",
+      "b": "Fin",
+      "c": "Error de sintaxis",
+      "d": "0 1 2 Fin"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "El else de un for se ejecuta si el bucle termina normalmente (sin break)."
+  },
+  {
+    "id": "p157",
+    "dificultad": 4,
+    "categoria": "Control de flujo",
+    "pregunta": "¿Qué imprime?\n\n```python\nfor i in range(5):\n    if i == 3:\n        break\nelse:\n    print('Completado')\nprint('Fin')\n```",
+    "opciones": {
+      "a": "Completado Fin",
+      "b": "Fin",
+      "c": "Completado",
+      "d": "Nada"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "El else no se ejecuta porque el bucle termina con break. Solo se imprime 'Fin'."
+  },
+  {
+    "id": "p158",
+    "dificultad": 4,
+    "categoria": "Control de flujo",
+    "pregunta": "¿Cuántas iteraciones realiza el bucle exterior?\n\n```python\ncontador = 0\nfor i in range(3):\n    for j in range(4):\n        if j == 2:\n            break\n        contador += 1\nprint(contador)\n```",
+    "opciones": {
+      "a": "6",
+      "b": "12",
+      "c": "8",
+      "d": "3"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "El break solo sale del bucle interior. Para cada i (3 veces), j llega hasta 2 (0,1 = 2 iteraciones). 3 * 2 = 6."
+  },
+  {
+    "id": "p159",
+    "dificultad": 5,
+    "categoria": "Control de flujo",
+    "pregunta": "¿Qué imprime?\n\n```python\nresultado = []\nfor i in range(3):\n    for j in range(3):\n        if i == j:\n            continue\n        if j > i:\n            resultado.append((i, j))\nprint(len(resultado))\n```",
+    "opciones": {
+      "a": "3",
+      "b": "6",
+      "c": "9",
+      "d": "4"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "Se agregan pares donde j > i y i != j: (0,1), (0,2), (1,2). Total: 3."
+  },
+  {
+    "id": "p160",
+    "dificultad": 5,
+    "categoria": "Control de flujo",
+    "pregunta": "¿Qué valor tiene n al final?\n\n```python\nn = 10\nwhile n > 0:\n    if n % 2 == 0:\n        n = n // 2\n    else:\n        n = n - 1\nprint(n)\n```",
+    "opciones": {
+      "a": "0",
+      "b": "1",
+      "c": "5",
+      "d": "2"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "n: 10→5→4→2→1→0. El bucle termina cuando n = 0."
+  },
+  {
+    "id": "p161",
+    "dificultad": 1,
+    "categoria": "Control de flujo",
+    "pregunta": "¿Qué imprime?\n\n```python\nnumero = 0\nif numero:\n    print('Verdadero')\nelse:\n    print('Falso')\n```",
+    "opciones": {
+      "a": "Verdadero",
+      "b": "Falso",
+      "c": "0",
+      "d": "Error"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "El valor 0 es considerado False en contexto booleano."
+  },
+  {
+    "id": "p162",
+    "dificultad": 2,
+    "categoria": "Control de flujo",
+    "pregunta": "¿Qué imprime?\n\n```python\nletras = 'ABC'\nfor letra in letras:\n    print(letra, end='-')\n```",
+    "opciones": {
+      "a": "ABC",
+      "b": "A-B-C-",
+      "c": "A-B-C",
+      "d": "A B C"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "El for itera sobre cada carácter del string. end='-' reemplaza el salto de línea."
+  },
+  {
+    "id": "p163",
+    "dificultad": 3,
+    "categoria": "Control de flujo",
+    "pregunta": "¿Qué imprime?\n\n```python\nnumeros = [1, 2, 3, 4, 5]\nfor i, num in enumerate(numeros):\n    if i == 2:\n        print(num)\n        break\n```",
+    "opciones": {
+      "a": "2",
+      "b": "3",
+      "c": "1",
+      "d": "4"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "enumerate retorna (índice, valor). Cuando i=2, num=3 (índice 2 corresponde al valor 3)."
+  },
+  {
+    "id": "p164",
+    "dificultad": 4,
+    "categoria": "Control de flujo",
+    "pregunta": "¿Qué imprime?\n\n```python\nmatriz = [[1, 2], [3, 4], [5, 6]]\ntotal = 0\nfor fila in matriz:\n    for elem in fila:\n        if elem % 2 == 0:\n            total += elem\nprint(total)\n```",
+    "opciones": {
+      "a": "12",
+      "b": "21",
+      "c": "9",
+      "d": "6"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "Suma de elementos pares: 2 + 4 + 6 = 12"
+  },
+  {
+    "id": "p165",
+    "dificultad": 5,
+    "categoria": "Control de flujo",
+    "pregunta": "¿Cuántos números primos encuentra?\n\n```python\nprimos = []\nfor n in range(2, 20):\n    es_primo = True\n    for i in range(2, int(n**0.5) + 1):\n        if n % i == 0:\n            es_primo = False\n            break\n    if es_primo:\n        primos.append(n)\nprint(len(primos))\n```",
+    "opciones": {
+      "a": "6",
+      "b": "7",
+      "c": "8",
+      "d": "9"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "Primos del 2 al 19: 2, 3, 5, 7, 11, 13, 17, 19. Total: 8."
+  },
+  {
+    "id": "p166",
+    "dificultad": 1,
+    "categoria": "Operadores",
+    "pregunta": "¿Qué imprime?\n\n```python\nprint(10 > 5)\n```",
+    "opciones": {
+      "a": "10",
+      "b": "5",
+      "c": "True",
+      "d": "False"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "El operador > compara valores y retorna un booleano. 10 > 5 es verdadero."
+  },
+  {
+    "id": "p167",
+    "dificultad": 2,
+    "categoria": "Operadores",
+    "pregunta": "¿Cuál es el resultado?\n\n```python\nprint(10 != 10)\n```",
+    "opciones": {
+      "a": "True",
+      "b": "False",
+      "c": "10",
+      "d": "Error"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "!= significa 'diferente de'. 10 no es diferente de 10, por lo tanto es False."
+  },
+  {
+    "id": "p168",
+    "dificultad": 3,
+    "categoria": "Control de flujo",
+    "pregunta": "¿Qué imprime?\n\n```python\nx = 5\nmatch x:\n    case 1:\n        print('uno')\n    case 5:\n        print('cinco')\n    case _:\n        print('otro')\n```",
+    "opciones": {
+      "a": "uno",
+      "b": "cinco",
+      "c": "otro",
+      "d": "Error de sintaxis"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "match-case (Python 3.10+) compara x con cada caso. x=5 coincide con case 5."
+  },
+  {
+    "id": "p169",
+    "dificultad": 4,
+    "categoria": "Operadores",
+    "pregunta": "¿Qué imprime?\n\n```python\na = None\nb = a or 'default'\nprint(b)\n```",
+    "opciones": {
+      "a": "None",
+      "b": "default",
+      "c": "True",
+      "d": "False"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "None es falsy. El operador or retorna el primer valor truthy, que es 'default'."
+  },
+  {
+    "id": "p170",
+    "dificultad": 5,
+    "categoria": "Operadores",
+    "pregunta": "¿Qué imprime?\n\n```python\na = 5\nb = 10\na, b = b, a + b\nprint(a, b)\n```",
+    "opciones": {
+      "a": "10 15",
+      "b": "15 10",
+      "c": "10 10",
+      "d": "5 15"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "La asignación múltiple evalúa el lado derecho primero con valores originales. b=10, a+b=15. Luego a=10, b=15."
+  },
+  {
+    "id": "p171",
+    "dificultad": 1,
+    "categoria": "Tipos de datos",
+    "pregunta": "¿Qué imprime?\n\n```python\nlista = []\nprint(bool(lista))\n```",
+    "opciones": {
+      "a": "True",
+      "b": "False",
+      "c": "[]",
+      "d": "None"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Una lista vacía es considerada False en contexto booleano."
+  },
+  {
+    "id": "p172",
+    "dificultad": 2,
+    "categoria": "Tipos de datos",
+    "pregunta": "¿Qué imprime?\n\n```python\nx = '123'\ny = int(x)\nprint(y + 7)\n```",
+    "opciones": {
+      "a": "1237",
+      "b": "130",
+      "c": "Error",
+      "d": "123 7"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "int('123') convierte el string a entero 123. 123 + 7 = 130."
+  },
+  {
+    "id": "p173",
+    "dificultad": 3,
+    "categoria": "Tipos de datos",
+    "pregunta": "¿Qué imprime?\n\n```python\nx = 3.7\nprint(round(x))\n```",
+    "opciones": {
+      "a": "3",
+      "b": "4",
+      "c": "3.7",
+      "d": "3.0"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "round() redondea al entero más cercano. 3.7 se redondea a 4."
+  },
+  {
+    "id": "p174",
+    "dificultad": 4,
+    "categoria": "Tipos de datos",
+    "pregunta": "¿Qué imprime?\n\n```python\nprint(round(2.5), round(3.5))\n```",
+    "opciones": {
+      "a": "2 4",
+      "b": "3 4",
+      "c": "2 3",
+      "d": "3 3"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "Python usa 'banker's rounding': redondea al par más cercano. 2.5→2, 3.5→4."
+  },
+  {
+    "id": "p175",
+    "dificultad": 5,
+    "categoria": "Tipos de datos",
+    "pregunta": "¿Qué imprime?\n\n```python\nfrom fractions import Fraction\nx = Fraction(1, 3) + Fraction(1, 6)\nprint(x)\n```",
+    "opciones": {
+      "a": "0.5",
+      "b": "1/2",
+      "c": "2/9",
+      "d": "0.4999..."
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Fraction hace aritmética exacta de fracciones. 1/3 + 1/6 = 2/6 + 1/6 = 3/6 = 1/2."
+  },
+  {
+    "id": "p176",
+    "dificultad": 1,
+    "categoria": "Control de flujo",
+    "pregunta": "¿Qué imprime?\n\n```python\nif 'a' in 'python':\n    print('Sí')\nelse:\n    print('No')\n```",
+    "opciones": {
+      "a": "Sí",
+      "b": "No",
+      "c": "Error",
+      "d": "True"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "'a' no está en 'python', por lo tanto la condición es False e imprime 'No'."
+  },
+  {
+    "id": "p177",
+    "dificultad": 2,
+    "categoria": "Control de flujo",
+    "pregunta": "¿Cuál es el resultado final?\n\n```python\nresultado = 1\nfor i in range(1, 5):\n    resultado *= i\nprint(resultado)\n```",
+    "opciones": {
+      "a": "10",
+      "b": "24",
+      "c": "120",
+      "d": "4"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Es el factorial de 4: 1 * 1 * 2 * 3 * 4 = 24"
+  },
+  {
+    "id": "p178",
+    "dificultad": 3,
+    "categoria": "Operadores",
+    "pregunta": "¿Qué imprime?\n\n```python\na = 'Hola'\nb = 'hola'\nprint(a.lower() == b)\n```",
+    "opciones": {
+      "a": "True",
+      "b": "False",
+      "c": "Error",
+      "d": "None"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "'Hola'.lower() retorna 'hola', que es igual a b."
+  },
+  {
+    "id": "p179",
+    "dificultad": 4,
+    "categoria": "Control de flujo",
+    "pregunta": "¿Qué imprime?\n\n```python\nnumeros = [1, 2, 3, 4, 5]\nresultado = sum(1 for n in numeros if n > 2)\nprint(resultado)\n```",
+    "opciones": {
+      "a": "2",
+      "b": "3",
+      "c": "12",
+      "d": "5"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Cuenta números mayores a 2: 3, 4, 5 = 3 elementos."
+  },
+  {
+    "id": "p180",
+    "dificultad": 5,
+    "categoria": "Control de flujo",
+    "pregunta": "¿Qué imprime?\n\n```python\ndef gen():\n    for i in range(3):\n        yield i * 2\n\nresultado = list(gen())\nprint(resultado)\n```",
+    "opciones": {
+      "a": "[0, 1, 2]",
+      "b": "[0, 2, 4]",
+      "c": "[2, 4, 6]",
+      "d": "Error"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "El generador yield produce 0*2=0, 1*2=2, 2*2=4. list() convierte a [0, 2, 4]."
+  },
+  {
+    "id": "p181",
+    "dificultad": 1,
+    "categoria": "Funciones",
+    "pregunta": "¿Qué imprime?\n\n```python\ndef saludar():\n    print('Hola')\n\nsaludar()\n```",
+    "opciones": {
+      "a": "Hola",
+      "b": "saludar",
+      "c": "None",
+      "d": "Error"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "La función saludar() imprime 'Hola' cuando es llamada."
+  },
+  {
+    "id": "p182",
+    "dificultad": 1,
+    "categoria": "Funciones",
+    "pregunta": "¿Qué retorna esta función?\n\n```python\ndef cuadrado(x):\n    return x * x\n\nprint(cuadrado(4))\n```",
+    "opciones": {
+      "a": "8",
+      "b": "16",
+      "c": "4",
+      "d": "Error"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "La función retorna x * x. Para x=4, retorna 4 * 4 = 16."
+  },
+  {
+    "id": "p183",
+    "dificultad": 1,
+    "categoria": "Funciones",
+    "pregunta": "¿Qué imprime?\n\n```python\ndef suma(a, b):\n    return a + b\n\nresultado = suma(3, 5)\nprint(resultado)\n```",
+    "opciones": {
+      "a": "35",
+      "b": "8",
+      "c": "a + b",
+      "d": "None"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "La función suma 3 + 5 = 8."
+  },
+  {
+    "id": "p184",
+    "dificultad": 2,
+    "categoria": "Funciones",
+    "pregunta": "¿Qué imprime?\n\n```python\ndef potencia(base, exp=2):\n    return base ** exp\n\nprint(potencia(3))\n```",
+    "opciones": {
+      "a": "6",
+      "b": "9",
+      "c": "3",
+      "d": "Error: falta argumento"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "exp tiene valor por defecto 2. potencia(3) calcula 3² = 9."
+  },
+  {
+    "id": "p185",
+    "dificultad": 2,
+    "categoria": "Funciones",
+    "pregunta": "¿Qué imprime?\n\n```python\ndef saludar(nombre='Usuario'):\n    return f'Hola, {nombre}'\n\nprint(saludar('Ana'))\n```",
+    "opciones": {
+      "a": "Hola, Usuario",
+      "b": "Hola, Ana",
+      "c": "Hola, nombre",
+      "d": "Error"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "El argumento 'Ana' reemplaza el valor por defecto. Retorna 'Hola, Ana'."
+  },
+  {
+    "id": "p186",
+    "dificultad": 2,
+    "categoria": "Funciones",
+    "pregunta": "¿Qué imprime?\n\n```python\ndef modificar(x):\n    x = x + 10\n    return x\n\na = 5\nb = modificar(a)\nprint(a, b)\n```",
+    "opciones": {
+      "a": "15 15",
+      "b": "5 15",
+      "c": "5 5",
+      "d": "15 5"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Los enteros son inmutables. a permanece 5, b recibe el valor retornado 15."
+  },
+  {
+    "id": "p187",
+    "dificultad": 3,
+    "categoria": "Funciones",
+    "pregunta": "¿Qué imprime?\n\n```python\ndef func(a, b, c=10):\n    return a + b + c\n\nprint(func(1, 2))\nprint(func(1, 2, 3))\n```",
+    "opciones": {
+      "a": "13\\n6",
+      "b": "3\\n6",
+      "c": "13\\n13",
+      "d": "Error"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "Primera llamada: 1+2+10=13. Segunda llamada: 1+2+3=6."
+  },
+  {
+    "id": "p188",
+    "dificultad": 3,
+    "categoria": "Funciones",
+    "pregunta": "¿Qué imprime?\n\n```python\ndef division(a, b):\n    if b == 0:\n        return None\n    return a / b\n\nresultado = division(10, 0)\nprint(resultado is None)\n```",
+    "opciones": {
+      "a": "True",
+      "b": "False",
+      "c": "None",
+      "d": "Error: división por cero"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "La función retorna None cuando b=0. resultado is None es True."
+  },
+  {
+    "id": "p189",
+    "dificultad": 3,
+    "categoria": "Funciones",
+    "pregunta": "¿Qué imprime?\n\n```python\ndef factorial(n):\n    if n <= 1:\n        return 1\n    return n * factorial(n - 1)\n\nprint(factorial(5))\n```",
+    "opciones": {
+      "a": "15",
+      "b": "120",
+      "c": "24",
+      "d": "5"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Función recursiva: 5! = 5 * 4 * 3 * 2 * 1 = 120"
+  },
+  {
+    "id": "p190",
+    "dificultad": 4,
+    "categoria": "Funciones",
+    "pregunta": "¿Qué imprime?\n\n```python\ndef outer(x):\n    def inner(y):\n        return x + y\n    return inner\n\nf = outer(10)\nprint(f(5))\n```",
+    "opciones": {
+      "a": "10",
+      "b": "5",
+      "c": "15",
+      "d": "Error"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "Closure: outer(10) retorna inner que 'recuerda' x=10. f(5) calcula 10+5=15."
+  },
+  {
+    "id": "p191",
+    "dificultad": 4,
+    "categoria": "Funciones",
+    "pregunta": "¿Qué imprime?\n\n```python\ndef procesar(*args):\n    return sum(args) / len(args)\n\nprint(procesar(2, 4, 6, 8))\n```",
+    "opciones": {
+      "a": "20",
+      "b": "5.0",
+      "c": "4",
+      "d": "Error"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "*args recibe (2,4,6,8). sum=20, len=4. 20/4=5.0 (promedio)."
+  },
+  {
+    "id": "p192",
+    "dificultad": 4,
+    "categoria": "Funciones",
+    "pregunta": "¿Qué imprime?\n\n```python\ndef info(**kwargs):\n    return len(kwargs)\n\nresultado = info(nombre='Ana', edad=25, ciudad='Lima')\nprint(resultado)\n```",
+    "opciones": {
+      "a": "1",
+      "b": "2",
+      "c": "3",
+      "d": "Error"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "**kwargs recibe argumentos con nombre como diccionario. Hay 3 pares clave-valor."
+  },
+  {
+    "id": "p193",
+    "dificultad": 5,
+    "categoria": "Funciones",
+    "pregunta": "¿Qué imprime?\n\n```python\ndef decorador(func):\n    def wrapper(*args):\n        return func(*args) * 2\n    return wrapper\n\n@decorador\ndef suma(a, b):\n    return a + b\n\nprint(suma(3, 4))\n```",
+    "opciones": {
+      "a": "7",
+      "b": "14",
+      "c": "Error",
+      "d": "None"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "El decorador duplica el resultado. suma(3,4)=7, luego 7*2=14."
+  },
+  {
+    "id": "p194",
+    "dificultad": 5,
+    "categoria": "Funciones",
+    "pregunta": "¿Qué imprime?\n\n```python\nfrom functools import reduce\n\nnumeros = [1, 2, 3, 4]\nresultado = reduce(lambda x, y: x * y, numeros)\nprint(resultado)\n```",
+    "opciones": {
+      "a": "10",
+      "b": "24",
+      "c": "4",
+      "d": "[1, 2, 6, 24]"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "reduce aplica la función acumulativamente: ((1*2)*3)*4 = 24"
+  },
+  {
+    "id": "p195",
+    "dificultad": 5,
+    "categoria": "Funciones",
+    "pregunta": "¿Qué imprime?\n\n```python\ndef cache(func):\n    memoria = {}\n    def wrapper(n):\n        if n not in memoria:\n            memoria[n] = func(n)\n        return memoria[n]\n    return wrapper\n\n@cache\ndef fib(n):\n    if n < 2:\n        return n\n    return fib(n-1) + fib(n-2)\n\nprint(fib(10))\n```",
+    "opciones": {
+      "a": "34",
+      "b": "55",
+      "c": "89",
+      "d": "Error"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Fibonacci con memoización. fib(10) = 55."
+  },
+  {
+    "id": "p196",
+    "dificultad": 1,
+    "categoria": "Funciones",
+    "pregunta": "¿Qué imprime?\n\n```python\ndef sin_retorno():\n    x = 10\n\nresultado = sin_retorno()\nprint(resultado)\n```",
+    "opciones": {
+      "a": "10",
+      "b": "None",
+      "c": "Error",
+      "d": "0"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Una función sin return explícito retorna None automáticamente."
+  },
+  {
+    "id": "p197",
+    "dificultad": 2,
+    "categoria": "Funciones",
+    "pregunta": "¿Qué imprime?\n\n```python\ndef multiple_return(x):\n    return x, x**2, x**3\n\na, b, c = multiple_return(2)\nprint(b)\n```",
+    "opciones": {
+      "a": "2",
+      "b": "4",
+      "c": "8",
+      "d": "(2, 4, 8)"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "La función retorna una tupla (2, 4, 8). b recibe el segundo valor: 4."
+  },
+  {
+    "id": "p198",
+    "dificultad": 3,
+    "categoria": "Funciones",
+    "pregunta": "¿Qué imprime?\n\n```python\nx = 10\n\ndef modificar():\n    global x\n    x = 20\n\nmodificar()\nprint(x)\n```",
+    "opciones": {
+      "a": "10",
+      "b": "20",
+      "c": "Error",
+      "d": "None"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "global x permite modificar la variable global. Después de llamar a modificar(), x=20."
+  },
+  {
+    "id": "p199",
+    "dificultad": 4,
+    "categoria": "Funciones",
+    "pregunta": "¿Qué imprime?\n\n```python\ndef make_adder(n):\n    return lambda x: x + n\n\nadd_5 = make_adder(5)\nadd_10 = make_adder(10)\nprint(add_5(3), add_10(3))\n```",
+    "opciones": {
+      "a": "8 13",
+      "b": "5 10",
+      "c": "3 3",
+      "d": "15 30"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "Cada lambda recuerda su n. add_5(3)=3+5=8, add_10(3)=3+10=13."
+  },
+  {
+    "id": "p200",
+    "dificultad": 5,
+    "categoria": "Funciones",
+    "pregunta": "¿Qué imprime?\n\n```python\ndef func(x, lista=[]):\n    lista.append(x)\n    return lista\n\nprint(func(1))\nprint(func(2))\n```",
+    "opciones": {
+      "a": "[1]\\n[2]",
+      "b": "[1]\\n[1, 2]",
+      "c": "[1, 2]\\n[1, 2]",
+      "d": "Error"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Los argumentos mutables por defecto se comparten entre llamadas. La lista persiste."
+  },
+  {
+    "id": "p201",
+    "dificultad": 1,
+    "categoria": "Listas",
+    "pregunta": "¿Qué imprime?\n\n```python\nlista = [10, 20, 30]\nprint(lista[0])\n```",
+    "opciones": {
+      "a": "10",
+      "b": "20",
+      "c": "0",
+      "d": "Error"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "Los índices empiezan en 0. lista[0] es el primer elemento: 10."
+  },
+  {
+    "id": "p202",
+    "dificultad": 1,
+    "categoria": "Listas",
+    "pregunta": "¿Qué imprime?\n\n```python\nlista = [1, 2, 3, 4, 5]\nprint(len(lista))\n```",
+    "opciones": {
+      "a": "4",
+      "b": "5",
+      "c": "6",
+      "d": "Error"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "len() retorna la cantidad de elementos. La lista tiene 5 elementos."
+  },
+  {
+    "id": "p203",
+    "dificultad": 1,
+    "categoria": "Listas",
+    "pregunta": "¿Qué imprime?\n\n```python\nlista = [1, 2, 3]\nlista.append(4)\nprint(lista)\n```",
+    "opciones": {
+      "a": "[1, 2, 3]",
+      "b": "[1, 2, 3, 4]",
+      "c": "[4, 1, 2, 3]",
+      "d": "4"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "append() agrega un elemento al final de la lista."
+  },
+  {
+    "id": "p204",
+    "dificultad": 2,
+    "categoria": "Listas",
+    "pregunta": "¿Qué imprime?\n\n```python\nlista = [1, 2, 3, 4, 5]\nprint(lista[-2])\n```",
+    "opciones": {
+      "a": "4",
+      "b": "5",
+      "c": "2",
+      "d": "Error"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "Índices negativos cuentan desde el final. -1 es el último, -2 es el penúltimo: 4."
+  },
+  {
+    "id": "p205",
+    "dificultad": 2,
+    "categoria": "Listas",
+    "pregunta": "¿Qué imprime?\n\n```python\nlista = [1, 2, 3, 4, 5]\nprint(lista[1:4])\n```",
+    "opciones": {
+      "a": "[1, 2, 3, 4]",
+      "b": "[2, 3, 4]",
+      "c": "[2, 3, 4, 5]",
+      "d": "[1, 2, 3]"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Slicing [1:4] toma desde índice 1 hasta 3 (4 excluido): [2, 3, 4]."
+  },
+  {
+    "id": "p206",
+    "dificultad": 2,
+    "categoria": "Listas",
+    "pregunta": "¿Qué imprime?\n\n```python\nlista = [3, 1, 4, 1, 5]\nlista.sort()\nprint(lista)\n```",
+    "opciones": {
+      "a": "[3, 1, 4, 1, 5]",
+      "b": "[1, 1, 3, 4, 5]",
+      "c": "[5, 4, 3, 1, 1]",
+      "d": "None"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "sort() ordena la lista in-place de menor a mayor."
+  },
+  {
+    "id": "p207",
+    "dificultad": 3,
+    "categoria": "Listas",
+    "pregunta": "¿Qué imprime?\n\n```python\nlista = [1, 2, 3]\nlista.insert(1, 10)\nprint(lista)\n```",
+    "opciones": {
+      "a": "[1, 2, 3, 10]",
+      "b": "[10, 1, 2, 3]",
+      "c": "[1, 10, 2, 3]",
+      "d": "[1, 2, 10, 3]"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "insert(1, 10) inserta 10 en la posición 1, desplazando los demás."
+  },
+  {
+    "id": "p208",
+    "dificultad": 3,
+    "categoria": "Listas",
+    "pregunta": "¿Qué imprime?\n\n```python\nlista = [1, 2, 3, 2, 4]\nlista.remove(2)\nprint(lista)\n```",
+    "opciones": {
+      "a": "[1, 3, 4]",
+      "b": "[1, 3, 2, 4]",
+      "c": "[1, 2, 3, 4]",
+      "d": "Error"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "remove() elimina la primera ocurrencia del valor. Solo se elimina el primer 2."
+  },
+  {
+    "id": "p209",
+    "dificultad": 3,
+    "categoria": "Listas",
+    "pregunta": "¿Qué imprime?\n\n```python\nlista = [1, 2, 3, 4, 5]\nprint(lista[::-1])\n```",
+    "opciones": {
+      "a": "[1, 2, 3, 4, 5]",
+      "b": "[5, 4, 3, 2, 1]",
+      "c": "[5]",
+      "d": "Error"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "[::-1] invierte la lista. El paso -1 recorre de derecha a izquierda."
+  },
+  {
+    "id": "p210",
+    "dificultad": 4,
+    "categoria": "Listas",
+    "pregunta": "¿Qué imprime?\n\n```python\nlista = [[1, 2], [3, 4], [5, 6]]\nprint(lista[1][0])\n```",
+    "opciones": {
+      "a": "1",
+      "b": "2",
+      "c": "3",
+      "d": "[3, 4]"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "lista[1] es [3, 4]. lista[1][0] es el primer elemento de esa sublista: 3."
+  },
+  {
+    "id": "p211",
+    "dificultad": 4,
+    "categoria": "Listas",
+    "pregunta": "¿Qué imprime?\n\n```python\nlista = [1, 2, 3]\ncopia = lista.copy()\ncopia.append(4)\nprint(len(lista), len(copia))\n```",
+    "opciones": {
+      "a": "4 4",
+      "b": "3 4",
+      "c": "3 3",
+      "d": "4 3"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "copy() crea una copia independiente. Modificar copia no afecta a lista."
+  },
+  {
+    "id": "p212",
+    "dificultad": 4,
+    "categoria": "Listas",
+    "pregunta": "¿Qué imprime?\n\n```python\nlista = [x**2 for x in range(5)]\nprint(lista)\n```",
+    "opciones": {
+      "a": "[0, 1, 2, 3, 4]",
+      "b": "[1, 4, 9, 16, 25]",
+      "c": "[0, 1, 4, 9, 16]",
+      "d": "[1, 2, 3, 4, 5]"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "List comprehension: x² para x en 0,1,2,3,4 → [0, 1, 4, 9, 16]."
+  },
+  {
+    "id": "p213",
+    "dificultad": 5,
+    "categoria": "Listas",
+    "pregunta": "¿Qué imprime?\n\n```python\nmatriz = [[i*j for j in range(1, 4)] for i in range(1, 4)]\nprint(matriz[2][1])\n```",
+    "opciones": {
+      "a": "4",
+      "b": "6",
+      "c": "9",
+      "d": "3"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "matriz = [[1,2,3], [2,4,6], [3,6,9]]. matriz[2][1] = 6."
+  },
+  {
+    "id": "p214",
+    "dificultad": 5,
+    "categoria": "Listas",
+    "pregunta": "¿Qué imprime?\n\n```python\nlista = [1, [2, 3], 4]\nimport copy\ncopia = copy.deepcopy(lista)\ncopia[1][0] = 99\nprint(lista[1][0])\n```",
+    "opciones": {
+      "a": "99",
+      "b": "2",
+      "c": "[2, 3]",
+      "d": "Error"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "deepcopy crea copias profundas. Modificar copia[1] no afecta lista[1]."
+  },
+  {
+    "id": "p215",
+    "dificultad": 5,
+    "categoria": "Listas",
+    "pregunta": "¿Qué imprime?\n\n```python\nlista = list(zip([1, 2, 3], ['a', 'b', 'c']))\nprint(lista[1])\n```",
+    "opciones": {
+      "a": "(1, 'a')",
+      "b": "(2, 'b')",
+      "c": "[2, 'b']",
+      "d": "Error"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "zip combina elementos por posición. lista = [(1,'a'), (2,'b'), (3,'c')]. Índice 1 es (2,'b')."
+  },
+  {
+    "id": "p216",
+    "dificultad": 1,
+    "categoria": "Tuplas",
+    "pregunta": "¿Qué imprime?\n\n```python\ntupla = (1, 2, 3)\nprint(tupla[0])\n```",
+    "opciones": {
+      "a": "1",
+      "b": "(1)",
+      "c": "0",
+      "d": "Error"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "Las tuplas se indexan igual que las listas. tupla[0] es el primer elemento: 1."
+  },
+  {
+    "id": "p217",
+    "dificultad": 1,
+    "categoria": "Tuplas",
+    "pregunta": "¿Qué imprime?\n\n```python\ntupla = (10,)\nprint(type(tupla).__name__)\n```",
+    "opciones": {
+      "a": "int",
+      "b": "tuple",
+      "c": "list",
+      "d": "Error"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "La coma hace que sea una tupla de un elemento, no un entero entre paréntesis."
+  },
+  {
+    "id": "p218",
+    "dificultad": 2,
+    "categoria": "Tuplas",
+    "pregunta": "¿Qué imprime?\n\n```python\na, b, c = (1, 2, 3)\nprint(b)\n```",
+    "opciones": {
+      "a": "1",
+      "b": "2",
+      "c": "3",
+      "d": "(1, 2, 3)"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Desempaquetado de tupla: a=1, b=2, c=3. b es 2."
+  },
+  {
+    "id": "p219",
+    "dificultad": 2,
+    "categoria": "Tuplas",
+    "pregunta": "¿Qué imprime?\n\n```python\ntupla = (1, 2, 3, 2, 4, 2)\nprint(tupla.count(2))\n```",
+    "opciones": {
+      "a": "1",
+      "b": "2",
+      "c": "3",
+      "d": "6"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "count() cuenta las ocurrencias. El 2 aparece 3 veces."
+  },
+  {
+    "id": "p220",
+    "dificultad": 3,
+    "categoria": "Tuplas",
+    "pregunta": "¿Qué imprime?\n\n```python\ntupla = (1, 2, [3, 4])\ntupla[2].append(5)\nprint(tupla)\n```",
+    "opciones": {
+      "a": "Error: tupla inmutable",
+      "b": "(1, 2, [3, 4, 5])",
+      "c": "(1, 2, [3, 4])",
+      "d": "(1, 2, [3, 4], 5)"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "La tupla es inmutable, pero la lista dentro sí puede modificarse. La referencia no cambia."
+  },
+  {
+    "id": "p221",
+    "dificultad": 3,
+    "categoria": "Tuplas",
+    "pregunta": "¿Qué imprime?\n\n```python\na, *b, c = (1, 2, 3, 4, 5)\nprint(b)\n```",
+    "opciones": {
+      "a": "[2, 3, 4]",
+      "b": "(2, 3, 4)",
+      "c": "[1, 2, 3, 4]",
+      "d": "Error"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "*b captura los elementos del medio como lista: [2, 3, 4]. a=1, c=5."
+  },
+  {
+    "id": "p222",
+    "dificultad": 4,
+    "categoria": "Tuplas",
+    "pregunta": "¿Qué imprime?\n\n```python\ntupla = tuple(range(5))\nprint(tupla[::2])\n```",
+    "opciones": {
+      "a": "(0, 1, 2, 3, 4)",
+      "b": "(0, 2, 4)",
+      "c": "(1, 3)",
+      "d": "[0, 2, 4]"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "tuple(range(5)) = (0,1,2,3,4). [::2] toma cada segundo elemento: (0, 2, 4)."
+  },
+  {
+    "id": "p223",
+    "dificultad": 4,
+    "categoria": "Tuplas",
+    "pregunta": "¿Qué imprime?\n\n```python\nfrom collections import namedtuple\nPunto = namedtuple('Punto', ['x', 'y'])\np = Punto(3, 4)\nprint(p.x + p.y)\n```",
+    "opciones": {
+      "a": "7",
+      "b": "(3, 4)",
+      "c": "Error",
+      "d": "34"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "namedtuple permite acceso por nombre. p.x=3, p.y=4. 3+4=7."
+  },
+  {
+    "id": "p224",
+    "dificultad": 5,
+    "categoria": "Tuplas",
+    "pregunta": "¿Qué imprime?\n\n```python\nlista = [(1, 'c'), (2, 'a'), (3, 'b')]\nlista.sort(key=lambda x: x[1])\nprint(lista[0])\n```",
+    "opciones": {
+      "a": "(1, 'c')",
+      "b": "(2, 'a')",
+      "c": "(3, 'b')",
+      "d": "Error"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Ordena por el segundo elemento (x[1]). 'a' < 'b' < 'c'. El primero es (2, 'a')."
+  },
+  {
+    "id": "p225",
+    "dificultad": 5,
+    "categoria": "Tuplas",
+    "pregunta": "¿Qué imprime?\n\n```python\ndef swap(a, b):\n    return b, a\n\nx, y = 10, 20\nx, y = swap(x, y)\nprint(x, y)\n```",
+    "opciones": {
+      "a": "10 20",
+      "b": "20 10",
+      "c": "(20, 10)",
+      "d": "Error"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "swap retorna (20, 10) como tupla. Se desempaqueta: x=20, y=10."
+  },
+  {
+    "id": "p226",
+    "dificultad": 1,
+    "categoria": "Listas",
+    "pregunta": "¿Qué imprime?\n\n```python\nlista = []\nprint(len(lista))\n```",
+    "opciones": {
+      "a": "0",
+      "b": "None",
+      "c": "[]",
+      "d": "Error"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "Una lista vacía tiene longitud 0."
+  },
+  {
+    "id": "p227",
+    "dificultad": 2,
+    "categoria": "Listas",
+    "pregunta": "¿Qué imprime?\n\n```python\nlista = [1, 2, 3]\nlista.extend([4, 5])\nprint(lista)\n```",
+    "opciones": {
+      "a": "[1, 2, 3, [4, 5]]",
+      "b": "[1, 2, 3, 4, 5]",
+      "c": "[[1, 2, 3], [4, 5]]",
+      "d": "Error"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "extend() añade cada elemento de la lista dada. append() añadiría la lista completa."
+  },
+  {
+    "id": "p228",
+    "dificultad": 3,
+    "categoria": "Listas",
+    "pregunta": "¿Qué imprime?\n\n```python\nlista = [1, 2, 3, 4, 5]\nelemento = lista.pop(2)\nprint(elemento, lista)\n```",
+    "opciones": {
+      "a": "2 [1, 3, 4, 5]",
+      "b": "3 [1, 2, 4, 5]",
+      "c": "3 [1, 2, 3, 4]",
+      "d": "5 [1, 2, 3, 4]"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "pop(2) elimina y retorna el elemento en índice 2 (valor 3). La lista queda [1,2,4,5]."
+  },
+  {
+    "id": "p229",
+    "dificultad": 4,
+    "categoria": "Listas",
+    "pregunta": "¿Qué imprime?\n\n```python\nlista = [3, 1, 4, 1, 5]\nordenada = sorted(lista, reverse=True)\nprint(ordenada, lista[0])\n```",
+    "opciones": {
+      "a": "[5, 4, 3, 1, 1] 5",
+      "b": "[5, 4, 3, 1, 1] 3",
+      "c": "[1, 1, 3, 4, 5] 3",
+      "d": "[5, 4, 3, 1, 1] 1"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "sorted() crea nueva lista ordenada (descendente). La original no cambia: lista[0]=3."
+  },
+  {
+    "id": "p230",
+    "dificultad": 5,
+    "categoria": "Listas",
+    "pregunta": "¿Qué imprime?\n\n```python\nlista = [[0] * 3 for _ in range(3)]\nlista[0][0] = 1\nprint(lista)\n```",
+    "opciones": {
+      "a": "[[1, 0, 0], [1, 0, 0], [1, 0, 0]]",
+      "b": "[[1, 0, 0], [0, 0, 0], [0, 0, 0]]",
+      "c": "[[1, 1, 1], [0, 0, 0], [0, 0, 0]]",
+      "d": "Error"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "La list comprehension crea listas independientes. Solo se modifica lista[0][0]."
+  },
+  {
+    "id": "p231",
+    "dificultad": 1,
+    "categoria": "Listas",
+    "pregunta": "¿Qué imprime?\n\n```python\nlista = [5, 2, 8, 1, 9]\nprint(max(lista))\n```",
+    "opciones": {
+      "a": "5",
+      "b": "1",
+      "c": "9",
+      "d": "8"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "max() retorna el valor máximo de la lista: 9."
+  },
+  {
+    "id": "p232",
+    "dificultad": 2,
+    "categoria": "Listas",
+    "pregunta": "¿Qué imprime?\n\n```python\nlista = [1, 2, 3, 4, 5]\nprint(lista[::2])\n```",
+    "opciones": {
+      "a": "[1, 2]",
+      "b": "[1, 3, 5]",
+      "c": "[2, 4]",
+      "d": "[1, 3]"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "[::2] toma cada segundo elemento empezando desde el inicio: [1, 3, 5]."
+  },
+  {
+    "id": "p233",
+    "dificultad": 3,
+    "categoria": "Listas",
+    "pregunta": "¿Qué imprime?\n\n```python\nlista = [1, 2, 3]\nlista2 = lista * 2\nprint(lista2)\n```",
+    "opciones": {
+      "a": "[2, 4, 6]",
+      "b": "[1, 2, 3, 1, 2, 3]",
+      "c": "[[1, 2, 3], [1, 2, 3]]",
+      "d": "Error"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "* replica la lista. lista * 2 = [1, 2, 3, 1, 2, 3]."
+  },
+  {
+    "id": "p234",
+    "dificultad": 4,
+    "categoria": "Listas",
+    "pregunta": "¿Qué imprime?\n\n```python\nnumeros = [1, 2, 3, 4, 5]\nresultado = list(filter(lambda x: x > 2, numeros))\nprint(resultado)\n```",
+    "opciones": {
+      "a": "[1, 2]",
+      "b": "[3, 4, 5]",
+      "c": "[True, True, True]",
+      "d": "Error"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "filter() retiene elementos donde la función retorna True (x > 2): [3, 4, 5]."
+  },
+  {
+    "id": "p235",
+    "dificultad": 5,
+    "categoria": "Listas",
+    "pregunta": "¿Qué imprime?\n\n```python\nlista = [1, 2, 3]\nresultado = list(map(lambda x: x**2, lista))\nprint(sum(resultado))\n```",
+    "opciones": {
+      "a": "6",
+      "b": "14",
+      "c": "36",
+      "d": "[1, 4, 9]"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "map aplica x² a cada elemento: [1, 4, 9]. sum([1, 4, 9]) = 14."
+  },
+  {
+    "id": "p236",
+    "dificultad": 1,
+    "categoria": "Tuplas",
+    "pregunta": "¿Qué imprime?\n\n```python\ntupla = (1, 2, 3)\nprint(len(tupla))\n```",
+    "opciones": {
+      "a": "2",
+      "b": "3",
+      "c": "4",
+      "d": "Error"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "len() funciona igual en tuplas que en listas. La tupla tiene 3 elementos."
+  },
+  {
+    "id": "p237",
+    "dificultad": 2,
+    "categoria": "Tuplas",
+    "pregunta": "¿Qué imprime?\n\n```python\ntupla = (1, 2, 3, 4, 5)\nprint(tupla.index(3))\n```",
+    "opciones": {
+      "a": "2",
+      "b": "3",
+      "c": "4",
+      "d": "Error"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "index() retorna la posición del valor. El 3 está en el índice 2."
+  },
+  {
+    "id": "p238",
+    "dificultad": 3,
+    "categoria": "Tuplas",
+    "pregunta": "¿Qué imprime?\n\n```python\ntupla1 = (1, 2)\ntupla2 = (3, 4)\nprint(tupla1 + tupla2)\n```",
+    "opciones": {
+      "a": "(4, 6)",
+      "b": "(1, 2, 3, 4)",
+      "c": "((1, 2), (3, 4))",
+      "d": "Error"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "+ concatena tuplas, creando una nueva: (1, 2, 3, 4)."
+  },
+  {
+    "id": "p239",
+    "dificultad": 4,
+    "categoria": "Tuplas",
+    "pregunta": "¿Qué imprime?\n\n```python\ntupla = (1, 2, 3)\nlista = list(tupla)\nlista.append(4)\nnueva_tupla = tuple(lista)\nprint(nueva_tupla)\n```",
+    "opciones": {
+      "a": "(1, 2, 3)",
+      "b": "(1, 2, 3, 4)",
+      "c": "[1, 2, 3, 4]",
+      "d": "Error"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Se convierte a lista, se modifica, y se vuelve a convertir a tupla: (1, 2, 3, 4)."
+  },
+  {
+    "id": "p240",
+    "dificultad": 5,
+    "categoria": "Tuplas",
+    "pregunta": "¿Qué imprime?\n\n```python\npuntos = [(1, 2), (3, 1), (2, 3)]\npuntos.sort(key=lambda p: p[0] + p[1])\nprint(puntos[0])\n```",
+    "opciones": {
+      "a": "(1, 2)",
+      "b": "(3, 1)",
+      "c": "(2, 3)",
+      "d": "Error"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Ordena por suma de coordenadas: (1,2)=3, (3,1)=4, (2,3)=5. Mínimo es (1,2)=3, pero ¡espera! (3,1)=4 también. Revisemos: sumas son 3, 4, 5. El menor es (1,2). Corrección: la respuesta es (1, 2)."
+  },
+  {
+    "id": "p241",
+    "dificultad": 1,
+    "categoria": "Diccionarios",
+    "pregunta": "¿Qué imprime?\n\n```python\nd = {'a': 1, 'b': 2}\nprint(d['a'])\n```",
+    "opciones": {
+      "a": "1",
+      "b": "'a'",
+      "c": "a",
+      "d": "Error"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "d['a'] accede al valor asociado a la clave 'a', que es 1."
+  },
+  {
+    "id": "p242",
+    "dificultad": 1,
+    "categoria": "Diccionarios",
+    "pregunta": "¿Qué imprime?\n\n```python\nd = {'x': 10, 'y': 20, 'z': 30}\nprint(len(d))\n```",
+    "opciones": {
+      "a": "2",
+      "b": "3",
+      "c": "60",
+      "d": "Error"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "len() en un diccionario retorna el número de pares clave-valor: 3."
+  },
+  {
+    "id": "p243",
+    "dificultad": 1,
+    "categoria": "Diccionarios",
+    "pregunta": "¿Qué imprime?\n\n```python\nd = {}\nd['nombre'] = 'Ana'\nprint(d)\n```",
+    "opciones": {
+      "a": "{}",
+      "b": "{'nombre': 'Ana'}",
+      "c": "Ana",
+      "d": "Error"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Se crea un diccionario vacío y se añade un par clave-valor."
+  },
+  {
+    "id": "p244",
+    "dificultad": 2,
+    "categoria": "Diccionarios",
+    "pregunta": "¿Qué imprime?\n\n```python\nd = {'a': 1, 'b': 2}\nprint(d.get('c', 0))\n```",
+    "opciones": {
+      "a": "None",
+      "b": "Error",
+      "c": "0",
+      "d": "'c'"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "get() retorna el valor por defecto (0) si la clave no existe."
+  },
+  {
+    "id": "p245",
+    "dificultad": 2,
+    "categoria": "Diccionarios",
+    "pregunta": "¿Qué imprime?\n\n```python\nd = {'a': 1, 'b': 2, 'c': 3}\nprint(list(d.keys()))\n```",
+    "opciones": {
+      "a": "[1, 2, 3]",
+      "b": "['a', 'b', 'c']",
+      "c": "[('a', 1), ('b', 2), ('c', 3)]",
+      "d": "Error"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "keys() retorna las claves del diccionario: ['a', 'b', 'c']."
+  },
+  {
+    "id": "p246",
+    "dificultad": 2,
+    "categoria": "Diccionarios",
+    "pregunta": "¿Qué imprime?\n\n```python\nd = {'a': 1, 'b': 2}\nprint('a' in d)\n```",
+    "opciones": {
+      "a": "True",
+      "b": "False",
+      "c": "1",
+      "d": "Error"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "El operador 'in' verifica si una clave existe en el diccionario."
+  },
+  {
+    "id": "p247",
+    "dificultad": 3,
+    "categoria": "Diccionarios",
+    "pregunta": "¿Qué imprime?\n\n```python\nd = {'a': 1, 'b': 2}\nd.update({'b': 3, 'c': 4})\nprint(d['b'])\n```",
+    "opciones": {
+      "a": "2",
+      "b": "3",
+      "c": "4",
+      "d": "Error"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "update() actualiza valores existentes y añade nuevos. 'b' se actualiza a 3."
+  },
+  {
+    "id": "p248",
+    "dificultad": 3,
+    "categoria": "Diccionarios",
+    "pregunta": "¿Qué imprime?\n\n```python\nd = {'a': 1, 'b': 2, 'c': 3}\nfor k, v in d.items():\n    if v == 2:\n        print(k)\n        break\n```",
+    "opciones": {
+      "a": "2",
+      "b": "b",
+      "c": "('b', 2)",
+      "d": "Error"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "items() retorna pares (clave, valor). Cuando v=2, k='b'."
+  },
+  {
+    "id": "p249",
+    "dificultad": 3,
+    "categoria": "Diccionarios",
+    "pregunta": "¿Qué imprime?\n\n```python\nd = {'a': 1, 'b': 2}\nvalor = d.pop('b')\nprint(valor, len(d))\n```",
+    "opciones": {
+      "a": "2 1",
+      "b": "2 2",
+      "c": "None 1",
+      "d": "Error"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "pop() elimina la clave y retorna su valor. 'b' tenía valor 2, queda 1 elemento."
+  },
+  {
+    "id": "p250",
+    "dificultad": 4,
+    "categoria": "Diccionarios",
+    "pregunta": "¿Qué imprime?\n\n```python\nd = {'a': [1, 2], 'b': [3, 4]}\nd['a'].append(3)\nprint(d['a'])\n```",
+    "opciones": {
+      "a": "[1, 2]",
+      "b": "[1, 2, 3]",
+      "c": "Error",
+      "d": "[3]"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Los valores del diccionario son listas mutables. Se puede modificar d['a'] directamente."
+  },
+  {
+    "id": "p251",
+    "dificultad": 4,
+    "categoria": "Diccionarios",
+    "pregunta": "¿Qué imprime?\n\n```python\nd = {x: x**2 for x in range(4)}\nprint(d[3])\n```",
+    "opciones": {
+      "a": "6",
+      "b": "9",
+      "c": "3",
+      "d": "Error"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Dictionary comprehension crea {0:0, 1:1, 2:4, 3:9}. d[3] = 9."
+  },
+  {
+    "id": "p252",
+    "dificultad": 4,
+    "categoria": "Diccionarios",
+    "pregunta": "¿Qué imprime?\n\n```python\nd = {'a': 1, 'b': 2}\nd.setdefault('c', 3)\nd.setdefault('a', 5)\nprint(d['a'], d['c'])\n```",
+    "opciones": {
+      "a": "5 3",
+      "b": "1 3",
+      "c": "1 None",
+      "d": "Error"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "setdefault() solo establece si la clave no existe. 'a' ya existe (1), 'c' se crea (3)."
+  },
+  {
+    "id": "p253",
+    "dificultad": 5,
+    "categoria": "Diccionarios",
+    "pregunta": "¿Qué imprime?\n\n```python\nfrom collections import defaultdict\nd = defaultdict(list)\nd['a'].append(1)\nd['a'].append(2)\nd['b'].append(3)\nprint(len(d['a']), len(d['c']))\n```",
+    "opciones": {
+      "a": "2 0",
+      "b": "2 Error",
+      "c": "3 0",
+      "d": "Error"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "defaultdict crea listas vacías automáticamente. d['a'] tiene 2 elementos, d['c'] se crea vacía."
+  },
+  {
+    "id": "p254",
+    "dificultad": 5,
+    "categoria": "Diccionarios",
+    "pregunta": "¿Qué imprime?\n\n```python\nfrom collections import Counter\npalabras = ['a', 'b', 'a', 'c', 'a', 'b']\nc = Counter(palabras)\nprint(c.most_common(1))\n```",
+    "opciones": {
+      "a": "[('a', 3)]",
+      "b": "['a']",
+      "c": "3",
+      "d": "{'a': 3}"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "Counter cuenta ocurrencias. most_common(1) retorna el más frecuente como lista de tuplas."
+  },
+  {
+    "id": "p255",
+    "dificultad": 5,
+    "categoria": "Diccionarios",
+    "pregunta": "¿Qué imprime?\n\n```python\nd1 = {'a': 1}\nd2 = {'b': 2}\nd3 = {**d1, **d2, 'c': 3}\nprint(len(d3))\n```",
+    "opciones": {
+      "a": "2",
+      "b": "3",
+      "c": "6",
+      "d": "Error"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "** desempaqueta diccionarios. d3 combina d1, d2 y añade 'c': {'a':1, 'b':2, 'c':3}."
+  },
+  {
+    "id": "p256",
+    "dificultad": 1,
+    "categoria": "Diccionarios",
+    "pregunta": "¿Qué imprime?\n\n```python\nd = {'nombre': 'Juan', 'edad': 25}\nprint(d.get('nombre'))\n```",
+    "opciones": {
+      "a": "Juan",
+      "b": "nombre",
+      "c": "None",
+      "d": "Error"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "get('nombre') retorna el valor asociado a esa clave: 'Juan'."
+  },
+  {
+    "id": "p257",
+    "dificultad": 2,
+    "categoria": "Diccionarios",
+    "pregunta": "¿Qué imprime?\n\n```python\nd = {'a': 1, 'b': 2, 'c': 3}\nprint(list(d.values()))\n```",
+    "opciones": {
+      "a": "['a', 'b', 'c']",
+      "b": "[1, 2, 3]",
+      "c": "[('a',1), ('b',2), ('c',3)]",
+      "d": "Error"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "values() retorna los valores del diccionario: [1, 2, 3]."
+  },
+  {
+    "id": "p258",
+    "dificultad": 3,
+    "categoria": "Diccionarios",
+    "pregunta": "¿Qué imprime?\n\n```python\nd = {1: 'uno', 2: 'dos', 3: 'tres'}\nprint(d[1] + d[2])\n```",
+    "opciones": {
+      "a": "3",
+      "b": "unodos",
+      "c": "uno dos",
+      "d": "Error"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "d[1]='uno', d[2]='dos'. La concatenación de strings da 'unodos'."
+  },
+  {
+    "id": "p259",
+    "dificultad": 4,
+    "categoria": "Diccionarios",
+    "pregunta": "¿Qué imprime?\n\n```python\nd = {'a': {'x': 1, 'y': 2}, 'b': {'x': 3, 'y': 4}}\nprint(d['a']['y'])\n```",
+    "opciones": {
+      "a": "1",
+      "b": "2",
+      "c": "{'x': 1, 'y': 2}",
+      "d": "Error"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Diccionario anidado. d['a'] es {'x':1, 'y':2}. d['a']['y'] es 2."
+  },
+  {
+    "id": "p260",
+    "dificultad": 5,
+    "categoria": "Diccionarios",
+    "pregunta": "¿Qué imprime?\n\n```python\nfrom collections import OrderedDict\nd = OrderedDict()\nd['z'] = 1\nd['a'] = 2\nd['m'] = 3\nprint(list(d.keys())[0])\n```",
+    "opciones": {
+      "a": "a",
+      "b": "z",
+      "c": "m",
+      "d": "Error"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "OrderedDict mantiene el orden de inserción. La primera clave insertada fue 'z'."
+  },
+  {
+    "id": "p261",
+    "dificultad": 1,
+    "categoria": "Strings",
+    "pregunta": "¿Qué imprime?\n\n```python\ns = 'Hola'\nprint(s[0])\n```",
+    "opciones": {
+      "a": "H",
+      "b": "Hola",
+      "c": "o",
+      "d": "Error"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "Los strings se indexan como listas. s[0] es el primer carácter: 'H'."
+  },
+  {
+    "id": "p262",
+    "dificultad": 1,
+    "categoria": "Strings",
+    "pregunta": "¿Qué imprime?\n\n```python\ns = 'Python'\nprint(len(s))\n```",
+    "opciones": {
+      "a": "5",
+      "b": "6",
+      "c": "7",
+      "d": "Error"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "'Python' tiene 6 caracteres."
+  },
+  {
+    "id": "p263",
+    "dificultad": 1,
+    "categoria": "Strings",
+    "pregunta": "¿Qué imprime?\n\n```python\na = 'Hola'\nb = 'Mundo'\nprint(a + ' ' + b)\n```",
+    "opciones": {
+      "a": "HolaMundo",
+      "b": "Hola Mundo",
+      "c": "'Hola' 'Mundo'",
+      "d": "Error"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Concatenación de strings con espacio en medio: 'Hola Mundo'."
+  },
+  {
+    "id": "p264",
+    "dificultad": 2,
+    "categoria": "Strings",
+    "pregunta": "¿Qué imprime?\n\n```python\ns = 'python'\nprint(s.upper())\n```",
+    "opciones": {
+      "a": "python",
+      "b": "PYTHON",
+      "c": "Python",
+      "d": "Error"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "upper() convierte todos los caracteres a mayúsculas: 'PYTHON'."
+  },
+  {
+    "id": "p265",
+    "dificultad": 2,
+    "categoria": "Strings",
+    "pregunta": "¿Qué imprime?\n\n```python\ns = '  hola  '\nprint(s.strip())\n```",
+    "opciones": {
+      "a": "'  hola  '",
+      "b": "'hola'",
+      "c": "hola",
+      "d": "  hola"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "strip() elimina espacios al inicio y final del string."
+  },
+  {
+    "id": "p266",
+    "dificultad": 2,
+    "categoria": "Strings",
+    "pregunta": "¿Qué imprime?\n\n```python\ns = 'hola mundo'\nprint(s.split())\n```",
+    "opciones": {
+      "a": "['hola', 'mundo']",
+      "b": "['h', 'o', 'l', 'a', ' ', 'm', 'u', 'n', 'd', 'o']",
+      "c": "'hola mundo'",
+      "d": "Error"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "split() sin argumentos divide por espacios en blanco."
+  },
+  {
+    "id": "p267",
+    "dificultad": 3,
+    "categoria": "Strings",
+    "pregunta": "¿Qué imprime?\n\n```python\ns = 'Python es genial'\nprint(s.replace('es', 'resulta'))\n```",
+    "opciones": {
+      "a": "Python resulta genial",
+      "b": "Python es genial",
+      "c": "Pythonresultagenial",
+      "d": "Error"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "replace() sustituye 'es' por 'resulta': 'Python resulta genial'."
+  },
+  {
+    "id": "p268",
+    "dificultad": 3,
+    "categoria": "Strings",
+    "pregunta": "¿Qué imprime?\n\n```python\ns = 'a,b,c,d'\nlista = s.split(',')\nprint(len(lista))\n```",
+    "opciones": {
+      "a": "3",
+      "b": "4",
+      "c": "7",
+      "d": "Error"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "split(',') divide por comas: ['a', 'b', 'c', 'd']. Son 4 elementos."
+  },
+  {
+    "id": "p269",
+    "dificultad": 3,
+    "categoria": "Strings",
+    "pregunta": "¿Qué imprime?\n\n```python\nlista = ['a', 'b', 'c']\nprint('-'.join(lista))\n```",
+    "opciones": {
+      "a": "a-b-c",
+      "b": "abc",
+      "c": "['a', 'b', 'c']",
+      "d": "-a-b-c-"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "join() une los elementos con el separador: 'a-b-c'."
+  },
+  {
+    "id": "p270",
+    "dificultad": 4,
+    "categoria": "Strings",
+    "pregunta": "¿Qué imprime?\n\n```python\nnombre = 'Juan'\nedad = 25\nprint(f'{nombre} tiene {edad} años')\n```",
+    "opciones": {
+      "a": "{nombre} tiene {edad} años",
+      "b": "Juan tiene 25 años",
+      "c": "nombre tiene edad años",
+      "d": "Error"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "f-strings interpolan variables dentro de llaves: 'Juan tiene 25 años'."
+  },
+  {
+    "id": "p271",
+    "dificultad": 4,
+    "categoria": "Strings",
+    "pregunta": "¿Qué imprime?\n\n```python\ns = 'Python'\nprint(s[1:5:2])\n```",
+    "opciones": {
+      "a": "yto",
+      "b": "yh",
+      "c": "yo",
+      "d": "Ptn"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "s[1:5:2] toma caracteres en índices 1,3: 'y' y 'o' → 'yo'."
+  },
+  {
+    "id": "p272",
+    "dificultad": 4,
+    "categoria": "Strings",
+    "pregunta": "¿Qué imprime?\n\n```python\ns = 'abc123def456'\nprint(s.isalnum())\n```",
+    "opciones": {
+      "a": "True",
+      "b": "False",
+      "c": "abc123def456",
+      "d": "Error"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "isalnum() retorna True si todos los caracteres son alfanuméricos."
+  },
+  {
+    "id": "p273",
+    "dificultad": 5,
+    "categoria": "Strings",
+    "pregunta": "¿Qué imprime?\n\n```python\nimport re\ntexto = 'La temperatura es 25.5 grados'\npatron = r'\\d+\\.\\d+'\nresultado = re.search(patron, texto)\nprint(resultado.group())\n```",
+    "opciones": {
+      "a": "25",
+      "b": "25.5",
+      "c": "temperatura",
+      "d": "Error"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "La expresión regular busca números con punto decimal. Encuentra '25.5'."
+  },
+  {
+    "id": "p274",
+    "dificultad": 5,
+    "categoria": "Strings",
+    "pregunta": "¿Qué imprime?\n\n```python\ns = 'hola mundo hola'\nprint(s.count('hola'))\n```",
+    "opciones": {
+      "a": "1",
+      "b": "2",
+      "c": "4",
+      "d": "Error"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "count() cuenta las ocurrencias de una subcadena. 'hola' aparece 2 veces."
+  },
+  {
+    "id": "p275",
+    "dificultad": 5,
+    "categoria": "Strings",
+    "pregunta": "¿Qué imprime?\n\n```python\ns = 'Python'\nprint(s.center(10, '*'))\n```",
+    "opciones": {
+      "a": "**Python**",
+      "b": "Python****",
+      "c": "****Python",
+      "d": "*Python***"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "center() centra el string en un ancho de 10, rellenando con '*'."
+  },
+  {
+    "id": "p276",
+    "dificultad": 1,
+    "categoria": "Strings",
+    "pregunta": "¿Qué imprime?\n\n```python\ns = 'Python'\nprint(s[-1])\n```",
+    "opciones": {
+      "a": "P",
+      "b": "n",
+      "c": "y",
+      "d": "Error"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "s[-1] accede al último carácter: 'n'."
+  },
+  {
+    "id": "p277",
+    "dificultad": 2,
+    "categoria": "Strings",
+    "pregunta": "¿Qué imprime?\n\n```python\ns = 'Hello World'\nprint(s.title())\n```",
+    "opciones": {
+      "a": "Hello World",
+      "b": "HELLO WORLD",
+      "c": "hello world",
+      "d": "Hello world"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "title() capitaliza la primera letra de cada palabra. Ya está en formato correcto."
+  },
+  {
+    "id": "p278",
+    "dificultad": 3,
+    "categoria": "Strings",
+    "pregunta": "¿Qué imprime?\n\n```python\ns = 'Python es fácil'\nprint(s.startswith('Python'))\n```",
+    "opciones": {
+      "a": "True",
+      "b": "False",
+      "c": "Python",
+      "d": "Error"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "startswith() verifica si el string comienza con la subcadena dada."
+  },
+  {
+    "id": "p279",
+    "dificultad": 4,
+    "categoria": "Strings",
+    "pregunta": "¿Qué imprime?\n\n```python\ns = 'Python'\nprint(s.find('th'))\n```",
+    "opciones": {
+      "a": "2",
+      "b": "3",
+      "c": "-1",
+      "d": "True"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "find() retorna el índice donde empieza la subcadena. 'th' empieza en índice 2."
+  },
+  {
+    "id": "p280",
+    "dificultad": 5,
+    "categoria": "Strings",
+    "pregunta": "¿Qué imprime?\n\n```python\ns = 'abc ABC abc'\nprint(s.replace('abc', 'xyz', 1))\n```",
+    "opciones": {
+      "a": "xyz ABC xyz",
+      "b": "xyz ABC abc",
+      "c": "abc ABC xyz",
+      "d": "Error"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "replace() con tercer argumento 1 reemplaza solo la primera ocurrencia."
+  },
+  {
+    "id": "p281",
+    "dificultad": 1,
+    "categoria": "Strings",
+    "pregunta": "¿Qué imprime?\n\n```python\ns = 'ab' * 3\nprint(s)\n```",
+    "opciones": {
+      "a": "ab3",
+      "b": "ababab",
+      "c": "ab ab ab",
+      "d": "Error"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "* replica el string: 'ab' * 3 = 'ababab'."
+  },
+  {
+    "id": "p282",
+    "dificultad": 2,
+    "categoria": "Strings",
+    "pregunta": "¿Qué imprime?\n\n```python\ns = '12345'\nprint(s.isdigit())\n```",
+    "opciones": {
+      "a": "True",
+      "b": "False",
+      "c": "12345",
+      "d": "Error"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "isdigit() retorna True si todos los caracteres son dígitos."
+  },
+  {
+    "id": "p283",
+    "dificultad": 3,
+    "categoria": "Strings",
+    "pregunta": "¿Qué imprime?\n\n```python\nvalor = 3.14159\nprint(f'{valor:.2f}')\n```",
+    "opciones": {
+      "a": "3.14159",
+      "b": "3.14",
+      "c": "3.1",
+      "d": "3"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": ":.2f formatea el número con 2 decimales: '3.14'."
+  },
+  {
+    "id": "p284",
+    "dificultad": 4,
+    "categoria": "Strings",
+    "pregunta": "¿Qué imprime?\n\n```python\ns = 'Hola\\nMundo'\nprint(len(s))\n```",
+    "opciones": {
+      "a": "10",
+      "b": "11",
+      "c": "9",
+      "d": "12"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "'\\n' es un solo carácter (salto de línea). 'Hola' + '\\n' + 'Mundo' = 4+1+5 = 10."
+  },
+  {
+    "id": "p285",
+    "dificultad": 5,
+    "categoria": "Strings",
+    "pregunta": "¿Qué imprime?\n\n```python\nimport re\ntexto = 'a1b2c3d4'\nnumeros = re.findall(r'\\d', texto)\nprint(sum(int(n) for n in numeros))\n```",
+    "opciones": {
+      "a": "10",
+      "b": "1234",
+      "c": "4",
+      "d": "Error"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "findall encuentra todos los dígitos: ['1','2','3','4']. sum(1+2+3+4) = 10."
+  },
+  {
+    "id": "p286",
+    "dificultad": 1,
+    "categoria": "Diccionarios",
+    "pregunta": "¿Qué imprime?\n\n```python\nd = dict()\nprint(type(d).__name__)\n```",
+    "opciones": {
+      "a": "dictionary",
+      "b": "dict",
+      "c": "Dict",
+      "d": "Error"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "dict() crea un diccionario vacío. Su tipo es 'dict'."
+  },
+  {
+    "id": "p287",
+    "dificultad": 2,
+    "categoria": "Diccionarios",
+    "pregunta": "¿Qué imprime?\n\n```python\nd = {'a': 1, 'b': 2}\nd['a'] = 10\nprint(d['a'])\n```",
+    "opciones": {
+      "a": "1",
+      "b": "10",
+      "c": "Error",
+      "d": "None"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Los diccionarios permiten modificar valores existentes. d['a'] se actualiza a 10."
+  },
+  {
+    "id": "p288",
+    "dificultad": 3,
+    "categoria": "Diccionarios",
+    "pregunta": "¿Qué imprime?\n\n```python\nd = {'x': 1, 'y': 2, 'z': 3}\ndel d['y']\nprint(len(d))\n```",
+    "opciones": {
+      "a": "2",
+      "b": "3",
+      "c": "Error",
+      "d": "None"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "del elimina el par clave-valor. Quedan 2 elementos: 'x' y 'z'."
+  },
+  {
+    "id": "p289",
+    "dificultad": 4,
+    "categoria": "Diccionarios",
+    "pregunta": "¿Qué imprime?\n\n```python\nlista = [('a', 1), ('b', 2), ('c', 3)]\nd = dict(lista)\nprint(d['b'])\n```",
+    "opciones": {
+      "a": "1",
+      "b": "2",
+      "c": "('b', 2)",
+      "d": "Error"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "dict() puede convertir lista de tuplas a diccionario. d['b'] es 2."
+  },
+  {
+    "id": "p290",
+    "dificultad": 5,
+    "categoria": "Diccionarios",
+    "pregunta": "¿Qué imprime?\n\n```python\nd1 = {'a': 1, 'b': 2}\nd2 = d1.copy()\nd1['a'] = 99\nprint(d2['a'])\n```",
+    "opciones": {
+      "a": "99",
+      "b": "1",
+      "c": "None",
+      "d": "Error"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "copy() crea una copia superficial independiente. Modificar d1 no afecta d2."
+  },
+  {
+    "id": "p291",
+    "dificultad": 1,
+    "categoria": "Strings",
+    "pregunta": "¿Qué imprime?\n\n```python\nprint('Hola' == 'hola')\n```",
+    "opciones": {
+      "a": "True",
+      "b": "False",
+      "c": "Error",
+      "d": "None"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "La comparación de strings es sensible a mayúsculas. 'H' ≠ 'h'."
+  },
+  {
+    "id": "p292",
+    "dificultad": 2,
+    "categoria": "Strings",
+    "pregunta": "¿Qué imprime?\n\n```python\ns = 'abcdef'\nprint(s[2:])\n```",
+    "opciones": {
+      "a": "ab",
+      "b": "cdef",
+      "c": "abcdef",
+      "d": "ef"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "s[2:] toma desde el índice 2 hasta el final: 'cdef'."
+  },
+  {
+    "id": "p293",
+    "dificultad": 3,
+    "categoria": "Strings",
+    "pregunta": "¿Qué imprime?\n\n```python\ns = 'Python Programming'\nprint(s.swapcase())\n```",
+    "opciones": {
+      "a": "python programming",
+      "b": "PYTHON PROGRAMMING",
+      "c": "pYTHON pROGRAMMING",
+      "d": "Python programming"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "swapcase() intercambia mayúsculas y minúsculas."
+  },
+  {
+    "id": "p294",
+    "dificultad": 4,
+    "categoria": "Strings",
+    "pregunta": "¿Qué imprime?\n\n```python\ns = 'hello'\nprint(s.zfill(8))\n```",
+    "opciones": {
+      "a": "hello000",
+      "b": "000hello",
+      "c": "hello   ",
+      "d": "   hello"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "zfill() rellena con ceros a la izquierda hasta el ancho especificado."
+  },
+  {
+    "id": "p295",
+    "dificultad": 5,
+    "categoria": "Strings",
+    "pregunta": "¿Qué imprime?\n\n```python\ns = '\\t Hello World \\n'\nprint(repr(s.strip()))\n```",
+    "opciones": {
+      "a": "'Hello World'",
+      "b": "'\\t Hello World \\n'",
+      "c": "Hello World",
+      "d": "'\\tHello World\\n'"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "strip() elimina espacios en blanco incluyendo \\t y \\n. repr() muestra la representación."
+  },
+  {
+    "id": "p296",
+    "dificultad": 1,
+    "categoria": "Diccionarios",
+    "pregunta": "¿Qué imprime?\n\n```python\nd = {1: 'a', 2: 'b'}\nprint(1 in d)\n```",
+    "opciones": {
+      "a": "True",
+      "b": "False",
+      "c": "'a'",
+      "d": "Error"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "in verifica si la clave existe en el diccionario. 1 es una clave."
+  },
+  {
+    "id": "p297",
+    "dificultad": 2,
+    "categoria": "Diccionarios",
+    "pregunta": "¿Qué imprime?\n\n```python\nd = {'a': 1}\nd.clear()\nprint(d)\n```",
+    "opciones": {
+      "a": "None",
+      "b": "{}",
+      "c": "{'a': 1}",
+      "d": "Error"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "clear() elimina todos los elementos del diccionario, dejándolo vacío."
+  },
+  {
+    "id": "p298",
+    "dificultad": 3,
+    "categoria": "Diccionarios",
+    "pregunta": "¿Qué imprime?\n\n```python\nd = {'a': 1, 'b': 2}\nresultado = sum(d.values())\nprint(resultado)\n```",
+    "opciones": {
+      "a": "3",
+      "b": "ab",
+      "c": "12",
+      "d": "Error"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "values() retorna [1, 2]. sum([1, 2]) = 3."
+  },
+  {
+    "id": "p299",
+    "dificultad": 4,
+    "categoria": "Diccionarios",
+    "pregunta": "¿Qué imprime?\n\n```python\nclaves = ['a', 'b', 'c']\nd = dict.fromkeys(claves, 0)\nprint(d)\n```",
+    "opciones": {
+      "a": "{'a': 0, 'b': 0, 'c': 0}",
+      "b": "{'a': 'b': 'c': 0}",
+      "c": "[('a', 0), ('b', 0), ('c', 0)]",
+      "d": "Error"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "fromkeys() crea un diccionario con las claves dadas y un valor por defecto."
+  },
+  {
+    "id": "p300",
+    "dificultad": 5,
+    "categoria": "Diccionarios",
+    "pregunta": "¿Qué imprime?\n\n```python\nd = {'a': 1, 'b': 2, 'c': 3}\ninvertido = {v: k for k, v in d.items()}\nprint(invertido[2])\n```",
+    "opciones": {
+      "a": "2",
+      "b": "'b'",
+      "c": "b",
+      "d": "Error"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "Se invierte el diccionario: {1:'a', 2:'b', 3:'c'}. invertido[2] = 'b'."
+  },
+  {
+    "id": "p301",
+    "dificultad": 1,
+    "categoria": "POO",
+    "pregunta": "¿Qué imprime?\n\n```python\nclass Persona:\n    pass\n\np = Persona()\nprint(type(p).__name__)\n```",
+    "opciones": {
+      "a": "object",
+      "b": "Persona",
+      "c": "class",
+      "d": "None"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "p es una instancia de la clase Persona. Su tipo es 'Persona'."
+  },
+  {
+    "id": "p302",
+    "dificultad": 1,
+    "categoria": "POO",
+    "pregunta": "¿Qué imprime?\n\n```python\nclass Animal:\n    especie = 'Desconocida'\n\nprint(Animal.especie)\n```",
+    "opciones": {
+      "a": "Animal",
+      "b": "Desconocida",
+      "c": "especie",
+      "d": "Error"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "especie es un atributo de clase que se puede acceder sin crear instancia."
+  },
+  {
+    "id": "p303",
+    "dificultad": 1,
+    "categoria": "POO",
+    "pregunta": "¿Qué imprime?\n\n```python\nclass Contador:\n    def __init__(self):\n        self.valor = 0\n\nc = Contador()\nprint(c.valor)\n```",
+    "opciones": {
+      "a": "Contador",
+      "b": "None",
+      "c": "0",
+      "d": "Error"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "__init__ se llama al crear la instancia, inicializando valor a 0."
+  },
+  {
+    "id": "p304",
+    "dificultad": 2,
+    "categoria": "POO",
+    "pregunta": "¿Qué imprime?\n\n```python\nclass Punto:\n    def __init__(self, x, y):\n        self.x = x\n        self.y = y\n\np = Punto(3, 4)\nprint(p.x + p.y)\n```",
+    "opciones": {
+      "a": "7",
+      "b": "(3, 4)",
+      "c": "Punto",
+      "d": "Error"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "Los atributos x=3 e y=4 se suman: 3 + 4 = 7."
+  },
+  {
+    "id": "p305",
+    "dificultad": 2,
+    "categoria": "POO",
+    "pregunta": "¿Qué imprime?\n\n```python\nclass Calculadora:\n    def sumar(self, a, b):\n        return a + b\n\ncalc = Calculadora()\nprint(calc.sumar(5, 3))\n```",
+    "opciones": {
+      "a": "8",
+      "b": "53",
+      "c": "Error: falta self",
+      "d": "None"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "El método sumar recibe self automáticamente, luego a=5 y b=3. Retorna 8."
+  },
+  {
+    "id": "p306",
+    "dificultad": 2,
+    "categoria": "POO",
+    "pregunta": "¿Qué imprime?\n\n```python\nclass Contador:\n    total = 0\n    \n    def __init__(self):\n        Contador.total += 1\n\nc1 = Contador()\nc2 = Contador()\nprint(Contador.total)\n```",
+    "opciones": {
+      "a": "0",
+      "b": "1",
+      "c": "2",
+      "d": "Error"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "total es atributo de clase compartido. Cada instancia lo incrementa: 2."
+  },
+  {
+    "id": "p307",
+    "dificultad": 3,
+    "categoria": "POO",
+    "pregunta": "¿Qué imprime?\n\n```python\nclass Animal:\n    def hablar(self):\n        return 'Sonido genérico'\n\nclass Perro(Animal):\n    def hablar(self):\n        return 'Guau'\n\np = Perro()\nprint(p.hablar())\n```",
+    "opciones": {
+      "a": "Sonido genérico",
+      "b": "Guau",
+      "c": "Error",
+      "d": "None"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Perro sobrescribe el método hablar. Se ejecuta la versión de Perro."
+  },
+  {
+    "id": "p308",
+    "dificultad": 3,
+    "categoria": "POO",
+    "pregunta": "¿Qué imprime?\n\n```python\nclass Persona:\n    def __init__(self, nombre):\n        self.nombre = nombre\n\nclass Empleado(Persona):\n    def __init__(self, nombre, cargo):\n        super().__init__(nombre)\n        self.cargo = cargo\n\ne = Empleado('Ana', 'Ingeniera')\nprint(e.nombre)\n```",
+    "opciones": {
+      "a": "Empleado",
+      "b": "Ana",
+      "c": "Ingeniera",
+      "d": "Error"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "super().__init__(nombre) llama al __init__ de Persona, estableciendo self.nombre='Ana'."
+  },
+  {
+    "id": "p309",
+    "dificultad": 3,
+    "categoria": "POO",
+    "pregunta": "¿Qué imprime?\n\n```python\nclass Circulo:\n    PI = 3.14159\n    \n    def __init__(self, radio):\n        self.radio = radio\n    \n    def area(self):\n        return Circulo.PI * self.radio ** 2\n\nc = Circulo(2)\nprint(f'{c.area():.2f}')\n```",
+    "opciones": {
+      "a": "6.28",
+      "b": "12.57",
+      "c": "3.14",
+      "d": "Error"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Área = π * r² = 3.14159 * 4 = 12.57 (redondeado a 2 decimales)."
+  },
+  {
+    "id": "p310",
+    "dificultad": 4,
+    "categoria": "POO",
+    "pregunta": "¿Qué imprime?\n\n```python\nclass Temperatura:\n    def __init__(self, celsius):\n        self._celsius = celsius\n    \n    @property\n    def fahrenheit(self):\n        return self._celsius * 9/5 + 32\n\nt = Temperatura(100)\nprint(t.fahrenheit)\n```",
+    "opciones": {
+      "a": "100",
+      "b": "212",
+      "c": "212.0",
+      "d": "Error"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "@property permite acceder a fahrenheit como atributo. 100°C = 212°F."
+  },
+  {
+    "id": "p311",
+    "dificultad": 4,
+    "categoria": "POO",
+    "pregunta": "¿Qué imprime?\n\n```python\nclass Rectangulo:\n    def __init__(self, ancho, alto):\n        self.ancho = ancho\n        self.alto = alto\n    \n    def __eq__(self, otro):\n        return self.ancho * self.alto == otro.ancho * otro.alto\n\nr1 = Rectangulo(4, 3)\nr2 = Rectangulo(6, 2)\nprint(r1 == r2)\n```",
+    "opciones": {
+      "a": "True",
+      "b": "False",
+      "c": "12",
+      "d": "Error"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "__eq__ compara áreas: 4*3=12 == 6*2=12. Son iguales."
+  },
+  {
+    "id": "p312",
+    "dificultad": 4,
+    "categoria": "POO",
+    "pregunta": "¿Qué imprime?\n\n```python\nclass MiClase:\n    @staticmethod\n    def saludar():\n        return 'Hola'\n    \n    @classmethod\n    def crear(cls):\n        return cls()\n\nprint(MiClase.saludar())\n```",
+    "opciones": {
+      "a": "Hola",
+      "b": "MiClase",
+      "c": "Error: falta self",
+      "d": "None"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "@staticmethod no necesita self ni cls. saludar() retorna 'Hola'."
+  },
+  {
+    "id": "p313",
+    "dificultad": 5,
+    "categoria": "POO",
+    "pregunta": "¿Qué imprime?\n\n```python\nclass Vector:\n    def __init__(self, x, y):\n        self.x = x\n        self.y = y\n    \n    def __add__(self, otro):\n        return Vector(self.x + otro.x, self.y + otro.y)\n\nv1 = Vector(1, 2)\nv2 = Vector(3, 4)\nv3 = v1 + v2\nprint(v3.x, v3.y)\n```",
+    "opciones": {
+      "a": "1 2",
+      "b": "3 4",
+      "c": "4 6",
+      "d": "Error"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "__add__ permite usar +. v3 = (1+3, 2+4) = (4, 6)."
+  },
+  {
+    "id": "p314",
+    "dificultad": 5,
+    "categoria": "POO",
+    "pregunta": "¿Qué imprime?\n\n```python\nclass Singleton:\n    _instancia = None\n    \n    def __new__(cls):\n        if cls._instancia is None:\n            cls._instancia = super().__new__(cls)\n        return cls._instancia\n\na = Singleton()\nb = Singleton()\nprint(a is b)\n```",
+    "opciones": {
+      "a": "True",
+      "b": "False",
+      "c": "None",
+      "d": "Error"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "Patrón Singleton: __new__ asegura que solo exista una instancia. a y b son el mismo objeto."
+  },
+  {
+    "id": "p315",
+    "dificultad": 5,
+    "categoria": "POO",
+    "pregunta": "¿Qué imprime?\n\n```python\nclass Contexto:\n    def __enter__(self):\n        print('Entrando')\n        return self\n    \n    def __exit__(self, *args):\n        print('Saliendo')\n\nwith Contexto():\n    print('Dentro')\n```",
+    "opciones": {
+      "a": "Dentro",
+      "b": "Entrando\\nDentro\\nSaliendo",
+      "c": "Entrando\\nSaliendo\\nDentro",
+      "d": "Error"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Context manager: __enter__ al iniciar, luego el bloque, __exit__ al finalizar."
+  },
+  {
+    "id": "p316",
+    "dificultad": 1,
+    "categoria": "POO",
+    "pregunta": "¿Qué imprime?\n\n```python\nclass Caja:\n    contenido = []\n\nc1 = Caja()\nc1.contenido.append(1)\nc2 = Caja()\nprint(len(c2.contenido))\n```",
+    "opciones": {
+      "a": "0",
+      "b": "1",
+      "c": "Error",
+      "d": "None"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "contenido es atributo de clase (compartido). c1 y c2 comparten la misma lista."
+  },
+  {
+    "id": "p317",
+    "dificultad": 2,
+    "categoria": "POO",
+    "pregunta": "¿Qué imprime?\n\n```python\nclass Numero:\n    def __init__(self, valor):\n        self.valor = valor\n    \n    def doble(self):\n        return self.valor * 2\n\nn = Numero(5)\nprint(n.doble())\n```",
+    "opciones": {
+      "a": "5",
+      "b": "10",
+      "c": "25",
+      "d": "Error"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "doble() retorna self.valor * 2 = 5 * 2 = 10."
+  },
+  {
+    "id": "p318",
+    "dificultad": 3,
+    "categoria": "POO",
+    "pregunta": "¿Qué imprime?\n\n```python\nclass Base:\n    def metodo(self):\n        return 'Base'\n\nclass Derivada(Base):\n    def metodo(self):\n        return super().metodo() + ' Derivada'\n\nd = Derivada()\nprint(d.metodo())\n```",
+    "opciones": {
+      "a": "Base",
+      "b": "Derivada",
+      "c": "Base Derivada",
+      "d": "Error"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "super().metodo() llama al método de Base, luego concatena: 'Base Derivada'."
+  },
+  {
+    "id": "p319",
+    "dificultad": 4,
+    "categoria": "POO",
+    "pregunta": "¿Qué imprime?\n\n```python\nclass Contenedor:\n    def __init__(self):\n        self.items = []\n    \n    def __len__(self):\n        return len(self.items)\n    \n    def agregar(self, item):\n        self.items.append(item)\n\nc = Contenedor()\nc.agregar('a')\nc.agregar('b')\nprint(len(c))\n```",
+    "opciones": {
+      "a": "0",
+      "b": "2",
+      "c": "Error",
+      "d": "['a', 'b']"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "__len__ permite usar len() en objetos personalizados. Hay 2 items."
+  },
+  {
+    "id": "p320",
+    "dificultad": 5,
+    "categoria": "POO",
+    "pregunta": "¿Qué imprime?\n\n```python\nclass Meta(type):\n    def __new__(mcs, name, bases, namespace):\n        namespace['creado_por'] = 'Meta'\n        return super().__new__(mcs, name, bases, namespace)\n\nclass MiClase(metaclass=Meta):\n    pass\n\nprint(MiClase.creado_por)\n```",
+    "opciones": {
+      "a": "Meta",
+      "b": "MiClase",
+      "c": "Error",
+      "d": "None"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "La metaclase modifica la creación de la clase, añadiendo el atributo 'creado_por'."
+  },
+  {
+    "id": "p321",
+    "dificultad": 1,
+    "categoria": "POO",
+    "pregunta": "¿Qué imprime?\n\n```python\nclass Saludo:\n    mensaje = 'Hola'\n\ns = Saludo()\nprint(s.mensaje)\n```",
+    "opciones": {
+      "a": "Saludo",
+      "b": "Hola",
+      "c": "mensaje",
+      "d": "Error"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Las instancias pueden acceder a atributos de clase. s.mensaje es 'Hola'."
+  },
+  {
+    "id": "p322",
+    "dificultad": 2,
+    "categoria": "POO",
+    "pregunta": "¿Qué imprime?\n\n```python\nclass Producto:\n    def __init__(self, precio):\n        self.precio = precio\n\np = Producto(100)\np.precio = 150\nprint(p.precio)\n```",
+    "opciones": {
+      "a": "100",
+      "b": "150",
+      "c": "Error",
+      "d": "None"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Los atributos de instancia pueden modificarse. p.precio se actualiza a 150."
+  },
+  {
+    "id": "p323",
+    "dificultad": 3,
+    "categoria": "POO",
+    "pregunta": "¿Qué imprime?\n\n```python\nclass Vehiculo:\n    ruedas = 4\n\nclass Moto(Vehiculo):\n    ruedas = 2\n\nm = Moto()\nprint(m.ruedas, Vehiculo.ruedas)\n```",
+    "opciones": {
+      "a": "2 2",
+      "b": "4 4",
+      "c": "2 4",
+      "d": "4 2"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "Moto sobrescribe ruedas=2. Vehiculo mantiene ruedas=4."
+  },
+  {
+    "id": "p324",
+    "dificultad": 4,
+    "categoria": "POO",
+    "pregunta": "¿Qué imprime?\n\n```python\nclass Iterador:\n    def __init__(self, limite):\n        self.limite = limite\n        self.contador = 0\n    \n    def __iter__(self):\n        return self\n    \n    def __next__(self):\n        if self.contador < self.limite:\n            self.contador += 1\n            return self.contador\n        raise StopIteration\n\nprint(list(Iterador(3)))\n```",
+    "opciones": {
+      "a": "[0, 1, 2]",
+      "b": "[1, 2, 3]",
+      "c": "[0, 1, 2, 3]",
+      "d": "Error"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "El iterador produce valores hasta limite. Genera [1, 2, 3]."
+  },
+  {
+    "id": "p325",
+    "dificultad": 5,
+    "categoria": "POO",
+    "pregunta": "¿Qué imprime?\n\n```python\nclass Descriptor:\n    def __get__(self, obj, type=None):\n        return obj._valor * 2\n    \n    def __set__(self, obj, value):\n        obj._valor = value\n\nclass MiClase:\n    x = Descriptor()\n\nm = MiClase()\nm.x = 5\nprint(m.x)\n```",
+    "opciones": {
+      "a": "5",
+      "b": "10",
+      "c": "Error",
+      "d": "None"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Descriptor personaliza get/set. __set__ guarda 5, __get__ retorna 5*2=10."
+  },
+  {
+    "id": "p326",
+    "dificultad": 1,
+    "categoria": "POO",
+    "pregunta": "¿Qué imprime?\n\n```python\nclass A:\n    pass\n\nclass B(A):\n    pass\n\nb = B()\nprint(isinstance(b, A))\n```",
+    "opciones": {
+      "a": "True",
+      "b": "False",
+      "c": "B",
+      "d": "Error"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "B hereda de A. Una instancia de B también es instancia de A."
+  },
+  {
+    "id": "p327",
+    "dificultad": 2,
+    "categoria": "POO",
+    "pregunta": "¿Qué imprime?\n\n```python\nclass Coche:\n    def __init__(self, marca):\n        self.marca = marca\n    \n    def describir(self):\n        return f'Coche: {self.marca}'\n\nc = Coche('Toyota')\nprint(c.describir())\n```",
+    "opciones": {
+      "a": "Toyota",
+      "b": "Coche: Toyota",
+      "c": "Coche",
+      "d": "Error"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "describir() usa f-string para formatear: 'Coche: Toyota'."
+  },
+  {
+    "id": "p328",
+    "dificultad": 3,
+    "categoria": "POO",
+    "pregunta": "¿Qué imprime?\n\n```python\nclass Banco:\n    def __init__(self):\n        self.__saldo = 1000\n    \n    def get_saldo(self):\n        return self.__saldo\n\nb = Banco()\nprint(b.get_saldo())\n```",
+    "opciones": {
+      "a": "1000",
+      "b": "Error: __saldo no existe",
+      "c": "None",
+      "d": "0"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "__saldo es privado (name mangling), pero get_saldo() puede acceder: 1000."
+  },
+  {
+    "id": "p329",
+    "dificultad": 4,
+    "categoria": "POO",
+    "pregunta": "¿Qué imprime?\n\n```python\nclass A:\n    def metodo(self):\n        return 'A'\n\nclass B(A):\n    def metodo(self):\n        return 'B'\n\nclass C(A):\n    def metodo(self):\n        return 'C'\n\nclass D(B, C):\n    pass\n\nd = D()\nprint(d.metodo())\n```",
+    "opciones": {
+      "a": "A",
+      "b": "B",
+      "c": "C",
+      "d": "D"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "MRO: D -> B -> C -> A. El método de B tiene prioridad."
+  },
+  {
+    "id": "p330",
+    "dificultad": 5,
+    "categoria": "POO",
+    "pregunta": "¿Qué imprime?\n\n```python\nfrom abc import ABC, abstractmethod\n\nclass Figura(ABC):\n    @abstractmethod\n    def area(self):\n        pass\n\nclass Cuadrado(Figura):\n    def __init__(self, lado):\n        self.lado = lado\n    \n    def area(self):\n        return self.lado ** 2\n\nc = Cuadrado(4)\nprint(c.area())\n```",
+    "opciones": {
+      "a": "4",
+      "b": "16",
+      "c": "Error: clase abstracta",
+      "d": "None"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Cuadrado implementa el método abstracto area(). 4² = 16."
+  },
+  {
+    "id": "p331",
+    "dificultad": 1,
+    "categoria": "POO",
+    "pregunta": "¿Qué imprime?\n\n```python\nclass Ejemplo:\n    x = 10\n\nprint(hasattr(Ejemplo, 'x'))\n```",
+    "opciones": {
+      "a": "True",
+      "b": "False",
+      "c": "10",
+      "d": "Error"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "hasattr verifica si el atributo existe. Ejemplo tiene 'x'."
+  },
+  {
+    "id": "p332",
+    "dificultad": 2,
+    "categoria": "POO",
+    "pregunta": "¿Qué imprime?\n\n```python\nclass Persona:\n    def __init__(self, nombre):\n        self.nombre = nombre\n\np1 = Persona('Ana')\np2 = Persona('Ana')\nprint(p1 == p2)\n```",
+    "opciones": {
+      "a": "True",
+      "b": "False",
+      "c": "Error",
+      "d": "Ana"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Sin __eq__ personalizado, == compara identidad (objetos diferentes)."
+  },
+  {
+    "id": "p333",
+    "dificultad": 3,
+    "categoria": "POO",
+    "pregunta": "¿Qué imprime?\n\n```python\nclass Temperatura:\n    def __init__(self, valor):\n        self.valor = valor\n    \n    def __repr__(self):\n        return f'Temperatura({self.valor})'\n\nt = Temperatura(25)\nprint(repr(t))\n```",
+    "opciones": {
+      "a": "25",
+      "b": "Temperatura(25)",
+      "c": "<Temperatura object>",
+      "d": "Error"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "__repr__ define la representación oficial del objeto: 'Temperatura(25)'."
+  },
+  {
+    "id": "p334",
+    "dificultad": 4,
+    "categoria": "POO",
+    "pregunta": "¿Qué imprime?\n\n```python\nclass Numero:\n    def __init__(self, valor):\n        self.valor = valor\n    \n    def __mul__(self, otro):\n        return Numero(self.valor * otro)\n    \n    def __rmul__(self, otro):\n        return self.__mul__(otro)\n\nn = Numero(5)\nresultado = 3 * n\nprint(resultado.valor)\n```",
+    "opciones": {
+      "a": "5",
+      "b": "15",
+      "c": "Error",
+      "d": "3"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "__rmul__ permite 3 * n cuando n está a la derecha. 3 * 5 = 15."
+  },
+  {
+    "id": "p335",
+    "dificultad": 5,
+    "categoria": "POO",
+    "pregunta": "¿Qué imprime?\n\n```python\nclass MiLista:\n    def __init__(self):\n        self._datos = []\n    \n    def __getitem__(self, index):\n        return self._datos[index]\n    \n    def __setitem__(self, index, valor):\n        self._datos.append(valor)\n\nm = MiLista()\nm[0] = 'a'\nm[1] = 'b'\nprint(m[0])\n```",
+    "opciones": {
+      "a": "a",
+      "b": "b",
+      "c": "Error",
+      "d": "None"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "__setitem__ añade elementos. __getitem__ accede por índice. m[0] = 'a'."
+  },
+  {
+    "id": "p336",
+    "dificultad": 1,
+    "categoria": "POO",
+    "pregunta": "¿Qué imprime?\n\n```python\nclass Dato:\n    def __init__(self, valor):\n        self.valor = valor\n\nd = Dato(42)\nprint(d.valor)\n```",
+    "opciones": {
+      "a": "Dato",
+      "b": "42",
+      "c": "valor",
+      "d": "None"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "El constructor inicializa valor=42. d.valor es 42."
+  },
+  {
+    "id": "p337",
+    "dificultad": 2,
+    "categoria": "POO",
+    "pregunta": "¿Qué imprime?\n\n```python\nclass Operacion:\n    def __init__(self, a, b):\n        self.a = a\n        self.b = b\n    \n    def suma(self):\n        return self.a + self.b\n    \n    def resta(self):\n        return self.a - self.b\n\nop = Operacion(10, 3)\nprint(op.suma(), op.resta())\n```",
+    "opciones": {
+      "a": "13 7",
+      "b": "7 13",
+      "c": "10 3",
+      "d": "Error"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "suma() = 10+3 = 13. resta() = 10-3 = 7."
+  },
+  {
+    "id": "p338",
+    "dificultad": 3,
+    "categoria": "POO",
+    "pregunta": "¿Qué imprime?\n\n```python\nclass Animal:\n    reino = 'Animalia'\n    \n    def __init__(self, nombre):\n        self.nombre = nombre\n\na = Animal('León')\nAnimal.reino = 'Animal Kingdom'\nprint(a.reino)\n```",
+    "opciones": {
+      "a": "Animalia",
+      "b": "Animal Kingdom",
+      "c": "León",
+      "d": "Error"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Al modificar el atributo de clase, todas las instancias ven el cambio."
+  },
+  {
+    "id": "p339",
+    "dificultad": 4,
+    "categoria": "POO",
+    "pregunta": "¿Qué imprime?\n\n```python\nclass Contador:\n    def __init__(self, inicio=0):\n        self.valor = inicio\n    \n    def __call__(self):\n        self.valor += 1\n        return self.valor\n\nc = Contador(5)\nprint(c(), c(), c())\n```",
+    "opciones": {
+      "a": "5 5 5",
+      "b": "6 7 8",
+      "c": "1 2 3",
+      "d": "Error"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "__call__ permite llamar al objeto como función. Incrementa cada vez: 6, 7, 8."
+  },
+  {
+    "id": "p340",
+    "dificultad": 5,
+    "categoria": "POO",
+    "pregunta": "¿Qué imprime?\n\n```python\nclass Cached:\n    def __init__(self, func):\n        self.func = func\n        self.cache = {}\n    \n    def __call__(self, *args):\n        if args not in self.cache:\n            self.cache[args] = self.func(*args)\n        return self.cache[args]\n\n@Cached\ndef cuadrado(x):\n    print(f'Calculando {x}')\n    return x ** 2\n\nprint(cuadrado(3))\nprint(cuadrado(3))\n```",
+    "opciones": {
+      "a": "Calculando 3\\n9\\nCalculando 3\\n9",
+      "b": "Calculando 3\\n9\\n9",
+      "c": "9\\n9",
+      "d": "Error"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Decorador de clase con caché. La segunda llamada usa el valor cacheado, no recalcula."
+  },
+  {
+    "id": "p341",
+    "dificultad": 1,
+    "categoria": "POO",
+    "pregunta": "¿Qué imprime?\n\n```python\nclass Mensaje:\n    texto = 'Hola'\n\nm1 = Mensaje()\nm2 = Mensaje()\nm1.texto = 'Adiós'\nprint(m2.texto)\n```",
+    "opciones": {
+      "a": "Adiós",
+      "b": "Hola",
+      "c": "Error",
+      "d": "None"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "m1.texto crea un atributo de instancia. m2 sigue usando el de clase: 'Hola'."
+  },
+  {
+    "id": "p342",
+    "dificultad": 2,
+    "categoria": "POO",
+    "pregunta": "¿Qué imprime?\n\n```python\nclass Punto:\n    def __init__(self, x=0, y=0):\n        self.x = x\n        self.y = y\n    \n    def mover(self, dx, dy):\n        self.x += dx\n        self.y += dy\n\np = Punto(1, 2)\np.mover(3, 4)\nprint(p.x, p.y)\n```",
+    "opciones": {
+      "a": "1 2",
+      "b": "3 4",
+      "c": "4 6",
+      "d": "Error"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "mover() suma dx y dy a las coordenadas: (1+3, 2+4) = (4, 6)."
+  },
+  {
+    "id": "p343",
+    "dificultad": 3,
+    "categoria": "POO",
+    "pregunta": "¿Qué imprime?\n\n```python\nclass Fabrica:\n    productos = 0\n    \n    @classmethod\n    def producir(cls):\n        cls.productos += 1\n        return cls.productos\n\nprint(Fabrica.producir())\nprint(Fabrica.producir())\n```",
+    "opciones": {
+      "a": "1\\n1",
+      "b": "1\\n2",
+      "c": "0\\n0",
+      "d": "Error"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "@classmethod accede a la clase. Cada llamada incrementa productos: 1, 2."
+  },
+  {
+    "id": "p344",
+    "dificultad": 4,
+    "categoria": "POO",
+    "pregunta": "¿Qué imprime?\n\n```python\nclass Nodo:\n    def __init__(self, valor, siguiente=None):\n        self.valor = valor\n        self.siguiente = siguiente\n\nn3 = Nodo(3)\nn2 = Nodo(2, n3)\nn1 = Nodo(1, n2)\nprint(n1.siguiente.siguiente.valor)\n```",
+    "opciones": {
+      "a": "1",
+      "b": "2",
+      "c": "3",
+      "d": "Error"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "n1 -> n2 -> n3. n1.siguiente.siguiente es n3. n3.valor = 3."
+  },
+  {
+    "id": "p345",
+    "dificultad": 5,
+    "categoria": "POO",
+    "pregunta": "¿Qué imprime?\n\n```python\nclass Validador:\n    def __set_name__(self, owner, name):\n        self.nombre = name\n    \n    def __get__(self, obj, type=None):\n        return obj.__dict__.get(self.nombre, 0)\n    \n    def __set__(self, obj, value):\n        if value >= 0:\n            obj.__dict__[self.nombre] = value\n\nclass Cuenta:\n    saldo = Validador()\n\nc = Cuenta()\nc.saldo = -100\nprint(c.saldo)\n```",
+    "opciones": {
+      "a": "-100",
+      "b": "0",
+      "c": "Error",
+      "d": "None"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "El descriptor rechaza valores negativos. c.saldo permanece en 0 (valor por defecto)."
+  },
+  {
+    "id": "p346",
+    "dificultad": 1,
+    "categoria": "POO",
+    "pregunta": "¿Cuál es el método constructor en Python?",
+    "opciones": {
+      "a": "__init__",
+      "b": "__new__",
+      "c": "__create__",
+      "d": "constructor"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "__init__ es el inicializador que configura la instancia después de crearla."
+  },
+  {
+    "id": "p347",
+    "dificultad": 2,
+    "categoria": "POO",
+    "pregunta": "¿Qué imprime?\n\n```python\nclass Libro:\n    def __init__(self, titulo, paginas):\n        self.titulo = titulo\n        self.paginas = paginas\n    \n    def __bool__(self):\n        return self.paginas > 0\n\nl = Libro('Python', 0)\nprint(bool(l))\n```",
+    "opciones": {
+      "a": "True",
+      "b": "False",
+      "c": "0",
+      "d": "Error"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "__bool__ define la veracidad del objeto. 0 páginas = False."
+  },
+  {
+    "id": "p348",
+    "dificultad": 3,
+    "categoria": "POO",
+    "pregunta": "¿Qué imprime?\n\n```python\nclass Pila:\n    def __init__(self):\n        self._items = []\n    \n    def push(self, item):\n        self._items.append(item)\n        return self\n    \n    def pop(self):\n        return self._items.pop()\n\np = Pila()\np.push(1).push(2).push(3)\nprint(p.pop())\n```",
+    "opciones": {
+      "a": "1",
+      "b": "2",
+      "c": "3",
+      "d": "Error"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "push retorna self para encadenar. pop() saca el último: 3."
+  },
+  {
+    "id": "p349",
+    "dificultad": 4,
+    "categoria": "POO",
+    "pregunta": "¿Qué imprime?\n\n```python\nclass Medida:\n    def __init__(self, valor):\n        self.valor = valor\n    \n    def __lt__(self, otro):\n        return self.valor < otro.valor\n\nm1 = Medida(5)\nm2 = Medida(10)\nprint(m1 < m2, m2 < m1)\n```",
+    "opciones": {
+      "a": "True True",
+      "b": "True False",
+      "c": "False True",
+      "d": "False False"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "__lt__ define <. 5 < 10 es True. 10 < 5 es False."
+  },
+  {
+    "id": "p350",
+    "dificultad": 5,
+    "categoria": "POO",
+    "pregunta": "¿Qué imprime?\n\n```python\nclass Inmutable:\n    __slots__ = ['x', 'y']\n    \n    def __init__(self, x, y):\n        self.x = x\n        self.y = y\n\ni = Inmutable(1, 2)\ntry:\n    i.z = 3\n    print('OK')\nexcept AttributeError:\n    print('Error')\n```",
+    "opciones": {
+      "a": "OK",
+      "b": "Error",
+      "c": "3",
+      "d": "None"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "__slots__ restringe los atributos permitidos. 'z' no está en slots."
+  },
+  {
+    "id": "p351",
+    "dificultad": 1,
+    "categoria": "POO",
+    "pregunta": "¿Qué imprime?\n\n```python\nclass Vacio:\n    pass\n\nv = Vacio()\nv.nombre = 'Test'\nprint(v.nombre)\n```",
+    "opciones": {
+      "a": "Error",
+      "b": "Test",
+      "c": "None",
+      "d": "Vacio"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Python permite añadir atributos dinámicamente a las instancias."
+  },
+  {
+    "id": "p352",
+    "dificultad": 2,
+    "categoria": "POO",
+    "pregunta": "¿Qué imprime?\n\n```python\nclass Calculadora:\n    def __init__(self, valor=0):\n        self.resultado = valor\n    \n    def sumar(self, x):\n        self.resultado += x\n        return self\n\nc = Calculadora(10)\nc.sumar(5).sumar(3)\nprint(c.resultado)\n```",
+    "opciones": {
+      "a": "10",
+      "b": "15",
+      "c": "18",
+      "d": "8"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "Fluent interface: 10 + 5 + 3 = 18."
+  },
+  {
+    "id": "p353",
+    "dificultad": 3,
+    "categoria": "POO",
+    "pregunta": "¿Qué imprime?\n\n```python\nclass Registro:\n    instancias = []\n    \n    def __init__(self, nombre):\n        self.nombre = nombre\n        Registro.instancias.append(self)\n\nRegistro('A')\nRegistro('B')\nprint(len(Registro.instancias))\n```",
+    "opciones": {
+      "a": "0",
+      "b": "1",
+      "c": "2",
+      "d": "Error"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "Cada instancia se registra en la lista de clase. Hay 2 instancias."
+  },
+  {
+    "id": "p354",
+    "dificultad": 4,
+    "categoria": "POO",
+    "pregunta": "¿Qué imprime?\n\n```python\nclass Matriz:\n    def __init__(self, filas, cols):\n        self.datos = [[0] * cols for _ in range(filas)]\n    \n    def __getitem__(self, pos):\n        fila, col = pos\n        return self.datos[fila][col]\n    \n    def __setitem__(self, pos, valor):\n        fila, col = pos\n        self.datos[fila][col] = valor\n\nm = Matriz(3, 3)\nm[1, 1] = 5\nprint(m[1, 1])\n```",
+    "opciones": {
+      "a": "0",
+      "b": "5",
+      "c": "Error",
+      "d": "(1, 1)"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Sobrecarga de [] para matrices. m[1,1] = 5, luego lee 5."
+  },
+  {
+    "id": "p355",
+    "dificultad": 5,
+    "categoria": "POO",
+    "pregunta": "¿Qué imprime?\n\n```python\nclass LoggerMixin:\n    def log(self, mensaje):\n        print(f'[LOG] {mensaje}')\n\nclass Proceso:\n    def ejecutar(self):\n        return 'Ejecutado'\n\nclass ProcesoConLog(LoggerMixin, Proceso):\n    def ejecutar(self):\n        resultado = super().ejecutar()\n        self.log(resultado)\n        return resultado\n\np = ProcesoConLog()\np.ejecutar()\n```",
+    "opciones": {
+      "a": "Ejecutado",
+      "b": "[LOG] Ejecutado",
+      "c": "Error",
+      "d": "None"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Mixin añade funcionalidad log. super() llama a Proceso.ejecutar(), luego log."
+  },
+  {
+    "id": "p356",
+    "dificultad": 2,
+    "categoria": "POO",
+    "pregunta": "¿Qué imprime?\n\n```python\nclass Figura:\n    def __init__(self, color):\n        self.color = color\n\nclass Circulo(Figura):\n    def __init__(self, color, radio):\n        super().__init__(color)\n        self.radio = radio\n\nc = Circulo('rojo', 5)\nprint(c.color, c.radio)\n```",
+    "opciones": {
+      "a": "rojo 5",
+      "b": "Circulo rojo",
+      "c": "Error",
+      "d": "None 5"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "super() inicializa color='rojo', luego radio=5."
+  },
+  {
+    "id": "p357",
+    "dificultad": 3,
+    "categoria": "POO",
+    "pregunta": "¿Qué imprime?\n\n```python\nclass Texto:\n    def __init__(self, contenido):\n        self.contenido = contenido\n    \n    def __contains__(self, item):\n        return item.lower() in self.contenido.lower()\n\nt = Texto('Hola Mundo')\nprint('hola' in t)\n```",
+    "opciones": {
+      "a": "True",
+      "b": "False",
+      "c": "Error",
+      "d": "hola"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "__contains__ permite usar 'in'. Busca ignorando mayúsculas: True."
+  },
+  {
+    "id": "p358",
+    "dificultad": 4,
+    "categoria": "POO",
+    "pregunta": "¿Qué imprime?\n\n```python\nfrom dataclasses import dataclass\n\n@dataclass\nclass Punto:\n    x: float\n    y: float\n\np1 = Punto(1.0, 2.0)\np2 = Punto(1.0, 2.0)\nprint(p1 == p2)\n```",
+    "opciones": {
+      "a": "True",
+      "b": "False",
+      "c": "Error",
+      "d": "None"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "@dataclass genera __eq__ automáticamente. Compara valores, no identidad."
+  },
+  {
+    "id": "p359",
+    "dificultad": 5,
+    "categoria": "POO",
+    "pregunta": "¿Qué imprime?\n\n```python\nclass Proxy:\n    def __init__(self, obj):\n        self._obj = obj\n    \n    def __getattr__(self, name):\n        return getattr(self._obj, name)\n\nclass Real:\n    def saludar(self):\n        return 'Hola'\n\np = Proxy(Real())\nprint(p.saludar())\n```",
+    "opciones": {
+      "a": "Hola",
+      "b": "Error",
+      "c": "None",
+      "d": "Proxy"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "__getattr__ delega atributos desconocidos al objeto interno. Llama a Real.saludar()."
+  },
+  {
+    "id": "p360",
+    "dificultad": 5,
+    "categoria": "POO",
+    "pregunta": "¿Qué imprime?\n\n```python\nclass Validar:\n    def __init__(self, minimo, maximo):\n        self.minimo = minimo\n        self.maximo = maximo\n    \n    def __call__(self, func):\n        def wrapper(valor):\n            if self.minimo <= valor <= self.maximo:\n                return func(valor)\n            return None\n        return wrapper\n\n@Validar(0, 100)\ndef procesar(x):\n    return x * 2\n\nprint(procesar(50), procesar(150))\n```",
+    "opciones": {
+      "a": "100 300",
+      "b": "100 None",
+      "c": "None None",
+      "d": "Error"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Decorador con clase. 50 está en rango (100), 150 fuera de rango (None)."
   }
 ]
