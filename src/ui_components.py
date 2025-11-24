@@ -31,9 +31,9 @@ class UIComponents:
         
         st.markdown(f"""
         <div style='background-color: #FFB81C;
-             padding: 8px 20px;
+             padding: 12px 20px;
              border-bottom: 4px solid #003366;
-             margin-bottom: 15px;
+             margin-bottom: 5px;
              display: flex; justify-content: space-between;'>
             <div style='display: flex; flex-direction: column; justify-content: center;'>
                 <span style='color: #003366; font-weight: bold; font-size: 15px;'>
