@@ -199,7 +199,7 @@ def mostrar_pantalla_inicio(config, ui):
     # Mostrar instrucciones
     ui.mostrar_instrucciones()
     
-    st.markdown("<hr style='margin: 10px 0;'>", unsafe_allow_html=True)
+    st.markdown("<hr style='margin: 15px 0;'>", unsafe_allow_html=True)
     st.markdown("##### 📝 Comencemos por tú código (ARCA)")
 
     col1, col2, col3 = st.columns([2, 1, 1])
