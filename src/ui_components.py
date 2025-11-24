@@ -364,6 +364,7 @@ class UIComponents:
             yaxis_range=[0, 5.5],
             hovermode='x unified',
             height=400
+            margin=dict(t=20, l=50, r=20, b=50)
         )
         
         st.plotly_chart(fig, use_container_width=True)
