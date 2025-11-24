@@ -44,34 +44,209 @@ class DataPersistence:
             st.error(f"⚠️ Error al inicializar Google Sheets: {str(e)}")
             raise
     
+    def guardar_inicio_examen(self, codigo_estudiante: str) -> bool:
+        """
+        Guarda el registro de inicio de examen
+        
+        Args:
+            codigo_estudiante: Código del estudiante
+            
+        Returns:
+            True si se guardó exitosamente
+        """
+        try:
+            fecha_hora = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+            
+            datos = [
+                fecha_hora,
+                codigo_estudiante,
+                0,  # preguntas_respondidas
+                0,  # correctas
+                0,  # incorrectas
+                0,  # porcentaje
+                self.config['parametros']['nivel_inicial'],  # nivel_final
+                0.0,  # nota_final
+                '',  # preguntas_ids
+                '',  # theta
+                '',  # consistencia
+                '',  # nivel_habilidad
+                '',  # rating
+                '',  # cambio_rating
+                'EN_CURSO',  # razon_terminacion
+                self.config['sistema_calificacion']['tipo']  # sistema
+            ]
+            
+            self._verificar_o_crear_hoja()
+            self._agregar_fila(datos)
+            
+            return True
+            
+        except Exception as e:
+            st.warning(f"⚠️ No se pudo guardar el inicio del examen: {str(e)}")
+            return False
+    
+    def actualizar_progreso_examen(
+        self, 
+        codigo_estudiante: str,
+        preguntas_respondidas: int,
+        correctas: int,
+        incorrectas: int
+    ) -> bool:
+        """
+        Actualiza el progreso del examen en curso
+        
+        Args:
+            codigo_estudiante: Código del estudiante
+            preguntas_respondidas: Número de preguntas respondidas
+            correctas: Número de correctas
+            incorrectas: Número de incorrectas
+            
+        Returns:
+            True si se actualizó exitosamente
+        """
+        try:
+            # Buscar la última fila del estudiante con estado EN_CURSO
+            result = self.service.spreadsheets().values().get(
+                spreadsheetId=self.spreadsheet_id,
+                range='Resultados!A:P'
+            ).execute()
+            
+            values = result.get('values', [])
+            
+            # Encontrar la última fila EN_CURSO de este estudiante
+            fila_a_actualizar = None
+            for i in range(len(values) - 1, 0, -1):  # Buscar desde el final
+                if len(values[i]) > 1 and values[i][1] == codigo_estudiante:
+                    if len(values[i]) > 14 and values[i][14] == 'EN_CURSO':
+                        fila_a_actualizar = i + 1  # +1 porque sheets es 1-indexed
+                        break
+            
+            if fila_a_actualizar:
+                # Actualizar solo las columnas de progreso
+                porcentaje = (correctas / preguntas_respondidas * 100) if preguntas_respondidas > 0 else 0
+                
+                updates = [
+                    {
+                        'range': f'Resultados!C{fila_a_actualizar}',
+                        'values': [[preguntas_respondidas]]
+                    },
+                    {
+                        'range': f'Resultados!D{fila_a_actualizar}',
+                        'values': [[correctas]]
+                    },
+                    {
+                        'range': f'Resultados!E{fila_a_actualizar}',
+                        'values': [[incorrectas]]
+                    },
+                    {
+                        'range': f'Resultados!F{fila_a_actualizar}',
+                        'values': [[round(porcentaje, 1)]]
+                    }
+                ]
+                
+                body = {'data': updates, 'valueInputOption': 'RAW'}
+                self.service.spreadsheets().values().batchUpdate(
+                    spreadsheetId=self.spreadsheet_id,
+                    body=body
+                ).execute()
+                
+                return True
+            
+            return False
+            
+        except Exception as e:
+            # No mostrar error al usuario, solo registrar
+            return False
+    
+    def verificar_examen_en_curso(self, codigo_estudiante: str) -> bool:
+        """
+        Verifica si el estudiante tiene un examen en curso
+        
+        Args:
+            codigo_estudiante: Código del estudiante
+            
+        Returns:
+            True si tiene un examen EN_CURSO
+        """
+        try:
+            result = self.service.spreadsheets().values().get(
+                spreadsheetId=self.spreadsheet_id,
+                range='Resultados!A:P'
+            ).execute()
+            
+            values = result.get('values', [])
+            
+            # Buscar si hay alguna fila EN_CURSO para este estudiante
+            for row in reversed(values[1:]):  # Skip header, buscar desde el final
+                if len(row) > 14 and len(row) > 1:
+                    if row[1] == codigo_estudiante and row[14] == 'EN_CURSO':
+                        return True
+            
+            return False
+            
+        except Exception:
+            return False
+    
     def guardar_resultados(self, codigo_estudiante: str, stats: Dict[str, Any]) -> bool:
         """
         Guarda los resultados del examen en Google Sheets
+        Actualiza la fila EN_CURSO si existe, o crea una nueva
         
         Args:
             codigo_estudiante: Código del estudiante
             stats: Estadísticas del examen
             
         Returns:
-            True si se guardó exitosamente
+            True si se guardó exitosamente, False en caso contrario
         """
         try:
             # Preparar datos
             datos = self._preparar_datos(codigo_estudiante, stats)
             
-            # Verificar si existe la hoja, si no, crearla
+            # Verificar si existe la hoja
             self._verificar_o_crear_hoja()
             
-            # Agregar fila
-            self._agregar_fila(datos)
+            # Buscar si hay una fila EN_CURSO para este estudiante
+            try:
+                result = self.service.spreadsheets().values().get(
+                    spreadsheetId=self.spreadsheet_id,
+                    range='Resultados!A:P'
+                ).execute()
+                
+                values = result.get('values', [])
+                fila_a_actualizar = None
+                
+                # Buscar la última fila EN_CURSO de este estudiante
+                for i in range(len(values) - 1, 0, -1):
+                    if len(values[i]) > 1 and values[i][1] == codigo_estudiante:
+                        if len(values[i]) > 14 and values[i][14] == 'EN_CURSO':
+                            fila_a_actualizar = i + 1  # +1 porque sheets es 1-indexed
+                            break
+                
+                if fila_a_actualizar:
+                    # Actualizar la fila existente
+                    range_to_update = f'Resultados!A{fila_a_actualizar}:P{fila_a_actualizar}'
+                    body = {'values': [datos]}
+                    self.service.spreadsheets().values().update(
+                        spreadsheetId=self.spreadsheet_id,
+                        range=range_to_update,
+                        valueInputOption='RAW',
+                        body=body
+                    ).execute()
+                else:
+                    # Agregar nueva fila
+                    self._agregar_fila(datos)
+                
+                return True
+                
+            except HttpError as e:
+                st.error(f"⚠️ Error HTTP al acceder a Google Sheets: {e.status_code}")
+                return False
             
-            return True
-            
-        except HttpError as e:
-            st.error(f"⚠️ Error HTTP al guardar en Google Sheets: {str(e)}")
-            return False
         except Exception as e:
             st.error(f"⚠️ Error al guardar resultados: {str(e)}")
+            import traceback
+            st.code(traceback.format_exc())
             return False
     
     def _preparar_datos(self, codigo_estudiante: str, stats: Dict[str, Any]) -> List[Any]:

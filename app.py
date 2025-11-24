@@ -19,6 +19,7 @@ from ui_components import UIComponents
 from data_persistence import DataPersistence
 from validators import validate_codigo_estudiante
 
+
 def inicializar_session_state():
     """Inicializa las variables de session state necesarias"""
     if 'exam_started' not in st.session_state:
@@ -35,12 +36,6 @@ def inicializar_session_state():
         st.session_state.notas_historicas = []
     if 'preguntas_usadas' not in st.session_state:
         st.session_state.preguntas_usadas = []
-    if 'show_feedback' not in st.session_state:
-        st.session_state.show_feedback = False
-    if 'last_answer_correct' not in st.session_state:
-        st.session_state.last_answer_correct = None
-    if 'ultima_explicacion' not in st.session_state:
-        st.session_state.ultima_explicacion = None
 
 
 def main():
@@ -127,7 +122,19 @@ def mostrar_pantalla_inicio(config, ui):
                 elif not validate_codigo_estudiante(codigo):
                     st.error("⚠️ Código inválido. Debe contener solo números y letras")
                 else:
-                    st.session_state.codigo_estudiante = codigo.strip().upper()
+                    codigo_limpio = codigo.strip().upper()
+                    
+                    # NUEVO: Verificar si ya tiene un examen en curso
+                    try:
+                        persistence = DataPersistence(config)
+                        if persistence.verificar_examen_en_curso(codigo_limpio):
+                            st.error("⚠️ Ya tienes un examen en curso. No puedes iniciar otro hasta terminar el actual.")
+                            st.info("💡 Si refrescaste la página por accidente, contacta al profesor.")
+                            return
+                    except:
+                        pass  # Si falla la verificación, permitir continuar
+                    
+                    st.session_state.codigo_estudiante = codigo_limpio
                     st.session_state.exam_started = True
                     st.rerun()
         
@@ -149,6 +156,12 @@ def ejecutar_examen(config, question_manager, ui):
     # Inicializar lógica del examen si es necesario
     if 'exam_logic' not in st.session_state:
         st.session_state.exam_logic = ExamLogic(config, question_manager)
+        # NUEVO: Guardar inicio del examen
+        try:
+            persistence = DataPersistence(config)
+            persistence.guardar_inicio_examen(st.session_state.codigo_estudiante)
+        except:
+            pass  # Si falla, continuar igual
     
     exam_logic = st.session_state.exam_logic
     
@@ -167,19 +180,6 @@ def ejecutar_examen(config, question_manager, ui):
         correctas=exam_logic.correctas,
         incorrectas=exam_logic.incorrectas
     )
-    
-    # Mostrar feedback de la pregunta anterior si existe
-    if st.session_state.show_feedback:
-        if st.session_state.last_answer_correct:
-            st.success("✅ ¡Respuesta correcta!")
-        else:
-            st.error("❌ Respuesta incorrecta")
-        
-        if st.session_state.ultima_explicacion:
-            with st.expander("💡 Explicación", expanded=True):
-                st.info(st.session_state.ultima_explicacion)
-        
-        st.markdown("---")
     
     # Obtener pregunta actual
     pregunta_obj = exam_logic.obtener_siguiente_pregunta()
@@ -210,17 +210,24 @@ def ejecutar_examen(config, question_manager, ui):
     
     with col2:
         if st.button("✅ Confirmar Respuesta", type="primary", use_container_width=True):
-            # Procesar respuesta
-            es_correcta = exam_logic.procesar_respuesta(
+            # Procesar respuesta (sin mostrar feedback)
+            exam_logic.procesar_respuesta(
                 pregunta_obj,
                 respuesta_seleccionada,
                 opciones_mezcladas
             )
             
-            # Guardar feedback
-            st.session_state.show_feedback = True
-            st.session_state.last_answer_correct = es_correcta
-            st.session_state.ultima_explicacion = pregunta_obj.get('explicacion', '')
+            # NUEVO: Actualizar progreso en Google Sheets
+            try:
+                persistence = DataPersistence(config)
+                persistence.actualizar_progreso_examen(
+                    st.session_state.codigo_estudiante,
+                    exam_logic.pregunta_actual,
+                    exam_logic.correctas,
+                    exam_logic.incorrectas
+                )
+            except:
+                pass  # Si falla, continuar igual
             
             st.rerun()
 
@@ -231,20 +238,28 @@ def guardar_resultados(config, exam_logic):
         # Calcular estadísticas finales
         stats = exam_logic.calcular_estadisticas_finales()
         
-        # Guardar en Google Sheets
+        # Intentar guardar en Google Sheets
         persistence = DataPersistence(config)
-        persistence.guardar_resultados(
+        resultado = persistence.guardar_resultados(
             codigo_estudiante=st.session_state.codigo_estudiante,
             stats=stats
         )
         
-        # Guardar stats en session state para mostrar
+        if not resultado:
+            st.error("❌ Error: No se pudieron guardar los resultados en Google Sheets.")
+            st.error("Por favor, contacta al profesor con tu código de estudiante y nota.")
+            st.stop()
+        
+        # Solo si se guardó exitosamente, guardar en session state
         st.session_state.final_stats = stats
         
     except Exception as e:
-        st.error(f"⚠️ Error al guardar resultados: {str(e)}")
-        # Guardar stats localmente aunque falle el guardado
-        st.session_state.final_stats = exam_logic.calcular_estadisticas_finales()
+        st.error(f"❌ Error crítico al procesar resultados: {str(e)}")
+        st.error("El examen no se pudo completar. Por favor, contacta al profesor.")
+        import traceback
+        st.code(traceback.format_exc())
+        st.stop()
+
 
 
 def mostrar_resultados(config, ui):
