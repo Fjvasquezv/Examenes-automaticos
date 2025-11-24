@@ -235,43 +235,29 @@ def ejecutar_examen(config, question_manager, ui):
 def guardar_resultados(config, exam_logic):
     """Guarda los resultados del examen en Google Sheets"""
     try:
-        st.info("🔄 Calculando estadísticas finales...")
-        
-        # Calcular estadísticas finales
+        # 1. PRIMERO: Calcular estadísticas
         stats = exam_logic.calcular_estadisticas_finales()
         
-        st.info(f"✅ Estadísticas calculadas: {len(stats.get('detalle_respuestas', []))} respuestas procesadas")
-        st.info("🔄 Guardando en Google Sheets...")
+        # 2. SEGUNDO: Guardar en session_state INMEDIATAMENTE (antes de cualquier st.write)
+        st.session_state.final_stats = stats
         
-        # Intentar guardar en Google Sheets
+        # 3. TERCERO: Ahora sí guardar en Sheets (con mensajes)
+        st.info("🔄 Guardando resultados en Google Sheets...")
+        
         persistence = DataPersistence(config)
         resultado = persistence.guardar_resultados(
             codigo_estudiante=st.session_state.codigo_estudiante,
             stats=stats
         )
         
-        if not resultado:
-            st.error("❌ Error: No se pudieron guardar los resultados en Google Sheets.")
-            st.error("Por favor, toma captura de pantalla de esta información:")
-            st.json({
-                'codigo': st.session_state.codigo_estudiante,
-                'preguntas': stats['preguntas_respondidas'],
-                'correctas': stats['correctas'],
-                'nota': stats['nota_final']
-            })
-            st.stop()
-        
-        st.success("✅ Resultados guardados exitosamente en Google Sheets")
-        
-        # Solo si se guardó exitosamente, guardar en session state
-        st.session_state.final_stats = stats
+        if resultado:
+            st.success("✅ Resultados guardados exitosamente")
+        else:
+            st.warning("⚠️ Los resultados se muestran pero hubo un problema al guardar en Sheets")
         
     except Exception as e:
-        st.error(f"❌ Error crítico al procesar resultados: {str(e)}")
-        st.error("El examen no se pudo completar. Por favor, contacta al profesor.")
-        import traceback
-        st.code(traceback.format_exc())
-        st.stop()
+        st.error(f"⚠️ Error al guardar en Sheets: {str(e)}")
+        # Los resultados se mostrarán igual porque ya están en session_state
 
 
 
