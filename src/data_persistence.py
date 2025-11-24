@@ -187,6 +187,37 @@ class DataPersistence:
         except Exception:
             return False
     
+    def verificar_examen_completado(self, codigo_estudiante: str) -> bool:
+        """
+        Verifica si el estudiante ya completó el examen
+        
+        Args:
+            codigo_estudiante: Código del estudiante
+            
+        Returns:
+            True si ya completó el examen (tiene registro con razón_terminacion diferente a EN_CURSO)
+        """
+        try:
+            result = self.service.spreadsheets().values().get(
+                spreadsheetId=self.spreadsheet_id,
+                range='Resultados!A:P'
+            ).execute()
+            
+            values = result.get('values', [])
+            
+            # Buscar si hay alguna fila COMPLETADA para este estudiante
+            for row in values[1:]:  # Skip header
+                if len(row) > 14 and len(row) > 1:
+                    if row[1] == codigo_estudiante:
+                        # Si el estado NO es EN_CURSO, significa que completó
+                        if row[14] != 'EN_CURSO' and row[14] != '':
+                            return True
+            
+            return False
+            
+        except Exception:
+            return False
+    
     def guardar_resultados(self, codigo_estudiante: str, stats: Dict[str, Any]) -> bool:
         """
         Guarda los resultados del examen en Google Sheets

@@ -124,9 +124,17 @@ def mostrar_pantalla_inicio(config, ui):
                 else:
                     codigo_limpio = codigo.strip().upper()
                     
-                    # NUEVO: Verificar si ya tiene un examen en curso
+                    # Verificaciones de seguridad
                     try:
                         persistence = DataPersistence(config)
+                        
+                        # 1. Verificar si ya completó el examen
+                        if persistence.verificar_examen_completado(codigo_limpio):
+                            st.error("⚠️ Ya completaste este examen anteriormente.")
+                            st.info("💡 Solo se permite un intento por estudiante. Si crees que esto es un error, contacta al profesor.")
+                            return
+                        
+                        # 2. Verificar si tiene un examen en curso
                         if persistence.verificar_examen_en_curso(codigo_limpio):
                             st.error("⚠️ Ya tienes un examen en curso. No puedes iniciar otro hasta terminar el actual.")
                             st.info("💡 Si refrescaste la página por accidente, contacta al profesor.")
@@ -196,8 +204,16 @@ def ejecutar_examen(config, question_manager, ui):
         numero_pregunta=exam_logic.pregunta_actual + 1
     )
     
-    # Opciones de respuesta (aleatorizadas)
-    opciones_mezcladas = exam_logic.mezclar_opciones(pregunta_obj['opciones'])
+    # Opciones de respuesta - GUARDAR en session_state para que no cambien
+    # Solo mezclar UNA VEZ por pregunta
+    opciones_key = f"opciones_pregunta_{exam_logic.pregunta_actual}"
+    
+    if opciones_key not in st.session_state:
+        # Primera vez que se muestra esta pregunta - mezclar opciones
+        st.session_state[opciones_key] = exam_logic.mezclar_opciones(pregunta_obj['opciones'])
+    
+    # Usar las opciones guardadas (no cambiarán aunque Streamlit re-ejecute)
+    opciones_mezcladas = st.session_state[opciones_key]
     
     respuesta_seleccionada = st.radio(
         "Seleccione su respuesta:",
@@ -216,6 +232,10 @@ def ejecutar_examen(config, question_manager, ui):
                 respuesta_seleccionada,
                 opciones_mezcladas
             )
+            
+            # IMPORTANTE: Limpiar las opciones guardadas para la siguiente pregunta
+            if opciones_key in st.session_state:
+                del st.session_state[opciones_key]
             
             # NUEVO: Actualizar progreso en Google Sheets
             try:
