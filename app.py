@@ -250,132 +250,132 @@ def mostrar_pantalla_inicio(config, ui):
             """)
 
     def ejecutar_examen(config, question_manager, ui):
-        """Ejecuta la lógica del examen"""
+    """Ejecuta la lógica del examen"""
+    
+    # Inicializar lógica del examen si es necesario
+    if 'exam_logic' not in st.session_state:
+        st.session_state.exam_logic = ExamLogic(config, question_manager)
+        # Guardar inicio del examen
+        try:
+            persistence = DataPersistence(config)
+            persistence.guardar_inicio_examen(st.session_state.codigo_estudiante)
+        except Exception as e:
+            st.warning(f"⚠️ No se pudo guardar el inicio del examen: {e}")
+    
+    exam_logic = st.session_state.exam_logic
+    
+    # Verificar si el examen debe terminar
+    if exam_logic.debe_terminar_examen():
+        st.session_state.exam_finished = True
+        guardar_resultados(config, exam_logic)
+        st.rerun()
+        return
+    
+    # Mostrar métricas de progreso
+    ui.mostrar_metricas_progreso(
+        codigo=st.session_state.codigo_estudiante,
+        pregunta_actual=exam_logic.pregunta_actual + 1,
+        total_preguntas=config['parametros']['preguntas_maximas'],
+        correctas=exam_logic.correctas,
+        incorrectas=exam_logic.incorrectas
+    )
+    
+    # Obtener pregunta actual - GUARDAR en session_state para que no cambie
+    pregunta_key = f"pregunta_actual_{exam_logic.pregunta_actual}"
+    opciones_key = f"opciones_pregunta_{exam_logic.pregunta_actual}"
+    
+    # Si no existe la pregunta guardada, obtenerla y guardarla
+    if pregunta_key not in st.session_state:
+        pregunta_obj = exam_logic.obtener_siguiente_pregunta()
         
-        # Inicializar lógica del examen si es necesario
-        if 'exam_logic' not in st.session_state:
-            st.session_state.exam_logic = ExamLogic(config, question_manager)
-            # Guardar inicio del examen
-            try:
-                persistence = DataPersistence(config)
-                persistence.guardar_inicio_examen(st.session_state.codigo_estudiante)
-            except Exception as e:
-                st.warning(f"⚠️ No se pudo guardar el inicio del examen: {e}")
-        
-        exam_logic = st.session_state.exam_logic
-        
-        # Verificar si el examen debe terminar
-        if exam_logic.debe_terminar_examen():
+        if pregunta_obj is None:
             st.session_state.exam_finished = True
             guardar_resultados(config, exam_logic)
             st.rerun()
             return
         
-        # Mostrar métricas de progreso
-        ui.mostrar_metricas_progreso(
-            codigo=st.session_state.codigo_estudiante,
-            pregunta_actual=exam_logic.pregunta_actual + 1,
-            total_preguntas=config['parametros']['preguntas_maximas'],
-            correctas=exam_logic.correctas,
-            incorrectas=exam_logic.incorrectas
+        # Guardar pregunta en session_state
+        st.session_state[pregunta_key] = pregunta_obj
+        
+        # Mezclar y guardar opciones JUNTO con la pregunta
+        st.session_state[opciones_key] = exam_logic.mezclar_opciones(pregunta_obj['opciones'])
+    
+    # Usar pregunta y opciones guardadas (NO cambiarán aunque Streamlit re-ejecute)
+    pregunta_obj = st.session_state[pregunta_key]
+    opciones_mezcladas = st.session_state[opciones_key]
+    
+    # ========================================
+    # LAYOUT DOS COLUMNAS: Pregunta | Opciones
+    # ========================================
+    col_pregunta, col_opciones = st.columns([3, 2])
+    
+    with col_pregunta:
+        dificultad = pregunta_obj['dificultad']
+        color = ui._get_dificultad_color(dificultad)
+        categoria = pregunta_obj.get('categoria', '')
+        categoria_html = f"<span style='color: #6c757d;'>📂 {categoria}</span>" if categoria else ""
+        
+        st.markdown(f"""
+        <div style='background-color: #ffffff; border: 1px solid #dee2e6; border-radius: 8px; 
+             overflow: hidden;'>
+            <div style='background-color: #f8f9fa; padding: 10px 15px; border-bottom: 1px solid #dee2e6;
+                 display: flex; justify-content: space-between; align-items: center;'>
+                <span style='font-weight: bold;'>Pregunta {exam_logic.pregunta_actual + 1}</span>
+                <div>
+                    {categoria_html}
+                    <span style='background-color: {color}; color: white; padding: 3px 10px; 
+                          border-radius: 12px; font-size: 11px; margin-left: 10px;'>Nivel {dificultad}</span>
+                </div>
+            </div>
+            <div style='padding: 15px;'>
+                {pregunta_obj['pregunta']}
+            </div>
+        </div>
+        """, unsafe_allow_html=True)
+    
+    with col_opciones:
+        st.markdown("""
+        <div style='background-color: #f8f9fa; padding: 8px 15px; border: 1px solid #dee2e6; 
+             border-radius: 8px 8px 0 0; border-bottom: none;'>
+            <span style='font-weight: bold; color: #495057;'>Seleccione su respuesta:</span>
+        </div>
+        """, unsafe_allow_html=True)
+        
+        respuesta_seleccionada = st.radio(
+            "Respuesta:",
+            options=list(opciones_mezcladas.keys()),
+            format_func=lambda x: f"{x}) {opciones_mezcladas[x]}",
+            key=f"respuesta_{exam_logic.pregunta_actual}",
+            label_visibility="collapsed"
         )
         
-        # Obtener pregunta actual - GUARDAR en session_state para que no cambie
-        pregunta_key = f"pregunta_actual_{exam_logic.pregunta_actual}"
-        opciones_key = f"opciones_pregunta_{exam_logic.pregunta_actual}"
-        
-        # Si no existe la pregunta guardada, obtenerla y guardarla
-        if pregunta_key not in st.session_state:
-            pregunta_obj = exam_logic.obtener_siguiente_pregunta()
-            
-            if pregunta_obj is None:
-                st.session_state.exam_finished = True
-                guardar_resultados(config, exam_logic)
-                st.rerun()
-                return
-            
-            # Guardar pregunta en session_state
-            st.session_state[pregunta_key] = pregunta_obj
-            
-            # Mezclar y guardar opciones JUNTO con la pregunta
-            st.session_state[opciones_key] = exam_logic.mezclar_opciones(pregunta_obj['opciones'])
-        
-        # Usar pregunta y opciones guardadas (NO cambiarán aunque Streamlit re-ejecute)
-        pregunta_obj = st.session_state[pregunta_key]
-        opciones_mezcladas = st.session_state[opciones_key]
-        
-        # ========================================
-        # LAYOUT DOS COLUMNAS: Pregunta | Opciones
-        # ========================================
-        col_pregunta, col_opciones = st.columns([3, 2])
-        
-        with col_pregunta:
-            dificultad = pregunta_obj['dificultad']
-            color = ui._get_dificultad_color(dificultad)
-            categoria = pregunta_obj.get('categoria', '')
-            categoria_html = f"<span style='color: #6c757d;'>📂 {categoria}</span>" if categoria else ""
-            
-            st.markdown(f"""
-            <div style='background-color: #ffffff; border: 1px solid #dee2e6; border-radius: 8px; 
-                 overflow: hidden;'>
-                <div style='background-color: #f8f9fa; padding: 10px 15px; border-bottom: 1px solid #dee2e6;
-                     display: flex; justify-content: space-between; align-items: center;'>
-                    <span style='font-weight: bold;'>Pregunta {exam_logic.pregunta_actual + 1}</span>
-                    <div>
-                        {categoria_html}
-                        <span style='background-color: {color}; color: white; padding: 3px 10px; 
-                              border-radius: 12px; font-size: 11px; margin-left: 10px;'>Nivel {dificultad}</span>
-                    </div>
-                </div>
-                <div style='padding: 15px;'>
-                    {pregunta_obj['pregunta']}
-                </div>
-            </div>
-            """, unsafe_allow_html=True)
-        
-        with col_opciones:
-            st.markdown("""
-            <div style='background-color: #f8f9fa; padding: 8px 15px; border: 1px solid #dee2e6; 
-                 border-radius: 8px 8px 0 0; border-bottom: none;'>
-                <span style='font-weight: bold; color: #495057;'>Seleccione su respuesta:</span>
-            </div>
-            """, unsafe_allow_html=True)
-            
-            respuesta_seleccionada = st.radio(
-                "Respuesta:",
-                options=list(opciones_mezcladas.keys()),
-                format_func=lambda x: f"{x}) {opciones_mezcladas[x]}",
-                key=f"respuesta_{exam_logic.pregunta_actual}",
-                label_visibility="collapsed"
+        if st.button("🚀 Confirmar Respuesta", type="primary", use_container_width=True):
+            # Procesar respuesta (sin mostrar feedback)
+            exam_logic.procesar_respuesta(
+                pregunta_obj,
+                respuesta_seleccionada,
+                opciones_mezcladas
             )
             
-            if st.button("🚀 Confirmar Respuesta", type="primary", use_container_width=True):
-                # Procesar respuesta (sin mostrar feedback)
-                exam_logic.procesar_respuesta(
-                    pregunta_obj,
-                    respuesta_seleccionada,
-                    opciones_mezcladas
+            # Limpiar pregunta Y opciones guardadas para la siguiente
+            if pregunta_key in st.session_state:
+                del st.session_state[pregunta_key]
+            if opciones_key in st.session_state:
+                del st.session_state[opciones_key]
+            
+            # Actualizar progreso en Google Sheets
+            try:
+                persistence = DataPersistence(config)
+                persistence.actualizar_progreso_examen(
+                    st.session_state.codigo_estudiante,
+                    exam_logic.pregunta_actual,
+                    exam_logic.correctas,
+                    exam_logic.incorrectas
                 )
-                
-                # Limpiar pregunta Y opciones guardadas para la siguiente
-                if pregunta_key in st.session_state:
-                    del st.session_state[pregunta_key]
-                if opciones_key in st.session_state:
-                    del st.session_state[opciones_key]
-                
-                # Actualizar progreso en Google Sheets
-                try:
-                    persistence = DataPersistence(config)
-                    persistence.actualizar_progreso_examen(
-                        st.session_state.codigo_estudiante,
-                        exam_logic.pregunta_actual,
-                        exam_logic.correctas,
-                        exam_logic.incorrectas
-                    )
-                except:
-                    pass
-                
-                st.rerun()
+            except:
+                pass
+            
+            st.rerun()
             
 def guardar_resultados(config, exam_logic):
     """Guarda los resultados del examen en Google Sheets"""
