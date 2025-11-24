@@ -189,31 +189,35 @@ def ejecutar_examen(config, question_manager, ui):
         incorrectas=exam_logic.incorrectas
     )
     
-    # Obtener pregunta actual
-    pregunta_obj = exam_logic.obtener_siguiente_pregunta()
+    # Obtener pregunta actual - GUARDAR en session_state para que no cambie
+    pregunta_key = f"pregunta_actual_{exam_logic.pregunta_actual}"
+    opciones_key = f"opciones_pregunta_{exam_logic.pregunta_actual}"
     
-    if pregunta_obj is None:
-        st.session_state.exam_finished = True
-        guardar_resultados(config, exam_logic)
-        st.rerun()
-        return
+    # Si no existe la pregunta guardada, obtenerla y guardarla
+    if pregunta_key not in st.session_state:
+        pregunta_obj = exam_logic.obtener_siguiente_pregunta()
+        
+        if pregunta_obj is None:
+            st.session_state.exam_finished = True
+            guardar_resultados(config, exam_logic)
+            st.rerun()
+            return
+        
+        # Guardar pregunta en session_state
+        st.session_state[pregunta_key] = pregunta_obj
+        
+        # Mezclar y guardar opciones JUNTO con la pregunta
+        st.session_state[opciones_key] = exam_logic.mezclar_opciones(pregunta_obj['opciones'])
+    
+    # Usar pregunta y opciones guardadas (NO cambiarán aunque Streamlit re-ejecute)
+    pregunta_obj = st.session_state[pregunta_key]
+    opciones_mezcladas = st.session_state[opciones_key]
     
     # Mostrar pregunta
     ui.mostrar_pregunta(
         pregunta_obj,
         numero_pregunta=exam_logic.pregunta_actual + 1
     )
-    
-    # Opciones de respuesta - GUARDAR en session_state para que no cambien
-    # Solo mezclar UNA VEZ por pregunta
-    opciones_key = f"opciones_pregunta_{exam_logic.pregunta_actual}"
-    
-    if opciones_key not in st.session_state:
-        # Primera vez que se muestra esta pregunta - mezclar opciones
-        st.session_state[opciones_key] = exam_logic.mezclar_opciones(pregunta_obj['opciones'])
-    
-    # Usar las opciones guardadas (no cambiarán aunque Streamlit re-ejecute)
-    opciones_mezcladas = st.session_state[opciones_key]
     
     respuesta_seleccionada = st.radio(
         "Seleccione su respuesta:",
@@ -233,7 +237,9 @@ def ejecutar_examen(config, question_manager, ui):
                 opciones_mezcladas
             )
             
-            # IMPORTANTE: Limpiar las opciones guardadas para la siguiente pregunta
+            # IMPORTANTE: Limpiar pregunta Y opciones guardadas para la siguiente
+            if pregunta_key in st.session_state:
+                del st.session_state[pregunta_key]
             if opciones_key in st.session_state:
                 del st.session_state[opciones_key]
             
