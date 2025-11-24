@@ -23,15 +23,22 @@ class UIComponents:
         self.metadata = config['metadata']
         self.instrucciones = config['instrucciones']
     
-    def mostrar_header(self):
-        """Muestra el encabezado de la aplicación"""
+    def mostrar_header(self, periodo_activo=None):
+        """Muestra el header del examen"""
+        # Construir línea del periodo si existe
+        periodo_html = ""
+        if periodo_activo:
+            periodo_html = f"<p style='color: #90EE90; margin: 5px 0 0 0; font-size: 13px;'>✅ {periodo_activo}</p>"
+        
         st.markdown(f"""
-        <div style='text-align: center; padding: 8px 12px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); 
-             border-radius: 5px; margin-bottom: 5px;'>
-            <h2 style='color: white; margin: 0;'>{self.instrucciones['titulo']}</h2>
-            <p style='color: white; margin: 5px 0 0 0; font-size: 14px;'>
+        <div style='background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+             padding: 10px 15px; text-align: center;
+             border-radius: 10px; margin-bottom: 15px;'>
+            <h3 style='color: white; margin: 0;'>{self.instrucciones['titulo']}</h3>
+            <p style='color: white; margin: 3px 0 0 0; font-size: 14px;'>
                 {self.metadata['institucion']} - {self.metadata['asignatura']}
             </p>
+            {periodo_html}
         </div>
         """, unsafe_allow_html=True)
     
