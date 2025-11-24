@@ -3,9 +3,9 @@
     "zona_horaria": "America/Bogota",
     "periodos": [
         {
-            "nombre": "Parcial futuro",
-            "inicio": "2025-12-01 08:00",
-            "fin": "2025-12-01 10:00"
+            "nombre": "Parcial corte III",
+            "inicio": "2025-11-24 08:00",
+            "fin": "2025-11-24 10:00"
         }
     ]
 }
