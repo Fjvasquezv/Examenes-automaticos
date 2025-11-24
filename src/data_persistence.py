@@ -8,6 +8,8 @@ from typing import Dict, Any, List
 from google.oauth2 import service_account
 from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
+from datetime import datetime
+from zoneinfo import ZoneInfo
 
 
 class DataPersistence:
@@ -55,7 +57,7 @@ class DataPersistence:
             True si se guardó exitosamente
         """
         try:
-            fecha_hora = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+            fecha_hora = datetime.now(ZoneInfo("America/Bogota")).strftime("%Y-%m-%d %H:%M:%S")
             
             datos = [
                 fecha_hora,
@@ -290,7 +292,7 @@ class DataPersistence:
             Lista con los datos a guardar
         """
         # Fecha y hora actual
-        fecha_hora = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        fecha_hora = datetime.now(ZoneInfo("America/Bogota")).strftime("%Y-%m-%d %H:%M:%S")
         
         # IDs de preguntas separados por coma
         preguntas_ids = ",".join(stats['preguntas_ids'])
