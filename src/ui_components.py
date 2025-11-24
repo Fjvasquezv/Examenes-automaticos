@@ -183,103 +183,130 @@ class UIComponents:
         return colores.get(dificultad, "#9E9E9E")
     
     def mostrar_resultados_finales(self, stats: Dict[str, Any], codigo: str):
-        """
-        Muestra los resultados finales del examen
-        
-        Args:
-            stats: Diccionario con estadísticas finales
-            codigo: Código del estudiante
-        """
-        # Título
+        """Muestra los resultados finales del examen"""
         st.balloons()
-        st.markdown("## 🎉 ¡Examen Completado!")
-        st.markdown(f"**Estudiante:** {codigo}")
-        st.markdown("---")
         
-        # Nota final destacada
         nota_final = stats['nota_final']
         color_nota = self._get_color_nota(nota_final)
+        porcentaje = stats['porcentaje_correctas']
         
-        st.markdown(f"""
-        <div style='text-align: center; padding: 30px; background: linear-gradient(135deg, {color_nota}20 0%, {color_nota}40 100%);
-             border-radius: 15px; margin: 20px 0; border: 3px solid {color_nota};'>
-            <h1 style='color: {color_nota}; font-size: 72px; margin: 0;'>{nota_final}</h1>
-            <p style='font-size: 24px; color: #555; margin: 10px 0 0 0;'>Nota Final (sobre 5.0)</p>
+        # Header compacto con nota y métricas
+        header_html = f"""
+        <div style='background-color: #f8f9fa; border: 1px solid #dee2e6; border-radius: 10px; padding: 20px; margin-bottom: 20px;'>
+            <div style='display: flex; justify-content: space-between; align-items: center;'>
+                <div>
+                    <h2 style='margin: 0; color: #333;'>🎉 ¡Examen Completado!</h2>
+                    <p style='margin: 5px 0 0 0; color: #666;'>👤 Estudiante: <strong>{codigo}</strong></p>
+                </div>
+                <div style='display: flex; align-items: center; gap: 30px;'>
+                    <div style='text-align: center;'>
+                        <div style='background-color: {color_nota}; color: white; font-size: 36px; font-weight: bold; width: 80px; height: 80px; border-radius: 50%; display: flex; align-items: center; justify-content: center;'>{nota_final}</div>
+                        <span style='font-size: 12px; color: #666;'>Nota Final</span>
+                    </div>
+                    <div style='text-align: left; font-size: 14px; color: #555;'>
+                        <div>📝 {stats['preguntas_respondidas']} preguntas</div>
+                        <div>✅ {stats['correctas']} correctas ({porcentaje:.0f}%)</div>
+                        <div>❌ {stats['incorrectas']} incorrectas</div>
+                        <div>🎯 Nivel final: {stats['nivel_final']}</div>
+                    </div>
+                </div>
+            </div>
         </div>
-        """, unsafe_allow_html=True)
+        """
+        st.markdown(header_html, unsafe_allow_html=True)
         
-        # Métricas generales
-        st.markdown("### 📊 Resumen General")
-        col1, col2, col3, col4 = st.columns(4)
+        # Tabs para organizar contenido
+        tab1, tab2, tab3, tab4 = st.tabs(["📈 Evolución", "📝 Retroalimentación", "📊 Análisis", "ℹ️ Detalles"])
         
-        with col1:
-            st.metric(
-                "Total de Preguntas",
-                stats['preguntas_respondidas']
-            )
+        with tab1:
+            self._mostrar_grafico_evolucion(stats['historial_notas'])
         
-        with col2:
-            st.metric(
-                "Respuestas Correctas",
-                stats['correctas'],
-                delta=f"{stats['porcentaje_correctas']:.1f}%"
-            )
-        
-        with col3:
-            st.metric(
-                "Respuestas Incorrectas",
-                stats['incorrectas']
-            )
-        
-        with col4:
-            st.metric(
-                "Nivel Final",
-                stats['nivel_final']
-            )
-        
-        st.markdown("---")
-        
-        # NUEVO: Retroalimentación detallada de cada pregunta
-        if 'detalle_respuestas' in stats:
-            st.markdown("### 📝 Retroalimentación Detallada")
-            
-            for i, detalle in enumerate(stats['detalle_respuestas'], 1):
-                with st.expander(f"Pregunta {i} - {'✅ Correcta' if detalle['correcta'] else '❌ Incorrecta'}"):
-                    st.markdown(f"**Pregunta:** {detalle['pregunta']}")
-                    st.markdown(f"**Categoría:** {detalle['categoria']} | **Dificultad:** Nivel {detalle['dificultad']}")
+        with tab2:
+            if 'detalle_respuestas' in stats and stats['detalle_respuestas']:
+                for i, detalle in enumerate(stats['detalle_respuestas'], 1):
+                    estado = "✅" if detalle['correcta'] else "❌"
                     
-                    if detalle['correcta']:
-                        st.success("✅ Tu respuesta fue correcta")
-                    else:
-                        st.error("❌ Tu respuesta fue incorrecta")
-                        st.info(f"**Respuesta correcta:** {detalle['respuesta_correcta']}")
-                    
-                    st.markdown("**💡 Explicación:**")
-                    st.info(detalle['explicacion'])
+                    with st.expander(f"{estado} Pregunta {i} - {detalle['categoria']} (Nivel {detalle['dificultad']})"):
+                        st.markdown(f"**{detalle['pregunta']}**")
+                        
+                        if detalle['correcta']:
+                            st.success("Tu respuesta fue correcta")
+                        else:
+                            st.error(f"Respuesta correcta: {detalle['respuesta_correcta']}")
+                        
+                        st.info(f"💡 {detalle['explicacion']}")
+            else:
+                st.info("No hay retroalimentación disponible")
+        
+        with tab3:
+            col1, col2 = st.columns(2)
             
-            st.markdown("---")
-        
-        # Gráfico de evolución de la nota
-        self._mostrar_grafico_evolucion(stats['historial_notas'])
-        
-        # Análisis por nivel de dificultad
-        self._mostrar_analisis_por_nivel(stats['stats_por_nivel'])
-        
-        # Análisis por categoría
-        if stats['stats_por_categoria']:
-            self._mostrar_analisis_por_categoria(stats['stats_por_categoria'])
-        
-        # Estadísticas del sistema de calificación
-        self._mostrar_stats_sistema(stats['stats_sistema'])
-        
-        # Información adicional
-        with st.expander("ℹ️ Información adicional"):
-            st.write(f"**Razón de terminación:** {stats['razon_terminacion']}")
-            st.write(f"**Sistema de calificación:** {self.config['sistema_calificacion']['tipo']}")
+            with col1:
+                st.markdown("#### 🎯 Por Nivel de Dificultad")
+                self._mostrar_tabla_niveles(stats['stats_por_nivel'])
             
-            if 'niveles_progresion' in stats:
-                st.write("**Progresión de niveles:**")
-                st.line_chart(stats['niveles_progresion'])
+            with col2:
+                st.markdown("#### 📂 Por Categoría")
+                if stats['stats_por_categoria']:
+                    self._mostrar_tabla_categorias(stats['stats_por_categoria'])
+                else:
+                    st.info("No hay datos por categoría")
+        
+        with tab4:
+            col1, col2 = st.columns(2)
+            
+            with col1:
+                st.markdown("#### 📋 Información del Examen")
+                st.write(f"**Razón de terminación:** {stats['razon_terminacion']}")
+                st.write(f"**Sistema de calificación:** {self.config['sistema_calificacion']['tipo']}")
+            
+            with col2:
+                st.markdown("#### 🔢 Estadísticas del Sistema")
+                self._mostrar_stats_sistema_compacto(stats['stats_sistema'])
+
+    def _mostrar_tabla_niveles(self, stats_por_nivel: Dict[int, Dict[str, Any]]):
+        """Muestra tabla compacta de rendimiento por nivel"""
+        datos = []
+        for nivel in range(1, 6):
+            if nivel in stats_por_nivel and stats_por_nivel[nivel]['total'] > 0:
+                datos.append({
+                    'Nivel': f"Nivel {nivel}",
+                    'Total': stats_por_nivel[nivel]['total'],
+                    '✅': stats_por_nivel[nivel]['correctas'],
+                    '❌': stats_por_nivel[nivel]['incorrectas'],
+                    '%': f"{stats_por_nivel[nivel]['porcentaje']:.0f}%"
+                })
+        
+        if datos:
+            st.dataframe(pd.DataFrame(datos), hide_index=True, use_container_width=True)
+        else:
+            st.info("No hay datos disponibles")
+
+    def _mostrar_tabla_categorias(self, stats_por_categoria: Dict[str, Dict[str, Any]]):
+        """Muestra tabla compacta de rendimiento por categoría"""
+        datos = []
+        for cat, stats in stats_por_categoria.items():
+            if stats['total'] > 0:
+                datos.append({
+                    'Categoría': cat,
+                    'Total': stats['total'],
+                    '✅': stats['correctas'],
+                    '❌': stats['incorrectas'],
+                    '%': f"{stats['porcentaje']:.0f}%"
+                })
+        
+        if datos:
+            st.dataframe(pd.DataFrame(datos), hide_index=True, use_container_width=True)
+        else:
+            st.info("No hay datos disponibles")
+
+    def _mostrar_stats_sistema_compacto(self, stats_sistema: Dict[str, Any]):
+        """Muestra estadísticas del sistema de forma compacta"""
+        for key, value in stats_sistema.items():
+            if isinstance(value, float):
+                st.write(f"**{key}:** {value:.3f}")
+            else:
+                st.write(f"**{key}:** {value}")
     
     def _get_color_nota(self, nota: float) -> str:
         """Retorna el color según la nota"""
@@ -341,115 +368,3 @@ class UIComponents:
         )
         
         st.plotly_chart(fig, use_container_width=True)
-    
-    def _mostrar_analisis_por_nivel(self, stats_por_nivel: Dict[int, Dict[str, Any]]):
-        """Muestra análisis por nivel de dificultad"""
-        st.markdown("### 🎯 Análisis por Nivel de Dificultad")
-        
-        # Crear DataFrame
-        data = []
-        for nivel in range(1, 6):
-            if nivel in stats_por_nivel and stats_por_nivel[nivel]['total'] > 0:
-                data.append({
-                    'Nivel': f"Nivel {nivel}",
-                    'Total': stats_por_nivel[nivel]['total'],
-                    'Correctas': stats_por_nivel[nivel]['correctas'],
-                    'Incorrectas': stats_por_nivel[nivel]['incorrectas'],
-                    'Porcentaje': stats_por_nivel[nivel]['porcentaje']
-                })
-        
-        if not data:
-            st.info("No hay datos por nivel disponibles")
-            return
-        
-        df = pd.DataFrame(data)
-        
-        # Mostrar tabla
-        col1, col2 = st.columns([1, 1])
-        
-        with col1:
-            st.dataframe(
-                df[['Nivel', 'Total', 'Correctas', 'Incorrectas', 'Porcentaje']],
-                hide_index=True,
-                use_container_width=True
-            )
-        
-        with col2:
-            # Gráfico de barras
-            fig = px.bar(
-                df,
-                x='Nivel',
-                y='Porcentaje',
-                text='Porcentaje',
-                title='Porcentaje de Aciertos por Nivel',
-                color='Porcentaje',
-                color_continuous_scale='RdYlGn',
-                range_color=[0, 100]
-            )
-            
-            fig.update_traces(texttemplate='%{text:.1f}%', textposition='outside')
-            fig.update_layout(height=300, showlegend=False)
-            
-            st.plotly_chart(fig, use_container_width=True)
-    
-    def _mostrar_analisis_por_categoria(self, stats_por_categoria: Dict[str, Dict[str, Any]]):
-        """Muestra análisis por categoría"""
-        st.markdown("### 📚 Análisis por Categoría")
-        
-        # Crear DataFrame
-        data = []
-        for categoria, stats in stats_por_categoria.items():
-            data.append({
-                'Categoría': categoria,
-                'Total': stats['total'],
-                'Correctas': stats['correctas'],
-                'Incorrectas': stats['incorrectas'],
-                'Porcentaje': stats['porcentaje']
-            })
-        
-        df = pd.DataFrame(data)
-        df = df.sort_values('Porcentaje', ascending=False)
-        
-        # Mostrar tabla
-        st.dataframe(
-            df,
-            hide_index=True,
-            use_container_width=True
-        )
-        
-        # Gráfico de barras horizontales
-        fig = px.bar(
-            df,
-            y='Categoría',
-            x='Porcentaje',
-            orientation='h',
-            text='Porcentaje',
-            title='Desempeño por Categoría',
-            color='Porcentaje',
-            color_continuous_scale='RdYlGn',
-            range_color=[0, 100]
-        )
-        
-        fig.update_traces(texttemplate='%{text:.1f}%', textposition='outside')
-        fig.update_layout(height=max(300, len(df) * 40), showlegend=False)
-        
-        st.plotly_chart(fig, use_container_width=True)
-    
-    def _mostrar_stats_sistema(self, stats_sistema: Dict[str, Any]):
-        """Muestra estadísticas del sistema de calificación"""
-        st.markdown("### 🔬 Estadísticas del Sistema de Calificación")
-        
-        cols = st.columns(len(stats_sistema))
-        
-        for i, (key, value) in enumerate(stats_sistema.items()):
-            with cols[i]:
-                # Formatear nombre de la métrica
-                nombre_metrica = key.replace('_', ' ').title()
-                
-                # Formatear valor
-                if isinstance(value, float):
-                    valor_formateado = f"{value:.3f}"
-                else:
-                    valor_formateado = str(value)
-                
-                st.metric(nombre_metrica, valor_formateado)
