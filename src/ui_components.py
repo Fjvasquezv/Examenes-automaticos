@@ -24,20 +24,42 @@ class UIComponents:
         self.instrucciones = config['instrucciones']
     
     def mostrar_header(self, periodo_activo=None):
-        """Muestra el header del examen"""
+        """Muestra el header del examen - Estilo institucional ECCI"""
         periodo_html = ""
         if periodo_activo:
-            periodo_html = f"<p style='color: #90EE90; margin: 2px 0 0 0; font-size: 13px;'>✅ {periodo_activo}</p>"
+            periodo_html = f"<span style='color: #003366; font-size: 12px;'>✅ {periodo_activo}</span>"
         
         st.markdown(f"""
-        <div style='background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-             padding: 10px 15px; text-align: center;
-             border-radius: 10px; margin-bottom: 5px;'>
-            <h3 style='color: white; margin: 0; line-height: 1;'>{self.instrucciones['titulo']}</h3>
-            <p style='color: white; margin: 0; font-size: 14px; line-height: 1;'>
-                {self.metadata['institucion']} - {self.metadata['asignatura']}
-            </p>
-            {periodo_html}
+        <div style='background-color: #FFB81C;
+             padding: 8px 20px;
+             border-bottom: 4px solid #003366;
+             margin-bottom: 15px;
+             display: flex; justify-content: space-between; align-items: center;'>
+            <div>
+                <span style='color: #003366; font-weight: bold; font-size: 15px;'>
+                    {self.metadata['institucion']}
+                </span><br>
+                <span style='color: #003366; font-size: 12px;'>
+                    Facultad de Ingeniería - Programa de Ingeniería Química
+                </span>
+            </div>
+            <div style='text-align: center;'>
+                <span style='color: #003366; font-weight: bold; font-size: 14px;'>
+                    {self.metadata['nombre_examen']}
+                </span><br>
+                <span style='color: #003366; font-size: 12px;'>
+                    {self.metadata['asignatura']}
+                </span>
+                {f"<br>{periodo_html}" if periodo_activo else ""}
+            </div>
+            <div style='text-align: right;'>
+                <span style='color: #003366; font-weight: bold; font-size: 13px;'>
+                    Prof. Francisco Javier Vásquez V.
+                </span><br>
+                <span style='color: #003366; font-size: 11px;'>
+                    Docente
+                </span>
+            </div>
         </div>
         """, unsafe_allow_html=True)
     
