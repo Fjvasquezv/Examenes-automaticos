@@ -198,7 +198,7 @@ def mostrar_pantalla_inicio(config, ui):
     # Mostrar instrucciones
     ui.mostrar_instrucciones()
     
-    st.markdown("---")
+    st.markdown("<hr style='margin: 10px 0;'>", unsafe_allow_html=True)
     
     # Formulario de inicio
     col1, col2, col3 = st.columns([1, 2, 1])
