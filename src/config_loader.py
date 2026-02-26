@@ -10,6 +10,9 @@ from typing import Dict, Any
 class ConfigLoader:
     """Clase para cargar y validar configuraciones de exámenes"""
     
+    # Claves requeridas en cada JSON de examen.
+    # 'instrucciones' se carga desde un archivo separado (config/instrucciones.json),
+    # por lo que NO se exige dentro del JSON del examen.
     REQUIRED_KEYS = {
         'metadata': ['nombre_examen', 'asignatura', 'institucion'],
         'parametros': [
@@ -20,14 +23,26 @@ class ConfigLoader:
             'ventana_estabilizacion'
         ],
         'sistema_calificacion': ['tipo', 'parametros'],
-        'instrucciones': ['titulo', 'descripcion', 'temas'],
         'persistencia': ['metodo', 'spreadsheet_id'],
         'archivo_preguntas': None  # Es un string directo
     }
     
-    def __init__(self):
-        """Inicializa el cargador de configuración"""
-        self.config_path = Path("config")
+    # Claves opcionales con sub-claves esperadas
+    OPTIONAL_KEYS = {
+        'descripcion': ['texto', 'temas'],
+    }
+    
+    def __init__(self, base_path: Path = None):
+        """
+        Inicializa el cargador de configuración
+        
+        Args:
+            base_path: Directorio raíz del proyecto. Se usa para resolver
+                       rutas relativas (ej. archivo_preguntas). Si es None,
+                       se usa el directorio de trabajo actual.
+        """
+        self.base_path = base_path or Path.cwd()
+        self.config_path = self.base_path / "config"
         self.config_path.mkdir(exist_ok=True)
     
     def load_config(self, config_file: str) -> Dict[str, Any]:
@@ -58,14 +73,37 @@ class ConfigLoader:
         # Validar configuración
         self._validar_config(config)
         
-        # Validar que el archivo de preguntas existe
-        preguntas_path = Path(config['archivo_preguntas'])
+        # Validar que el archivo de preguntas existe (resolviendo ruta relativa)
+        preguntas_path = self.base_path / config['archivo_preguntas']
         if not preguntas_path.exists():
             raise FileNotFoundError(
-                f"Archivo de preguntas no encontrado: {config['archivo_preguntas']}"
+                f"Archivo de preguntas no encontrado: {config['archivo_preguntas']} "
+                f"(buscado en {preguntas_path})"
             )
         
         return config
+    
+    def validar_config_dict(self, config: Dict[str, Any]) -> None:
+        """
+        Valida un diccionario de configuración ya cargado en memoria.
+        Útil cuando la config se carga fuera de ConfigLoader (ej. desde app.py).
+        
+        Args:
+            config: Diccionario con la configuración del examen
+            
+        Raises:
+            ValueError: Si la configuración es inválida
+            FileNotFoundError: Si el archivo de preguntas no existe
+        """
+        self._validar_config(config)
+        
+        # Validar que el archivo de preguntas existe
+        preguntas_path = self.base_path / config['archivo_preguntas']
+        if not preguntas_path.exists():
+            raise FileNotFoundError(
+                f"Archivo de preguntas no encontrado: {config['archivo_preguntas']} "
+                f"(buscado en {preguntas_path})"
+            )
     
     def _validar_config(self, config: Dict[str, Any]) -> None:
         """
@@ -117,7 +155,7 @@ class ConfigLoader:
         if config['persistencia']['metodo'] != 'google_sheets':
             raise ValueError("método de persistencia debe ser 'google_sheets'")
     
-    def crear_template_config(self, output_file: str = "config/examen_template.json") -> None:
+    def crear_template_config(self, output_file: str = "config/examenes/examen_template.json") -> None:
         """
         Crea un archivo de configuración template
         
@@ -128,7 +166,17 @@ class ConfigLoader:
             "metadata": {
                 "nombre_examen": "Examen Adaptativo de [ASIGNATURA]",
                 "asignatura": "[NOMBRE DE LA ASIGNATURA]",
-                "institucion": "Universidad ECCI"
+                "institucion": "Universidad ECCI",
+                "codigo_asignatura": "[CODIGO]"
+            },
+            "descripcion": {
+                "texto": "Este examen evalúa los conocimientos de [ASIGNATURA].",
+                "temas": [
+                    "Tema 1",
+                    "Tema 2",
+                    "Tema 3"
+                ],
+                "duracion_estimada": "1 hora 30 minutos"
             },
             "parametros": {
                 "preguntas_minimas": 15,
@@ -143,24 +191,11 @@ class ConfigLoader:
                     "max_iteraciones": 10
                 }
             },
-            "instrucciones": {
-                "titulo": "🎓 Examen Adaptativo de [ASIGNATURA]",
-                "descripcion": [
-                    "Este es un examen adaptativo...",
-                    "Las preguntas se ajustan a tu nivel...",
-                    "Contesta con honestidad..."
-                ],
-                "temas": [
-                    "Tema 1",
-                    "Tema 2",
-                    "Tema 3"
-                ]
-            },
             "persistencia": {
                 "metodo": "google_sheets",
                 "spreadsheet_id": "TU_SPREADSHEET_ID_AQUI"
             },
-            "archivo_preguntas": "data/preguntas_[ASIGNATURA].json"
+            "archivo_preguntas": "data/preguntas/[ASIGNATURA].json"
         }
         
         output_path = Path(output_file)

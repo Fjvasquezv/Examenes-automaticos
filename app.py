@@ -161,19 +161,29 @@ def verificar_disponibilidad():
             try:
                 with open(ruta_examen, 'r', encoding='utf-8') as f:
                     config_examen = json.load(f)
-                    config_examen['_examen_id'] = examen_id  # Guardar ID para referencia
-                    ruta_instrucciones = Path(__file__).parent / "config" / "instrucciones.json"
-                    try:
-                        with open(ruta_instrucciones, 'r', encoding='utf-8') as f:
-                            instrucciones = json.load(f)
-                    except FileNotFoundError:
-                        instrucciones = {"titulo": "Instrucciones", "items": [], "advertencias": []}
-                    # Combinar con descripción del examen
-                    config_examen['instrucciones'] = instrucciones
-                    config_examen['instrucciones']['descripcion'] = config_examen.get('descripcion', {})
-                    return True, config_examen, periodo.get('nombre', 'Examen activo'), periodos
-            except FileNotFoundError:
-                return False, None, f"Error: No se encontró configuración para {examen_id}", periodos
+                
+                # Validar configuración del examen
+                loader = ConfigLoader(base_path=Path(__file__).parent)
+                loader.validar_config_dict(config_examen)
+                
+                config_examen['_examen_id'] = examen_id  # Guardar ID para referencia
+                
+                # Cargar instrucciones desde archivo separado
+                ruta_instrucciones = Path(__file__).parent / "config" / "instrucciones.json"
+                try:
+                    with open(ruta_instrucciones, 'r', encoding='utf-8') as f2:
+                        instrucciones = json.load(f2)
+                except FileNotFoundError:
+                    instrucciones = {"titulo": "Instrucciones", "items": [], "advertencias": []}
+                
+                # Combinar con descripción del examen
+                config_examen['instrucciones'] = instrucciones
+                config_examen['instrucciones']['descripcion'] = config_examen.get('descripcion', {})
+                return True, config_examen, periodo.get('nombre', 'Examen activo'), periodos
+            except FileNotFoundError as e:
+                return False, None, f"Error en examen '{examen_id}': {str(e)}", periodos
+            except ValueError as e:
+                return False, None, f"Configuración inválida para '{examen_id}': {str(e)}", periodos
     
     # ❌ NO estamos en ningún periodo - buscar el próximo
     proximos = []
