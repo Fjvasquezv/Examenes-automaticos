@@ -1,0 +1,35 @@
+{
+    "metadata": {
+        "nombre_examen": "Quiz 1 - Control de Procesos",
+        "asignatura": "Control de Procesos",
+        "institucion": "Universidad ECCI",
+        "codigo_asignatura": "CTR101"
+    },
+    "descripcion": {
+        "texto": "Este quiz evalúa los conocimientos fundamentales de Control de Procesos.",
+        "temas": [
+            "Conceptos básicos de control",
+            "Sistemas de control",
+            "Instrumentación",
+            "Diagramas de bloques",
+            "Respuesta de sistemas"
+        ],
+        "duracion_estimada": "1 hora"
+    },
+    "parametros": {
+        "preguntas_minimas": 15,
+        "preguntas_maximas": 30,
+        "nivel_inicial": 3,
+        "umbral_estabilizacion": 0.20,
+        "ventana_estabilizacion": 3
+    },
+    "sistema_calificacion": {
+        "tipo": "irt_simplificado",
+        "parametros": {"max_iteraciones": 10}
+    },
+    "persistencia": {
+        "metodo": "google_sheets",
+        "spreadsheet_id": "11LgtY-p59UKYCYY0GwZHCLN--KbZEPZb8poZJTEbyys"
+    },
+    "archivo_preguntas": "data/preguntas/ControlQuizzC1_1.json"
+}

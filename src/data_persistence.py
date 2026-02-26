@@ -24,6 +24,13 @@ class DataPersistence:
         """
         self.config = config
         self.spreadsheet_id = config['persistencia']['spreadsheet_id']
+        
+        # Nombre de la pestaña derivado del ID del examen.
+        # Ej: examen "control" → pestaña "Resultados_control"
+        # Si no hay _examen_id, usa "Resultados" por compatibilidad.
+        examen_id = config.get('_examen_id', '')
+        self.nombre_hoja = f"Resultados_{examen_id}" if examen_id else 'Resultados'
+        
         self.service = None
         self._inicializar_servicio()
     
@@ -110,7 +117,7 @@ class DataPersistence:
             # Buscar la última fila del estudiante con estado EN_CURSO
             result = self.service.spreadsheets().values().get(
                 spreadsheetId=self.spreadsheet_id,
-                range='Resultados!A:P'
+                range=f'{self.nombre_hoja}!A:P'
             ).execute()
             
             values = result.get('values', [])
@@ -129,19 +136,19 @@ class DataPersistence:
                 
                 updates = [
                     {
-                        'range': f'Resultados!C{fila_a_actualizar}',
+                        'range': f'{self.nombre_hoja}!C{fila_a_actualizar}',
                         'values': [[preguntas_respondidas]]
                     },
                     {
-                        'range': f'Resultados!D{fila_a_actualizar}',
+                        'range': f'{self.nombre_hoja}!D{fila_a_actualizar}',
                         'values': [[correctas]]
                     },
                     {
-                        'range': f'Resultados!E{fila_a_actualizar}',
+                        'range': f'{self.nombre_hoja}!E{fila_a_actualizar}',
                         'values': [[incorrectas]]
                     },
                     {
-                        'range': f'Resultados!F{fila_a_actualizar}',
+                        'range': f'{self.nombre_hoja}!F{fila_a_actualizar}',
                         'values': [[round(porcentaje, 1)]]
                     }
                 ]
@@ -173,7 +180,7 @@ class DataPersistence:
         try:
             result = self.service.spreadsheets().values().get(
                 spreadsheetId=self.spreadsheet_id,
-                range='Resultados!A:P'
+                range=f'{self.nombre_hoja}!A:P'
             ).execute()
             
             values = result.get('values', [])
@@ -202,7 +209,7 @@ class DataPersistence:
         try:
             result = self.service.spreadsheets().values().get(
                 spreadsheetId=self.spreadsheet_id,
-                range='Resultados!A:P'
+                range=f'{self.nombre_hoja}!A:P'
             ).execute()
             
             values = result.get('values', [])
@@ -243,7 +250,7 @@ class DataPersistence:
             try:
                 result = self.service.spreadsheets().values().get(
                     spreadsheetId=self.spreadsheet_id,
-                    range='Resultados!A:P'
+                    range=f'{self.nombre_hoja}!A:P'
                 ).execute()
                 
                 values = result.get('values', [])
@@ -258,7 +265,7 @@ class DataPersistence:
                 
                 if fila_a_actualizar:
                     # Actualizar la fila existente
-                    range_to_update = f'Resultados!A{fila_a_actualizar}:P{fila_a_actualizar}'
+                    range_to_update = f'{self.nombre_hoja}!A{fila_a_actualizar}:P{fila_a_actualizar}'
                     body = {'values': [datos]}
                     self.service.spreadsheets().values().update(
                         spreadsheetId=self.spreadsheet_id,
@@ -344,10 +351,10 @@ class DataPersistence:
                 spreadsheetId=self.spreadsheet_id
             ).execute()
             
-            # Verificar si existe la hoja "Resultados"
+            # Verificar si existe la pestaña del examen
             sheets = sheet_metadata.get('sheets', [])
             existe_hoja = any(
-                sheet['properties']['title'] == 'Resultados' 
+                sheet['properties']['title'] == self.nombre_hoja 
                 for sheet in sheets
             )
             
@@ -364,12 +371,12 @@ class DataPersistence:
     def _crear_hoja_resultados(self):
         """Crea la hoja de Resultados con encabezados"""
         try:
-            # Crear nueva hoja
+            # Crear nueva pestaña para este examen
             body = {
                 'requests': [{
                     'addSheet': {
                         'properties': {
-                            'title': 'Resultados',
+                            'title': self.nombre_hoja,
                             'gridProperties': {
                                 'rowCount': 1000,
                                 'columnCount': 20
@@ -396,7 +403,7 @@ class DataPersistence:
             # Leer primera fila
             result = self.service.spreadsheets().values().get(
                 spreadsheetId=self.spreadsheet_id,
-                range='Resultados!A1:Q1'
+                range=f'{self.nombre_hoja}!A1:Q1'
             ).execute()
             
             values = result.get('values', [])
@@ -436,7 +443,7 @@ class DataPersistence:
         
         self.service.spreadsheets().values().update(
             spreadsheetId=self.spreadsheet_id,
-            range='Resultados!A1',
+            range=f'{self.nombre_hoja}!A1',
             valueInputOption='RAW',
             body=body
         ).execute()
@@ -454,7 +461,7 @@ class DataPersistence:
         
         self.service.spreadsheets().values().append(
             spreadsheetId=self.spreadsheet_id,
-            range='Resultados!A:Q',
+            range=f'{self.nombre_hoja}!A:Q',
             valueInputOption='RAW',
             insertDataOption='INSERT_ROWS',
             body=body
@@ -479,7 +486,7 @@ class DataPersistence:
             # Leer datos
             result = self.service.spreadsheets().values().get(
                 spreadsheetId=self.spreadsheet_id,
-                range='Resultados!A:Q'
+                range=f'{self.nombre_hoja}!A:Q'
             ).execute()
             
             values = result.get('values', [])

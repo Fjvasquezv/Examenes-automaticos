@@ -1,0 +1,1402 @@
+[
+  {
+    "id": "cp_001",
+    "pregunta": "¿Cuál es el objetivo del control 'alrededor de un punto' en un proceso industrial?",
+    "opciones": {
+      "A": "Permitir que la variable oscile libremente entre dos límites definidos",
+      "B": "Mantener la variable controlada lo más cercana posible a un valor específico deseado (set point)",
+      "C": "Hacer que la variable siga una trayectoria que cambia con el tiempo",
+      "D": "Activar o desactivar el actuador cuando la variable cruza ciertos umbrales"
+    },
+    "respuesta_correcta": "B",
+    "dificultad": 1,
+    "categoria": "Conceptos Básicos de Control",
+    "explicacion": "El control alrededor de un punto busca mantener la variable controlada en un valor específico (set point), actuando continuamente para compensar cualquier perturbación que la aleje de ese valor. Es el tipo de control más común en procesos continuos, como mantener la temperatura de un reactor exactamente a 80°C."
+  },
+  {
+    "id": "cp_002",
+    "pregunta": "Un termostato doméstico enciende la caldera cuando la temperatura cae por debajo de 18°C y la apaga cuando supera 22°C. ¿Qué tipo de control representa?",
+    "opciones": {
+      "A": "Control alrededor de un punto, con set point en 20°C",
+      "B": "Control siguiendo un comportamiento deseado, porque la temperatura cambia con el tiempo",
+      "C": "Control entre un rango, porque actúa cuando se cruzan los límites 18°C y 22°C",
+      "D": "Control en lazo abierto, porque no mide la temperatura continuamente"
+    },
+    "respuesta_correcta": "C",
+    "dificultad": 1,
+    "categoria": "Conceptos Básicos de Control",
+    "explicacion": "El control entre un rango no busca un valor exacto sino mantener la variable dentro de un intervalo permitido. El termostato actúa solo cuando la temperatura cruza los límites (18°C o 22°C), dejando que oscile libremente dentro de la banda. No hay un set point único: hay un límite inferior y uno superior."
+  },
+  {
+    "id": "cp_003",
+    "pregunta": "En un horno de tratamiento térmico batch, la temperatura debe subir gradualmente de 25°C a 400°C en 30 minutos, mantenerse 1 hora y luego bajar lentamente. ¿Qué tipo de control describe este caso?",
+    "opciones": {
+      "A": "Control entre un rango, porque hay temperatura mínima (25°C) y máxima (400°C)",
+      "B": "Control alrededor de un punto, porque en cada momento hay un valor deseado",
+      "C": "Control siguiendo un comportamiento deseado, porque el set point varía con el tiempo según un perfil",
+      "D": "Control en lazo abierto, porque el perfil está programado de antemano"
+    },
+    "respuesta_correcta": "C",
+    "dificultad": 1,
+    "categoria": "Conceptos Básicos de Control",
+    "explicacion": "El control siguiendo un comportamiento deseado (servo o de seguimiento) tiene un set point que cambia con el tiempo según una trayectoria predefinida. El sistema debe rastrear ese perfil continuamente. Se diferencia del control alrededor de un punto (set point fijo) porque aquí el valor deseado mismo evoluciona en el tiempo."
+  },
+  {
+    "id": "cp_004",
+    "pregunta": "El elemento del lazo de control que mide directamente la variable física del proceso (temperatura, presión, nivel) y la convierte en una señal medible es:",
+    "opciones": {
+      "A": "El actuador",
+      "B": "El sensor",
+      "C": "El controlador",
+      "D": "El comparador"
+    },
+    "respuesta_correcta": "B",
+    "dificultad": 1,
+    "categoria": "Elementos del Lazo de Control",
+    "explicacion": "El sensor está en contacto directo con el proceso y detecta la variable física, convirtiéndola en una señal medible (por ejemplo, un termopar convierte temperatura en voltaje, un RTD en resistencia). Sin el sensor, el lazo de control no tiene información sobre el estado real del proceso."
+  },
+  {
+    "id": "cp_005",
+    "pregunta": "¿Cuál es la función del transmisor en un lazo de control?",
+    "opciones": {
+      "A": "Ejecutar la acción física sobre el fluido del proceso",
+      "B": "Calcular la diferencia entre el set point y la variable medida",
+      "C": "Convertir la señal del sensor a una señal estándar compatible con el controlador (ej: 4–20 mA)",
+      "D": "Decidir cuánto ajustar la variable manipulada"
+    },
+    "respuesta_correcta": "C",
+    "dificultad": 1,
+    "categoria": "Elementos del Lazo de Control",
+    "explicacion": "El transmisor normaliza y estandariza la señal del sensor. Por ejemplo, convierte los ohmios de un RTD o los milivoltios de un termopar en una señal de 4–20 mA compatible con el controlador. Esta estandarización permite conectar sensores de distintos fabricantes al mismo sistema de control."
+  },
+  {
+    "id": "cp_006",
+    "pregunta": "En un lazo de control, ¿cuál es la función del comparador?",
+    "opciones": {
+      "A": "Convertir la señal de control en movimiento mecánico sobre la válvula",
+      "B": "Calcular el error: la diferencia entre el set point y la variable medida",
+      "C": "Amplificar la señal del sensor para que sea compatible con el actuador",
+      "D": "Registrar históricamente los valores de la variable controlada"
+    },
+    "respuesta_correcta": "B",
+    "dificultad": 1,
+    "categoria": "Elementos del Lazo de Control",
+    "explicacion": "El comparador recibe el set point (valor deseado) y la señal medida (valor actual), y calcula el error: e = SP − PV. Esta señal de error es la que el controlador utiliza para decidir qué acción correctiva tomar. Sin el comparador, el sistema no puede saber cuánto se aleja del objetivo."
+  },
+  {
+    "id": "cp_007",
+    "pregunta": "La 'variable manipulada' en un lazo de control es:",
+    "opciones": {
+      "A": "La variable que el proceso genera de forma autónoma ante perturbaciones",
+      "B": "La variable que el sensor mide y envía como retroalimentación al controlador",
+      "C": "La variable que el controlador ajusta para influir sobre la variable controlada",
+      "D": "La referencia o set point que el operador establece en el sistema"
+    },
+    "respuesta_correcta": "C",
+    "dificultad": 1,
+    "categoria": "Elementos del Lazo de Control",
+    "explicacion": "La variable manipulada (MV) es la 'palanca' del sistema de control: el controlador la ajusta para corregir el error. Por ejemplo, en el control de temperatura de un intercambiador, el flujo de vapor de calentamiento es la variable manipulada: el controlador lo aumenta o disminuye para llevar la temperatura al set point."
+  },
+  {
+    "id": "cp_008",
+    "pregunta": "¿Cuál es la diferencia entre la 'variable controlada' y la 'variable medida'?",
+    "opciones": {
+      "A": "Son exactamente lo mismo; los términos son sinónimos en control de procesos",
+      "B": "La variable controlada es la magnitud física real del proceso que se desea mantener; la variable medida es la señal del sensor/transmisor que la representa (puede tener errores de medición)",
+      "C": "La variable controlada es siempre la temperatura; la variable medida puede ser cualquier otra magnitud",
+      "D": "La variable medida es la que el operador fija; la variable controlada es la que el proceso produce"
+    },
+    "respuesta_correcta": "B",
+    "dificultad": 1,
+    "categoria": "Elementos del Lazo de Control",
+    "explicacion": "La variable controlada es la magnitud física real que se desea mantener en el set point (ej: temperatura del reactor). La variable medida es la señal del transmisor que representa esa magnitud (ej: 12.5 mA). En un sistema ideal son iguales, pero en la práctica pueden diferir por errores de calibración, ruido o dinámica del sensor."
+  },
+  {
+    "id": "cp_009",
+    "pregunta": "En un lazo de control de nivel de un tanque: la válvula en la tubería de salida ajusta el flujo para mantener el nivel en 2 metros. ¿Cuál es la variable manipulada?",
+    "opciones": {
+      "A": "El nivel del líquido en el tanque (2 metros)",
+      "B": "El set point de nivel (2 metros)",
+      "C": "El flujo de salida controlado por la apertura de la válvula",
+      "D": "La señal del sensor de nivel instalado en el tanque"
+    },
+    "respuesta_correcta": "C",
+    "dificultad": 1,
+    "categoria": "Elementos del Lazo de Control",
+    "explicacion": "La variable manipulada es la que el controlador ajusta: en este caso, el flujo de salida a través de la válvula. Al abrir o cerrar la válvula, el controlador cambia el caudal de salida para mantener el nivel en 2 metros. El nivel es la variable controlada (objetivo) y el set point es el valor deseado (2 metros)."
+  },
+  {
+    "id": "cp_010",
+    "pregunta": "Una 'perturbación' en un proceso de control es:",
+    "opciones": {
+      "A": "La señal de error calculada por el comparador",
+      "B": "La señal que el controlador envía al actuador",
+      "C": "Una entrada no controlada al proceso que desplaza la variable controlada de su set point",
+      "D": "El cambio intencional en el set point realizado por el operador"
+    },
+    "respuesta_correcta": "C",
+    "dificultad": 1,
+    "categoria": "Elementos del Lazo de Control",
+    "explicacion": "Una perturbación es una entrada externa al proceso que no está bajo el control del controlador y que tiende a alejar la variable controlada de su set point. Por ejemplo: cambio en la temperatura ambiente, variación en la concentración de la materia prima, o aumento en la demanda de producción. El control realimentado debe detectar su efecto y compensarlo."
+  },
+  {
+    "id": "cp_011",
+    "pregunta": "En un diagrama de bloques, una flecha que apunta HACIA un bloque representa:",
+    "opciones": {
+      "A": "La salida generada por ese bloque",
+      "B": "Una variable interna que no cruza la frontera del sistema",
+      "C": "Una señal de entrada o causa que actúa sobre ese bloque",
+      "D": "La función matemática contenida dentro del bloque"
+    },
+    "respuesta_correcta": "C",
+    "dificultad": 1,
+    "categoria": "Diagramas de Causa-Efecto",
+    "explicacion": "En los diagramas de bloques, las flechas representan señales con dirección de flujo de información. Una flecha que entra a un bloque es la variable de entrada (la causa). Una flecha que sale es la variable de salida (el efecto). Esta convención es fundamental para leer correctamente cualquier diagrama de causa-efecto."
+  },
+  {
+    "id": "cp_012",
+    "pregunta": "Una 'variable interna' en un diagrama de bloques es aquella que:",
+    "opciones": {
+      "A": "No puede medirse con ningún instrumento de campo",
+      "B": "Existe dentro del sistema y conecta bloques internos, pero no entra desde afuera ni sale como resultado final",
+      "C": "Permanece constante sin importar las condiciones del proceso",
+      "D": "Solo existe en el modelo matemático, no en el proceso físico real"
+    },
+    "respuesta_correcta": "B",
+    "dificultad": 1,
+    "categoria": "Diagramas de Causa-Efecto",
+    "explicacion": "Una variable interna existe dentro del sistema y tiene un rol causal (conecta bloques), pero no cruza las fronteras del sistema: no viene de afuera (no es entrada) ni es el resultado que el sistema entrega al exterior (no es salida). Su clasificación depende exclusivamente de cómo se definan las fronteras del sistema, no de si es medible o no."
+  },
+  {
+    "id": "cp_013",
+    "pregunta": "¿Cuál es la función del actuador en un lazo de control?",
+    "opciones": {
+      "A": "Medir la variable controlada y enviar la señal al comparador",
+      "B": "Calcular el error entre el set point y la variable medida",
+      "C": "Recibir la señal de control y convertirla en movimiento mecánico sobre el elemento final de control",
+      "D": "Comparar la señal del proceso con los límites de alarma programados"
+    },
+    "respuesta_correcta": "C",
+    "dificultad": 1,
+    "categoria": "Elementos del Lazo de Control",
+    "explicacion": "El actuador convierte la señal eléctrica o neumática del controlador en movimiento mecánico (apertura de válvula, velocidad de motor, etc.). Por ejemplo, un actuador neumático usa aire comprimido para mover el vástago de una válvula de control. El actuador es el 'músculo' que ejecuta la acción calculada por el controlador."
+  },
+  {
+    "id": "cp_014",
+    "pregunta": "El 'elemento final de control' en la mayoría de los lazos de proceso es:",
+    "opciones": {
+      "A": "El sensor de temperatura o presión instalado en la línea de proceso",
+      "B": "El controlador electrónico que genera la señal de salida",
+      "C": "La válvula de control que regula directamente el flujo de la variable manipulada",
+      "D": "El transmisor que convierte la señal física en señal estandarizada"
+    },
+    "respuesta_correcta": "C",
+    "dificultad": 1,
+    "categoria": "Elementos del Lazo de Control",
+    "explicacion": "El elemento final de control (EFC) es el dispositivo que actúa directamente sobre el fluido o la energía del proceso. La válvula de control es el EFC más común en procesos de fluidos: al cambiar su apertura, modifica el flujo de la variable manipulada. El actuador mueve el EFC según la señal del controlador."
+  },
+  {
+    "id": "cp_015",
+    "pregunta": "En el lazo de control de temperatura de un intercambiador de calor, el flujo de vapor es la variable manipulada y la temperatura de salida del fluido de proceso es la variable controlada. ¿Cuál sería una perturbación típica de este lazo?",
+    "opciones": {
+      "A": "El set point de temperatura establecido por el operador",
+      "B": "La señal de 4–20 mA enviada por el controlador al actuador",
+      "C": "Un cambio no esperado en la temperatura de entrada del fluido de proceso",
+      "D": "La posición de la válvula de vapor en porcentaje de apertura"
+    },
+    "respuesta_correcta": "C",
+    "dificultad": 1,
+    "categoria": "Elementos del Lazo de Control",
+    "explicacion": "Una perturbación es una entrada no controlada que afecta la variable controlada. La temperatura de entrada del fluido de proceso puede cambiar por condiciones del proceso upstream y no está bajo el control del lazo de temperatura del intercambiador. El controlador debe detectar su efecto (el error que produce en la temperatura de salida) y compensarlo ajustando el flujo de vapor."
+  },
+  {
+    "id": "cp_016",
+    "pregunta": "¿Cuál de los siguientes NO es un elemento del lazo de control básico?",
+    "opciones": {
+      "A": "Sensor",
+      "B": "Controlador",
+      "C": "Diagrama P&ID del proceso",
+      "D": "Elemento final de control"
+    },
+    "respuesta_correcta": "C",
+    "dificultad": 1,
+    "categoria": "Elementos del Lazo de Control",
+    "explicacion": "Los elementos funcionales del lazo de control son: sensor, transmisor, comparador, controlador, actuador y elemento final de control. El P&ID (Piping and Instrumentation Diagram) es un documento de ingeniería que describe y representa el sistema de control, pero no es un componente que participe activamente en el procesamiento de señales dentro del lazo en tiempo real."
+  },
+  {
+    "id": "cp_017",
+    "pregunta": "En el control de temperatura de un biorreactor, el set point es exactamente 37°C para el crecimiento óptimo del microorganismo. ¿Qué tipo de control es este?",
+    "opciones": {
+      "A": "Control entre un rango, porque la temperatura puede variar varios grados sin efecto",
+      "B": "Control alrededor de un punto, porque existe un valor específico que se debe mantener",
+      "C": "Control siguiendo un comportamiento deseado, porque la temperatura cambia con el ciclo de crecimiento",
+      "D": "Control en lazo abierto, porque el metabolismo microbiano es impredecible"
+    },
+    "respuesta_correcta": "B",
+    "dificultad": 1,
+    "categoria": "Conceptos Básicos de Control",
+    "explicacion": "Cuando existe un valor específico que debe mantenerse lo más exactamente posible, se usa control alrededor de un punto. El set point fijo de 37°C es el objetivo constante; el controlador actúa continuamente para mantener la temperatura en ese valor, compensando el calor generado por el metabolismo microbiano y las pérdidas al ambiente."
+  },
+  {
+    "id": "cp_018",
+    "pregunta": "El flujo de información en un lazo de control realimentado sigue el orden:",
+    "opciones": {
+      "A": "Proceso → Controlador → Comparador → Sensor → Actuador → Proceso",
+      "B": "Proceso → Sensor/Transmisor → Comparador → Controlador → Actuador → Proceso",
+      "C": "Proceso → Actuador → Controlador → Sensor → Comparador → Proceso",
+      "D": "Proceso → Comparador → Sensor → Controlador → Actuador → Proceso"
+    },
+    "respuesta_correcta": "B",
+    "dificultad": 1,
+    "categoria": "Elementos del Lazo de Control",
+    "explicacion": "El flujo de información en la trayectoria de retroalimentación es: el proceso genera la variable controlada → el sensor/transmisor la mide → el comparador calcula el error (SP − PV) → el controlador calcula la acción correctiva → el actuador ejecuta la acción sobre el elemento final de control → el proceso recibe la corrección y el ciclo continúa."
+  },
+  {
+    "id": "cp_019",
+    "pregunta": "¿Qué significa que la derivada parcial (∂T/∂F_vapor) sea positiva?",
+    "opciones": {
+      "A": "Que la temperatura siempre es mayor que el flujo de vapor",
+      "B": "Que al aumentar el flujo de vapor, la temperatura del proceso también aumenta",
+      "C": "Que la temperatura y el flujo de vapor están siempre en equilibrio",
+      "D": "Que el sensor de temperatura tiene una calibración incorrecta"
+    },
+    "respuesta_correcta": "B",
+    "dificultad": 1,
+    "categoria": "Diagramas de Causa-Efecto",
+    "explicacion": "La derivada parcial ∂T/∂F_vapor indica la sensibilidad de la temperatura respecto al flujo de vapor, manteniendo todo lo demás constante. Si es positiva, significa que existe una relación directa: cuando F_vapor aumenta, T también aumenta. En el diagrama de bloques, el bloque entre F_vapor y T tiene una 'ganancia' positiva."
+  },
+  {
+    "id": "cp_020",
+    "pregunta": "¿Qué indica una derivada parcial (∂pH/∂F_ácido) negativa en un proceso de neutralización?",
+    "opciones": {
+      "A": "Que el sensor de pH está instalado en sentido contrario",
+      "B": "Que al aumentar el flujo de ácido, el pH disminuye (el medio se acidifica)",
+      "C": "Que el flujo de ácido no tiene efecto significativo sobre el pH",
+      "D": "Que el proceso de neutralización es inestable por diseño"
+    },
+    "respuesta_correcta": "B",
+    "dificultad": 1,
+    "categoria": "Diagramas de Causa-Efecto",
+    "explicacion": "La derivada parcial negativa indica una relación inversa: al aumentar el flujo de ácido (causa), el pH baja (efecto), porque el ácido consume los grupos buffer y acidifica el medio. En el diagrama de bloques, el bloque entre F_ácido y pH tiene una 'ganancia' negativa, lo que es importante al diseñar la estrategia de control."
+  },
+  {
+    "id": "cp_021",
+    "pregunta": "Un tanque tiene flujo de entrada y flujo de salida. El sistema definido incluye solo el tanque. ¿Cómo se clasifica el nivel del líquido dentro del tanque?",
+    "opciones": {
+      "A": "Es una variable de entrada, porque el nivel 'entra' al tanque con el fluido",
+      "B": "Es una variable interna, porque se genera dentro del sistema y no cruza las fronteras",
+      "C": "Es una variable de salida, porque puede medirse con un sensor de nivel",
+      "D": "Es una perturbación, porque el operador no puede controlarlo directamente"
+    },
+    "respuesta_correcta": "B",
+    "dificultad": 1,
+    "categoria": "Diagramas de Causa-Efecto",
+    "explicacion": "El nivel del líquido es el estado interno del tanque: se genera y cambia dentro del sistema por el balance entre entrada y salida, pero el nivel en sí no 'entra' ni 'sale' del tanque como el fluido. Si el sistema incluye solo el tanque, el nivel es una variable interna. Si el sistema fuera la válvula de salida, el nivel sería una entrada (causa de la presión que mueve el fluido)."
+  },
+  {
+    "id": "cp_022",
+    "pregunta": "En el diagrama de causa-efecto de un intercambiador de calor (sistema = intercambiador completo), la temperatura del fluido caliente a la salida del equipo es:",
+    "opciones": {
+      "A": "Variable interna, porque está dentro del intercambiador",
+      "B": "Variable de entrada, porque proviene del fluido caliente",
+      "C": "Variable de salida, porque cruza la frontera del sistema al salir del intercambiador",
+      "D": "Perturbación, porque no puede controlarse directamente"
+    },
+    "respuesta_correcta": "C",
+    "dificultad": 1,
+    "categoria": "Diagramas de Causa-Efecto",
+    "explicacion": "La temperatura de salida del fluido caliente cruza la frontera del sistema (sale del intercambiador hacia el siguiente equipo), por lo que es una variable de salida. Las variables de salida son los resultados que el sistema entrega al exterior. En este caso, es también la variable que normalmente se desea controlar."
+  },
+  {
+    "id": "cp_023",
+    "pregunta": "¿Cuál de los siguientes es el orden correcto del flujo de señales en la trayectoria de realimentación de un lazo de control?",
+    "opciones": {
+      "A": "Variable controlada → Actuador → Sensor → Comparador",
+      "B": "Variable controlada → Sensor/Transmisor → Comparador → Controlador",
+      "C": "Controlador → Sensor → Comparador → Variable controlada",
+      "D": "Comparador → Variable controlada → Transmisor → Actuador"
+    },
+    "respuesta_correcta": "B",
+    "dificultad": 1,
+    "categoria": "Elementos del Lazo de Control",
+    "explicacion": "La trayectoria de retroalimentación lleva información del proceso de vuelta al comparador: la variable controlada es medida por el sensor/transmisor, que produce la señal de proceso (PV). Esa señal va al comparador, donde se resta del set point para generar el error. El controlador recibe ese error y calcula la acción correctiva."
+  },
+  {
+    "id": "cp_024",
+    "pregunta": "¿Cuál de los tres tipos de control describe mejor el sistema de posicionamiento de un brazo robótico de manufactura, donde el brazo debe seguir una trayectoria espacial específica calculada para cada tarea?",
+    "opciones": {
+      "A": "Control entre un rango, porque el brazo puede estar en cualquier posición dentro del área de trabajo",
+      "B": "Control alrededor de un punto, porque en cada instante hay una posición deseada",
+      "C": "Control siguiendo un comportamiento deseado, porque la posición de referencia varía continuamente en el tiempo",
+      "D": "No es control de proceso; los robots no usan retroalimentación"
+    },
+    "respuesta_correcta": "C",
+    "dificultad": 1,
+    "categoria": "Conceptos Básicos de Control",
+    "explicacion": "El brazo robótico debe rastrear una trayectoria espacial donde la posición de referencia cambia constantemente en el tiempo. Esto es control servo o de seguimiento: el set point es una función del tiempo (la trayectoria programada), y el sistema debe seguirla con precisión compensando perturbaciones como variaciones de carga."
+  },
+  {
+    "id": "cp_025",
+    "pregunta": "Un compresor tiene una válvula de seguridad que abre automáticamente cuando la presión supera 15 bar y cierra cuando baja de 12 bar. ¿Qué tipo de control es?",
+    "opciones": {
+      "A": "Control alrededor de un punto (set point = 13.5 bar)",
+      "B": "Control entre un rango (límite inferior 12 bar, límite superior 15 bar)",
+      "C": "Control siguiendo un comportamiento deseado (perfil de presión variable)",
+      "D": "No es control; es solo protección del equipo sin retroalimentación"
+    },
+    "respuesta_correcta": "B",
+    "dificultad": 1,
+    "categoria": "Conceptos Básicos de Control",
+    "explicacion": "La válvula de seguridad mantiene la presión dentro de un rango (12–15 bar) actuando solo cuando se cruzan los límites. No busca un valor específico exacto sino evitar que la presión salga de la banda aceptable. Este es el patrón del control entre un rango: hay un límite inferior y uno superior, y el actuador solo actúa en los extremos."
+  },
+  {
+    "id": "cp_026",
+    "pregunta": "En un punto de suma de un diagrama de bloques con una entrada con signo (+) y otra con signo (−), la salida del nodo es:",
+    "opciones": {
+      "A": "El producto de las dos señales de entrada",
+      "B": "La diferencia: se resta la señal negativa a la señal positiva",
+      "C": "El mayor de los dos valores de entrada",
+      "D": "La suma de los valores absolutos de ambas entradas"
+    },
+    "respuesta_correcta": "B",
+    "dificultad": 2,
+    "categoria": "Diagramas de Causa-Efecto",
+    "explicacion": "El punto de suma (nodo sumador) combina las señales según sus signos. Con una entrada (+) y otra (−), la salida es la diferencia: salida = señal(+) − señal(−). En un lazo de control, el comparador es este tipo de nodo: SP(+) − PV(−) = error. Si ambas entradas fueran positivas, se sumarían; si ambas fueran negativas, se restarían."
+  },
+  {
+    "id": "cp_027",
+    "pregunta": "Dos variables afectan la concentración de salida de un reactor en paralelo: el flujo de reactivo A (con efecto positivo) y la temperatura de entrada (con efecto negativo). En el diagrama de bloques, estos dos efectos se combinan en:",
+    "opciones": {
+      "A": "Un bloque multiplicador que combina ambos efectos",
+      "B": "Un punto de suma donde se añaden algebraicamente los dos efectos sobre la concentración",
+      "C": "Un bloque de división porque los efectos son opuestos",
+      "D": "Dos bloques en serie porque uno ocurre después del otro"
+    },
+    "respuesta_correcta": "B",
+    "dificultad": 2,
+    "categoria": "Diagramas de Causa-Efecto",
+    "explicacion": "Cuando múltiples variables afectan la misma variable de salida a través de caminos paralelos, sus efectos se combinan en un punto de suma. El efecto positivo del flujo de A y el efecto negativo de la temperatura de entrada se suman algebraicamente: concentración = (+efecto de A) + (−efecto de T_entrada). El signo depende de si la ganancia del camino causal es positiva o negativa."
+  },
+  {
+    "id": "cp_028",
+    "pregunta": "En el siguiente diagrama de bloques:\n\n  Flujo de vapor →[Bloque proceso]→ Temperatura salida\n\n¿Qué tipo de relación entre bloques representa esta conexión?",
+    "opciones": {
+      "A": "Bloques en paralelo, porque comparten la misma entrada",
+      "B": "Bloques en serie, porque la salida de uno es la entrada del otro (pero aquí hay un solo bloque)",
+      "C": "Un solo camino causal directo: el flujo de vapor causa un cambio en la temperatura de salida a través del proceso",
+      "D": "Una retroalimentación, porque la temperatura afecta el flujo de vapor"
+    },
+    "respuesta_correcta": "C",
+    "dificultad": 2,
+    "categoria": "Diagramas de Causa-Efecto",
+    "explicacion": "El diagrama muestra un único camino causal: el flujo de vapor es la causa (entrada al bloque), el bloque representa el proceso (la relación entre causa y efecto), y la temperatura de salida es el efecto (salida del bloque). No hay retroalimentación (no hay flecha que lleve la temperatura de vuelta al flujo de vapor) ni paralelismo (solo hay un camino)."
+  },
+  {
+    "id": "cp_029",
+    "pregunta": "El siguiente diagrama muestra un lazo de control:\n\n  SP →(+)→ [Controlador] → [Proceso] → Y\n        ↑(−)\n        └──────────────────────────────┘\n\n¿Qué tipo de retroalimentación tiene este lazo?",
+    "opciones": {
+      "A": "Retroalimentación positiva, porque la salida Y se suma al set point",
+      "B": "Retroalimentación negativa, porque la salida Y se resta del set point en el comparador",
+      "C": "No hay retroalimentación; el diagrama muestra un lazo abierto",
+      "D": "Retroalimentación neutra, porque los signos se cancelan entre sí"
+    },
+    "respuesta_correcta": "B",
+    "dificultad": 2,
+    "categoria": "Diagramas de Causa-Efecto",
+    "explicacion": "El signo negativo (−) en el punto de suma indica que la señal de retroalimentación (salida Y) se resta al set point: error = SP(+) − Y(−). Esto es retroalimentación negativa: cuando Y sube, el error baja y el controlador reduce la acción, tendiendo a estabilizar el proceso. El signo en el punto de suma es la clave para identificar el tipo de retroalimentación."
+  },
+  {
+    "id": "cp_030",
+    "pregunta": "¿Cuál de los siguientes diagramas representa una retroalimentación POSITIVA?",
+    "opciones": {
+      "A": "SP →(+)→[Controlador]→[Proceso]→ Y\n     ↑(−)\n     └──────────────────────────────────┘",
+      "B": "SP →(+)→[Controlador]→[Proceso]→ Y\n     ↑(+)\n     └──────────────────────────────────┘",
+      "C": "SP →[Controlador]→[Proceso]→ Y\n     (sin trayectoria de retroalimentación)",
+      "D": "SP →(−)→[Controlador]→[Proceso]→ Y\n     ↑(+)\n     └──────────────────────────────────┘"
+    },
+    "respuesta_correcta": "B",
+    "dificultad": 2,
+    "categoria": "Diagramas de Causa-Efecto",
+    "explicacion": "La retroalimentación positiva ocurre cuando la señal realimentada se SUMA al set point (signo + en el nodo de retroalimentación). En la opción B: la salida Y se suma al SP en el comparador, lo que significa que si Y sube, el error sube, el controlador aumenta la acción y Y sube aún más: el sistema se desestabiliza. La retroalimentación positiva tiende a amplificar las desviaciones."
+  },
+  {
+    "id": "cp_031",
+    "pregunta": "En un proceso de destilación (sistema = columna completa), las entradas son: la alimentación F y el reflujo L. La salida es la composición del destilado x_D. Las composiciones en los platos internos de la columna son:",
+    "opciones": {
+      "A": "Variables de entrada, porque son las causas del cambio en x_D",
+      "B": "Variables de salida, porque pueden medirse con sensores instalados en los platos",
+      "C": "Variables internas, porque existen dentro de la columna sin cruzar sus fronteras exteriores",
+      "D": "Perturbaciones, porque no pueden controlarse directamente"
+    },
+    "respuesta_correcta": "C",
+    "dificultad": 2,
+    "categoria": "Diagramas de Causa-Efecto",
+    "explicacion": "Las composiciones en los platos intermedios se generan y evolucionan dentro de la columna por los equilibrios vapor-líquido en cada etapa. No provienen del exterior (no son entradas) ni son el resultado final que el sistema entrega al exterior (la salida es x_D). Son variables internas de enlace entre los subsistemas de cada etapa de la columna."
+  },
+  {
+    "id": "cp_032",
+    "pregunta": "Un proceso de mezcla tiene dos corrientes: agua caliente y agua fría. El sistema definido es el mezclador. ¿Cuál de las siguientes es una variable INTERNA del sistema?",
+    "opciones": {
+      "A": "El flujo de agua caliente que entra al mezclador",
+      "B": "La temperatura del agua fría que entra al mezclador",
+      "C": "La temperatura de la mezcla dentro del mezclador antes de salir",
+      "D": "El flujo de mezcla que sale del mezclador hacia el siguiente equipo"
+    },
+    "respuesta_correcta": "C",
+    "dificultad": 2,
+    "categoria": "Diagramas de Causa-Efecto",
+    "explicacion": "La temperatura de la mezcla dentro del mezclador se genera por la combinación de las dos corrientes de entrada, pero aún no ha salido del sistema. Si en ese punto interno se produce la mezcla y esa temperatura interna determina la temperatura de salida, es una variable de estado interna. Las entradas son los flujos/temperaturas que provienen del exterior, y la salida es lo que cruza la frontera hacia afuera."
+  },
+  {
+    "id": "cp_033",
+    "pregunta": "Se redefine el sistema del problema anterior para incluir tanto el mezclador como el tanque de almacenamiento que recibe la mezcla. La temperatura de mezcla a la salida del mezclador (entrada al tanque) es ahora:",
+    "opciones": {
+      "A": "Sigue siendo variable de entrada del sistema global",
+      "B": "Sigue siendo variable de salida del sistema global",
+      "C": "Pasa a ser variable interna del sistema global, porque queda completamente dentro del nuevo sistema",
+      "D": "Se convierte en perturbación del sistema global"
+    },
+    "respuesta_correcta": "C",
+    "dificultad": 2,
+    "categoria": "Diagramas de Causa-Efecto",
+    "explicacion": "Al ampliar las fronteras del sistema para incluir el tanque, la temperatura de mezcla (que antes era salida del sistema mezclador) queda completamente dentro del nuevo sistema. No proviene del exterior ni es la salida final del sistema ampliado: se vuelve una variable interna. Este ejemplo muestra que la clasificación de variables cambia cuando cambian las fronteras del sistema."
+  },
+  {
+    "id": "cp_034",
+    "pregunta": "¿Cuál de las siguientes cadenas causales describe correctamente cómo funciona la retroalimentación negativa en un lazo de control de temperatura con chaqueta de agua fría?",
+    "opciones": {
+      "A": "T_reactor sube → flujo de agua fría sube automáticamente → T_reactor baja (sin controlador)",
+      "B": "T_reactor sube → error aumenta (T > SP) → controlador aumenta señal → válvula de agua fría abre más → T_reactor baja",
+      "C": "T_reactor sube → error disminuye → controlador reduce señal → válvula de agua fría cierra → T_reactor sube más",
+      "D": "T_reactor sube → sensor falla → controlador no actúa → T_reactor sigue subiendo"
+    },
+    "respuesta_correcta": "B",
+    "dificultad": 2,
+    "categoria": "Diagramas de Causa-Efecto",
+    "explicacion": "La cadena causal de retroalimentación negativa correcta: T sube (PV > SP) → el comparador detecta un error positivo → el controlador incrementa su señal de salida → la válvula de agua fría abre más → mayor caudal de refrigerante → T baja hacia el set point. El efecto final (T baja) se opone a la causa inicial (T había subido), que define la retroalimentación negativa."
+  },
+  {
+    "id": "cp_035",
+    "pregunta": "¿Qué indica que la derivada parcial ∂Y/∂X tenga un valor grande (en magnitud) comparado con otras derivadas parciales del mismo sistema?",
+    "opciones": {
+      "A": "Que X es la variable más fácil de medir en el sistema",
+      "B": "Que X tiene una influencia fuerte sobre Y: pequeños cambios en X producen grandes cambios en Y",
+      "C": "Que X y Y siempre tienen el mismo signo en el proceso",
+      "D": "Que X es la variable controlada y Y es la variable manipulada"
+    },
+    "respuesta_correcta": "B",
+    "dificultad": 2,
+    "categoria": "Diagramas de Causa-Efecto",
+    "explicacion": "La magnitud de la derivada parcial ∂Y/∂X indica la sensibilidad de Y respecto a X: qué tan fuerte es el efecto de X sobre Y. Un valor grande significa que X es una causa muy influyente sobre Y (alta ganancia del camino causal). Esto es importante al elegir qué variable manipular: se prefieren variables con alta sensibilidad sobre la variable controlada."
+  },
+  {
+    "id": "cp_036",
+    "pregunta": "En el siguiente diagrama de causa-efecto:\n\n  F_vapor → [intercambiador] → T_proceso → [reactor] → Conversión X\n\nSi el sistema global incluye tanto el intercambiador como el reactor, ¿qué clasificación tiene T_proceso?",
+    "opciones": {
+      "A": "Variable de entrada, porque es la causa directa del cambio en la conversión",
+      "B": "Variable de salida, porque puede medirse con un sensor de temperatura",
+      "C": "Variable interna, porque conecta los dos equipos sin cruzar la frontera exterior del sistema global",
+      "D": "Perturbación, porque varía de forma no controlada entre los dos equipos"
+    },
+    "respuesta_correcta": "C",
+    "dificultad": 2,
+    "categoria": "Diagramas de Causa-Efecto",
+    "explicacion": "T_proceso es la salida del intercambiador y la entrada al reactor, pero al definir el sistema como la combinación de ambos equipos, T_proceso queda completamente dentro. No proviene del exterior del sistema global ni es su resultado final (la salida es la conversión X). Es una variable interna que enlaza los dos subsistemas."
+  },
+  {
+    "id": "cp_037",
+    "pregunta": "En la cadena causal de un reactor exotérmico sin controlador:\nT↑ → velocidad de reacción↑ → calor generado↑ → T↑ aún más\n¿Qué tipo de lazo causal representa esto?",
+    "opciones": {
+      "A": "Retroalimentación negativa interna del proceso, que estabiliza el reactor",
+      "B": "Retroalimentación positiva interna del proceso, que tiende a desestabilizar el reactor",
+      "C": "Un lazo de control diseñado por el ingeniero para mejorar la conversión",
+      "D": "Una perturbación externa que afecta el proceso de forma impredecible"
+    },
+    "respuesta_correcta": "B",
+    "dificultad": 2,
+    "categoria": "Diagramas de Causa-Efecto",
+    "explicacion": "El lazo causal T→reacción→calor→T es una retroalimentación positiva intrínseca del proceso: el efecto (T más alta) amplifica la causa (mayor T). Este lazo auto-reforzante puede llevar a inestabilidad térmica si el sistema no tiene suficiente capacidad de disipación. En el diagrama de causa-efecto, aparece como un lazo cerrado donde el efecto alimenta positivamente la causa."
+  },
+  {
+    "id": "cp_038",
+    "pregunta": "Un proceso de absorción de gas tiene como entradas: flujo de gas (F_gas) y flujo de solvente (F_solv). La eficiencia de absorción η es la salida. ¿Qué indica el hecho de que ∂η/∂F_solv > 0 y ∂η/∂F_gas < 0?",
+    "opciones": {
+      "A": "Que ambas variables tienen el mismo efecto sobre η en magnitudes opuestas",
+      "B": "Que aumentar el solvente mejora la absorción, mientras que aumentar el flujo de gas la reduce (por menor tiempo de contacto)",
+      "C": "Que F_gas no puede ser variable manipulada porque su derivada parcial es negativa",
+      "D": "Que el proceso está mal diseñado porque las derivadas tienen signos opuestos"
+    },
+    "respuesta_correcta": "B",
+    "dificultad": 2,
+    "categoria": "Diagramas de Causa-Efecto",
+    "explicacion": "Las derivadas parciales revelan el tipo de efecto de cada variable. ∂η/∂F_solv > 0: más solvente mejora η (relación directa, ganancia positiva del camino causal). ∂η/∂F_gas < 0: más gas reduce η (menor tiempo de contacto por unidad de solvente, relación inversa, ganancia negativa). Esto es físicamente lógico y útil para diseñar el control: se puede aumentar F_solv para mejorar η."
+  },
+  {
+    "id": "cp_039",
+    "pregunta": "En un lazo de control de flujo:\n\n  SP_flujo →(+)→[Controlador]→[Válvula]→[Proceso]→ Flujo medido\n             ↑(−)\n             └─────────────────────────────────────────────┘\n\nSi el flujo medido sube por encima del set point, ¿qué ocurre en la cadena causal?",
+    "opciones": {
+      "A": "El error se vuelve positivo, el controlador sube su señal y la válvula abre más",
+      "B": "El error se vuelve negativo (PV > SP), el controlador reduce su señal y la válvula cierra un poco",
+      "C": "El error es cero porque el flujo medido y el set point se igualan automáticamente",
+      "D": "El error se vuelve positivo, el controlador sube su señal y la válvula cierra (acción inversa automática)"
+    },
+    "respuesta_correcta": "B",
+    "dificultad": 2,
+    "categoria": "Diagramas de Causa-Efecto",
+    "explicacion": "Si flujo medido (PV) > set point (SP): error = SP − PV < 0 (negativo). El controlador recibe un error negativo y reduce su señal de salida. La válvula recibe menos señal y se cierra parcialmente, reduciendo el flujo. La cadena causal corrige la desviación: esta es la esencia de la retroalimentación negativa. El efecto (flujo baja) se opone a la causa (flujo había subido)."
+  },
+  {
+    "id": "cp_040",
+    "pregunta": "¿Cuál es la diferencia fundamental entre el control en lazo abierto y el control en lazo cerrado (con retroalimentación)?",
+    "opciones": {
+      "A": "El lazo abierto usa válvulas manuales; el lazo cerrado usa válvulas automáticas",
+      "B": "En lazo abierto el controlador actúa sin saber el resultado real del proceso; en lazo cerrado el controlador usa la medición de la variable controlada para corregir el error",
+      "C": "El lazo abierto es más preciso porque no tiene ruido de medición",
+      "D": "El lazo cerrado requiere un modelo matemático perfecto del proceso para funcionar"
+    },
+    "respuesta_correcta": "B",
+    "dificultad": 2,
+    "categoria": "Conceptos Básicos de Control",
+    "explicacion": "La diferencia fundamental es la retroalimentación de información. En lazo abierto: el controlador actúa según un plan prefijado sin medir el resultado real; cualquier perturbación genera un error permanente que el sistema no puede corregir. En lazo cerrado: el controlador compara continuamente el resultado real con el deseado y ajusta su acción para reducir el error, sin necesitar un modelo perfecto del proceso."
+  },
+  {
+    "id": "cp_041",
+    "pregunta": "En el diagrama de causa-efecto del proceso de secado por aspersión, si el sistema se define como el secador completo, identifica cuáles son variables de ENTRADA y cuáles de SALIDA:\n- Temperatura del aire de entrada al secador (T_aire)\n- Flujo de alimentación líquida al atomizador (F_alim)\n- Humedad del polvo seco a la salida del secador (H_polvo)\n- Temperatura del polvo seco a la salida (T_polvo)",
+    "opciones": {
+      "A": "Entradas: H_polvo y T_polvo; Salidas: T_aire y F_alim",
+      "B": "Entradas: T_aire y F_alim; Salidas: H_polvo y T_polvo",
+      "C": "Todas son variables internas porque el secador las procesa internamente",
+      "D": "Entradas: T_aire; Salidas: H_polvo; Internas: F_alim y T_polvo"
+    },
+    "respuesta_correcta": "B",
+    "dificultad": 2,
+    "categoria": "Diagramas de Causa-Efecto",
+    "explicacion": "Las variables de entrada son las que cruzan la frontera del sistema provenientes del exterior: T_aire y F_alim entran al secador desde fuera. Las variables de salida son las que cruzan la frontera hacia el exterior: H_polvo y T_polvo son las características del producto que sale del secador. Las entradas son las causas; las salidas son los efectos del sistema."
+  },
+  {
+    "id": "cp_042",
+    "pregunta": "Un reactor CSTR tiene temperatura T como variable de estado. En el diagrama de causa-efecto, el calor generado por la reacción Q_rxn (que depende de T) aparece como:",
+    "opciones": {
+      "A": "Variable de entrada externa, porque el calor proviene de la reacción química",
+      "B": "Variable de salida, porque el calor sale hacia la chaqueta del reactor",
+      "C": "Variable interna, porque se calcula dentro del sistema (depende de T que es interna) y no cruza las fronteras del sistema",
+      "D": "Perturbación, porque el operador no puede controlarlo directamente"
+    },
+    "respuesta_correcta": "C",
+    "dificultad": 2,
+    "categoria": "Diagramas de Causa-Efecto",
+    "explicacion": "Q_rxn depende de la temperatura T (variable de estado del reactor) y de la concentración (también interna). Se calcula dentro del sistema a partir de variables internas y afecta el balance de energía dentro del mismo sistema. No proviene del exterior ni es la salida final: es una variable interna de enlace entre el estado cinético del reactor y su balance de energía."
+  },
+  {
+    "id": "cp_043",
+    "pregunta": "En el siguiente diagrama:\n\n  Entrada A →[Bloque 1]→(+)→ Salida Y\n  Entrada B →[Bloque 2]→(+)↑\n\nLos dos bloques están en:",
+    "opciones": {
+      "A": "Serie, porque Bloque 2 recibe la salida del Bloque 1",
+      "B": "Paralelo, porque ambos reciben entradas diferentes y sus salidas se suman en el mismo nodo",
+      "C": "Retroalimentación negativa, porque B afecta a Y que afecta a A",
+      "D": "Retroalimentación positiva, porque ambos bloques tienen efecto positivo sobre Y"
+    },
+    "respuesta_correcta": "B",
+    "dificultad": 2,
+    "categoria": "Diagramas de Causa-Efecto",
+    "explicacion": "Los bloques en paralelo reciben entradas independientes (A el Bloque 1, B el Bloque 2) y sus salidas se combinan en el mismo nodo sumador para producir Y. En contraste, los bloques en serie tienen la salida de uno conectada directamente como entrada al siguiente. El punto clave del paralelo es que ambos caminos causales contribuyen a la misma salida."
+  },
+  {
+    "id": "cp_044",
+    "pregunta": "La derivada parcial ∂Conversión/∂T_reactor = +0.5 (%/°C) indica que el camino causal entre T_reactor y la conversión en el diagrama de bloques tiene:",
+    "opciones": {
+      "A": "Una ganancia negativa, porque la temperatura perjudica la conversión",
+      "B": "Una ganancia positiva, porque aumentar la temperatura incrementa la conversión",
+      "C": "Ganancia cero, porque 0.5 es un valor muy pequeño para tener efecto real",
+      "D": "Una ganancia que depende del signo de la temperatura absoluta"
+    },
+    "respuesta_correcta": "B",
+    "dificultad": 2,
+    "categoria": "Diagramas de Causa-Efecto",
+    "explicacion": "La derivada parcial positiva (+0.5 %/°C) indica una relación directa: al aumentar T_reactor, la conversión aumenta. En el diagrama de bloques, el bloque en el camino causal T_reactor → Conversión tiene una ganancia positiva. El valor 0.5 dice cuánto cambia la conversión por grado de temperatura, lo que es la sensibilidad o ganancia de ese camino."
+  },
+  {
+    "id": "cp_045",
+    "pregunta": "¿Por qué la retroalimentación negativa es deseable en la mayoría de los sistemas de control industrial?",
+    "opciones": {
+      "A": "Porque aumenta la velocidad de respuesta del proceso al doble",
+      "B": "Porque tiende a corregir automáticamente las desviaciones: el efecto resultante se opone a la causa que lo produjo",
+      "C": "Porque elimina completamente el efecto de cualquier perturbación",
+      "D": "Porque no requiere sensor ni medición de la variable controlada"
+    },
+    "respuesta_correcta": "B",
+    "dificultad": 2,
+    "categoria": "Diagramas de Causa-Efecto",
+    "explicacion": "La retroalimentación negativa es autocorrectora: cuando la variable se aleja del set point (desviación), la cadena causal genera una acción que se opone a esa desviación, llevando la variable de vuelta hacia el objetivo. No elimina todas las perturbaciones ni requiere velocidad infinita, pero crea un sistema inherentemente estabilizador que tiende a compensar los errores."
+  },
+  {
+    "id": "cp_046",
+    "pregunta": "¿Cuál de las siguientes variables es la 'variable controlada' en el lazo de control de una caldera de vapor industrial?",
+    "opciones": {
+      "A": "El flujo de combustible al quemador (ajustado por la válvula de control)",
+      "B": "La presión del vapor en el drum de la caldera (mantenida en el set point)",
+      "C": "La señal de 4–20 mA enviada por el controlador al actuador",
+      "D": "El set point de presión establecido por el operador (ej: 10 bar)"
+    },
+    "respuesta_correcta": "B",
+    "dificultad": 2,
+    "categoria": "Elementos del Lazo de Control",
+    "explicacion": "La variable controlada es la magnitud física del proceso que se desea mantener en el set point. En una caldera, la presión del vapor es el objetivo del control: el sistema actúa para mantenerla en el valor deseado. El flujo de combustible es la variable manipulada (el medio de acción), y el set point es el valor deseado, no la variable controlada."
+  },
+  {
+    "id": "cp_047",
+    "pregunta": "Un proceso de fermentación tiene la siguiente cadena causal identificada:\n\n  Concentración de sustrato S → [cinética de Monod] → Tasa de crecimiento μ → [balance de masa] → Concentración de biomasa X\n\nSi el sistema es el biorreactor completo con entrada S_entrada y salida X, ¿cuál es la clasificación de μ (tasa de crecimiento)?",
+    "opciones": {
+      "A": "Variable de entrada, porque μ es la causa principal del crecimiento de X",
+      "B": "Variable de salida, porque se puede estimar a partir de mediciones en línea",
+      "C": "Variable interna, porque se genera dentro del sistema (depende de S interno) y no cruza las fronteras",
+      "D": "Perturbación, porque el ingeniero no puede controlar la tasa de crecimiento directamente"
+    },
+    "respuesta_correcta": "C",
+    "dificultad": 2,
+    "categoria": "Diagramas de Causa-Efecto",
+    "explicacion": "μ (tasa de crecimiento de Monod) depende de S que es una variable de estado interna del biorreactor. Se calcula internamente y sirve como enlace entre el estado de sustrato y el crecimiento de biomasa. No proviene del exterior del sistema ni es la salida final (que es X o el producto de interés). Es una variable de enlace interna en la cadena causal del diagrama de bloques."
+  },
+  {
+    "id": "cp_048",
+    "pregunta": "¿Qué ocurriría en un lazo de control si el signo en el punto de suma se invierte accidentalmente (cambia de retroalimentación negativa a positiva)?",
+    "opciones": {
+      "A": "El sistema funcionaría igual pero más rápido",
+      "B": "El sistema se tornaría inestable: cualquier desviación se amplificaría en lugar de corregirse",
+      "C": "El offset del sistema desaparecería porque la retroalimentación positiva elimina el error residual",
+      "D": "El actuador dejaría de responder porque recibiría señales contradictorias"
+    },
+    "respuesta_correcta": "B",
+    "dificultad": 2,
+    "categoria": "Diagramas de Causa-Efecto",
+    "explicacion": "Con retroalimentación positiva, cualquier desviación de la variable se amplificaría en lugar de corregirse: si T sube ligeramente, el error sería positivo en el mismo sentido que T, el controlador aumentaría la acción, T subiría más, y así sucesivamente. Este comportamiento es explosivo e inestable. Por eso la retroalimentación negativa es el diseño estándar en control de procesos."
+  },
+  {
+    "id": "cp_049",
+    "pregunta": "¿Cuál es la función del controlador dentro del lazo de control?",
+    "opciones": {
+      "A": "Medir la variable controlada y enviar la señal al comparador",
+      "B": "Recibir el error del comparador y calcular qué ajuste debe hacerse en la variable manipulada",
+      "C": "Ejecutar físicamente la acción de control sobre el fluido del proceso",
+      "D": "Comparar el set point con la variable medida para calcular el error"
+    },
+    "respuesta_correcta": "B",
+    "dificultad": 2,
+    "categoria": "Elementos del Lazo de Control",
+    "explicacion": "El controlador es el 'cerebro' del lazo: recibe el error del comparador (SP − PV) y aplica un algoritmo para calcular la señal de control que se envía al actuador. Decide cuánto y en qué dirección actuar. La medición la realiza el sensor/transmisor, la comparación el comparador, y la ejecución física el actuador. El controlador solo calcula la acción necesaria."
+  },
+  {
+    "id": "cp_050",
+    "pregunta": "Identifica correctamente todos los elementos del lazo de control de temperatura de un horno eléctrico industrial:",
+    "opciones": {
+      "A": "Sensor: termopar; Variable manipulada: temperatura del horno; Variable controlada: potencia eléctrica",
+      "B": "Sensor: termopar; Transmisor: convierte la señal del termopar a 4–20 mA; Controlador: calcula el error y la acción; Actuador: variador de frecuencia o contactor; Elemento final de control: resistencia eléctrica; Variable manipulada: potencia eléctrica; Variable controlada: temperatura",
+      "C": "Sensor: temperatura; Controlador: horno; Actuador: resistencia eléctrica; Variable manipulada: temperatura",
+      "D": "Variable manipulada: temperatura; Variable controlada: potencia; Sensor: variador de frecuencia"
+    },
+    "respuesta_correcta": "B",
+    "dificultad": 2,
+    "categoria": "Elementos del Lazo de Control",
+    "explicacion": "El lazo completo tiene: termopar (sensor) → transmisor (convierte a 4–20 mA) → controlador (calcula error y acción) → actuador (variador de frecuencia o contactor) → resistencia eléctrica (elemento final de control, que genera calor). La variable manipulada es la potencia eléctrica entregada a la resistencia, y la variable controlada es la temperatura del horno."
+  },
+  {
+    "id": "cp_051",
+    "pregunta": "En el diagrama de causa-efecto de un intercambiador de calor, el flujo de vapor F_v tiene una derivada parcial positiva respecto a la temperatura de salida T_s (∂T_s/∂F_v > 0), mientras que el flujo de proceso F_p tiene una derivada parcial negativa (∂T_s/∂F_p < 0). ¿Cuál sería mejor elegir como variable manipulada para aumentar T_s?",
+    "opciones": {
+      "A": "F_p, porque tiene derivada parcial negativa y puede ajustarse con mayor precisión",
+      "B": "F_v, porque tiene derivada parcial positiva y permite aumentar T_s directamente",
+      "C": "Ninguna de las dos, porque ambas afectan T_s",
+      "D": "La que tenga mayor magnitud en la derivada parcial sin importar el signo"
+    },
+    "respuesta_correcta": "B",
+    "dificultad": 3,
+    "categoria": "Diagramas de Causa-Efecto",
+    "explicacion": "Para aumentar T_s, se necesita una variable cuyo aumento también aumente T_s, es decir, con derivada parcial positiva. F_v tiene ∂T_s/∂F_v > 0: al aumentar el vapor, T_s sube directamente. F_p tiene derivada negativa: aumentar F_p bajaría T_s. La elección de la variable manipulada depende del signo de la sensibilidad respecto al objetivo de control."
+  },
+  {
+    "id": "cp_052",
+    "pregunta": "Analiza el siguiente diagrama e identifica el error conceptual:\n\n  SP →(+)→[Controlador]→[Proceso]→ Y\n       ↑(−)\n       └─[Sensor]──────────────────┘\n\n'El sensor está en la trayectoria directa, entre el controlador y el proceso'. ¿Es correcta esta afirmación?",
+    "opciones": {
+      "A": "Sí, el sensor siempre va entre el controlador y el proceso en la trayectoria directa",
+      "B": "No; el sensor está en la trayectoria de retroalimentación (de Y de vuelta al comparador), no en la trayectoria directa",
+      "C": "Sí, el sensor debe ir en la trayectoria directa para que el controlador pueda usarlo",
+      "D": "No; el sensor debería ir antes del controlador, en la entrada del sistema"
+    },
+    "respuesta_correcta": "B",
+    "dificultad": 3,
+    "categoria": "Diagramas de Causa-Efecto",
+    "explicacion": "En un lazo de control estándar, el sensor/transmisor está en la TRAYECTORIA DE RETROALIMENTACIÓN: mide la variable de salida Y y lleva esa información de vuelta al comparador. En la trayectoria directa (de SP hacia Y) están: el comparador, el controlador, el actuador y el proceso. La afirmación es incorrecta: confunde las dos trayectorias del lazo."
+  },
+  {
+    "id": "cp_053",
+    "pregunta": "Un proceso de producción de polietileno tiene las siguientes variables relacionadas con la presión del reactor P:\n- Temperatura de operación T: ∂P/∂T > 0\n- Flujo de monómero F_m: ∂P/∂F_m > 0\n- Flujo de diluyente F_d: ∂P/∂F_d < 0\n\nSi la presión sube inesperadamente y se quiere reducirla, ¿cuál variable manipulada actuaría en la dirección correcta sin necesidad de inversión de acción?",
+    "opciones": {
+      "A": "Aumentar T, porque su derivada parcial es positiva",
+      "B": "Aumentar F_m, porque su derivada parcial es positiva",
+      "C": "Aumentar F_d, porque su derivada parcial es negativa (aumentar F_d baja la presión)",
+      "D": "Disminuir F_d, porque su derivada parcial negativa indica relación inversa"
+    },
+    "respuesta_correcta": "C",
+    "dificultad": 3,
+    "categoria": "Diagramas de Causa-Efecto",
+    "explicacion": "Para reducir la presión P, se necesita una variable cuyo aumento cause una disminución de P. F_d tiene ∂P/∂F_d < 0 (relación inversa): al aumentar el diluyente, la presión baja. Las variables con derivada parcial positiva (T y F_m) harían que la presión subiera aún más si se aumentan, lo que empeoraría la situación. El signo de la derivada parcial determina la dirección de acción correcta."
+  },
+  {
+    "id": "cp_054",
+    "pregunta": "¿Cuál de los siguientes es un ejemplo de variable INTERNA en el diagrama del sistema de control de temperatura de una columna de destilación (sistema = columna completa)?",
+    "opciones": {
+      "A": "La composición de la alimentación z_F (entra por el plato de alimentación)",
+      "B": "La composición del destilado x_D (sale por la cabeza de la columna)",
+      "C": "El perfil de temperatura a lo largo de los platos de la columna",
+      "D": "El flujo de reflujo L (entra por la parte superior de la columna)"
+    },
+    "respuesta_correcta": "C",
+    "dificultad": 3,
+    "categoria": "Diagramas de Causa-Efecto",
+    "explicacion": "El perfil de temperatura en los platos internos de la columna se genera dentro del sistema por los equilibrios vapor-líquido en cada etapa. No proviene del exterior (no es entrada) ni es la salida final que el sistema entrega (la salida es la composición del destilado o del fondo). El perfil interno de temperatura es una variable de estado interna que conecta los subsistemas de cada plato."
+  },
+  {
+    "id": "cp_055",
+    "pregunta": "¿Qué problema tendría un lazo de control si el sensor estuviera ubicado muy lejos de la zona donde ocurre el proceso controlado, con mucho fluido entre ambos?",
+    "opciones": {
+      "A": "La señal del sensor sería más intensa por el efecto del fluido",
+      "B": "El sensor mediría una condición que ya no es la actual del proceso: habría un retardo entre el cambio real y lo que el controlador detecta",
+      "C": "El comparador recibiría dos señales idénticas y no podría calcular el error",
+      "D": "El actuador abriría la válvula en la dirección incorrecta por la distancia"
+    },
+    "respuesta_correcta": "B",
+    "dificultad": 3,
+    "categoria": "Elementos del Lazo de Control",
+    "explicacion": "Si el sensor está lejos del punto de control, hay un retardo físico: el fluido con la condición actual del proceso tarda en llegar al sensor. El controlador recibe información desactualizada y actúa sobre errores que ya no corresponden al estado presente del proceso. Este retardo de transporte dificulta el control y puede causar oscilaciones o inestabilidad."
+  },
+  {
+    "id": "cp_056",
+    "pregunta": "En el diagrama de causa-efecto de un proceso de neutralización de pH:\n\n  F_base →[proceso]→ pH\n  F_ácido →[proceso]→(+)↑\n\nSi se sabe que ∂pH/∂F_base > 0 y ∂pH/∂F_ácido < 0, y el pH sube por encima del set point, ¿qué acción correctiva es la adecuada?",
+    "opciones": {
+      "A": "Aumentar F_base, porque su derivada parcial es positiva",
+      "B": "Disminuir F_base o aumentar F_ácido, porque se necesita bajar el pH",
+      "C": "Mantener ambos flujos constantes hasta que el pH baje solo",
+      "D": "Aumentar F_base y F_ácido simultáneamente para estabilizar el sistema"
+    },
+    "respuesta_correcta": "B",
+    "dificultad": 3,
+    "categoria": "Diagramas de Causa-Efecto",
+    "explicacion": "Si pH > SP, se necesita reducir el pH. Usando las derivadas parciales: ∂pH/∂F_base > 0 significa que reducir F_base baja el pH. ∂pH/∂F_ácido < 0 significa que aumentar F_ácido también baja el pH. Ambas acciones (o una combinación) llevan el pH en la dirección correcta. Esta es la lógica de diseño del control: usar el signo de la derivada parcial para determinar la acción correctiva."
+  },
+  {
+    "id": "cp_057",
+    "pregunta": "En el diagrama de bloques de un lazo de control, si la trayectoria de retroalimentación incluye el bloque [Transmisor] además del camino de regreso al comparador, ¿qué función cumple ese bloque del transmisor en el diagrama?",
+    "opciones": {
+      "A": "Amplifica la señal de error para que el controlador actúe con mayor fuerza",
+      "B": "Representa la conversión de la variable del proceso (en unidades físicas) a la señal estandarizada (en mA o %), que es la que llega al comparador para el cálculo del error",
+      "C": "Invierte la señal para convertir la retroalimentación de positiva a negativa",
+      "D": "Filtra las perturbaciones de alta frecuencia antes de que lleguen al controlador"
+    },
+    "respuesta_correcta": "B",
+    "dificultad": 3,
+    "categoria": "Elementos del Lazo de Control",
+    "explicacion": "El bloque del transmisor en la trayectoria de retroalimentación representa la conversión de la variable del proceso (ej: temperatura en °C) a la señal estándar (ej: 4–20 mA o 0–100%). Esta señal estandarizada es la que el comparador recibe como PV. El set point también debe expresarse en las mismas unidades para que el error se calcule de forma consistente."
+  },
+  {
+    "id": "cp_058",
+    "pregunta": "Se tiene el diagrama:\n\n  Perturbación D\n       ↓\n  SP →(+)→[Controlador]→(+)→[Proceso]→ Y\n       ↑(−)\n       └──────────────────────────────┘\n\n¿La perturbación D entra al sistema a través del controlador o directamente al proceso?",
+    "opciones": {
+      "A": "D entra a través del controlador, porque el controlador debe procesarla primero",
+      "B": "D entra directamente al proceso (en el segundo nodo sumador), sin pasar por el controlador",
+      "C": "D entra al comparador y se suma al error antes de llegar al controlador",
+      "D": "D entra a la trayectoria de retroalimentación, afectando la señal del transmisor"
+    },
+    "respuesta_correcta": "B",
+    "dificultad": 3,
+    "categoria": "Diagramas de Causa-Efecto",
+    "explicacion": "Según el diagrama, D se suma directamente en el nodo que está entre el controlador y el proceso. Esto significa que la perturbación afecta al proceso directamente, independientemente del controlador. El controlador solo 'se entera' del efecto de D cuando esta perturbación desplaza Y del set point y aparece el error en el comparador. Esa es la diferencia entre control feedback (reacciona al efecto de D) y feedforward (reacciona a D directamente)."
+  },
+  {
+    "id": "cp_059",
+    "pregunta": "En un proceso de secado continuo, la humedad final del producto H depende de: temperatura del aire T_a, flujo de aire F_a y flujo de alimentación F_s. Según el diagrama de causa-efecto con tres caminos en paralelo que afectan H, ¿qué representa cada bloque en esos caminos?",
+    "opciones": {
+      "A": "Cada bloque representa el tiempo que tarda cada variable en llegar al secador",
+      "B": "Cada bloque representa la sensibilidad de H respecto a esa variable (la derivada parcial ∂H/∂x_i), indicando cuánto cambia H por unidad de cambio en cada entrada",
+      "C": "Cada bloque representa la unidad de medición de cada variable de entrada",
+      "D": "Cada bloque es el mismo porque todos afectan a la misma salida H"
+    },
+    "respuesta_correcta": "B",
+    "dificultad": 3,
+    "categoria": "Diagramas de Causa-Efecto",
+    "explicacion": "En el diagrama de bloques del proceso de secado, cada bloque en los caminos causales paralelos representa la relación cuantitativa entre esa entrada y la humedad de salida: la derivada parcial ∂H/∂T_a, ∂H/∂F_a y ∂H/∂F_s respectivamente. Cada bloque tiene su propia 'ganancia' (positiva o negativa) que indica la dirección y magnitud del efecto de cada variable sobre H."
+  },
+  {
+    "id": "cp_060",
+    "pregunta": "Si en el diagrama de causa-efecto de un proceso la variable Z aparece como la SALIDA de un bloque Y TAMBIÉN como la ENTRADA del mismo bloque, ¿qué representa físicamente esto?",
+    "opciones": {
+      "A": "Un error en el diagrama: una variable no puede ser causa de sí misma",
+      "B": "La dinámica de acumulación del proceso: el estado actual de Z determina su propia tasa de cambio (por ejemplo, un tanque pierde calor en proporción a su temperatura actual)",
+      "C": "Una señal de control que el operador introduce manualmente al proceso",
+      "D": "Un sensor defectuoso que retroalimenta la señal hacia sí mismo"
+    },
+    "respuesta_correcta": "B",
+    "dificultad": 3,
+    "categoria": "Diagramas de Causa-Efecto",
+    "explicacion": "En los balances de proceso, la tasa de cambio de una variable depende de su valor actual. Por ejemplo: dT/dt depende de T (a través del calor perdido al ambiente, proporcional a T). En el diagrama de bloques, esto aparece como un lazo donde T es causa de su propio cambio, creando la dinámica característica de primer orden del proceso. Es una retroalimentación interna del proceso, no un error."
+  },
+  {
+    "id": "cp_061",
+    "pregunta": "Un estudiante dibuja el siguiente diagrama para representar el lazo de control de presión de un recipiente:\n\n  SP →(+)→[Proceso]→[Controlador]→ Presión P\n       ↑(−)\n       └─────────────────────────────┘\n\n¿Cuál es el error en este diagrama?",
+    "opciones": {
+      "A": "El lazo debería ser de retroalimentación positiva, no negativa",
+      "B": "El controlador y el proceso están invertidos: el controlador debe ir ANTES del proceso en la trayectoria directa (el controlador actúa sobre el proceso, no al revés)",
+      "C": "La presión P debería ser la entrada del sistema, no la salida",
+      "D": "El punto de suma debería estar después del proceso, no antes del controlador"
+    },
+    "respuesta_correcta": "B",
+    "dificultad": 3,
+    "categoria": "Diagramas de Causa-Efecto",
+    "explicacion": "En el diagrama correcto, la trayectoria directa sigue el flujo de acción: comparador → controlador → actuador → proceso → variable controlada. El controlador recibe el error y genera la señal de control; el proceso recibe esa acción y produce la respuesta (la presión P). En el diagrama del estudiante, el proceso aparece antes del controlador, lo que invierte causalmente el lazo."
+  },
+  {
+    "id": "cp_062",
+    "pregunta": "En el proceso de extracción con solvente, la eficiencia E depende de: temperatura T (manipulada), flujo de solvente F_s (manipulada) y concentración de soluto en la alimentación C_0 (perturbación). Si ∂E/∂C_0 < 0 y C_0 aumenta inesperadamente, ¿en qué dirección tenderá a cambiar E sin acción de control?",
+    "opciones": {
+      "A": "E aumentará, porque la mayor concentración facilita la extracción",
+      "B": "E disminuirá, porque la derivada parcial negativa indica que E y C_0 tienen relación inversa",
+      "C": "E no cambiará porque el sistema es autorreguado",
+      "D": "E podría subir o bajar dependiendo del signo de ∂E/∂T"
+    },
+    "respuesta_correcta": "B",
+    "dificultad": 3,
+    "categoria": "Diagramas de Causa-Efecto",
+    "explicacion": "∂E/∂C_0 < 0 indica relación inversa: si C_0 aumenta, E tiende a disminuir. Esto puede ocurrir si a mayor concentración de soluto el equilibrio se desplaza desfavorablemente o la viscosidad aumenta reduciendo la transferencia de masa. El signo negativo de la derivada parcial predice directamente la dirección del cambio en E ante un aumento de C_0."
+  },
+  {
+    "id": "cp_063",
+    "pregunta": "¿Cuál de las siguientes afirmaciones sobre la retroalimentación positiva en un sistema de control es CORRECTA?",
+    "opciones": {
+      "A": "La retroalimentación positiva siempre mejora la velocidad de respuesta del sistema",
+      "B": "La retroalimentación positiva tiende a amplificar las desviaciones, haciendo que el sistema se aleje del punto de operación en lugar de volver a él",
+      "C": "La retroalimentación positiva es equivalente a la negativa si la ganancia del proceso es negativa",
+      "D": "La retroalimentación positiva elimina el offset porque compensa exactamente el error residual"
+    },
+    "respuesta_correcta": "B",
+    "dificultad": 3,
+    "categoria": "Diagramas de Causa-Efecto",
+    "explicacion": "La retroalimentación positiva tiene el comportamiento opuesto a la negativa: en lugar de corregir las desviaciones, las amplifica. Si el sistema se desplaza del punto de operación, la retroalimentación positiva hace que el error crezca en lugar de disminuir. Por eso los sistemas de control industriales usan retroalimentación negativa: produce comportamiento autorregulador."
+  },
+  {
+    "id": "cp_064",
+    "pregunta": "Un proceso de producción de biodiesel tiene: conversión X como salida, temperatura T y relación molar metanol/aceite MR como variables de proceso, con ∂X/∂T > 0 y ∂X/∂MR > 0. Si T es la variable manipulada y MR es una perturbación que sube inesperadamente, ¿qué ocurre con X sin control?",
+    "opciones": {
+      "A": "X baja, porque la perturbación siempre afecta negativamente la variable controlada",
+      "B": "X sube, porque ∂X/∂MR > 0 indica que el aumento de MR causa un aumento en X",
+      "C": "X no cambia, porque MR no es la variable manipulada",
+      "D": "X oscila, porque la perturbación genera inestabilidad en el proceso de transesterificación"
+    },
+    "respuesta_correcta": "B",
+    "dificultad": 3,
+    "categoria": "Diagramas de Causa-Efecto",
+    "explicacion": "∂X/∂MR > 0 indica relación directa: si MR aumenta, X tiende a aumentar (mayor disponibilidad de metanol favorece la reacción de transesterificación). Sin control, la perturbación positiva en MR eleva X por encima del set point. El controlador del lazo de T detectaría este error (X > SP_X) y debería reducir T para compensar, aunque T controle X con diferente sensibilidad que MR."
+  },
+  {
+    "id": "cp_065",
+    "pregunta": "En el diagrama de causa-efecto de una torre de enfriamiento, si se define el sistema como la torre completa:\n- Agua caliente de entrada: entra a la torre desde el proceso\n- Aire de enfriamiento: entra desde la atmósfera\n- Agua fría de salida: sale hacia el proceso\n- Temperatura del agua en el relleno de la torre: existe dentro de la torre\n\n¿Cuál variable es INTERNA?",
+    "opciones": {
+      "A": "Agua caliente de entrada",
+      "B": "Aire de enfriamiento",
+      "C": "Agua fría de salida",
+      "D": "Temperatura del agua en el relleno de la torre"
+    },
+    "respuesta_correcta": "D",
+    "dificultad": 3,
+    "categoria": "Diagramas de Causa-Efecto",
+    "explicacion": "La temperatura del agua en el relleno interior de la torre se genera y evoluciona dentro del sistema por el intercambio de calor entre el agua y el aire, pero no cruza ninguna frontera del sistema global: no entra desde afuera ni sale como producto. Las otras variables sí cruzan las fronteras: el agua caliente y el aire entran (variables de entrada), y el agua fría sale (variable de salida)."
+  },
+  {
+    "id": "cp_066",
+    "pregunta": "¿Cuál de los tres tipos de control sería más apropiado para controlar el nivel de un tanque pulmón cuya función es amortiguar variaciones de flujo entre dos unidades del proceso?",
+    "opciones": {
+      "A": "Control alrededor de un punto exactamente al 50%, para máxima capacidad de amortiguación",
+      "B": "Control entre un rango (ej: 20%–80%), permitiendo que el nivel fluctúe dentro de márgenes seguros sin actuar continuamente",
+      "C": "Control siguiendo un comportamiento deseado, con el nivel variando según la demanda de la unidad siguiente",
+      "D": "Sin control; los tanques pulmón no deben controlarse para no interferir con su función"
+    },
+    "respuesta_correcta": "B",
+    "dificultad": 3,
+    "categoria": "Conceptos Básicos de Control",
+    "explicacion": "Un tanque pulmón debe AMORTIGUAR variaciones de flujo, no eliminarlas. Un control muy ajustado (alrededor de un punto exacto) transferiría las variaciones aguas abajo en lugar de absorberlas. El control entre un rango (20%–80%) permite que el nivel fluctúe libremente dentro de la banda, absorbe las variaciones de flujo como colchón, y solo actúa cuando se acerca a los límites extremos."
+  },
+  {
+    "id": "cp_067",
+    "pregunta": "¿Qué indica físicamente que un bloque en el diagrama de causa-efecto tenga la misma variable como entrada y como salida (autorretroalimentación)?",
+    "opciones": {
+      "A": "El bloque tiene un error de diseño y debe corregirse eliminando esa conexión",
+      "B": "El estado actual de la variable afecta su propia tasa de cambio: el sistema tiene dinámica propia de acumulación/disipación",
+      "C": "El bloque mide y actúa simultáneamente sobre el mismo punto del proceso",
+      "D": "La variable es constante porque su entrada y salida se cancelan"
+    },
+    "respuesta_correcta": "B",
+    "dificultad": 3,
+    "categoria": "Diagramas de Causa-Efecto",
+    "explicacion": "La autorretroalimentación en el diagrama de bloques representa la dinámica propia del proceso: el valor actual de la variable determina cómo cambia esa misma variable. Por ejemplo, un tanque con nivel h: la presión hidrostática (∝ h) determina el caudal de salida que cambia h. O un gas a temperatura T: las pérdidas de calor (∝ T) determinan cómo cambia T con el tiempo."
+  },
+  {
+    "id": "cp_068",
+    "pregunta": "Un operador aumenta el set point de temperatura de un reactor de 70°C a 80°C. ¿Qué sucede inmediatamente en el lazo de control (con retroalimentación negativa)?",
+    "opciones": {
+      "A": "La temperatura sube instantáneamente a 80°C porque el set point cambió",
+      "B": "El error se vuelve negativo (SP ahora es mayor que PV), el controlador aumenta su señal, el flujo de calefacción aumenta y la temperatura comienza a subir gradualmente hacia 80°C",
+      "C": "El error se vuelve positivo (PV > SP), el controlador reduce la calefacción y la temperatura baja",
+      "D": "El lazo no reacciona hasta que la temperatura naturalmente llegue a 80°C por inercia"
+    },
+    "respuesta_correcta": "B",
+    "dificultad": 3,
+    "categoria": "Conceptos Básicos de Control",
+    "explicacion": "Al cambiar SP de 70 a 80°C: error = SP − PV = 80 − 70 = +10°C (positivo). El controlador recibe un error positivo y aumenta su señal de salida. El actuador abre más la válvula de calefacción. El flujo de calor aumenta y la temperatura del reactor comienza a subir hacia el nuevo set point. La temperatura no salta instantáneamente: el proceso tiene inercia térmica."
+  },
+  {
+    "id": "cp_069",
+    "pregunta": "En el diagrama de bloques de un proceso de absorción con dos etapas en serie (etapa 1 → etapa 2), la concentración de gas a la salida de la etapa 1 y la entrada a la etapa 2 es una variable interna si el sistema se define como el absorbedor completo. ¿Cómo cambia esta clasificación si se redefine el sistema como solo la etapa 1?",
+    "opciones": {
+      "A": "Sigue siendo variable interna porque las propiedades de la concentración no cambian",
+      "B": "Pasa a ser variable de salida del sistema 'etapa 1', porque ahora cruza la frontera de ese subsistema hacia el exterior",
+      "C": "Pasa a ser variable de entrada porque al salir de etapa 1 entra a etapa 2",
+      "D": "Se convierte en perturbación del sistema etapa 1"
+    },
+    "respuesta_correcta": "B",
+    "dificultad": 3,
+    "categoria": "Diagramas de Causa-Efecto",
+    "explicacion": "Al redefinir el sistema como solo la etapa 1, la concentración entre etapas cruza ahora la frontera del nuevo sistema más pequeño: sale de etapa 1 hacia el exterior de ese subsistema. Por eso pasa de ser variable interna (cuando el sistema incluía ambas etapas) a variable de salida (del subsistema etapa 1). Si luego se analizara la etapa 2 por separado, esa misma concentración sería su variable de entrada."
+  },
+  {
+    "id": "cp_070",
+    "pregunta": "¿Por qué se trabaja con CAMBIOS en las variables (desviaciones respecto al estado estacionario) en el análisis del diagrama de bloques en lugar de sus valores absolutos?",
+    "opciones": {
+      "A": "Porque los sensores industriales solo pueden medir diferencias, no valores absolutos",
+      "B": "Porque al usar desviaciones, los valores son cero en el estado de referencia, lo que facilita identificar las causas de los cambios y cuantificar la sensibilidad de una variable respecto a otra",
+      "C": "Para ocultar los valores reales del proceso por razones de confidencialidad industrial",
+      "D": "Porque los diagramas de bloques no pueden representar valores mayores que 1"
+    },
+    "respuesta_correcta": "B",
+    "dificultad": 3,
+    "categoria": "Diagramas de Causa-Efecto",
+    "explicacion": "Al trabajar con desviaciones (ΔX = X − X₀), el estado de referencia (estado estacionario) tiene valor cero para todas las variables. Esto permite enfocarse en los CAMBIOS que producen los efectos de control y las perturbaciones, interpretar claramente la sensibilidad (derivada parcial) como cuánto cambia Y por unidad de cambio en X, y combinar linealmente los efectos de múltiples variables mediante los bloques del diagrama."
+  },
+  {
+    "id": "cp_071",
+    "pregunta": "Identifica cuál de los siguientes diagramas representa correctamente un lazo de control de retroalimentación negativa con una perturbación que entra directamente al proceso:",
+    "opciones": {
+      "A": "SP →(+)→[Controlador]→[Proceso]→ Y; la perturbación D entra al comparador con signo (+)",
+      "B": "SP →(+)→[Controlador]→ Y; la perturbación D entra al controlador con signo (−)",
+      "C": "SP →(+)→[Controlador]→(+)→[Proceso]→ Y; la perturbación D entra al segundo nodo sumador; la retroalimentación Y regresa al primer nodo con signo (−)",
+      "D": "SP →(−)→[Proceso]→[Controlador]→ Y; la perturbación D entra al controlador con signo (+)"
+    },
+    "respuesta_correcta": "C",
+    "dificultad": 3,
+    "categoria": "Diagramas de Causa-Efecto",
+    "explicacion": "El diagrama correcto tiene: (1) retroalimentación negativa: Y regresa al comparador con signo (−), calculando el error como SP(+)−Y(−); (2) la perturbación D entra directamente al proceso (no al controlador) en un nodo sumador separado; (3) la trayectoria directa va del controlador al proceso. Las otras opciones tienen errores estructurales en la ubicación de los signos o los elementos."
+  },
+  {
+    "id": "cp_072",
+    "pregunta": "En un proceso con dos variables que afectan la misma salida Y en paralelo: X₁ con relación directa (∂Y/∂X₁ > 0) y X₂ con relación inversa (∂Y/∂X₂ < 0). Si se desea mantener Y constante y X₁ aumenta como perturbación, ¿qué acción sobre X₂ compensaría el efecto de X₁?",
+    "opciones": {
+      "A": "Disminuir X₂, porque al disminuir una variable de relación inversa, Y también disminuye (compensando el aumento de Y por X₁)",
+      "B": "Aumentar X₂, porque la relación inversa significa que aumentar X₂ disminuye Y (compensando el aumento de Y por X₁)",
+      "C": "Mantener X₂ constante, porque el lazo de retroalimentación se encarga automáticamente",
+      "D": "El signo de X₂ no importa; lo que importa es la magnitud del cambio"
+    },
+    "respuesta_correcta": "B",
+    "dificultad": 4,
+    "categoria": "Diagramas de Causa-Efecto",
+    "explicacion": "X₁ aumenta → Y tiende a aumentar (relación directa, ∂Y/∂X₁ > 0). Para compensar y mantener Y constante, se necesita una acción que baje Y. X₂ tiene relación inversa con Y (∂Y/∂X₂ < 0): aumentar X₂ baja Y. Por tanto, la acción correctiva es AUMENTAR X₂. Este es el razonamiento detrás del diseño de control feedforward: usar la derivada parcial para calcular la dirección y magnitud de la acción compensadora."
+  },
+  {
+    "id": "cp_073",
+    "pregunta": "Se analiza el proceso de cristalización de azúcar. El sistema definido incluye el cristalizador y el separador centrífugo. Las variables son:\n- Flujo de vapor de calefacción F_v (entrada)\n- Temperatura de la solución sobresaturada dentro del cristalizador T_cryst (dentro del cristalizador)\n- Tamaño de cristal promedio d_c (variable que sale del separador)\n- Tasa de nucleación N (dentro del cristalizador, depende de T_cryst)\n\n¿Cuáles son variables INTERNAS del sistema global?",
+    "opciones": {
+      "A": "F_v y d_c",
+      "B": "T_cryst y N",
+      "C": "Solo T_cryst",
+      "D": "Solo N"
+    },
+    "respuesta_correcta": "B",
+    "dificultad": 4,
+    "categoria": "Diagramas de Causa-Efecto",
+    "explicacion": "T_cryst existe dentro del cristalizador y no cruza la frontera externa del sistema global (no es la salida del sistema, que es d_c). N depende de T_cryst y también existe internamente dentro del sistema. Ambas son variables internas que conectan causalmente los subsistemas (F_v → T_cryst → N → d_c). F_v entra desde afuera (variable de entrada) y d_c sale hacia afuera (variable de salida)."
+  },
+  {
+    "id": "cp_074",
+    "pregunta": "Un proceso tiene tres variables que afectan la salida Y en paralelo. Sus derivadas parciales son: ∂Y/∂A = +3, ∂Y/∂B = −2, ∂Y/∂C = +1. Si A es la variable manipulada y B y C son perturbaciones, ¿cuál perturbación tiene el efecto más fuerte sobre Y?",
+    "opciones": {
+      "A": "C, porque su derivada parcial es positiva",
+      "B": "B, porque su derivada parcial negativa indica el mayor efecto de todas las variables",
+      "C": "B tiene el mayor efecto en magnitud (|−2| > |+1|); A sería el más eficiente para compensar",
+      "D": "A, porque es la variable manipulada y por definición tiene el mayor efecto"
+    },
+    "respuesta_correcta": "C",
+    "dificultad": 4,
+    "categoria": "Diagramas de Causa-Efecto",
+    "explicacion": "La magnitud de la derivada parcial (valor absoluto) indica la fuerza del efecto, independientemente del signo. Comparando las perturbaciones: |∂Y/∂B| = 2 > |∂Y/∂C| = 1. B tiene el efecto más fuerte sobre Y por unidad de cambio. El signo solo indica la dirección: B baja Y cuando aumenta, C la sube. Para el diseño del control, la perturbación B es la más crítica a rechazar."
+  },
+  {
+    "id": "cp_075",
+    "pregunta": "El siguiente diagrama contiene un lazo de retroalimentación del propio proceso (sin controlador):\n\n  Temperatura T\n      ↓          ↗\n  [Cinética Arrhenius] → Calor generado Q_rxn → [Balance energía] → T\n\n¿Qué tipo de lazo causal es este y cuál es su consecuencia para el control?",
+    "opciones": {
+      "A": "Lazo negativo: T alta → más reacción → más calor → T sigue subiendo (el proceso se estabiliza solo)",
+      "B": "Lazo positivo: T alta → más reacción → más calor → T sube aún más (el proceso necesita control externo para estabilizarse)",
+      "C": "No es un lazo causal; es solo una secuencia lineal de causas y efectos",
+      "D": "Lazo negativo: el calor generado siempre enfría el proceso por el principio de Le Chatelier"
+    },
+    "respuesta_correcta": "B",
+    "dificultad": 4,
+    "categoria": "Diagramas de Causa-Efecto",
+    "explicacion": "El lazo T→Arrhenius→Q_rxn→T es positivo: T alta acelera la reacción (Arrhenius), que genera más calor, que eleva T aún más. El efecto final (T sube) refuerza la causa inicial (T alta), que es la definición de retroalimentación positiva. Este lazo interno del proceso tiende a desestabilizarlo térmicamente. El controlador externo (retroalimentación negativa) debe ser suficientemente fuerte para dominar este lazo positivo interno."
+  },
+  {
+    "id": "cp_076",
+    "pregunta": "¿Cuál de las siguientes descripciones corresponde al concepto de 'variable manipulada' en el contexto del diagrama de bloques del lazo de control?",
+    "opciones": {
+      "A": "Es la señal de salida del comparador (el error)",
+      "B": "Es la señal de salida del controlador que actúa como entrada al proceso (a través del actuador)",
+      "C": "Es la señal de salida del sensor/transmisor que retroalimenta al comparador",
+      "D": "Es la señal de entrada al comparador que viene del operador (el set point)"
+    },
+    "respuesta_correcta": "B",
+    "dificultad": 4,
+    "categoria": "Elementos del Lazo de Control",
+    "explicacion": "En el diagrama de bloques del lazo, la variable manipulada es la señal de salida del controlador (o del actuador, que la amplifica/convierte) que actúa como entrada al bloque del proceso. Es la cantidad física que el sistema de control ajusta para influir sobre la variable controlada: flujo de vapor, apertura de válvula, potencia eléctrica, etc. No es el error ni el set point."
+  },
+  {
+    "id": "cp_077",
+    "pregunta": "El proceso de fermentación tiene: tasa de crecimiento μ, que depende de pH, T y sustrato S. El diagrama de causa-efecto muestra que μ también afecta a S (consume sustrato) y que S afecta a μ. ¿Cómo se llama este tipo de relación entre μ y S en el diagrama de causa-efecto?",
+    "opciones": {
+      "A": "Relación en serie: μ afecta S que afecta μ, formando una cadena lineal",
+      "B": "Relación en paralelo: μ y S son dos variables que afectan la misma salida simultáneamente",
+      "C": "Acoplamiento bidireccional o lazo de retroalimentación interno: μ afecta S y S afecta μ, cerrando un lazo dentro del sistema",
+      "D": "Perturbación mutua: μ y S son perturbaciones una de la otra sin relación directa"
+    },
+    "respuesta_correcta": "C",
+    "dificultad": 4,
+    "categoria": "Diagramas de Causa-Efecto",
+    "explicacion": "Cuando A afecta a B y B también afecta a A, se forma un lazo causal cerrado (acoplamiento bidireccional) dentro del sistema. En la fermentación: μ alto consume S (μ→S negativo), y S bajo reduce μ (S→μ positivo), creando una retroalimentación interna del proceso. Esta dinámica acoplada es lo que genera la característica curva de crecimiento logístico, que no podría predecirse mirando solo las relaciones individuales."
+  },
+  {
+    "id": "cp_078",
+    "pregunta": "Se tiene el diagrama de causa-efecto de un proceso de tres etapas en serie:\nEtapa 1: F_entrada → [Etapa 1] → C₁ (variable interna)\nEtapa 2: C₁ → [Etapa 2] → C₂ (variable interna)\nEtapa 3: C₂ → [Etapa 3] → Y (salida)\n\nSi se introduce una perturbación en la Etapa 1, ¿cómo llega su efecto hasta Y?",
+    "opciones": {
+      "A": "Directamente, sin pasar por C₁ ni C₂, porque las variables internas no transmiten perturbaciones",
+      "B": "A través de la cadena causal: perturbación → cambia C₁ → C₁ cambiada llega a Etapa 2 → cambia C₂ → C₂ cambiada llega a Etapa 3 → cambia Y",
+      "C": "Solo si la perturbación supera el umbral de las variables internas C₁ y C₂",
+      "D": "La perturbación en Etapa 1 no puede afectar Y porque C₁ y C₂ actúan como filtros perfectos"
+    },
+    "respuesta_correcta": "B",
+    "dificultad": 4,
+    "categoria": "Diagramas de Causa-Efecto",
+    "explicacion": "Las variables internas (C₁ y C₂) no bloquean las perturbaciones: son el medio por el que las perturbaciones se propagan a través del sistema. La cadena causal en serie transmite el efecto de la perturbación etapa por etapa: la perturbación altera C₁, que cambia el estado de la Etapa 2, que altera C₂, que finalmente afecta la salida Y. Cuantas más etapas haya en serie, el efecto llega con más retardo temporal pero no deja de propagarse."
+  },
+  {
+    "id": "cp_079",
+    "pregunta": "En el control de un reactor batch, durante la etapa de calentamiento el set point de temperatura sube gradualmente de 25°C a 100°C siguiendo una rampa de 5°C/min. Durante la etapa de reacción el set point se mantiene en 100°C por 2 horas. ¿Cómo cambia el tipo de control entre las dos etapas?",
+    "opciones": {
+      "A": "No cambia; en ambas etapas es control alrededor de un punto",
+      "B": "La etapa de calentamiento es control siguiendo un comportamiento deseado (set point variable); la etapa de reacción es control alrededor de un punto (set point fijo en 100°C)",
+      "C": "La etapa de calentamiento es control entre un rango; la etapa de reacción es control servo",
+      "D": "En ambas etapas es control en lazo abierto porque el perfil está programado"
+    },
+    "respuesta_correcta": "B",
+    "dificultad": 4,
+    "categoria": "Conceptos Básicos de Control",
+    "explicacion": "Durante el calentamiento, el set point cambia con el tiempo (rampa de 5°C/min): el sistema debe seguir esa trayectoria variable, que es control de seguimiento (servo). Durante la reacción, el set point es fijo en 100°C y el sistema debe rechazar perturbaciones para mantenerse en ese valor, que es control regulatorio (alrededor de un punto). Un mismo sistema puede usar distintos tipos de control en diferentes etapas de operación."
+  },
+  {
+    "id": "cp_080",
+    "pregunta": "En el diagrama de causa-efecto de un proceso de secado, la humedad del producto H tiene tres causas en paralelo: T_aire (∂H/∂T_aire < 0), F_aire (∂H/∂F_aire < 0) y F_alim (∂H/∂F_alim > 0). Si T_aire es la variable manipulada, ¿cuál de las siguientes descripciones de la acción del controlador es correcta cuando H sube por encima del set point?",
+    "opciones": {
+      "A": "El controlador debe bajar T_aire porque ∂H/∂T_aire < 0 implica que bajar T_aire sube H (empeoraría el error)",
+      "B": "El controlador debe subir T_aire porque ∂H/∂T_aire < 0 implica que subir T_aire baja H (corrige el error)",
+      "C": "El controlador debe subir F_alim porque es la única variable con derivada parcial positiva",
+      "D": "El controlador no puede actuar porque todas las derivadas parciales tienen el mismo signo"
+    },
+    "respuesta_correcta": "B",
+    "dificultad": 4,
+    "categoria": "Diagramas de Causa-Efecto",
+    "explicacion": "Si H > SP_H (error positivo, producto más húmedo de lo deseado), se necesita bajar H. ∂H/∂T_aire < 0 indica relación inversa: subir T_aire baja H (mayor temperatura seca mejor). Por tanto, cuando H sube, el controlador debe AUMENTAR T_aire. Esta es la 'acción inversa' del controlador: ante un aumento del error, actúa en dirección que reduce la variable controlada, derivada de la ganancia negativa del camino causal."
+  },
+  {
+    "id": "cp_081",
+    "pregunta": "¿Por qué en el diagrama de bloques de un lazo de control se incluye el bloque del transmisor en la trayectoria de retroalimentación, en lugar de modelar el sensor como si fuera perfecto (ganancia = 1)?",
+    "opciones": {
+      "A": "Porque el transmisor invierte la señal, convirtiendo la retroalimentación de positiva a negativa",
+      "B": "Para modelar que el transmisor puede tener su propia sensibilidad y dinámica, que afecta la señal que el comparador recibe y por tanto el comportamiento del lazo",
+      "C": "Porque el transmisor amplifica la señal del sensor para que sea mayor que el set point",
+      "D": "Para que el diagrama cumpla con los estándares ISA de representación gráfica"
+    },
+    "respuesta_correcta": "B",
+    "dificultad": 4,
+    "categoria": "Elementos del Lazo de Control",
+    "explicacion": "El transmisor no es ideal: tiene una relación de conversión específica (su sensibilidad, como 0.16 mA/°C), puede tener una respuesta dinámica propia (tiempo de respuesta del sensor) y puede tener errores de calibración. Al incluirlo como bloque en la trayectoria de retroalimentación, el modelo del diagrama de bloques reconoce que la señal que el comparador recibe como 'PV' no es exactamente igual a la variable del proceso, sino su representación a través del transmisor."
+  },
+  {
+    "id": "cp_082",
+    "pregunta": "En el proceso de extracción supercrítica con CO₂, la pureza del extracto depende de P, T y F_CO₂. El diagrama de causa-efecto muestra que P también afecta la densidad del CO₂ (variable interna), que a su vez afecta la solubilidad del soluto (otra variable interna), que finalmente determina la pureza. Esta cadena P → densidad → solubilidad → pureza representa:",
+    "opciones": {
+      "A": "Variables en paralelo: las tres afectan la pureza simultáneamente desde P",
+      "B": "Un camino causal en serie con variables internas: el efecto de P llega a la pureza a través de pasos intermedios dentro del sistema",
+      "C": "Una retroalimentación negativa interna del proceso que estabiliza la pureza",
+      "D": "Tres lazos de retroalimentación anidados entre P, densidad y solubilidad"
+    },
+    "respuesta_correcta": "B",
+    "dificultad": 4,
+    "categoria": "Diagramas de Causa-Efecto",
+    "explicacion": "La cadena P → densidad → solubilidad → pureza es una serie de relaciones causales donde cada variable es efecto de la anterior y causa de la siguiente. La densidad y la solubilidad son variables internas del sistema: no vienen del exterior ni son la salida final, sino eslabones intermedios de la cadena causal. El efecto de P sobre la pureza se propaga a través de estos intermediarios, lo que le da al camino causal una naturaleza 'en serie'."
+  },
+  {
+    "id": "cp_083",
+    "pregunta": "Se tiene el siguiente proceso con perturbación:\n\n  SP →(+)→[Controlador]→[Proceso]→ Y\n       ↑(−)                   ↑\n       └──────────────┘        D (perturbación)\n\nEn lazo cerrado con retroalimentación negativa, si D aumenta y hace que Y suba, ¿qué ocurre en la cadena causal del lazo?",
+    "opciones": {
+      "A": "D → Y sube → error = SP − Y disminuye (o se vuelve negativo) → controlador reduce su señal → variable manipulada disminuye → Y tiende a bajar (compensación parcial del efecto de D)",
+      "B": "D → Y sube → error = SP − Y aumenta → controlador aumenta su señal → Y sube aún más (amplificación de la perturbación)",
+      "C": "D → Y sube → el comparador envía señal de alarma → el operador ajusta el set point manualmente",
+      "D": "D → Y sube → la retroalimentación positiva amplifica el efecto de D hasta que el sistema se estabiliza en un nuevo punto de operación"
+    },
+    "respuesta_correcta": "A",
+    "dificultad": 4,
+    "categoria": "Diagramas de Causa-Efecto",
+    "explicacion": "La cadena causal de rechazo de perturbaciones por retroalimentación negativa: D aumenta → Y sube (PV > SP) → error = SP − PV < 0 (negativo) → controlador reduce su señal de salida → la variable manipulada disminuye → el proceso recibe menos energía o material → Y tiende a bajar de nuevo hacia SP. El lazo no elimina completamente el efecto de D (puede quedar un error residual con control proporcional), pero lo compensa parcialmente."
+  },
+  {
+    "id": "cp_084",
+    "pregunta": "Un proceso de producción de amoniaco tiene conversión X que depende de T (manipulada), P (manipulada) y relación H₂/N₂ (perturbación). Los signos de las derivadas parciales son: ∂X/∂T < 0 (reacción exotérmica, temperatura alta desfavorece el equilibrio), ∂X/∂P > 0 y ∂X/∂(H₂/N₂) > 0. Si la relación H₂/N₂ disminuye como perturbación, ¿cuál es la acción correctiva sobre T o P para mantener X constante?",
+    "opciones": {
+      "A": "Aumentar T, porque ∂X/∂T < 0 y se necesita bajar X",
+      "B": "Disminuir P, porque ∂X/∂P > 0 y se necesita bajar X",
+      "C": "Aumentar P (∂X/∂P > 0 → más P sube X) o disminuir T (∂X/∂T < 0 → menos T sube X), para compensar la caída de X por la perturbación",
+      "D": "No es posible compensar esta perturbación con T o P porque sus efectos son opuestos"
+    },
+    "respuesta_correcta": "C",
+    "dificultad": 4,
+    "categoria": "Diagramas de Causa-Efecto",
+    "explicacion": "La perturbación (H₂/N₂ baja) tiende a bajar X (∂X/∂(H₂/N₂) > 0 → efecto directo). Para mantener X constante se necesita subir X de otra forma: aumentar P (∂X/∂P > 0 → más presión sube X) o disminuir T (∂X/∂T < 0 → menos temperatura sube el equilibrio de esta reacción exotérmica). Ambas acciones llevan X en la dirección correcta (hacia arriba) para compensar la perturbación."
+  },
+  {
+    "id": "cp_085",
+    "pregunta": "¿Cuál de las siguientes afirmaciones es VERDADERA sobre la retroalimentación negativa en un lazo de control proporcional (solo ganancia)?",
+    "opciones": {
+      "A": "Elimina completamente el error: Y siempre llega exactamente al set point SP",
+      "B": "Reduce el error pero puede dejar un error residual (offset) porque la ganancia no puede ser infinita en la práctica",
+      "C": "No cambia el error de estado estacionario respecto al lazo abierto",
+      "D": "Solo funciona si el proceso no tiene perturbaciones externas"
+    },
+    "respuesta_correcta": "B",
+    "dificultad": 4,
+    "categoria": "Conceptos Básicos de Control",
+    "explicacion": "Un lazo de retroalimentación negativa con control proporcional puro REDUCE el error pero no lo elimina completamente: siempre queda un error residual (offset) en estado estacionario. Para que Y sea exactamente igual a SP, se necesitaría una ganancia infinita (imposible en práctica) o una acción integral que acumule el error hasta eliminarlo. El lazo reduce el error en comparación con el lazo abierto, pero no lo lleva a cero."
+  },
+  {
+    "id": "cp_086",
+    "pregunta": "Un proceso con dos entradas en paralelo (X₁ y X₂) tiene la siguiente configuración:\n\n  X₁ →[∂Y/∂X₁ = positivo]→(+)→ Y\n  X₂ →[∂Y/∂X₂ = negativo]→(+)↑\n\nSi X₁ y X₂ aumentan simultáneamente en la misma cantidad, ¿cuál será el cambio neto en Y?",
+    "opciones": {
+      "A": "Y siempre sube, porque X₁ tiene efecto positivo y domina sobre X₂",
+      "B": "Depende de las magnitudes de las dos derivadas parciales: si |∂Y/∂X₁| > |∂Y/∂X₂|, Y sube; si son iguales, Y no cambia; si |∂Y/∂X₂| > |∂Y/∂X₁|, Y baja",
+      "C": "Y no cambia porque el efecto positivo de X₁ cancela exactamente el negativo de X₂",
+      "D": "No puede determinarse sin conocer los valores absolutos de X₁ y X₂"
+    },
+    "respuesta_correcta": "B",
+    "dificultad": 4,
+    "categoria": "Diagramas de Causa-Efecto",
+    "explicacion": "El cambio neto en Y depende de la suma algebraica de los dos efectos. Si ΔX₁ = ΔX₂ = Δ: ΔY = (∂Y/∂X₁)·Δ + (∂Y/∂X₂)·Δ = (∂Y/∂X₁ + ∂Y/∂X₂)·Δ. El signo del resultado depende de cuál derivada parcial tiene mayor magnitud. Solo si |∂Y/∂X₁| = |∂Y/∂X₂| se cancelan exactamente. En general, el punto de suma combina los efectos algebraicamente, respetando los signos de las derivadas parciales."
+  },
+  {
+    "id": "cp_087",
+    "pregunta": "En el diagrama de causa-efecto del proceso de neutralización de una corriente ácida con NaOH, el ingeniero identifica que el pH tiene derivadas parciales positivas respecto al flujo de NaOH y negativas respecto al flujo de HCl. Diseña el lazo de control usando el flujo de NaOH como variable manipulada. En el diagrama de bloques del lazo, ¿con qué signo aparece el camino causal F_NaOH → pH en la trayectoria directa?",
+    "opciones": {
+      "A": "Con signo negativo, porque el NaOH reduce la acidez y por tanto 'resta' al pH",
+      "B": "Con signo positivo (ganancia positiva), porque ∂pH/∂F_NaOH > 0: más NaOH sube el pH",
+      "C": "Con signo neutro (ganancia = 0), porque el NaOH solo tampona el pH sin cambiarlo",
+      "D": "El signo depende del pH inicial: positivo si pH < 7 y negativo si pH > 7"
+    },
+    "respuesta_correcta": "B",
+    "dificultad": 4,
+    "categoria": "Diagramas de Causa-Efecto",
+    "explicacion": "El bloque en el camino causal F_NaOH → pH tiene una ganancia positiva porque ∂pH/∂F_NaOH > 0: añadir más base sube el pH. En el diagrama de bloques del lazo, esta ganancia positiva del proceso es importante para determinar la dirección de acción del controlador. Un aumento en F_NaOH lleva el pH hacia arriba, por lo que si el pH está por debajo del set point, el controlador debe aumentar F_NaOH."
+  },
+  {
+    "id": "cp_088",
+    "pregunta": "Se tiene el siguiente proceso de tres equipos en serie:\nAlimentación → [Reactor] → Producto parcial → [Separador] → Fracción ligera → [Compresor] → Producto final P\n\nEl sistema definido incluye los tres equipos. El operador puede medir 'Fracción ligera'. ¿Cómo se clasifica esta variable?",
+    "opciones": {
+      "A": "Variable de entrada, porque entra al compresor",
+      "B": "Variable de salida del sistema global, porque es el resultado final que entrega el sistema",
+      "C": "Variable interna del sistema global, porque aunque cruza la frontera entre el separador y el compresor, no cruza la frontera exterior del sistema de tres equipos",
+      "D": "Perturbación, porque varía con las condiciones de la alimentación"
+    },
+    "respuesta_correcta": "C",
+    "dificultad": 4,
+    "categoria": "Diagramas de Causa-Efecto",
+    "explicacion": "La 'Fracción ligera' cruza la frontera entre el separador y el compresor (es salida del separador y entrada al compresor), pero NO cruza la frontera exterior del sistema global que incluye los tres equipos. Queda completamente contenida dentro del sistema de tres equipos. Por eso es una variable interna del sistema global: conecta dos subsistemas internamente. El Producto final P sí es la variable de salida del sistema global."
+  },
+  {
+    "id": "cp_089",
+    "pregunta": "¿Cuál de las siguientes situaciones describe mejor un caso donde la retroalimentación negativa del PROCESO (no del controlador) ayuda a estabilizar el sistema sin necesidad de control externo?",
+    "opciones": {
+      "A": "Reactor exotérmico: mayor T → mayor velocidad de reacción → más calor → T sube más",
+      "B": "Tanque con descarga por gravedad: mayor nivel → mayor presión hidrostática → mayor flujo de salida → nivel baja (proceso autorregulante)",
+      "C": "Columna de destilación: mayor reflujo → mayor separación → mayor pureza → mayor reflujo",
+      "D": "Intercambiador de calor: mayor T_salida → mayor consumo de vapor → mayor T_salida"
+    },
+    "respuesta_correcta": "B",
+    "dificultad": 4,
+    "categoria": "Conceptos Básicos de Control",
+    "explicacion": "El tanque con descarga por gravedad tiene retroalimentación negativa intrínseca: nivel↑ → presión hidrostática↑ → flujo de salida↑ → nivel↓. El efecto (nivel baja) se opone a la causa (nivel había subido), creando un comportamiento autorregulante. Este proceso es naturalmente estable sin controlador. Los otros casos (A, C, D) son retroalimentaciones positivas que amplificarían las desviaciones."
+  },
+  {
+    "id": "cp_090",
+    "pregunta": "En el análisis de causa-efecto de un proceso multivariable, ¿cuál es la importancia de identificar correctamente las variables internas?",
+    "opciones": {
+      "A": "Las variables internas deben eliminarse del diagrama para simplificarlo",
+      "B": "Identificarlas correctamente permite entender los caminos causales intermedios por los que una perturbación viaja de la entrada hasta la salida, y así diseñar mejor la estrategia de control",
+      "C": "Las variables internas siempre son las más fáciles de controlar",
+      "D": "La identificación de variables internas solo importa para el modelado matemático, no para el diseño del control"
+    },
+    "respuesta_correcta": "B",
+    "dificultad": 4,
+    "categoria": "Diagramas de Causa-Efecto",
+    "explicacion": "Las variables internas revelan los mecanismos intermedios por los que las causas producen los efectos. Por ejemplo, en el reactor exotérmico: la concentración de reactivo (interna) conecta el balance de masa con la generación de calor y el balance de energía. Entender estas variables internas permite saber dónde puede actuar el control auxiliar, qué variables medir para detectar perturbaciones tempranamente, y cómo se propagan los efectos dentro del sistema."
+  },
+  {
+    "id": "cp_091",
+    "pregunta": "En el control de un proceso de extracción líquido-líquido, la eficiencia de extracción E depende de la relación de flujos solvente/alimentación (S/F) y de la temperatura T. Si ∂E/∂(S/F) = +2 y ∂E/∂T = +0.5, ¿cuál variable produce un cambio más rápido en E por unidad de cambio en la variable?",
+    "opciones": {
+      "A": "T, porque tiene efecto positivo y la temperatura es más fácil de controlar",
+      "B": "S/F, porque su derivada parcial tiene mayor magnitud (+2 > +0.5) por unidad de cambio",
+      "C": "Ambas tienen el mismo efecto porque las dos derivadas parciales son positivas",
+      "D": "Ninguna, porque para conocer el efecto se necesita el valor absoluto de S/F y T"
+    },
+    "respuesta_correcta": "B",
+    "dificultad": 5,
+    "categoria": "Diagramas de Causa-Efecto",
+    "explicacion": "La magnitud de la derivada parcial indica cuánto cambia E por unidad de cambio en cada variable. ∂E/∂(S/F) = +2 significa que por cada unidad de cambio en S/F, E cambia 2 unidades. ∂E/∂T = +0.5 significa solo 0.5 unidades de cambio en E por grado de T. S/F tiene un efecto 4 veces más fuerte que T por unidad de cambio. Para control rápido y eficiente, conviene manipular la variable con mayor sensibilidad sobre la salida."
+  },
+  {
+    "id": "cp_092",
+    "pregunta": "Un proceso de secado tiene el siguiente diagrama causal:\n\n  T_aire →[∂H/∂T = −0.2]→(+)→ ΔH_polvo\n  F_aire →[∂H/∂F = −0.15]→(+)↑\n  F_alim →[∂H/∂F_alim = +0.8]→(+)↑\n\nSi T_aire es la variable manipulada y F_alim aumenta como perturbación, ¿en qué dirección debe ajustarse T_aire para compensar el efecto sobre la humedad H_polvo?",
+    "opciones": {
+      "A": "Bajar T_aire, porque su derivada parcial es negativa y así la humedad bajará",
+      "B": "Subir T_aire, porque ∂H/∂T = −0.2 significa que mayor temperatura reduce la humedad, compensando el aumento causado por F_alim",
+      "C": "Mantener T_aire constante porque el controlador de F_alim se encargará de compensar",
+      "D": "Bajar T_aire y subir F_aire simultáneamente"
+    },
+    "respuesta_correcta": "B",
+    "dificultad": 5,
+    "categoria": "Diagramas de Causa-Efecto",
+    "explicacion": "F_alim aumenta → H_polvo tiende a aumentar (∂H/∂F_alim = +0.8 > 0). Para compensar y bajar H, se necesita una acción que reduzca H. T_aire tiene ∂H/∂T_aire = −0.2: subir T_aire baja H (relación inversa). Entonces: SUBIR T_aire para compensar el aumento de H causado por F_alim. La dirección de la acción compensadora se determina usando el signo de la derivada parcial de la variable manipulada."
+  },
+  {
+    "id": "cp_093",
+    "pregunta": "Analiza el siguiente diagrama de bloques de un lazo anidado y determina qué variable actúa como variable interna del lazo interno:\n\n  SP_T →(+)→[Controlador maestro]→ SP_F →(+)→[Controlador esclavo]→[Válvula]→ Flujo F → [Intercambiador] → Temperatura T\n          ↑(−)                              ↑(−)\n          └────────────────────────[Sensor T]┘     └──[Sensor F]──────────────────┘",
+    "opciones": {
+      "A": "La temperatura T es variable interna porque está dentro del lazo",
+      "B": "El set point de flujo SP_F es la variable interna del sistema global: existe dentro del sistema de control como enlace entre el lazo maestro y el esclavo, sin ser la entrada del operador ni la salida final del proceso",
+      "C": "El flujo F es la variable de salida del sistema global porque puede medirse",
+      "D": "No hay variables internas; todas son entradas o salidas del sistema"
+    },
+    "respuesta_correcta": "B",
+    "dificultad": 5,
+    "categoria": "Diagramas de Causa-Efecto",
+    "explicacion": "SP_F (el set point de flujo generado por el controlador maestro para el esclavo) es una variable interna del sistema de control completo: el operador introduce SP_T (entrada), la temperatura T es la salida final del proceso. SP_F es calculado internamente por el controlador maestro y enviado al esclavo sin cruzar las fronteras del sistema de control global. Es el enlace interno entre el lazo externo (temperatura) y el lazo interno (flujo)."
+  },
+  {
+    "id": "cp_094",
+    "pregunta": "¿Por qué el control 'entre un rango' produce naturalmente oscilaciones en la variable controlada, mientras que el control 'alrededor de un punto' (con acción continua) tiende a minimizarlas?",
+    "opciones": {
+      "A": "Porque el control entre un rango usa actuadores más potentes que generan sobrecorrecciones",
+      "B": "Porque el control entre un rango solo actúa en los extremos (encendido/apagado), permitiendo que la variable oscile libremente entre los límites; el control continuo ajusta la variable manipulada proporcionalmente en todo momento",
+      "C": "Porque el control alrededor de un punto tiene más sensores y puede medir con mayor precisión",
+      "D": "Porque el control entre un rango usa retroalimentación positiva que amplifica las oscilaciones"
+    },
+    "respuesta_correcta": "B",
+    "dificultad": 5,
+    "categoria": "Conceptos Básicos de Control",
+    "explicacion": "El control entre un rango (on-off) actúa en forma todo-o-nada: cuando la variable sale de la banda, el actuador va a su posición extrema (totalmente abierto o cerrado). Esto inevitablemente produce oscilaciones: el actuador corrige en exceso y la variable oscila de un límite al otro. El control continuo (alrededor de un punto) ajusta gradualmente la variable manipulada en proporción al error, evitando correcciones bruscas y minimizando las oscilaciones."
+  },
+  {
+    "id": "cp_095",
+    "pregunta": "En el diagrama de causa-efecto de un proceso de reacción en serie A→B→C (reacción deseada: A→B; indeseada: B→C), la selectividad S_B (fracción de B en el producto) tiene las siguientes sensibilidades: ∂S_B/∂T < 0 (mayor T favorece la segunda reacción) y ∂S_B/∂τ > 0 (mayor tiempo de residencia τ favorece B). Si T sube como perturbación, ¿cuál es la cadena causal que lleva a la disminución de S_B?",
+    "opciones": {
+      "A": "T↑ → A se convierte más rápido → más B se produce → S_B sube",
+      "B": "T↑ → velocidad de la reacción B→C aumenta más que A→B (activación mayor) → más B se convierte a C → S_B baja",
+      "C": "T↑ → el tiempo de residencia τ disminuye → S_B baja (por la derivada positiva de τ)",
+      "D": "T↑ → el sensor de temperatura se daña → no hay medición → S_B es indeterminada"
+    },
+    "respuesta_correcta": "B",
+    "dificultad": 5,
+    "categoria": "Diagramas de Causa-Efecto",
+    "explicacion": "La cadena causal correcta: T↑ → la reacción secundaria B→C se activa más que A→B (porque típicamente la segunda reacción tiene mayor energía de activación) → mayor proporción de B se convierte en C → S_B baja. Este mecanismo explica el signo negativo de ∂S_B/∂T. En el diagrama de bloques, T es una causa que llega a S_B a través del mecanismo cinético diferencial de las dos reacciones (variable interna)."
+  },
+  {
+    "id": "cp_096",
+    "pregunta": "¿Cuál de las siguientes afirmaciones integra correctamente los conceptos de 'tipos de control' y 'diagrama de causa-efecto'?",
+    "opciones": {
+      "A": "El tipo de control determina la forma matemática de los bloques en el diagrama de causa-efecto",
+      "B": "El diagrama de causa-efecto identifica qué variables son las causas (candidatas a variables manipuladas) y cuáles son los efectos (variables controladas), lo que es el primer paso para elegir el tipo de control apropiado",
+      "C": "El diagrama de causa-efecto solo aplica al control entre un rango; los otros tipos usan diagramas de flujo",
+      "D": "El tipo de control (alrededor de un punto, entre un rango, siguiendo un comportamiento) determina exclusivamente el tipo de sensor que se usa"
+    },
+    "respuesta_correcta": "B",
+    "dificultad": 5,
+    "categoria": "Conceptos Básicos de Control",
+    "explicacion": "El diagrama de causa-efecto es el análisis previo al diseño del sistema de control: identifica qué variables afectan a qué otras y en qué dirección (mediante las derivadas parciales). Esto permite elegir la variable manipulada más efectiva (la que tiene mayor sensibilidad sobre la variable controlada) y entender las perturbaciones que el lazo debe rechazar. El tipo de control (punto, rango, seguimiento) se elige según el objetivo operativo, independientemente de la estructura del diagrama."
+  },
+  {
+    "id": "cp_097",
+    "pregunta": "Un reactor batch tiene el siguiente perfil de operación: fase 1 (calentamiento), fase 2 (reacción a T constante), fase 3 (enfriamiento). En el diagrama de causa-efecto del sistema completo, la temperatura T durante la fase 2 es la variable de salida que se controla. ¿Cuál afirmación describe correctamente la relación entre el tipo de control y el diagrama de causa-efecto en cada fase?",
+    "opciones": {
+      "A": "En todas las fases el diagrama de causa-efecto es diferente porque las variables cambian con el tiempo",
+      "B": "El diagrama de causa-efecto (quién causa qué) es el mismo en todas las fases; lo que cambia es el set point del controlador: variable en las fases 1 y 3 (control servo) y fijo en la fase 2 (control regulatorio)",
+      "C": "En la fase 2 no hay diagrama de causa-efecto porque el set point es constante y no hay cambios causales",
+      "D": "El diagrama de causa-efecto solo aplica durante la fase de calentamiento porque es la más dinámica"
+    },
+    "respuesta_correcta": "B",
+    "dificultad": 5,
+    "categoria": "Conceptos Básicos de Control",
+    "explicacion": "El diagrama de causa-efecto describe las relaciones físicas entre variables del proceso (quién causa qué), que dependen del proceso mismo y no del tipo de control. El calor de la chaqueta siempre causa un cambio en T, independientemente de si el set point es fijo o variable. Lo que cambia entre fases es la ESTRATEGIA de control: en las fases 1 y 3 el set point varía en el tiempo (control servo); en la fase 2 el set point es fijo (control regulatorio). El diagrama causal es la misma estructura en todas las fases."
+  },
+  {
+    "id": "cp_098",
+    "pregunta": "En el proceso de producción de etanol por fermentación, el sistema de control usa la temperatura T como variable manipulada para controlar la concentración de producto P. El diagrama de causa-efecto muestra: T → [cinética Arrhenius] → velocidad de reacción r → [balance de masa] → P. El ingeniero nota que también existe el camino: T → [efecto sobre levaduras] → viabilidad celular V → r → P. ¿Qué implicación tiene este segundo camino para el análisis del diagrama de bloques?",
+    "opciones": {
+      "A": "El segundo camino debe eliminarse del diagrama porque complica el análisis",
+      "B": "Existen DOS caminos causales en paralelo de T a P (uno directo a través de Arrhenius, otro indirecto a través de la viabilidad celular), con variables internas diferentes: r solo y (V, r) respectivamente",
+      "C": "El segundo camino convierte a V en una perturbación del sistema",
+      "D": "Ambos caminos son idénticos porque ambos pasan por r"
+    },
+    "respuesta_correcta": "B",
+    "dificultad": 5,
+    "categoria": "Diagramas de Causa-Efecto",
+    "explicacion": "Existen dos caminos causales paralelos de T a P: (1) T→r (Arrhenius directo)→P, con r como variable interna; (2) T→V (efecto sobre viabilidad)→r→P, con V y r como variables internas de este camino más largo. Ambos caminos se suman en el nodo de r y de P. Esto implica que la sensibilidad total ∂P/∂T incluye ambos mecanismos, y que el efecto puede ser no monotónico: a T muy alta, la viabilidad V cae drásticamente, dominando el segundo camino y reduciendo P a pesar de la cinética más rápida."
+  },
+  {
+    "id": "cp_099",
+    "pregunta": "Integración de conceptos: En un proceso de destilación reactiva (reacción + separación en el mismo equipo), el sistema tiene: F_alimentación (entrada), T_rehervidor (manipulada por el controlador de composición), composición en los platos (interna), y composición del destilado x_D (salida). El diagrama de causa-efecto muestra que x_D tiene sensibilidad positiva respecto a T_rehervidor (∂x_D/∂T_rehervidor > 0) y negativa respecto a F_alimentación (∂x_D/∂F_alimentación < 0). Si F_alimentación aumenta como perturbación y el controlador detecta que x_D baja, ¿cuál es la secuencia causal completa desde la perturbación hasta la acción correctiva?",
+    "opciones": {
+      "A": "F_alim↑ → x_D↓ directamente (sin variables internas) → error = SP − PV > 0 → controlador sube T_rehervidor → x_D sube hacia SP",
+      "B": "F_alim↑ → perfil de composición en platos cambia (variables internas) → x_D↓ → error = SP − x_D > 0 → controlador aumenta señal → T_rehervidor sube → perfil de composición cambia nuevamente (internas) → x_D sube hacia SP",
+      "C": "F_alim↑ → controlador detecta la perturbación directamente → T_rehervidor sube antes de que x_D cambie (control feedforward)",
+      "D": "F_alim↑ → x_D↓ → el comparador envía alarma → operador ajusta manualmente T_rehervidor"
+    },
+    "respuesta_correcta": "B",
+    "dificultad": 5,
+    "categoria": "Diagramas de Causa-Efecto",
+    "explicacion": "La secuencia causal completa en control por retroalimentación: (1) Perturbación: F_alim↑ → el perfil de composición en los platos (variables internas) cambia → x_D baja. (2) Detección: el sensor mide x_D < SP → error = SP − PV > 0. (3) Acción: el controlador sube su señal → T_rehervidor aumenta. (4) Corrección: la mayor temperatura cambia nuevamente el perfil de composición interno → x_D sube hacia SP. Las variables internas (composición en platos) median tanto el efecto de la perturbación como el efecto de la acción correctiva."
+  },
+  {
+    "id": "cp_100",
+    "pregunta": "Un estudiante de control de procesos afirma: 'Si en un diagrama de causa-efecto la derivada parcial de la salida respecto a una variable es cero (∂Y/∂X = 0), entonces X no tiene ningún efecto sobre Y y no puede usarse como variable manipulada'. ¿Es correcta esta afirmación?",
+    "opciones": {
+      "A": "Sí, es completamente correcta: si la derivada parcial es cero, no existe relación causal",
+      "B": "No necesariamente: ∂Y/∂X = 0 en el punto de operación actual (linealización local) no significa que X no afecte a Y en otros puntos del espacio operativo; puede existir un efecto no lineal que no aparece en la aproximación lineal local",
+      "C": "No, porque las derivadas parciales nunca pueden ser cero en procesos reales",
+      "D": "Sí, pero solo si X es una variable de entrada; si X es interna, puede tener efecto aunque su derivada sea cero"
+    },
+    "respuesta_correcta": "B",
+    "dificultad": 5,
+    "categoria": "Diagramas de Causa-Efecto",
+    "explicacion": "La derivada parcial ∂Y/∂X evaluada en un punto de operación específico es una aproximación lineal LOCAL. Si es cero en ese punto, puede significar que X está en un máximo, mínimo o punto de inflexión de su efecto sobre Y: en esa vecindad el efecto parece nulo, pero en otros puntos del espacio operativo puede ser significativo. Por ejemplo, la conversión X en función de la temperatura T puede tener un máximo (∂X/∂T = 0 en el máximo), pero T sigue siendo relevante en otras regiones de operación."
+  }
+]

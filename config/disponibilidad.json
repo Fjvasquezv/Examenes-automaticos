@@ -5,19 +5,25 @@
         {
             "nombre": "Parcial 1 - Programación",
             "examen": "programacion",
-            "inicio": "2026-02-25 8:00",
+            "inicio": "2026-02-25 9:30",
             "fin": "2026-02-25 10:00"
         },
         {
+            "nombre": "QUIZZ 1 - Control",
+            "examen": "control",
+            "inicio": "2026-02-26 18:15",
+            "fin": "2026-02-26 19:20"
+        },        
+        {
             "nombre": "Parcial 1 - Control",
             "examen": "control",
-            "inicio": "2025-03-15 14:00",
-            "fin": "2025-03-15 16:00"
+            "inicio": "2026-02-05 18:00",
+            "fin": "2026-02-05 20:00"
         },
         {
             "nombre": "Parcial 1 - Optimización",
             "examen": "optimizacion",
-            "inicio": "2025-03-16 08:00",
+            "inicio": "2026-02-16 08:00",
             "fin": "2025-03-16 10:00"
         },
         {
