@@ -12,28 +12,29 @@ from zoneinfo import ZoneInfo
 
 
 class DataPersistence:
-        def obtener_progreso_en_curso(self, codigo_estudiante: str) -> dict:
-            """
-            Obtiene el registro EN_CURSO del estudiante para restaurar el estado.
-            Returns: dict con los campos del progreso o None si no existe.
-            """
-            try:
-                result = self.service.spreadsheets().values().get(
-                    spreadsheetId=self.spreadsheet_id,
-                    range=f'{self.nombre_hoja}!A:P'
-                ).execute()
-                values = result.get('values', [])
-                encabezados = values[0] if values else []
-                for row in reversed(values[1:]):
-                    if len(row) > 14 and len(row) > 1:
-                        if row[1] == codigo_estudiante and row[14] == 'EN_CURSO':
-                            while len(row) < len(encabezados):
-                                row.append('')
-                            return dict(zip(encabezados, row))
-                return None
-            except Exception:
-                return None
     """Clase para manejar la persistencia en Google Sheets"""
+
+    def obtener_progreso_en_curso(self, codigo_estudiante: str) -> dict:
+        """
+        Obtiene el registro EN_CURSO del estudiante para restaurar el estado.
+        Returns: dict con los campos del progreso o None si no existe.
+        """
+        try:
+            result = self.service.spreadsheets().values().get(
+                spreadsheetId=self.spreadsheet_id,
+                range=f'{self.nombre_hoja}!A:P'
+            ).execute()
+            values = result.get('values', [])
+            encabezados = values[0] if values else []
+            for row in reversed(values[1:]):
+                if len(row) > 14 and len(row) > 1:
+                    if row[1] == codigo_estudiante and row[14] == 'EN_CURSO':
+                        while len(row) < len(encabezados):
+                            row.append('')
+                        return dict(zip(encabezados, row))
+            return None
+        except Exception:
+            return None
     
     def __init__(self, config: Dict[str, Any]):
         """
