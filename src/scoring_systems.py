@@ -385,8 +385,12 @@ class SistemaHibrido(ScoringSystem):
             self.peso_irt /= suma_pesos
             self.peso_elo /= suma_pesos
         
-        self.irt = IRTSimplificado(**kwargs)
-        self.elo = SistemaElo(**kwargs)
+        # Filtrar kwargs válidos para cada subsistema
+        irt_params = {k: v for k, v in kwargs.items() if k in ('max_iteraciones',)}
+        elo_params = {k: v for k, v in kwargs.items() if k in ('k_factor', 'rating_inicial')}
+        
+        self.irt = IRTSimplificado(**irt_params)
+        self.elo = SistemaElo(**elo_params)
     
     def calcular_nota(self, respuestas: List[Dict[str, Any]]) -> float:
         """Calcula la nota combinando IRT y Elo"""
@@ -429,9 +433,11 @@ def crear_sistema_calificacion(config: Dict[str, Any]) -> ScoringSystem:
     params = config['sistema_calificacion'].get('parametros', {})
     
     if tipo == 'irt_simplificado':
-        return IRTSimplificado(**params)
+        irt_keys = {'max_iteraciones'}
+        return IRTSimplificado(**{k: v for k, v in params.items() if k in irt_keys})
     elif tipo == 'elo':
-        return SistemaElo(**params)
+        elo_keys = {'k_factor', 'rating_inicial'}
+        return SistemaElo(**{k: v for k, v in params.items() if k in elo_keys})
     elif tipo == 'hibrido':
         return SistemaHibrido(**params)
     else:

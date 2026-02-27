@@ -249,7 +249,7 @@ class QuestionManager:
         """
         self.preguntas_usadas_ids.add(pregunta_id)
     
-    def hay_preguntas_disponibles(self, nivel: int, preguntas_usadas: List[str]) -> bool:
+    def hay_preguntas_disponibles(self, nivel: int, preguntas_usadas) -> bool:
         """
         Verifica si hay preguntas disponibles en un nivel
         
