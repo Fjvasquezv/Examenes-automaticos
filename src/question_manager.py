@@ -71,14 +71,19 @@ class QuestionManager:
     def obtener_pregunta_por_nivel(
         self, 
         nivel: int, 
-        preguntas_usadas: List[str]
+        preguntas_usadas,
+        theta: float = None
     ) -> Optional[Dict[str, Any]]:
         """
-        Obtiene una pregunta aleatoria del nivel especificado que no haya sido usada
+        Obtiene una pregunta del nivel especificado que no haya sido usada.
+        Si theta está disponible, prioriza la pregunta con máxima información
+        (dificultad más cercana a la habilidad estimada).
         
         Args:
             nivel: Nivel de dificultad deseado (1-5)
-            preguntas_usadas: Lista de IDs de preguntas ya usadas
+            preguntas_usadas: IDs de preguntas ya usadas (lista o set)
+            theta: Habilidad estimada del estudiante (IRT). Si se provee,
+                   se usa selección por máxima información.
             
         Returns:
             Diccionario con la pregunta o None si no hay preguntas disponibles
@@ -116,7 +121,18 @@ class QuestionManager:
         if not preguntas_disponibles:
             return None
         
-        # Seleccionar una pregunta aleatoria
+        # Selección por máxima información si theta está disponible
+        if theta is not None and len(preguntas_disponibles) > 1:
+            # Ordenar por cercanía de la dificultad al theta estimado
+            # b = (dificultad - 3) * 0.8 es la escala IRT
+            preguntas_disponibles.sort(
+                key=lambda p: abs((p['dificultad'] - 3) * 0.8 - theta)
+            )
+            # Elegir entre las top 3 para mantener variedad
+            top_n = min(3, len(preguntas_disponibles))
+            return random.choice(preguntas_disponibles[:top_n])
+        
+        # Sin theta: selección aleatoria
         return random.choice(preguntas_disponibles)
     
     def obtener_pregunta_por_id(self, pregunta_id: str) -> Optional[Dict[str, Any]]:

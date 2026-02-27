@@ -44,6 +44,7 @@ class IRTSimplificado(ScoringSystem):
         self.max_iteraciones = max_iteraciones
         self.theta_min = -3.0
         self.theta_max = 3.0
+        self._ultimo_theta = 0.0  # Warm start para Newton-Raphson
     
     def probabilidad_respuesta_correcta(self, theta: float, dificultad: int) -> float:
         """
@@ -81,8 +82,8 @@ class IRTSimplificado(ScoringSystem):
         if not respuestas:
             return 0.0
         
-        # Iniciar con theta = 0 (habilidad promedio)
-        theta = 0.0
+        # Warm start: usar última estimación como punto inicial
+        theta = self._ultimo_theta
         
         for _ in range(self.max_iteraciones):
             # Calcular primera y segunda derivada de la log-verosimilitud
@@ -122,6 +123,7 @@ class IRTSimplificado(ScoringSystem):
             
             theta = theta_nuevo
         
+        self._ultimo_theta = theta
         return theta
     
     def theta_a_nota(self, theta: float) -> float:

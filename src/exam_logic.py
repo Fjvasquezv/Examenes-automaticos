@@ -41,6 +41,11 @@ class ExamLogic:
         self.preguntas_respondidas = []
         self.historial_notas = []
         self.preguntas_usadas = []
+        self.preguntas_usadas_set = set()
+        
+        # Estimación de habilidad
+        self.theta_actual = 0.0
+        self.categorias_evaluadas = set()
         
         # Pregunta actual
         self.pregunta_actual_obj = None
@@ -48,15 +53,16 @@ class ExamLogic:
     
     def obtener_siguiente_pregunta(self) -> Optional[Dict[str, Any]]:
         """
-        Obtiene la siguiente pregunta basada en el nivel actual
+        Obtiene la siguiente pregunta basada en el nivel actual y theta estimado.
+        Usa selección por máxima información cuando theta está disponible.
         
         Returns:
             Diccionario con la pregunta o None si no hay más preguntas
         """
-        # Obtener pregunta del nivel actual
         pregunta = self.question_manager.obtener_pregunta_por_nivel(
             self.nivel_actual,
-            self.preguntas_usadas
+            self.preguntas_usadas_set,
+            theta=self.theta_actual
         )
         
         if pregunta is None:
@@ -65,6 +71,7 @@ class ExamLogic:
         # Guardar pregunta actual
         self.pregunta_actual_obj = pregunta
         self.preguntas_usadas.append(pregunta['id'])
+        self.preguntas_usadas_set.add(pregunta['id'])
         
         return pregunta
     
@@ -140,44 +147,79 @@ class ExamLogic:
         }
         self.preguntas_respondidas.append(respuesta_info)
         
-        # Actualizar nivel para la siguiente pregunta
-        self._actualizar_nivel(es_correcta, pregunta['dificultad'])
-        
         # Calcular nota actual
         nota_actual = self.scoring_system.calcular_nota_parcial(self.preguntas_respondidas)
         self.historial_notas.append(nota_actual)
+        
+        # Actualizar nivel basado en el modelo estadístico (no reglas ad-hoc)
+        self._actualizar_nivel_desde_modelo()
+        
+        # Registrar categoría evaluada
+        self.categorias_evaluadas.add(pregunta.get('categoria', 'Sin categoría'))
         
         # Incrementar contador de pregunta
         self.pregunta_actual += 1
         
         return es_correcta
     
-    def _actualizar_nivel(self, correcta: bool, dificultad_pregunta: int):
+    def _actualizar_nivel_desde_modelo(self):
         """
-        Actualiza el nivel de dificultad para la siguiente pregunta
+        Actualiza el nivel de dificultad basándose en la estimación
+        del modelo estadístico (theta en IRT, rating en Elo).
+        Elimina aleatoriedad: el nivel se deriva directamente del modelo.
+        """
+        if len(self.preguntas_respondidas) < 2:
+            return  # Necesita al menos 2 respuestas para estimación significativa
         
-        Args:
-            correcta: Si la respuesta fue correcta
-            dificultad_pregunta: Dificultad de la pregunta actual
-        """
-        if correcta:
-            # Si respondió correctamente, aumentar nivel
-            # Más peso si la pregunta era difícil
-            if dificultad_pregunta >= self.nivel_actual:
-                self.nivel_actual = min(5, self.nivel_actual + 1)
-            else:
-                # Pequeño ajuste si era una pregunta más fácil
-                if random.random() < 0.5:  # 50% de probabilidad
-                    self.nivel_actual = min(5, self.nivel_actual + 1)
+        stats = self.scoring_system.obtener_estadisticas(self.preguntas_respondidas)
+        
+        if 'theta' in stats:
+            # IRT: mapear theta a nivel usando la escala de dificultad del modelo
+            self.theta_actual = stats['theta']
+            self.nivel_actual = self._theta_a_nivel(self.theta_actual)
+        elif 'rating' in stats:
+            # Elo: mapear rating [1200-1800] a nivel [1-5]
+            rating = stats['rating']
+            self.nivel_actual = max(1, min(5, round((rating - 1050) / 150)))
         else:
-            # Si respondió incorrectamente, reducir nivel
-            # Más peso si la pregunta era fácil
-            if dificultad_pregunta <= self.nivel_actual:
-                self.nivel_actual = max(1, self.nivel_actual - 1)
-            else:
-                # Pequeño ajuste si era una pregunta más difícil
-                if random.random() < 0.5:  # 50% de probabilidad
-                    self.nivel_actual = max(1, self.nivel_actual - 1)
+            # Fallback: proporción de correctas
+            ratio = self.correctas / len(self.preguntas_respondidas)
+            self.nivel_actual = max(1, min(5, round(ratio * 4) + 1))
+    
+    @staticmethod
+    def _theta_a_nivel(theta: float) -> int:
+        """
+        Convierte theta IRT a nivel de dificultad 1-5.
+        Usa la misma escala que el modelo: b = (nivel - 3) * 0.8
+        
+        Mapeo: theta -1.6→1, -0.8→2, 0.0→3, 0.8→4, 1.6→5
+        """
+        nivel = round(theta / 0.8 + 3)
+        return max(1, min(5, nivel))
+    
+    @staticmethod
+    def _calcular_pendiente(valores: list) -> float:
+        """
+        Calcula la pendiente de una serie de valores (regresión lineal simple).
+        Usada para verificar convergencia en el criterio de terminación.
+        
+        Returns:
+            Pendiente de la recta. Cercana a 0 indica estabilización.
+        """
+        n = len(valores)
+        if n < 2:
+            return float('inf')
+        
+        x_mean = (n - 1) / 2.0
+        y_mean = sum(valores) / n
+        
+        numerador = sum((i - x_mean) * (v - y_mean) for i, v in enumerate(valores))
+        denominador = sum((i - x_mean) ** 2 for i in range(n))
+        
+        if denominador == 0:
+            return 0.0
+        
+        return numerador / denominador
     
     def debe_terminar_examen(self) -> bool:
         """
@@ -198,7 +240,13 @@ class ExamLogic:
         if self.pregunta_actual < self.preguntas_minimas:
             return False
         
-        # Verificar estabilización de la nota
+        # Verificar cobertura mínima de categorías antes de permitir terminación
+        categorias_disponibles = len(self.question_manager.obtener_categorias())
+        categorias_minimas = min(3, categorias_disponibles)
+        if len(self.categorias_evaluadas) < categorias_minimas:
+            return False
+        
+        # Verificar estabilización de la nota (rango + pendiente)
         if len(self.historial_notas) >= self.ventana_estabilizacion:
             ultimas_notas = self.historial_notas[-self.ventana_estabilizacion:]
             
@@ -207,19 +255,21 @@ class ExamLogic:
             min_nota = min(ultimas_notas)
             variacion = max_nota - min_nota
             
-            # Si la variación es menor al umbral, terminar
+            # Terminar si la variación es pequeña Y la nota converge (pendiente ≈ 0)
             if variacion <= self.umbral_estabilizacion:
-                return True
+                pendiente = self._calcular_pendiente(ultimas_notas)
+                if abs(pendiente) < 0.1:
+                    return True
         
         # Verificar si no hay más preguntas disponibles
         if not self.question_manager.hay_preguntas_disponibles(
             self.nivel_actual,
-            self.preguntas_usadas
+            self.preguntas_usadas_set
         ):
             # Intentar otros niveles
             hay_preguntas = False
             for nivel in range(1, 6):
-                if self.question_manager.hay_preguntas_disponibles(nivel, self.preguntas_usadas):
+                if self.question_manager.hay_preguntas_disponibles(nivel, self.preguntas_usadas_set):
                     hay_preguntas = True
                     break
             
@@ -368,7 +418,9 @@ class ExamLogic:
             variacion = max(ultimas_notas) - min(ultimas_notas)
             
             if variacion <= self.umbral_estabilizacion:
-                return "Nota estabilizada"
+                pendiente = self._calcular_pendiente(ultimas_notas)
+                if abs(pendiente) < 0.1:
+                    return "Nota estabilizada"
         
         return "Sin preguntas disponibles"
     
