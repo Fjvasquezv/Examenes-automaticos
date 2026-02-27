@@ -19,7 +19,7 @@ from config_loader import ConfigLoader
 from question_manager import QuestionManager
 from exam_logic import ExamLogic
 from ui_components import UIComponents
-from data_persistence import DataPersistence
+from src.data_persistence import DataPersistence
 from validators import validate_codigo_estudiante
 
 
