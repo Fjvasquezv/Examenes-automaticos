@@ -233,19 +233,24 @@ def mostrar_pantalla_inicio(config, ui):
                 
                 try:
                     persistence = DataPersistence(config)
-                    
                     if persistence.verificar_examen_completado(codigo_limpio):
                         st.error("⚠️ Ya completaste este examen anteriormente.")
                         st.info("💡 Solo se permite un intento por estudiante.")
                         return
-                    
-                    if persistence.verificar_examen_en_curso(codigo_limpio):
-                        st.error("⚠️ Ya tienes un examen en curso.")
-                        st.info("💡 Contacta al profesor si refrescaste la página.")
+                    progreso = persistence.obtener_progreso_en_curso(codigo_limpio)
+                    if progreso:
+                        st.info("🔄 Se detectó un examen en curso. Restaurando el progreso...")
+                        st.session_state.codigo_estudiante = codigo_limpio
+                        st.session_state.exam_started = True
+                        st.session_state.exam_finished = False
+                        st.session_state.current_question_index = int(progreso.get('Preguntas_Respondidas', 0))
+                        st.session_state.respuestas = []  # Puedes cargar respuestas si las guardas
+                        st.session_state.notas_historicas = []  # Puedes cargar notas si las guardas
+                        st.session_state.preguntas_usadas = progreso.get('Preguntas_IDs', '').split(',') if progreso.get('Preguntas_IDs') else []
+                        st.rerun()
                         return
-                except:
-                    pass
-                
+                except Exception as e:
+                    st.warning(f"⚠️ Error al verificar progreso: {e}")
                 st.session_state.codigo_estudiante = codigo_limpio
                 st.session_state.exam_started = True
                 st.rerun()
