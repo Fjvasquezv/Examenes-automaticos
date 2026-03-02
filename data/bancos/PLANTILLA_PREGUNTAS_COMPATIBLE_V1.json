@@ -1,0 +1,35 @@
+[
+  {
+    "id": "plantilla_001",
+    "dificultad": 2,
+    "categoria": "Tema",
+    "pregunta": "Texto de la pregunta (compatible con markdown y bloques de código).",
+    "opciones": {
+      "a": "Opción A",
+      "b": "Opción B",
+      "c": "Opción C",
+      "d": "Opción D"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Explicación opcional para retroalimentación final.",
+    "tipo": "texto"
+  },
+  {
+    "id": "plantilla_002",
+    "dificultad": 3,
+    "categoria": "Tema con imagen",
+    "pregunta": "Observe la imagen y seleccione la afirmación correcta.",
+    "opciones": {
+      "a": "Afirmación A",
+      "b": "Afirmación B",
+      "c": "Afirmación C",
+      "d": "Afirmación D"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "La opción correcta es A por la relación mostrada en la imagen.",
+    "tipo": "imagen",
+    "imagen": "data/assets/tema/ejemplo_001.png",
+    "imagen_caption": "Diagrama de apoyo",
+    "imagen_ancho": 550
+  }
+]

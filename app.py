@@ -93,8 +93,18 @@ def main():
     # EXAMEN DISPONIBLE - CONTINUAR NORMALMENTE
     # ============================================
     try:
-        # Cargar banco de preguntas
-        question_manager = QuestionManager(config['archivo_preguntas'])
+        # Cargar banco(s) de preguntas (multi-banco o legacy)
+        base_path = Path(__file__).parent
+        if 'bancos_preguntas' in config:
+            question_manager = QuestionManager(
+                bancos_preguntas=config['bancos_preguntas'],
+                base_path=base_path
+            )
+        else:
+            question_manager = QuestionManager(
+                preguntas_file=config['archivo_preguntas'],
+                base_path=base_path
+            )
         
         # Inicializar componentes
         ui = UIComponents(config)

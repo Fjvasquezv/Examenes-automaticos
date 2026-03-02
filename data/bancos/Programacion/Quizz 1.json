@@ -1,0 +1,1052 @@
+[
+  {
+    "id": "guia_algo_001",
+    "pregunta": "Según la guía de estudio, ¿cuál es la definición correcta de un algoritmo?",
+    "opciones": {
+      "A": "Un lenguaje de programación diseñado para resolver problemas matemáticos",
+      "B": "Una secuencia finita y ordenada de pasos definidos para resolver un problema específico",
+      "C": "La disciplina científica que estudia la optimización de procesos computacionales",
+      "D": "Un diagrama gráfico que representa el flujo de un proceso de cálculo"
+    },
+    "respuesta_correcta": "B",
+    "dificultad": 1,
+    "categoria": "Algoritmos y Algoritmia",
+    "explicacion": "La guía define un algoritmo como una secuencia finita y ordenada de pasos definidos para resolver un problema específico. Es importante distinguirlo de la algoritmia, que es la disciplina científica que estudia, diseña, analiza y optimiza dichos algoritmos."
+  },
+  {
+    "id": "guia_algo_002",
+    "pregunta": "¿Qué representa el símbolo de rombo en un diagrama de flujo, según la guía de estudio?",
+    "opciones": {
+      "A": "El inicio o fin del algoritmo",
+      "B": "Una operación de entrada o salida de datos",
+      "C": "Un punto de decisión donde el flujo toma uno de dos caminos posibles",
+      "D": "Un conector que vincula dos procesos distintos"
+    },
+    "respuesta_correcta": "C",
+    "dificultad": 1,
+    "categoria": "Diagramas de Flujo",
+    "explicacion": "El rombo representa un punto de decisión en el diagrama de flujo, donde el flujo toma uno de dos caminos posibles, generalmente etiquetados como 'Sí' o 'No'. El óvalo, en cambio, delimita el Inicio y el Fin del algoritmo."
+  },
+  {
+    "id": "guia_algo_003",
+    "pregunta": "¿A qué paradigma de programación pertenecen los lenguajes Haskell y Lisp, según el material de estudio?",
+    "opciones": {
+      "A": "Programación orientada a objetos",
+      "B": "Programación estructurada",
+      "C": "Programación funcional",
+      "D": "Programación enfocada en bases de datos"
+    },
+    "respuesta_correcta": "C",
+    "dificultad": 1,
+    "categoria": "Paradigmas de Programación",
+    "explicacion": "Haskell y Lisp se clasifican dentro del grupo de lenguajes de programación funcional, según el glosario de la guía. Esto los diferencia de lenguajes de propósito general como C++ y Java, o de lenguajes orientados a bases de datos como SQL."
+  },
+  {
+    "id": "guia_bigo_001",
+    "pregunta": "¿Qué mide la Notación Big O según la guía de estudio?",
+    "opciones": {
+      "A": "La cantidad de memoria RAM que consume un programa en ejecución",
+      "B": "El número de líneas de código necesarias para resolver un problema",
+      "C": "El límite superior del crecimiento del tiempo de ejecución de un algoritmo en función del tamaño de la entrada",
+      "D": "La velocidad del procesador necesaria para ejecutar un algoritmo"
+    },
+    "respuesta_correcta": "C",
+    "dificultad": 1,
+    "categoria": "Notación Big O y Complejidad",
+    "explicacion": "La guía define la Notación Big O como una métrica para analizar el rendimiento y la complejidad temporal de los algoritmos en función del crecimiento asintótico. Permite estimar cómo aumenta el tiempo de ejecución a medida que crece el tamaño de la entrada de datos."
+  },
+  {
+    "id": "guia_hist_001",
+    "pregunta": "Según la guía de estudio, ¿qué hito ocurrió en 1951 que facilitó la creación de lenguajes de programación de alto nivel?",
+    "opciones": {
+      "A": "Alan Turing presentó la Máquina de Turing",
+      "B": "Konrad Zuse construyó la primera computadora programable",
+      "C": "Ada Lovelace escribió el primer algoritmo de la historia",
+      "D": "Grace Hopper desarrolló el primer compilador"
+    },
+    "respuesta_correcta": "D",
+    "dificultad": 1,
+    "categoria": "Historia de la Computación",
+    "explicacion": "Según la guía, en 1951 Grace Hopper desarrolló el primer compilador, lo que permitió el nacimiento de los lenguajes de programación de alto nivel. El compilador traduce el código escrito por humanos a instrucciones procesables por la máquina, haciendo la programación más accesible y eficiente."
+  },
+  {
+    "id": "guia_bigo_002",
+    "pregunta": "Según la guía, ¿cuál es el ejemplo clásico de un algoritmo con complejidad temporal O(n)?",
+    "opciones": {
+      "A": "Ordenar un arreglo con el algoritmo de burbujeo",
+      "B": "Buscar un elemento en un arreglo no ordenado recorriendo todos sus elementos",
+      "C": "Generar todas las permutaciones de un conjunto de datos",
+      "D": "Acceder directamente a un elemento por su índice en un arreglo"
+    },
+    "respuesta_correcta": "B",
+    "dificultad": 2,
+    "categoria": "Notación Big O y Complejidad",
+    "explicacion": "La guía indica que la búsqueda de un elemento en un arreglo no ordenado es el ejemplo clásico de O(n), ya que en el peor caso es necesario recorrer todos los elementos. El crecimiento es lineal: si el arreglo se duplica en tamaño, el tiempo de búsqueda también se duplica."
+  },
+  {
+    "id": "guia_bigo_003",
+    "pregunta": "La guía asocia la complejidad O(n²) con el 'algoritmo de burbujeo'. ¿Qué implica esta clasificación para un conjunto de 100 elementos respecto a uno de 10?",
+    "opciones": {
+      "A": "El tiempo de ejecución aumenta 10 veces",
+      "B": "El tiempo de ejecución aumenta 100 veces",
+      "C": "El tiempo de ejecución se duplica",
+      "D": "El tiempo de ejecución permanece constante"
+    },
+    "respuesta_correcta": "B",
+    "dificultad": 2,
+    "categoria": "Notación Big O y Complejidad",
+    "explicacion": "Con complejidad O(n²), el tiempo de ejecución crece proporcionalmente al cuadrado del tamaño de la entrada. Si n pasa de 10 a 100 (factor 10), el tiempo aumenta en un factor de 10² = 100. Esto ilustra por qué los algoritmos cuadráticos son problemáticos para conjuntos de datos grandes."
+  },
+  {
+    "id": "guia_diag_001",
+    "pregunta": "Según la guía de estudio, ¿qué función cumple el símbolo de conector (círculo) en un diagrama de flujo?",
+    "opciones": {
+      "A": "Indicar el inicio y el fin del proceso",
+      "B": "Señalar que la salida de un proceso sirve como entrada para otro proceso distinto",
+      "C": "Representar una condición de decisión con dos salidas posibles",
+      "D": "Almacenar temporalmente datos durante la ejecución del algoritmo"
+    },
+    "respuesta_correcta": "B",
+    "dificultad": 2,
+    "categoria": "Diagramas de Flujo",
+    "explicacion": "Según la guía, el conector (círculo) señala que la salida de un proceso determinado sirve como entrada para otro proceso distinto, y dentro del círculo se escribe el nombre del proceso al que se vincula el flujo. Es un símbolo de enlace, no de decisión ni de inicio/fin."
+  },
+  {
+    "id": "guia_hist_002",
+    "pregunta": "La guía menciona tres hitos entre 1843 y 1941. ¿Cuál es el orden cronológico correcto?",
+    "opciones": {
+      "A": "Máquina de Turing (1936) → Algoritmo de Lovelace (1843) → Z3 de Zuse (1941)",
+      "B": "Z3 de Zuse (1941) → Algoritmo de Lovelace (1843) → Máquina de Turing (1936)",
+      "C": "Algoritmo de Lovelace (1843) → Máquina de Turing (1936) → Z3 de Zuse (1941)",
+      "D": "Algoritmo de Lovelace (1843) → Z3 de Zuse (1941) → Máquina de Turing (1936)"
+    },
+    "respuesta_correcta": "C",
+    "dificultad": 2,
+    "categoria": "Historia de la Computación",
+    "explicacion": "El orden cronológico correcto es: Ada Lovelace escribió el primer algoritmo (1843) → Alan Turing presentó la Máquina de Turing (1936) → Konrad Zuse construyó la Z3 (1941). Esta secuencia marca la progresión del concepto teórico de algoritmo hacia las bases teóricas de la computación y finalmente su primera realización física programable."
+  },
+  {
+    "id": "guia_algo_004",
+    "pregunta": "Según la guía, ¿cuál es la diferencia fundamental entre un 'algoritmo' y la 'algoritmia'?",
+    "opciones": {
+      "A": "Un algoritmo es exclusivo de las computadoras, mientras que la algoritmia aplica a procesos manuales",
+      "B": "El algoritmo es la secuencia de pasos para resolver un problema; la algoritmia es la disciplina científica que estudia, diseña y optimiza esos algoritmos",
+      "C": "Son conceptos equivalentes; la guía los usa indistintamente",
+      "D": "La algoritmia es un tipo específico de algoritmo aplicado al análisis de datos"
+    },
+    "respuesta_correcta": "B",
+    "dificultad": 2,
+    "categoria": "Algoritmos y Algoritmia",
+    "explicacion": "La guía establece una distinción precisa: un algoritmo es la secuencia finita y ordenada de pasos para resolver un problema concreto, mientras que la algoritmia es la disciplina científica que se encarga del estudio, diseño, análisis y optimización de dichos algoritmos para garantizar su efectividad."
+  },
+  {
+    "id": "guia_busq_001",
+    "pregunta": "Según la guía, ¿en qué consiste la lógica de funcionamiento de un algoritmo de búsqueda secuencial?",
+    "opciones": {
+      "A": "Divide la lista en mitades sucesivas hasta encontrar el elemento buscado",
+      "B": "Ordena la lista antes de realizar cualquier búsqueda para mayor eficiencia",
+      "C": "Compara secuencialmente cada elemento de una lista desde el principio hasta encontrar el valor objetivo o agotar los elementos",
+      "D": "Accede directamente al elemento por su posición calculada matemáticamente"
+    },
+    "respuesta_correcta": "C",
+    "dificultad": 2,
+    "categoria": "Algoritmos y Búsqueda",
+    "explicacion": "La guía describe la búsqueda secuencial (o lineal) como un método que comprueba cada elemento de una lista de forma sucesiva hasta encontrar el valor objetivo o agotar los elementos. Opera de principio a fin comparando el valor buscado con cada posición, lo que le da complejidad O(n)."
+  },
+  {
+    "id": "guia_bigo_004",
+    "pregunta": "La guía menciona la complejidad O(2^n) como 'exponencial'. Analice por qué esta clase de algoritmos se considera más problemática que O(n²) para entradas grandes.",
+    "opciones": {
+      "A": "Porque O(2^n) siempre es más lenta que O(n²) para cualquier tamaño de n, incluso para n=1",
+      "B": "Porque el crecimiento exponencial supera al cuadrático a partir de cierto valor de n: con n=10, O(2^n) implica 1.024 operaciones frente a 100 de O(n²)",
+      "C": "Porque O(2^n) solo aplica a problemas de ordenamiento, que son siempre más costosos",
+      "D": "No hay diferencia práctica entre O(2^n) y O(n²) para conjuntos de datos del mundo real"
+    },
+    "respuesta_correcta": "B",
+    "dificultad": 3,
+    "categoria": "Notación Big O y Complejidad",
+    "explicacion": "El crecimiento exponencial supera al cuadrático para valores medianos de n: con n=10, O(n²) implica 100 operaciones mientras que O(2^n) implica 1.024. Con n=20, la diferencia es aún más dramática: O(n²) da 400 y O(2^n) da más de un millón. La guía señala que O(2^n) se aplica, por ejemplo, a la generación de subconjuntos, un problema de crecimiento explosivo."
+  },
+  {
+    "id": "guia_bigo_005",
+    "pregunta": "La guía distingue entre O(n), O(n²) y O(n!). Si un algoritmo resuelve un problema de n=5 elementos en tiempo razonable con complejidad O(n!), ¿qué ocurre al escalar a n=15?",
+    "opciones": {
+      "A": "El tiempo de ejecución aumenta linealmente y sigue siendo manejable",
+      "B": "El tiempo se triplica, lo cual es aceptable para aplicaciones comerciales",
+      "C": "El número de operaciones pasa de 120 a más de 1.3 billones, volviéndose computacionalmente inviable",
+      "D": "No hay cambio significativo porque la notación Big O solo aplica a entradas mayores a 1.000 elementos"
+    },
+    "respuesta_correcta": "C",
+    "dificultad": 3,
+    "categoria": "Notación Big O y Complejidad",
+    "explicacion": "Con n=5, O(n!) implica 5! = 120 operaciones. Con n=15, implica 15! = 1.307.674.368.000 (más de 1.3 billones) de operaciones. Este crecimiento factorial explosivo es precisamente la razón por la que la guía afirma que O(n!) es 'impracticable para conjuntos de datos grandes', como en la generación de permutaciones."
+  },
+  {
+    "id": "guia_diag_002",
+    "pregunta": "Según la guía, el óvalo en un diagrama de flujo indica exclusivamente el Inicio y el Fin del algoritmo. ¿Qué error conceptual cometería un estudiante que lo use también para representar operaciones intermedias?",
+    "opciones": {
+      "A": "Ningún error: el óvalo puede usarse en cualquier parte del diagrama según conveniencia",
+      "B": "Viola la simbología estandarizada, confundiendo los límites del proceso con pasos de ejecución, lo que impide identificar dónde comienza y termina el algoritmo",
+      "C": "Solo sería un error estético sin impacto en la comprensión del diagrama",
+      "D": "Generaría un error de compilación si el diagrama se convierte a código"
+    },
+    "respuesta_correcta": "B",
+    "dificultad": 3,
+    "categoria": "Diagramas de Flujo",
+    "explicacion": "El óvalo tiene una función simbólica exclusiva: delimitar el Inicio y el Fin del proceso. Usarlo en operaciones intermedias viola la simbología estandarizada que, según la guía, facilita 'la comunicación técnica y la identificación de errores en procesos complejos'. La estandarización de símbolos es justamente lo que permite que un diagrama sea interpretable universalmente."
+  },
+  {
+    "id": "guia_hist_003",
+    "pregunta": "Según la guía, la Máquina de Turing (1936) 'estableció las bases teóricas de la computación'. ¿En qué se diferencia esta contribución de la de Konrad Zuse con la Z3 (1941)?",
+    "opciones": {
+      "A": "La Máquina de Turing fue un dispositivo físico más pequeño que la Z3",
+      "B": "La Máquina de Turing fue una aportación teórico-matemática sobre los límites de la computación; la Z3 fue la primera computadora programable construida físicamente",
+      "C": "Zuse diseñó la Z3 basándose directamente en los planos físicos de la Máquina de Turing",
+      "D": "Ambas contribuciones son equivalentes; solo difieren en el país de origen"
+    },
+    "respuesta_correcta": "B",
+    "dificultad": 3,
+    "categoria": "Historia de la Computación",
+    "explicacion": "Según la guía, la Máquina de Turing fue un modelo teórico que estableció las bases formales de qué puede y no puede computar una máquina, mientras que la Z3 de Zuse (1941) fue la primera computadora programable construida físicamente. La distinción teoría-práctica es clave: Turing definió el marco conceptual, Zuse lo materializó."
+  },
+  {
+    "id": "guia_algo_005",
+    "pregunta": "La guía define la programación como el proceso de diseñar e implementar instrucciones para ser ejecutadas por una computadora. Dado el contexto del glosario, ¿cuál de las siguientes opciones describe mejor la relación jerárquica entre 'algoritmo', 'programación' y 'compilador'?",
+    "opciones": {
+      "A": "El compilador genera algoritmos, que luego son implementados mediante la programación",
+      "B": "El algoritmo es la solución lógica diseñada previamente; la programación lo implementa en un lenguaje; el compilador traduce ese lenguaje a instrucciones ejecutables por la máquina",
+      "C": "La programación y el algoritmo son procesos paralelos independientes que el compilador une al final",
+      "D": "El compilador y el algoritmo son sinónimos dentro del contexto de la programación"
+    },
+    "respuesta_correcta": "B",
+    "dificultad": 4,
+    "categoria": "Algoritmos y Algoritmia",
+    "explicacion": "La relación jerárquica correcta según los términos del glosario es: primero se diseña el algoritmo (secuencia lógica de pasos), luego la programación lo implementa en un lenguaje concreto, y finalmente el compilador traduce ese código a instrucciones que la máquina puede procesar directamente. El compilador no diseña ni genera algoritmos; únicamente traduce entre niveles de lenguaje."
+  },
+  {
+    "id": "guia_bigo_006",
+    "pregunta": "La guía presenta las complejidades O(1), O(n) y O(n²). Si se requiere diseñar un sistema de consulta de datos de alta demanda donde el rendimiento es crítico, ¿cuál es la jerarquía de preferencia correcta y por qué?",
+    "opciones": {
+      "A": "O(n²) > O(n) > O(1), porque más operaciones garantizan mayor precisión en los resultados",
+      "B": "O(1) > O(n) > O(n²), porque O(1) es tiempo constante independiente del tamaño de la entrada, O(n) crece linealmente y O(n²) crece cuadráticamente",
+      "C": "O(n) > O(1) > O(n²), porque el crecimiento lineal permite escalar mejor que el acceso constante",
+      "D": "Todas las complejidades son equivalentes en entornos de alta demanda con hardware moderno"
+    },
+    "respuesta_correcta": "B",
+    "dificultad": 4,
+    "categoria": "Notación Big O y Complejidad",
+    "explicacion": "La jerarquía de eficiencia correcta es O(1) > O(n) > O(n²). O(1) representa tiempo constante: sin importar cuánto crezca la entrada, el tiempo de ejecución no varía. O(n) crece proporcionalmente al tamaño, y O(n²) crece cuadráticamente. Para sistemas de alta demanda, la guía señala que pasar de complejidades cuadráticas a lineales o constantes es crucial no solo para la velocidad sino para la gestión de recursos computacionales."
+  },
+  {
+    "id": "guia_algo_006",
+    "pregunta": "Según la guía, la algoritmia garantiza 'precisión y consistencia' en los algoritmos. Desde esta perspectiva, ¿cuál sería la consecuencia de un algoritmo que carece de la propiedad de 'secuencia finita' en su definición?",
+    "opciones": {
+      "A": "El algoritmo sería más eficiente al no tener un límite de pasos",
+      "B": "El algoritmo nunca terminaría su ejecución, entrando en un ciclo infinito que impide resolver el problema",
+      "C": "El algoritmo funcionaría correctamente pero con mayor consumo de memoria",
+      "D": "La propiedad de finitud es opcional; solo importa que los pasos sean ordenados"
+    },
+    "respuesta_correcta": "B",
+    "dificultad": 4,
+    "categoria": "Algoritmos y Algoritmia",
+    "explicacion": "La guía define un algoritmo como una secuencia 'finita' de pasos, y esta propiedad no es accidental: sin finitud, el algoritmo entraría en un ciclo infinito y nunca produciría una solución. Esto está directamente relacionado con el 'problema de la parada' explorado teóricamente por Turing: determinar si un algoritmo terminará es en sí mismo un problema de fundamental importancia en la algoritmia."
+  },
+  {
+    "id": "guia_int_001",
+    "pregunta": "Integrando los conceptos de Big O y búsqueda secuencial de la guía: si se reemplaza la búsqueda secuencial O(n) por un algoritmo de acceso directo O(1) en un sistema con un millón de registros, ¿cuál es la implicación más precisa de este cambio?",
+    "opciones": {
+      "A": "El tiempo de búsqueda disminuye a la mitad, ya que O(1) es exactamente 0.5 × O(n)",
+      "B": "El tiempo de búsqueda pasa de depender del tamaño de la entrada a ser completamente constante, lo que significa que buscar entre un millón o entre diez registros toma el mismo tiempo",
+      "C": "La mejora solo es notable cuando la entrada supera los 10 millones de registros",
+      "D": "O(1) no es aplicable a problemas de búsqueda; solo aplica a ordenamiento"
+    },
+    "respuesta_correcta": "B",
+    "dificultad": 5,
+    "categoria": "Notación Big O y Complejidad",
+    "explicacion": "La distinción clave entre O(n) y O(1) no es una reducción porcentual sino un cambio cualitativo en la naturaleza del crecimiento. Con O(n), buscar en un millón de registros puede requerir hasta un millón de comparaciones; con O(1), el tiempo es constante e independiente del tamaño. La búsqueda secuencial de la guía es O(n) porque recorre elementos uno a uno; un algoritmo O(1) accede directamente sin recorrer la estructura."
+  },
+  {
+    "id": "guia_int_002",
+    "pregunta": "La guía menciona que la algoritmia estudia la 'optimización' de algoritmos y que la Notación Big O mide el crecimiento asintótico. Considerando que Ada Lovelace escribió el primer algoritmo (1843) y Grace Hopper creó el primer compilador (1951), ¿qué hilo conceptual une ambas contribuciones con el análisis Big O moderno?",
+    "opciones": {
+      "A": "No existe ningún hilo conceptual; son contribuciones de épocas distintas sin relación",
+      "B": "Las tres contribuciones son parte del mismo proceso histórico de abstracción: Lovelace formalizó la instrucción lógica, Hopper permitió expresarla en lenguaje humano, y Big O proporciona la métrica para evaluar si esa instrucción es óptima",
+      "C": "El único vínculo es que las tres pertenecen a la historia de la computación, pero abordan problemas completamente diferentes",
+      "D": "Lovelace y Hopper trabajaron directamente con la Notación Big O en sus respectivas épocas"
+    },
+    "respuesta_correcta": "B",
+    "dificultad": 5,
+    "categoria": "Algoritmos y Algoritmia",
+    "explicacion": "Las tres contribuciones representan capas sucesivas en la evolución del pensamiento algorítmico: Lovelace formalizó que una máquina puede ejecutar instrucciones codificadas (el algoritmo como concepto), Hopper creó el puente entre el lenguaje humano y la máquina (el compilador como traductor), y la Notación Big O provee la herramienta analítica para evaluar si el algoritmo implementado y compilado es eficiente en términos de recursos. Son niveles complementarios: conceptualización, implementación y evaluación de la eficiencia."
+  },
+  {
+    "id": "fib_001",
+    "pregunta": "Dada la sucesión de Fibonacci definida por F(0)=0, F(1)=1 y F(n)=F(n-1)+F(n-2), ¿cuál es el valor de F(6)?",
+    "opciones": {
+      "A": "6",
+      "B": "7",
+      "C": "8",
+      "D": "5"
+    },
+    "respuesta_correcta": "C",
+    "dificultad": 1,
+    "categoria": "Sucesión de Fibonacci",
+    "explicacion": "Aplicando la regla paso a paso: F(2)=1, F(3)=2, F(4)=3, F(5)=5, F(6)=8. Cada término es la suma de los dos anteriores. Seguir la secuencia sin saltarse pasos es el hábito algorítmico clave aquí."
+  },
+  {
+    "id": "fib_002",
+    "pregunta": "¿Cuál de los siguientes números NO pertenece a la sucesión de Fibonacci (0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55...)?",
+    "opciones": {
+      "A": "21",
+      "B": "34",
+      "C": "40",
+      "D": "55"
+    },
+    "respuesta_correcta": "C",
+    "dificultad": 1,
+    "categoria": "Sucesión de Fibonacci",
+    "explicacion": "Los términos después de 34 son 55 (34+21), luego 89 (55+34). El número 40 nunca aparece en la sucesión porque no es suma de dos términos consecutivos consecutivos válidos. Verificar pertenencia a una sucesión es un problema de reconocimiento de patrones fundamental."
+  },
+  {
+    "id": "fib_003",
+    "pregunta": "Se sabe que F(9)=34 y F(10)=55. Sin reconstruir toda la sucesión desde el inicio, ¿cuál es F(11)?",
+    "opciones": {
+      "A": "75",
+      "B": "80",
+      "C": "89",
+      "D": "99"
+    },
+    "respuesta_correcta": "C",
+    "dificultad": 2,
+    "categoria": "Sucesión de Fibonacci",
+    "explicacion": "Por la regla F(n)=F(n-1)+F(n-2): F(11)=F(10)+F(9)=55+34=89. Esta pregunta evalúa que el estudiante puede aplicar la recurrencia localmente sin necesitar recalcular desde F(0), habilidad esencial para entender algoritmos iterativos eficientes."
+  },
+  {
+    "id": "fib_004",
+    "pregunta": "Considere el siguiente pseudocódigo:\na = 0\nb = 1\nRepetir 5 veces:\n  temp = a + b\n  a = b\n  b = temp\nImprimir b\n¿Qué valor imprime este algoritmo?",
+    "opciones": {
+      "A": "5",
+      "B": "8",
+      "C": "13",
+      "D": "21"
+    },
+    "respuesta_correcta": "B",
+    "dificultad": 2,
+    "categoria": "Sucesión de Fibonacci",
+    "explicacion": "Ejecutando el algoritmo: (a,b)=(0,1)→(1,1)→(1,2)→(2,3)→(3,5)→(5,8). Después de 5 iteraciones, b=8=F(6). Este pseudocódigo implementa Fibonacci de forma iterativa sin recurrir a funciones recursivas, y trazarlo a mano es el ejercicio de depuración más básico."
+  },
+  {
+    "id": "fib_005",
+    "pregunta": "Se calcula el cociente F(n+1)/F(n) para varios términos consecutivos de Fibonacci. Se obtiene: F(8)/F(7)=21/13≈1.615 y F(10)/F(9)=55/34≈1.618. ¿Hacia qué valor conocido converge este cociente al aumentar n?",
+    "opciones": {
+      "A": "Al número π ≈ 3.14159",
+      "B": "Al número e ≈ 2.71828",
+      "C": "A la razón áurea φ ≈ 1.61803",
+      "D": "A la raíz cuadrada de 2 ≈ 1.41421"
+    },
+    "respuesta_correcta": "C",
+    "dificultad": 3,
+    "categoria": "Sucesión de Fibonacci",
+    "explicacion": "El cociente de términos consecutivos de Fibonacci converge a la razón áurea φ=(1+√5)/2≈1.61803. Esto establece un vínculo profundo entre dos patrones aparentemente independientes. La convergencia no es inmediata: los primeros cocientes oscilan (2.0, 1.5, 1.667, 1.6...) pero se acercan progresivamente a φ."
+  },
+  {
+    "id": "fib_006",
+    "pregunta": "Un estudiante afirma: 'Para calcular F(20) con la función recursiva fib(n)=fib(n-1)+fib(n-2), la computadora solo hace 20 operaciones de suma.' ¿Es correcta esta afirmación?",
+    "opciones": {
+      "A": "Sí, porque solo hay 20 términos antes de F(20)",
+      "B": "No, porque cada llamada genera dos llamadas más, produciendo miles de operaciones redundantes",
+      "C": "Sí, si el procesador es suficientemente rápido",
+      "D": "No, pero solo porque la suma de números grandes tarda más tiempo"
+    },
+    "respuesta_correcta": "B",
+    "dificultad": 3,
+    "categoria": "Sucesión de Fibonacci",
+    "explicacion": "La afirmación es incorrecta. La recursión naíf calcula los mismos subproblemas repetidamente: fib(18) se calcula dos veces, fib(17) tres veces, etc. El número total de llamadas crece exponencialmente (≈O(2^n)), resultando en alrededor de 21.891 llamadas para F(20), no 20. Esto ilustra por qué el enfoque iterativo es preferible en la práctica."
+  },
+  {
+    "id": "fib_007",
+    "pregunta": "El algoritmo iterativo de Fibonacci usa O(n) operaciones. El algoritmo recursivo naíf usa O(2^n). Si calcular F(10) con el método iterativo toma 10 pasos, ¿cuántos pasos aproximados requiere el recursivo naíf?",
+    "opciones": {
+      "A": "20 pasos",
+      "B": "100 pasos",
+      "C": "512 pasos",
+      "D": "1.024 pasos"
+    },
+    "respuesta_correcta": "D",
+    "dificultad": 4,
+    "categoria": "Sucesión de Fibonacci",
+    "explicacion": "Con complejidad O(2^n), para n=10 el número de operaciones es aproximadamente 2^10=1.024. Comparado con los 10 pasos del método iterativo, esto es una diferencia de factor 100. Esta comparación concreta muestra por qué la notación Big O importa: el mismo resultado pero con costo computacional radicalmente diferente."
+  },
+  {
+    "id": "fib_008",
+    "pregunta": "Una empresa diseña un algoritmo que guarda en memoria cada término F(n) ya calculado para no recalcularlo. Para calcular F(30), ¿cuántos valores distintos necesita almacenar como máximo este algoritmo?",
+    "opciones": {
+      "A": "2 valores (solo los dos últimos)",
+      "B": "31 valores (F(0) hasta F(30))",
+      "C": "2^30 valores",
+      "D": "900 valores"
+    },
+    "respuesta_correcta": "B",
+    "dificultad": 4,
+    "categoria": "Sucesión de Fibonacci",
+    "explicacion": "Este enfoque se llama 'memorización' (memoization): se almacenan los 31 valores F(0) a F(30) para evitar recálculos. Comparado con guardar solo los 2 últimos valores (enfoque iterativo puro) o los 2^30 del árbol recursivo, almacenar 31 valores es muy eficiente. Esto ilustra el equilibrio clásico entre uso de memoria y velocidad de cómputo."
+  },
+  {
+    "id": "phi_001",
+    "pregunta": "La razón áurea se define como φ=(1+√5)/2. Usando √5≈2.236, ¿cuál es el valor aproximado de φ?",
+    "opciones": {
+      "A": "1.414",
+      "B": "1.618",
+      "C": "1.732",
+      "D": "2.236"
+    },
+    "respuesta_correcta": "B",
+    "dificultad": 1,
+    "categoria": "Razón Áurea",
+    "explicacion": "Sustituyendo: φ=(1+2.236)/2=3.236/2=1.618. El valor exacto es φ=1.61803... Esta constante irracional aparece en la geometría, el arte, la naturaleza y está matemáticamente vinculada con la sucesión de Fibonacci."
+  },
+  {
+    "id": "phi_002",
+    "pregunta": "La razón áurea satisface la propiedad φ²=φ+1. Dado φ≈1.618, ¿cuál es el valor numérico de φ²?",
+    "opciones": {
+      "A": "2.000",
+      "B": "2.414",
+      "C": "2.618",
+      "D": "3.236"
+    },
+    "respuesta_correcta": "C",
+    "dificultad": 2,
+    "categoria": "Razón Áurea",
+    "explicacion": "Por la propiedad φ²=φ+1: φ²=1.618+1=2.618. Se puede verificar directamente: 1.618²≈2.618. Esta propiedad autorreferencial de φ hace que sea la única constante positiva donde el cuadrado supera al número original exactamente en 1."
+  },
+  {
+    "id": "phi_003",
+    "pregunta": "Otra propiedad de φ es que 1/φ=φ-1. Dado φ≈1.618, ¿cuánto vale 1/φ?",
+    "opciones": {
+      "A": "0.500",
+      "B": "0.618",
+      "C": "0.718",
+      "D": "1.000"
+    },
+    "respuesta_correcta": "B",
+    "dificultad": 2,
+    "categoria": "Razón Áurea",
+    "explicacion": "Por la propiedad 1/φ=φ-1: 1/φ=1.618-1=0.618. Verificando: 1/1.618≈0.618 ✓. Esto es único para φ: la parte decimal de φ y la de 1/φ son idénticas (ambas son 0.61803...), propiedad que no comparte ningún otro número irracional conocido."
+  },
+  {
+    "id": "phi_004",
+    "pregunta": "La tabla muestra cocientes F(n+1)/F(n) de Fibonacci:\nF(4)/F(3)=3/2=1.500\nF(6)/F(5)=8/5=1.600\nF(8)/F(7)=21/13≈1.615\nF(10)/F(9)=55/34≈1.618\n¿Qué patrón describe mejor este comportamiento?",
+    "opciones": {
+      "A": "El cociente crece sin límite a medida que n aumenta",
+      "B": "El cociente oscila entre 1.5 y 1.7 sin converger",
+      "C": "El cociente se acerca progresivamente a φ≈1.618 desde valores por debajo y por encima",
+      "D": "El cociente siempre es exactamente φ para cualquier n"
+    },
+    "respuesta_correcta": "C",
+    "dificultad": 3,
+    "categoria": "Razón Áurea",
+    "explicacion": "El patrón correcto es la convergencia alternada hacia φ: los cocientes de índice par se acercan desde abajo (1.500, 1.600, 1.615...) y los de índice impar desde arriba. Esto es convergencia, no estabilidad instantánea. La diferencia entre el cociente y φ disminuye con cada nuevo término, lo que es el concepto de límite en acción."
+  },
+  {
+    "id": "phi_005",
+    "pregunta": "Un rectángulo 'áureo' tiene la propiedad de que si se le retira un cuadrado de lado igual a su lado menor, el rectángulo restante también es áureo. Si el lado menor mide 10 cm, ¿cuánto mide el lado mayor?",
+    "opciones": {
+      "A": "14.14 cm",
+      "B": "15.00 cm",
+      "C": "16.18 cm",
+      "D": "17.32 cm"
+    },
+    "respuesta_correcta": "C",
+    "dificultad": 3,
+    "categoria": "Razón Áurea",
+    "explicacion": "Si la proporción lado mayor/lado menor = φ≈1.618, entonces el lado mayor = 10×1.618=16.18 cm. Verificando la propiedad: al retirar un cuadrado de 10×10, queda un rectángulo de 10×6.18, cuya proporción es 10/6.18≈1.618 ✓. La autosimilitud es la clave del rectángulo áureo."
+  },
+  {
+    "id": "phi_006",
+    "pregunta": "Un algoritmo calcula φ usando la iteración xₙ₊₁=1+1/xₙ, empezando con x₀=1. ¿Qué valor produce x₂?",
+    "opciones": {
+      "A": "1.333",
+      "B": "1.500",
+      "C": "1.600",
+      "D": "1.667"
+    },
+    "respuesta_correcta": "B",
+    "dificultad": 4,
+    "categoria": "Razón Áurea",
+    "explicacion": "Calculando paso a paso: x₀=1 → x₁=1+1/1=2 → x₂=1+1/2=1.5. Si se continua: x₃=1+1/1.5=1.667, x₄=1+1/1.667≈1.600, x₅≈1.625... La secuencia converge a φ≈1.618. Este es un algoritmo iterativo de punto fijo, y la solución de la ecuación x=1+1/x es exactamente φ."
+  },
+  {
+    "id": "euler_001",
+    "pregunta": "La constante de Euler se puede aproximar con la serie: e = 1/0! + 1/1! + 1/2! + 1/3! + ... donde n!=n×(n-1)×...×1 y 0!=1. ¿Cuál es la suma de los primeros 3 términos (n=0, 1, 2)?",
+    "opciones": {
+      "A": "2.000",
+      "B": "2.500",
+      "C": "2.667",
+      "D": "2.718"
+    },
+    "respuesta_correcta": "B",
+    "dificultad": 1,
+    "categoria": "Número de Euler",
+    "explicacion": "Los primeros tres términos son: 1/0!=1, 1/1!=1, 1/2!=0.5. Su suma es 1+1+0.5=2.5. El valor exacto de e≈2.71828, por lo que con solo 3 términos ya se obtiene una aproximación con error menor a 0.22. Cada término adicional reduce el error sustancialmente."
+  },
+  {
+    "id": "euler_002",
+    "pregunta": "¿Cuál es el 5° término (n=4) de la serie de Euler e=Σ(1/n!)?",
+    "opciones": {
+      "A": "1/12 ≈ 0.0833",
+      "B": "1/24 ≈ 0.0417",
+      "C": "1/48 ≈ 0.0208",
+      "D": "1/120 ≈ 0.0083"
+    },
+    "respuesta_correcta": "B",
+    "dificultad": 1,
+    "categoria": "Número de Euler",
+    "explicacion": "El término n=4 es 1/4!=1/(4×3×2×1)=1/24≈0.0417. Nótese que 4!=24, no 4×4=16. El factorial crece muy rápido, lo que hace que cada término sucesivo sea mucho más pequeño y la serie converja rápidamente."
+  },
+  {
+    "id": "euler_003",
+    "pregunta": "Calcule la suma parcial de la serie de Euler sumando los términos n=0, 1, 2, 3. Dado que 1/3!=1/6≈0.1667, ¿cuánto vale esta suma?",
+    "opciones": {
+      "A": "2.500",
+      "B": "2.667",
+      "C": "2.708",
+      "D": "2.718"
+    },
+    "respuesta_correcta": "B",
+    "dificultad": 2,
+    "categoria": "Número de Euler",
+    "explicacion": "Sumando cuatro términos: 1+1+0.5+0.1667=2.6667. El valor real de e≈2.7183, así que el error es ≈0.052. Comparando con los 3 términos que daban 2.5 (error ≈0.22), agregar un término redujo el error en más del 75%, lo que muestra la rápida convergencia de esta serie."
+  },
+  {
+    "id": "euler_004",
+    "pregunta": "Cada término de la serie e=Σ(1/n!) se obtiene del término anterior multiplicando por un factor. ¿Cuál es el factor que transforma el término n=3 en el término n=4?",
+    "opciones": {
+      "A": "Multiplicar por 1/3",
+      "B": "Multiplicar por 1/4",
+      "C": "Restar 1/12",
+      "D": "Dividir entre 2"
+    },
+    "respuesta_correcta": "B",
+    "dificultad": 2,
+    "categoria": "Número de Euler",
+    "explicacion": "El término n es 1/n! y el término n+1 es 1/(n+1)!. Su cociente es [1/(n+1)!]/[1/n!] = n!/(n+1)! = 1/(n+1). Para pasar de n=3 a n=4, el factor es 1/4. Este patrón permite calcular cada término dividiendo el anterior entre el índice siguiente, sin recalcular el factorial completo."
+  },
+  {
+    "id": "euler_005",
+    "pregunta": "Un algoritmo suma términos de la serie e=Σ(1/n!) mientras el término actual sea mayor que 0.01. ¿En qué término n se detiene (el primero cuyo valor es menor a 0.01)?",
+    "opciones": {
+      "A": "n=4 (1/24≈0.042)",
+      "B": "n=5 (1/120≈0.0083)",
+      "C": "n=3 (1/6≈0.167)",
+      "D": "n=6 (1/720≈0.0014)"
+    },
+    "respuesta_correcta": "B",
+    "dificultad": 3,
+    "categoria": "Número de Euler",
+    "explicacion": "Verificando: 1/4!=1/24≈0.0417>0.01 (continua), 1/5!=1/120≈0.0083<0.01 (se detiene). El algoritmo suma los términos n=0,1,2,3,4 (suma=2.7083) y al calcular n=5 lo descarta por ser menor al umbral. La suma acumulada hasta n=4 da 2.7083, con error de ≈0.01 respecto a e."
+  },
+  {
+    "id": "euler_006",
+    "pregunta": "Compare las sumas parciales de la serie de e después de 4 y de 7 términos:\n- Con 4 términos (n=0 a 3): suma≈2.667\n- Con 7 términos (n=0 a 6): suma≈2.718\n¿Cuántos dígitos decimales correctos de e≈2.71828 se obtienen con 7 términos?",
+    "opciones": {
+      "A": "Ninguno; 2.718 no coincide con e",
+      "B": "2 dígitos decimales correctos (2.71)",
+      "C": "3 dígitos decimales correctos (2.718)",
+      "D": "5 dígitos decimales correctos (2.71828)"
+    },
+    "respuesta_correcta": "C",
+    "dificultad": 3,
+    "categoria": "Número de Euler",
+    "explicacion": "Con 7 términos (n=0 a 6), la suma es 2.71806, y e=2.71828. Los tres primeros decimales (2.718) coinciden, pero el cuarto dígito ya difiere (0 vs 2). Esto es 3 dígitos decimales correctos. Agregar solo el séptimo término (1/720≈0.00139) mejoró la aproximación más que todos los términos anteriores juntos, mostrando la convergencia acelerada."
+  },
+  {
+    "id": "pi_001",
+    "pregunta": "La fórmula de Leibniz establece que π/4=1-1/3+1/5-1/7+1/9-... Dado que π≈3.14159, ¿cuánto vale aproximadamente π/4?",
+    "opciones": {
+      "A": "0.5000",
+      "B": "0.7071",
+      "C": "0.7854",
+      "D": "1.0000"
+    },
+    "respuesta_correcta": "C",
+    "dificultad": 1,
+    "categoria": "Número Pi",
+    "explicacion": "π/4 = 3.14159/4 ≈ 0.7854. La fórmula de Leibniz converge a este valor sumando fracciones de denominadores impares alternando signos: 1-0.333+0.2-0.143+... La suma de estos infinitos términos produce exactamente 0.7854, lo que multiplicado por 4 da π."
+  },
+  {
+    "id": "pi_002",
+    "pregunta": "En la serie de Leibniz π/4=1-1/3+1/5-1/7+..., ¿cuál es el patrón de los denominadores?",
+    "opciones": {
+      "A": "Números pares: 2, 4, 6, 8...",
+      "B": "Números impares: 1, 3, 5, 7...",
+      "C": "Números primos: 2, 3, 5, 7...",
+      "D": "Potencias de 2: 1, 2, 4, 8..."
+    },
+    "respuesta_correcta": "B",
+    "dificultad": 1,
+    "categoria": "Número Pi",
+    "explicacion": "Los denominadores son los números impares 1, 3, 5, 7, 9... en orden creciente, con signos alternados: +1/1, -1/3, +1/5, -1/7... El n-ésimo término es (-1)^(n+1)/(2n-1) para n=1, 2, 3... Identificar este patrón permite a un algoritmo generar cada término sin conocer los anteriores."
+  },
+  {
+    "id": "pi_003",
+    "pregunta": "Usando los primeros 3 términos de Leibniz: π≈4×(1-1/3+1/5). ¿Cuánto da esta aproximación?",
+    "opciones": {
+      "A": "2.667",
+      "B": "3.200",
+      "C": "3.467",
+      "D": "3.667"
+    },
+    "respuesta_correcta": "C",
+    "dificultad": 2,
+    "categoria": "Número Pi",
+    "explicacion": "Calculando: 1-1/3+1/5 = 1-0.3333+0.2=0.8667. Multiplicando por 4: 4×0.8667≈3.467. El error respecto a π≈3.14159 es de ≈0.325, lo cual es bastante grande. Esto muestra que la serie de Leibniz converge muy lentamente comparada con la serie de Euler."
+  },
+  {
+    "id": "pi_004",
+    "pregunta": "Las aproximaciones de π por la serie de Leibniz oscilan alrededor del valor real: 4.000, 2.667, 3.467, 2.895, 3.340... ¿Qué característica de la serie produce este comportamiento oscilante?",
+    "opciones": {
+      "A": "Los denominadores crecen demasiado rápido",
+      "B": "Los signos alternados (+, -, +, -) hacen que cada término corrija la sobrestimación o subestimación del anterior",
+      "C": "La serie es divergente y por eso oscila sin converger",
+      "D": "El error se debe a que π no es calculable exactamente"
+    },
+    "respuesta_correcta": "B",
+    "dificultad": 3,
+    "categoria": "Número Pi",
+    "explicacion": "Los signos alternados son la causa directa de la oscilación: cada término positivo 'sobreestima' y cada término negativo 'subestima'. La serie converge, pero lo hace lentamente porque los términos (1/1, 1/3, 1/5...) decrecen muy despacio. Comparado con la serie de e donde los términos decrecen como 1/n!, la convergencia de Leibniz es mucho más lenta."
+  },
+  {
+    "id": "pi_005",
+    "pregunta": "Un algoritmo calcula π usando Leibniz y se detiene cuando el error respecto a π sea menor a 0.1. El n-ésimo término de la serie es 4/(2n-1). ¿Aproximadamente cuántos términos se necesitan para que el término sea menor a 0.1?",
+    "opciones": {
+      "A": "Aproximadamente 5 términos",
+      "B": "Aproximadamente 20 términos",
+      "C": "Aproximadamente 200 términos",
+      "D": "Exactamente 4 términos"
+    },
+    "respuesta_correcta": "B",
+    "dificultad": 4,
+    "categoria": "Número Pi",
+    "explicacion": "El n-ésimo término es 4/(2n-1)<0.1, lo que implica 2n-1>40, es decir n>20.5, entonces n≈21 términos. Esto contrasta enormemente con la serie de Euler, que requería solo 5 o 6 términos para precisión similar. La lenta convergencia de Leibniz (O(1/n)) es el ejemplo clásico de por qué la elección del algoritmo importa tanto como la exactitud del resultado."
+  },
+  {
+    "id": "fib_009",
+    "pregunta": "La secuencia 2, 1, 3, 4, 7, 11, 18, 29, 47... sigue la misma regla que Fibonacci pero arranca con valores distintos. ¿Cuál sería el término siguiente a 47?",
+    "opciones": {
+      "A": "58",
+      "B": "66",
+      "C": "76",
+      "D": "94"
+    },
+    "respuesta_correcta": "C",
+    "dificultad": 2,
+    "categoria": "Sucesión de Fibonacci",
+    "explicacion": "La regla es la misma: cada término es la suma de los dos anteriores. Entonces el término que sigue a 47 es 29+47=76. Esta secuencia se llama secuencia de Lucas y, a pesar de empezar diferente, comparte la misma regla de recurrencia que Fibonacci. Su existencia demuestra que la regla F(n)=F(n-1)+F(n-2) puede producir infinitas secuencias distintas dependiendo de los valores iniciales."
+  },
+  {
+    "id": "fib_010",
+    "pregunta": "Observe este pseudocódigo:\na, b = 0, 1\ncontador = 0\nMientras b < 50:\n  a, b = b, a+b\n  contador = contador + 1\nImprimir contador\n¿Qué imprime el programa?",
+    "opciones": {
+      "A": "8",
+      "B": "9",
+      "C": "10",
+      "D": "11"
+    },
+    "respuesta_correcta": "B",
+    "dificultad": 3,
+    "categoria": "Sucesión de Fibonacci",
+    "explicacion": "Trazando la ejecución: b toma los valores 1,1,2,3,5,8,13,21,34 (contador=9) y luego b=55≥50, por lo que el ciclo termina con contador=9. El ciclo cuenta cuántos términos de Fibonacci son menores a 50, que son exactamente F(1) hasta F(9)=34. Trazar un while con condición sobre la variable que se actualiza es un ejercicio de depuración esencial en algoritmia."
+  },
+  {
+    "id": "fib_011",
+    "pregunta": "Se sabe que F(12)=144 y F(11)=89. ¿Cuántos dígitos decimales correctos de φ≈1.61803 da el cociente F(12)/F(11)?",
+    "opciones": {
+      "A": "0 dígitos decimales",
+      "B": "2 dígitos decimales (1.61)",
+      "C": "4 dígitos decimales (1.6180)",
+      "D": "6 dígitos decimales (1.618033)"
+    },
+    "respuesta_correcta": "C",
+    "dificultad": 4,
+    "categoria": "Sucesión de Fibonacci",
+    "explicacion": "Calculando: 144/89=1.61798..., y φ=1.61803..., la diferencia es 0.00005. Los primeros cuatro decimales (1.6180) coinciden. Esto ilustra que la convergencia al coeficiente áureo es bastante rápida: con solo el 12° término de Fibonacci se obtiene φ correcto hasta el cuarto decimal, lo cual es suficiente para la mayoría de aplicaciones prácticas."
+  },
+  {
+    "id": "fib_012",
+    "pregunta": "Un biólogo modela el crecimiento de una colonia de bacterias: empieza con 1 bacteria, luego 1, luego cada generación es la suma de las dos anteriores (Fibonacci). Si F(10)=55, ¿cuántas bacterias habrá en la generación 12?",
+    "opciones": {
+      "A": "89",
+      "B": "110",
+      "C": "133",
+      "D": "144"
+    },
+    "respuesta_correcta": "D",
+    "dificultad": 5,
+    "categoria": "Sucesión de Fibonacci",
+    "explicacion": "Dado F(10)=55, calculamos: F(11)=F(10)+F(9). Como F(9)=34 (dato derivable desde la secuencia), F(11)=55+34=89. Luego F(12)=F(11)+F(10)=89+55=144. Esta pregunta evalúa la capacidad de usar información parcial para extender la secuencia, habilidad central en algoritmia: no siempre se comienza desde cero, sino desde el estado actual conocido."
+  },
+  {
+    "id": "phi_007",
+    "pregunta": "La ecuación x²=x+1 tiene como solución positiva a φ. Reorganizando como x²-x-1=0 y aplicando la fórmula cuadrática x=(-b±√(b²-4ac))/(2a), con a=1, b=-1, c=-1, ¿qué expresión resulta?",
+    "opciones": {
+      "A": "(1-√5)/2",
+      "B": "(1+√3)/2",
+      "C": "(1+√5)/2",
+      "D": "(-1+√5)/2"
+    },
+    "respuesta_correcta": "C",
+    "dificultad": 2,
+    "categoria": "Razón Áurea",
+    "explicacion": "Aplicando la fórmula: x=(1±√(1+4))/2=(1±√5)/2. La solución positiva es (1+√5)/2≈1.618=φ. Esta derivación muestra que φ no es una constante 'inventada' sino la solución natural a una ecuación algebraica sencilla, lo que explica por qué aparece en tantos contextos matemáticos y geométricos."
+  },
+  {
+    "id": "phi_008",
+    "pregunta": "Un cuadrado tiene lado de longitud φ≈1.618. ¿Cuánto mide su diagonal? Use √2≈1.414.",
+    "opciones": {
+      "A": "1.618",
+      "B": "2.000",
+      "C": "2.289",
+      "D": "2.618"
+    },
+    "respuesta_correcta": "C",
+    "dificultad": 3,
+    "categoria": "Razón Áurea",
+    "explicacion": "La diagonal de un cuadrado de lado L es L√2. Entonces: φ×√2≈1.618×1.414≈2.289. Este resultado no es ni φ² (≈2.618) ni 2φ (≈3.236), lo que ilustra que φ no tiene propiedades especiales en relación con la diagonal de cuadrados; su aparición geométrica más notable es en rectángulos, pentágonos y espirales."
+  },
+  {
+    "id": "phi_009",
+    "pregunta": "La secuencia de Lucas 2,1,3,4,7,11,18,29,47,76... también tiene cocientes consecutivos que convergen a φ. Calcule 18/11 y 29/18. ¿Qué se observa?",
+    "opciones": {
+      "A": "18/11≈1.636 y 29/18≈1.611; ambos se acercan a φ≈1.618 desde lados opuestos",
+      "B": "18/11≈1.636 y 29/18≈1.636; los cocientes son idénticos",
+      "C": "Ambos cocientes divergen; la secuencia de Lucas no converge a φ",
+      "D": "18/11≈1.636 y 29/18≈1.611; ambos están por debajo de φ y siguen bajando"
+    },
+    "respuesta_correcta": "A",
+    "dificultad": 4,
+    "categoria": "Razón Áurea",
+    "explicacion": "Calculando: 18/11≈1.6364 (por encima de φ) y 29/18≈1.6111 (por debajo de φ). Los cocientes oscilan alrededor de φ exactamente como en Fibonacci. Esto demuestra que cualquier secuencia que siga la regla aₙ=aₙ₋₁+aₙ₋₂, sin importar sus valores iniciales, tendrá cocientes consecutivos que convergen a φ. La razón áurea es una propiedad de la regla, no de los valores iniciales."
+  },
+  {
+    "id": "phi_010",
+    "pregunta": "Use la propiedad φ²=φ+1 para calcular φ⁴ sin elevar al cuadrado directamente. Primero calcule φ²=φ+1≈2.618, luego use que φ⁴=(φ²)²=(φ+1)²=φ²+2φ+1. ¿Cuánto vale φ⁴?",
+    "opciones": {
+      "A": "4.236",
+      "B": "5.236",
+      "C": "6.854",
+      "D": "7.000"
+    },
+    "respuesta_correcta": "C",
+    "dificultad": 5,
+    "categoria": "Razón Áurea",
+    "explicacion": "Desarrollando: φ⁴=(φ+1)²=φ²+2φ+1=(φ+1)+2φ+1=3φ+2≈3(1.618)+2=4.854+2=6.854. Verificación directa: 1.618⁴≈6.854 ✓. Esta técnica de aprovechar la propiedad algebraica de φ para evitar cálculos directos es un ejemplo de cómo las propiedades matemáticas permiten diseñar algoritmos más eficientes."
+  },
+  {
+    "id": "euler_007",
+    "pregunta": "e≈2.718 y e²≈7.389. Sin calcular directamente, ¿cuál es el valor aproximado de √e (es decir, e^(1/2))? Use la pista: si e²≈7.389, entonces √(e²)=e≈2.718.",
+    "opciones": {
+      "A": "1.359",
+      "B": "1.649",
+      "C": "1.732",
+      "D": "2.000"
+    },
+    "respuesta_correcta": "B",
+    "dificultad": 1,
+    "categoria": "Número de Euler",
+    "explicacion": "√e=e^(1/2)≈√2.718≈1.649. Una forma rápida: e≈2.718 está entre 2.56=1.6² y 2.89=1.7², así que √e está entre 1.6 y 1.7, más cerca de 1.65. El valor exacto es 1.6487... Este tipo de estimación por acotamiento es una técnica algorítmica básica para aproximar valores sin calculadora."
+  },
+  {
+    "id": "euler_008",
+    "pregunta": "¿Cuántos términos de la serie e=Σ(1/n!) se necesitan para que la suma tenga un error menor a 0.001 respecto a e≈2.71828?",
+    "opciones": {
+      "A": "4 términos (n=0 a 3), suma≈2.667, error≈0.051",
+      "B": "6 términos (n=0 a 5), suma≈2.717, error≈0.002",
+      "C": "7 términos (n=0 a 6), suma≈2.71806, error≈0.00022",
+      "D": "10 términos (n=0 a 9)"
+    },
+    "respuesta_correcta": "C",
+    "dificultad": 3,
+    "categoria": "Número de Euler",
+    "explicacion": "Con 6 términos: suma≈2.71667, error≈0.00161>0.001 (insuficiente). Con 7 términos: suma≈2.71806, error≈0.00022<0.001 (suficiente). Se necesitan exactamente 7 términos (n=0 a 6). El hecho de que 7 términos sean suficientes para 3 cifras decimales correctas contrasta fuertemente con la serie de Leibniz para π, que necesita cientos de términos para la misma precisión."
+  },
+  {
+    "id": "euler_009",
+    "pregunta": "Un algoritmo calcula e sumando términos 1/n! y guarda cada término dividiéndolo entre (n+1) para obtener el siguiente. Si el término actual en n=5 es 1/120≈0.00833, ¿cuál es el término para n=6?",
+    "opciones": {
+      "A": "0.00833/5 ≈ 0.00167",
+      "B": "0.00833/6 ≈ 0.00139",
+      "C": "0.00833/7 ≈ 0.00119",
+      "D": "0.00833×6 ≈ 0.04998"
+    },
+    "respuesta_correcta": "B",
+    "dificultad": 4,
+    "categoria": "Número de Euler",
+    "explicacion": "Para pasar del término n al término n+1 se divide entre (n+1): término(6)=término(5)/(5+1)=0.00833/6≈0.00139=1/720=1/6! ✓. Esta técnica permite calcular cada nuevo término a partir del anterior con una sola división, sin recalcular el factorial completo. Es una optimización algorítmica que reduce de O(n) a O(1) operaciones por término."
+  },
+  {
+    "id": "euler_010",
+    "pregunta": "La serie de Euler para e tiene términos que decrecen como 1/n! (factorial). La serie de Leibniz para π tiene términos que decrecen como 1/(2n-1) (lineal). Para n=10, compare: 1/10!=1/3.628.800 vs. 1/19≈0.0526. ¿Qué conclusión algorítmica se obtiene?",
+    "opciones": {
+      "A": "Ambas series son igualmente eficientes para calcular sus respectivas constantes",
+      "B": "La serie de e converge exponencialmente más rápido porque 1/n! decrece mucho más velozmente que 1/n, requiriendo pocos términos para alta precisión",
+      "C": "La serie de π es más eficiente porque usa números impares",
+      "D": "La velocidad de convergencia no afecta la precisión del resultado final"
+    },
+    "respuesta_correcta": "B",
+    "dificultad": 4,
+    "categoria": "Número de Euler",
+    "explicacion": "Con n=10: el término de e es ≈2.76×10⁻⁷ (prácticamente cero), mientras el de π es ≈0.053 (aún significativo). La diferencia es de factor 200.000. El factorial crece mucho más rápido que la progresión lineal: n! supera a n para n≥3 y la diferencia se vuelve astronómica rápidamente. Esta diferencia en la velocidad de decrecimiento de los términos es lo que hace la serie de e algorítmicamente superior en eficiencia."
+  },
+  {
+    "id": "pi_006",
+    "pregunta": "La serie de Leibniz produce estas aproximaciones de π: 4.000, 2.667, 3.467, 2.895, 3.340, 2.976... ¿Cuál es el promedio de la 5ª y 6ª aproximación, y qué tan cerca está de π≈3.14159?",
+    "opciones": {
+      "A": "Promedio≈3.158, error≈0.016",
+      "B": "Promedio≈3.100, error≈0.042",
+      "C": "Promedio≈3.200, error≈0.058",
+      "D": "Promedio≈3.248, error≈0.106"
+    },
+    "respuesta_correcta": "A",
+    "dificultad": 2,
+    "categoria": "Número Pi",
+    "explicacion": "Promedio de 3.340 y 2.976: (3.340+2.976)/2=3.158. Error: |3.158-3.14159|≈0.016. Comparado con el error individual de la 6ª aproximación (|2.976-3.14159|≈0.166), promediar reduce el error en un factor de 10. Esta técnica de promediar aproximaciones consecutivas es la idea detrás de métodos de aceleración de convergencia como el de Euler, y muestra que los algoritmos pueden mejorarse sin agregar más términos."
+  },
+  {
+    "id": "pi_007",
+    "pregunta": "¿Cuál de los siguientes algoritmos genera una aproximación de π usando la fórmula de Leibniz?",
+    "opciones": {
+      "A": "suma=0; para n=0,1,2,...: suma = suma + 1/factorial(n); pi = suma",
+      "B": "suma=0; para n=1,2,3,...: suma = suma + (-1)^(n+1)/(2n-1); pi = 4*suma",
+      "C": "a=0; b=1; para i=1..N: temp=a+b; a=b; b=temp; phi=b/a",
+      "D": "x=1; repetir: x = 1 + 1/x hasta convergencia; phi=x"
+    },
+    "respuesta_correcta": "B",
+    "dificultad": 1,
+    "categoria": "Número Pi",
+    "explicacion": "La opción B implementa la fórmula de Leibniz: suma términos (-1)^(n+1)/(2n-1) que dan 1/1-1/3+1/5-1/7... y multiplica por 4. La opción A calcula e, la C genera Fibonacci, y la D converge a φ. Reconocer qué constante calcula un algoritmo dado es una habilidad clave de lectura algorítmica."
+  },
+  {
+    "id": "pi_008",
+    "pregunta": "Un estudiante usa solo los primeros 2 términos de Leibniz y obtiene π≈2.667. Luego usa 4 términos y obtiene π≈2.895. Ambos valores son menores que π. ¿Qué ocurre con el valor de π calculado con 3 términos?",
+    "opciones": {
+      "A": "También es menor que π≈3.14159",
+      "B": "Es mayor que π≈3.14159 (≈3.467)",
+      "C": "Es exactamente igual a π",
+      "D": "Es mayor que 4"
+    },
+    "respuesta_correcta": "B",
+    "dificultad": 3,
+    "categoria": "Número Pi",
+    "explicacion": "Con 3 términos: 4×(1-1/3+1/5)=4×0.8667≈3.467>π. El patrón es que las sumas con número PAR de términos subestiman π (2.667, 2.895...) y las sumas con número IMPAR lo sobreestiman (4.000, 3.467, 3.340...). Esto es consecuencia directa de los signos alternados: el último término sumado 'pasa' al otro lado del valor real."
+  },
+  {
+    "id": "pi_009",
+    "pregunta": "Para obtener π con 2 decimales correctos (error < 0.005), la serie de Leibniz necesita n términos donde 4/(2n+1)<0.005. ¿Cuántos términos aproximadamente se requieren?",
+    "opciones": {
+      "A": "Aproximadamente 10 términos",
+      "B": "Aproximadamente 80 términos",
+      "C": "Aproximadamente 400 términos",
+      "D": "Aproximadamente 4.000 términos"
+    },
+    "respuesta_correcta": "C",
+    "dificultad": 4,
+    "categoria": "Número Pi",
+    "explicacion": "Despejando: 4/(2n+1)<0.005 → 2n+1>800 → n>399.5 → n≈400 términos. ¡400 iteraciones para solo 2 decimales correctos! Esto contrasta brutalmente con la serie de e, que logra 5 decimales en 8 términos. La convergencia lenta de Leibniz (O(1/n)) hace que en la práctica se usen fórmulas alternativas para π como la de Machin, que convergen mucho más rápido."
+  },
+  {
+    "id": "integ_001",
+    "pregunta": "Identifique qué constante matemática calcula cada algoritmo:\nAlgoritmo A: suma=1; para n=1,2,...,10: suma=suma+1/factorial(n)\nAlgoritmo B: a=0; b=1; para i=1..10: temp=a+b; a=b; b=temp\nAlgoritmo C: suma=0; para n=1..10: suma=suma+(-1)^(n+1)/(2n-1); result=4*suma",
+    "opciones": {
+      "A": "A→φ, B→Fibonacci, C→π",
+      "B": "A→e, B→Fibonacci, C→π",
+      "C": "A→π, B→e, C→φ",
+      "D": "A→e, B→π, C→Fibonacci"
+    },
+    "respuesta_correcta": "B",
+    "dificultad": 2,
+    "categoria": "Patrones Integrados",
+    "explicacion": "A suma 1/n! comenzando desde 1 (el término n=0 ya está incluido como valor inicial), por lo que calcula e. B actualiza dos variables sumándolas sucesivamente, generando la secuencia de Fibonacci. C suma términos alternados de recíprocos impares y multiplica por 4, implementando la fórmula de Leibniz para π. Reconocer el patrón estructural de cada algoritmo sin necesidad de ejecutarlo es una habilidad de lectura de código de nivel medio."
+  },
+  {
+    "id": "integ_002",
+    "pregunta": "Un algoritmo parte de x=1.0 y ejecuta repetidamente x=1+1/x. Los primeros valores son: 1.0, 2.0, 1.5, 1.667, 1.600, 1.625, 1.615... ¿A qué constante converge?",
+    "opciones": {
+      "A": "Al número e≈2.718",
+      "B": "Al número π≈3.14159",
+      "C": "A la razón áurea φ≈1.618",
+      "D": "A √2≈1.414"
+    },
+    "respuesta_correcta": "C",
+    "dificultad": 2,
+    "categoria": "Patrones Integrados",
+    "explicacion": "La ecuación de punto fijo x=1+1/x es equivalente a x²=x+1, cuya solución positiva es φ=(1+√5)/2≈1.618. Los valores del algoritmo oscilan y convergen a φ exactamente como los cocientes de Fibonacci. Este algoritmo iterativo es otro camino para aproximar φ, y muestra que hay múltiples algoritmos que convergen a la misma constante."
+  },
+  {
+    "id": "integ_003",
+    "pregunta": "Ordene estas cuatro expresiones de MENOR a MAYOR valor numérico:\n(1) Suma de la serie de Euler con 4 términos ≈2.708\n(2) Aproximación de π con Leibniz usando 3 términos ≈3.467\n(3) La razón áurea φ≈1.618\n(4) F(7)/F(6)=13/8=1.625",
+    "opciones": {
+      "A": "(3) < (4) < (1) < (2)",
+      "B": "(4) < (3) < (1) < (2)",
+      "C": "(3) < (4) < (2) < (1)",
+      "D": "(1) < (3) < (4) < (2)"
+    },
+    "respuesta_correcta": "A",
+    "dificultad": 2,
+    "categoria": "Patrones Integrados",
+    "explicacion": "Comparando numéricamente: φ≈1.618 < F(7)/F(6)=1.625 < e(4 términos)≈2.708 < π(Leibniz 3 términos)≈3.467. El orden correcto es (3)<(4)<(1)<(2). Nótese que F(7)/F(6)=1.625 es ligeramente mayor que φ (lo cual es consistente: los cocientes oscilan alrededor de φ desde ambos lados), y que la aproximación de Leibniz con 3 términos sobreestima π."
+  },
+  {
+    "id": "integ_004",
+    "pregunta": "¿Por qué el algoritmo iterativo de Fibonacci tiene complejidad O(n) y no O(n²)?",
+    "opciones": {
+      "A": "Porque Fibonacci crece cuadráticamente",
+      "B": "Porque el ciclo ejecuta exactamente n iteraciones y cada una realiza un número fijo de operaciones (suma y reasignación)",
+      "C": "Porque usa dos variables en lugar de una sola",
+      "D": "Porque los números de Fibonacci son siempre menores que n²"
+    },
+    "respuesta_correcta": "B",
+    "dificultad": 3,
+    "categoria": "Patrones Integrados",
+    "explicacion": "El algoritmo iterativo tiene un solo bucle que se ejecuta n veces y en cada iteración realiza un número constante de operaciones (una suma y dos asignaciones). Esto da O(n)×O(1)=O(n). No es O(n²) porque no hay bucles anidados, y no es O(1) porque el número de iteraciones sí depende de n. Esta distinción entre O(n) y O(n²) es fundamental para evaluar la eficiencia de algoritmos iterativos."
+  },
+  {
+    "id": "integ_005",
+    "pregunta": "Relacione cada constante con la 'velocidad de convergencia' de su serie más conocida, ordenando de MÁS rápida a MÁS lenta:\n- e (serie factorial)\n- π (Leibniz)\n- φ (iteración xₙ₊₁=1+1/xₙ)",
+    "opciones": {
+      "A": "π > e > φ",
+      "B": "e > φ > π",
+      "C": "φ > π > e",
+      "D": "e > π > φ"
+    },
+    "respuesta_correcta": "B",
+    "dificultad": 3,
+    "categoria": "Patrones Integrados",
+    "explicacion": "La serie de e converge más rápido porque sus términos decrecen como 1/n! (superexponencial). La iteración para φ converge a tasa lineal (error se reduce por factor constante en cada paso), alcanzando 4 decimales en ~15 iteraciones. La serie de Leibniz para π converge más lento de todos, con términos que decrecen solo como 1/n, requiriendo cientos de términos para 2 decimales. Entender la velocidad de convergencia permite elegir el mejor algoritmo para cada problema."
+  },
+  {
+    "id": "integ_006",
+    "pregunta": "Un estudiante quiere calcular φ usando Fibonacci. Sabe que el error |F(n+1)/F(n)-φ| decrece aproximadamente como 1/φ^(2n). Para n=5 (F(6)/F(5)=8/5=1.600), ¿cuál es el error y qué tan cerca está de φ?",
+    "opciones": {
+      "A": "Error=0.018, suficientemente preciso para ingeniería",
+      "B": "Error=0.018, insuficiente para cualquier uso práctico",
+      "C": "Error=0.618, la convergencia aún no comenzó",
+      "D": "Error=0.000, ya converge exactamente en n=5"
+    },
+    "respuesta_correcta": "A",
+    "dificultad": 3,
+    "categoria": "Patrones Integrados",
+    "explicacion": "El error es |1.600-1.61803|≈0.018, es decir, una precisión de ~1%. Para aplicaciones de ingeniería donde φ aparece en diseño estructural o procesamiento de señales, un error del 1% en n=5 ya puede ser útil. Para mayor precisión, con n=10 el error cae a ≈0.003 y con n=15 a ≈0.00006. La elección del n adecuado depende del nivel de precisión requerido por la aplicación."
+  },
+  {
+    "id": "integ_007",
+    "pregunta": "Considere los cuatro algoritmos:\nA: Suma Σ(1/n!) → e, converge en ~8 términos para 5 decimales\nB: Itera F(n+1)/F(n) → φ, converge en ~15 términos para 4 decimales\nC: Suma Leibniz → π, converge en ~400 términos para 2 decimales\nD: Resuelve xₙ₊₁=1+1/xₙ → φ, converge en ~15 iteraciones\nSi se impone un límite de exactamente 20 iteraciones, ¿cuál/cuáles logran una aproximación con al menos 3 decimales correctos?",
+    "opciones": {
+      "A": "Solo A",
+      "B": "A y D",
+      "C": "A, B y D",
+      "D": "Todos"
+    },
+    "respuesta_correcta": "C",
+    "dificultad": 4,
+    "categoria": "Patrones Integrados",
+    "explicacion": "Con 20 iteraciones: A (e) logra precisión de más de 10 decimales (sobrepasa con creces 3 decimales), B (Fibonacci→φ) con F(20)/F(19)=6765/4181≈1.61803 da 5 decimales correctos, D (iteración→φ) también converge a 4+ decimales en 20 pasos. Solo C (Leibniz→π) queda lejos: con 20 términos el error es aún ≈0.05, insuficiente para 3 decimales correctos. C es el único que no cumple el requisito."
+  },
+  {
+    "id": "integ_008",
+    "pregunta": "La propiedad φ²=φ+1 y la recurrencia F(n)=F(n-1)+F(n-2) tienen una estructura algebraica en común. Si se asume F(n)=C×φⁿ para n grande y se sustituye en la recurrencia, ¿qué ecuación se obtiene al simplificar?",
+    "opciones": {
+      "A": "φ²=2φ",
+      "B": "φ²=φ+1",
+      "C": "φ=1+φ²",
+      "D": "φ²=φ-1"
+    },
+    "respuesta_correcta": "B",
+    "dificultad": 4,
+    "categoria": "Patrones Integrados",
+    "explicacion": "Sustituyendo F(n)=C×φⁿ: C×φⁿ=C×φⁿ⁻¹+C×φⁿ⁻². Dividiendo entre C×φⁿ⁻²: φ²=φ+1. Esto es exactamente la ecuación que define φ. Este resultado muestra que la conexión entre Fibonacci y φ no es coincidencia: φ es la base de la potencia que satisface la misma recurrencia que Fibonacci, revelando la estructura algebraica profunda que une ambas constantes."
+  },
+  {
+    "id": "integ_009",
+    "pregunta": "Un algoritmo detecta si una serie converge analizando el cociente entre términos consecutivos. Para la serie de Euler (términos: 1, 1, 0.5, 0.167, 0.042...), ¿cuál es el cociente del término n=4 entre el término n=3?",
+    "opciones": {
+      "A": "1/3 ≈ 0.333",
+      "B": "1/4 = 0.250",
+      "C": "1/5 = 0.200",
+      "D": "1/2 = 0.500"
+    },
+    "respuesta_correcta": "B",
+    "dificultad": 3,
+    "categoria": "Patrones Integrados",
+    "explicacion": "El término n=4 es 1/4!=1/24≈0.0417 y el término n=3 es 1/3!=1/6≈0.1667. El cociente es 0.0417/0.1667=1/4=0.25. En general, el cociente entre el término n y el n-1 es siempre 1/n. Como este cociente tiende a 0, la serie converge, y lo hace muy rápidamente. Este análisis de cocientes es la base del 'criterio del cociente' (o criterio de D'Alembert) que se estudia en Cálculo II."
+  },
+  {
+    "id": "integ_010",
+    "pregunta": "Se quiere aproximar φ con error < 0.01 usando el cociente F(n+1)/F(n). Según los datos: F(7)/F(6)=13/8=1.625 (error≈0.007) y F(6)/F(5)=8/5=1.600 (error≈0.018). ¿Cuál es el mínimo n necesario?",
+    "opciones": {
+      "A": "n=5, usando F(6)/F(5)=1.600",
+      "B": "n=6, usando F(7)/F(6)=1.625",
+      "C": "n=8, usando F(9)/F(8)≈1.619",
+      "D": "n=10, usando F(11)/F(10)≈1.618"
+    },
+    "respuesta_correcta": "B",
+    "dificultad": 4,
+    "categoria": "Patrones Integrados",
+    "explicacion": "Con n=5: error=|1.600-1.618|=0.018>0.01 (insuficiente). Con n=6: error=|1.625-1.618|=0.007<0.01 (suficiente). El mínimo n que satisface el criterio es n=6, es decir, dividir el 7° término entre el 6°. Este tipo de análisis de 'cuántas iteraciones necesito' es la esencia del diseño de algoritmos de convergencia con criterio de parada."
+  },
+  {
+    "id": "integ_011",
+    "pregunta": "Un programa calcula simultáneamente e y π y compara cuántas iteraciones tarda cada uno en alcanzar error < 0.01. Sabiendo que e lo logra en 5 términos y Leibniz en ~20 términos, ¿cuánto más eficiente es el algoritmo de e?",
+    "opciones": {
+      "A": "2 veces más eficiente",
+      "B": "4 veces más eficiente",
+      "C": "Aproximadamente 4 veces más eficiente (20/5=4)",
+      "D": "Infinitamente más eficiente"
+    },
+    "respuesta_correcta": "C",
+    "dificultad": 3,
+    "categoria": "Patrones Integrados",
+    "explicacion": "Con 5 términos e logra error < 0.01 (suma≈2.717, error≈0.001). Leibniz necesita ~20 términos para el mismo umbral de error. El ratio es 20/5=4, es decir, el algoritmo de e es 4 veces más eficiente en número de iteraciones. Esta métrica de 'iteraciones necesarias para cierta precisión' es una forma práctica y concreta de comparar algoritmos de aproximación numérica."
+  },
+  {
+    "id": "integ_012",
+    "pregunta": "Todas las constantes estudiadas (e, π, φ) son irracionales. ¿Qué implicación tiene esto para cualquier algoritmo que intente calcularlas?",
+    "opciones": {
+      "A": "Ningún algoritmo puede aproximarlas; solo pueden usarse sus valores dados en tablas",
+      "B": "Todo algoritmo que las calcule necesariamente producirá aproximaciones, porque sus expansiones decimales son infinitas y no periódicas",
+      "C": "Solo los algoritmos con número infinito de pasos pueden calcularlas, por lo que son inútiles en la práctica",
+      "D": "La irracionalidad no afecta la implementación de algoritmos; es una propiedad puramente teórica"
+    },
+    "respuesta_correcta": "B",
+    "dificultad": 5,
+    "categoria": "Patrones Integrados",
+    "explicacion": "Al ser irracionales, e, π y φ tienen infinitos decimales no periódicos, por lo que ningún algoritmo finito puede calcular su valor exacto: siempre producen aproximaciones. Lo que los algoritmos controlan es la calidad de la aproximación (el error). Esto conecta directamente con la guía: el diseño del algoritmo (qué serie o recurrencia usar) determina cuántas iteraciones finitas se necesitan para alcanzar la precisión deseada, que es exactamente lo que mide la Notación Big O en este contexto."
+  },
+  {
+    "id": "integ_013",
+    "pregunta": "Un algoritmo verifica si un número N pertenece a la sucesión de Fibonacci comprobando si 5N²+4 ó 5N²-4 es un cuadrado perfecto. Para N=13: 5(13²)+4=5(169)+4=849 y 5(13²)-4=841. ¿Es 13 un número de Fibonacci?",
+    "opciones": {
+      "A": "No, porque 849 no es cuadrado perfecto",
+      "B": "Sí, porque 841=29² es un cuadrado perfecto",
+      "C": "No, porque ninguno de los dos es cuadrado perfecto",
+      "D": "Sí, pero solo porque 13 es primo"
+    },
+    "respuesta_correcta": "B",
+    "dificultad": 4,
+    "categoria": "Patrones Integrados",
+    "explicacion": "841=29² es efectivamente un cuadrado perfecto (29×29=841), lo que confirma que 13 es Fibonacci. En efecto, F(7)=13. La prueba comprueba que 849 NO es cuadrado perfecto (√849≈29.14, no entero), pero basta con que UNO de los dos lo sea. Este algoritmo permite verificar pertenencia a Fibonacci en O(1) operaciones, mucho más eficiente que generar toda la secuencia."
+  },
+  {
+    "id": "integ_014",
+    "pregunta": "Integre los conceptos de la guía y los ejemplos de clase: un algoritmo suma los primeros N términos de una serie para aproximar una constante irracional. Si aumentar N de 10 a 100 reduce el error por un factor de 10 en un algoritmo y por un factor de 10⁹⁰ en otro, ¿qué tipo de convergencia tiene cada uno?",
+    "opciones": {
+      "A": "El primero tiene convergencia factorial y el segundo convergencia lineal",
+      "B": "El primero tiene convergencia lineal (tipo Leibniz para π) y el segundo tiene convergencia superexponencial (tipo serie factorial para e)",
+      "C": "Ambos tienen el mismo tipo de convergencia, solo que con constantes diferentes",
+      "D": "El primero diverge y el segundo converge, por eso la diferencia es tan grande"
+    },
+    "respuesta_correcta": "B",
+    "dificultad": 5,
+    "categoria": "Patrones Integrados",
+    "explicacion": "Reducir el error por factor 10 al multiplicar N por 10 indica convergencia lineal (O(1/N)): es el caso de la serie de Leibniz para π, donde los términos decrecen como 1/n. Reducir el error por factor 10⁹⁰ indica convergencia superexponencial: es el caso de la serie factorial para e, donde los términos decrecen como 1/n! y el error cae de forma explosivamente rápida. Esta diferencia cualitativa en la velocidad de convergencia es lo que distingue algoritmos prácticos de algoritmos ineficientes, conectando el análisis Big O con el análisis numérico real."
+  }
+]

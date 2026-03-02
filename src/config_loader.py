@@ -24,7 +24,7 @@ class ConfigLoader:
         ],
         'sistema_calificacion': ['tipo', 'parametros'],
         'persistencia': ['metodo', 'spreadsheet_id'],
-        'archivo_preguntas': None  # Es un string directo
+        # 'archivo_preguntas' o 'bancos_preguntas' requerido, validado abajo
     }
     
     # Claves opcionales con sub-claves esperadas
@@ -105,7 +105,7 @@ class ConfigLoader:
                 f"(buscado en {preguntas_path})"
             )
     
-    def _validar_config(self, config: Dict[str, Any]) -> None:
+    def validar_config_dict(self, config: Dict[str, Any]) -> None:
         """
         Valida que la configuración tenga todos los campos requeridos
         
@@ -118,13 +118,24 @@ class ConfigLoader:
         # Validar claves principales
         for key, subkeys in self.REQUIRED_KEYS.items():
             if key not in config:
-                raise ValueError(f"Falta la clave requerida: {key}")
-            
-            # Validar subclaves si existen
-            if subkeys is not None:
-                for subkey in subkeys:
-                    if subkey not in config[key]:
-                        raise ValueError(f"Falta la subclave requerida: {key}.{subkey}")
+        # Validar bancos de preguntas
+        if 'bancos_preguntas' in config:
+            bancos = config['bancos_preguntas']
+            if not isinstance(bancos, list) or not bancos:
+                raise ValueError("bancos_preguntas debe ser una lista de rutas a archivos JSON")
+            for archivo in bancos:
+                preguntas_path = self.base_path / archivo
+                if not preguntas_path.exists():
+                    raise FileNotFoundError(f"Banco de preguntas no encontrado: {archivo} (buscado en {preguntas_path})")
+        elif 'archivo_preguntas' in config:
+            preguntas_path = self.base_path / config['archivo_preguntas']
+            if not preguntas_path.exists():
+                raise FileNotFoundError(
+                    f"Archivo de preguntas no encontrado: {config['archivo_preguntas']} "
+                    f"(buscado en {preguntas_path})"
+                )
+        else:
+            raise ValueError("Debe especificar 'archivo_preguntas' o 'bancos_preguntas' en la configuración del examen")
         
         # Validar rangos de parámetros
         params = config['parametros']

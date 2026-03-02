@@ -9,48 +9,54 @@ from typing import List, Dict, Any, Optional
 
 
 class QuestionManager:
-    """Clase para gestionar el banco de preguntas"""
-    
-    def __init__(self, preguntas_file: str):
+    """Clase para gestionar el banco de preguntas (soporta múltiples bancos)"""
+
+    def __init__(self, preguntas_file: str = None, bancos_preguntas: list = None, base_path: str = None):
         """
-        Inicializa el gestor de preguntas
-        
+        Inicializa el gestor de preguntas. Permite múltiples bancos (bancos_preguntas) o un solo archivo (preguntas_file).
         Args:
-            preguntas_file: Ruta al archivo JSON con las preguntas
-            
+            preguntas_file: Ruta al archivo JSON con las preguntas (legacy)
+            bancos_preguntas: Lista de rutas relativas a archivos JSON de bancos
+            base_path: Ruta base para los archivos (Path o str). Si None, usa Path.cwd().
         Raises:
-            FileNotFoundError: Si el archivo no existe
+            FileNotFoundError: Si algún archivo no existe
             ValueError: Si el formato es inválido
         """
-        self.preguntas_file = Path(preguntas_file)
-        self.preguntas = self._cargar_preguntas()
-        self.preguntas_por_nivel = self._organizar_por_nivel()
+        from pathlib import Path
+        self.base_path = Path(base_path) if base_path else Path.cwd()
         self.preguntas_usadas_ids = set()
+        self.preguntas = []
+        if bancos_preguntas:
+            for archivo in bancos_preguntas:
+                ruta = self.base_path / archivo
+                self.preguntas.extend(self._cargar_preguntas(ruta))
+        elif preguntas_file:
+            ruta = self.base_path / preguntas_file
+            self.preguntas = self._cargar_preguntas(ruta)
+        else:
+            raise ValueError("Debe especificar preguntas_file o bancos_preguntas")
+        self.preguntas_por_nivel = self._organizar_por_nivel()
     
-    def _cargar_preguntas(self) -> List[Dict[str, Any]]:
+    def _cargar_preguntas(self, path: Path) -> List[Dict[str, Any]]:
         """
-        Carga las preguntas desde el archivo JSON
-        
+        Carga las preguntas desde un archivo JSON
+        Args:
+            path: Ruta al archivo JSON
         Returns:
             Lista de diccionarios con las preguntas
         """
-        if not self.preguntas_file.exists():
-            raise FileNotFoundError(f"Archivo de preguntas no encontrado: {self.preguntas_file}")
-        
+        if not path.exists():
+            raise FileNotFoundError(f"Archivo de preguntas no encontrado: {path}")
         try:
-            with open(self.preguntas_file, 'r', encoding='utf-8') as f:
+            with open(path, 'r', encoding='utf-8') as f:
                 preguntas = json.load(f)
-            
             if not isinstance(preguntas, list):
-                raise ValueError("El archivo debe contener una lista de preguntas")
-            
+                raise ValueError(f"El archivo debe contener una lista de preguntas: {path}")
             if len(preguntas) == 0:
-                raise ValueError("El archivo no contiene preguntas")
-            
+                raise ValueError(f"El archivo no contiene preguntas: {path}")
             return preguntas
-            
         except json.JSONDecodeError as e:
-            raise ValueError(f"Error al parsear JSON: {str(e)}")
+            raise ValueError(f"Error al parsear JSON en {path}: {str(e)}")
     
     def _organizar_por_nivel(self) -> Dict[int, List[Dict[str, Any]]]:
         """
