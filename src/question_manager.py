@@ -105,23 +105,28 @@ class QuestionManager:
         
         # Si no hay preguntas disponibles en este nivel exacto, buscar en niveles cercanos
         if not preguntas_disponibles:
-            # Intentar niveles adyacentes
-            for offset in [1, -1, 2, -2]:
-                nivel_alternativo = nivel + offset
-                if 1 <= nivel_alternativo <= 5:
-                    preguntas_disponibles = [
-                        p for p in self.preguntas_por_nivel[nivel_alternativo]
+            # Buscar el/los niveles más cercanos disponibles por distancia
+            # Distancia 1 primero, luego 2, 3, 4
+            for distancia in range(1, 5):
+                candidatos_distancia = []
+
+                nivel_arriba = nivel + distancia
+                if nivel_arriba <= 5:
+                    candidatos_distancia.extend([
+                        p for p in self.preguntas_por_nivel[nivel_arriba]
                         if p['id'] not in preguntas_usadas
-                    ]
-                    if preguntas_disponibles:
-                        break
-        
-        # Si aún no hay preguntas disponibles, buscar en cualquier nivel
-        if not preguntas_disponibles:
-            preguntas_disponibles = [
-                p for p in self.preguntas
-                if p['id'] not in preguntas_usadas
-            ]
+                    ])
+
+                nivel_abajo = nivel - distancia
+                if nivel_abajo >= 1:
+                    candidatos_distancia.extend([
+                        p for p in self.preguntas_por_nivel[nivel_abajo]
+                        if p['id'] not in preguntas_usadas
+                    ])
+
+                if candidatos_distancia:
+                    preguntas_disponibles = candidatos_distancia
+                    break
         
         # Si no hay preguntas disponibles en absoluto
         if not preguntas_disponibles:

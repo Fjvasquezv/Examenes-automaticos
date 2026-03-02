@@ -44,7 +44,10 @@ class ExamLogic:
         self.preguntas_usadas_set = set()
         
         # Estimación de habilidad
-        self.theta_actual = 0.0
+        # Alinear theta inicial con el nivel inicial para mantener coherencia
+        self.theta_actual = (self.nivel_inicial - 3) * 0.8
+        # Evitar saltos bruscos de nivel entre preguntas consecutivas
+        self.max_cambio_nivel_por_pregunta = 1
         self.categorias_evaluadas = set()
         
         # Pregunta actual
@@ -174,20 +177,30 @@ class ExamLogic:
         if len(self.preguntas_respondidas) < 4:
             return  # Necesita al menos 4 respuestas para estimación estable
         
+        nivel_estimado = self.nivel_actual
         stats = self.scoring_system.obtener_estadisticas(self.preguntas_respondidas)
         
         if 'theta' in stats:
             # IRT: mapear theta a nivel usando la escala de dificultad del modelo
             self.theta_actual = stats['theta']
-            self.nivel_actual = self._theta_a_nivel(self.theta_actual)
+            nivel_estimado = self._theta_a_nivel(self.theta_actual)
         elif 'rating' in stats:
             # Elo: mapear rating [1200-1800] a nivel [1-5]
             rating = stats['rating']
-            self.nivel_actual = max(1, min(5, round((rating - 1050) / 150)))
+            nivel_estimado = max(1, min(5, round((rating - 1050) / 150)))
         else:
             # Fallback: proporción de correctas
             ratio = self.correctas / len(self.preguntas_respondidas)
-            self.nivel_actual = max(1, min(5, round(ratio * 4) + 1))
+            nivel_estimado = max(1, min(5, round(ratio * 4) + 1))
+
+        # Aplicar amortiguación: como máximo ±1 nivel por pregunta
+        delta = nivel_estimado - self.nivel_actual
+        if delta > self.max_cambio_nivel_por_pregunta:
+            delta = self.max_cambio_nivel_por_pregunta
+        elif delta < -self.max_cambio_nivel_por_pregunta:
+            delta = -self.max_cambio_nivel_por_pregunta
+
+        self.nivel_actual = max(1, min(5, self.nivel_actual + delta))
     
     @staticmethod
     def _theta_a_nivel(theta: float) -> int:
