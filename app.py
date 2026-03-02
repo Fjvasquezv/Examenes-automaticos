@@ -395,7 +395,7 @@ def _render_panel_admin(base_path: Path):
                 config_base = _cargar_config_examen_por_relpath(base_path, fuente["rel"])
 
             opciones_asig = asignaturas + ["+ Nueva asignatura"]
-            asig_sel = st.selectbox("Asignatura", options_asig, key="admin_exam_asig_pick") if opciones_asig else st.selectbox("Asignatura", ["+ Nueva asignatura"], key="admin_exam_asig_pick_empty")
+            asig_sel = st.selectbox("Asignatura", opciones_asig, key="admin_exam_asig_pick") if opciones_asig else st.selectbox("Asignatura", ["+ Nueva asignatura"], key="admin_exam_asig_pick_empty")
             if asig_sel == "+ Nueva asignatura":
                 asig_destino = st.text_input("Nombre nueva asignatura", value="", key="admin_exam_new_asig")
             else:
