@@ -320,13 +320,13 @@ class ExamLogic:
         detalle_respuestas = []
         for respuesta in self.preguntas_respondidas:
             detalle_respuestas.append({
-                'pregunta': respuesta['pregunta_texto'],
-                'categoria': respuesta['categoria'],
-                'dificultad': respuesta['dificultad'],
-                'correcta': respuesta['correcta'],
-                'respuesta_correcta': respuesta['respuesta_correcta_texto'],
-                'respuesta_estudiante': respuesta['respuesta_estudiante_texto'],
-                'explicacion': respuesta['explicacion']
+                'pregunta': respuesta.get('pregunta_texto', f"Pregunta {respuesta.get('pregunta_id', '')}"),
+                'categoria': respuesta.get('categoria', 'Sin categoría'),
+                'dificultad': respuesta.get('dificultad', 3),
+                'correcta': bool(respuesta.get('correcta', False)),
+                'respuesta_correcta': respuesta.get('respuesta_correcta_texto', 'No disponible'),
+                'respuesta_estudiante': respuesta.get('respuesta_estudiante_texto', 'No disponible'),
+                'explicacion': respuesta.get('explicacion', 'Sin explicación disponible')
             })
         
         return {

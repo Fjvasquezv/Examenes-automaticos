@@ -14,6 +14,11 @@ from zoneinfo import ZoneInfo
 class DataPersistence:
     """Clase para manejar la persistencia en Google Sheets"""
 
+    COLUMNA_ESTADO = 14
+    COLUMNA_AUTORIZADO_CONTINUAR = 16
+    COLUMNA_ESTADO_JSON = 17
+    RANGO_DATOS = 'A:R'
+
     def obtener_progreso_en_curso(self, codigo_estudiante: str) -> dict:
         """
         Obtiene el registro EN_CURSO del estudiante para restaurar el estado.
@@ -22,13 +27,13 @@ class DataPersistence:
         try:
             result = self.service.spreadsheets().values().get(
                 spreadsheetId=self.spreadsheet_id,
-                range=f'{self.nombre_hoja}!A:P'
+                range=f'{self.nombre_hoja}!{self.RANGO_DATOS}'
             ).execute()
             values = result.get('values', [])
             encabezados = values[0] if values else []
             for row in reversed(values[1:]):
-                if len(row) > 14 and len(row) > 1:
-                    if row[1] == codigo_estudiante and row[14] == 'EN_CURSO':
+                if len(row) > self.COLUMNA_ESTADO and len(row) > 1:
+                    if row[1] == codigo_estudiante and row[self.COLUMNA_ESTADO] == 'EN_CURSO':
                         while len(row) < len(encabezados):
                             row.append('')
                         return dict(zip(encabezados, row))
@@ -103,7 +108,9 @@ class DataPersistence:
                 '',  # rating
                 '',  # cambio_rating
                 'EN_CURSO',  # razon_terminacion
-                self.config['sistema_calificacion']['tipo']  # sistema
+                self.config['sistema_calificacion']['tipo'],  # sistema
+                'NO',  # autorizado_continuar
+                ''  # estado_json
             ]
             
             self._verificar_o_crear_hoja()
@@ -120,7 +127,12 @@ class DataPersistence:
         codigo_estudiante: str,
         preguntas_respondidas: int,
         correctas: int,
-        incorrectas: int
+        incorrectas: int,
+        nivel_actual: int = None,
+        nota_actual: float = None,
+        preguntas_ids: List[str] = None,
+        theta_actual: float = None,
+        estado_json: str = None
     ) -> bool:
         """
         Actualiza el progreso del examen en curso
@@ -138,7 +150,7 @@ class DataPersistence:
             # Buscar la última fila del estudiante con estado EN_CURSO
             result = self.service.spreadsheets().values().get(
                 spreadsheetId=self.spreadsheet_id,
-                range=f'{self.nombre_hoja}!A:P'
+                range=f'{self.nombre_hoja}!{self.RANGO_DATOS}'
             ).execute()
             
             values = result.get('values', [])
@@ -147,7 +159,7 @@ class DataPersistence:
             fila_a_actualizar = None
             for i in range(len(values) - 1, 0, -1):  # Buscar desde el final
                 if len(values[i]) > 1 and values[i][1] == codigo_estudiante:
-                    if len(values[i]) > 14 and values[i][14] == 'EN_CURSO':
+                    if len(values[i]) > self.COLUMNA_ESTADO and values[i][self.COLUMNA_ESTADO] == 'EN_CURSO':
                         fila_a_actualizar = i + 1  # +1 porque sheets es 1-indexed
                         break
             
@@ -173,6 +185,36 @@ class DataPersistence:
                         'values': [[round(porcentaje, 1)]]
                     }
                 ]
+
+                if nivel_actual is not None:
+                    updates.append({
+                        'range': f'{self.nombre_hoja}!G{fila_a_actualizar}',
+                        'values': [[int(max(1, min(5, nivel_actual)))]]
+                    })
+
+                if nota_actual is not None:
+                    updates.append({
+                        'range': f'{self.nombre_hoja}!H{fila_a_actualizar}',
+                        'values': [[round(float(nota_actual), 2)]]
+                    })
+
+                if preguntas_ids is not None:
+                    updates.append({
+                        'range': f'{self.nombre_hoja}!I{fila_a_actualizar}',
+                        'values': [[','.join(preguntas_ids)]]
+                    })
+
+                if theta_actual is not None:
+                    updates.append({
+                        'range': f'{self.nombre_hoja}!J{fila_a_actualizar}',
+                        'values': [[round(float(theta_actual), 3)]]
+                    })
+
+                if estado_json is not None:
+                    updates.append({
+                        'range': f'{self.nombre_hoja}!R{fila_a_actualizar}',
+                        'values': [[estado_json]]
+                    })
                 
                 body = {'data': updates, 'valueInputOption': 'RAW'}
                 self.service.spreadsheets().values().batchUpdate(
@@ -201,15 +243,15 @@ class DataPersistence:
         try:
             result = self.service.spreadsheets().values().get(
                 spreadsheetId=self.spreadsheet_id,
-                range=f'{self.nombre_hoja}!A:P'
+                range=f'{self.nombre_hoja}!{self.RANGO_DATOS}'
             ).execute()
             
             values = result.get('values', [])
             
             # Buscar si hay alguna fila EN_CURSO para este estudiante
             for row in reversed(values[1:]):  # Skip header, buscar desde el final
-                if len(row) > 14 and len(row) > 1:
-                    if row[1] == codigo_estudiante and row[14] == 'EN_CURSO':
+                if len(row) > self.COLUMNA_ESTADO and len(row) > 1:
+                    if row[1] == codigo_estudiante and row[self.COLUMNA_ESTADO] == 'EN_CURSO':
                         return True
             
             return False
@@ -230,17 +272,17 @@ class DataPersistence:
         try:
             result = self.service.spreadsheets().values().get(
                 spreadsheetId=self.spreadsheet_id,
-                range=f'{self.nombre_hoja}!A:P'
+                range=f'{self.nombre_hoja}!{self.RANGO_DATOS}'
             ).execute()
             
             values = result.get('values', [])
             
             # Buscar si hay alguna fila COMPLETADA para este estudiante
             for row in values[1:]:  # Skip header
-                if len(row) > 14 and len(row) > 1:
+                if len(row) > self.COLUMNA_ESTADO and len(row) > 1:
                     if row[1] == codigo_estudiante:
                         # Si el estado NO es EN_CURSO, significa que completó
-                        if row[14] != 'EN_CURSO' and row[14] != '':
+                        if row[self.COLUMNA_ESTADO] != 'EN_CURSO' and row[self.COLUMNA_ESTADO] != '':
                             return True
             
             return False
@@ -271,7 +313,7 @@ class DataPersistence:
             try:
                 result = self.service.spreadsheets().values().get(
                     spreadsheetId=self.spreadsheet_id,
-                    range=f'{self.nombre_hoja}!A:P'
+                    range=f'{self.nombre_hoja}!{self.RANGO_DATOS}'
                 ).execute()
                 
                 values = result.get('values', [])
@@ -280,13 +322,13 @@ class DataPersistence:
                 # Buscar la última fila EN_CURSO de este estudiante
                 for i in range(len(values) - 1, 0, -1):
                     if len(values[i]) > 1 and values[i][1] == codigo_estudiante:
-                        if len(values[i]) > 14 and values[i][14] == 'EN_CURSO':
+                        if len(values[i]) > self.COLUMNA_ESTADO and values[i][self.COLUMNA_ESTADO] == 'EN_CURSO':
                             fila_a_actualizar = i + 1  # +1 porque sheets es 1-indexed
                             break
                 
                 if fila_a_actualizar:
                     # Actualizar la fila existente
-                    range_to_update = f'{self.nombre_hoja}!A{fila_a_actualizar}:P{fila_a_actualizar}'
+                    range_to_update = f'{self.nombre_hoja}!A{fila_a_actualizar}:R{fila_a_actualizar}'
                     body = {'values': [datos]}
                     self.service.spreadsheets().values().update(
                         spreadsheetId=self.spreadsheet_id,
@@ -361,6 +403,12 @@ class DataPersistence:
         
         # Sistema de calificación usado
         datos.append(self.config['sistema_calificacion']['tipo'])
+
+        # Autorización para continuar (solo aplica EN_CURSO)
+        datos.append('NO')
+
+        # Estado serializado (solo aplica EN_CURSO)
+        datos.append('')
         
         return datos
     
@@ -424,13 +472,16 @@ class DataPersistence:
             # Leer primera fila
             result = self.service.spreadsheets().values().get(
                 spreadsheetId=self.spreadsheet_id,
-                range=f'{self.nombre_hoja}!A1:Q1'
+                range=f'{self.nombre_hoja}!A1:R1'
             ).execute()
             
             values = result.get('values', [])
             
             # Si está vacía, escribir encabezados
             if not values or not values[0]:
+                self._escribir_encabezados()
+            elif len(values[0]) < 18:
+                # Hoja antigua: actualizar encabezados al esquema actual
                 self._escribir_encabezados()
                 
         except HttpError:
@@ -455,7 +506,9 @@ class DataPersistence:
             'Rating_Elo',
             'Cambio_Rating_Elo',
             'Razon_Terminacion',
-            'Sistema_Calificacion'
+            'Sistema_Calificacion',
+            'Autorizado_Continuar',
+            'Estado_JSON'
         ]
         
         body = {
@@ -482,7 +535,7 @@ class DataPersistence:
         
         self.service.spreadsheets().values().append(
             spreadsheetId=self.spreadsheet_id,
-            range=f'{self.nombre_hoja}!A:Q',
+            range=f'{self.nombre_hoja}!A:R',
             valueInputOption='RAW',
             insertDataOption='INSERT_ROWS',
             body=body
@@ -507,7 +560,7 @@ class DataPersistence:
             # Leer datos
             result = self.service.spreadsheets().values().get(
                 spreadsheetId=self.spreadsheet_id,
-                range=f'{self.nombre_hoja}!A:Q'
+                range=f'{self.nombre_hoja}!A:R'
             ).execute()
             
             values = result.get('values', [])

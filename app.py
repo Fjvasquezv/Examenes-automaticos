@@ -24,6 +24,72 @@ from src.data_persistence import DataPersistence
 from validators import validate_codigo_estudiante
 
 
+def _serializar_estado_exam_logic(exam_logic) -> str:
+    """Serializa el estado mínimo necesario para restaurar un examen en curso."""
+    respuestas_minimas = []
+    for r in exam_logic.preguntas_respondidas:
+        respuestas_minimas.append({
+            'pregunta_id': r.get('pregunta_id', ''),
+            'dificultad': r.get('dificultad', 3),
+            'categoria': r.get('categoria', 'Sin categoría'),
+            'correcta': bool(r.get('correcta', False)),
+            'nivel_en_pregunta': r.get('nivel_en_pregunta', 3)
+        })
+
+    payload = {
+        'pregunta_actual': exam_logic.pregunta_actual,
+        'nivel_actual': exam_logic.nivel_actual,
+        'theta_actual': exam_logic.theta_actual,
+        'correctas': exam_logic.correctas,
+        'incorrectas': exam_logic.incorrectas,
+        'preguntas_usadas': list(exam_logic.preguntas_usadas),
+        'historial_notas': list(exam_logic.historial_notas),
+        'categorias_evaluadas': list(exam_logic.categorias_evaluadas),
+        'preguntas_respondidas': respuestas_minimas,
+    }
+    return json.dumps(payload, ensure_ascii=False)
+
+
+def _restaurar_estado_exam_logic(exam_logic, progreso: dict) -> bool:
+    """Restaura el estado de exam_logic desde una fila EN_CURSO de Sheets."""
+    try:
+        estado_json = progreso.get('Estado_JSON', '')
+
+        if estado_json:
+            estado = json.loads(estado_json)
+            exam_logic.pregunta_actual = int(estado.get('pregunta_actual', 0))
+            exam_logic.nivel_actual = max(1, min(5, int(estado.get('nivel_actual', exam_logic.nivel_actual))))
+            exam_logic.theta_actual = float(estado.get('theta_actual', exam_logic.theta_actual))
+            exam_logic.correctas = int(estado.get('correctas', 0))
+            exam_logic.incorrectas = int(estado.get('incorrectas', 0))
+            exam_logic.preguntas_usadas = list(estado.get('preguntas_usadas', []))
+            exam_logic.preguntas_usadas_set = set(exam_logic.preguntas_usadas)
+            exam_logic.historial_notas = list(estado.get('historial_notas', []))
+            exam_logic.categorias_evaluadas = set(estado.get('categorias_evaluadas', []))
+            exam_logic.preguntas_respondidas = list(estado.get('preguntas_respondidas', []))
+            return True
+
+        exam_logic.pregunta_actual = int(progreso.get('Preguntas_Respondidas', 0) or 0)
+        exam_logic.correctas = int(progreso.get('Correctas', 0) or 0)
+        exam_logic.incorrectas = int(progreso.get('Incorrectas', 0) or 0)
+        exam_logic.nivel_actual = max(1, min(5, int(progreso.get('Nivel_Final', exam_logic.nivel_actual) or exam_logic.nivel_actual)))
+        theta_val = progreso.get('Theta_IRT', '')
+        if theta_val not in ('', None):
+            exam_logic.theta_actual = float(theta_val)
+
+        preguntas_ids = progreso.get('Preguntas_IDs', '')
+        exam_logic.preguntas_usadas = [p.strip() for p in preguntas_ids.split(',') if p.strip()]
+        exam_logic.preguntas_usadas_set = set(exam_logic.preguntas_usadas)
+
+        nota = progreso.get('Nota_Final', '')
+        if nota not in ('', None):
+            exam_logic.historial_notas = [float(nota)]
+
+        return True
+    except Exception:
+        return False
+
+
 def inicializar_session_state():
     """Inicializa las variables de session state necesarias"""
     if 'exam_started' not in st.session_state:
@@ -251,14 +317,21 @@ def mostrar_pantalla_inicio(config, ui):
                         return
                     progreso = persistence.obtener_progreso_en_curso(codigo_limpio)
                     if progreso:
-                        st.info("🔄 Se detectó un examen en curso. Restaurando el progreso...")
+                        autorizado = str(progreso.get('Autorizado_Continuar', 'NO')).strip().upper() in ('SI', 'SÍ', 'YES', 'TRUE', '1')
+                        if not autorizado:
+                            st.error("🔒 Tienes un examen en curso bloqueado para reanudación.")
+                            st.info("🧑‍🏫 Solicita autorización docente. En Google Sheets, cambia la columna 'Autorizado_Continuar' a 'SI' en tu fila EN_CURSO.")
+                            return
+
+                        st.info("🔄 Se detectó un examen en curso autorizado. Restaurando progreso...")
                         st.session_state.codigo_estudiante = codigo_limpio
                         st.session_state.exam_started = True
                         st.session_state.exam_finished = False
-                        st.session_state.current_question_index = int(progreso.get('Preguntas_Respondidas', 0))
-                        st.session_state.respuestas = []  # Puedes cargar respuestas si las guardas
-                        st.session_state.notas_historicas = []  # Puedes cargar notas si las guardas
+                        st.session_state.current_question_index = int(progreso.get('Preguntas_Respondidas', 0) or 0)
+                        st.session_state.respuestas = []
+                        st.session_state.notas_historicas = []
                         st.session_state.preguntas_usadas = progreso.get('Preguntas_IDs', '').split(',') if progreso.get('Preguntas_IDs') else []
+                        st.session_state.progreso_a_restaurar = progreso
                         st.rerun()
                         return
                 except Exception as e:
@@ -282,11 +355,18 @@ def ejecutar_examen(config, question_manager, ui):
     # Inicializar lógica del examen si es necesario
     if 'exam_logic' not in st.session_state:
         st.session_state.exam_logic = ExamLogic(config, question_manager)
-        try:
-            persistence = DataPersistence(config)
-            persistence.guardar_inicio_examen(st.session_state.codigo_estudiante)
-        except Exception as e:
-            st.warning(f"⚠️ No se pudo guardar el inicio del examen: {e}")
+        progreso = st.session_state.pop('progreso_a_restaurar', None)
+
+        if progreso:
+            restaurado = _restaurar_estado_exam_logic(st.session_state.exam_logic, progreso)
+            if not restaurado:
+                st.warning("⚠️ No se pudo restaurar completamente el estado. Se continuará con estado parcial.")
+        else:
+            try:
+                persistence = DataPersistence(config)
+                persistence.guardar_inicio_examen(st.session_state.codigo_estudiante)
+            except Exception as e:
+                st.warning(f"⚠️ No se pudo guardar el inicio del examen: {e}")
     
     exam_logic = st.session_state.exam_logic
     
@@ -371,7 +451,12 @@ def ejecutar_examen(config, question_manager, ui):
                     st.session_state.codigo_estudiante,
                     exam_logic.pregunta_actual,
                     exam_logic.correctas,
-                    exam_logic.incorrectas
+                    exam_logic.incorrectas,
+                    nivel_actual=exam_logic.nivel_actual,
+                    nota_actual=exam_logic.historial_notas[-1] if exam_logic.historial_notas else 0.0,
+                    preguntas_ids=exam_logic.preguntas_usadas,
+                    theta_actual=exam_logic.theta_actual,
+                    estado_json=_serializar_estado_exam_logic(exam_logic)
                 )
             except:
                 pass

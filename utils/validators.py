@@ -156,14 +156,20 @@ def validate_config_estructura(config: Dict[str, Any]) -> tuple[bool, str]:
         'metadata',
         'parametros',
         'sistema_calificacion',
-        'instrucciones',
-        'persistencia',
-        'archivo_preguntas'
+        'persistencia'
     ]
     
     for seccion in secciones_requeridas:
         if seccion not in config:
             return False, f"Falta la sección requerida: {seccion}"
+
+    # Debe existir archivo_preguntas o bancos_preguntas
+    if 'archivo_preguntas' not in config and 'bancos_preguntas' not in config:
+        return False, "Debe existir 'archivo_preguntas' o 'bancos_preguntas'"
+
+    if 'bancos_preguntas' in config:
+        if not isinstance(config['bancos_preguntas'], list) or len(config['bancos_preguntas']) == 0:
+            return False, "bancos_preguntas debe ser una lista no vacía"
     
     # Validar metadata
     campos_metadata = ['nombre_examen', 'asignatura', 'institucion']
