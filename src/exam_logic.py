@@ -167,9 +167,12 @@ class ExamLogic:
         Actualiza el nivel de dificultad basándose en la estimación
         del modelo estadístico (theta en IRT, rating en Elo).
         Elimina aleatoriedad: el nivel se deriva directamente del modelo.
+        
+        Nota: Requiere mínimo 4 respuestas para evitar inestabilidad con pocas muestras.
+        Con < 4 respuestas, theta es demasiado volátil y puede causar saltos de nivel erráticos.
         """
-        if len(self.preguntas_respondidas) < 2:
-            return  # Necesita al menos 2 respuestas para estimación significativa
+        if len(self.preguntas_respondidas) < 4:
+            return  # Necesita al menos 4 respuestas para estimación estable
         
         stats = self.scoring_system.obtener_estadisticas(self.preguntas_respondidas)
         
