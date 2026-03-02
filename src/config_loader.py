@@ -73,14 +73,6 @@ class ConfigLoader:
         # Validar configuración
         self._validar_config(config)
         
-        # Validar que el archivo de preguntas existe (resolviendo ruta relativa)
-        preguntas_path = self.base_path / config['archivo_preguntas']
-        if not preguntas_path.exists():
-            raise FileNotFoundError(
-                f"Archivo de preguntas no encontrado: {config['archivo_preguntas']} "
-                f"(buscado en {preguntas_path})"
-            )
-        
         return config
     
     def validar_config_dict(self, config: Dict[str, Any]) -> None:
@@ -96,16 +88,8 @@ class ConfigLoader:
             FileNotFoundError: Si el archivo de preguntas no existe
         """
         self._validar_config(config)
-        
-        # Validar que el archivo de preguntas existe
-        preguntas_path = self.base_path / config['archivo_preguntas']
-        if not preguntas_path.exists():
-            raise FileNotFoundError(
-                f"Archivo de preguntas no encontrado: {config['archivo_preguntas']} "
-                f"(buscado en {preguntas_path})"
-            )
-    
-    def validar_config_dict(self, config: Dict[str, Any]) -> None:
+
+    def _validar_config(self, config: Dict[str, Any]) -> None:
         """
         Valida que la configuración tenga todos los campos requeridos
         
@@ -118,6 +102,24 @@ class ConfigLoader:
         # Validar claves principales
         for key, subkeys in self.REQUIRED_KEYS.items():
             if key not in config:
+                raise ValueError(f"Falta la sección requerida: '{key}'")
+
+            if not isinstance(config[key], dict):
+                raise ValueError(f"La sección '{key}' debe ser un objeto JSON")
+
+            for subkey in subkeys:
+                if subkey not in config[key]:
+                    raise ValueError(f"Falta la clave requerida: '{key}.{subkey}'")
+
+        # Validar claves opcionales (si existen)
+        for key, subkeys in self.OPTIONAL_KEYS.items():
+            if key in config:
+                if not isinstance(config[key], dict):
+                    raise ValueError(f"La sección opcional '{key}' debe ser un objeto JSON")
+                for subkey in subkeys:
+                    if subkey not in config[key]:
+                        raise ValueError(f"Falta la clave opcional esperada: '{key}.{subkey}'")
+
         # Validar bancos de preguntas
         if 'bancos_preguntas' in config:
             bancos = config['bancos_preguntas']
