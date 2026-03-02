@@ -648,3 +648,73 @@ class DataPersistence:
         except Exception as e:
             st.error(f"⚠️ Error de conexión con Google Sheets: {str(e)}")
             return False
+
+    def asegurar_hoja_resultados(self) -> bool:
+        """Asegura que exista la hoja de resultados y tenga encabezados válidos."""
+        try:
+            self._verificar_o_crear_hoja()
+            return True
+        except Exception:
+            return False
+
+    def listar_examenes_en_curso(self) -> List[Dict[str, Any]]:
+        """Lista registros con estado EN_CURSO para la hoja actual."""
+        try:
+            self._verificar_o_crear_hoja()
+            result = self.service.spreadsheets().values().get(
+                spreadsheetId=self.spreadsheet_id,
+                range=f'{self.nombre_hoja}!{self.RANGO_DATOS}'
+            ).execute()
+
+            values = result.get('values', [])
+            if not values or len(values) < 2:
+                return []
+
+            encabezados = values[0]
+            salida = []
+            for i, row in enumerate(values[1:], start=2):
+                while len(row) < len(encabezados):
+                    row.append('')
+                registro = dict(zip(encabezados, row))
+                if registro.get('Razon_Terminacion', '') == 'EN_CURSO':
+                    registro['_row_number'] = i
+                    salida.append(registro)
+            return salida
+        except Exception:
+            return []
+
+    def autorizar_continuacion(self, codigo_estudiante: str, autorizar: bool = True) -> bool:
+        """
+        Actualiza la última fila EN_CURSO del estudiante en la hoja actual,
+        estableciendo `Autorizado_Continuar` en SI/NO.
+        """
+        try:
+            result = self.service.spreadsheets().values().get(
+                spreadsheetId=self.spreadsheet_id,
+                range=f'{self.nombre_hoja}!{self.RANGO_DATOS}'
+            ).execute()
+            values = result.get('values', [])
+
+            fila_objetivo = None
+            for i in range(len(values) - 1, 0, -1):
+                row = values[i]
+                if len(row) > 1 and row[1] == codigo_estudiante:
+                    estado = row[self.COLUMNA_ESTADO] if len(row) > self.COLUMNA_ESTADO else ''
+                    if estado == 'EN_CURSO':
+                        fila_objetivo = i + 1
+                        break
+
+            if not fila_objetivo:
+                return False
+
+            valor = 'SI' if autorizar else 'NO'
+            body = {'values': [[valor]]}
+            self.service.spreadsheets().values().update(
+                spreadsheetId=self.spreadsheet_id,
+                range=f'{self.nombre_hoja}!Q{fila_objetivo}',
+                valueInputOption='RAW',
+                body=body
+            ).execute()
+            return True
+        except Exception:
+            return False

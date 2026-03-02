@@ -95,6 +95,450 @@ def _slugify(texto: str) -> str:
     return unicodedata.normalize('NFKD', texto).encode('ascii', 'ignore').decode('ascii').lower()
 
 
+def _obtener_clave_admin() -> str:
+    """Obtiene la clave de admin desde secrets, soportando claves simples y anidadas."""
+    try:
+        if 'ADMIN_PASSWORD' in st.secrets:
+            return str(st.secrets['ADMIN_PASSWORD'])
+        if 'admin_password' in st.secrets:
+            return str(st.secrets['admin_password'])
+        if 'app' in st.secrets:
+            app_cfg = st.secrets['app']
+            if isinstance(app_cfg, dict):
+                if 'ADMIN_PASSWORD' in app_cfg:
+                    return str(app_cfg['ADMIN_PASSWORD'])
+                if 'admin_password' in app_cfg:
+                    return str(app_cfg['admin_password'])
+    except Exception:
+        return ''
+    return ''
+
+
+def _ruta_disponibilidad(base_path: Path) -> Path:
+    return base_path / "config" / "disponibilidad.json"
+
+
+def _leer_json(ruta: Path) -> dict:
+    with open(ruta, 'r', encoding='utf-8') as f:
+        return json.load(f)
+
+
+def _escribir_json(ruta: Path, data: dict) -> None:
+    ruta.parent.mkdir(parents=True, exist_ok=True)
+    with open(ruta, 'w', encoding='utf-8') as f:
+        json.dump(data, f, ensure_ascii=False, indent=2)
+
+
+def _crear_backup_config(base_path: Path, ruta: Path, etiqueta: str) -> str:
+    if not ruta.exists():
+        return ''
+    marca_tiempo = datetime.now().strftime("%Y%m%d_%H%M%S")
+    raiz_config = base_path / "config"
+    try:
+        rel = ruta.relative_to(raiz_config)
+    except Exception:
+        rel = Path(ruta.name)
+    destino = raiz_config / "_backup" / f"{marca_tiempo}_{etiqueta}" / rel
+    destino.parent.mkdir(parents=True, exist_ok=True)
+    destino.write_bytes(ruta.read_bytes())
+    return str(destino.relative_to(base_path)).replace('\\', '/')
+
+
+def _validar_periodo(periodo: dict) -> tuple[bool, str, datetime, datetime]:
+    nombre = str(periodo.get('nombre', '')).strip()
+    examen_config = str(periodo.get('examen_config', '')).strip()
+    inicio_txt = str(periodo.get('inicio', '')).strip()
+    fin_txt = str(periodo.get('fin', '')).strip()
+
+    if not nombre:
+        return False, "El periodo requiere 'nombre'.", None, None
+    if not examen_config:
+        return False, "El periodo requiere 'examen_config'.", None, None
+    if not inicio_txt or not fin_txt:
+        return False, "El periodo requiere 'inicio' y 'fin'.", None, None
+
+    try:
+        inicio_dt = datetime.strptime(inicio_txt, "%Y-%m-%d %H:%M")
+        fin_dt = datetime.strptime(fin_txt, "%Y-%m-%d %H:%M")
+    except ValueError:
+        return False, "Formato de fecha inválido. Usa YYYY-MM-DD HH:MM.", None, None
+
+    if inicio_dt >= fin_dt:
+        return False, "'inicio' debe ser menor que 'fin'.", None, None
+
+    return True, "", inicio_dt, fin_dt
+
+
+def _validar_calendario(periodos: list[dict]) -> tuple[bool, str]:
+    parseados = []
+    for i, p in enumerate(periodos):
+        ok, msg, inicio_dt, fin_dt = _validar_periodo(p)
+        if not ok:
+            return False, f"Periodo {i + 1}: {msg}"
+        parseados.append((i, p, inicio_dt, fin_dt))
+
+    for i in range(len(parseados)):
+        _, p1, ini1, fin1 = parseados[i]
+        for j in range(i + 1, len(parseados)):
+            _, p2, ini2, fin2 = parseados[j]
+            if ini1 < fin2 and ini2 < fin1:
+                n1 = p1.get('nombre', f'Periodo {i + 1}')
+                n2 = p2.get('nombre', f'Periodo {j + 1}')
+                return False, f"Solape detectado entre '{n1}' y '{n2}'."
+
+    return True, ""
+
+
+def _listar_configs_examenes(base_path: Path) -> list[str]:
+    raiz = base_path / "config" / "examenes"
+    if not raiz.exists():
+        return []
+    rutas = [
+        str(p.relative_to(raiz)).replace('\\', '/')
+        for p in raiz.rglob('*.json')
+    ]
+    return sorted(rutas)
+
+
+def _listar_bancos_disponibles(base_path: Path) -> list[str]:
+    candidatos = []
+    for sub in [base_path / "data" / "bancos", base_path / "data" / "preguntas"]:
+        if sub.exists():
+            candidatos.extend([
+                str(p.relative_to(base_path)).replace('\\', '/')
+                for p in sub.rglob('*.json')
+            ])
+    return sorted(dict.fromkeys(candidatos))
+
+
+def _cargar_config_examen_por_relpath(base_path: Path, examen_config_rel: str) -> dict:
+    ruta = base_path / "config" / "examenes" / examen_config_rel
+    return _leer_json(ruta)
+
+
+def _render_panel_admin(base_path: Path):
+    st.title("🛠️ Panel de Administración")
+    st.caption("Gestiona exámenes, programación, temas y operación de desbloqueo.")
+
+    col_admin_left, col_admin_mid, col_admin_right = st.columns([7, 1, 1])
+    with col_admin_mid:
+        if st.button("Cerrar sesión", key="admin_logout", use_container_width=True):
+            st.session_state.admin_authenticated = False
+            st.session_state.admin_mode = False
+            st.session_state.admin_prompt = False
+            st.session_state.admin_last_activity_ts = 0.0
+            if 'admin_password_input' in st.session_state:
+                del st.session_state['admin_password_input']
+            st.rerun()
+    with col_admin_right:
+        if st.button("Cerrar", key="admin_close", use_container_width=True):
+            st.session_state.admin_mode = False
+            st.rerun()
+
+    tab_exam, tab_prog, tab_ops = st.tabs(["Exámenes", "Programación", "Operación"])
+
+    with tab_exam:
+        st.subheader("Crear / Modificar / Eliminar Exámenes")
+        configs_rel = _listar_configs_examenes(base_path)
+        opciones = ["<Nuevo examen>"] + configs_rel
+        sel = st.selectbox("Config de examen", opciones, key="admin_exam_sel")
+
+        bancos_disponibles = _listar_bancos_disponibles(base_path)
+
+        if sel == "<Nuevo examen>":
+            carpeta = st.text_input("Carpeta de asignatura", value="NuevaAsignatura", key="admin_exam_folder")
+            archivo = st.text_input("Nombre de archivo (sin .json)", value="quizz_1", key="admin_exam_file")
+            config_actual = {
+                "metadata": {
+                    "nombre_examen": "Nuevo Examen",
+                    "asignatura": "Asignatura",
+                    "institucion": "Universidad ECCI",
+                    "codigo_asignatura": "COD101"
+                },
+                "descripcion": {
+                    "texto": "Descripción",
+                    "temas": [],
+                    "duracion_estimada": "1 hora"
+                },
+                "parametros": {
+                    "preguntas_minimas": 15,
+                    "preguntas_maximas": 25,
+                    "nivel_inicial": 3,
+                    "umbral_estabilizacion": 0.2,
+                    "ventana_estabilizacion": 3
+                },
+                "sistema_calificacion": {
+                    "tipo": "irt_simplificado",
+                    "parametros": {"max_iteraciones": 10}
+                },
+                "persistencia": {
+                    "metodo": "google_sheets",
+                    "spreadsheet_id": ""
+                },
+                "bancos_preguntas": [],
+                "bancos_por_tema": {}
+            }
+            ruta_destino_rel = f"{carpeta.strip()}/{archivo.strip()}.json"
+        else:
+            config_actual = _cargar_config_examen_por_relpath(base_path, sel)
+            ruta_destino_rel = sel
+
+        md = config_actual.get("metadata", {})
+        params = config_actual.get("parametros", {})
+        desc = config_actual.get("descripcion", {})
+        pers = config_actual.get("persistencia", {})
+
+        nombre_examen = st.text_input("Nombre examen", value=md.get("nombre_examen", ""), key="admin_exam_nombre")
+        asignatura = st.text_input("Asignatura", value=md.get("asignatura", ""), key="admin_exam_asig")
+        codigo_asig = st.text_input("Código asignatura", value=md.get("codigo_asignatura", ""), key="admin_exam_cod")
+        texto_desc = st.text_area("Descripción", value=desc.get("texto", ""), key="admin_exam_desc")
+        duracion = st.text_input("Duración estimada", value=desc.get("duracion_estimada", ""), key="admin_exam_dur")
+        spreadsheet_id = st.text_input("Spreadsheet ID", value=pers.get("spreadsheet_id", ""), key="admin_exam_sheet")
+
+        colp1, colp2, colp3 = st.columns(3)
+        with colp1:
+            pmin = st.number_input("Preguntas mínimas", min_value=1, value=int(params.get("preguntas_minimas", 15)))
+        with colp2:
+            pmax = st.number_input("Preguntas máximas", min_value=1, value=int(params.get("preguntas_maximas", 25)))
+        with colp3:
+            nivel_ini = st.number_input("Nivel inicial", min_value=1, max_value=5, value=int(params.get("nivel_inicial", 3)))
+
+        bancos_sel = st.multiselect(
+            "Bancos de preguntas",
+            options=bancos_disponibles,
+            default=config_actual.get("bancos_preguntas", []),
+            key="admin_exam_bancos"
+        )
+
+        temas_str = st.text_input(
+            "Temas disponibles (separados por coma)",
+            value=", ".join(list(config_actual.get("bancos_por_tema", {}).keys())),
+            key="admin_exam_temas"
+        )
+
+        colsave1, colsave2 = st.columns(2)
+        with colsave1:
+            if st.button("💾 Guardar examen", key="admin_exam_save", use_container_width=True):
+                temas = [t.strip() for t in temas_str.split(',') if t.strip()]
+                bancos_por_tema = {tema: list(bancos_sel) for tema in temas}
+
+                nuevo = {
+                    "metadata": {
+                        "nombre_examen": nombre_examen,
+                        "asignatura": asignatura,
+                        "institucion": "Universidad ECCI",
+                        "codigo_asignatura": codigo_asig
+                    },
+                    "descripcion": {
+                        "texto": texto_desc,
+                        "temas": temas,
+                        "duracion_estimada": duracion
+                    },
+                    "parametros": {
+                        "preguntas_minimas": int(pmin),
+                        "preguntas_maximas": int(pmax),
+                        "nivel_inicial": int(nivel_ini),
+                        "umbral_estabilizacion": float(params.get("umbral_estabilizacion", 0.2)),
+                        "ventana_estabilizacion": int(params.get("ventana_estabilizacion", 3))
+                    },
+                    "sistema_calificacion": config_actual.get("sistema_calificacion", {"tipo": "irt_simplificado", "parametros": {"max_iteraciones": 10}}),
+                    "persistencia": {
+                        "metodo": "google_sheets",
+                        "spreadsheet_id": spreadsheet_id
+                    },
+                    "bancos_preguntas": list(bancos_sel),
+                    "bancos_por_tema": bancos_por_tema
+                }
+
+                ruta_destino = base_path / "config" / "examenes" / ruta_destino_rel
+                backup_rel = _crear_backup_config(base_path, ruta_destino, "examenes")
+                _escribir_json(ruta_destino, nuevo)
+                st.success(f"Examen guardado: {ruta_destino_rel}")
+                if backup_rel:
+                    st.info(f"Backup creado: {backup_rel}")
+
+        with colsave2:
+            if sel != "<Nuevo examen>" and st.button("🗑️ Eliminar examen", key="admin_exam_delete", use_container_width=True):
+                ruta_del = base_path / "config" / "examenes" / sel
+                if ruta_del.exists():
+                    backup_rel = _crear_backup_config(base_path, ruta_del, "examenes")
+                    ruta_del.unlink()
+                    st.success(f"Examen eliminado: {sel}")
+                    if backup_rel:
+                        st.info(f"Backup creado: {backup_rel}")
+
+    with tab_prog:
+        st.subheader("Activar / Desactivar / Programar pruebas")
+        ruta_disp = _ruta_disponibilidad(base_path)
+        disp = _leer_json(ruta_disp)
+
+        habilitado = st.checkbox("Sistema habilitado", value=bool(disp.get("habilitado", True)), key="admin_disp_hab")
+        zona_horaria = st.text_input("Zona horaria", value=disp.get("zona_horaria", "America/Bogota"), key="admin_disp_tz")
+
+        periodos = disp.get("periodos", [])
+        etiquetas = [f"{i+1}. {p.get('nombre', 'Sin nombre')}" for i, p in enumerate(periodos)]
+        opciones_periodo = ["<Nuevo periodo>"] + etiquetas
+        sel_periodo = st.selectbox("Periodo", options=opciones_periodo, key="admin_disp_sel_periodo")
+
+        configs_rel = _listar_configs_examenes(base_path)
+        periodo_data = {"nombre": "", "examen_config": "", "inicio": "", "fin": "", "grupo": "", "temas": []}
+        idx_periodo = None
+        if sel_periodo != "<Nuevo periodo>":
+            idx_periodo = int(sel_periodo.split('.')[0]) - 1
+            periodo_data.update(periodos[idx_periodo])
+
+        nombre_p = st.text_input("Nombre de prueba", value=periodo_data.get("nombre", ""), key="admin_p_nombre")
+        examen_cfg = st.selectbox(
+            "Examen config",
+            options=configs_rel,
+            index=(configs_rel.index(periodo_data.get("examen_config")) if periodo_data.get("examen_config") in configs_rel else 0) if configs_rel else 0,
+            key="admin_p_excfg"
+        ) if configs_rel else st.text_input("Examen config", value=periodo_data.get("examen_config", ""), key="admin_p_excfg_text")
+        inicio_p = st.text_input("Inicio (YYYY-MM-DD HH:MM)", value=periodo_data.get("inicio", ""), key="admin_p_inicio")
+        fin_p = st.text_input("Fin (YYYY-MM-DD HH:MM)", value=periodo_data.get("fin", ""), key="admin_p_fin")
+        grupo_p = st.text_input("Grupo (opcional, genera hoja separada)", value=periodo_data.get("grupo", ""), key="admin_p_grupo")
+
+        temas_disponibles = []
+        try:
+            cfg_temas = _cargar_config_examen_por_relpath(base_path, examen_cfg)
+            temas_disponibles = list(cfg_temas.get("bancos_por_tema", {}).keys())
+        except Exception:
+            temas_disponibles = []
+
+        temas_sel = st.multiselect(
+            "Temas para esta prueba",
+            options=temas_disponibles,
+            default=periodo_data.get("temas", []),
+            key="admin_p_temas"
+        )
+
+        colp_save, colp_del, colp_disp = st.columns(3)
+        with colp_save:
+            if st.button("💾 Guardar periodo", key="admin_p_save", use_container_width=True):
+                nuevo_periodo = {
+                    "nombre": nombre_p,
+                    "examen_config": examen_cfg,
+                    "inicio": inicio_p,
+                    "fin": fin_p
+                }
+                if grupo_p.strip():
+                    nuevo_periodo["grupo"] = grupo_p.strip()
+                if temas_sel:
+                    nuevo_periodo["temas"] = temas_sel
+
+                nuevos_periodos = list(periodos)
+                if idx_periodo is None:
+                    nuevos_periodos.append(nuevo_periodo)
+                else:
+                    nuevos_periodos[idx_periodo] = nuevo_periodo
+
+                ok_cal, msg_cal = _validar_calendario(nuevos_periodos)
+                if not ok_cal:
+                    st.error(msg_cal)
+                else:
+                    disp["periodos"] = nuevos_periodos
+                    disp["habilitado"] = bool(habilitado)
+                    disp["zona_horaria"] = zona_horaria
+                    backup_rel = _crear_backup_config(base_path, ruta_disp, "disponibilidad")
+                    _escribir_json(ruta_disp, disp)
+                    st.success("Periodo guardado")
+                    if backup_rel:
+                        st.info(f"Backup creado: {backup_rel}")
+
+        with colp_del:
+            if idx_periodo is not None and st.button("🗑️ Eliminar periodo", key="admin_p_del", use_container_width=True):
+                nuevos_periodos = list(periodos)
+                nuevos_periodos.pop(idx_periodo)
+                ok_cal, msg_cal = _validar_calendario(nuevos_periodos)
+                if not ok_cal:
+                    st.error(msg_cal)
+                else:
+                    disp["periodos"] = nuevos_periodos
+                    disp["habilitado"] = bool(habilitado)
+                    disp["zona_horaria"] = zona_horaria
+                    backup_rel = _crear_backup_config(base_path, ruta_disp, "disponibilidad")
+                    _escribir_json(ruta_disp, disp)
+                    st.success("Periodo eliminado")
+                    if backup_rel:
+                        st.info(f"Backup creado: {backup_rel}")
+
+        with colp_disp:
+            if st.button("✅ Guardar disponibilidad", key="admin_disp_save", use_container_width=True):
+                ok_cal, msg_cal = _validar_calendario(periodos)
+                if not ok_cal:
+                    st.error(msg_cal)
+                    return
+                disp["habilitado"] = bool(habilitado)
+                disp["zona_horaria"] = zona_horaria
+                disp["periodos"] = periodos
+                backup_rel = _crear_backup_config(base_path, ruta_disp, "disponibilidad")
+                _escribir_json(ruta_disp, disp)
+                st.success("Disponibilidad guardada")
+                if backup_rel:
+                    st.info(f"Backup creado: {backup_rel}")
+
+    with tab_ops:
+        st.subheader("Operación: hojas por prueba/grupo y desbloqueo")
+        disp = _leer_json(_ruta_disponibilidad(base_path))
+        periodos = disp.get("periodos", [])
+        if not periodos:
+            st.info("No hay periodos configurados")
+            return
+
+        etiquetas = [f"{i+1}. {p.get('nombre', 'Sin nombre')}" for i, p in enumerate(periodos)]
+        sel_op = st.selectbox("Prueba objetivo", etiquetas, key="admin_ops_periodo")
+        idx = int(sel_op.split('.')[0]) - 1
+        periodo = periodos[idx]
+
+        try:
+            ruta_examen, examen_id_estable = _resolver_ruta_examen_config(periodo, base_path)
+            cfg = _leer_json(ruta_examen)
+            _aplicar_bancos_modulares(cfg, periodo)
+            cfg['_examen_id'] = examen_id_estable
+
+            st.write(f"**Config:** {periodo.get('examen_config', '')}")
+            st.write(f"**ID hoja:** Resultados_{examen_id_estable}")
+
+            persistence = DataPersistence(cfg)
+
+            col_ops1, col_ops2 = st.columns(2)
+            with col_ops1:
+                if st.button("📄 Crear/Verificar hoja de resultados", key="admin_ops_sheet", use_container_width=True):
+                    ok = persistence.asegurar_hoja_resultados()
+                    if ok:
+                        st.success("Hoja lista")
+                    else:
+                        st.error("No se pudo crear/verificar hoja")
+
+            with col_ops2:
+                if st.button("🔄 Refrescar bloqueos", key="admin_ops_refresh", use_container_width=True):
+                    st.rerun()
+
+            en_curso = persistence.listar_examenes_en_curso()
+            if not en_curso:
+                st.info("No hay exámenes EN_CURSO para esta prueba")
+            else:
+                st.dataframe(en_curso, use_container_width=True)
+                codigos = [r.get('Codigo_Estudiante', '') for r in en_curso if r.get('Codigo_Estudiante')]
+                codigo_sel = st.selectbox("Estudiante", codigos, key="admin_ops_codigo") if codigos else None
+                if codigo_sel:
+                    col_u1, col_u2 = st.columns(2)
+                    with col_u1:
+                        if st.button("🔓 Autorizar continuación", key="admin_ops_unlock", use_container_width=True):
+                            if persistence.autorizar_continuacion(codigo_sel, True):
+                                st.success(f"Autorizado: {codigo_sel}")
+                            else:
+                                st.error("No se pudo autorizar")
+                    with col_u2:
+                        if st.button("🔒 Bloquear continuación", key="admin_ops_lock", use_container_width=True):
+                            if persistence.autorizar_continuacion(codigo_sel, False):
+                                st.success(f"Bloqueado: {codigo_sel}")
+                            else:
+                                st.error("No se pudo bloquear")
+        except Exception as e:
+            st.error(f"Error en operación admin: {e}")
+
+
 def _resolver_ruta_examen_config(periodo: dict, base_path: Path) -> tuple[Path, str]:
     """
     Resuelve ruta de config de examen en arquitectura anidada.
@@ -115,6 +559,9 @@ def _resolver_ruta_examen_config(periodo: dict, base_path: Path) -> tuple[Path, 
 
     # ID estable para persistencia (normaliza subrutas por asignatura)
     examen_id_estable = _slugify(str(ruta_examen.relative_to(raiz_examenes).with_suffix(''))).replace('/', '_')
+    grupo = str(periodo.get('grupo', '')).strip()
+    if grupo:
+        examen_id_estable = f"{examen_id_estable}_{_slugify(grupo)}"
     return ruta_examen, examen_id_estable
 
 
@@ -193,6 +640,7 @@ def inicializar_session_state():
 
 def main():
     """Función principal de la aplicación"""
+    base_path = Path(__file__).parent
     
     # Configuración de la página
     st.set_page_config(
@@ -213,6 +661,77 @@ def main():
     
     # Inicializar session state
     inicializar_session_state()
+    if 'admin_mode' not in st.session_state:
+        st.session_state.admin_mode = False
+    if 'admin_authenticated' not in st.session_state:
+        st.session_state.admin_authenticated = False
+    if 'admin_prompt' not in st.session_state:
+        st.session_state.admin_prompt = False
+    if 'admin_last_activity_ts' not in st.session_state:
+        st.session_state.admin_last_activity_ts = 0.0
+    if 'admin_timeout_seconds' not in st.session_state:
+        st.session_state.admin_timeout_seconds = 900
+    if 'admin_timeout_notice' not in st.session_state:
+        st.session_state.admin_timeout_notice = False
+
+    ahora_ts = datetime.now().timestamp()
+    if st.session_state.admin_authenticated:
+        last_ts = float(st.session_state.get('admin_last_activity_ts', 0.0) or 0.0)
+        timeout_s = int(st.session_state.get('admin_timeout_seconds', 900))
+        if last_ts and (ahora_ts - last_ts) > timeout_s:
+            st.session_state.admin_authenticated = False
+            st.session_state.admin_mode = False
+            st.session_state.admin_prompt = False
+            st.session_state.admin_last_activity_ts = 0.0
+            st.session_state.admin_timeout_notice = True
+            if 'admin_password_input' in st.session_state:
+                del st.session_state['admin_password_input']
+        else:
+            st.session_state.admin_last_activity_ts = ahora_ts
+
+    if st.session_state.admin_timeout_notice:
+        st.warning("La sesión de administrador se cerró por inactividad.")
+        st.session_state.admin_timeout_notice = False
+
+    top_left, top_right = st.columns([9, 1])
+    with top_right:
+        if st.button("admin", key="toggle_admin", use_container_width=True):
+            if st.session_state.admin_mode:
+                st.session_state.admin_mode = False
+                st.session_state.admin_prompt = False
+            else:
+                if st.session_state.admin_authenticated:
+                    st.session_state.admin_mode = True
+                else:
+                    st.session_state.admin_prompt = True
+            st.rerun()
+
+    if st.session_state.admin_prompt and not st.session_state.admin_authenticated:
+        with st.container(border=True):
+            st.markdown("### 🔐 Acceso administrador")
+            clave_ingresada = st.text_input("Contraseña admin", type="password", key="admin_password_input")
+            col_auth1, col_auth2 = st.columns(2)
+            with col_auth1:
+                if st.button("Ingresar", key="admin_login_btn", use_container_width=True):
+                    clave_configurada = _obtener_clave_admin()
+                    if not clave_configurada:
+                        st.error("No hay clave admin configurada en secrets (ADMIN_PASSWORD).")
+                    elif clave_ingresada == clave_configurada:
+                        st.session_state.admin_authenticated = True
+                        st.session_state.admin_mode = True
+                        st.session_state.admin_prompt = False
+                        st.session_state.admin_last_activity_ts = datetime.now().timestamp()
+                        st.rerun()
+                    else:
+                        st.error("Contraseña incorrecta")
+            with col_auth2:
+                if st.button("Cancelar", key="admin_login_cancel", use_container_width=True):
+                    st.session_state.admin_prompt = False
+                    st.rerun()
+
+    if st.session_state.admin_mode:
+        _render_panel_admin(base_path)
+        return
     
     # ============================================
     # VERIFICAR DISPONIBILIDAD Y OBTENER EXAMEN
@@ -244,7 +763,6 @@ def main():
     # ============================================
     try:
         # Cargar bancos de preguntas (arquitectura modular)
-        base_path = Path(__file__).parent
         if 'bancos_preguntas' not in config:
             raise ValueError("La configuración del examen debe definir 'bancos_preguntas' (arquitectura modular)")
 
