@@ -4,16 +4,16 @@
     "periodos": [
         {
             "nombre": "Quizz 1 - Programación",
-            "examen": "programacion",
+            "examen": "programación",
             "inicio": "2026-03-02 8:30",
             "fin": "2026-03-02 10:00"
         },
-            "nombre": "Quizz 1 - Programación",
+        {
             "nombre": "QUIZZ 1 - Control",
-            "inicio": "2026-03-02 8:30",
-            "fin": "2026-03-02 10:00"
+            "examen": "control",
+            "inicio": "2026-02-26 20:15",
             "fin": "2026-02-26 21:45"
-        },        
+        },
         {
             "nombre": "Parcial 1 - Control",
             "examen": "control",
@@ -28,7 +28,7 @@
         },
         {
             "nombre": "Supletorio - Programación",
-            "examen": "programacion",
+            "examen": "programación",
             "inicio": "2025-03-20 14:00",
             "fin": "2025-03-20 16:00"
         }

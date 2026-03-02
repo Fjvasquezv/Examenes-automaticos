@@ -8,6 +8,7 @@ from pathlib import Path
 from datetime import datetime
 from zoneinfo import ZoneInfo
 import json
+import unicodedata
 
 # Agregar AMBOS directorios al path
 base = Path(__file__).parent
@@ -165,8 +166,9 @@ def verificar_disponibilidad():
         
         if inicio <= ahora <= fin:
             # ✅ Estamos dentro de un periodo válido - cargar config del examen
-            examen_id = periodo.get('examen')
-            ruta_examen = Path(__file__).parent / "config" / "examenes" / f"{examen_id}.json"
+            examen_id = periodo.get('examen', '')
+            examen_slug = unicodedata.normalize('NFKD', examen_id).encode('ascii', 'ignore').decode('ascii').lower()
+            ruta_examen = Path(__file__).parent / "config" / "examenes" / f"{examen_slug}.json"
             
             try:
                 with open(ruta_examen, 'r', encoding='utf-8') as f:
@@ -176,7 +178,7 @@ def verificar_disponibilidad():
                 loader = ConfigLoader(base_path=Path(__file__).parent)
                 loader.validar_config_dict(config_examen)
                 
-                config_examen['_examen_id'] = examen_id  # Guardar ID para referencia
+                config_examen['_examen_id'] = examen_slug  # Guardar ID para referencia
                 
                 # Cargar instrucciones desde archivo separado
                 ruta_instrucciones = Path(__file__).parent / "config" / "instrucciones.json"
