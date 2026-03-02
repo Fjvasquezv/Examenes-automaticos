@@ -3,7 +3,7 @@ Sistemas de Calificación
 Implementa IRT Simplificado, Elo y sistema Híbrido
 """
 import math
-from typing import Dict, List, Tuple, Any
+from typing import Dict, List, Any
 from abc import ABC, abstractmethod
 
 

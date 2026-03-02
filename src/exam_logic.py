@@ -3,7 +3,7 @@ Lógica del Examen Adaptativo
 Implementa la lógica CAT (Computerized Adaptive Testing)
 """
 import random
-from typing import Dict, List, Any, Optional
+from typing import Dict, Any, Optional
 
 from question_manager import QuestionManager
 from scoring_systems import crear_sistema_calificacion

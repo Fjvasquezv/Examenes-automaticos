@@ -5,7 +5,6 @@ Uso:
     python utils/validate_question_banks.py
     python utils/validate_question_banks.py --path data/bancos
 """
-from __future__ import annotations
 
 import argparse
 import json
