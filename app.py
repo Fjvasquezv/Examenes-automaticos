@@ -9,6 +9,8 @@ from datetime import datetime
 from zoneinfo import ZoneInfo
 import json
 import unicodedata
+import re
+import subprocess
 
 # Agregar AMBOS directorios al path
 base = Path(__file__).parent
@@ -189,6 +191,85 @@ def _validar_calendario(periodos: list[dict]) -> tuple[bool, str]:
     return True, ""
 
 
+def _slug_archivo(texto: str) -> str:
+    base = _slugify(texto)
+    base = re.sub(r'[^a-z0-9]+', '_', base).strip('_')
+    return base or 'examen'
+
+
+def _catalogo_examenes(base_path: Path) -> list[dict]:
+    catalogo = []
+    for rel in _listar_configs_examenes(base_path):
+        parts = Path(rel).parts
+        asignatura = parts[0] if len(parts) > 1 else "General"
+        evaluacion_slug = Path(rel).stem
+        nombre_examen = evaluacion_slug.replace('_', ' ').title()
+        try:
+            cfg = _cargar_config_examen_por_relpath(base_path, rel)
+            nombre_examen = cfg.get("metadata", {}).get("nombre_examen", nombre_examen) or nombre_examen
+        except Exception:
+            pass
+        catalogo.append({
+            "rel": rel,
+            "asignatura": asignatura,
+            "evaluacion_slug": evaluacion_slug,
+            "nombre_examen": nombre_examen,
+            "label": f"{nombre_examen} ({evaluacion_slug})"
+        })
+    return sorted(catalogo, key=lambda x: (x["asignatura"].lower(), x["nombre_examen"].lower()))
+
+
+def _run_git(base_path: Path, args: list[str]) -> subprocess.CompletedProcess:
+    return subprocess.run(
+        ["git"] + args,
+        cwd=str(base_path),
+        capture_output=True,
+        text=True,
+        check=False
+    )
+
+
+def _git_status_config(base_path: Path) -> tuple[bool, bool, str]:
+    try:
+        res = _run_git(base_path, ["status", "--porcelain", "--", "config/examenes", "config/disponibilidad.json"])
+        if res.returncode != 0:
+            msg = (res.stderr or res.stdout or "").strip()
+            return False, False, msg or "No se pudo consultar estado git"
+        salida = (res.stdout or "").strip()
+        return True, bool(salida), salida
+    except Exception as e:
+        return False, False, str(e)
+
+
+def _git_publicar_config(base_path: Path, mensaje_commit: str) -> tuple[bool, str]:
+    try:
+        r_branch = _run_git(base_path, ["rev-parse", "--abbrev-ref", "HEAD"])
+        if r_branch.returncode != 0:
+            return False, (r_branch.stderr or r_branch.stdout or "No se pudo obtener rama actual").strip()
+        rama = (r_branch.stdout or "main").strip() or "main"
+
+        r_add = _run_git(base_path, ["add", "config/examenes", "config/disponibilidad.json"])
+        if r_add.returncode != 0:
+            return False, (r_add.stderr or r_add.stdout or "No se pudo hacer git add").strip()
+
+        r_diff = _run_git(base_path, ["diff", "--cached", "--quiet", "--", "config/examenes", "config/disponibilidad.json"])
+        if r_diff.returncode == 0:
+            return False, "No hay cambios de configuración para publicar."
+
+        r_commit = _run_git(base_path, ["commit", "-m", mensaje_commit])
+        if r_commit.returncode != 0:
+            return False, (r_commit.stderr or r_commit.stdout or "No se pudo hacer commit").strip()
+
+        r_push = _run_git(base_path, ["push", "origin", rama])
+        if r_push.returncode != 0:
+            return False, (r_push.stderr or r_push.stdout or "No se pudo hacer push").strip()
+
+        resumen = (r_commit.stdout or "").strip()
+        return True, resumen or f"Publicado en origin/{rama}"
+    except Exception as e:
+        return False, str(e)
+
+
 def _listar_configs_examenes(base_path: Path) -> list[str]:
     raiz = base_path / "config" / "examenes"
     if not raiz.exists():
@@ -239,22 +320,25 @@ def _render_panel_admin(base_path: Path):
 
     with tab_exam:
         st.subheader("Gestión de exámenes")
-        st.caption("Flujo por casos de uso: crear rápido, editar seguro, clonar y eliminar con confirmación.")
+        st.caption("Define primero la acción. No necesitas conocer rutas técnicas.")
 
-        configs_rel = _listar_configs_examenes(base_path)
+        catalogo = _catalogo_examenes(base_path)
         bancos_disponibles = _listar_bancos_disponibles(base_path)
+        asignaturas = sorted(list(dict.fromkeys([c["asignatura"] for c in catalogo])))
 
-        col_stats_1, col_stats_2 = st.columns(2)
+        col_stats_1, col_stats_2, col_stats_3 = st.columns(3)
         with col_stats_1:
-            st.metric("Configs de examen", len(configs_rel))
+            st.metric("Exámenes", len(catalogo))
         with col_stats_2:
-            st.metric("Bancos disponibles", len(bancos_disponibles))
+            st.metric("Asignaturas", len(asignaturas))
+        with col_stats_3:
+            st.metric("Bancos", len(bancos_disponibles))
 
-        modo = st.radio(
-            "Caso de uso",
-            options=["Crear nuevo", "Editar existente", "Clonar existente"],
+        accion = st.radio(
+            "Acción",
+            options=["Crear", "Editar", "Eliminar"],
             horizontal=True,
-            key="admin_exam_mode"
+            key="admin_exam_action"
         )
 
         plantilla = {
@@ -289,156 +373,188 @@ def _render_panel_admin(base_path: Path):
         }
 
         config_base = dict(plantilla)
-        origen_rel = ""
+        ruta_destino_rel = ""
+        modo_creacion = "Desde cero"
+        mostrar_formulario = True
 
-        if modo in ("Editar existente", "Clonar existente"):
-            if not configs_rel:
-                st.warning("No hay configs existentes para este modo.")
+        if accion == "Crear":
+            modo_creacion = st.radio(
+                "Cómo crear",
+                options=["Desde cero", "Duplicar existente"],
+                horizontal=True,
+                key="admin_exam_create_mode"
+            )
+
+            if modo_creacion == "Duplicar existente":
+                if not catalogo:
+                    st.warning("No hay exámenes existentes para duplicar.")
+                    return
+                fuente_labels = [c["label"] for c in catalogo]
+                fuente_sel = st.selectbox("Examen a duplicar", fuente_labels, key="admin_exam_dup_source")
+                fuente = next(c for c in catalogo if c["label"] == fuente_sel)
+                config_base = _cargar_config_examen_por_relpath(base_path, fuente["rel"])
+
+            opciones_asig = asignaturas + ["+ Nueva asignatura"]
+            asig_sel = st.selectbox("Asignatura", options_asig, key="admin_exam_asig_pick") if opciones_asig else st.selectbox("Asignatura", ["+ Nueva asignatura"], key="admin_exam_asig_pick_empty")
+            if asig_sel == "+ Nueva asignatura":
+                asig_destino = st.text_input("Nombre nueva asignatura", value="", key="admin_exam_new_asig")
+            else:
+                asig_destino = asig_sel
+
+            nombre_evaluacion = st.text_input("Nombre de evaluación", value="Quiz 1", key="admin_exam_eval_name")
+            eval_slug = _slug_archivo(nombre_evaluacion)
+            ruta_destino_rel = f"{asig_destino.strip()}/{eval_slug}.json" if asig_destino.strip() else ""
+            st.caption(f"Identificador interno: {eval_slug}.json")
+
+        elif accion == "Editar":
+            if not catalogo:
+                st.warning("No hay exámenes para editar.")
                 return
-            origen_rel = st.selectbox("Config origen", options=configs_rel, key="admin_exam_source_rel")
-            config_base = _cargar_config_examen_por_relpath(base_path, origen_rel)
+            asig_edit = st.selectbox("Asignatura", asignaturas, key="admin_exam_edit_asig")
+            opciones_edit = [c for c in catalogo if c["asignatura"] == asig_edit]
+            sel_label = st.selectbox("Evaluación", [c["label"] for c in opciones_edit], key="admin_exam_edit_sel")
+            seleccionado = next(c for c in opciones_edit if c["label"] == sel_label)
+            ruta_destino_rel = seleccionado["rel"]
+            config_base = _cargar_config_examen_por_relpath(base_path, ruta_destino_rel)
+            st.info(f"Editando: {seleccionado['nombre_examen']}")
 
-        md = config_base.get("metadata", {})
-        params = config_base.get("parametros", {})
-        desc = config_base.get("descripcion", {})
-        pers = config_base.get("persistencia", {})
+        else:  # Eliminar
+            mostrar_formulario = False
+            if not catalogo:
+                st.caption("No hay exámenes para eliminar.")
+            else:
+                st.markdown("##### Eliminación segura")
+                asig_del = st.selectbox("Asignatura", asignaturas, key="admin_exam_del_asig")
+                opciones_del = [c for c in catalogo if c["asignatura"] == asig_del]
+                del_label = st.selectbox("Evaluación", [c["label"] for c in opciones_del], key="admin_exam_delete_target")
+                del_target = next(c for c in opciones_del if c["label"] == del_label)
+                confirmar_eliminar = st.checkbox("Confirmo que quiero eliminar esta configuración", key="admin_exam_delete_confirm")
+                texto_confirmacion = st.text_input("Escribe ELIMINAR para confirmar", key="admin_exam_delete_text")
 
-        st.markdown("##### 1) Ruta destino")
-        if modo == "Editar existente":
-            ruta_destino_rel = origen_rel
-            st.info(f"Editando: {ruta_destino_rel}")
-        else:
-            col_r1, col_r2 = st.columns(2)
-            with col_r1:
-                carpeta_default = md.get("asignatura", "NuevaAsignatura") if modo == "Clonar existente" else "NuevaAsignatura"
-                carpeta = st.text_input("Carpeta de asignatura", value=carpeta_default, key="admin_exam_folder")
-            with col_r2:
-                archivo_default = "quizz_1" if modo == "Crear nuevo" else Path(origen_rel).stem
-                archivo = st.text_input("Nombre de archivo (sin .json)", value=archivo_default, key="admin_exam_file")
-            ruta_destino_rel = f"{carpeta.strip()}/{archivo.strip()}.json"
-            st.caption(f"Destino: config/examenes/{ruta_destino_rel}")
+                if st.button("🗑️ Eliminar examen", key="admin_exam_delete", use_container_width=True):
+                    if not confirmar_eliminar or texto_confirmacion.strip().upper() != "ELIMINAR":
+                        st.error("Confirmación incompleta para eliminar.")
+                    else:
+                        ruta_del = base_path / "config" / "examenes" / del_target["rel"]
+                        if ruta_del.exists():
+                            backup_rel = _crear_backup_config(base_path, ruta_del, "examenes")
+                            ruta_del.unlink()
+                            st.success(f"Examen eliminado: {del_target['nombre_examen']}")
+                            if backup_rel:
+                                st.info(f"Backup creado: {backup_rel}")
 
-        with st.form("admin_exam_form"):
-            st.markdown("##### 2) Datos del examen")
+        if not mostrar_formulario:
+            st.info("Selecciona Crear o Editar para ver el formulario de configuración.")
+            st.markdown("---")
+        if mostrar_formulario:
+            md = config_base.get("metadata", {})
+            params = config_base.get("parametros", {})
+            desc = config_base.get("descripcion", {})
+            pers = config_base.get("persistencia", {})
 
-            with st.expander("Identidad y descripción", expanded=True):
-                nombre_examen = st.text_input("Nombre examen", value=md.get("nombre_examen", ""), key="admin_exam_nombre")
-                col_i1, col_i2 = st.columns(2)
-                with col_i1:
-                    asignatura = st.text_input("Asignatura", value=md.get("asignatura", ""), key="admin_exam_asig")
-                with col_i2:
-                    codigo_asig = st.text_input("Código asignatura", value=md.get("codigo_asignatura", ""), key="admin_exam_cod")
-                texto_desc = st.text_area("Descripción", value=desc.get("texto", ""), key="admin_exam_desc")
-                duracion = st.text_input("Duración estimada", value=desc.get("duracion_estimada", ""), key="admin_exam_dur")
+            with st.form("admin_exam_form"):
+                st.markdown("##### Configuración del examen")
 
-            with st.expander("Parámetros de examen", expanded=True):
-                colp1, colp2, colp3 = st.columns(3)
-                with colp1:
-                    pmin = st.number_input("Preguntas mínimas", min_value=1, value=int(params.get("preguntas_minimas", 15)))
-                with colp2:
-                    pmax = st.number_input("Preguntas máximas", min_value=1, value=int(params.get("preguntas_maximas", 25)))
-                with colp3:
-                    nivel_ini = st.number_input("Nivel inicial", min_value=1, max_value=5, value=int(params.get("nivel_inicial", 3)))
+                with st.expander("Identidad y descripción", expanded=True):
+                    nombre_examen = st.text_input("Nombre examen", value=md.get("nombre_examen", ""), key="admin_exam_nombre")
+                    col_i1, col_i2 = st.columns(2)
+                    with col_i1:
+                        asignatura = st.text_input("Asignatura", value=md.get("asignatura", ""), key="admin_exam_asig")
+                    with col_i2:
+                        codigo_asig = st.text_input("Código asignatura", value=md.get("codigo_asignatura", ""), key="admin_exam_cod")
+                    texto_desc = st.text_area("Descripción", value=desc.get("texto", ""), key="admin_exam_desc")
+                    duracion = st.text_input("Duración estimada", value=desc.get("duracion_estimada", ""), key="admin_exam_dur")
 
-            with st.expander("Bancos y temas", expanded=True):
-                bancos_sel = st.multiselect(
-                    "Bancos de preguntas base",
-                    options=bancos_disponibles,
-                    default=config_base.get("bancos_preguntas", []),
-                    key="admin_exam_bancos"
-                )
+                with st.expander("Parámetros de examen", expanded=True):
+                    colp1, colp2, colp3 = st.columns(3)
+                    with colp1:
+                        pmin = st.number_input("Preguntas mínimas", min_value=1, value=int(params.get("preguntas_minimas", 15)))
+                    with colp2:
+                        pmax = st.number_input("Preguntas máximas", min_value=1, value=int(params.get("preguntas_maximas", 25)))
+                    with colp3:
+                        nivel_ini = st.number_input("Nivel inicial", min_value=1, max_value=5, value=int(params.get("nivel_inicial", 3)))
 
-                temas_str = st.text_input(
-                    "Temas (separados por coma)",
-                    value=", ".join(list(config_base.get("bancos_por_tema", {}).keys())),
-                    key="admin_exam_temas"
-                )
-                temas = [t.strip() for t in temas_str.split(',') if t.strip()]
-
-                bancos_por_tema_default = config_base.get("bancos_por_tema", {})
-                bancos_por_tema = {}
-                for i, tema in enumerate(temas):
-                    default_tema = bancos_por_tema_default.get(tema, bancos_sel)
-                    if isinstance(default_tema, str):
-                        default_tema = [default_tema]
-                    bancos_por_tema[tema] = st.multiselect(
-                        f"Bancos para tema: {tema}",
+                with st.expander("Bancos y temas", expanded=True):
+                    bancos_sel = st.multiselect(
+                        "Bancos de preguntas base",
                         options=bancos_disponibles,
-                        default=[b for b in default_tema if b in bancos_disponibles],
-                        key=f"admin_exam_tema_bancos_{i}"
+                        default=config_base.get("bancos_preguntas", []),
+                        key="admin_exam_bancos"
                     )
 
-            with st.expander("Persistencia", expanded=False):
-                spreadsheet_id = st.text_input("Spreadsheet ID", value=pers.get("spreadsheet_id", ""), key="admin_exam_sheet")
+                    temas_str = st.text_input(
+                        "Temas (separados por coma)",
+                        value=", ".join(list(config_base.get("bancos_por_tema", {}).keys())),
+                        key="admin_exam_temas"
+                    )
+                    temas = [t.strip() for t in temas_str.split(',') if t.strip()]
 
-            submit_guardar = st.form_submit_button("💾 Guardar examen", use_container_width=True)
+                    bancos_por_tema_default = config_base.get("bancos_por_tema", {})
+                    bancos_por_tema = {}
+                    for i, tema in enumerate(temas):
+                        default_tema = bancos_por_tema_default.get(tema, bancos_sel)
+                        if isinstance(default_tema, str):
+                            default_tema = [default_tema]
+                        bancos_por_tema[tema] = st.multiselect(
+                            f"Bancos para tema: {tema}",
+                            options=bancos_disponibles,
+                            default=[b for b in default_tema if b in bancos_disponibles],
+                            key=f"admin_exam_tema_bancos_{i}"
+                        )
 
-        if submit_guardar:
-            if not ruta_destino_rel.strip() or ruta_destino_rel.startswith("/"):
-                st.error("Ruta destino inválida.")
-            elif int(pmin) > int(pmax):
-                st.error("'Preguntas mínimas' no puede ser mayor que 'Preguntas máximas'.")
-            elif not nombre_examen.strip() or not asignatura.strip() or not codigo_asig.strip():
-                st.error("Completa Nombre, Asignatura y Código de asignatura.")
-            elif not bancos_sel:
-                st.error("Selecciona al menos un banco de preguntas base.")
-            elif any(not bancos_por_tema[t] for t in bancos_por_tema):
-                st.error("Cada tema definido debe tener al menos un banco asociado.")
-            else:
-                nuevo = {
-                    "metadata": {
-                        "nombre_examen": nombre_examen,
-                        "asignatura": asignatura,
-                        "institucion": "Universidad ECCI",
-                        "codigo_asignatura": codigo_asig
-                    },
-                    "descripcion": {
-                        "texto": texto_desc,
-                        "temas": temas,
-                        "duracion_estimada": duracion
-                    },
-                    "parametros": {
-                        "preguntas_minimas": int(pmin),
-                        "preguntas_maximas": int(pmax),
-                        "nivel_inicial": int(nivel_ini),
-                        "umbral_estabilizacion": float(params.get("umbral_estabilizacion", 0.2)),
-                        "ventana_estabilizacion": int(params.get("ventana_estabilizacion", 3))
-                    },
-                    "sistema_calificacion": config_base.get("sistema_calificacion", {"tipo": "irt_simplificado", "parametros": {"max_iteraciones": 10}}),
-                    "persistencia": {
-                        "metodo": "google_sheets",
-                        "spreadsheet_id": spreadsheet_id
-                    },
-                    "bancos_preguntas": list(bancos_sel),
-                    "bancos_por_tema": bancos_por_tema
-                }
+                with st.expander("Persistencia", expanded=False):
+                    spreadsheet_id = st.text_input("Spreadsheet ID", value=pers.get("spreadsheet_id", ""), key="admin_exam_sheet")
 
-                ruta_destino = base_path / "config" / "examenes" / ruta_destino_rel
-                backup_rel = _crear_backup_config(base_path, ruta_destino, "examenes")
-                _escribir_json(ruta_destino, nuevo)
-                accion = "actualizado" if modo == "Editar existente" else "guardado"
-                st.success(f"Examen {accion}: {ruta_destino_rel}")
-                if backup_rel:
-                    st.info(f"Backup creado: {backup_rel}")
+                submit_guardar = st.form_submit_button("💾 Guardar examen", use_container_width=True)
 
-        st.markdown("---")
-        st.markdown("##### 3) Eliminación segura")
-        if not configs_rel:
-            st.caption("No hay configs para eliminar.")
-        else:
-            del_target = st.selectbox("Config a eliminar", options=configs_rel, key="admin_exam_delete_target")
-            confirmar_eliminar = st.checkbox("Confirmo que quiero eliminar esta configuración", key="admin_exam_delete_confirm")
-            texto_confirmacion = st.text_input("Escribe ELIMINAR para confirmar", key="admin_exam_delete_text")
-
-            if st.button("🗑️ Eliminar examen", key="admin_exam_delete", use_container_width=True):
-                if not confirmar_eliminar or texto_confirmacion.strip().upper() != "ELIMINAR":
-                    st.error("Confirmación incompleta para eliminar.")
+            if submit_guardar:
+                if not ruta_destino_rel.strip() or ruta_destino_rel.startswith("/") or "/" not in ruta_destino_rel:
+                    st.error("Ruta destino inválida.")
+                elif int(pmin) > int(pmax):
+                    st.error("'Preguntas mínimas' no puede ser mayor que 'Preguntas máximas'.")
+                elif not nombre_examen.strip() or not asignatura.strip() or not codigo_asig.strip():
+                    st.error("Completa Nombre, Asignatura y Código de asignatura.")
+                elif not bancos_sel:
+                    st.error("Selecciona al menos un banco de preguntas base.")
+                elif any(not bancos_por_tema[t] for t in bancos_por_tema):
+                    st.error("Cada tema definido debe tener al menos un banco asociado.")
                 else:
-                    ruta_del = base_path / "config" / "examenes" / del_target
-                    if ruta_del.exists():
-                        backup_rel = _crear_backup_config(base_path, ruta_del, "examenes")
-                        ruta_del.unlink()
-                        st.success(f"Examen eliminado: {del_target}")
+                    nuevo = {
+                        "metadata": {
+                            "nombre_examen": nombre_examen,
+                            "asignatura": asignatura,
+                            "institucion": "Universidad ECCI",
+                            "codigo_asignatura": codigo_asig
+                        },
+                        "descripcion": {
+                            "texto": texto_desc,
+                            "temas": temas,
+                            "duracion_estimada": duracion
+                        },
+                        "parametros": {
+                            "preguntas_minimas": int(pmin),
+                            "preguntas_maximas": int(pmax),
+                            "nivel_inicial": int(nivel_ini),
+                            "umbral_estabilizacion": float(params.get("umbral_estabilizacion", 0.2)),
+                            "ventana_estabilizacion": int(params.get("ventana_estabilizacion", 3))
+                        },
+                        "sistema_calificacion": config_base.get("sistema_calificacion", {"tipo": "irt_simplificado", "parametros": {"max_iteraciones": 10}}),
+                        "persistencia": {
+                            "metodo": "google_sheets",
+                            "spreadsheet_id": spreadsheet_id
+                        },
+                        "bancos_preguntas": list(bancos_sel),
+                        "bancos_por_tema": bancos_por_tema
+                    }
+
+                    ruta_destino = base_path / "config" / "examenes" / ruta_destino_rel
+                    if accion == "Crear" and ruta_destino.exists() and modo_creacion == "Desde cero":
+                        st.error("Ya existe un examen con ese nombre de evaluación en la asignatura seleccionada.")
+                    else:
+                        backup_rel = _crear_backup_config(base_path, ruta_destino, "examenes")
+                        _escribir_json(ruta_destino, nuevo)
+                        accion_msg = "actualizado" if accion == "Editar" else "guardado"
+                        st.success(f"Examen {accion_msg}: {nombre_examen}")
                         if backup_rel:
                             st.info(f"Backup creado: {backup_rel}")
 
@@ -612,6 +728,32 @@ def _render_panel_admin(base_path: Path):
                                 st.error("No se pudo bloquear")
         except Exception as e:
             st.error(f"Error en operación admin: {e}")
+
+        st.markdown("---")
+        st.subheader("Publicación a GitHub")
+        st.caption("Opción A: guardar local y publicar cambios de configuración al repositorio.")
+
+        ok_git, hay_pendientes, detalle_git = _git_status_config(base_path)
+        if not ok_git:
+            st.error(f"No se pudo consultar estado git: {detalle_git}")
+        else:
+            if hay_pendientes:
+                st.warning("Hay cambios de configuración pendientes por publicar.")
+                st.code(detalle_git)
+            else:
+                st.success("No hay cambios pendientes en config/examenes y config/disponibilidad.json")
+
+            mensaje_default = f"chore: publicar cambios admin {datetime.now().strftime('%Y-%m-%d %H:%M')}"
+            mensaje_commit = st.text_input("Mensaje de commit", value=mensaje_default, key="admin_git_commit_msg")
+
+            if st.button("🚀 Publicar cambios a GitHub", key="admin_git_publish", use_container_width=True):
+                ok_pub, msg_pub = _git_publicar_config(base_path, mensaje_commit)
+                if ok_pub:
+                    st.success("Cambios publicados en GitHub")
+                    if msg_pub:
+                        st.code(msg_pub)
+                else:
+                    st.error(msg_pub or "No se pudo publicar cambios")
 
 
 def _resolver_ruta_examen_config(periodo: dict, base_path: Path) -> tuple[Path, str]:
