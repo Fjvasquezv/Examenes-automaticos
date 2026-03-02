@@ -4,31 +4,31 @@
     "periodos": [
         {
             "nombre": "Quizz 1 - Programación",
-            "examen": "programación",
+            "examen_config": "Programacion/quizz_1.json",
             "inicio": "2026-03-02 8:30",
             "fin": "2026-03-02 10:00"
         },
         {
             "nombre": "QUIZZ 1 - Control",
-            "examen": "control",
+            "examen_config": "Control/quizz_1.json",
             "inicio": "2026-02-26 20:15",
             "fin": "2026-02-26 21:45"
         },
         {
             "nombre": "Parcial 1 - Control",
-            "examen": "control",
+            "examen_config": "Control/parcial_1.json",
             "inicio": "2026-02-05 18:00",
             "fin": "2026-02-05 20:00"
         },
         {
             "nombre": "Parcial 1 - Optimización",
-            "examen": "optimizacion",
+            "examen_config": "Optimizacion/parcial_1.json",
             "inicio": "2026-02-16 08:00",
             "fin": "2025-03-16 10:00"
         },
         {
             "nombre": "Supletorio - Programación",
-            "examen": "programación",
+            "examen_config": "Programacion/supletorio.json",
             "inicio": "2025-03-20 14:00",
             "fin": "2025-03-20 16:00"
         }

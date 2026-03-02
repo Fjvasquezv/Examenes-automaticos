@@ -120,24 +120,22 @@ class ConfigLoader:
                     if subkey not in config[key]:
                         raise ValueError(f"Falta la clave opcional esperada: '{key}.{subkey}'")
 
-        # Validar bancos de preguntas
-        if 'bancos_preguntas' in config:
-            bancos = config['bancos_preguntas']
-            if not isinstance(bancos, list) or not bancos:
-                raise ValueError("bancos_preguntas debe ser una lista de rutas a archivos JSON")
-            for archivo in bancos:
-                preguntas_path = self.base_path / archivo
-                if not preguntas_path.exists():
-                    raise FileNotFoundError(f"Banco de preguntas no encontrado: {archivo} (buscado en {preguntas_path})")
-        elif 'archivo_preguntas' in config:
-            preguntas_path = self.base_path / config['archivo_preguntas']
+        # Arquitectura modular: exigir bancos_preguntas
+        if 'bancos_preguntas' not in config:
+            raise ValueError("La configuración del examen debe incluir 'bancos_preguntas' (arquitectura modular)")
+
+        bancos = config['bancos_preguntas']
+        if not isinstance(bancos, list) or not bancos:
+            raise ValueError("bancos_preguntas debe ser una lista no vacía de rutas a archivos JSON")
+
+        for archivo in bancos:
+            preguntas_path = self.base_path / archivo
             if not preguntas_path.exists():
-                raise FileNotFoundError(
-                    f"Archivo de preguntas no encontrado: {config['archivo_preguntas']} "
-                    f"(buscado en {preguntas_path})"
-                )
-        else:
-            raise ValueError("Debe especificar 'archivo_preguntas' o 'bancos_preguntas' en la configuración del examen")
+                raise FileNotFoundError(f"Banco de preguntas no encontrado: {archivo} (buscado en {preguntas_path})")
+
+        # Evitar mezcla con arquitectura legacy
+        if 'archivo_preguntas' in config:
+            raise ValueError("'archivo_preguntas' no está permitido en la arquitectura modular. Use solo 'bancos_preguntas'.")
         
         # Validar rangos de parámetros
         params = config['parametros']

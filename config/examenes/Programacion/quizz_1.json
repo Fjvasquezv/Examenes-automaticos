@@ -1,0 +1,49 @@
+{
+  "metadata": {
+    "nombre_examen": "Quizz 1 - Programación",
+    "asignatura": "Programación y Algoritmos",
+    "institucion": "Universidad ECCI",
+    "codigo_asignatura": "PRG101"
+  },
+  "descripcion": {
+    "texto": "Evaluación modular de fundamentos de programación.",
+    "temas": [
+      "Algoritmos y complejidad",
+      "Fibonacci y recurrencia",
+      "Constantes matemáticas",
+      "Patrones integrados"
+    ],
+    "duracion_estimada": "1 hora 45 minutos"
+  },
+  "parametros": {
+    "preguntas_minimas": 15,
+    "preguntas_maximas": 25,
+    "nivel_inicial": 3,
+    "umbral_estabilizacion": 0.2,
+    "ventana_estabilizacion": 3
+  },
+  "sistema_calificacion": {
+    "tipo": "irt_simplificado",
+    "parametros": {
+      "max_iteraciones": 10
+    }
+  },
+  "persistencia": {
+    "metodo": "google_sheets",
+    "spreadsheet_id": "11LgtY-p59UKYCYY0GwZHCLN--KbZEPZb8poZJTEbyys"
+  },
+  "bancos_preguntas": [
+    "data/bancos/Programacion/Quizz 1.json"
+  ],
+  "bancos_por_tema": {
+    "Fundamentos": [
+      "data/bancos/Programacion/Quizz 1.json"
+    ],
+    "Secuencias": [
+      "data/bancos/Programacion/Quizz 1.json"
+    ],
+    "Integración": [
+      "data/bancos/Programacion/Quizz 1.json"
+    ]
+  }
+}

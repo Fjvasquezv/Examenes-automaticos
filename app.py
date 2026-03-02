@@ -90,6 +90,89 @@ def _restaurar_estado_exam_logic(exam_logic, progreso: dict) -> bool:
         return False
 
 
+def _slugify(texto: str) -> str:
+    """Normaliza texto para usarlo como identificador estable."""
+    return unicodedata.normalize('NFKD', texto).encode('ascii', 'ignore').decode('ascii').lower()
+
+
+def _resolver_ruta_examen_config(periodo: dict, base_path: Path) -> tuple[Path, str]:
+    """
+    Resuelve ruta de config de examen en arquitectura anidada.
+
+    Formato requerido:
+    periodo['examen_config'] = 'Programacion/quizz_1' o 'Programacion/quizz_1.json'
+    """
+    raiz_examenes = base_path / "config" / "examenes"
+
+    examen_config = periodo.get('examen_config')
+    if not examen_config:
+        raise ValueError("Cada periodo debe definir 'examen_config' en formato '<Asignatura>/<evaluacion>.json'")
+
+    ruta_rel = str(examen_config).replace('\\', '/').lstrip('./')
+    if not ruta_rel.lower().endswith('.json'):
+        ruta_rel += '.json'
+    ruta_examen = raiz_examenes / ruta_rel
+
+    # ID estable para persistencia (normaliza subrutas por asignatura)
+    examen_id_estable = _slugify(str(ruta_examen.relative_to(raiz_examenes).with_suffix(''))).replace('/', '_')
+    return ruta_examen, examen_id_estable
+
+
+def _aplicar_bancos_modulares(config_examen: dict, periodo: dict) -> None:
+    """
+    Permite selección modular de bancos por evaluación sin romper compatibilidad.
+
+    Opciones soportadas:
+    - periodo['bancos_preguntas']: override directo de bancos.
+    - periodo['temas']: lista de temas a activar, usando config_examen['bancos_por_tema'].
+    """
+    bancos_override = periodo.get('bancos_preguntas')
+    if bancos_override:
+        if not isinstance(bancos_override, list) or not bancos_override:
+            raise ValueError("'bancos_preguntas' en disponibilidad debe ser lista no vacía")
+        config_examen['bancos_preguntas'] = bancos_override
+        config_examen.pop('archivo_preguntas', None)
+        return
+
+    temas = periodo.get('temas')
+    if not temas:
+        return
+
+    if not isinstance(temas, list) or not temas:
+        raise ValueError("'temas' en disponibilidad debe ser lista no vacía")
+
+    bancos_por_tema = config_examen.get('bancos_por_tema', {})
+    if not isinstance(bancos_por_tema, dict) or not bancos_por_tema:
+        raise ValueError("Para usar 'temas', el examen debe definir 'bancos_por_tema' en su configuración")
+
+    bancos_seleccionados = []
+    temas_no_encontrados = []
+    for tema in temas:
+        bancos_tema = bancos_por_tema.get(tema)
+        if bancos_tema is None:
+            temas_no_encontrados.append(tema)
+            continue
+
+        if isinstance(bancos_tema, str):
+            bancos_seleccionados.append(bancos_tema)
+        elif isinstance(bancos_tema, list):
+            bancos_seleccionados.extend(bancos_tema)
+        else:
+            raise ValueError(f"El tema '{tema}' debe mapear a string o lista de bancos")
+
+    if temas_no_encontrados:
+        raise ValueError(f"Temas no definidos en bancos_por_tema: {', '.join(temas_no_encontrados)}")
+
+    # Mantener orden y quitar duplicados
+    bancos_unicos = list(dict.fromkeys(bancos_seleccionados))
+    if not bancos_unicos:
+        raise ValueError("La selección de temas no produjo bancos de preguntas")
+
+    config_examen['bancos_preguntas'] = bancos_unicos
+    config_examen.pop('archivo_preguntas', None)
+    config_examen['_temas_activos'] = temas
+
+
 def inicializar_session_state():
     """Inicializa las variables de session state necesarias"""
     if 'exam_started' not in st.session_state:
@@ -160,18 +243,15 @@ def main():
     # EXAMEN DISPONIBLE - CONTINUAR NORMALMENTE
     # ============================================
     try:
-        # Cargar banco(s) de preguntas (multi-banco o legacy)
+        # Cargar bancos de preguntas (arquitectura modular)
         base_path = Path(__file__).parent
-        if 'bancos_preguntas' in config:
-            question_manager = QuestionManager(
-                bancos_preguntas=config['bancos_preguntas'],
-                base_path=base_path
-            )
-        else:
-            question_manager = QuestionManager(
-                preguntas_file=config['archivo_preguntas'],
-                base_path=base_path
-            )
+        if 'bancos_preguntas' not in config:
+            raise ValueError("La configuración del examen debe definir 'bancos_preguntas' (arquitectura modular)")
+
+        question_manager = QuestionManager(
+            bancos_preguntas=config['bancos_preguntas'],
+            base_path=base_path
+        )
         
         # Inicializar componentes
         ui = UIComponents(config)
@@ -232,22 +312,24 @@ def verificar_disponibilidad():
         
         if inicio <= ahora <= fin:
             # ✅ Estamos dentro de un periodo válido - cargar config del examen
-            examen_id = periodo.get('examen', '')
-            examen_slug = unicodedata.normalize('NFKD', examen_id).encode('ascii', 'ignore').decode('ascii').lower()
-            ruta_examen = Path(__file__).parent / "config" / "examenes" / f"{examen_slug}.json"
-            
             try:
+                base_path = Path(__file__).parent
+                ruta_examen, examen_id_estable = _resolver_ruta_examen_config(periodo, base_path)
+
                 with open(ruta_examen, 'r', encoding='utf-8') as f:
                     config_examen = json.load(f)
+
+                # Aplicar overrides modulares desde disponibilidad (si existen)
+                _aplicar_bancos_modulares(config_examen, periodo)
                 
                 # Validar configuración del examen
-                loader = ConfigLoader(base_path=Path(__file__).parent)
+                loader = ConfigLoader(base_path=base_path)
                 loader.validar_config_dict(config_examen)
                 
-                config_examen['_examen_id'] = examen_slug  # Guardar ID para referencia
+                config_examen['_examen_id'] = examen_id_estable  # Guardar ID para referencia
                 
                 # Cargar instrucciones desde archivo separado
-                ruta_instrucciones = Path(__file__).parent / "config" / "instrucciones.json"
+                ruta_instrucciones = base_path / "config" / "instrucciones.json"
                 try:
                     with open(ruta_instrucciones, 'r', encoding='utf-8') as f2:
                         instrucciones = json.load(f2)
@@ -259,9 +341,11 @@ def verificar_disponibilidad():
                 config_examen['instrucciones']['descripcion'] = config_examen.get('descripcion', {})
                 return True, config_examen, periodo.get('nombre', 'Examen activo'), periodos
             except FileNotFoundError as e:
-                return False, None, f"Error en examen '{examen_id}': {str(e)}", periodos
+                examen_ref = periodo.get('examen_config', '')
+                return False, None, f"Error en examen '{examen_ref}': {str(e)}", periodos
             except ValueError as e:
-                return False, None, f"Configuración inválida para '{examen_id}': {str(e)}", periodos
+                examen_ref = periodo.get('examen_config', '')
+                return False, None, f"Configuración inválida para '{examen_ref}': {str(e)}", periodos
     
     # ❌ NO estamos en ningún periodo - buscar el próximo
     proximos = []

@@ -1,0 +1,48 @@
+{
+  "metadata": {
+    "nombre_examen": "Parcial 1 - Optimización",
+    "asignatura": "Optimización",
+    "institucion": "Universidad ECCI",
+    "codigo_asignatura": "OPT101"
+  },
+  "descripcion": {
+    "texto": "Evaluación modular de Optimización.",
+    "temas": [
+      "Modelado",
+      "Métodos numéricos",
+      "Análisis"
+    ],
+    "duracion_estimada": "2 horas"
+  },
+  "parametros": {
+    "preguntas_minimas": 15,
+    "preguntas_maximas": 30,
+    "nivel_inicial": 3,
+    "umbral_estabilizacion": 0.2,
+    "ventana_estabilizacion": 3
+  },
+  "sistema_calificacion": {
+    "tipo": "irt_simplificado",
+    "parametros": {
+      "max_iteraciones": 10
+    }
+  },
+  "persistencia": {
+    "metodo": "google_sheets",
+    "spreadsheet_id": "11LgtY-p59UKYCYY0GwZHCLN--KbZEPZb8poZJTEbyys"
+  },
+  "bancos_preguntas": [
+    "data/preguntas/ControlQuizzC1_1.json"
+  ],
+  "bancos_por_tema": {
+    "Modelado": [
+      "data/preguntas/ControlQuizzC1_1.json"
+    ],
+    "Métodos": [
+      "data/preguntas/ControlQuizzC1_1.json"
+    ],
+    "Análisis": [
+      "data/preguntas/ControlQuizzC1_1.json"
+    ]
+  }
+}

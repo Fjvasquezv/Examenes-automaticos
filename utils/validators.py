@@ -163,13 +163,15 @@ def validate_config_estructura(config: Dict[str, Any]) -> tuple[bool, str]:
         if seccion not in config:
             return False, f"Falta la sección requerida: {seccion}"
 
-    # Debe existir archivo_preguntas o bancos_preguntas
-    if 'archivo_preguntas' not in config and 'bancos_preguntas' not in config:
-        return False, "Debe existir 'archivo_preguntas' o 'bancos_preguntas'"
+    # Arquitectura modular: exigir bancos_preguntas
+    if 'bancos_preguntas' not in config:
+        return False, "Debe existir 'bancos_preguntas' (arquitectura modular)"
 
-    if 'bancos_preguntas' in config:
-        if not isinstance(config['bancos_preguntas'], list) or len(config['bancos_preguntas']) == 0:
-            return False, "bancos_preguntas debe ser una lista no vacía"
+    if not isinstance(config['bancos_preguntas'], list) or len(config['bancos_preguntas']) == 0:
+        return False, "bancos_preguntas debe ser una lista no vacía"
+
+    if 'archivo_preguntas' in config:
+        return False, "'archivo_preguntas' no está permitido en arquitectura modular"
     
     # Validar metadata
     campos_metadata = ['nombre_examen', 'asignatura', 'institucion']
