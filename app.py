@@ -270,6 +270,35 @@ def _git_publicar_config(base_path: Path, mensaje_commit: str) -> tuple[bool, st
         return False, str(e)
 
 
+def _reset_admin_exam_form_state(config_base: dict) -> None:
+    md = config_base.get("metadata", {})
+    params = config_base.get("parametros", {})
+    desc = config_base.get("descripcion", {})
+    pers = config_base.get("persistencia", {})
+
+    st.session_state["admin_exam_nombre"] = md.get("nombre_examen", "")
+    st.session_state["admin_exam_desc"] = desc.get("texto", "")
+    st.session_state["admin_exam_dur"] = desc.get("duracion_estimada", "")
+    st.session_state["admin_exam_sheet"] = pers.get("spreadsheet_id", "")
+    st.session_state["admin_exam_bancos"] = list(config_base.get("bancos_preguntas", []))
+    st.session_state["admin_exam_temas"] = ", ".join(list(config_base.get("bancos_por_tema", {}).keys()))
+    st.session_state["admin_exam_pmin"] = int(params.get("preguntas_minimas", 15))
+    st.session_state["admin_exam_pmax"] = int(params.get("preguntas_maximas", 25))
+    st.session_state["admin_exam_nivel_ini"] = int(params.get("nivel_inicial", 3))
+
+    tema_keys = [k for k in list(st.session_state.keys()) if str(k).startswith("admin_exam_tema_bancos_")]
+    for key in tema_keys:
+        del st.session_state[key]
+
+
+def _opciones_duracion(duracion_actual: str = "") -> list[str]:
+    opciones = [f"{m} min" for m in range(15, 121, 15)]
+    valor = str(duracion_actual or "").strip()
+    if valor and valor not in opciones:
+        opciones = [valor] + opciones
+    return opciones
+
+
 def _listar_configs_examenes(base_path: Path) -> list[str]:
     raiz = base_path / "config" / "examenes"
     if not raiz.exists():
@@ -298,10 +327,9 @@ def _cargar_config_examen_por_relpath(base_path: Path, examen_config_rel: str) -
 
 
 def _render_panel_admin(base_path: Path):
-    st.title("🛠️ Panel de Administración")
-    st.caption("Gestiona exámenes, programación, temas y operación de desbloqueo.")
+    st.markdown("### 🛠️ Panel de Administración")
 
-    col_admin_left, col_admin_mid, col_admin_right = st.columns([7, 1, 1])
+    col_admin_left, col_admin_mid, col_admin_right = st.columns([8, 1, 1])
     with col_admin_mid:
         if st.button("Cerrar sesión", key="admin_logout", use_container_width=True):
             st.session_state.admin_authenticated = False
@@ -319,14 +347,13 @@ def _render_panel_admin(base_path: Path):
     tab_exam, tab_prog, tab_ops = st.tabs(["Exámenes", "Programación", "Operación"])
 
     with tab_exam:
-        st.subheader("Gestión de exámenes")
-        st.caption("Define primero la acción. No necesitas conocer rutas técnicas.")
-
         catalogo = _catalogo_examenes(base_path)
         bancos_disponibles = _listar_bancos_disponibles(base_path)
         asignaturas = sorted(list(dict.fromkeys([c["asignatura"] for c in catalogo])))
 
-        col_stats_1, col_stats_2, col_stats_3 = st.columns(3)
+        col_stats_t, col_stats_1, col_stats_2, col_stats_3 = st.columns([3, 1, 1, 1])
+        with col_stats_t:
+            st.markdown("#### Gestión de exámenes")
         with col_stats_1:
             st.metric("Exámenes", len(catalogo))
         with col_stats_2:
@@ -337,7 +364,7 @@ def _render_panel_admin(base_path: Path):
         accion = st.radio(
             "Acción",
             options=["Crear", "Editar", "Eliminar"],
-            horizontal=True,
+            horizontal=False,
             key="admin_exam_action"
         )
 
@@ -376,6 +403,9 @@ def _render_panel_admin(base_path: Path):
         ruta_destino_rel = ""
         modo_creacion = "Desde cero"
         mostrar_formulario = True
+        contexto_form = "crear:base"
+        fuente_rel = ""
+        asignatura_destino = ""
 
         if accion == "Crear":
             modo_creacion = st.radio(
@@ -392,19 +422,24 @@ def _render_panel_admin(base_path: Path):
                 fuente_labels = [c["label"] for c in catalogo]
                 fuente_sel = st.selectbox("Examen a duplicar", fuente_labels, key="admin_exam_dup_source")
                 fuente = next(c for c in catalogo if c["label"] == fuente_sel)
+                fuente_rel = fuente["rel"]
                 config_base = _cargar_config_examen_por_relpath(base_path, fuente["rel"])
 
-            opciones_asig = asignaturas + ["+ Nueva asignatura"]
-            asig_sel = st.selectbox("Asignatura", opciones_asig, key="admin_exam_asig_pick") if opciones_asig else st.selectbox("Asignatura", ["+ Nueva asignatura"], key="admin_exam_asig_pick_empty")
-            if asig_sel == "+ Nueva asignatura":
-                asig_destino = st.text_input("Nombre nueva asignatura", value="", key="admin_exam_new_asig")
-            else:
-                asig_destino = asig_sel
+            col_crear_1, col_crear_2 = st.columns(2)
+            with col_crear_1:
+                opciones_asig = asignaturas + ["+ Nueva asignatura"]
+                asig_sel = st.selectbox("Asignatura", opciones_asig, key="admin_exam_asig_pick") if opciones_asig else st.selectbox("Asignatura", ["+ Nueva asignatura"], key="admin_exam_asig_pick_empty")
+                if asig_sel == "+ Nueva asignatura":
+                    asig_destino = st.text_input("Nueva asignatura", value="", key="admin_exam_new_asig")
+                else:
+                    asig_destino = asig_sel
+            with col_crear_2:
+                nombre_evaluacion = st.text_input("Nombre de la evaluación", value="Quiz 1", key="admin_exam_eval_name")
 
-            nombre_evaluacion = st.text_input("Nombre de evaluación", value="Quiz 1", key="admin_exam_eval_name")
             eval_slug = _slug_archivo(nombre_evaluacion)
             ruta_destino_rel = f"{asig_destino.strip()}/{eval_slug}.json" if asig_destino.strip() else ""
-            st.caption(f"Identificador interno: {eval_slug}.json")
+            asignatura_destino = asig_destino.strip()
+            contexto_form = f"crear:{modo_creacion}:{fuente_rel}"
 
         elif accion == "Editar":
             if not catalogo:
@@ -416,7 +451,9 @@ def _render_panel_admin(base_path: Path):
             seleccionado = next(c for c in opciones_edit if c["label"] == sel_label)
             ruta_destino_rel = seleccionado["rel"]
             config_base = _cargar_config_examen_por_relpath(base_path, ruta_destino_rel)
+            asignatura_destino = seleccionado["asignatura"]
             st.info(f"Editando: {seleccionado['nombre_examen']}")
+            contexto_form = f"editar:{ruta_destino_rel}"
 
         else:  # Eliminar
             mostrar_formulario = False
@@ -447,63 +484,66 @@ def _render_panel_admin(base_path: Path):
             st.info("Selecciona Crear o Editar para ver el formulario de configuración.")
             st.markdown("---")
         if mostrar_formulario:
+            if st.session_state.get("admin_exam_form_context") != contexto_form:
+                _reset_admin_exam_form_state(config_base)
+                st.session_state["admin_exam_form_context"] = contexto_form
+
             md = config_base.get("metadata", {})
             params = config_base.get("parametros", {})
-            desc = config_base.get("descripcion", {})
-            pers = config_base.get("persistencia", {})
+            bancos_por_tema_default = config_base.get("bancos_por_tema", {})
 
             with st.form("admin_exam_form"):
                 st.markdown("##### Configuración del examen")
 
                 with st.expander("Identidad y descripción", expanded=True):
-                    nombre_examen = st.text_input("Nombre examen", value=md.get("nombre_examen", ""), key="admin_exam_nombre")
                     col_i1, col_i2 = st.columns(2)
                     with col_i1:
-                        asignatura = st.text_input("Asignatura", value=md.get("asignatura", ""), key="admin_exam_asig")
+                        nombre_examen = st.text_input("Nombre examen", key="admin_exam_nombre")
                     with col_i2:
-                        codigo_asig = st.text_input("Código asignatura", value=md.get("codigo_asignatura", ""), key="admin_exam_cod")
-                    texto_desc = st.text_area("Descripción", value=desc.get("texto", ""), key="admin_exam_desc")
-                    duracion = st.text_input("Duración estimada", value=desc.get("duracion_estimada", ""), key="admin_exam_dur")
+                        duracion_opts = _opciones_duracion(st.session_state.get("admin_exam_dur", ""))
+                        if st.session_state.get("admin_exam_dur", "") not in duracion_opts:
+                            st.session_state["admin_exam_dur"] = duracion_opts[0]
+                        duracion = st.selectbox("Duración", options=duracion_opts, key="admin_exam_dur")
+                    texto_desc = st.text_area("Descripción", key="admin_exam_desc")
 
                 with st.expander("Parámetros de examen", expanded=True):
                     colp1, colp2, colp3 = st.columns(3)
                     with colp1:
-                        pmin = st.number_input("Preguntas mínimas", min_value=1, value=int(params.get("preguntas_minimas", 15)))
+                        pmin = st.number_input("Preguntas mínimas", min_value=1, key="admin_exam_pmin")
                     with colp2:
-                        pmax = st.number_input("Preguntas máximas", min_value=1, value=int(params.get("preguntas_maximas", 25)))
+                        pmax = st.number_input("Preguntas máximas", min_value=1, key="admin_exam_pmax")
                     with colp3:
-                        nivel_ini = st.number_input("Nivel inicial", min_value=1, max_value=5, value=int(params.get("nivel_inicial", 3)))
+                        nivel_ini = st.number_input("Nivel inicial", min_value=1, max_value=5, key="admin_exam_nivel_ini")
 
                 with st.expander("Bancos y temas", expanded=True):
                     bancos_sel = st.multiselect(
                         "Bancos de preguntas base",
                         options=bancos_disponibles,
-                        default=config_base.get("bancos_preguntas", []),
                         key="admin_exam_bancos"
                     )
 
                     temas_str = st.text_input(
                         "Temas (separados por coma)",
-                        value=", ".join(list(config_base.get("bancos_por_tema", {}).keys())),
                         key="admin_exam_temas"
                     )
                     temas = [t.strip() for t in temas_str.split(',') if t.strip()]
 
-                    bancos_por_tema_default = config_base.get("bancos_por_tema", {})
                     bancos_por_tema = {}
                     for i, tema in enumerate(temas):
+                        key_tema = f"admin_exam_tema_bancos_{i}"
                         default_tema = bancos_por_tema_default.get(tema, bancos_sel)
                         if isinstance(default_tema, str):
                             default_tema = [default_tema]
+                        if key_tema not in st.session_state:
+                            st.session_state[key_tema] = [b for b in default_tema if b in bancos_disponibles]
                         bancos_por_tema[tema] = st.multiselect(
                             f"Bancos para tema: {tema}",
                             options=bancos_disponibles,
-                            default=[b for b in default_tema if b in bancos_disponibles],
-                            key=f"admin_exam_tema_bancos_{i}"
+                            key=key_tema
                         )
 
                 with st.expander("Persistencia", expanded=False):
-                    spreadsheet_id = st.text_input("Spreadsheet ID", value=pers.get("spreadsheet_id", ""), key="admin_exam_sheet")
+                    spreadsheet_id = st.text_input("Spreadsheet ID", key="admin_exam_sheet")
 
                 submit_guardar = st.form_submit_button("💾 Guardar examen", use_container_width=True)
 
@@ -512,17 +552,18 @@ def _render_panel_admin(base_path: Path):
                     st.error("Ruta destino inválida.")
                 elif int(pmin) > int(pmax):
                     st.error("'Preguntas mínimas' no puede ser mayor que 'Preguntas máximas'.")
-                elif not nombre_examen.strip() or not asignatura.strip() or not codigo_asig.strip():
-                    st.error("Completa Nombre, Asignatura y Código de asignatura.")
+                elif not nombre_examen.strip() or not asignatura_destino.strip():
+                    st.error("Completa Nombre y Asignatura.")
                 elif not bancos_sel:
                     st.error("Selecciona al menos un banco de preguntas base.")
                 elif any(not bancos_por_tema[t] for t in bancos_por_tema):
                     st.error("Cada tema definido debe tener al menos un banco asociado.")
                 else:
+                    codigo_asig = config_base.get("metadata", {}).get("codigo_asignatura", "") or _slug_archivo(asignatura_destino).upper()[:8]
                     nuevo = {
                         "metadata": {
                             "nombre_examen": nombre_examen,
-                            "asignatura": asignatura,
+                            "asignatura": asignatura_destino,
                             "institucion": "Universidad ECCI",
                             "codigo_asignatura": codigo_asig
                         },
