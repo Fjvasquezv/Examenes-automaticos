@@ -648,114 +648,210 @@ def _render_panel_admin(base_path: Path):
                             st.info(f"Backup creado: {backup_rel}")
 
     with tab_prog:
-        st.subheader("Activar / Desactivar / Programar pruebas")
         ruta_disp = _ruta_disponibilidad(base_path)
         disp = _leer_json(ruta_disp)
-
-        habilitado = st.checkbox("Sistema habilitado", value=bool(disp.get("habilitado", True)), key="admin_disp_hab")
-        zona_horaria = st.text_input("Zona horaria", value=disp.get("zona_horaria", "America/Bogota"), key="admin_disp_tz")
+        habilitado_actual = bool(disp.get("habilitado", True))
+        zona_horaria_actual = disp.get("zona_horaria", "America/Bogota")
 
         periodos = disp.get("periodos", [])
-        etiquetas = [f"{i+1}. {p.get('nombre', 'Sin nombre')}" for i, p in enumerate(periodos)]
-        opciones_periodo = ["<Nuevo periodo>"] + etiquetas
-        sel_periodo = st.selectbox("Periodo", options=opciones_periodo, key="admin_disp_sel_periodo")
-
         configs_rel = _listar_configs_examenes(base_path)
-        periodo_data = {"nombre": "", "examen_config": "", "inicio": "", "fin": "", "grupo": "", "temas": []}
-        idx_periodo = None
-        if sel_periodo != "<Nuevo periodo>":
-            idx_periodo = int(sel_periodo.split('.')[0]) - 1
-            periodo_data.update(periodos[idx_periodo])
 
-        nombre_p = st.text_input("Nombre de prueba", value=periodo_data.get("nombre", ""), key="admin_p_nombre")
-        examen_cfg = st.selectbox(
-            "Examen config",
-            options=configs_rel,
-            index=(configs_rel.index(periodo_data.get("examen_config")) if periodo_data.get("examen_config") in configs_rel else 0) if configs_rel else 0,
-            key="admin_p_excfg"
-        ) if configs_rel else st.text_input("Examen config", value=periodo_data.get("examen_config", ""), key="admin_p_excfg_text")
-        inicio_p = st.text_input("Inicio (YYYY-MM-DD HH:MM)", value=periodo_data.get("inicio", ""), key="admin_p_inicio")
-        fin_p = st.text_input("Fin (YYYY-MM-DD HH:MM)", value=periodo_data.get("fin", ""), key="admin_p_fin")
-        grupo_p = st.text_input("Grupo (opcional, genera hoja separada)", value=periodo_data.get("grupo", ""), key="admin_p_grupo")
+        col_t, col_m1, col_m2, col_acc = st.columns([4, 1, 1, 2])
+        with col_t:
+            st.markdown("#### Programación")
+        with col_m1:
+            st.metric("Períodos", len(periodos))
+        with col_m2:
+            st.metric("Configs", len(configs_rel))
+        with col_acc:
+            st.markdown("**Acción**")
+            accion_prog = st.radio(
+                "Acción Programación",
+                options=["Crear/Editar", "Eliminar"],
+                horizontal=False,
+                key="admin_prog_action",
+                label_visibility="collapsed"
+            )
 
-        temas_disponibles = []
-        try:
-            cfg_temas = _cargar_config_examen_por_relpath(base_path, examen_cfg)
-            temas_disponibles = list(cfg_temas.get("bancos_por_tema", {}).keys())
-        except Exception:
-            temas_disponibles = []
+        if accion_prog == "Crear/Editar":
+            if not configs_rel:
+                st.warning("No hay exámenes disponibles para programar. Primero crea un examen en la pestaña Exámenes.")
+                st.markdown("---")
+            else:
+                etiquetas = [f"{i+1}. {p.get('nombre', 'Sin nombre')}" for i, p in enumerate(periodos)]
+                opciones_periodo = ["Nuevo período"] + etiquetas
+                sel_periodo = st.selectbox("Período", options=opciones_periodo, key="admin_disp_sel_periodo")
 
-        temas_sel = st.multiselect(
-            "Temas para esta prueba",
-            options=temas_disponibles,
-            default=periodo_data.get("temas", []),
-            key="admin_p_temas"
-        )
+                periodo_data = {"nombre": "", "examen_config": "", "inicio": "", "fin": "", "grupo": "", "temas": []}
+                idx_periodo = None
+                if sel_periodo != "Nuevo período":
+                    idx_periodo = int(sel_periodo.split('.')[0]) - 1
+                    periodo_data.update(periodos[idx_periodo])
 
-        colp_save, colp_del, colp_disp = st.columns(3)
-        with colp_save:
-            if st.button("💾 Guardar periodo", key="admin_p_save", use_container_width=True):
-                nuevo_periodo = {
-                    "nombre": nombre_p,
-                    "examen_config": examen_cfg,
-                    "inicio": inicio_p,
-                    "fin": fin_p
-                }
-                if grupo_p.strip():
-                    nuevo_periodo["grupo"] = grupo_p.strip()
-                if temas_sel:
-                    nuevo_periodo["temas"] = temas_sel
+                col_p1, col_p2 = st.columns(2)
+                with col_p1:
+                    nombre_p = st.text_input("Nombre de prueba", value=periodo_data.get("nombre", ""), key="admin_p_nombre")
+                with col_p2:
+                    cfg_actual = str(periodo_data.get("examen_config", ""))
+                    asig_cfg = sorted(list(dict.fromkeys([Path(c).parts[0] if len(Path(c).parts) > 1 else "General" for c in configs_rel])))
+                    asig_default = ""
+                    if cfg_actual and cfg_actual in configs_rel:
+                        partes_cfg = Path(cfg_actual).parts
+                        asig_default = partes_cfg[0] if len(partes_cfg) > 1 else "General"
+                    elif asig_cfg:
+                        asig_default = asig_cfg[0]
 
-                nuevos_periodos = list(periodos)
-                if idx_periodo is None:
-                    nuevos_periodos.append(nuevo_periodo)
+                    asignatura_prog = st.selectbox(
+                        "Asignatura",
+                        options=asig_cfg,
+                        index=(asig_cfg.index(asig_default) if asig_default in asig_cfg else 0) if asig_cfg else 0,
+                        key="admin_p_asig"
+                    ) if asig_cfg else ""
+
+                    examenes_asig = [c for c in configs_rel if (Path(c).parts[0] if len(Path(c).parts) > 1 else "General") == asignatura_prog]
+                    if not examenes_asig:
+                        st.warning("No hay exámenes disponibles para la asignatura seleccionada.")
+                        examen_cfg = ""
+                    else:
+                        idx_ex = 0
+                        if cfg_actual in examenes_asig:
+                            idx_ex = examenes_asig.index(cfg_actual)
+                        examen_cfg = st.selectbox(
+                            "Examen",
+                            options=examenes_asig,
+                            index=idx_ex,
+                            key="admin_p_excfg"
+                        )
+
+                col_f1, col_f2, col_f3 = st.columns(3)
+                with col_f1:
+                    inicio_p = st.text_input("Inicio (YYYY-MM-DD HH:MM)", value=periodo_data.get("inicio", ""), key="admin_p_inicio")
+                with col_f2:
+                    fin_p = st.text_input("Fin (YYYY-MM-DD HH:MM)", value=periodo_data.get("fin", ""), key="admin_p_fin")
+                with col_f3:
+                    grupo_p = st.text_input("Grupo", value=periodo_data.get("grupo", ""), key="admin_p_grupo")
+
+                temas_disponibles = []
+                try:
+                    if examen_cfg:
+                        cfg_temas = _cargar_config_examen_por_relpath(base_path, examen_cfg)
+                        temas_disponibles = list(cfg_temas.get("bancos_por_tema", {}).keys())
+                except Exception:
+                    temas_disponibles = []
+
+                contexto_temas_prog = f"{sel_periodo}|{examen_cfg}|{','.join(temas_disponibles)}"
+                if st.session_state.get("admin_prog_temas_context") != contexto_temas_prog:
+                    for key in [k for k in list(st.session_state.keys()) if str(k).startswith("admin_p_tema_chk_")]:
+                        del st.session_state[key]
+                    st.session_state["admin_prog_temas_context"] = contexto_temas_prog
+
+                st.markdown("**Temas**")
+                temas_sel = []
+                if temas_disponibles:
+                    temas_default = set(periodo_data.get("temas", []))
+                    for i, tema in enumerate(temas_disponibles):
+                        key_chk = f"admin_p_tema_chk_{i}"
+                        if key_chk not in st.session_state:
+                            st.session_state[key_chk] = tema in temas_default
+                        if st.checkbox(tema, key=key_chk):
+                            temas_sel.append(tema)
                 else:
-                    nuevos_periodos[idx_periodo] = nuevo_periodo
+                    st.caption("Sin temas configurados para este examen.")
 
-                ok_cal, msg_cal = _validar_calendario(nuevos_periodos)
-                if not ok_cal:
-                    st.error(msg_cal)
-                else:
-                    disp["periodos"] = nuevos_periodos
-                    disp["habilitado"] = bool(habilitado)
-                    disp["zona_horaria"] = zona_horaria
-                    backup_rel = _crear_backup_config(base_path, ruta_disp, "disponibilidad")
-                    _escribir_json(ruta_disp, disp)
-                    st.success("Periodo guardado")
-                    if backup_rel:
-                        st.info(f"Backup creado: {backup_rel}")
+                col_save1, col_save2 = st.columns(2)
+                with col_save1:
+                    if st.button("💾 Guardar período", key="admin_p_save", use_container_width=True):
+                        nuevo_periodo = {
+                            "nombre": nombre_p,
+                            "examen_config": examen_cfg,
+                            "inicio": inicio_p,
+                            "fin": fin_p
+                        }
+                        if grupo_p.strip():
+                            nuevo_periodo["grupo"] = grupo_p.strip()
+                        if temas_sel:
+                            nuevo_periodo["temas"] = temas_sel
 
-        with colp_del:
-            if idx_periodo is not None and st.button("🗑️ Eliminar periodo", key="admin_p_del", use_container_width=True):
-                nuevos_periodos = list(periodos)
-                nuevos_periodos.pop(idx_periodo)
-                ok_cal, msg_cal = _validar_calendario(nuevos_periodos)
-                if not ok_cal:
-                    st.error(msg_cal)
-                else:
-                    disp["periodos"] = nuevos_periodos
-                    disp["habilitado"] = bool(habilitado)
-                    disp["zona_horaria"] = zona_horaria
-                    backup_rel = _crear_backup_config(base_path, ruta_disp, "disponibilidad")
-                    _escribir_json(ruta_disp, disp)
-                    st.success("Periodo eliminado")
-                    if backup_rel:
-                        st.info(f"Backup creado: {backup_rel}")
+                        nuevos_periodos = list(periodos)
+                        if idx_periodo is None:
+                            nuevos_periodos.append(nuevo_periodo)
+                        else:
+                            nuevos_periodos[idx_periodo] = nuevo_periodo
 
-        with colp_disp:
-            if st.button("✅ Guardar disponibilidad", key="admin_disp_save", use_container_width=True):
-                ok_cal, msg_cal = _validar_calendario(periodos)
-                if not ok_cal:
-                    st.error(msg_cal)
-                else:
-                    disp["habilitado"] = bool(habilitado)
-                    disp["zona_horaria"] = zona_horaria
-                    disp["periodos"] = periodos
-                    backup_rel = _crear_backup_config(base_path, ruta_disp, "disponibilidad")
-                    _escribir_json(ruta_disp, disp)
-                    st.success("Disponibilidad guardada")
-                    if backup_rel:
-                        st.info(f"Backup creado: {backup_rel}")
+                        ok_cal, msg_cal = _validar_calendario(nuevos_periodos)
+                        if not ok_cal:
+                            st.error(msg_cal)
+                        else:
+                            disp["periodos"] = nuevos_periodos
+                            disp["habilitado"] = habilitado_actual
+                            disp["zona_horaria"] = zona_horaria_actual
+                            backup_rel = _crear_backup_config(base_path, ruta_disp, "disponibilidad")
+                            _escribir_json(ruta_disp, disp)
+                            st.success("Período guardado")
+                            if backup_rel:
+                                st.info(f"Backup creado: {backup_rel}")
+
+                with col_save2:
+                    if st.button("✅ Guardar disponibilidad", key="admin_disp_save", use_container_width=True):
+                        ok_cal, msg_cal = _validar_calendario(periodos)
+                        if not ok_cal:
+                            st.error(msg_cal)
+                        else:
+                            disp["habilitado"] = habilitado_actual
+                            disp["zona_horaria"] = zona_horaria_actual
+                            disp["periodos"] = periodos
+                            backup_rel = _crear_backup_config(base_path, ruta_disp, "disponibilidad")
+                            _escribir_json(ruta_disp, disp)
+                            st.success("Disponibilidad guardada")
+                            if backup_rel:
+                                st.info(f"Backup creado: {backup_rel}")
+
+        else:  # Eliminar
+            if not periodos:
+                st.caption("No hay períodos para eliminar.")
+            else:
+                etiquetas = [f"{i+1}. {p.get('nombre', 'Sin nombre')}" for i, p in enumerate(periodos)]
+                sel_periodo_del = st.selectbox("Período", options=etiquetas, key="admin_p_del_sel")
+                idx_periodo_del = int(sel_periodo_del.split('.')[0]) - 1
+
+                confirmar_eliminar_p = st.checkbox("Confirmo que quiero eliminar este período", key="admin_p_del_confirm")
+                texto_eliminar_p = st.text_input("Escribe ELIMINAR para confirmar", key="admin_p_del_text")
+
+                col_del1, col_del2 = st.columns(2)
+                with col_del1:
+                    if st.button("🗑️ Eliminar período", key="admin_p_del", use_container_width=True):
+                        if not confirmar_eliminar_p or texto_eliminar_p.strip().upper() != "ELIMINAR":
+                            st.error("Confirmación incompleta para eliminar.")
+                        else:
+                            nuevos_periodos = list(periodos)
+                            nuevos_periodos.pop(idx_periodo_del)
+                            ok_cal, msg_cal = _validar_calendario(nuevos_periodos)
+                            if not ok_cal:
+                                st.error(msg_cal)
+                            else:
+                                disp["periodos"] = nuevos_periodos
+                                disp["habilitado"] = habilitado_actual
+                                disp["zona_horaria"] = zona_horaria_actual
+                                backup_rel = _crear_backup_config(base_path, ruta_disp, "disponibilidad")
+                                _escribir_json(ruta_disp, disp)
+                                st.success("Período eliminado")
+                                if backup_rel:
+                                    st.info(f"Backup creado: {backup_rel}")
+
+                with col_del2:
+                    if st.button("✅ Guardar disponibilidad", key="admin_disp_save_del", use_container_width=True):
+                        ok_cal, msg_cal = _validar_calendario(periodos)
+                        if not ok_cal:
+                            st.error(msg_cal)
+                        else:
+                            disp["habilitado"] = habilitado_actual
+                            disp["zona_horaria"] = zona_horaria_actual
+                            disp["periodos"] = periodos
+                            backup_rel = _crear_backup_config(base_path, ruta_disp, "disponibilidad")
+                            _escribir_json(ruta_disp, disp)
+                            st.success("Disponibilidad guardada")
+                            if backup_rel:
+                                st.info(f"Backup creado: {backup_rel}")
 
     with tab_ops:
         st.subheader("Operación: hojas por prueba/grupo y desbloqueo")
