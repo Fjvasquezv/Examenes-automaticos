@@ -335,6 +335,26 @@ def _filtrar_bancos_por_asignatura(bancos_rel: list[str], asignatura: str) -> li
     return salida
 
 
+def _opciones_hora_jornada(jornada_noche: bool) -> list[str]:
+    inicio = datetime.strptime("18:00", "%H:%M") if jornada_noche else datetime.strptime("08:00", "%H:%M")
+    fin = datetime.strptime("21:45", "%H:%M") if jornada_noche else datetime.strptime("12:00", "%H:%M")
+    opciones = []
+    actual = inicio
+    while actual <= fin:
+        opciones.append(actual.strftime("%H:%M"))
+        actual = actual.replace(minute=actual.minute + 15) if actual.minute <= 44 else actual.replace(hour=actual.hour + 1, minute=(actual.minute + 15) % 60)
+    return opciones
+
+
+def _parse_fecha_hora(valor: str) -> tuple:
+    try:
+        dt = datetime.strptime(str(valor or "").strip(), "%Y-%m-%d %H:%M")
+        return dt.date(), dt.strftime("%H:%M")
+    except ValueError:
+        hoy = datetime.now().date()
+        return hoy, "08:00"
+
+
 def _listar_configs_examenes(base_path: Path) -> list[str]:
     raiz = base_path / "config" / "examenes"
     if not raiz.exists():
@@ -703,11 +723,34 @@ def _render_panel_admin(base_path: Path):
 
             col_f1, col_f2, col_f3 = st.columns(3)
             with col_f1:
-                inicio_p = st.text_input("Inicio (YYYY-MM-DD HH:MM)", value=periodo_data.get("inicio", ""), key="admin_p_inicio")
+                inicio_fecha_default, inicio_hora_default = _parse_fecha_hora(periodo_data.get("inicio", ""))
+                inicio_fecha = st.date_input("Inicio (fecha)", value=inicio_fecha_default, key="admin_p_inicio_fecha")
             with col_f2:
-                fin_p = st.text_input("Fin (YYYY-MM-DD HH:MM)", value=periodo_data.get("fin", ""), key="admin_p_fin")
+                fin_fecha_default, fin_hora_default = _parse_fecha_hora(periodo_data.get("fin", ""))
+                fin_fecha = st.date_input("Fin (fecha)", value=fin_fecha_default, key="admin_p_fin_fecha")
             with col_f3:
                 grupo_p = st.text_input("Grupo", value=periodo_data.get("grupo", ""), key="admin_p_grupo")
+
+            jornada_noche = st.checkbox(
+                "Jornada noche (6:00 PM a 9:45 PM)",
+                value=(inicio_hora_default >= "18:00"),
+                key="admin_p_jornada_noche"
+            )
+            hora_opts = _opciones_hora_jornada(jornada_noche)
+
+            if st.session_state.get("admin_p_inicio_hora") not in hora_opts:
+                st.session_state["admin_p_inicio_hora"] = inicio_hora_default if inicio_hora_default in hora_opts else hora_opts[0]
+            if st.session_state.get("admin_p_fin_hora") not in hora_opts:
+                st.session_state["admin_p_fin_hora"] = fin_hora_default if fin_hora_default in hora_opts else hora_opts[-1]
+
+            col_h1, col_h2 = st.columns(2)
+            with col_h1:
+                inicio_hora = st.selectbox("Inicio (hora)", options=hora_opts, key="admin_p_inicio_hora")
+            with col_h2:
+                fin_hora = st.selectbox("Fin (hora)", options=hora_opts, key="admin_p_fin_hora")
+
+            inicio_p = f"{inicio_fecha.strftime('%Y-%m-%d')} {inicio_hora}"
+            fin_p = f"{fin_fecha.strftime('%Y-%m-%d')} {fin_hora}"
 
             temas_disponibles = []
             try:
