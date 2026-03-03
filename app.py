@@ -278,7 +278,7 @@ def _reset_admin_exam_form_state(config_base: dict) -> None:
 
     st.session_state["admin_exam_nombre"] = md.get("nombre_examen", "")
     st.session_state["admin_exam_desc"] = desc.get("texto", "")
-    st.session_state["admin_exam_dur"] = desc.get("duracion_estimada", "")
+    st.session_state["admin_exam_dur"] = _normalizar_duracion(desc.get("duracion_estimada", ""))
     st.session_state["admin_exam_sheet"] = pers.get("spreadsheet_id", "")
     st.session_state["admin_exam_bancos"] = list(config_base.get("bancos_preguntas", []))
     st.session_state["admin_exam_temas"] = ", ".join(list(config_base.get("bancos_por_tema", {}).keys()))
@@ -289,14 +289,50 @@ def _reset_admin_exam_form_state(config_base: dict) -> None:
     tema_keys = [k for k in list(st.session_state.keys()) if str(k).startswith("admin_exam_tema_bancos_")]
     for key in tema_keys:
         del st.session_state[key]
+    tema_chk_keys = [k for k in list(st.session_state.keys()) if str(k).startswith("admin_exam_tema_chk_")]
+    for key in tema_chk_keys:
+        del st.session_state[key]
 
 
 def _opciones_duracion(duracion_actual: str = "") -> list[str]:
-    opciones = [f"{m} min" for m in range(15, 121, 15)]
-    valor = str(duracion_actual or "").strip()
-    if valor and valor not in opciones:
-        opciones = [valor] + opciones
-    return opciones
+    return [f"{m} min" for m in range(15, 121, 15)]
+
+
+def _normalizar_duracion(duracion_actual: str = "") -> str:
+    texto = str(duracion_actual or "").strip().lower()
+    if not texto:
+        return "60 min"
+
+    match = re.search(r"(\d+)", texto)
+    valor = int(match.group(1)) if match else 60
+
+    if "hora" in texto and "min" not in texto:
+        valor = valor * 60
+
+    valor = max(15, min(120, valor))
+    valor = int(round(valor / 15) * 15)
+    valor = max(15, min(120, valor))
+    return f"{valor} min"
+
+
+def _asignatura_de_banco(ruta_rel: str) -> str:
+    partes = Path(ruta_rel).parts
+    for i, parte in enumerate(partes):
+        if parte.lower() == "bancos" and i + 1 < len(partes):
+            return partes[i + 1]
+    return ""
+
+
+def _filtrar_bancos_por_asignatura(bancos_rel: list[str], asignatura: str) -> list[str]:
+    objetivo = _slug_archivo(asignatura)
+    if not objetivo:
+        return []
+    salida = []
+    for banco in bancos_rel:
+        asig_banco = _asignatura_de_banco(banco)
+        if _slug_archivo(asig_banco) == objetivo:
+            salida.append(banco)
+    return salida
 
 
 def _listar_configs_examenes(base_path: Path) -> list[str]:
@@ -351,7 +387,7 @@ def _render_panel_admin(base_path: Path):
         bancos_disponibles = _listar_bancos_disponibles(base_path)
         asignaturas = sorted(list(dict.fromkeys([c["asignatura"] for c in catalogo])))
 
-        col_stats_t, col_stats_1, col_stats_2, col_stats_3 = st.columns([3, 1, 1, 1])
+        col_stats_t, col_stats_1, col_stats_2, col_stats_3, col_accion = st.columns([3, 1, 1, 1, 2])
         with col_stats_t:
             st.markdown("#### Gestión de exámenes")
         with col_stats_1:
@@ -360,13 +396,15 @@ def _render_panel_admin(base_path: Path):
             st.metric("Asignaturas", len(asignaturas))
         with col_stats_3:
             st.metric("Bancos", len(bancos_disponibles))
-
-        accion = st.radio(
-            "Acción",
-            options=["Crear", "Editar", "Eliminar"],
-            horizontal=False,
-            key="admin_exam_action"
-        )
+        with col_accion:
+            st.markdown("**Acción**")
+            accion = st.radio(
+                "Acción",
+                options=["Crear", "Editar", "Eliminar"],
+                horizontal=False,
+                key="admin_exam_action",
+                label_visibility="collapsed"
+            )
 
         plantilla = {
             "metadata": {
@@ -418,12 +456,13 @@ def _render_panel_admin(base_path: Path):
             if modo_creacion == "Duplicar existente":
                 if not catalogo:
                     st.warning("No hay exámenes existentes para duplicar.")
-                    return
-                fuente_labels = [c["label"] for c in catalogo]
-                fuente_sel = st.selectbox("Examen a duplicar", fuente_labels, key="admin_exam_dup_source")
-                fuente = next(c for c in catalogo if c["label"] == fuente_sel)
-                fuente_rel = fuente["rel"]
-                config_base = _cargar_config_examen_por_relpath(base_path, fuente["rel"])
+                    modo_creacion = "Desde cero"
+                else:
+                    fuente_labels = [c["label"] for c in catalogo]
+                    fuente_sel = st.selectbox("Examen a duplicar", fuente_labels, key="admin_exam_dup_source")
+                    fuente = next(c for c in catalogo if c["label"] == fuente_sel)
+                    fuente_rel = fuente["rel"]
+                    config_base = _cargar_config_examen_por_relpath(base_path, fuente["rel"])
 
             col_crear_1, col_crear_2 = st.columns(2)
             with col_crear_1:
@@ -444,16 +483,17 @@ def _render_panel_admin(base_path: Path):
         elif accion == "Editar":
             if not catalogo:
                 st.warning("No hay exámenes para editar.")
-                return
-            asig_edit = st.selectbox("Asignatura", asignaturas, key="admin_exam_edit_asig")
-            opciones_edit = [c for c in catalogo if c["asignatura"] == asig_edit]
-            sel_label = st.selectbox("Evaluación", [c["label"] for c in opciones_edit], key="admin_exam_edit_sel")
-            seleccionado = next(c for c in opciones_edit if c["label"] == sel_label)
-            ruta_destino_rel = seleccionado["rel"]
-            config_base = _cargar_config_examen_por_relpath(base_path, ruta_destino_rel)
-            asignatura_destino = seleccionado["asignatura"]
-            st.info(f"Editando: {seleccionado['nombre_examen']}")
-            contexto_form = f"editar:{ruta_destino_rel}"
+                mostrar_formulario = False
+            else:
+                asig_edit = st.selectbox("Asignatura", asignaturas, key="admin_exam_edit_asig")
+                opciones_edit = [c for c in catalogo if c["asignatura"] == asig_edit]
+                sel_label = st.selectbox("Evaluación", [c["label"] for c in opciones_edit], key="admin_exam_edit_sel")
+                seleccionado = next(c for c in opciones_edit if c["label"] == sel_label)
+                ruta_destino_rel = seleccionado["rel"]
+                config_base = _cargar_config_examen_por_relpath(base_path, ruta_destino_rel)
+                asignatura_destino = seleccionado["asignatura"]
+                st.info(f"Editando: {seleccionado['nombre_examen']}")
+                contexto_form = f"editar:{ruta_destino_rel}"
 
         else:  # Eliminar
             mostrar_formulario = False
@@ -488,9 +528,27 @@ def _render_panel_admin(base_path: Path):
                 _reset_admin_exam_form_state(config_base)
                 st.session_state["admin_exam_form_context"] = contexto_form
 
-            md = config_base.get("metadata", {})
             params = config_base.get("parametros", {})
             bancos_por_tema_default = config_base.get("bancos_por_tema", {})
+            pers = config_base.get("persistencia", {})
+
+            if accion == "Crear":
+                if modo_creacion == "Desde cero" and not pers.get("spreadsheet_id") and asignatura_destino:
+                    for c in catalogo:
+                        if c["asignatura"] == asignatura_destino:
+                            try:
+                                cfg_asig = _cargar_config_examen_por_relpath(base_path, c["rel"])
+                                pers = cfg_asig.get("persistencia", pers)
+                                break
+                            except Exception:
+                                pass
+
+            bancos_asig = _filtrar_bancos_por_asignatura(bancos_disponibles, asignatura_destino)
+            mapa_temas = {}
+            for banco in bancos_asig:
+                tema_nombre = Path(banco).stem.replace('_', ' ').replace('-', ' ').title()
+                if tema_nombre not in mapa_temas:
+                    mapa_temas[tema_nombre] = banco
 
             with st.form("admin_exam_form"):
                 st.markdown("##### Configuración del examen")
@@ -501,8 +559,10 @@ def _render_panel_admin(base_path: Path):
                         nombre_examen = st.text_input("Nombre examen", key="admin_exam_nombre")
                     with col_i2:
                         duracion_opts = _opciones_duracion(st.session_state.get("admin_exam_dur", ""))
-                        if st.session_state.get("admin_exam_dur", "") not in duracion_opts:
-                            st.session_state["admin_exam_dur"] = duracion_opts[0]
+                        duracion_normal = _normalizar_duracion(st.session_state.get("admin_exam_dur", ""))
+                        if duracion_normal not in duracion_opts:
+                            duracion_normal = "60 min"
+                        st.session_state["admin_exam_dur"] = duracion_normal
                         duracion = st.selectbox("Duración", options=duracion_opts, key="admin_exam_dur")
                     texto_desc = st.text_area("Descripción", key="admin_exam_desc")
 
@@ -516,34 +576,21 @@ def _render_panel_admin(base_path: Path):
                         nivel_ini = st.number_input("Nivel inicial", min_value=1, max_value=5, key="admin_exam_nivel_ini")
 
                 with st.expander("Bancos y temas", expanded=True):
-                    bancos_sel = st.multiselect(
-                        "Bancos de preguntas base",
-                        options=bancos_disponibles,
-                        key="admin_exam_bancos"
-                    )
-
-                    temas_str = st.text_input(
-                        "Temas (separados por coma)",
-                        key="admin_exam_temas"
-                    )
-                    temas = [t.strip() for t in temas_str.split(',') if t.strip()]
-
+                    if not bancos_asig:
+                        st.warning("No hay bancos disponibles para la asignatura seleccionada.")
                     bancos_por_tema = {}
-                    for i, tema in enumerate(temas):
-                        key_tema = f"admin_exam_tema_bancos_{i}"
-                        default_tema = bancos_por_tema_default.get(tema, bancos_sel)
-                        if isinstance(default_tema, str):
-                            default_tema = [default_tema]
-                        if key_tema not in st.session_state:
-                            st.session_state[key_tema] = [b for b in default_tema if b in bancos_disponibles]
-                        bancos_por_tema[tema] = st.multiselect(
-                            f"Bancos para tema: {tema}",
-                            options=bancos_disponibles,
-                            key=key_tema
-                        )
-
-                with st.expander("Persistencia", expanded=False):
-                    spreadsheet_id = st.text_input("Spreadsheet ID", key="admin_exam_sheet")
+                    bancos_sel = []
+                    temas_seleccionados = []
+                    temas_default = set(bancos_por_tema_default.keys())
+                    for i, (tema, banco) in enumerate(mapa_temas.items()):
+                        key_chk = f"admin_exam_tema_chk_{i}"
+                        if key_chk not in st.session_state:
+                            st.session_state[key_chk] = (tema in temas_default) or (banco in config_base.get("bancos_preguntas", []))
+                        marcado = st.checkbox(tema, key=key_chk, help=banco)
+                        if marcado:
+                            temas_seleccionados.append(tema)
+                            bancos_sel.append(banco)
+                            bancos_por_tema[tema] = [banco]
 
                 submit_guardar = st.form_submit_button("💾 Guardar examen", use_container_width=True)
 
@@ -555,11 +602,12 @@ def _render_panel_admin(base_path: Path):
                 elif not nombre_examen.strip() or not asignatura_destino.strip():
                     st.error("Completa Nombre y Asignatura.")
                 elif not bancos_sel:
-                    st.error("Selecciona al menos un banco de preguntas base.")
-                elif any(not bancos_por_tema[t] for t in bancos_por_tema):
-                    st.error("Cada tema definido debe tener al menos un banco asociado.")
+                    st.error("Selecciona al menos un tema disponible para la asignatura.")
+                elif not pers.get("spreadsheet_id", "").strip():
+                    st.error("No hay spreadsheet_id configurado para esta asignatura/examen.")
                 else:
                     codigo_asig = config_base.get("metadata", {}).get("codigo_asignatura", "") or _slug_archivo(asignatura_destino).upper()[:8]
+                    spreadsheet_id = pers.get("spreadsheet_id", "")
                     nuevo = {
                         "metadata": {
                             "nombre_examen": nombre_examen,
@@ -569,7 +617,7 @@ def _render_panel_admin(base_path: Path):
                         },
                         "descripcion": {
                             "texto": texto_desc,
-                            "temas": temas,
+                            "temas": temas_seleccionados,
                             "duracion_estimada": duracion
                         },
                         "parametros": {
@@ -699,15 +747,15 @@ def _render_panel_admin(base_path: Path):
                 ok_cal, msg_cal = _validar_calendario(periodos)
                 if not ok_cal:
                     st.error(msg_cal)
-                    return
-                disp["habilitado"] = bool(habilitado)
-                disp["zona_horaria"] = zona_horaria
-                disp["periodos"] = periodos
-                backup_rel = _crear_backup_config(base_path, ruta_disp, "disponibilidad")
-                _escribir_json(ruta_disp, disp)
-                st.success("Disponibilidad guardada")
-                if backup_rel:
-                    st.info(f"Backup creado: {backup_rel}")
+                else:
+                    disp["habilitado"] = bool(habilitado)
+                    disp["zona_horaria"] = zona_horaria
+                    disp["periodos"] = periodos
+                    backup_rel = _crear_backup_config(base_path, ruta_disp, "disponibilidad")
+                    _escribir_json(ruta_disp, disp)
+                    st.success("Disponibilidad guardada")
+                    if backup_rel:
+                        st.info(f"Backup creado: {backup_rel}")
 
     with tab_ops:
         st.subheader("Operación: hojas por prueba/grupo y desbloqueo")
@@ -729,7 +777,7 @@ def _render_panel_admin(base_path: Path):
             cfg['_examen_id'] = examen_id_estable
 
             st.write(f"**Config:** {periodo.get('examen_config', '')}")
-            st.write(f"**ID hoja:** Resultados_{examen_id_estable}")
+            st.write(f"**Pestaña destino:** {examen_id_estable}")
 
             persistence = DataPersistence(cfg)
 
@@ -815,11 +863,20 @@ def _resolver_ruta_examen_config(periodo: dict, base_path: Path) -> tuple[Path, 
         ruta_rel += '.json'
     ruta_examen = raiz_examenes / ruta_rel
 
-    # ID estable para persistencia (normaliza subrutas por asignatura)
-    examen_id_estable = _slugify(str(ruta_examen.relative_to(raiz_examenes).with_suffix(''))).replace('/', '_')
-    grupo = str(periodo.get('grupo', '')).strip()
-    if grupo:
-        examen_id_estable = f"{examen_id_estable}_{_slugify(grupo)}"
+    partes = Path(ruta_rel).parts
+    asignatura = partes[0] if partes else "asignatura"
+    evaluacion = str(periodo.get('nombre', '')).strip() or Path(ruta_rel).stem
+
+    inicio_raw = str(periodo.get('inicio', '')).strip()
+    try:
+        inicio_dt = datetime.strptime(inicio_raw, "%Y-%m-%d %H:%M")
+        fecha_inicio = inicio_dt.strftime("%Y%m%d_%H%M")
+    except ValueError:
+        fecha_inicio = _slug_archivo(inicio_raw) or datetime.now().strftime("%Y%m%d_%H%M")
+
+    examen_id_estable = f"{_slug_archivo(asignatura)}_{_slug_archivo(evaluacion)}_{fecha_inicio}"
+    if len(examen_id_estable) > 95:
+        examen_id_estable = examen_id_estable[:95]
     return ruta_examen, examen_id_estable
 
 

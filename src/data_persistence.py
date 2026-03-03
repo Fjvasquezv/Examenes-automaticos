@@ -51,11 +51,11 @@ class DataPersistence:
         self.config = config
         self.spreadsheet_id = config['persistencia']['spreadsheet_id']
         
-        # Nombre de la pestaña derivado del ID del examen.
-        # Ej: examen "control" → pestaña "Resultados_control"
+        # Nombre de pestaña exacto derivado del ID del examen.
+        # Formato esperado: Asignatura_NombreDeEvaluacion_FechaDeInicio
         # Si no hay _examen_id, usa "Resultados" por compatibilidad.
         examen_id = config.get('_examen_id', '')
-        self.nombre_hoja = f"Resultados_{examen_id}" if examen_id else 'Resultados'
+        self.nombre_hoja = str(examen_id) if examen_id else 'Resultados'
         
         self.service = None
         self._inicializar_servicio()
