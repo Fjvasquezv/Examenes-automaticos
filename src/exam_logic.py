@@ -3,6 +3,7 @@ Lógica del Examen Adaptativo
 Implementa la lógica CAT (Computerized Adaptive Testing)
 """
 import random
+import math
 from typing import Dict, Any, Optional
 
 from question_manager import QuestionManager
@@ -49,6 +50,12 @@ class ExamLogic:
         # Evitar saltos bruscos de nivel entre preguntas consecutivas
         self.max_cambio_nivel_por_pregunta = 1
         self.categorias_evaluadas = set()
+
+        # Control de distribución por tema (blueprint pedagógico)
+        self.categorias_disponibles = self.question_manager.obtener_categorias()
+        self.objetivo_por_categoria = self._calcular_objetivo_por_categoria()
+        self.minimo_por_categoria = self._calcular_minimo_por_categoria()
+        self.maximo_por_categoria = self._calcular_maximo_por_categoria()
         
         # Pregunta actual
         self.pregunta_actual_obj = None
@@ -62,10 +69,13 @@ class ExamLogic:
         Returns:
             Diccionario con la pregunta o None si no hay más preguntas
         """
+        categorias_prioritarias = self._obtener_categorias_prioritarias()
+
         pregunta = self.question_manager.obtener_pregunta_por_nivel(
             self.nivel_actual,
             self.preguntas_usadas_set,
-            theta=self.theta_actual
+            theta=self.theta_actual,
+            categorias_prioritarias=categorias_prioritarias
         )
         
         if pregunta is None:
@@ -77,6 +87,130 @@ class ExamLogic:
         self.preguntas_usadas_set.add(pregunta['id'])
         
         return pregunta
+
+    def _conteo_por_categoria(self) -> Dict[str, int]:
+        conteo = {c: 0 for c in self.categorias_disponibles}
+        for respuesta in self.preguntas_respondidas:
+            categoria = respuesta.get('categoria', 'Sin categoría')
+            conteo[categoria] = conteo.get(categoria, 0) + 1
+        return conteo
+
+    def _calcular_objetivo_por_categoria(self) -> Dict[str, int]:
+        if not self.categorias_disponibles:
+            return {}
+
+        dist_cfg = self.config.get('parametros', {}).get('distribucion_temas', {}) or {}
+        pesos_cfg = dist_cfg.get('pesos', {}) if isinstance(dist_cfg, dict) else {}
+
+        pesos = {}
+        for categoria in self.categorias_disponibles:
+            peso = float(pesos_cfg.get(categoria, 1.0)) if isinstance(pesos_cfg, dict) else 1.0
+            pesos[categoria] = max(0.01, peso)
+
+        total_pesos = sum(pesos.values())
+        if total_pesos <= 0:
+            total_pesos = float(len(self.categorias_disponibles))
+            pesos = {c: 1.0 for c in self.categorias_disponibles}
+
+        base_objetivos = {}
+        fracciones = []
+        asignadas = 0
+        for categoria in self.categorias_disponibles:
+            exacto = (self.preguntas_minimas * pesos[categoria]) / total_pesos
+            base = int(math.floor(exacto))
+            base_objetivos[categoria] = base
+            asignadas += base
+            fracciones.append((exacto - base, categoria))
+
+        faltantes = max(0, self.preguntas_minimas - asignadas)
+        fracciones.sort(reverse=True)
+        for i in range(faltantes):
+            _, categoria = fracciones[i % len(fracciones)]
+            base_objetivos[categoria] += 1
+
+        return base_objetivos
+
+    def _calcular_minimo_por_categoria(self) -> Dict[str, int]:
+        if not self.categorias_disponibles:
+            return {}
+
+        dist_cfg = self.config.get('parametros', {}).get('distribucion_temas', {}) or {}
+        min_cfg = dist_cfg.get('minimo_por_tema') if isinstance(dist_cfg, dict) else None
+
+        # Default conservador: mínimo 2 preguntas por tema, o menos si no alcanza
+        min_default = 2 if self.preguntas_minimas >= len(self.categorias_disponibles) * 2 else 1
+
+        if isinstance(min_cfg, int):
+            minimos = {c: max(0, min_cfg) for c in self.categorias_disponibles}
+        elif isinstance(min_cfg, dict):
+            minimos = {c: max(0, int(min_cfg.get(c, min_default))) for c in self.categorias_disponibles}
+        else:
+            minimos = {c: min_default for c in self.categorias_disponibles}
+
+        # Asegurar consistencia con objetivos y total de preguntas mínimas
+        for categoria in minimos:
+            objetivo = self.objetivo_por_categoria.get(categoria, 0)
+            if objetivo > 0:
+                minimos[categoria] = min(minimos[categoria], objetivo)
+
+        suma_minimos = sum(minimos.values())
+        while suma_minimos > self.preguntas_minimas and suma_minimos > 0:
+            categoria_reducible = max(minimos, key=minimos.get)
+            if minimos[categoria_reducible] <= 0:
+                break
+            minimos[categoria_reducible] -= 1
+            suma_minimos -= 1
+
+        return minimos
+
+    def _calcular_maximo_por_categoria(self) -> Dict[str, int]:
+        if not self.categorias_disponibles:
+            return {}
+
+        dist_cfg = self.config.get('parametros', {}).get('distribucion_temas', {}) or {}
+        max_prop = dist_cfg.get('max_proporcion_tema', 0.4) if isinstance(dist_cfg, dict) else 0.4
+        try:
+            max_prop = float(max_prop)
+        except Exception:
+            max_prop = 0.4
+
+        max_prop = max(0.2, min(1.0, max_prop))
+
+        maximos = {}
+        for categoria in self.categorias_disponibles:
+            maximo = int(math.ceil(self.preguntas_maximas * max_prop))
+            maximo = max(maximo, self.objetivo_por_categoria.get(categoria, 0))
+            maximos[categoria] = maximo
+        return maximos
+
+    def _obtener_categorias_prioritarias(self) -> set:
+        if not self.categorias_disponibles:
+            return set()
+
+        conteo = self._conteo_por_categoria()
+
+        # 1) Priorizar temas por debajo del mínimo
+        faltan_minimo = {
+            c for c in self.categorias_disponibles
+            if conteo.get(c, 0) < self.minimo_por_categoria.get(c, 0)
+        }
+        if faltan_minimo:
+            return faltan_minimo
+
+        # 2) Luego priorizar temas por debajo del objetivo de blueprint
+        faltan_objetivo = {
+            c for c in self.categorias_disponibles
+            if conteo.get(c, 0) < self.objetivo_por_categoria.get(c, 0)
+        }
+        if faltan_objetivo:
+            return faltan_objetivo
+
+        # 3) Evitar concentración excesiva
+        elegibles = {
+            c for c in self.categorias_disponibles
+            if conteo.get(c, 0) < self.maximo_por_categoria.get(c, self.preguntas_maximas)
+        }
+        return elegibles if elegibles else set(self.categorias_disponibles)
     
     def mezclar_opciones(self, opciones: Dict[str, str]) -> Dict[str, str]:
         """

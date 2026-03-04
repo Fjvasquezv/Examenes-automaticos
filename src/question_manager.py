@@ -78,7 +78,8 @@ class QuestionManager:
         self, 
         nivel: int, 
         preguntas_usadas,
-        theta: float = None
+        theta: float = None,
+        categorias_prioritarias: Optional[set] = None
     ) -> Optional[Dict[str, Any]]:
         """
         Obtiene una pregunta del nivel especificado que no haya sido usada.
@@ -90,6 +91,7 @@ class QuestionManager:
             preguntas_usadas: IDs de preguntas ya usadas (lista o set)
             theta: Habilidad estimada del estudiante (IRT). Si se provee,
                    se usa selección por máxima información.
+            categorias_prioritarias: Conjunto opcional de categorías a priorizar.
             
         Returns:
             Diccionario con la pregunta o None si no hay preguntas disponibles
@@ -97,11 +99,19 @@ class QuestionManager:
         # Asegurar que el nivel esté en rango válido
         nivel = max(1, min(5, nivel))
         
+        categorias_objetivo = set(categorias_prioritarias) if categorias_prioritarias else None
+
+        def _filtrar_preguntas(lista_preguntas: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+            salida = [p for p in lista_preguntas if p['id'] not in preguntas_usadas]
+            if categorias_objetivo:
+                salida = [
+                    p for p in salida
+                    if p.get('categoria', 'Sin categoría') in categorias_objetivo
+                ]
+            return salida
+
         # Obtener preguntas del nivel que no han sido usadas
-        preguntas_disponibles = [
-            p for p in self.preguntas_por_nivel[nivel]
-            if p['id'] not in preguntas_usadas
-        ]
+        preguntas_disponibles = _filtrar_preguntas(self.preguntas_por_nivel[nivel])
         
         # Si no hay preguntas disponibles en este nivel exacto, buscar en niveles cercanos
         if not preguntas_disponibles:
@@ -112,17 +122,15 @@ class QuestionManager:
 
                 nivel_arriba = nivel + distancia
                 if nivel_arriba <= 5:
-                    candidatos_distancia.extend([
-                        p for p in self.preguntas_por_nivel[nivel_arriba]
-                        if p['id'] not in preguntas_usadas
-                    ])
+                    candidatos_distancia.extend(
+                        _filtrar_preguntas(self.preguntas_por_nivel[nivel_arriba])
+                    )
 
                 nivel_abajo = nivel - distancia
                 if nivel_abajo >= 1:
-                    candidatos_distancia.extend([
-                        p for p in self.preguntas_por_nivel[nivel_abajo]
-                        if p['id'] not in preguntas_usadas
-                    ])
+                    candidatos_distancia.extend(
+                        _filtrar_preguntas(self.preguntas_por_nivel[nivel_abajo])
+                    )
 
                 if candidatos_distancia:
                     preguntas_disponibles = candidatos_distancia
@@ -130,6 +138,14 @@ class QuestionManager:
         
         # Si no hay preguntas disponibles en absoluto
         if not preguntas_disponibles:
+            # Si hay filtro de categorías, hacer fallback sin filtro
+            if categorias_objetivo:
+                return self.obtener_pregunta_por_nivel(
+                    nivel,
+                    preguntas_usadas,
+                    theta=theta,
+                    categorias_prioritarias=None
+                )
             return None
         
         # Selección por máxima información si theta está disponible

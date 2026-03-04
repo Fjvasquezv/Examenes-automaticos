@@ -21,7 +21,18 @@
     "preguntas_maximas": 60,
     "nivel_inicial": 3,
     "umbral_estabilizacion": 0.2,
-    "ventana_estabilizacion": 3
+    "ventana_estabilizacion": 3,
+    "distribucion_temas": {
+      "minimo_por_tema": 4,
+      "max_proporcion_tema": 0.35,
+      "pesos": {
+        "Algoritmos y algoritmia": 1,
+        "Big O": 1,
+        "Historia": 1,
+        "Lenguajes de programación": 1,
+        "Diagramas": 1
+      }
+    }
   },
   "sistema_calificacion": {
     "tipo": "irt_simplificado",
