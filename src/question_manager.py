@@ -136,12 +136,18 @@ class QuestionManager:
         if theta is not None and len(preguntas_disponibles) > 1:
             # Ordenar por cercanía de la dificultad al theta estimado
             # b = (dificultad - 3) * 0.8 es la escala IRT
-            preguntas_disponibles.sort(
-                key=lambda p: abs((p['dificultad'] - 3) * 0.8 - theta)
+            # IMPORTANTE: en empates, aplicar desempate aleatorio para evitar
+            # sesgo hacia el primer banco cargado.
+            preguntas_ordenadas = sorted(
+                preguntas_disponibles,
+                key=lambda p: (
+                    abs((p['dificultad'] - 3) * 0.8 - theta),
+                    random.random()
+                )
             )
             # Elegir entre las top 3 para mantener variedad
-            top_n = min(3, len(preguntas_disponibles))
-            return random.choice(preguntas_disponibles[:top_n])
+            top_n = min(3, len(preguntas_ordenadas))
+            return random.choice(preguntas_ordenadas[:top_n])
         
         # Sin theta: selección aleatoria
         return random.choice(preguntas_disponibles)
