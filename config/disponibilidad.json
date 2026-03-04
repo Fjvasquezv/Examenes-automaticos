@@ -6,7 +6,7 @@
             "nombre": "Parcial 1 - Programación",
             "examen_config": "Programacion/Parcial1.json",
             "inicio": "2026-03-04 08:15",
-            "fin": "2026-03-04 09:00",
+            "fin": "2026-03-04 23:59",
             "temas": [
                 "Algoritmos y algoritmia",
                 "Big O",

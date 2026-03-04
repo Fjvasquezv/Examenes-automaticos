@@ -1162,8 +1162,24 @@ def main():
     
     # ============================================
     # VERIFICAR DISPONIBILIDAD Y OBTENER EXAMEN
+    # Nota: una vez iniciado, se conserva el examen en sesión
+    # para evitar reinicios por cierre de ventana horaria.
     # ============================================
-    disponible, config, mensaje, periodos = verificar_disponibilidad()
+    config = None
+    mensaje = ""
+    periodos = None
+
+    examen_en_sesion = (
+        (st.session_state.exam_started or st.session_state.exam_finished)
+        and ('config_examen_activo' in st.session_state)
+    )
+
+    if examen_en_sesion:
+        disponible = True
+        config = st.session_state.config_examen_activo
+        mensaje = st.session_state.get('periodo_activo_nombre', 'Examen en curso')
+    else:
+        disponible, config, mensaje, periodos = verificar_disponibilidad()
     
     if not disponible:
         # Mostrar pantalla de "no disponible"
@@ -1185,6 +1201,11 @@ def main():
                     st.write(f"📝 **{p.get('nombre', 'Examen')}:** {p['inicio']} → {p['fin']}")
         return
     
+    # Antes de iniciar: sincronizar examen activo. Durante el intento: conservarlo fijo.
+    if not st.session_state.exam_started and not st.session_state.exam_finished:
+        st.session_state.config_examen_activo = config
+        st.session_state.periodo_activo_nombre = mensaje
+
     # ============================================
     # EXAMEN DISPONIBLE - CONTINUAR NORMALMENTE
     # ============================================
