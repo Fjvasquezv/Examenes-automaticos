@@ -226,6 +226,12 @@ Las preguntas deben tener:
 - **respuesta_correcta**: Letra de la opción correcta
 - **explicacion**: Feedback para el estudiante
 
+### Prompt recomendado para generar preguntas con IA
+
+- Usa el prompt oficial en [data/bancos/PROMPT_GENERACION_POR_TEMA.md](data/bancos/PROMPT_GENERACION_POR_TEMA.md).
+- Está alineado con la lógica adaptativa del proyecto (dificultad 1-5, por tema).
+- Está optimizado para estudiantes de **primer semestre** y exige salida en JSON compatible.
+
 ## 🎯 Criterios de Terminación
 
 El examen termina cuando:

@@ -1,0 +1,752 @@
+[
+  {
+    "id": "BIGO_001",
+    "dificultad": 1,
+    "categoria": "Big O y complejidad",
+    "pregunta": "¿Qué significa que un algoritmo tenga complejidad O(1)?",
+    "opciones": {
+      "a": "Que el tiempo de ejecución es constante sin importar el tamaño de la entrada",
+      "b": "Que el algoritmo tiene exactamente un paso",
+      "c": "Que el algoritmo no produce ningún resultado",
+      "d": "Que el algoritmo solo puede procesar un elemento a la vez"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "O(1) significa tiempo constante: el algoritmo siempre tarda lo mismo sin importar si la entrada tiene 10 o 10,000,000 elementos. Acceder a un elemento de un arreglo por su índice es un ejemplo clásico.",
+    "tipo": "texto"
+  },
+  {
+    "id": "BIGO_002",
+    "dificultad": 1,
+    "categoria": "Big O y complejidad",
+    "pregunta": "¿Qué tipo de complejidad describe la búsqueda lineal o secuencial?",
+    "opciones": {
+      "a": "O(log n)",
+      "b": "O(n)",
+      "c": "O(1)",
+      "d": "O(n²)"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "La búsqueda lineal tiene complejidad O(n): en el peor caso revisa los n elementos uno por uno. Si la lista se duplica, el tiempo de búsqueda también se duplica.",
+    "tipo": "texto"
+  },
+  {
+    "id": "BIGO_003",
+    "dificultad": 1,
+    "categoria": "Big O y complejidad",
+    "pregunta": "¿Cuál de los siguientes algoritmos tiene complejidad O(log n)?",
+    "opciones": {
+      "a": "Algoritmo de burbujeo",
+      "b": "Búsqueda binaria",
+      "c": "Generación de todas las permutaciones",
+      "d": "Búsqueda lineal"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "La búsqueda binaria tiene complejidad O(log n) porque en cada paso elimina la mitad de los elementos restantes. Por eso puede buscar en 240,000 palabras en solo 18 pasos.",
+    "tipo": "texto"
+  },
+  {
+    "id": "BIGO_004",
+    "dificultad": 1,
+    "categoria": "Big O y complejidad",
+    "pregunta": "¿Qué complejidad tiene acceder directamente a un elemento de un arreglo usando su índice, por ejemplo arreglo[5]?",
+    "opciones": {
+      "a": "O(log n)",
+      "b": "O(1)",
+      "c": "O(n)",
+      "d": "O(n²)"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Acceder a un elemento por índice es O(1): la computadora salta directamente a esa posición de memoria, sin importar el tamaño del arreglo.",
+    "tipo": "texto"
+  },
+  {
+    "id": "BIGO_005",
+    "dificultad": 1,
+    "categoria": "Big O y complejidad",
+    "pregunta": "¿Qué complejidad tiene el algoritmo de ordenamiento por burbuja (bubble sort)?",
+    "opciones": {
+      "a": "O(n log n)",
+      "b": "O(n²)",
+      "c": "O(1)",
+      "d": "O(n)"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "El burbuja tiene complejidad O(n²) porque compara cada elemento con todos los demás. Para ordenar 100 elementos, realiza del orden de 10,000 comparaciones.",
+    "tipo": "texto"
+  },
+  {
+    "id": "BIGO_006",
+    "dificultad": 1,
+    "categoria": "Big O y complejidad",
+    "pregunta": "¿Qué representa la 'n' en la notación Big O, como en O(n)?",
+    "opciones": {
+      "a": "La velocidad del procesador en GHz",
+      "b": "El tamaño de la entrada del algoritmo",
+      "c": "El número de errores que tiene el algoritmo",
+      "d": "El número de variables usadas en el algoritmo"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "En notación Big O, 'n' representa el tamaño de la entrada: la cantidad de elementos en una lista, el tamaño de un arreglo, etc. La complejidad describe cómo crece el tiempo en función de ese tamaño.",
+    "tipo": "texto"
+  },
+  {
+    "id": "BIGO_007",
+    "dificultad": 1,
+    "categoria": "Big O y complejidad",
+    "pregunta": "¿Cuál de las siguientes complejidades crece más lentamente al aumentar n?",
+    "opciones": {
+      "a": "O(n log n)",
+      "b": "O(log n)",
+      "c": "O(n)",
+      "d": "O(n²)"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "O(log n) crece más lentamente que todas las demás opciones. El orden de menor a mayor crecimiento es: O(1) < O(log n) < O(n) < O(n log n) < O(n²).",
+    "tipo": "texto"
+  },
+  {
+    "id": "BIGO_008",
+    "dificultad": 1,
+    "categoria": "Big O y complejidad",
+    "pregunta": "¿Qué algoritmo de ordenamiento tiene complejidad O(n log n)?",
+    "opciones": {
+      "a": "Merge sort (ordenamiento por mezcla)",
+      "b": "Búsqueda lineal",
+      "c": "Ordenamiento por burbuja",
+      "d": "Acceso a arreglo por índice"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "El merge sort (y también el quick sort en promedio) tiene complejidad O(n log n), lo que lo hace mucho más eficiente que el burbuja O(n²) para listas grandes.",
+    "tipo": "texto"
+  },
+  {
+    "id": "BIGO_009",
+    "dificultad": 1,
+    "categoria": "Big O y complejidad",
+    "pregunta": "¿Qué complejidad tiene un algoritmo que genera todos los subconjuntos posibles de un conjunto de n elementos?",
+    "opciones": {
+      "a": "O(n!)",
+      "b": "O(2ⁿ)",
+      "c": "O(n)",
+      "d": "O(n²)"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Generar todos los subconjuntos tiene complejidad O(2ⁿ): un conjunto de 3 elementos tiene 2³=8 subconjuntos, uno de 4 tiene 2⁴=16, etc. El número de subconjuntos se duplica con cada elemento que se agrega.",
+    "tipo": "texto"
+  },
+  {
+    "id": "BIGO_010",
+    "dificultad": 1,
+    "categoria": "Big O y complejidad",
+    "pregunta": "¿Qué complejidad tiene un algoritmo que genera todas las permutaciones posibles de n elementos, como el problema del vendedor viajero?",
+    "opciones": {
+      "a": "O(n!)",
+      "b": "O(2ⁿ)",
+      "c": "O(n log n)",
+      "d": "O(n²)"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "Generar todas las permutaciones tiene complejidad O(n!). Para 4 ciudades hay 4!=24 rutas posibles; para 10 ciudades, 3,628,800 rutas. Este crecimiento hace el problema intratable para n grande.",
+    "tipo": "texto"
+  },
+  {
+    "id": "BIGO_011",
+    "dificultad": 2,
+    "categoria": "Big O y complejidad",
+    "pregunta": "Un algoritmo de búsqueda binaria opera sobre una lista ordenada de 128 elementos. ¿Cuántos pasos necesita como máximo para encontrar cualquier elemento?",
+    "opciones": {
+      "a": "64 pasos",
+      "b": "7 pasos",
+      "c": "14 pasos",
+      "d": "128 pasos"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "La búsqueda binaria necesita log₂(128) = 7 pasos como máximo, porque 2⁷ = 128. En cada paso elimina la mitad de los candidatos.",
+    "tipo": "texto"
+  },
+  {
+    "id": "BIGO_012",
+    "dificultad": 2,
+    "categoria": "Big O y complejidad",
+    "pregunta": "¿Cuántos pasos necesita como máximo la búsqueda binaria para buscar en un diccionario de 240,000 palabras?",
+    "opciones": {
+      "a": "240,000 pasos",
+      "b": "120,000 pasos",
+      "c": "18 pasos",
+      "d": "24 pasos"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "log₂(240,000) ≈ 17.87, redondeando hacia arriba: 18 pasos. Buscar entre 240,000 palabras ordenadas toma solo 18 comparaciones, demostrando el poder de O(log n).",
+    "tipo": "texto"
+  },
+  {
+    "id": "BIGO_013",
+    "dificultad": 2,
+    "categoria": "Big O y complejidad",
+    "pregunta": "Si un algoritmo O(n) tarda 5 ms en procesar 100 elementos, ¿cuánto tardará con 200 elementos?",
+    "opciones": {
+      "a": "10 ms",
+      "b": "20 ms",
+      "c": "25 ms",
+      "d": "5 ms"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "En O(n), al duplicar el tamaño de la entrada el tiempo también se duplica exactamente. Si 100 elementos → 5 ms, entonces 200 elementos → 10 ms.",
+    "tipo": "texto"
+  },
+  {
+    "id": "BIGO_014",
+    "dificultad": 2,
+    "categoria": "Big O y complejidad",
+    "pregunta": "Para una lista de 32 elementos, ¿cuántos pasos máximos necesita la búsqueda lineal versus la búsqueda binaria en el peor caso?",
+    "opciones": {
+      "a": "Lineal: 32 pasos, Binaria: 5 pasos",
+      "b": "Lineal: 32 pasos, Binaria: 16 pasos",
+      "c": "Ambas necesitan 32 pasos en el peor caso",
+      "d": "Lineal: 16 pasos, Binaria: 5 pasos"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "Búsqueda lineal O(n): 32 pasos en el peor caso. Búsqueda binaria O(log n): log₂(32) = 5 pasos. La binaria es 6.4 veces más eficiente para este tamaño.",
+    "tipo": "texto"
+  },
+  {
+    "id": "BIGO_015",
+    "dificultad": 2,
+    "categoria": "Big O y complejidad",
+    "pregunta": "¿Cuántos subconjuntos tiene un conjunto de 4 elementos según la complejidad O(2ⁿ)?",
+    "opciones": {
+      "a": "12",
+      "b": "16",
+      "c": "8",
+      "d": "4"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Con n=4 elementos: 2⁴ = 16 subconjuntos posibles. Esto incluye el conjunto vacío y el conjunto completo con los 4 elementos.",
+    "tipo": "texto"
+  },
+  {
+    "id": "BIGO_016",
+    "dificultad": 2,
+    "categoria": "Big O y complejidad",
+    "pregunta": "¿Cuántas rutas distintas debe evaluar un algoritmo O(n!) para el problema del vendedor viajero con 5 ciudades?",
+    "opciones": {
+      "a": "60",
+      "b": "120",
+      "c": "25",
+      "d": "32"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Con n=5 ciudades: 5! = 5 × 4 × 3 × 2 × 1 = 120 rutas posibles. Este crecimiento factorial hace el problema intratable para muchas ciudades.",
+    "tipo": "texto"
+  },
+  {
+    "id": "BIGO_017",
+    "dificultad": 2,
+    "categoria": "Big O y complejidad",
+    "pregunta": "Un algoritmo O(n²) tarda 4 ms con n=10. ¿Cuánto tardará con n=20?",
+    "opciones": {
+      "a": "16 ms",
+      "b": "20 ms",
+      "c": "40 ms",
+      "d": "8 ms"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "En O(n²), al duplicar n el tiempo se multiplica por 2² = 4. Si n=10 → 4 ms, entonces n=20 → 4 × 4 = 16 ms.",
+    "tipo": "texto"
+  },
+  {
+    "id": "BIGO_018",
+    "dificultad": 2,
+    "categoria": "Big O y complejidad",
+    "pregunta": "¿Cuántos pasos máximos necesita la búsqueda binaria en una lista de 1,000,000 de elementos?",
+    "opciones": {
+      "a": "100 pasos",
+      "b": "20 pasos",
+      "c": "1,000,000 pasos",
+      "d": "500,000 pasos"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "log₂(1,000,000) ≈ 19.93, redondeando: 20 pasos. Buscar entre un millón de elementos ordenados toma solo 20 comparaciones.",
+    "tipo": "texto"
+  },
+  {
+    "id": "BIGO_019",
+    "dificultad": 2,
+    "categoria": "Big O y complejidad",
+    "pregunta": "Ordena de menor a mayor las siguientes complejidades para n=10: O(n!)=3,628,800; O(n²)=100; O(n)=10; O(log n)≈3.3.",
+    "opciones": {
+      "a": "O(log n) < O(n) < O(n²) < O(n!)",
+      "b": "O(n²) < O(n) < O(log n) < O(n!)",
+      "c": "O(log n) < O(n!) < O(n) < O(n²)",
+      "d": "O(n) < O(log n) < O(n²) < O(n!)"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "Para n=10: O(log n)≈3.3 < O(n)=10 < O(n²)=100 < O(n!)=3,628,800. Este es el orden correcto de crecimiento.",
+    "tipo": "texto"
+  },
+  {
+    "id": "BIGO_020",
+    "dificultad": 2,
+    "categoria": "Big O y complejidad",
+    "pregunta": "Un arreglo tiene 64 elementos. ¿Cuántos pasos necesita como máximo la búsqueda binaria?",
+    "opciones": {
+      "a": "8 pasos",
+      "b": "64 pasos",
+      "c": "6 pasos",
+      "d": "32 pasos"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "log₂(64) = 6 pasos, porque 2⁶ = 64. La búsqueda binaria es extremadamente eficiente porque el número de pasos crece logarítmicamente.",
+    "tipo": "texto"
+  },
+  {
+    "id": "BIGO_021",
+    "dificultad": 3,
+    "categoria": "Big O y complejidad",
+    "pregunta": "Un algoritmo O(n log n) tarda 5 ms con n=100. ¿Cuánto tarda aproximadamente con n=200?",
+    "opciones": {
+      "a": "11.5 ms",
+      "b": "20 ms",
+      "c": "25 ms",
+      "d": "10 ms"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "Al duplicar n, el factor de escala es (200×log₂200)/(100×log₂100) ≈ (200×7.64)/(100×6.64) ≈ 2.30. Tiempo ≈ 5 × 2.30 ≈ 11.5 ms. A diferencia de O(n), no se duplica exactamente porque el factor log también crece.",
+    "tipo": "texto"
+  },
+  {
+    "id": "BIGO_022",
+    "dificultad": 3,
+    "categoria": "Big O y complejidad",
+    "pregunta": "Compara O(n²) y O(n log n) para n=32. ¿Cuántas veces más operaciones realiza O(n²)?",
+    "opciones": {
+      "a": "2 veces más",
+      "b": "4 veces más",
+      "c": "6.4 veces más",
+      "d": "32 veces más"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "Para n=32: O(n²) = 32² = 1,024 operaciones. O(n log n) = 32 × log₂(32) = 32 × 5 = 160 operaciones. Razón: 1,024/160 = 6.4 veces más operaciones.",
+    "tipo": "texto"
+  },
+  {
+    "id": "BIGO_023",
+    "dificultad": 3,
+    "categoria": "Big O y complejidad",
+    "pregunta": "Tienes dos algoritmos para ordenar 100 elementos: A usa O(n²) y B usa O(n log n). Si A tarda 10 ms, ¿cuánto tarda B aproximadamente?",
+    "opciones": {
+      "a": "0.66 ms",
+      "b": "1 ms",
+      "c": "3 ms",
+      "d": "5 ms"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "Para n=100: O(n²) = 10,000 operaciones; O(n log n) ≈ 664 operaciones. Si A tarda 10 ms por 10,000 operaciones, B tarda 10 × (664/10,000) ≈ 0.66 ms.",
+    "tipo": "texto"
+  },
+  {
+    "id": "BIGO_024",
+    "dificultad": 3,
+    "categoria": "Big O y complejidad",
+    "pregunta": "¿A partir de qué valor de n el factorial n! supera a la potencia 2ⁿ?",
+    "opciones": {
+      "a": "n=2",
+      "b": "n=3",
+      "c": "n=4",
+      "d": "n=10"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "n=1: 1<2. n=2: 2<4. n=3: 6<8. n=4: 24>16. A partir de n=4, el factorial supera a la potencia de 2, y la brecha crece dramáticamente con n.",
+    "tipo": "texto"
+  },
+  {
+    "id": "BIGO_025",
+    "dificultad": 3,
+    "categoria": "Big O y complejidad",
+    "pregunta": "Un sistema procesa pedidos con un algoritmo O(n²). Con 10 pedidos tarda 1 ms. ¿Cuánto tardará con 100 pedidos?",
+    "opciones": {
+      "a": "100 ms",
+      "b": "50 ms",
+      "c": "1,000 ms",
+      "d": "10 ms"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "En O(n²): al multiplicar n por 10, el tiempo se multiplica por 10² = 100. Si n=10 → 1 ms, entonces n=100 → 1 × 100 = 100 ms.",
+    "tipo": "texto"
+  },
+  {
+    "id": "BIGO_026",
+    "dificultad": 3,
+    "categoria": "Big O y complejidad",
+    "pregunta": "Si ordenar cuesta O(n log n) y luego buscar cuesta O(log n), ¿cuál es la complejidad total del proceso combinado?",
+    "opciones": {
+      "a": "O(log n) porque la búsqueda domina",
+      "b": "O(n log n) porque el ordenamiento domina",
+      "c": "O(n² log n) porque se multiplican",
+      "d": "O(n) porque se promedian"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "La complejidad total se determina por el término que crece más rápido. O(n log n) + O(log n) = O(n log n), porque O(n log n) domina ampliamente sobre O(log n) para n grande.",
+    "tipo": "texto"
+  },
+  {
+    "id": "BIGO_027",
+    "dificultad": 3,
+    "categoria": "Big O y complejidad",
+    "pregunta": "Para un arreglo de 1,000,000 de elementos, ¿cuántas veces más rápido es un algoritmo O(1) comparado con uno O(n) que accede a todos los elementos?",
+    "opciones": {
+      "a": "100 veces más rápido",
+      "b": "1,000 veces más rápido",
+      "c": "1,000,000 veces más rápido",
+      "d": "Depende del hardware"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "O(1) realiza 1 operación. O(n) realiza n=1,000,000 operaciones. Razón: 1,000,000/1 = 1,000,000 veces más rápido. Esto ilustra por qué O(1) es ideal cuando es posible lograrlo.",
+    "tipo": "texto"
+  },
+  {
+    "id": "BIGO_028",
+    "dificultad": 3,
+    "categoria": "Big O y complejidad",
+    "pregunta": "¿Por qué la búsqueda binaria tiene complejidad O(log n) en lugar de O(n/2)?",
+    "opciones": {
+      "a": "Porque O(n/2) es incorrecto matemáticamente",
+      "b": "Porque en Big O las constantes se ignoran: O(n/2) = O(n), no O(log n)",
+      "c": "Porque solo compara los elementos del centro de la lista",
+      "d": "Porque O(n/2) y O(log n) son exactamente lo mismo"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "En Big O, las constantes multiplicativas se ignoran: O(n/2) equivale a O(n) (lineal), no a O(log n). La búsqueda binaria es O(log n) porque el número de pasos crece como el logaritmo del tamaño de la entrada al eliminar mitades en cada decisión.",
+    "tipo": "texto"
+  },
+  {
+    "id": "BIGO_029",
+    "dificultad": 3,
+    "categoria": "Big O y complejidad",
+    "pregunta": "¿Cuántas operaciones realiza un algoritmo O(n²) con n=16, comparado con O(n log n) con el mismo n?",
+    "opciones": {
+      "a": "O(n²)=256, O(n log n)=64, diferencia de 4x",
+      "b": "O(n²)=256, O(n log n)=32, diferencia de 8x",
+      "c": "O(n²)=128, O(n log n)=64, diferencia de 2x",
+      "d": "O(n²)=512, O(n log n)=64, diferencia de 8x"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "n=16: O(n²) = 16² = 256. O(n log n) = 16 × log₂(16) = 16 × 4 = 64. Razón: 256/64 = 4 veces más operaciones para O(n²).",
+    "tipo": "texto"
+  },
+  {
+    "id": "BIGO_030",
+    "dificultad": 3,
+    "categoria": "Big O y complejidad",
+    "pregunta": "Un estudiante afirma que un algoritmo O(n²) es siempre más lento que uno O(n log n), sin excepción. ¿Es correcto?",
+    "opciones": {
+      "a": "No, porque O(n²) siempre tiene una constante oculta menor que O(n log n)",
+      "b": "Sí, porque O(n²) siempre genera más operaciones sin ninguna excepción",
+      "c": "Sí, siempre y para cualquier valor de n",
+      "d": "No, para valores muy pequeños de n, O(n²) puede ser más rápido en la práctica debido a constantes ocultas"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "Big O describe el comportamiento asintótico (para n grande). Para n muy pequeño, las constantes ocultas y la implementación pueden hacer que O(n²) sea más rápido en la práctica. La ventaja de O(n log n) se vuelve clara para entradas grandes.",
+    "tipo": "texto"
+  },
+  {
+    "id": "BIGO_031",
+    "dificultad": 4,
+    "categoria": "Big O y complejidad",
+    "pregunta": "Una empresa tiene una búsqueda O(n) que tarda 200 ms con 1,000,000 de registros. Quiere reducirlo a menos de 1 ms usando búsqueda binaria O(log n). ¿El cambio es suficiente?",
+    "opciones": {
+      "a": "No, porque ordenar primero siempre cuesta más de 200 ms",
+      "b": "Sí, pero solo si el hardware es al menos 10 veces más rápido",
+      "c": "No, porque la búsqueda binaria también es O(n) en el peor caso",
+      "d": "Sí: O(log n) para n=1,000,000 son solo 20 pasos vs 1,000,000; el tiempo cae a ~0.004 ms"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "O(n)=1,000,000 operaciones vs O(log n)=20 operaciones. Si O(n) tarda 200 ms, O(log n) tardaría 200 × (20/1,000,000) = 0.004 ms, muy por debajo del objetivo de 1 ms.",
+    "tipo": "texto"
+  },
+  {
+    "id": "BIGO_032",
+    "dificultad": 4,
+    "categoria": "Big O y complejidad",
+    "pregunta": "Un algoritmo tiene dos partes: ordenar con O(n log n) y luego recorrer la lista una vez con O(n). ¿Cuántas operaciones totales realiza para n=100?",
+    "opciones": {
+      "a": "764",
+      "b": "664",
+      "c": "1,000",
+      "d": "10,100"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "O(n log n): 100 × log₂(100) ≈ 100 × 6.64 = 664 operaciones. O(n): 100 operaciones. Total: 664 + 100 = 764 operaciones.",
+    "tipo": "texto"
+  },
+  {
+    "id": "BIGO_033",
+    "dificultad": 4,
+    "categoria": "Big O y complejidad",
+    "pregunta": "Un sistema con un ciclo triple anidado (O(n³)) evalúa combinaciones de productos con n=20. ¿Cuántas evaluaciones realiza?",
+    "opciones": {
+      "a": "60",
+      "b": "400",
+      "c": "8,000",
+      "d": "1,200"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "O(n³) con n=20: 20³ = 20 × 20 × 20 = 8,000 evaluaciones. Este es el comportamiento de un ciclo triple anidado donde cada uno va de 1 a n.",
+    "tipo": "texto"
+  },
+  {
+    "id": "BIGO_034",
+    "dificultad": 4,
+    "categoria": "Big O y complejidad",
+    "pregunta": "Un algoritmo tarda 1 ms por operación. Con O(n!) y n=10, ¿cuánto tardaría en completarse?",
+    "opciones": {
+      "a": "10 ms",
+      "b": "100 ms",
+      "c": "3,628,800 ms (≈ 1 hora)",
+      "d": "1,024 ms"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "10! = 3,628,800 operaciones × 1 ms = 3,628,800 ms ≈ 3,629 segundos ≈ 60 minutos. Esto ilustra por qué los algoritmos O(n!) son impracticables incluso para n=10.",
+    "tipo": "texto"
+  },
+  {
+    "id": "BIGO_035",
+    "dificultad": 4,
+    "categoria": "Big O y complejidad",
+    "pregunta": "La lista no está ordenada y necesitas buscar un elemento exactamente una vez. ¿Cuál estrategia tiene menor costo total?",
+    "opciones": {
+      "a": "Siempre es mejor ordenar primero para poder usar búsqueda binaria",
+      "b": "Ambas estrategias tienen exactamente el mismo costo",
+      "c": "Ordenar con O(n log n) y luego buscar con O(log n), total O(n log n)",
+      "d": "Buscar linealmente con O(n), sin ordenar"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "Ordenar cuesta O(n log n) y buscar binario cuesta O(log n): total O(n log n). En cambio, buscar linealmente una sola vez cuesta O(n), que es más barato. Solo conviene ordenar si se van a hacer muchas búsquedas.",
+    "tipo": "texto"
+  },
+  {
+    "id": "BIGO_036",
+    "dificultad": 4,
+    "categoria": "Big O y complejidad",
+    "pregunta": "Un ciclo doble anidado recorre todos los pares (i, j) con i y j de 1 a n. ¿Cuántas iteraciones totales realiza para n=8?",
+    "opciones": {
+      "a": "16",
+      "b": "32",
+      "c": "64",
+      "d": "8"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "El ciclo doble anidado realiza n × n = n² iteraciones. Para n=8: 8² = 64 iteraciones. Este es exactamente el patrón de O(n²).",
+    "tipo": "texto"
+  },
+  {
+    "id": "BIGO_037",
+    "dificultad": 4,
+    "categoria": "Big O y complejidad",
+    "pregunta": "Ordenar 1,000 elementos con bubble sort O(n²) tarda 10 ms. ¿Cuánto tardaría ordenar 10,000 elementos?",
+    "opciones": {
+      "a": "10,000 ms",
+      "b": "500 ms",
+      "c": "100 ms",
+      "d": "1,000 ms"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "Al multiplicar n por 10 (de 1,000 a 10,000), en O(n²) el tiempo se multiplica por 10² = 100. Tiempo = 10 ms × 100 = 1,000 ms.",
+    "tipo": "texto"
+  },
+  {
+    "id": "BIGO_038",
+    "dificultad": 4,
+    "categoria": "Big O y complejidad",
+    "pregunta": "Un algoritmo tiene un ciclo externo de n iteraciones y dentro de cada una realiza una búsqueda binaria en la lista completa. ¿Cuál es la complejidad total?",
+    "opciones": {
+      "a": "O(log n)",
+      "b": "O(n)",
+      "c": "O(n log n)",
+      "d": "O(n²)"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "El ciclo externo hace n iteraciones y dentro de cada una realiza una búsqueda binaria O(log n). La complejidad total es O(n) × O(log n) = O(n log n).",
+    "tipo": "texto"
+  },
+  {
+    "id": "BIGO_039",
+    "dificultad": 4,
+    "categoria": "Big O y complejidad",
+    "pregunta": "Un algoritmo O(n²) tarda 1 ms con n=10. ¿Cuál es el máximo valor de n que puede procesar en menos de 100 ms?",
+    "opciones": {
+      "a": "n=200",
+      "b": "n=1,000",
+      "c": "n=50",
+      "d": "n=100"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "Constante: c = 1ms / 10² = 0.01 ms por operación n². Para tiempo < 100 ms: 0.01 × n² < 100 → n² < 10,000 → n < 100. El máximo es n=100 (exactamente 100 ms en el límite).",
+    "tipo": "texto"
+  },
+  {
+    "id": "BIGO_040",
+    "dificultad": 4,
+    "categoria": "Big O y complejidad",
+    "pregunta": "Un algoritmo recorre una lista de n elementos y por cada uno accede a una tabla hash en O(1). ¿Cuál es la complejidad total?",
+    "opciones": {
+      "a": "O(n²) porque n × 1 = n en cada paso",
+      "b": "O(log n) por la combinación de ciclo y acceso constante",
+      "c": "O(1) porque hay accesos O(1)",
+      "d": "O(n) porque el ciclo hace n iteraciones, cada una con costo O(1)"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "Un ciclo de n iteraciones donde cada iteración cuesta O(1) da complejidad total O(n) × O(1) = O(n). El acceso O(1) no cambia que el ciclo se ejecuta n veces.",
+    "tipo": "texto"
+  },
+  {
+    "id": "BIGO_041",
+    "dificultad": 5,
+    "categoria": "Big O y complejidad",
+    "pregunta": "Un GPS debe encontrar la ruta óptima entre 15 ciudades evaluando todas las rutas posibles O(n!). Asumiendo 1 ms por ruta, ¿cuántos años tardaría?",
+    "opciones": {
+      "a": "Menos de 1 minuto",
+      "b": "Aproximadamente 1 día",
+      "c": "Aproximadamente 41 años",
+      "d": "Aproximadamente 100 años"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "15! = 1,307,674,368,000 rutas × 1 ms = 1.307 × 10¹² ms ÷ 1000 ÷ 3600 ÷ 24 ÷ 365 ≈ 41 años. Por esto los GPS usan algoritmos aproximados en lugar de buscar la solución exacta O(n!).",
+    "tipo": "texto"
+  },
+  {
+    "id": "BIGO_042",
+    "dificultad": 5,
+    "categoria": "Big O y complejidad",
+    "pregunta": "Analiza el fragmento: 'Para i desde 1 hasta n: Para j desde i hasta n: procesar(i,j)'. ¿Cuál es su complejidad y cuántas iteraciones totales hace para n=4?",
+    "opciones": {
+      "a": "O(n log n), 8 iteraciones",
+      "b": "O(n²), 16 iteraciones",
+      "c": "O(n), 4 iteraciones",
+      "d": "O(n²), 10 iteraciones"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "El ciclo interno va de i hasta n, no de 1 hasta n. Iteraciones: i=1: 4 pasos; i=2: 3 pasos; i=3: 2 pasos; i=4: 1 paso. Total: 4+3+2+1=10 = n(n+1)/2. En Big O, n(n+1)/2 ∈ O(n²).",
+    "tipo": "texto"
+  },
+  {
+    "id": "BIGO_043",
+    "dificultad": 5,
+    "categoria": "Big O y complejidad",
+    "pregunta": "Para n=10,000, ¿cuántas veces más eficiente es O(n log n) frente a O(n²)?",
+    "opciones": {
+      "a": "10 veces más eficiente",
+      "b": "100 veces más eficiente",
+      "c": "753 veces más eficiente",
+      "d": "10,000 veces más eficiente"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "O(n²)=10,000²=100,000,000 operaciones. O(n log n)=10,000×log₂(10,000)≈10,000×13.29≈132,900 operaciones. Razón: 100,000,000/132,900 ≈ 753 veces más eficiente.",
+    "tipo": "texto"
+  },
+  {
+    "id": "BIGO_044",
+    "dificultad": 5,
+    "categoria": "Big O y complejidad",
+    "pregunta": "Necesitas buscar en una lista de n=1,000 elementos que no está ordenada. Si la usarás para 5 búsquedas, ¿cuál estrategia tiene menor costo total en operaciones?",
+    "opciones": {
+      "a": "Ambas tienen el mismo costo para 5 búsquedas",
+      "b": "Ordenar siempre es mejor sin importar cuántas búsquedas se hagan",
+      "c": "Ordenar O(n log n) + 5 búsquedas binarias O(log n): ≈9,965 + 50 = 10,015 operaciones",
+      "d": "5 búsquedas lineales O(n): 5 × 1,000 = 5,000 operaciones"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "Estrategia A: ordenar (≈9,965 ops) + 5×búsqueda binaria (5×10=50 ops) = 10,015 ops. Estrategia B: 5×búsqueda lineal = 5,000 ops. Con solo 5 búsquedas conviene no ordenar. Si fueran ~100 búsquedas, A sería mejor.",
+    "tipo": "texto"
+  },
+  {
+    "id": "BIGO_045",
+    "dificultad": 5,
+    "categoria": "Big O y complejidad",
+    "pregunta": "Un algoritmo recursivo divide el problema de tamaño n en 2 subproblemas de tamaño n/2 y combina resultados en O(n). ¿Cuál es su complejidad total?",
+    "opciones": {
+      "a": "O(n)",
+      "b": "O(n²)",
+      "c": "O(log n)",
+      "d": "O(n log n)"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "Dividir en 2 mitades + combinar en O(n) es exactamente el patrón del merge sort. El árbol de recursión tiene log₂(n) niveles y en cada nivel se hace trabajo total O(n), dando O(n log n) en total.",
+    "tipo": "texto"
+  },
+  {
+    "id": "BIGO_046",
+    "dificultad": 5,
+    "categoria": "Big O y complejidad",
+    "pregunta": "¿Por qué en notación Big O se escribe O(n) y no O(2n) aunque el algoritmo realice exactamente 2n operaciones?",
+    "opciones": {
+      "a": "Porque O(2n) es imposible de calcular",
+      "b": "Porque las constantes siempre valen 1 en cualquier implementación",
+      "c": "Por convención matemática sin justificación práctica",
+      "d": "Porque las constantes dependen del hardware y no del algoritmo; Big O describe el patrón de crecimiento, no el valor exacto"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "Las constantes multiplicativas reflejan detalles de implementación o hardware. Un procesador más rápido reduce la constante, pero no cambia el patrón de crecimiento. Big O captura ese patrón: 2n y n crecen al mismo ritmo relativo cuando n → ∞.",
+    "tipo": "texto"
+  },
+  {
+    "id": "BIGO_047",
+    "dificultad": 5,
+    "categoria": "Big O y complejidad",
+    "pregunta": "Duplicar la velocidad del procesador mejora un algoritmo O(n²) 2x. Cambiar de O(n²) a O(n log n) para n=10,000 lo mejora ~753x. ¿Qué conclusión es correcta?",
+    "opciones": {
+      "a": "Ambas mejoras tienen el mismo impacto para cualquier n",
+      "b": "La mejora de hardware es mejor solo para n pequeño",
+      "c": "Duplicar el hardware siempre es más efectivo que cambiar el algoritmo",
+      "d": "Para n grande, elegir un mejor algoritmo supera ampliamente a mejorar el hardware"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "Duplicar el hardware da un factor 2x. Cambiar de O(n²) a O(n log n) para n=10,000 da un factor ~753x. Para n grande, la elección del algoritmo domina absolutamente sobre la velocidad del hardware.",
+    "tipo": "texto"
+  },
+  {
+    "id": "BIGO_048",
+    "dificultad": 5,
+    "categoria": "Big O y complejidad",
+    "pregunta": "Un algoritmo tiene dos fases independientes: fase A con O(n²) y fase B con O(2ⁿ). ¿Cuál es la complejidad total y qué fase domina para n grande?",
+    "opciones": {
+      "a": "O(n² + 2ⁿ) = O(n²·2ⁿ), porque se multiplican",
+      "b": "O(n²), porque 2ⁿ es constante para valores fijos de n",
+      "c": "O(n²), porque la fase A siempre domina",
+      "d": "O(2ⁿ), porque el crecimiento exponencial supera al polinomial para n suficientemente grande"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "O(n²) + O(2ⁿ) = O(2ⁿ), porque el crecimiento exponencial siempre supera al polinomial para n suficientemente grande. Para n=30: n²=900 vs 2³⁰≈1,000,000,000. La fase B domina completamente.",
+    "tipo": "texto"
+  },
+  {
+    "id": "BIGO_049",
+    "dificultad": 5,
+    "categoria": "Big O y complejidad",
+    "pregunta": "Se tiene un ciclo: 'i=1; Mientras i < n: i = i × 2'. ¿Cuántas iteraciones realiza para n=64 y cuál es su complejidad?",
+    "opciones": {
+      "a": "64 iteraciones, O(n)",
+      "b": "32 iteraciones, O(n/2)",
+      "c": "6 iteraciones, O(log n)",
+      "d": "8 iteraciones, O(√n)"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "i toma los valores: 1, 2, 4, 8, 16, 32 → cuando i=64 el ciclo termina. Son 6 iteraciones, y log₂(64)=6. Duplicar en cada paso es el patrón de O(log n): el ciclo termina en log₂(n) iteraciones.",
+    "tipo": "texto"
+  },
+  {
+    "id": "BIGO_050",
+    "dificultad": 5,
+    "categoria": "Big O y complejidad",
+    "pregunta": "Un estudiante argumenta: 'Si un algoritmo O(n log n) ya es suficientemente rápido para el problema actual, no tiene sentido buscar uno O(n)'. ¿Cuándo este razonamiento es válido y cuándo no?",
+    "opciones": {
+      "a": "Siempre es válido: si funciona, no se toca",
+      "b": "Nunca es válido: siempre hay que usar el algoritmo de menor complejidad disponible",
+      "c": "Es válido si el tamaño de la entrada no va a crecer significativamente; deja de serlo si n puede crecer mucho, pues O(n) escalaría mucho mejor",
+      "d": "Es válido solo si el algoritmo O(n) es más difícil de implementar"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "La complejidad importa en función de cuánto puede crecer n. Si n es pequeño y fijo, O(n log n) puede ser perfectamente aceptable. Pero si n puede crecer significativamente (millones de registros, datos en tiempo real), pasar de O(n log n) a O(n) podría marcar la diferencia entre un sistema funcional y uno que no responde.",
+    "tipo": "texto"
+  }
+]

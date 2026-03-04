@@ -335,6 +335,40 @@ def _filtrar_bancos_por_asignatura(bancos_rel: list[str], asignatura: str) -> li
     return salida
 
 
+def _render_contenido_pregunta(pregunta_obj: dict, base_path: Path) -> None:
+    tipo = str(pregunta_obj.get('tipo', 'texto')).strip().lower()
+
+    if tipo == 'imagen':
+        imagen_ref = str(pregunta_obj.get('imagen', '')).strip()
+        if imagen_ref:
+            ruta_img = Path(imagen_ref)
+            if not ruta_img.is_absolute():
+                ruta_img = base_path / ruta_img
+
+            if ruta_img.exists():
+                caption = pregunta_obj.get('imagen_caption', '')
+                ancho = pregunta_obj.get('imagen_ancho', None)
+                try:
+                    ancho = int(ancho) if ancho not in (None, '') else None
+                except Exception:
+                    ancho = None
+                st.image(str(ruta_img), caption=caption if caption else None, width=ancho)
+            else:
+                st.warning(f"No se encontró la imagen de la pregunta: {imagen_ref}")
+
+        st.markdown(pregunta_obj.get('pregunta', ''))
+        return
+
+    if tipo == 'mermaid':
+        st.markdown(pregunta_obj.get('pregunta', ''))
+        mermaid_src = str(pregunta_obj.get('mermaid', '')).strip()
+        if mermaid_src:
+            st.code(mermaid_src, language='mermaid')
+        return
+
+    st.markdown(pregunta_obj.get('pregunta', ''))
+
+
 def _opciones_hora_jornada(jornada_noche: bool) -> list[str]:
     inicio = datetime.strptime("18:00", "%H:%M") if jornada_noche else datetime.strptime("08:00", "%H:%M")
     fin = datetime.strptime("21:45", "%H:%M") if jornada_noche else datetime.strptime("12:00", "%H:%M")
@@ -1404,6 +1438,7 @@ def ejecutar_examen(config, question_manager, ui):
     col_pregunta, col_opciones = st.columns([3, 2])
     
     with col_pregunta:
+        base_path = Path(__file__).parent
         dificultad = pregunta_obj['dificultad']
         color = ui._get_dificultad_color(dificultad)
         categoria = pregunta_obj.get('categoria', '')
@@ -1413,8 +1448,8 @@ def ejecutar_examen(config, question_manager, ui):
         html_header = f"<div style='background-color: #ffffff; border: 1px solid #dee2e6; border-radius: 8px 8px 0 0; overflow: hidden;'><div style='background-color: #f8f9fa; padding: 10px 15px; border-bottom: 1px solid #dee2e6; display: flex; justify-content: space-between; align-items: center;'><span style='font-weight: bold;'>Pregunta {exam_logic.pregunta_actual + 1}</span><div>{categoria_html}<span style='background-color: {color}; color: white; padding: 3px 10px; border-radius: 12px; font-size: 11px; margin-left: 10px;'>Nivel {dificultad}</span></div></div></div>"
         st.markdown(html_header, unsafe_allow_html=True)
         
-        # Contenido de la pregunta (separado para que el código se renderice bien)
-        st.markdown(pregunta_obj['pregunta'])
+        # Contenido de la pregunta (texto, imagen o mermaid)
+        _render_contenido_pregunta(pregunta_obj, base_path)
     
     with col_opciones:
         html_header = "<div style='background-color: #f8f9fa; padding: 8px 15px; border: 1px solid #dee2e6; border-radius: 8px 8px 0 0; border-bottom: none;'><span style='font-weight: bold; color: #495057;'>Seleccione su respuesta:</span></div>"

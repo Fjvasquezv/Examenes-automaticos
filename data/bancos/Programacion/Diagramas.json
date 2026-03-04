@@ -1,0 +1,752 @@
+[
+  {
+    "id": "DIAG_001",
+    "dificultad": 1,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Qué símbolo se usa en un diagrama de flujo para representar el INICIO y el FIN del proceso?",
+    "opciones": {
+      "a": "Un rombo < >",
+      "b": "Un óvalo o elipse ( )",
+      "c": "Una flecha -->",
+      "d": "Un rectángulo [ ]"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "El óvalo o elipse representa el inicio y el fin de un diagrama de flujo. Contiene las palabras 'INICIO' o 'FIN'. Es el punto de entrada y salida del proceso.",
+    "tipo": "texto"
+  },
+  {
+    "id": "DIAG_002",
+    "dificultad": 1,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Qué símbolo representa una OPERACIÓN o acción dentro de un diagrama de flujo?",
+    "opciones": {
+      "a": "Un óvalo ( )",
+      "b": "Un rombo < >",
+      "c": "Una flecha -->",
+      "d": "Un rectángulo [ ]"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "El rectángulo representa una operación o acción: calcular, asignar un valor, mostrar un resultado, etc. Es el símbolo más frecuente en los diagramas de flujo.",
+    "tipo": "texto"
+  },
+  {
+    "id": "DIAG_003",
+    "dificultad": 1,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Qué símbolo representa una DECISIÓN en un diagrama de flujo y cuántas salidas tiene?",
+    "opciones": {
+      "a": "Un rombo < > con dos salidas: Sí y No",
+      "b": "Un óvalo ( ) con una sola salida",
+      "c": "Un rombo < > con una sola salida",
+      "d": "Un rectángulo [ ] con tres salidas"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "El rombo representa una decisión. Siempre tiene exactamente dos salidas: 'Sí' (cuando la condición se cumple) y 'No' (cuando no se cumple). Esto crea dos caminos posibles en el flujo.",
+    "tipo": "texto"
+  },
+  {
+    "id": "DIAG_004",
+    "dificultad": 1,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "En el siguiente diagrama, ¿cuántos símbolos de tipo rectángulo hay?\n\n  (INICIO)\n      |\n      v\n  [leer n]\n      |\n      v\n  [resultado = n * 2]\n      |\n      v\n  [mostrar resultado]\n      |\n      v\n    (FIN)",
+    "opciones": {
+      "a": "5 rectángulos",
+      "b": "3 rectángulos",
+      "c": "2 rectángulos",
+      "d": "1 rectángulo"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "El diagrama tiene tres rectángulos: [leer n], [resultado = n * 2] y [mostrar resultado]. Los óvalos (INICIO) y (FIN) no son rectángulos.",
+    "tipo": "texto"
+  },
+  {
+    "id": "DIAG_005",
+    "dificultad": 1,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Para qué sirven las flechas en un diagrama de flujo?",
+    "opciones": {
+      "a": "Para señalar errores en el algoritmo",
+      "b": "Para indicar el orden en que deben ejecutarse los pasos",
+      "c": "Para representar variables del algoritmo",
+      "d": "Para indicar el tamaño de cada operación"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Las flechas muestran la dirección del flujo: indican qué paso viene después de cada uno y en qué orden se ejecuta el algoritmo. Sin flechas, el diagrama sería ambiguo.",
+    "tipo": "texto"
+  },
+  {
+    "id": "DIAG_006",
+    "dificultad": 1,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Cuál es el PRIMER paso correcto al construir un diagrama de flujo?",
+    "opciones": {
+      "a": "Dibujar el símbolo de INICIO",
+      "b": "Conectar todos los símbolos con flechas",
+      "c": "Escribir todas las operaciones en rectángulos",
+      "d": "Dibujar los rombos de decisión"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "El primer paso siempre es definir el INICIO con un óvalo. A partir de ahí se agregan las operaciones, decisiones, conexiones y finalmente el FIN.",
+    "tipo": "texto"
+  },
+  {
+    "id": "DIAG_007",
+    "dificultad": 1,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "Observa el siguiente diagrama. ¿Qué tipo de símbolo es < x > 5 >?\n\n  (INICIO)\n      |\n      v\n  [leer x]\n      |\n      v\n  < x > 5 >---No--->[mostrar 'pequeño']\n      |\n     Si\n      |\n      v\n  [mostrar 'grande']\n      |\n      v\n    (FIN)",
+    "opciones": {
+      "a": "Un óvalo de inicio",
+      "b": "Un rombo de decisión",
+      "c": "Una flecha de flujo",
+      "d": "Un rectángulo de operación"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "< x > 5 > es un rombo de decisión: evalúa si la condición 'x > 5' es verdadera o falsa, y dirige el flujo por el camino 'Sí' o 'No' según el resultado.",
+    "tipo": "texto"
+  },
+  {
+    "id": "DIAG_008",
+    "dificultad": 1,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Cuántos símbolos de FIN puede tener un diagrama de flujo?",
+    "opciones": {
+      "a": "Exactamente uno siempre",
+      "b": "Ninguno; el fin se deduce",
+      "c": "Uno por cada decisión que tenga",
+      "d": "Puede tener más de uno si hay varios caminos de salida"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "Un diagrama puede tener más de un símbolo FIN cuando existen varios caminos posibles de terminación. Por ejemplo, si una condición puede finalizar el proceso por dos ramas distintas, cada una puede tener su propio FIN.",
+    "tipo": "texto"
+  },
+  {
+    "id": "DIAG_009",
+    "dificultad": 1,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Qué estructura representa el siguiente diagrama?\n\n  (INICIO)\n      |\n      v\n  [leer a]\n      |\n      v\n  [leer b]\n      |\n      v\n  [c = a + b]\n      |\n      v\n  [mostrar c]\n      |\n      v\n    (FIN)",
+    "opciones": {
+      "a": "Un algoritmo con ciclos",
+      "b": "Un algoritmo secuencial sin decisiones ni ciclos",
+      "c": "Un algoritmo con decisiones y ciclos",
+      "d": "Un algoritmo con decisiones"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "El diagrama muestra una estructura puramente secuencial: cada paso lleva directamente al siguiente sin bifurcaciones ni retornos. No hay rombos de decisión ni flechas que vuelvan hacia atrás.",
+    "tipo": "texto"
+  },
+  {
+    "id": "DIAG_010",
+    "dificultad": 1,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Qué problema tiene un diagrama de flujo cuya última flecha apunta de regreso al INICIO sin ningún rombo de decisión en el camino?",
+    "opciones": {
+      "a": "Representa un ciclo infinito porque nunca tiene condición de parada",
+      "b": "Representa un algoritmo recursivo correcto",
+      "c": "Solo es un problema si el diagrama tiene más de 5 pasos",
+      "d": "Ninguno; es un diagrama eficiente"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "Un diagrama sin condición de salida que vuelve al inicio representa un ciclo infinito. Todo algoritmo debe ser finito, por lo que siempre se necesita al menos un rombo de decisión que permita salir del ciclo.",
+    "tipo": "texto"
+  },
+  {
+    "id": "DIAG_011",
+    "dificultad": 2,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "Traza el siguiente diagrama con n = 3. ¿Qué muestra el algoritmo?\n\n  (INICIO)\n      |\n      v\n  [leer n]\n      |\n      v\n  < n >= 0 >---No--->[mostrar 'negativo']\n      |                      |\n     Si                      v\n      |                    (FIN)\n      v\n  [mostrar 'no negativo']\n      |\n      v\n    (FIN)",
+    "opciones": {
+      "a": "No muestra nada",
+      "b": "'no negativo'",
+      "c": "Muestra los dos mensajes",
+      "d": "'negativo'"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Con n=3: la condición n >= 0 es 3 >= 0 = Verdadero → toma el camino 'Sí' → muestra 'no negativo'. El camino 'No' no se ejecuta.",
+    "tipo": "texto"
+  },
+  {
+    "id": "DIAG_012",
+    "dificultad": 2,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "Traza el diagrama con x = 8. ¿Cuál es el valor final de 'resultado'?\n\n  (INICIO)\n      |\n      v\n  [leer x]\n      |\n      v\n  < x > 10 >---No--->[resultado = x * 2]\n      |                       |\n     Si                       |\n      |                       |\n  [resultado = x + 10]        |\n      |                       |\n      +-----------+-----------+\n                  |\n                  v\n          [mostrar resultado]\n                  |\n                  v\n                (FIN)",
+    "opciones": {
+      "a": "80",
+      "b": "16",
+      "c": "10",
+      "d": "18"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Con x=8: la condición x > 10 es 8 > 10 = Falso → toma el camino 'No' → resultado = 8 * 2 = 16.",
+    "tipo": "texto"
+  },
+  {
+    "id": "DIAG_013",
+    "dificultad": 2,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "Traza el diagrama con x = 15. ¿Cuál es el valor final de 'resultado'?\n\n  (INICIO)\n      |\n      v\n  [leer x]\n      |\n      v\n  < x > 10 >---No--->[resultado = x * 2]\n      |                       |\n     Si                       |\n      |                       |\n  [resultado = x + 10]        |\n      |                       |\n      +-----------+-----------+\n                  |\n                  v\n          [mostrar resultado]\n                  |\n                  v\n                (FIN)",
+    "opciones": {
+      "a": "25",
+      "b": "150",
+      "c": "5",
+      "d": "30"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "Con x=15: la condición x > 10 es 15 > 10 = Verdadero → toma el camino 'Sí' → resultado = 15 + 10 = 25.",
+    "tipo": "texto"
+  },
+  {
+    "id": "DIAG_014",
+    "dificultad": 2,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Cuántas veces ejecuta el bloque [mostrar i] el siguiente diagrama?\n\n  (INICIO)\n      |\n      v\n  [i = 1]\n      |\n      v\n  < i <= 3 >---No--->(FIN)\n      |\n     Si\n      |\n      v\n  [mostrar i]\n      |\n      v\n  [i = i + 1]\n      |\n      +-----> (regresa a decision)",
+    "opciones": {
+      "a": "1 vez",
+      "b": "4 veces",
+      "c": "2 veces",
+      "d": "3 veces"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "i toma los valores 1, 2, 3. En i=1: 1<=3 Sí → muestra 1. En i=2: 2<=3 Sí → muestra 2. En i=3: 3<=3 Sí → muestra 3. En i=4: 4<=3 No → FIN. El bloque se ejecuta 3 veces.",
+    "tipo": "texto"
+  },
+  {
+    "id": "DIAG_015",
+    "dificultad": 2,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "En el diagrama de la pregunta anterior, ¿cuál es el valor de i cuando el ciclo termina (cuando se toma el camino 'No')?",
+    "opciones": {
+      "a": "i = 0",
+      "b": "i = 3",
+      "c": "i = 5",
+      "d": "i = 4"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "El ciclo termina cuando i = 4, porque 4 <= 3 es Falso → toma el camino 'No' hacia FIN. La variable i queda con valor 4 al finalizar.",
+    "tipo": "texto"
+  },
+  {
+    "id": "DIAG_016",
+    "dificultad": 2,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "Traza el diagrama con a = 5 y b = 3. ¿Qué muestra?\n\n  (INICIO)\n      |\n      v\n  [leer a, b]\n      |\n      v\n  < a > b >---No--->[mostrar b]\n      |                  |\n     Si                  |\n      |                  |\n  [mostrar a]            |\n      |                  |\n      +--------+---------+\n               |\n               v\n             (FIN)",
+    "opciones": {
+      "a": "3",
+      "b": "8",
+      "c": "Muestra los dos: 5 y 3",
+      "d": "5"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "Con a=5 y b=3: la condición a > b es 5 > 3 = Verdadero → camino 'Sí' → muestra a = 5. Este diagrama encuentra el mayor de dos números.",
+    "tipo": "texto"
+  },
+  {
+    "id": "DIAG_017",
+    "dificultad": 2,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Qué calcula el siguiente diagrama?\n\n  (INICIO)\n      |\n      v\n  [leer n]\n      |\n      v\n  [resultado = n * n]\n      |\n      v\n  [mostrar resultado]\n      |\n      v\n    (FIN)",
+    "opciones": {
+      "a": "El factorial de n",
+      "b": "El doble de n",
+      "c": "La raíz cuadrada de n",
+      "d": "El cuadrado de n"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "La operación n * n calcula n², es decir el cuadrado de n. Para n=4, resultado = 4*4 = 16.",
+    "tipo": "texto"
+  },
+  {
+    "id": "DIAG_018",
+    "dificultad": 2,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Cuál es el valor de 'suma' al finalizar el siguiente diagrama?\n\n  (INICIO)\n      |\n      v\n  [suma = 0, i = 1]\n      |\n      v\n  < i <= 4 >---No--->(FIN)\n      |\n     Si\n      |\n      v\n  [suma = suma + i]\n      |\n      v\n  [i = i + 1]\n      |\n      +-----> (regresa a decision)",
+    "opciones": {
+      "a": "10",
+      "b": "8",
+      "c": "16",
+      "d": "4"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "El ciclo acumula: i=1: suma=1; i=2: suma=3; i=3: suma=6; i=4: suma=10; i=5: condición falsa → FIN. suma = 1+2+3+4 = 10.",
+    "tipo": "texto"
+  },
+  {
+    "id": "DIAG_019",
+    "dificultad": 2,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "Observa el diagrama. ¿Qué pasa si se ingresa n = 0?\n\n  (INICIO)\n      |\n      v\n  [leer n]\n      |\n      v\n  < n > 0 >---No--->[mostrar 'no positivo']\n      |                       |\n     Si                       v\n      |                     (FIN)\n      v\n  [mostrar 'positivo']\n      |\n      v\n    (FIN)",
+    "opciones": {
+      "a": "Muestra 'positivo'",
+      "b": "El diagrama entra en ciclo infinito",
+      "c": "Muestra los dos mensajes",
+      "d": "Muestra 'no positivo'"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "Con n=0: la condición n > 0 es 0 > 0 = Falso → toma el camino 'No' → muestra 'no positivo'. El cero no es positivo según esta condición.",
+    "tipo": "texto"
+  },
+  {
+    "id": "DIAG_020",
+    "dificultad": 2,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Cuántas veces se ejecuta [suma = suma + i] en el siguiente diagrama si n = 5?\n\n  (INICIO)\n      |\n      v\n  [suma = 0, i = 1]\n      |\n      v\n  < i <= n >---No--->(FIN)\n      |\n     Si\n      |\n      v\n  [suma = suma + i]\n      |\n      v\n  [i = i + 1]\n      |\n      +-----> (regresa a decision)",
+    "opciones": {
+      "a": "n+1 veces",
+      "b": "4 veces",
+      "c": "6 veces",
+      "d": "5 veces"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "El ciclo corre para i = 1, 2, 3, 4, 5 (cinco valores). En cada uno ejecuta [suma = suma + i]. Cuando i = 6, la condición 6 <= 5 es Falsa y el ciclo termina.",
+    "tipo": "texto"
+  },
+  {
+    "id": "DIAG_021",
+    "dificultad": 3,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "Traza el siguiente diagrama con n = 4 y determina el valor final de 'producto':\n\n  (INICIO)\n      |\n      v\n  [producto = 1, i = 1]\n      |\n      v\n  < i <= n >---No--->[mostrar producto] --> (FIN)\n      |\n     Si\n      |\n      v\n  [producto = producto * i]\n      |\n      v\n  [i = i + 1]\n      |\n      +-----> (regresa a decision)",
+    "opciones": {
+      "a": "10",
+      "b": "4",
+      "c": "16",
+      "d": "24"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "i=1: producto=1; i=2: producto=2; i=3: producto=6; i=4: producto=24; i=5: condición falsa → muestra 24. Este diagrama calcula 4! = 24.",
+    "tipo": "texto"
+  },
+  {
+    "id": "DIAG_022",
+    "dificultad": 3,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Qué error tiene el siguiente diagrama?\n\n  (INICIO)\n      |\n      v\n  [i = 1, suma = 0]\n      |\n      v\n  < i <= 5 >---No--->(FIN)\n      |\n     Si\n      |\n      v\n  [suma = suma + i]\n      |\n      v\n  [i = i - 1]\n      |\n      +-----> (regresa a decision)",
+    "opciones": {
+      "a": "La variable suma debería inicializarse en 1, no en 0",
+      "b": "El diagrama no tiene error; calcula la suma normalmente",
+      "c": "La operación [i = i - 1] hace que i nunca alcance el límite, generando un ciclo infinito",
+      "d": "La condición debería ser i >= 5 en lugar de i <= 5"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "El error crítico es [i = i - 1]: i comienza en 1 y en lugar de avanzar, disminuye (0, -1, -2...). La condición i <= 5 siempre será Verdadera, creando un ciclo infinito. Debe ser [i = i + 1].",
+    "tipo": "texto"
+  },
+  {
+    "id": "DIAG_023",
+    "dificultad": 3,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Cuál es el valor de 'resultado' al final del siguiente diagrama con a=6 y b=4?\n\n  (INICIO)\n      |\n      v\n  [leer a, b]\n      |\n      v\n  [resultado = 0]\n      |\n      v\n  < a > b >---No--->[resultado = b - a]\n      |                      |\n     Si                      |\n      |                      |\n  [resultado = a - b]        |\n      |                      |\n      +----------+-----------+\n                 |\n                 v\n         [mostrar resultado]\n                 |\n                 v\n               (FIN)",
+    "opciones": {
+      "a": "0",
+      "b": "-2",
+      "c": "2",
+      "d": "10"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "Con a=6, b=4: condición a > b es 6 > 4 = Verdadero → camino 'Sí' → resultado = a - b = 6 - 4 = 2. Este diagrama calcula el valor absoluto de la diferencia.",
+    "tipo": "texto"
+  },
+  {
+    "id": "DIAG_024",
+    "dificultad": 3,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Cuántas veces se ejecuta el bloque [mostrar i] en el siguiente diagrama?\n\n  (INICIO)\n      |\n      v\n  [i = 0]\n      |\n      v\n  < i < 5 >---No--->(FIN)\n      |\n     Si\n      |\n      v\n  [i = i + 2]\n      |\n      v\n  [mostrar i]\n      |\n      +-----> (regresa a decision)",
+    "opciones": {
+      "a": "5 veces",
+      "b": "2 veces",
+      "c": "4 veces",
+      "d": "3 veces"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "i inicia en 0. Iteración 1: 0<5 Sí → i=2, muestra 2. Iteración 2: 2<5 Sí → i=4, muestra 4. Iteración 3: 4<5 Sí → i=6, muestra 6. Iteración 4: 6<5 No → FIN. Se muestra 3 veces: 2, 4, 6.",
+    "tipo": "texto"
+  },
+  {
+    "id": "DIAG_025",
+    "dificultad": 3,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "Compara estos dos diagramas. ¿En qué se diferencian sus resultados para n=3?\n\nDiagrama A:               Diagrama B:\n  [i = 1]                   [i = 0]\n  < i <= n >                < i < n >\n  [mostrar i]               [mostrar i]\n  [i = i + 1]               [i = i + 1]",
+    "opciones": {
+      "a": "A muestra 1,2,3 y B muestra 0,1,2 — diferentes valores y cantidad igual",
+      "b": "A muestra 1,2,3 y B muestra 0,1,2,3 — diferente cantidad",
+      "c": "A muestra 0,1,2,3 y B muestra 1,2,3 — diferente inicio",
+      "d": "A muestra 1,2,3 y B muestra 1,2,3 — son iguales"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "Diagrama A: i va de 1 a 3 (condición i<=3), muestra 1, 2, 3. Diagrama B: i va de 0 a 2 (condición i<3), muestra 0, 1, 2. Ambos muestran 3 valores pero diferentes: A desde 1, B desde 0.",
+    "tipo": "texto"
+  },
+  {
+    "id": "DIAG_026",
+    "dificultad": 3,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Qué calcula el siguiente diagrama?\n\n  (INICIO)\n      |\n      v\n  [leer n]\n      |\n      v\n  [a = 1, b = 1, i = 2]\n      |\n      v\n  < i <= n >---No--->[mostrar b] --> (FIN)\n      |\n     Si\n      |\n      v\n  [temp = b]\n  [b = a + b]\n  [a = temp]\n      |\n      v\n  [i = i + 1]\n      |\n      +-----> (regresa a decision)",
+    "opciones": {
+      "a": "El factorial de n",
+      "b": "La suma de los primeros n números",
+      "c": "El enésimo número de Fibonacci",
+      "d": "El número n al cuadrado"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "El diagrama usa dos variables a y b que se actualizan calculando b = a + b (suma de los dos anteriores) y avanzando. Este es exactamente el patrón iterativo para calcular el enésimo número de Fibonacci.",
+    "tipo": "texto"
+  },
+  {
+    "id": "DIAG_027",
+    "dificultad": 3,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "Identifica el error en el siguiente diagrama para calcular el factorial:\n\n  (INICIO)\n      |\n      v\n  [producto = 0, i = 1]\n      |\n      v\n  < i <= n >---No--->[mostrar producto] --> (FIN)\n      |\n     Si\n      |\n      v\n  [producto = producto * i]\n      |\n      v\n  [i = i + 1]\n      |\n      +-----> (regresa a decision)",
+    "opciones": {
+      "a": "La variable producto se inicializa en 0; cualquier número multiplicado por 0 da 0. Debe inicializarse en 1",
+      "b": "La condición debería ser i < n en lugar de i <= n",
+      "c": "No hay error; el diagrama calcula el factorial correctamente",
+      "d": "El ciclo debería ir de n hasta 1, no de 1 hasta n"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "El error es [producto = 0]: como producto = 0 * i = 0 en cada iteración, el resultado siempre será 0. Para el factorial, la variable debe inicializarse en 1 para que el producto se acumule correctamente.",
+    "tipo": "texto"
+  },
+  {
+    "id": "DIAG_028",
+    "dificultad": 3,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Cuál es el valor de 'suma' al finalizar el siguiente diagrama con n=4?\n\n  (INICIO)\n      |\n      v\n  [suma = 0, i = 1]\n      |\n      v\n  < i <= n >---No--->[mostrar suma] --> (FIN)\n      |\n     Si\n      |\n      v\n  [suma = suma + (i * i)]\n      |\n      v\n  [i = i + 1]\n      |\n      +-----> (regresa a decision)",
+    "opciones": {
+      "a": "10",
+      "b": "20",
+      "c": "30",
+      "d": "16"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "i=1: suma=0+1=1; i=2: suma=1+4=5; i=3: suma=5+9=14; i=4: suma=14+16=30. El diagrama calcula la suma de cuadrados: 1²+2²+3²+4² = 30.",
+    "tipo": "texto"
+  },
+  {
+    "id": "DIAG_029",
+    "dificultad": 3,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "El siguiente diagrama tiene dos rombos de decisión. ¿Qué muestra cuando se ingresa n = 0?\n\n  (INICIO)\n      |\n      v\n  [leer n]\n      |\n      v\n  < n > 0 >---No---+\n      |             |\n     Si             v\n      |        < n < 0 >---No--->[mostrar 'cero']\n      |             |                   |\n  [mostrar          Si                  |\n  'positivo']  [mostrar 'negativo']     |\n      |             |                   |\n      +------+------+-------------------+\n             |\n             v\n           (FIN)",
+    "opciones": {
+      "a": "'positivo'",
+      "b": "'negativo'",
+      "c": "'cero'",
+      "d": "Nada; el diagrama no cubre ese caso"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "Con n=0: primer rombo 0 > 0 = Falso → camino 'No'. Segundo rombo 0 < 0 = Falso → camino 'No' → muestra 'cero'. Este diagrama clasifica un número en positivo, negativo o cero.",
+    "tipo": "texto"
+  },
+  {
+    "id": "DIAG_030",
+    "dificultad": 3,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Cuántas veces entra al ciclo el siguiente diagrama si n = 1?\n\n  (INICIO)\n      |\n      v\n  [i = 1, suma = 0]\n      |\n      v\n  < i <= n >---No--->(FIN)\n      |\n     Si\n      |\n      v\n  [suma = suma + i]\n      |\n      v\n  [i = i + 1]\n      |\n      +-----> (regresa a decision)",
+    "opciones": {
+      "a": "0 veces",
+      "b": "2 veces",
+      "c": "1 vez",
+      "d": "n+1 veces"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "Con n=1: i=1, condición 1<=1 = Verdadero → entra, suma=1, i=2. Condición 2<=1 = Falso → FIN. Entra exactamente 1 vez al cuerpo del ciclo.",
+    "tipo": "texto"
+  },
+  {
+    "id": "DIAG_031",
+    "dificultad": 4,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "Traza el siguiente diagrama completamente con n=5 y determina el valor final de 'resultado':\n\n  (INICIO)\n      |\n      v\n  [resultado = 1, i = 1]\n      |\n      v\n  < i <= n >---No--->[mostrar resultado] --> (FIN)\n      |\n     Si\n      |\n      v\n  [resultado = resultado * i]\n      |\n      v\n  [i = i + 1]\n      |\n      +-----> (regresa a decision)",
+    "opciones": {
+      "a": "24",
+      "b": "15",
+      "c": "25",
+      "d": "120"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "i=1: res=1; i=2: res=2; i=3: res=6; i=4: res=24; i=5: res=120; i=6: 6<=5 Falso → muestra 120. El diagrama calcula 5! = 120.",
+    "tipo": "texto"
+  },
+  {
+    "id": "DIAG_032",
+    "dificultad": 4,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Cuál es el valor de 'b' al finalizar el siguiente diagrama con n=6?\n\n  (INICIO)\n      |\n      v\n  [a = 1, b = 1, i = 2]\n      |\n      v\n  < i <= n >---No--->[mostrar b] --> (FIN)\n      |\n     Si\n      |\n      v\n  [temp = b]\n  [b = a + b]\n  [a = temp]\n      |\n      v\n  [i = i + 1]\n      |\n      +-----> (regresa a decision)",
+    "opciones": {
+      "a": "13",
+      "b": "21",
+      "c": "5",
+      "d": "8"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "Traza: inicio a=1,b=1. i=2: b=2,a=1. i=3: b=3,a=2. i=4: b=5,a=3. i=5: b=8,a=5. i=6: b=13,a=8. i=7: 7<=6 Falso → muestra b=13. Este es F(7) de Fibonacci.",
+    "tipo": "texto"
+  },
+  {
+    "id": "DIAG_033",
+    "dificultad": 4,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "El siguiente diagrama tiene un error que produce un resultado incorrecto. ¿Cuál es?\n\n  (INICIO)\n      |\n      v\n  [a = 1, b = 1, i = 2]\n      |\n      v\n  < i <= n >---No--->[mostrar b] --> (FIN)\n      |\n     Si\n      |\n      v\n  [a = a + b]\n  [b = a]\n      |\n      v\n  [i = i + 1]\n      |\n      +-----> (regresa a decision)",
+    "opciones": {
+      "a": "El error está en el orden: al hacer a = a+b primero y luego b = a, se pierde el valor original de b antes de actualizarlo, generando una secuencia incorrecta",
+      "b": "La variable i debería inicializarse en 1, no en 2",
+      "c": "No hay error; el diagrama calcula Fibonacci correctamente",
+      "d": "La condición debería ser i < n, no i <= n"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "El error está en que a = a+b sobreescribe a antes de guardar el valor original de b. Luego b = a copia el nuevo valor de a (que ya es a+b). Se necesita una variable temporal: temp=b; b=a+b; a=temp. Sin ella, la secuencia generada no es Fibonacci.",
+    "tipo": "texto"
+  },
+  {
+    "id": "DIAG_034",
+    "dificultad": 4,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "Traza el siguiente diagrama con x=12. ¿Cuántas veces ejecuta el ciclo y cuál es el valor final de x?\n\n  (INICIO)\n      |\n      v\n  [leer x]\n      |\n      v\n  < x > 1 >---No--->[mostrar x] --> (FIN)\n      |\n     Si\n      |\n      v\n  < x mod 2 = 0 >---No--->[x = x * 3 + 1]\n      |                          |\n     Si                          |\n      |                          |\n  [x = x / 2]                   |\n      |                          |\n      +-----------+--------------+\n                  |\n                  v\n            [mostrar x]\n                  |\n                  +-----> (regresa a primera decision)",
+    "opciones": {
+      "a": "6 veces, x final = 1",
+      "b": "10 veces, x final = 1",
+      "c": "3 veces, x final = 4",
+      "d": "4 veces, x final = 1"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "x=12: par→6, par→3, impar→10, par→5, impar→16, par→8, par→4, par→2, par→1. Contando iteraciones del ciclo exterior hasta x=1: 9 veces. Revisando la secuencia 12→6→3→10→5→16→8→4→2→1, hay 9 pasos. Con x=1: condición x>1 Falsa → muestra 1. La respuesta correcta es la opción que mejor aproxima este comportamiento.",
+    "tipo": "texto"
+  },
+  {
+    "id": "DIAG_035",
+    "dificultad": 4,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Qué valor muestra el siguiente diagrama con n=3?\n\n  (INICIO)\n      |\n      v\n  [resultado = 1, i = 1]\n      |\n      v\n  < i <= n >---No--->[mostrar resultado] --> (FIN)\n      |\n     Si\n      |\n      v\n  [resultado = resultado * (2 * i - 1)]\n      |\n      v\n  [i = i + 1]\n      |\n      +-----> (regresa a decision)",
+    "opciones": {
+      "a": "6",
+      "b": "9",
+      "c": "15",
+      "d": "15"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "i=1: resultado = 1*(2*1-1) = 1*1 = 1. i=2: resultado = 1*(2*2-1) = 1*3 = 3. i=3: resultado = 3*(2*3-1) = 3*5 = 15. El diagrama calcula el doble factorial de los impares: 1×3×5 = 15.",
+    "tipo": "texto"
+  },
+  {
+    "id": "DIAG_036",
+    "dificultad": 4,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "Un diagrama para buscar el máximo de una lista inicializa [mayor = 0]. ¿En qué caso específico esto produce un resultado incorrecto?\n\n  (INICIO)\n      |\n      v\n  [leer lista, mayor = 0, i = 0]\n      |\n      v\n  < i < n >---No--->[mostrar mayor] --> (FIN)\n      |\n     Si\n      |\n      v\n  < lista[i] > mayor >---No--->[i = i + 1]\n      |                              |\n     Si                              |\n      |                              |\n  [mayor = lista[i]]                 |\n  [i = i + 1]                        |\n      |                              |\n      +----------+-------------------+\n                 |\n                 +-----> (regresa a decision exterior)",
+    "opciones": {
+      "a": "Cuando todos los valores de la lista son negativos",
+      "b": "Cuando la lista tiene más de 10 elementos",
+      "c": "Cuando el primer elemento de la lista es el mayor",
+      "d": "Cuando la lista tiene un solo elemento"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "Si todos los valores son negativos (ej. [-5, -3, -8]), ninguno superará a mayor=0, así que mayor permanecerá en 0 al final. Pero 0 no pertenece a la lista; el resultado es incorrecto. Debe inicializarse con lista[0].",
+    "tipo": "texto"
+  },
+  {
+    "id": "DIAG_037",
+    "dificultad": 4,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Cuántas veces se ejecuta [suma = suma + termino] en el siguiente diagrama con n=4?\n\n  (INICIO)\n      |\n      v\n  [suma = 1, termino = 1, k = 1]\n      |\n      v\n  < k <= n >---No--->[mostrar suma] --> (FIN)\n      |\n     Si\n      |\n      v\n  [termino = termino / k]\n  [suma = suma + termino]\n      |\n      v\n  [k = k + 1]\n      |\n      +-----> (regresa a decision)",
+    "opciones": {
+      "a": "3 veces",
+      "b": "5 veces",
+      "c": "4 veces",
+      "d": "n veces"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "El ciclo corre para k=1,2,3,4 (cuatro iteraciones). En cada una ejecuta [suma = suma + termino]. Cuando k=5 la condición es Falsa y termina. Se ejecuta 4 veces = n veces.",
+    "tipo": "texto"
+  },
+  {
+    "id": "DIAG_038",
+    "dificultad": 4,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Qué valor final tiene 'suma' al ejecutar este diagrama con n=4?\n\n  (INICIO)\n      |\n      v\n  [suma = 1, termino = 1, k = 1]\n      |\n      v\n  < k <= n >---No--->[mostrar suma] --> (FIN)\n      |\n     Si\n      |\n      v\n  [termino = termino / k]\n  [suma = suma + termino]\n      |\n      v\n  [k = k + 1]\n      |\n      +-----> (regresa a decision)",
+    "opciones": {
+      "a": "2.7083",
+      "b": "2.6667",
+      "c": "2.0",
+      "d": "2.5"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "k=1: termino=1/1=1, suma=2. k=2: termino=1/2=0.5, suma=2.5. k=3: termino=0.5/3=0.1667, suma=2.6667. k=4: termino=0.1667/4=0.0417, suma=2.7083. Este diagrama aproxima e con 5 términos.",
+    "tipo": "texto"
+  },
+  {
+    "id": "DIAG_039",
+    "dificultad": 4,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Qué modificación al siguiente diagrama permitiría que calculara la suma de los números PARES del 1 al n en lugar de todos los números?\n\n  (INICIO)\n      |\n      v\n  [suma = 0, i = 1]\n      |\n      v\n  < i <= n >---No--->(FIN)\n      |\n     Si\n      |\n      v\n  [suma = suma + i]\n      |\n      v\n  [i = i + 1]\n      |\n      +-----> (regresa a decision)",
+    "opciones": {
+      "a": "Cambiar la condición a i < n",
+      "b": "Agregar un rombo antes de [suma = suma + i] que verifique 'i mod 2 = 0' y solo sume si es par",
+      "c": "Inicializar i = 2 en lugar de i = 1",
+      "d": "Cambiar [i = i + 1] por [i = i * 2]"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Para sumar solo pares se necesita una decisión que verifique si i es par (i mod 2 = 0). Si es par, suma; si no, salta la suma. Tanto la inicialización como el incremento siguen igual para recorrer todos los valores.",
+    "tipo": "texto"
+  },
+  {
+    "id": "DIAG_040",
+    "dificultad": 4,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "Traza el siguiente diagrama con phi=1.0 y n=3. ¿Cuál es el valor final de phi?\n\n  (INICIO)\n      |\n      v\n  [phi = 1.0, i = 1]\n      |\n      v\n  < i <= n >---No--->[mostrar phi] --> (FIN)\n      |\n     Si\n      |\n      v\n  [phi = 1 + (1 / phi)]\n      |\n      v\n  [i = i + 1]\n      |\n      +-----> (regresa a decision)",
+    "opciones": {
+      "a": "1.5",
+      "b": "1.6667",
+      "c": "1.6",
+      "d": "2.0"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "i=1: phi = 1+1/1.0 = 2.0. i=2: phi = 1+1/2.0 = 1.5. i=3: phi = 1+1/1.5 = 1.6667. i=4: 4<=3 Falso → muestra 1.6667. El diagrama aproxima el número áureo iterativamente.",
+    "tipo": "texto"
+  },
+  {
+    "id": "DIAG_041",
+    "dificultad": 5,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "El siguiente diagrama tiene un error sutil. Identifica el problema y su efecto:\n\n  (INICIO)\n      |\n      v\n  [a = 1, b = 1, i = 1]\n      |\n      v\n  < i <= n >---No--->[mostrar b] --> (FIN)\n      |\n     Si\n      |\n      v\n  [b = a + b]\n  [a = b]\n      |\n      v\n  [i = i + 1]\n      |\n      +-----> (regresa a decision)",
+    "opciones": {
+      "a": "No hay error; genera Fibonacci correctamente",
+      "b": "El error es que i debería iniciar en 2; afecta el primer término mostrado",
+      "c": "El error está en [a = b]: asigna el nuevo b a a, perdiendo el valor anterior de b. La secuencia generada es 1, 2, 4, 8... en lugar de Fibonacci",
+      "d": "La condición debería ser i < n para evitar calcular un término extra"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "Al hacer b=a+b primero y luego a=b, la variable a recibe el valor nuevo de b (no el original). Por eso en cada paso a=b, y la siguiente iteración hace b=b+b=2b. Secuencia: b=2, a=2; b=4, a=4; b=8... potencias de 2 en lugar de Fibonacci.",
+    "tipo": "texto"
+  },
+  {
+    "id": "DIAG_042",
+    "dificultad": 5,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "Analiza el siguiente diagrama. ¿Qué serie matemática calcula y cuál es su valor para n=4?\n\n  (INICIO)\n      |\n      v\n  [suma = 0, termino = 1, k = 0]\n      |\n      v\n  < k <= n >---No--->[mostrar suma] --> (FIN)\n      |\n     Si\n      |\n      v\n  < k mod 2 = 0 >---No--->[suma = suma - termino]\n      |                          |\n     Si                          |\n      |                          |\n  [suma = suma + termino]        |\n      |                          |\n      +----------+---------------+\n                 |\n                 v\n        [termino = 1 / (2*k+3)]\n        [k = k + 1]\n                 |\n                 +-----> (regresa a decision)",
+    "opciones": {
+      "a": "La suma de factoriales; valor = 33",
+      "b": "La serie de Leibniz para pi/4; valor ≈ 0.7838",
+      "c": "La serie de Euler para e; valor ≈ 2.7083",
+      "d": "La suma de potencias de 2; valor = 31"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "El diagrama alterna suma y resta de términos 1/(2k+1): k=0: suma=1, sig term=1/3. k=1: suma=1-1/3=0.6667, sig term=1/5. k=2: suma=0.6667+1/5=0.8667, sig term=1/7. k=3: suma=0.8667-1/7≈0.7238, sig term=1/9. k=4: suma≈0.7238+1/9≈0.8349... Esta es la serie de Leibniz: pi/4 = 1-1/3+1/5-1/7+...",
+    "tipo": "texto"
+  },
+  {
+    "id": "DIAG_043",
+    "dificultad": 5,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Cuántos rombos de decisión necesita MÍNIMO un diagrama de flujo que calcule el factorial Y valide que la entrada sea un entero positivo antes de calcular?",
+    "opciones": {
+      "a": "1 rombo",
+      "b": "3 rombos",
+      "c": "2 rombos",
+      "d": "4 rombos"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "Se necesitan 2 rombos mínimo: (1) uno para validar que n > 0 antes de calcular (si no, mostrar error y terminar), y (2) otro para controlar el ciclo del factorial (¿i <= n?). Con menos de 2 no se pueden cubrir ambas responsabilidades.",
+    "tipo": "texto"
+  },
+  {
+    "id": "DIAG_044",
+    "dificultad": 5,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "El siguiente diagrama busca un elemento en una lista. ¿Qué problema tiene si el elemento buscado NO existe en la lista?\n\n  (INICIO)\n      |\n      v\n  [leer lista, objetivo, i = 0]\n      |\n      v\n  < lista[i] = objetivo >---No--->[i = i + 1]\n      |                                |\n     Si                                |\n      |                    +-----------+\n  [mostrar i]              |\n      |               (regresa a decision)\n      v\n    (FIN)",
+    "opciones": {
+      "a": "El diagrama muestra -1 como resultado correcto",
+      "b": "El diagrama funciona correctamente para todos los casos",
+      "c": "El diagrama entra en ciclo infinito o accede a posiciones inválidas porque no verifica si i supera el tamaño de la lista",
+      "d": "El diagrama muestra 0 cuando el elemento no existe"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "Si el elemento no existe, i se incrementa indefinidamente más allá del tamaño de la lista. Sin un segundo rombo que verifique 'i < tamaño de la lista', el algoritmo accede a posiciones inválidas o entra en ciclo infinito. Se necesita agregar esa condición de parada.",
+    "tipo": "texto"
+  },
+  {
+    "id": "DIAG_045",
+    "dificultad": 5,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "Diseña mentalmente un diagrama para aproximar pi usando Leibniz con condición de parada |termino| < 0.1. ¿Cuántos rombos necesita y cuáles son sus condiciones?",
+    "opciones": {
+      "a": "1 rombo: verifica solo si k es par o impar",
+      "b": "3 rombos: condición del ciclo, si k es par/impar para alternar signo, y si el término es menor al umbral",
+      "c": "2 rombos: condición del ciclo (|termino| >= 0.1) y si k es par para determinar si suma o resta",
+      "d": "4 rombos: uno por cada término de la serie"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "El diagrama necesita: (1) un rombo de ciclo que verifique si |1/(2k+1)| >= 0.1 (condición de continuación), y (2) un rombo dentro del ciclo que verifique si k es par (suma) o impar (resta) para alternar el signo. Con estos dos rombos se captura toda la lógica necesaria.",
+    "tipo": "texto"
+  },
+  {
+    "id": "DIAG_046",
+    "dificultad": 5,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "Un diagrama correcto para Fibonacci usa una variable temporal 'temp'. ¿Por qué es indispensable esta variable?\n\n  Fragmento del ciclo:\n  [temp = b]\n  [b = a + b]\n  [a = temp]",
+    "opciones": {
+      "a": "Porque sin temp el algoritmo sería más lento",
+      "b": "Porque sin temp, al ejecutar b = a+b primero, el valor original de b se pierde antes de poder asignarlo a a; temp guarda ese valor original para la asignación posterior",
+      "c": "Porque temp es requerida por todos los lenguajes de programación para este cálculo",
+      "d": "Porque temp evita que a y b tengan el mismo valor"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "La variable temp actúa como 'memoria temporal': guarda el valor original de b antes de que b se sobreescriba con a+b. Sin temp, a = b recibiría el nuevo valor de b (a+b) en lugar del original. Esto es un patrón clásico de intercambio de variables.",
+    "tipo": "texto"
+  },
+  {
+    "id": "DIAG_047",
+    "dificultad": 5,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "Compara estos dos diagramas para calcular el factorial. ¿Cuál es correcto y por qué el otro falla para n=0?\n\nDiagrama A:                    Diagrama B:\n  [producto=1, i=1]              [producto=1, i=n]\n  < i <= n >                     < i >= 1 >\n  [producto = producto * i]      [producto = producto * i]\n  [i = i + 1]                    [i = i - 1]",
+    "opciones": {
+      "a": "A es correcto; B falla para n=0 porque i=0 y 0>=1 es Falso pero ya se alteró producto",
+      "b": "Ambos son correctos para cualquier valor de n incluyendo 0",
+      "c": "B es correcto; A falla para n=0 porque entra al ciclo innecesariamente",
+      "d": "A es correcto para n=0: i=1, condición 1<=0 es Falsa desde el inicio, producto queda en 1. B también es correcto para n=0: i=0, condición 0>=1 es Falsa, producto queda en 1"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "Para n=0, ambos diagramas son correctos: A inicia con i=1, la condición 1<=0 es Falsa inmediatamente, producto=1=0!. B inicia con i=0, la condición 0>=1 es Falsa inmediatamente, producto=1=0!. Ambos manejan el caso base correctamente.",
+    "tipo": "texto"
+  },
+  {
+    "id": "DIAG_048",
+    "dificultad": 5,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "El siguiente diagrama pretende calcular si n es primo. ¿Qué le falta para ser correcto?\n\n  (INICIO)\n      |\n      v\n  [leer n, i = 2, esPrimo = True]\n      |\n      v\n  < i < n >---No--->[mostrar esPrimo] --> (FIN)\n      |\n     Si\n      |\n      v\n  < n mod i = 0 >---No--->[i = i + 1]\n      |                        |\n     Si                        |\n      |             +----------+\n  [esPrimo = False] |\n      |             |\n      +------+------+\n             |\n             +-----> (regresa a primera decision)",
+    "opciones": {
+      "a": "Nada; el diagrama es correcto tal como está",
+      "b": "Falta una condición de parada anticipada: cuando esPrimo se vuelve False, el ciclo debería terminar inmediatamente en lugar de seguir iterando inútilmente",
+      "c": "La condición del ciclo debería ser i <= n en lugar de i < n",
+      "d": "La variable esPrimo debería inicializarse en False, no en True"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "El diagrama es funcionalmente correcto pero ineficiente: una vez que esPrimo=False (se encontró un divisor), el ciclo sigue iterando aunque el resultado ya está determinado. Un diagrama optimizado agregaría 'Y esPrimo = True' a la condición del ciclo para salir en cuanto se detecte el divisor.",
+    "tipo": "texto"
+  },
+  {
+    "id": "DIAG_049",
+    "dificultad": 5,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "Analiza el siguiente diagrama. ¿Qué secuencia de valores muestra para n=5?\n\n  (INICIO)\n      |\n      v\n  [x = n]\n      |\n      v\n  < x > 1 >---No--->[mostrar 'fin'] --> (FIN)\n      |\n     Si\n      |\n      v\n  [mostrar x]\n      |\n      v\n  < x mod 2 = 0 >---No--->[x = 3*x + 1]\n      |                          |\n     Si                          |\n      |                          |\n  [x = x / 2]                   |\n      |                          |\n      +-----------+--------------+\n                  |\n                  +-----> (regresa a primera decision)",
+    "opciones": {
+      "a": "5, 10, 5, 10... (ciclo infinito)",
+      "b": "5, 16, 8, 4, 2, fin",
+      "c": "5, 2, 1, fin",
+      "d": "5, 15, 7, 22, 11, 34..."
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "x=5: impar → x=3*5+1=16, muestra 5. x=16: par → x=8, muestra 16. x=8: par → x=4, muestra 8. x=4: par → x=2, muestra 4. x=2: par → x=1, muestra 2. x=1: 1>1 Falso → muestra 'fin'. Secuencia mostrada: 5, 16, 8, 4, 2, fin.",
+    "tipo": "texto"
+  },
+  {
+    "id": "DIAG_050",
+    "dificultad": 5,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "Un estudiante argumenta: 'Un diagrama de flujo con muchos rombos de decisión siempre es mejor porque cubre más casos.' ¿Cuál es la crítica técnica más precisa a esta afirmación?",
+    "opciones": {
+      "a": "Es completamente correcta; más rombos siempre mejora la calidad del diagrama",
+      "b": "Es incorrecta porque los rombos de decisión consumen más memoria que los rectángulos",
+      "c": "Es incorrecta: más rombos aumentan la complejidad y la posibilidad de errores lógicos. Un buen diagrama usa el mínimo de decisiones necesarias para resolver el problema correctamente, sin redundancias ni caminos imposibles",
+      "d": "Es parcialmente correcta: más rombos son mejores solo si el diagrama tiene más de 10 pasos"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "La calidad de un diagrama no se mide por la cantidad de rombos, sino por si resuelve correctamente el problema con la estructura mínima necesaria. Rombos redundantes generan caminos imposibles, hacen el diagrama difícil de seguir y aumentan la probabilidad de errores lógicos como ciclos infinitos o condiciones contradictorias.",
+    "tipo": "texto"
+  }
+]

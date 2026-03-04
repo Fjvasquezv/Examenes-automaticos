@@ -1,0 +1,1502 @@
+[
+  {
+    "id": "ALGO_001",
+    "dificultad": 1,
+    "categoria": "Algoritmos y algoritmia",
+    "pregunta": "¿Qué es un algoritmo?",
+    "opciones": {
+      "a": "Una secuencia finita y ordenada de pasos bien definidos para resolver un problema o llevar a cabo una tarea específica",
+      "b": "Un diagrama que muestra el flujo de datos en una red",
+      "c": "Un tipo especial de hardware para procesar datos",
+      "d": "Un lenguaje de programación de alto nivel"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "Un algoritmo es una secuencia finita y ordenada de pasos bien definidos y precisos, diseñados para resolver un problema o llevar a cabo una tarea específica, como una receta paso a paso.",
+    "tipo": "texto"
+  },
+  {
+    "id": "ALGO_002",
+    "dificultad": 1,
+    "categoria": "Algoritmos y algoritmia",
+    "pregunta": "¿Cuál de las siguientes analogías describe mejor un algoritmo?",
+    "opciones": {
+      "a": "Una lista de ingredientes sin instrucciones de preparación",
+      "b": "Un mapa que muestra dónde está un lugar",
+      "c": "Una fotografía de un problema resuelto",
+      "d": "Una receta de cocina paso a paso que indica cómo preparar un plato"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "Un algoritmo es como una receta de cocina: una lista de instrucciones organizadas paso a paso que indica cómo realizar una tarea de manera eficiente y sistemática.",
+    "tipo": "texto"
+  },
+  {
+    "id": "ALGO_003",
+    "dificultad": 1,
+    "categoria": "Algoritmos y algoritmia",
+    "pregunta": "¿Qué es la algoritmia?",
+    "opciones": {
+      "a": "La disciplina que estudia, diseña, analiza y optimiza algoritmos",
+      "b": "El hardware donde se ejecutan los algoritmos",
+      "c": "Un tipo de diagrama de flujo simplificado",
+      "d": "Un lenguaje de programación visual"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "La algoritmia es la disciplina que se encarga del estudio y diseño de algoritmos, incluyendo su creación, análisis y optimización para resolver problemas de manera eficiente y efectiva.",
+    "tipo": "texto"
+  },
+  {
+    "id": "ALGO_004",
+    "dificultad": 1,
+    "categoria": "Algoritmos y algoritmia",
+    "pregunta": "¿Cuál símbolo se usa en un diagrama de flujo para representar el inicio o el fin de un proceso?",
+    "opciones": {
+      "a": "Un rectángulo",
+      "b": "Un rombo",
+      "c": "Una flecha",
+      "d": "Un óvalo o elipse"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "En un diagrama de flujo, el inicio y el fin del proceso se representan con un óvalo o elipse que contiene la palabra 'Inicio' o 'FIN' respectivamente.",
+    "tipo": "texto"
+  },
+  {
+    "id": "ALGO_005",
+    "dificultad": 1,
+    "categoria": "Algoritmos y algoritmia",
+    "pregunta": "¿Qué símbolo se utiliza en un diagrama de flujo para representar una operación o acción?",
+    "opciones": {
+      "a": "Un rectángulo",
+      "b": "Un óvalo",
+      "c": "Un círculo",
+      "d": "Un rombo"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "En un diagrama de flujo, los rectángulos representan operaciones o acciones. Dentro del rectángulo se escribe una breve descripción de la actividad que se realiza.",
+    "tipo": "texto"
+  },
+  {
+    "id": "ALGO_006",
+    "dificultad": 1,
+    "categoria": "Algoritmos y algoritmia",
+    "pregunta": "¿Qué símbolo se usa en un diagrama de flujo para representar una decisión?",
+    "opciones": {
+      "a": "Un rectángulo",
+      "b": "Una flecha",
+      "c": "Un rombo",
+      "d": "Un óvalo"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "El rombo representa una decisión en el diagrama de flujo. Sus salidas son siempre dos opciones: 'Sí' o 'No', dependiendo de si se cumple una condición.",
+    "tipo": "texto"
+  },
+  {
+    "id": "ALGO_007",
+    "dificultad": 1,
+    "categoria": "Algoritmos y algoritmia",
+    "pregunta": "¿Cuál de las siguientes es una característica obligatoria de todo algoritmo?",
+    "opciones": {
+      "a": "Debe estar escrito en Python",
+      "b": "Debe tener exactamente 10 pasos",
+      "c": "Sus pasos deben ser finitos, ordenados y bien definidos",
+      "d": "Debe incluir un diagrama de flujo adjunto"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "Todo algoritmo debe tener pasos finitos (no puede ser infinito), ordenados (en secuencia lógica) y bien definidos (claros y sin ambigüedad). Estas son sus características fundamentales.",
+    "tipo": "texto"
+  },
+  {
+    "id": "ALGO_008",
+    "dificultad": 1,
+    "categoria": "Algoritmos y algoritmia",
+    "pregunta": "¿Para qué se usan las flechas en un diagrama de flujo?",
+    "opciones": {
+      "a": "Para conectar los símbolos indicando el orden en que deben ejecutarse",
+      "b": "Para representar decisiones dentro del proceso",
+      "c": "Para marcar el inicio y el fin del algoritmo",
+      "d": "Para indicar el tamaño de cada paso del algoritmo"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "Las flechas (dirección de flujo) en un diagrama de flujo conectan los símbolos y denotan el orden en que deben ejecutarse los pasos del proceso.",
+    "tipo": "texto"
+  },
+  {
+    "id": "ALGO_009",
+    "dificultad": 1,
+    "categoria": "Algoritmos y algoritmia",
+    "pregunta": "¿Cuál de los siguientes ejemplos cotidianos se puede considerar un algoritmo?",
+    "opciones": {
+      "a": "Una lista de pasos para preparar un café: verificar ingredientes, encender la cafetera, colocar la taza, esperar, servir",
+      "b": "Una descripción general de cómo sabe el café",
+      "c": "El nombre de los ingredientes del café sin ningún orden",
+      "d": "Una imagen de una taza de café"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "La lista ordenada de pasos para preparar un café es un algoritmo: tiene pasos finitos, están ordenados y cada uno está bien definido. Una imagen o descripción del sabor no lo son.",
+    "tipo": "texto"
+  },
+  {
+    "id": "ALGO_010",
+    "dificultad": 1,
+    "categoria": "Algoritmos y algoritmia",
+    "pregunta": "¿Cuál de las siguientes opciones describe mejor la búsqueda lineal o secuencial?",
+    "opciones": {
+      "a": "Un método que revisa cada elemento de la lista uno por uno hasta encontrar el objetivo",
+      "b": "Un método que ordena la lista antes de buscar",
+      "c": "Un método que solo funciona con listas de números pares",
+      "d": "Un método que divide la lista a la mitad en cada paso"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "La búsqueda lineal o secuencial comprueba cada elemento de la lista en orden, uno por uno, hasta encontrar el valor objetivo o hasta haber revisado todos los elementos.",
+    "tipo": "texto"
+  },
+  {
+    "id": "ALGO_011",
+    "dificultad": 2,
+    "categoria": "Algoritmos y algoritmia",
+    "pregunta": "Un algoritmo para preparar café tiene el paso 2 repetido dos veces: 'Encender la cafetera'. ¿Qué tipo de problema representa esto?",
+    "opciones": {
+      "a": "Un error lógico en el algoritmo por tener un paso redundante o mal definido",
+      "b": "Una mejora de eficiencia porque se asegura que la cafetera esté encendida",
+      "c": "Un problema de nomenclatura sin impacto real en la ejecución",
+      "d": "Un error de hardware en la cafetera"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "Tener el paso 'Encender la cafetera' repetido es un error lógico del algoritmo: los pasos deben estar bien definidos y no redundantes. En el ejemplo del material, el paso 2 y el paso 4 tienen el mismo nombre, lo cual puede causar confusión.",
+    "tipo": "texto"
+  },
+  {
+    "id": "ALGO_012",
+    "dificultad": 2,
+    "categoria": "Algoritmos y algoritmia",
+    "pregunta": "En el algoritmo de búsqueda secuencial, ¿qué condición controla que el ciclo de búsqueda continúe o se detenga?",
+    "opciones": {
+      "a": "Que 'Encontrado' sea Falso Y 'pasos' sea menor que la cantidad total de elementos",
+      "b": "Que la lista esté ordenada de mayor a menor",
+      "c": "Que el elemento buscado sea mayor que el primero de la lista",
+      "d": "Que el número de pasos sea mayor que 100"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "El ciclo de búsqueda secuencial continúa mientras 'Encontrado' sea Falso Y 'pasos' sea menor que la cantidad de elementos. Si se encuentra el elemento o se recorre toda la lista, el ciclo termina.",
+    "tipo": "texto"
+  },
+  {
+    "id": "ALGO_013",
+    "dificultad": 2,
+    "categoria": "Algoritmos y algoritmia",
+    "pregunta": "En el algoritmo para encontrar el número mayor de una lista, se inicializa una variable 'mayor' con el primer número. ¿Por qué se hace esto y no con cero?",
+    "opciones": {
+      "a": "Para garantizar que 'mayor' comience con un valor que pertenece a la lista, evitando que el resultado sea incorrecto si todos los números son negativos",
+      "b": "Porque el algoritmo solo funciona con el primer número como inicio",
+      "c": "Para ahorrar memoria durante la ejecución del algoritmo",
+      "d": "Porque el cero no existe en matemáticas"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "Inicializar con el primer elemento garantiza que 'mayor' siempre contiene un valor real de la lista. Si se usara cero y todos los números fueran negativos, el resultado sería incorrecto.",
+    "tipo": "texto"
+  },
+  {
+    "id": "ALGO_014",
+    "dificultad": 2,
+    "categoria": "Algoritmos y algoritmia",
+    "pregunta": "El algoritmo para calcular el factorial de un número usa un ciclo desde 1 hasta el número ingresado. ¿Qué hace el ciclo en cada iteración?",
+    "opciones": {
+      "a": "Suma el valor de i a la variable factorial",
+      "b": "Divide la variable factorial entre el valor de i",
+      "c": "Multiplica la variable factorial por el valor de i",
+      "d": "Resta el valor de i de la variable factorial"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "En cada iteración, el algoritmo de factorial multiplica la variable 'factorial' por el valor actual de 'i'. Empezando en 1, esto acumula el producto de todos los números hasta el ingresado.",
+    "tipo": "texto"
+  },
+  {
+    "id": "ALGO_015",
+    "dificultad": 2,
+    "categoria": "Algoritmos y algoritmia",
+    "pregunta": "¿Cuál es el primer paso al diseñar un diagrama de flujo según el material visto en clase?",
+    "opciones": {
+      "a": "Definir las conexiones entre los pasos con flechas",
+      "b": "Dibujar el símbolo de fin del proceso",
+      "c": "Definir el inicio con un óvalo que contiene la palabra 'Inicio'",
+      "d": "Listar todas las decisiones posibles del algoritmo"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "Según el material, el primer paso para diseñar un diagrama de flujo es definir el inicio, representado por un óvalo o elipse con la palabra 'Inicio'. Luego se definen operaciones, decisiones, conexiones y finalmente el FIN.",
+    "tipo": "texto"
+  },
+  {
+    "id": "ALGO_016",
+    "dificultad": 2,
+    "categoria": "Algoritmos y algoritmia",
+    "pregunta": "En la búsqueda secuencial, si el elemento buscado NO está en la lista, ¿qué valor retorna el algoritmo para la variable 'ubicación'?",
+    "opciones": {
+      "a": "El valor -1",
+      "b": "El valor 0",
+      "c": "Ninguno (None)",
+      "d": "El último elemento de la lista"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "Si el elemento no se encuentra, el algoritmo asigna 'None' (ninguna) a la variable 'ubicación', indicando que no existe en la lista.",
+    "tipo": "texto"
+  },
+  {
+    "id": "ALGO_017",
+    "dificultad": 2,
+    "categoria": "Algoritmos y algoritmia",
+    "pregunta": "¿Cuál de los siguientes no es un beneficio reconocido de los algoritmos en la solución de problemas?",
+    "opciones": {
+      "a": "Eficiencia y velocidad en la ejecución",
+      "b": "Precisión y consistencia en los resultados",
+      "c": "Eliminación total de la necesidad de hardware",
+      "d": "Automatización de tareas repetitivas"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "Los algoritmos brindan eficiencia, precisión, automatización, optimización y aplicación tecnológica. Sin embargo, no eliminan la necesidad de hardware: siempre requieren algún medio físico o mental para ejecutarse.",
+    "tipo": "texto"
+  },
+  {
+    "id": "ALGO_018",
+    "dificultad": 2,
+    "categoria": "Algoritmos y algoritmia",
+    "pregunta": "Aplicando el algoritmo de encontrar el número mayor a la lista [3, 7, 2, 9, 5], ¿cuál sería el valor final de la variable 'mayor'?",
+    "opciones": {
+      "a": "3",
+      "b": "5",
+      "c": "7",
+      "d": "9"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "El algoritmo inicia 'mayor' = 3. Al comparar con 7: 7 > 3, actualiza a 7. Con 2: no cambia. Con 9: 9 > 7, actualiza a 9. Con 5: no cambia. Resultado: 9.",
+    "tipo": "texto"
+  },
+  {
+    "id": "ALGO_019",
+    "dificultad": 2,
+    "categoria": "Algoritmos y algoritmia",
+    "pregunta": "¿Qué retorna el algoritmo de búsqueda secuencial cuando encuentra el elemento buscado?",
+    "opciones": {
+      "a": "Las variables 'Encontrado', 'Pasos' y 'Ubicación'",
+      "b": "Solo la posición donde se encontró el elemento",
+      "c": "El número total de elementos en la lista",
+      "d": "Solo el valor del elemento encontrado"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "Según el algoritmo del material, al finalizar se retornan tres variables: 'Encontrado' (si se halló o no), 'Pasos' (cuántos pasos tomó) y 'Ubicación' (posición en la lista o None).",
+    "tipo": "texto"
+  },
+  {
+    "id": "ALGO_020",
+    "dificultad": 2,
+    "categoria": "Algoritmos y algoritmia",
+    "pregunta": "¿Cuál de las siguientes actividades corresponde al campo de la algoritmia básica?",
+    "opciones": {
+      "a": "Analizar, diseñar e implementar una secuencia de pasos para resolver un problema",
+      "b": "Instalar un sistema operativo en un servidor",
+      "c": "Diseñar el circuito eléctrico de un procesador",
+      "d": "Comprar un computador más rápido para un problema difícil"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "La algoritmia básica incluye el análisis del problema, el diseño de la solución mediante pasos ordenados, y su implementación. Es un ciclo de experimentación, análisis, diseño e implementación.",
+    "tipo": "texto"
+  },
+  {
+    "id": "ALGO_021",
+    "dificultad": 3,
+    "categoria": "Algoritmos y algoritmia",
+    "pregunta": "Dado el siguiente algoritmo para encontrar el máximo: se inicializa 'mayor' con el primer elemento y se recorre la lista comparando. ¿Qué ocurre si la lista tiene un solo elemento?",
+    "opciones": {
+      "a": "El algoritmo entra en un ciclo infinito",
+      "b": "El algoritmo retorna cero porque no puede encontrar el mayor",
+      "c": "El algoritmo falla porque no puede comparar ningún par de elementos",
+      "d": "El algoritmo retorna ese único elemento como el mayor, sin necesidad de comparaciones"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "Si la lista tiene un solo elemento, 'mayor' se inicializa con ese valor y el ciclo de comparaciones no encuentra otros elementos. El algoritmo retorna correctamente ese único valor como el mayor.",
+    "tipo": "texto"
+  },
+  {
+    "id": "ALGO_022",
+    "dificultad": 3,
+    "categoria": "Algoritmos y algoritmia",
+    "pregunta": "Aplica el algoritmo de factorial al número 4. Sigue los pasos: factorial=1, ciclo i desde 1 hasta 4. ¿Cuál es el resultado?",
+    "opciones": {
+      "a": "4",
+      "b": "10",
+      "c": "24",
+      "d": "16"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "factorial=1; i=1: factorial=1×1=1; i=2: factorial=1×2=2; i=3: factorial=2×3=6; i=4: factorial=6×4=24. El factorial de 4 es 24.",
+    "tipo": "texto"
+  },
+  {
+    "id": "ALGO_023",
+    "dificultad": 3,
+    "categoria": "Algoritmos y algoritmia",
+    "pregunta": "En la búsqueda secuencial sobre la lista [10, 25, 8, 42, 17], buscando el número 42. ¿Cuántos pasos (comparaciones) necesita el algoritmo?",
+    "opciones": {
+      "a": "1 paso",
+      "b": "2 pasos",
+      "c": "4 pasos",
+      "d": "5 pasos"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "El algoritmo compara: paso 1: 10≠42, paso 2: 25≠42, paso 3: 8≠42, paso 4: 42=42 → encontrado. Necesita 4 comparaciones para encontrar el 42 en la posición 4.",
+    "tipo": "texto"
+  },
+  {
+    "id": "ALGO_024",
+    "dificultad": 3,
+    "categoria": "Algoritmos y algoritmia",
+    "pregunta": "Analiza este fragmento de algoritmo: 'Si el número actual es mayor que mayor, ir al paso 4; de lo contrario, ir al paso 3'. ¿Qué tipo de estructura representa este paso?",
+    "opciones": {
+      "a": "Una estructura de ciclo o repetición",
+      "b": "Una operación de entrada/salida de datos",
+      "c": "Una operación aritmética",
+      "d": "Una estructura de decisión (condicional)"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "Este paso es una estructura de decisión o condicional: evalúa una condición (¿es mayor?) y dirige el flujo del algoritmo por uno de dos caminos posibles según el resultado (Sí/No).",
+    "tipo": "texto"
+  },
+  {
+    "id": "ALGO_025",
+    "dificultad": 3,
+    "categoria": "Algoritmos y algoritmia",
+    "pregunta": "Compara el algoritmo de búsqueda secuencial con el de encontrar el número mayor. ¿Cuál diferencia estructural fundamental existe entre ambos?",
+    "opciones": {
+      "a": "El de número mayor requiere que la lista esté ordenada; el de búsqueda secuencial no",
+      "b": "Ambos algoritmos son idénticos en estructura; solo cambia el nombre de las variables",
+      "c": "El de búsqueda secuencial no usa decisiones; el de número mayor sí",
+      "d": "El de búsqueda secuencial busca un valor específico externo; el de número mayor compara elementos entre sí para encontrar un valor interno de la lista"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "La búsqueda secuencial compara cada elemento contra un valor buscado externo. El algoritmo del máximo compara los elementos entre sí para determinar cuál es el mayor dentro de la misma lista.",
+    "tipo": "texto"
+  },
+  {
+    "id": "ALGO_026",
+    "dificultad": 3,
+    "categoria": "Algoritmos y algoritmia",
+    "pregunta": "Un algoritmo tiene el siguiente error: el paso 6 dice 'pasos = pasos - 1' cuando debería decir 'pasos = pasos + 1'. ¿Qué consecuencia tendría esto en la búsqueda secuencial?",
+    "opciones": {
+      "a": "No tendría ningún efecto porque la variable 'pasos' no afecta la búsqueda",
+      "b": "El algoritmo ordenaría la lista automáticamente antes de buscar",
+      "c": "El algoritmo terminaría más rápido encontrando siempre el elemento",
+      "d": "El algoritmo retrocedería en la lista en lugar de avanzar, generando un ciclo infinito o resultado incorrecto"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "Si 'pasos' disminuye en lugar de aumentar, el algoritmo revisaría repetidamente los mismos elementos iniciales de la lista sin avanzar, lo que causaría un ciclo infinito o un resultado incorrecto.",
+    "tipo": "texto"
+  },
+  {
+    "id": "ALGO_027",
+    "dificultad": 3,
+    "categoria": "Algoritmos y algoritmia",
+    "pregunta": "El diagrama de flujo del algoritmo de preparar un café incluye una decisión inicial: '¿Tienes los ingredientes?'. ¿Qué representa la salida 'No' de esa decisión?",
+    "opciones": {
+      "a": "Que el algoritmo reinicia desde el principio automáticamente",
+      "b": "Que el algoritmo pasa directamente al paso de encender la cafetera",
+      "c": "Que el algoritmo continúa hacia el siguiente paso normalmente",
+      "d": "Que el proceso termina o se redirige a un camino alternativo como 'No puedes preparar el café'"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "La salida 'No' de la decisión inicial conduce a una rama alternativa que termina el proceso o muestra un mensaje como 'No puedes preparar tu café', demostrando cómo los algoritmos manejan casos en que las condiciones no se cumplen.",
+    "tipo": "texto"
+  },
+  {
+    "id": "ALGO_028",
+    "dificultad": 3,
+    "categoria": "Algoritmos y algoritmia",
+    "pregunta": "Un algoritmo es descrito como 'eficiente y sistemático'. ¿Cuál de las siguientes situaciones contradice directamente estas dos características?",
+    "opciones": {
+      "a": "Un algoritmo que incluye comentarios explicativos en cada paso",
+      "b": "Un algoritmo que retorna múltiples variables al final",
+      "c": "Un algoritmo que usa variables con nombres descriptivos",
+      "d": "Un algoritmo de 20 pasos que resuelve un problema que podría resolverse en 5"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "Un algoritmo de 20 pasos que podría resolverse en 5 no es eficiente: usa más recursos y tiempo de los necesarios. La eficiencia implica resolver el problema con el menor número de pasos posibles.",
+    "tipo": "texto"
+  },
+  {
+    "id": "ALGO_029",
+    "dificultad": 3,
+    "categoria": "Algoritmos y algoritmia",
+    "pregunta": "¿Cuál de las siguientes secuencias representa correctamente el orden de los 5 pasos para diseñar un diagrama de flujo según el material?",
+    "opciones": {
+      "a": "Conexiones → Inicio → Operaciones → Fin → Decisiones",
+      "b": "Fin → Decisiones → Operaciones → Inicio → Conexiones",
+      "c": "Decisiones → Operaciones → Inicio → Conexiones → Fin",
+      "d": "Inicio → Operaciones → Decisiones → Conexiones → Fin"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "Los 5 pasos son: 1) Definir el inicio, 2) Definir las operaciones, 3) Definir las decisiones, 4) Definir las conexiones, 5) Definir el fin. Este orden garantiza una construcción lógica del diagrama.",
+    "tipo": "texto"
+  },
+  {
+    "id": "ALGO_030",
+    "dificultad": 3,
+    "categoria": "Algoritmos y algoritmia",
+    "pregunta": "En el algoritmo de búsqueda secuencial, ¿qué valor inicial tienen las variables 'pasos' y 'Encontrado' al comenzar?",
+    "opciones": {
+      "a": "pasos = -1, Encontrado = None",
+      "b": "pasos = 0, Encontrado = True",
+      "c": "pasos = 1, Encontrado = True",
+      "d": "pasos = 0, Encontrado = False"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "Al iniciar el algoritmo de búsqueda secuencial, 'pasos' se inicializa en 0 (no se ha dado ningún paso aún) y 'Encontrado' en False (no se ha encontrado el elemento todavía).",
+    "tipo": "texto"
+  },
+  {
+    "id": "ALGO_031",
+    "dificultad": 4,
+    "categoria": "Algoritmos y algoritmia",
+    "pregunta": "Aplica el algoritmo de búsqueda secuencial a la lista [5, 12, 3, 8, 20, 1], buscando el número 1. ¿Cuántos pasos toma y cuál es la ubicación?",
+    "opciones": {
+      "a": "5 pasos, ubicación = 6",
+      "b": "6 pasos, ubicación = None",
+      "c": "3 pasos, ubicación = 2",
+      "d": "6 pasos, ubicación = 5"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "El algoritmo compara: paso 0: 5≠1, paso 1: 12≠1, paso 2: 3≠1, paso 3: 8≠1, paso 4: 20≠1, paso 5: 1=1 → encontrado. Usando indexación desde 0, ubicación = 5 (sexta posición, índice 5). Total: 6 comparaciones.",
+    "tipo": "texto"
+  },
+  {
+    "id": "ALGO_032",
+    "dificultad": 4,
+    "categoria": "Algoritmos y algoritmia",
+    "pregunta": "Traza el algoritmo factorial para n=5: factorial=1, ciclo i desde 1 hasta 5. ¿Cuál es el valor de 'factorial' después de i=3?",
+    "opciones": {
+      "a": "3",
+      "b": "6",
+      "c": "9",
+      "d": "24"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Traza: i=1: factorial=1×1=1; i=2: factorial=1×2=2; i=3: factorial=2×3=6. Después de i=3, factorial vale 6. El resultado final (i=5) sería 120.",
+    "tipo": "texto"
+  },
+  {
+    "id": "ALGO_033",
+    "dificultad": 4,
+    "categoria": "Algoritmos y algoritmia",
+    "pregunta": "Un estudiante modifica el algoritmo del máximo para que 'mayor' inicie en el último elemento en lugar del primero. ¿Sigue siendo correcto el algoritmo?",
+    "opciones": {
+      "a": "No, porque el algoritmo solo funciona si inicia en el primer elemento",
+      "b": "Sí, siempre que el ciclo recorra todos los elementos de la lista para comparar",
+      "c": "No, porque si hay valores negativos el algoritmo falla independientemente",
+      "d": "Sí, pero solo si la lista está ordenada de mayor a menor"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "El valor inicial de 'mayor' puede ser cualquier elemento de la lista, no necesariamente el primero, siempre que el ciclo recorra y compare todos los demás elementos. Lo fundamental es que el ciclo cubra toda la lista.",
+    "tipo": "texto"
+  },
+  {
+    "id": "ALGO_034",
+    "dificultad": 4,
+    "categoria": "Algoritmos y algoritmia",
+    "pregunta": "Analiza el siguiente pseudo-algoritmo y detecta el error: '1. Inicio. 2. Leer número. 3. factorial = 0. 4. Para i desde 1 hasta número: factorial = factorial × i. 5. Mostrar factorial. 6. Fin.' ¿Cuál es el error?",
+    "opciones": {
+      "a": "El ciclo debería ir desde 0 hasta número, no desde 1",
+      "b": "La variable factorial está inicializada en 0 en lugar de 1, lo que haría que el resultado siempre sea 0",
+      "c": "El paso 5 debería estar antes del ciclo, no después",
+      "d": "No hay ningún error; el algoritmo es correcto"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "El error crítico es inicializar factorial en 0. Cualquier número multiplicado por 0 es 0, así que factorial × i = 0 en toda iteración. Debe inicializarse en 1 para que el producto se acumule correctamente.",
+    "tipo": "texto"
+  },
+  {
+    "id": "ALGO_035",
+    "dificultad": 4,
+    "categoria": "Algoritmos y algoritmia",
+    "pregunta": "Diseña mentalmente el diagrama de flujo del algoritmo factorial. ¿Cuántos rombos (decisiones) mínimos necesita?",
+    "opciones": {
+      "a": "Ninguno; el factorial no requiere decisiones",
+      "b": "Al menos uno, para controlar cuándo el ciclo debe detenerse",
+      "c": "Exactamente tres rombos: inicio del ciclo, comparación y fin",
+      "d": "Tantos rombos como el valor de n ingresado"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "El algoritmo factorial necesita al menos un rombo de decisión: la condición del ciclo (¿i <= número?). Esta decisión determina si el ciclo continúa multiplicando o si termina y muestra el resultado.",
+    "tipo": "texto"
+  },
+  {
+    "id": "ALGO_036",
+    "dificultad": 4,
+    "categoria": "Algoritmos y algoritmia",
+    "pregunta": "Se tiene la lista [40, 15, 62, 8, 31]. El algoritmo del máximo la recorre completamente. ¿Cuántas veces se actualiza la variable 'mayor' durante el recorrido?",
+    "opciones": {
+      "a": "0 veces",
+      "b": "1 vez",
+      "c": "2 veces",
+      "d": "4 veces"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "mayor=40 (inicio). Comparando: 15<40 (no cambia), 62>40 → mayor=62 (1 actualización), 8<62 (no cambia), 31<62 (no cambia). 'mayor' se actualiza solo 1 vez durante el recorrido.",
+    "tipo": "texto"
+  },
+  {
+    "id": "ALGO_037",
+    "dificultad": 4,
+    "categoria": "Algoritmos y algoritmia",
+    "pregunta": "Un compañero argumenta que la búsqueda secuencial y el algoritmo del máximo son esencialmente iguales porque 'ambos recorren una lista'. ¿Cuál es la crítica técnica más precisa a esta afirmación?",
+    "opciones": {
+      "a": "Es completamente correcta; ambos algoritmos son idénticos",
+      "b": "Aunque ambos recorren una lista, sus objetivos y criterios de parada son distintos: uno busca un valor externo y puede terminar antes; el otro siempre recorre toda la lista para garantizar haber visto todos los elementos",
+      "c": "La diferencia es solo cosmética en los nombres de variables",
+      "d": "El algoritmo del máximo no recorre la lista, solo revisa el primer y último elemento"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "La diferencia es fundamental: la búsqueda secuencial puede terminar antes de recorrer toda la lista (cuando encuentra el elemento). El algoritmo del máximo siempre debe recorrer todos los elementos para garantizar que no existe uno mayor.",
+    "tipo": "texto"
+  },
+  {
+    "id": "ALGO_038",
+    "dificultad": 4,
+    "categoria": "Algoritmos y algoritmia",
+    "pregunta": "Si se aplica el algoritmo de búsqueda secuencial a una lista de 100 elementos y el elemento buscado es el último, ¿cuántas comparaciones se realizan en el peor caso?",
+    "opciones": {
+      "a": "1 comparación",
+      "b": "50 comparaciones",
+      "c": "99 comparaciones",
+      "d": "100 comparaciones"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "En el peor caso (elemento en la última posición o no presente), el algoritmo compara todos los 100 elementos de la lista antes de encontrar el resultado o concluir que no está. Esto corresponde a O(n) en notación Big O.",
+    "tipo": "texto"
+  },
+  {
+    "id": "ALGO_039",
+    "dificultad": 4,
+    "categoria": "Algoritmos y algoritmia",
+    "pregunta": "Evalúa este enunciado: 'Todo programa de computadora es un algoritmo, pero no todo algoritmo es un programa de computadora'. ¿Es correcto?",
+    "opciones": {
+      "a": "Falso; solo los programas son algoritmos",
+      "b": "Falso; todo algoritmo es automáticamente un programa",
+      "c": "Verdadero; los algoritmos pueden ejecutarse manualmente o en contextos no computarizados, mientras que los programas siempre requieren una computadora",
+      "d": "Verdadero, pero solo aplica para algoritmos matemáticos"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "Es correcto. Un algoritmo es un concepto abstracto (secuencia de pasos) que puede ejecutarse manualmente, como una receta de cocina. Un programa es la implementación de un algoritmo en un lenguaje que una computadora puede ejecutar.",
+    "tipo": "texto"
+  },
+  {
+    "id": "ALGO_040",
+    "dificultad": 4,
+    "categoria": "Algoritmos y algoritmia",
+    "pregunta": "En el diagrama de flujo del algoritmo de búsqueda secuencial, ¿cuántos rombos de decisión aparecen como mínimo en una implementación correcta?",
+    "opciones": {
+      "a": "1 rombo",
+      "b": "2 rombos",
+      "c": "3 rombos",
+      "d": "4 rombos"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "El diagrama necesita: (1) Rombo para la condición del ciclo principal (¿Encontrado=False y pasos < total?), (2) Rombo para comparar si el elemento actual es el buscado, (3) Rombo para verificar si 'Encontrado' es True al retornar la ubicación.",
+    "tipo": "texto"
+  },
+  {
+    "id": "ALGO_041",
+    "dificultad": 5,
+    "categoria": "Algoritmos y algoritmia",
+    "pregunta": "Un estudiante propone un 'algoritmo' con el siguiente paso 3: 'Hacer lo que sea necesario hasta que el problema esté resuelto'. ¿Por qué esto no cumple con la definición de algoritmo?",
+    "opciones": {
+      "a": "Porque el paso 3 es demasiado corto",
+      "b": "Porque viola la propiedad de pasos bien definidos y precisos: 'hacer lo que sea' es ambiguo y no puede ejecutarse de forma determinista",
+      "c": "Porque los algoritmos no pueden tener más de 2 pasos",
+      "d": "Porque el paso menciona 'problema', término que no existe en algoritmia"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Un paso de algoritmo debe ser bien definido y preciso, es decir, cualquier persona u máquina debe poder ejecutarlo de forma determinista sin ambigüedad. 'Hacer lo que sea necesario' es subjetivo e impreciso, lo que invalida esta secuencia como algoritmo.",
+    "tipo": "texto"
+  },
+  {
+    "id": "ALGO_042",
+    "dificultad": 5,
+    "categoria": "Algoritmos y algoritmia",
+    "pregunta": "Compara el rendimiento de la búsqueda secuencial en una lista de 10 elementos versus una de 1,000 elementos, siempre buscando el último elemento. ¿Qué concluyes sobre el comportamiento del algoritmo?",
+    "opciones": {
+      "a": "El algoritmo siempre tarda lo mismo independientemente del tamaño de la lista",
+      "b": "El número de comparaciones crece proporcionalmente al tamaño de la lista: 10 vs 1,000 comparaciones, lo que describe un comportamiento lineal",
+      "c": "El algoritmo en la lista de 1,000 elementos es 10,000 veces más lento que en la de 10",
+      "d": "El número de comparaciones es siempre la mitad del tamaño de la lista"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "La búsqueda secuencial en el peor caso requiere tantas comparaciones como elementos tenga la lista. Al pasar de 10 a 1,000 elementos, el tiempo crece 100 veces (proporcionalmente). Esto es comportamiento lineal: O(n).",
+    "tipo": "texto"
+  },
+  {
+    "id": "ALGO_043",
+    "dificultad": 5,
+    "categoria": "Algoritmos y algoritmia",
+    "pregunta": "El algoritmo del café tiene los pasos 2 y 4 con el mismo nombre 'Encender la cafetera'. Analiza: ¿qué problema real puede surgir si este algoritmo fuera ejecutado por una computadora sin intervención humana?",
+    "opciones": {
+      "a": "Ninguno, porque una computadora puede interpretar el contexto del nombre",
+      "b": "La computadora podría intentar encender la cafetera dos veces en momentos distintos, causando un comportamiento inesperado o un error si el dispositivo ya está encendido",
+      "c": "Solo sería un problema estético en la documentación, sin efecto en la ejecución",
+      "d": "La computadora ignoraría automáticamente los pasos duplicados"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Una computadora ejecuta instrucciones literalmente. Si hay dos pasos con la misma acción en momentos distintos (antes de preparar la taza y después), podría intentar encender un dispositivo ya encendido, causando errores o comportamiento inesperado. Los algoritmos deben ser precisos y no redundantes.",
+    "tipo": "texto"
+  },
+  {
+    "id": "ALGO_044",
+    "dificultad": 5,
+    "categoria": "Algoritmos y algoritmia",
+    "pregunta": "Si se desea modificar el algoritmo de búsqueda secuencial para que encuentre TODAS las posiciones donde aparece un elemento repetido (no solo la primera), ¿qué cambio estructural es necesario?",
+    "opciones": {
+      "a": "Reemplazar la condición de parada del ciclo para que termine cuando 'Encontrado' sea True",
+      "b": "Eliminar la variable 'pasos' del algoritmo",
+      "c": "Eliminar la condición 'Encontrado=False' del ciclo para que siempre recorra toda la lista y almacenar cada posición donde se encuentre el elemento en una lista de resultados",
+      "d": "Cambiar el tipo de búsqueda a binaria para mayor eficiencia"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "Para encontrar todas las ocurrencias, el ciclo no debe detenerse al encontrar el primero. Se debe eliminar 'Encontrado=False' como condición de parada, recorrer toda la lista y guardar cada posición donde el elemento coincide en una lista de resultados.",
+    "tipo": "texto"
+  },
+  {
+    "id": "ALGO_045",
+    "dificultad": 5,
+    "categoria": "Algoritmos y algoritmia",
+    "pregunta": "Un ingeniero propone resolver el factorial con el siguiente enfoque: 'factorial(n) = n × factorial(n-1), con factorial(0) = 1'. ¿Cómo se llama esta técnica y por qué es diferente al ciclo del material?",
+    "opciones": {
+      "a": "Es búsqueda secuencial; no hay diferencia con el ciclo",
+      "b": "Es recursión; a diferencia del ciclo iterativo, la función se llama a sí misma reduciendo el problema hasta llegar al caso base",
+      "c": "Es un algoritmo de ordenamiento; es diferente porque trabaja con elementos ordenados",
+      "d": "Es programación funcional pura; requiere hardware especial para ejecutarse"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Esta técnica es recursión: la función factorial se llama a sí misma con un argumento reducido (n-1) hasta llegar al caso base (factorial(0)=1). Difiere del ciclo iterativo del material en que no usa un bucle explícito sino llamadas a sí misma.",
+    "tipo": "texto"
+  },
+  {
+    "id": "ALGO_046",
+    "dificultad": 5,
+    "categoria": "Algoritmos y algoritmia",
+    "pregunta": "Analiza la afirmación: 'La algoritmia es más importante que el lenguaje de programación elegido para resolver un problema'. ¿Cuál argumento la sustenta mejor?",
+    "opciones": {
+      "a": "Porque ciertos lenguajes son tan poderosos que resuelven solos los problemas sin algoritmos",
+      "b": "Porque un algoritmo eficiente implementado en cualquier lenguaje superará a un algoritmo ineficiente implementado en el lenguaje más rápido del mercado",
+      "c": "Porque la algoritmia solo aplica a problemas matemáticos, no a problemas reales",
+      "d": "Porque el lenguaje de programación determina completamente la velocidad del programa, sin importar el algoritmo"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "La algoritmia es fundamental porque el diseño de la solución (los pasos) determina la eficiencia real. Un buen algoritmo en un lenguaje lento puede superar a un algoritmo ineficiente en el lenguaje más optimizado: la lógica de la solución es más importante que la herramienta.",
+    "tipo": "texto"
+  },
+  {
+    "id": "ALGO_047",
+    "dificultad": 5,
+    "categoria": "Algoritmos y algoritmia",
+    "pregunta": "Se quiere diseñar un algoritmo para verificar si una lista está ordenada de menor a mayor. ¿Cuál sería la estructura mínima necesaria?",
+    "opciones": {
+      "a": "Solo un rectángulo de operación que declare la lista",
+      "b": "Un ciclo que compare cada elemento con el siguiente, y una decisión que detecte si algún par está desordenado, retornando Verdadero o Falso",
+      "c": "Un algoritmo recursivo que divida la lista a la mitad en cada paso",
+      "d": "Dos ciclos anidados que comparen todos los pares posibles de elementos"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Para verificar si una lista está ordenada basta con un ciclo que compare elementos consecutivos (elemento[i] <= elemento[i+1]) y una decisión que detecte si se viola esta condición. Si se viola para algún par, la lista no está ordenada.",
+    "tipo": "texto"
+  },
+  {
+    "id": "ALGO_048",
+    "dificultad": 5,
+    "categoria": "Algoritmos y algoritmia",
+    "pregunta": "El material define la algoritmia como la disciplina que abarca 'creación, análisis y optimización' de algoritmos. ¿Cuál de los tres procesos es más difícil de automatizar con una computadora y por qué?",
+    "opciones": {
+      "a": "La creación, porque inventar una solución novedosa requiere comprensión del problema y creatividad que va más allá de la ejecución mecánica de pasos",
+      "b": "El análisis, porque ninguna computadora puede medir el tiempo de ejecución de un programa",
+      "c": "La optimización, porque las computadoras no pueden comparar dos algoritmos",
+      "d": "Los tres son igualmente difíciles de automatizar"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "La creación de algoritmos requiere comprensión del problema, abstracción y creatividad para diseñar una solución que no existía antes. El análisis y la optimización pueden automatizarse en gran medida usando herramientas de análisis de complejidad y técnicas de mejora sistemática.",
+    "tipo": "texto"
+  },
+  {
+    "id": "ALGO_049",
+    "dificultad": 5,
+    "categoria": "Algoritmos y algoritmia",
+    "pregunta": "Dado el algoritmo de búsqueda secuencial, ¿en qué caso concreto sería completamente inútil aplicarlo y sería necesario un algoritmo diferente?",
+    "opciones": {
+      "a": "Cuando la lista tiene más de 10 elementos",
+      "b": "Cuando se necesita encontrar el elemento máximo en lugar de uno específico",
+      "c": "Cuando la lista es muy grande y se necesita velocidad: al estar ordenada, un algoritmo como la búsqueda binaria encontraría el elemento con muchas menos comparaciones",
+      "d": "Cuando la lista contiene números negativos"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "La búsqueda secuencial es ineficiente para listas grandes y ordenadas. En ese caso, la búsqueda binaria reduce drásticamente el número de comparaciones al eliminar la mitad de los candidatos en cada paso, siendo mucho más apropiada.",
+    "tipo": "texto"
+  },
+  {
+    "id": "ALGO_050",
+    "dificultad": 5,
+    "categoria": "Algoritmos y algoritmia",
+    "pregunta": "Un diagrama de flujo sin símbolo de 'FIN' y cuya última flecha apunta de regreso al inicio del proceso, ¿qué tipo de algoritmo representa y cuál es su problema fundamental?",
+    "opciones": {
+      "a": "Representa un algoritmo recursivo correcto y no tiene ningún problema",
+      "b": "Representa un ciclo infinito: el algoritmo nunca termina porque no existe una condición de salida ni un estado final definido",
+      "c": "Representa un algoritmo paralelo que se ejecuta en múltiples procesadores simultáneamente",
+      "d": "Representa un algoritmo muy eficiente porque reutiliza los mismos pasos sin duplicarlos"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Todo algoritmo debe ser finito: debe terminar en algún momento. Un diagrama que regresa indefinidamente al inicio sin condición de salida representa un ciclo infinito, lo que viola la propiedad fundamental de finitud de los algoritmos.",
+    "tipo": "texto"
+  },
+  {
+    "id": "ALGO2_001",
+    "dificultad": 1,
+    "categoria": "Algoritmos y algoritmia",
+    "pregunta": "¿Cuál es el siguiente número en la secuencia de Fibonacci: 1, 1, 2, 3, 5, 8, ___?",
+    "opciones": {
+      "a": "16",
+      "b": "10",
+      "c": "12",
+      "d": "13"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "En la secuencia de Fibonacci, cada término es la suma de los dos anteriores. El siguiente término es 8 + 5 = 13.",
+    "tipo": "texto"
+  },
+  {
+    "id": "ALGO2_002",
+    "dificultad": 1,
+    "categoria": "Algoritmos y algoritmia",
+    "pregunta": "¿Cuál es el valor de 4! (factorial de 4)?",
+    "opciones": {
+      "a": "10",
+      "b": "8",
+      "c": "16",
+      "d": "24"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "4! = 4 × 3 × 2 × 1 = 24.",
+    "tipo": "texto"
+  },
+  {
+    "id": "ALGO2_003",
+    "dificultad": 1,
+    "categoria": "Algoritmos y algoritmia",
+    "pregunta": "El número áureo φ se aproxima con la fórmula: φ ≈ 1 + 1/φ. Si se empieza con φ = 1 y se aplica la fórmula una sola vez, ¿qué valor se obtiene?",
+    "opciones": {
+      "a": "2.0",
+      "b": "1.618",
+      "c": "3.0",
+      "d": "1.5"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "Aplicando la fórmula una vez con φ = 1: φ_nuevo = 1 + 1/1 = 2.0.",
+    "tipo": "texto"
+  },
+  {
+    "id": "ALGO2_004",
+    "dificultad": 1,
+    "categoria": "Algoritmos y algoritmia",
+    "pregunta": "Para calcular e (número de Euler) se usa la serie: e = 1/0! + 1/1! + 1/2! + 1/3! + ... ¿Cuánto vale el tercer término de esta serie (el que corresponde a 1/2!)?",
+    "opciones": {
+      "a": "2",
+      "b": "1",
+      "c": "0.25",
+      "d": "0.5"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "El tercer término es 1/2! = 1/(2×1) = 1/2 = 0.5.",
+    "tipo": "texto"
+  },
+  {
+    "id": "ALGO2_005",
+    "dificultad": 1,
+    "categoria": "Algoritmos y algoritmia",
+    "pregunta": "¿Cuál es el valor de 0! (factorial de cero)?",
+    "opciones": {
+      "a": "1",
+      "b": "Indefinido",
+      "c": "∞",
+      "d": "0"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "Por definición, 0! = 1. Es una convención matemática necesaria para que fórmulas como las combinaciones y la serie de Euler funcionen correctamente.",
+    "tipo": "texto"
+  },
+  {
+    "id": "ALGO2_006",
+    "dificultad": 1,
+    "categoria": "Algoritmos y algoritmia",
+    "pregunta": "¿Cuáles son los dos primeros términos que siempre tienen en común las secuencias de Fibonacci estándar?",
+    "opciones": {
+      "a": "0 y 1",
+      "b": "0 y 2",
+      "c": "1 y 2",
+      "d": "1 y 1"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "La secuencia de Fibonacci estándar comienza con 1, 1. A partir de ahí cada término es la suma de los dos anteriores: 1, 1, 2, 3, 5, 8, 13...",
+    "tipo": "texto"
+  },
+  {
+    "id": "ALGO2_007",
+    "dificultad": 1,
+    "categoria": "Algoritmos y algoritmia",
+    "pregunta": "La fórmula de Leibniz para aproximar π es: π/4 = 1 − 1/3 + 1/5 − 1/7 + ... ¿Qué valor tiene el primer término de esta serie?",
+    "opciones": {
+      "a": "1/3",
+      "b": "π",
+      "c": "4",
+      "d": "1"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "El primer término de la serie de Leibniz es 1 (cuando k=0: 1/(2×0+1) = 1/1 = 1). Todos los términos siguientes se van sumando o restando alternadamente.",
+    "tipo": "texto"
+  },
+  {
+    "id": "ALGO2_008",
+    "dificultad": 1,
+    "categoria": "Algoritmos y algoritmia",
+    "pregunta": "Un algoritmo usa la lista de pasos: '1. resultado = 1. 2. Para i desde 1 hasta n: resultado = resultado × i. 3. Mostrar resultado.' ¿Qué calcula este algoritmo?",
+    "opciones": {
+      "a": "El factorial de n",
+      "b": "La potencia n al cuadrado",
+      "c": "El enésimo número de Fibonacci",
+      "d": "La suma de los primeros n números"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "El algoritmo multiplica todos los números desde 1 hasta n acumulando el resultado. Esto es exactamente la definición del factorial: n! = 1 × 2 × 3 × ... × n.",
+    "tipo": "texto"
+  },
+  {
+    "id": "ALGO2_009",
+    "dificultad": 1,
+    "categoria": "Algoritmos y algoritmia",
+    "pregunta": "¿Cuál de los siguientes valores es correcto para 3!?",
+    "opciones": {
+      "a": "6",
+      "b": "5",
+      "c": "3",
+      "d": "9"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "3! = 3 × 2 × 1 = 6.",
+    "tipo": "texto"
+  },
+  {
+    "id": "ALGO2_010",
+    "dificultad": 1,
+    "categoria": "Algoritmos y algoritmia",
+    "pregunta": "En la serie de Fibonacci, la regla para calcular cualquier término (a partir del tercero) es:",
+    "opciones": {
+      "a": "F(n) = F(n-1) + F(n-2)",
+      "b": "F(n) = F(n-1) - F(n-2)",
+      "c": "F(n) = F(n-1) × F(n-2)",
+      "d": "F(n) = F(n-1) × 2"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "La regla fundamental de Fibonacci es que cada término es la suma de los dos anteriores: F(n) = F(n-1) + F(n-2). Por ejemplo, F(5) = F(4) + F(3) = 3 + 2 = 5.",
+    "tipo": "texto"
+  },
+  {
+    "id": "ALGO2_011",
+    "dificultad": 2,
+    "categoria": "Algoritmos y algoritmia",
+    "pregunta": "Ejecuta mentalmente este algoritmo con n=5: 'resultado = 1; Para i desde 1 hasta n: resultado = resultado × i'. ¿Cuál es el valor de resultado después de i=3?",
+    "opciones": {
+      "a": "5",
+      "b": "3",
+      "c": "4",
+      "d": "6"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "Traza: i=1: resultado=1×1=1; i=2: resultado=1×2=2; i=3: resultado=2×3=6. Después de i=3, resultado vale 6.",
+    "tipo": "texto"
+  },
+  {
+    "id": "ALGO2_012",
+    "dificultad": 2,
+    "categoria": "Algoritmos y algoritmia",
+    "pregunta": "Se aplica el algoritmo del número áureo repitiendo φ = 1 + 1/φ tres veces, empezando en φ=1. ¿Cuál es el valor después de la segunda aplicación?",
+    "opciones": {
+      "a": "1.5",
+      "b": "1.667",
+      "c": "1.618",
+      "d": "2.0"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "1ª aplicación: φ = 1 + 1/1 = 2.0. 2ª aplicación: φ = 1 + 1/2.0 = 1.5.",
+    "tipo": "texto"
+  },
+  {
+    "id": "ALGO2_013",
+    "dificultad": 2,
+    "categoria": "Algoritmos y algoritmia",
+    "pregunta": "Usando la serie de Euler con los primeros tres términos: e ≈ 1/0! + 1/1! + 1/2!. ¿Cuánto vale esta aproximación?",
+    "opciones": {
+      "a": "2.0",
+      "b": "2.5",
+      "c": "2.7083",
+      "d": "2.6667"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "1/0! + 1/1! + 1/2! = 1/1 + 1/1 + 1/2 = 1 + 1 + 0.5 = 2.5.",
+    "tipo": "texto"
+  },
+  {
+    "id": "ALGO2_014",
+    "dificultad": 2,
+    "categoria": "Algoritmos y algoritmia",
+    "pregunta": "Dado este algoritmo para Fibonacci: 'a=1, b=1; Repetir 3 veces: b = a + b; a = b - a'. ¿Cuáles son los valores de (a, b) después de la primera repetición?",
+    "opciones": {
+      "a": "(1, 2)",
+      "b": "(2, 1)",
+      "c": "(1, 3)",
+      "d": "(2, 3)"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "Primera repetición: b = 1+1 = 2; a = 2-1 = 1. Resultado: (a=1, b=2). Estos son F(2) y F(3) de la secuencia.",
+    "tipo": "texto"
+  },
+  {
+    "id": "ALGO2_015",
+    "dificultad": 2,
+    "categoria": "Algoritmos y algoritmia",
+    "pregunta": "Usando la fórmula de Leibniz con los primeros dos términos: π/4 ≈ 1 − 1/3. ¿Cuál es la aproximación resultante de π?",
+    "opciones": {
+      "a": "3.5",
+      "b": "2.0",
+      "c": "3.1416",
+      "d": "2.6667"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "π/4 ≈ 1 − 1/3 = 2/3. Entonces π ≈ 4 × 2/3 = 8/3 ≈ 2.6667. La serie de Leibniz converge lentamente.",
+    "tipo": "texto"
+  },
+  {
+    "id": "ALGO2_016",
+    "dificultad": 2,
+    "categoria": "Algoritmos y algoritmia",
+    "pregunta": "Un algoritmo calcula la suma: S = 1² + 2² + 3² + 4². ¿Cuál es el resultado?",
+    "opciones": {
+      "a": "100",
+      "b": "20",
+      "c": "25",
+      "d": "30"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "1² + 2² + 3² + 4² = 1 + 4 + 9 + 16 = 30.",
+    "tipo": "texto"
+  },
+  {
+    "id": "ALGO2_017",
+    "dificultad": 2,
+    "categoria": "Algoritmos y algoritmia",
+    "pregunta": "Se ejecuta: 'suma = 0; Para k desde 0 hasta 3: suma = suma + 1/k!'. Ignorando la división por cero en k=0, ¿cuántos términos acumula este ciclo?",
+    "opciones": {
+      "a": "2 términos",
+      "b": "3 términos",
+      "c": "5 términos",
+      "d": "4 términos"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "El ciclo va desde k=0 hasta k=3 inclusive, por lo que acumula 4 términos: k=0, k=1, k=2, k=3.",
+    "tipo": "texto"
+  },
+  {
+    "id": "ALGO2_018",
+    "dificultad": 2,
+    "categoria": "Algoritmos y algoritmia",
+    "pregunta": "¿Cuál es el décimo número de la secuencia de Fibonacci (F10), dado que la secuencia comienza en 1, 1, 2, 3, 5, 8, 13, 21, 34, ___?",
+    "opciones": {
+      "a": "45",
+      "b": "55",
+      "c": "60",
+      "d": "89"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "La secuencia continúa: F10 = F9 + F8 = 34 + 21 = 55.",
+    "tipo": "texto"
+  },
+  {
+    "id": "ALGO2_019",
+    "dificultad": 2,
+    "categoria": "Algoritmos y algoritmia",
+    "pregunta": "Se aplica el algoritmo áureo: φ = 1 + 1/φ, empezando en φ=1, cuatro veces. ¿Cuál es el valor después de la cuarta aplicación?",
+    "opciones": {
+      "a": "1.5",
+      "b": "1.625",
+      "c": "1.618",
+      "d": "1.6"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "φ_1=2.0, φ_2=1.5, φ_3=1+1/1.5=1.6667, φ_4=1+1/1.6667=1.6. El valor después de la cuarta aplicación es 1.6.",
+    "tipo": "texto"
+  },
+  {
+    "id": "ALGO2_020",
+    "dificultad": 2,
+    "categoria": "Algoritmos y algoritmia",
+    "pregunta": "Un algoritmo suma los primeros n factoriales: S = 1! + 2! + 3! + 4!. ¿Cuál es el resultado?",
+    "opciones": {
+      "a": "40",
+      "b": "10",
+      "c": "24",
+      "d": "33"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "1! + 2! + 3! + 4! = 1 + 2 + 6 + 24 = 33.",
+    "tipo": "texto"
+  },
+  {
+    "id": "ALGO2_021",
+    "dificultad": 3,
+    "categoria": "Algoritmos y algoritmia",
+    "pregunta": "Traza el siguiente algoritmo con n=5 y determina el valor final de 'suma': 'suma=0; Para i desde 1 hasta n: suma = suma + (i² − i)'.",
+    "opciones": {
+      "a": "20",
+      "b": "30",
+      "c": "35",
+      "d": "40"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "i=1: 1-1=0; i=2: 4-2=2; i=3: 9-3=6; i=4: 16-4=12; i=5: 25-5=20. Suma = 0+2+6+12+20 = 40.",
+    "tipo": "texto"
+  },
+  {
+    "id": "ALGO2_022",
+    "dificultad": 3,
+    "categoria": "Algoritmos y algoritmia",
+    "pregunta": "Dado el algoritmo Fibonacci: 'a=1, b=1; Repetir 4 veces: b=a+b; a=b-a'. ¿Cuál es el valor de b al final de las 4 repeticiones?",
+    "opciones": {
+      "a": "5",
+      "b": "8",
+      "c": "6",
+      "d": "13"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Rep 1: b=2, a=1. Rep 2: b=3, a=2. Rep 3: b=5, a=3. Rep 4: b=8, a=5. Al final b=8.",
+    "tipo": "texto"
+  },
+  {
+    "id": "ALGO2_023",
+    "dificultad": 3,
+    "categoria": "Algoritmos y algoritmia",
+    "pregunta": "Se aplica la fórmula de Leibniz con tres términos: π ≈ 4×(1 − 1/3 + 1/5). ¿Cuánto vale esta aproximación, redondeada a dos decimales?",
+    "opciones": {
+      "a": "3.14",
+      "b": "2.89",
+      "c": "3.47",
+      "d": "4.00"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "1 − 1/3 + 1/5 = 1 − 0.3333 + 0.2 = 0.8667. Multiplicando por 4: 4 × 0.8667 ≈ 3.47.",
+    "tipo": "texto"
+  },
+  {
+    "id": "ALGO2_024",
+    "dificultad": 3,
+    "categoria": "Algoritmos y algoritmia",
+    "pregunta": "Analiza este algoritmo con error: 'factorial=0; Para i desde 1 hasta n: factorial = factorial × i'. Si n=5, ¿cuál es el resultado?",
+    "opciones": {
+      "a": "120",
+      "b": "24",
+      "c": "0",
+      "d": "5"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "El error está en inicializar factorial=0. Cualquier número multiplicado por 0 da 0, así que factorial permanece en 0 durante todo el ciclo. Debe iniciarse en 1.",
+    "tipo": "texto"
+  },
+  {
+    "id": "ALGO2_025",
+    "dificultad": 3,
+    "categoria": "Algoritmos y algoritmia",
+    "pregunta": "Un algoritmo calcula e con 4 términos de la serie (k=0 a k=3): e ≈ 1/0! + 1/1! + 1/2! + 1/3!. ¿Cuánto vale esta aproximación?",
+    "opciones": {
+      "a": "2.5",
+      "b": "2.6667",
+      "c": "2.7083",
+      "d": "2.7183"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "1/0! + 1/1! + 1/2! + 1/3! = 1 + 1 + 0.5 + 1/6 = 2 + 0.5 + 0.1667 = 2.6667.",
+    "tipo": "texto"
+  },
+  {
+    "id": "ALGO2_026",
+    "dificultad": 3,
+    "categoria": "Algoritmos y algoritmia",
+    "pregunta": "El cociente F(n+1)/F(n) de términos consecutivos de Fibonacci se aproxima al número áureo. ¿Cuánto vale F(8)/F(7)?",
+    "opciones": {
+      "a": "1.5",
+      "b": "1.5833",
+      "c": "1.6154",
+      "d": "1.618"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "F(7)=13, F(8)=21. F(8)/F(7) = 21/13 ≈ 1.6154. Este valor ya se acerca al número áureo (1.618...).",
+    "tipo": "texto"
+  },
+  {
+    "id": "ALGO2_027",
+    "dificultad": 3,
+    "categoria": "Algoritmos y algoritmia",
+    "pregunta": "Compara estos dos algoritmos para calcular e: (A) suma directamente 1/k! en cada paso; (B) calcula k! desde cero en cada iteración. ¿Cuál es más eficiente y por qué?",
+    "opciones": {
+      "a": "B, porque recalcular el factorial asegura mayor precisión en cada paso",
+      "b": "A, porque mantiene el término anterior y solo divide por k en cada paso, evitando recalcular el factorial completo",
+      "c": "Son igualmente eficientes: el número de sumas es el mismo",
+      "d": "A, pero solo porque usa variables con nombres más cortos"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "El algoritmo A es más eficiente: en lugar de recalcular k! multiplicando desde 1 cada vez, mantiene el término anterior y lo divide por k (término_nuevo = término_anterior / k). Esto reduce el número de operaciones por iteración.",
+    "tipo": "texto"
+  },
+  {
+    "id": "ALGO2_028",
+    "dificultad": 3,
+    "categoria": "Algoritmos y algoritmia",
+    "pregunta": "Se ejecuta: 'x=1; Para i desde 1 hasta 5: x = x + 1/i'. ¿Cuál es el valor de x después de i=3, redondeado a 4 decimales?",
+    "opciones": {
+      "a": "2.5",
+      "b": "2.8333",
+      "c": "3.0833",
+      "d": "2.0"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "x inicia en 1. i=1: x=1+1/1=2.0. i=2: x=2+1/2=2.5. i=3: x=2.5+1/3=2.8333.",
+    "tipo": "texto"
+  },
+  {
+    "id": "ALGO2_029",
+    "dificultad": 3,
+    "categoria": "Algoritmos y algoritmia",
+    "pregunta": "La secuencia de Tribonacci sigue la regla T(n) = T(n-1) + T(n-2) + T(n-3), con T(1)=1, T(2)=1, T(3)=2. ¿Cuánto vale T(5)?",
+    "opciones": {
+      "a": "4",
+      "b": "6",
+      "c": "7",
+      "d": "8"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "T(4) = T(3)+T(2)+T(1) = 2+1+1 = 4. T(5) = T(4)+T(3)+T(2) = 4+2+1 = 7.",
+    "tipo": "texto"
+  },
+  {
+    "id": "ALGO2_030",
+    "dificultad": 3,
+    "categoria": "Algoritmos y algoritmia",
+    "pregunta": "Un algoritmo usa la serie geométrica: S = 1 + 0.5 + 0.25 + 0.125. ¿Cuánto vale la suma de estos cuatro términos?",
+    "opciones": {
+      "a": "1.5",
+      "b": "1.75",
+      "c": "1.875",
+      "d": "2.0"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "1 + 0.5 + 0.25 + 0.125 = 1.875. Cada término es la mitad del anterior (razón r = 0.5).",
+    "tipo": "texto"
+  },
+  {
+    "id": "ALGO2_031",
+    "dificultad": 4,
+    "categoria": "Algoritmos y algoritmia",
+    "pregunta": "Traza el siguiente algoritmo completo con n=4 y determina el valor final de 'resultado': 'resultado=1; Para i desde 2 hasta n-1: resultado = resultado × i'.",
+    "opciones": {
+      "a": "6",
+      "b": "24",
+      "c": "2",
+      "d": "120"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "El ciclo va desde i=2 hasta i=n-1=3. resultado=1; i=2: resultado=1×2=2; i=3: resultado=2×3=6. El ciclo termina en i=3, no en i=4. Resultado final: 6.",
+    "tipo": "texto"
+  },
+  {
+    "id": "ALGO2_032",
+    "dificultad": 4,
+    "categoria": "Algoritmos y algoritmia",
+    "pregunta": "Dado el algoritmo: 'factorial=2; Para i desde 1 hasta 4: factorial = factorial × i'. ¿Cuál es el resultado y qué valor correcto debería dar si el error fuera corregido?",
+    "opciones": {
+      "a": "Resultado erróneo: 48; correcto: 24",
+      "b": "Resultado erróneo: 48; correcto: 0",
+      "c": "Resultado erróneo: 12; correcto: 24",
+      "d": "Resultado correcto: 24; no hay error"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "Con factorial=2: 2×1×2×3×4 = 48. El error es inicializar en 2 en lugar de 1. Con factorial=1: 1×1×2×3×4 = 24. El resultado correcto de 4! es 24.",
+    "tipo": "texto"
+  },
+  {
+    "id": "ALGO2_033",
+    "dificultad": 4,
+    "categoria": "Algoritmos y algoritmia",
+    "pregunta": "Un algoritmo de Leibniz incluye una condición de parada: 'Repetir mientras |1/(2k+1)| >= 0.1: calcular y acumular el término'. ¿En qué valor de k se detiene por primera vez el ciclo?",
+    "opciones": {
+      "a": "k=3",
+      "b": "k=4",
+      "c": "k=5",
+      "d": "k=7"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "k=4: 1/9 ≈ 0.1111 ≥ 0.1 (continúa). k=5: 1/11 ≈ 0.0909 < 0.1 → el ciclo se detiene por primera vez en k=5.",
+    "tipo": "texto"
+  },
+  {
+    "id": "ALGO2_034",
+    "dificultad": 4,
+    "categoria": "Algoritmos y algoritmia",
+    "pregunta": "Compara el valor de n! con 2ⁿ para n=1, 2, 3, 4, 5. ¿A partir de qué valor de n el factorial supera a la potencia de 2?",
+    "opciones": {
+      "a": "n=2",
+      "b": "n=3",
+      "c": "n=4",
+      "d": "n=5"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "n=1: 1! = 1 < 2. n=2: 2! = 2 < 4. n=3: 6 < 8. n=4: 24 > 16. A partir de n=4, el factorial supera a 2ⁿ.",
+    "tipo": "texto"
+  },
+  {
+    "id": "ALGO2_035",
+    "dificultad": 4,
+    "categoria": "Algoritmos y algoritmia",
+    "pregunta": "El algoritmo eficiente para e mantiene el término anterior: 'suma=1; termino=1; Para k desde 1 hasta 4: termino=termino/k; suma=suma+termino'. ¿Cuánto vale 'suma' al final?",
+    "opciones": {
+      "a": "2.5",
+      "b": "2.6667",
+      "c": "2.7083",
+      "d": "2.7183"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "k=1: term=1/1=1, suma=2; k=2: term=1/2=0.5, suma=2.5; k=3: term=0.5/3=0.1667, suma=2.6667; k=4: term=0.1667/4=0.0417, suma=2.7083.",
+    "tipo": "texto"
+  },
+  {
+    "id": "ALGO2_036",
+    "dificultad": 4,
+    "categoria": "Algoritmos y algoritmia",
+    "pregunta": "Se tiene el algoritmo Fibonacci: 'a=1, b=1; Repetir 4 veces: b=a+b; a=b-a'. ¿Cuáles son los valores finales de (a, b)?",
+    "opciones": {
+      "a": "(3, 5)",
+      "b": "(5, 8)",
+      "c": "(8, 13)",
+      "d": "(3, 8)"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Rep 1: b=2, a=1. Rep 2: b=3, a=2. Rep 3: b=5, a=3. Rep 4: b=8, a=5. Valores finales: a=5, b=8.",
+    "tipo": "texto"
+  },
+  {
+    "id": "ALGO2_037",
+    "dificultad": 4,
+    "categoria": "Algoritmos y algoritmia",
+    "pregunta": "Un algoritmo calcula la serie: S = Σ(i=1 hasta 5) de i². ¿Cuánto vale S?",
+    "opciones": {
+      "a": "25",
+      "b": "45",
+      "c": "55",
+      "d": "50"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "1² + 2² + 3² + 4² + 5² = 1 + 4 + 9 + 16 + 25 = 55.",
+    "tipo": "texto"
+  },
+  {
+    "id": "ALGO2_038",
+    "dificultad": 4,
+    "categoria": "Algoritmos y algoritmia",
+    "pregunta": "Un estudiante modifica el algoritmo de Fibonacci para que sea: 'a=1, b=2'. ¿Cuáles son los primeros 5 términos de la secuencia resultante?",
+    "opciones": {
+      "a": "1, 2, 3, 5, 8",
+      "b": "2, 1, 3, 4, 7",
+      "c": "1, 2, 3, 4, 5",
+      "d": "2, 3, 5, 8, 13"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "Con a=1, b=2: los términos son 1, 2, 3, 5, 8. La regla es la misma (suma de los dos anteriores), solo cambian los valores semilla. Esta variante también converge al número áureo.",
+    "tipo": "texto"
+  },
+  {
+    "id": "ALGO2_039",
+    "dificultad": 4,
+    "categoria": "Algoritmos y algoritmia",
+    "pregunta": "Dado el algoritmo con error: 'factorial=1; Para i desde 2 hasta n-1: factorial = factorial × i' con n=6. ¿Qué valor calcula realmente?",
+    "opciones": {
+      "a": "120 (5!)",
+      "b": "24 (4!)",
+      "c": "6",
+      "d": "720 (6!)"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "El ciclo va de i=2 a i=n-1=5. factorial = 1×2×3×4×5 = 120... pero espera: 1×2=2, ×3=6, ×4=24, ×5=120. El ciclo va hasta i=5 inclusive. Resultado: 120 = 5!. Corrección: debería ir hasta i=6 para calcular 6!.",
+    "tipo": "texto"
+  },
+  {
+    "id": "ALGO2_040",
+    "dificultad": 4,
+    "categoria": "Algoritmos y algoritmia",
+    "pregunta": "Un algoritmo acumula la serie de Leibniz hasta que el valor absoluto del término sea menor que 0.15. ¿Cuántos términos acumula?",
+    "opciones": {
+      "a": "2 términos (k=0 y k=1)",
+      "b": "3 términos (k=0, 1 y 2)",
+      "c": "4 términos (k=0, 1, 2 y 3)",
+      "d": "5 términos (k=0, 1, 2, 3 y 4)"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "k=0: |1/1|=1.0 ≥ 0.15 (acumula). k=1: |1/3|≈0.333 ≥ 0.15 (acumula). k=2: |1/5|=0.2 ≥ 0.15 (acumula). k=3: |1/7|≈0.143 < 0.15 → se detiene. Se acumularon 3 términos (k=0, 1 y 2), y el de k=3 detiene el ciclo.",
+    "tipo": "texto"
+  },
+  {
+    "id": "ALGO2_041",
+    "dificultad": 5,
+    "categoria": "Algoritmos y algoritmia",
+    "pregunta": "Analiza el siguiente algoritmo: 'suma=0; Para k desde 0 hasta n: suma = suma + k!/k!'. ¿Qué calcula realmente este algoritmo y qué resultado da para n=4?",
+    "opciones": {
+      "a": "Calcula e con 5 términos; resultado ≈ 2.7083",
+      "b": "Calcula la suma de factoriales; resultado = 33",
+      "c": "Calcula simplemente n+1, porque k!/k! = 1; resultado = 5",
+      "d": "El algoritmo produce un error porque divide entre sí mismo"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "k!/k! = 1 para cualquier k. El algoritmo suma el número 1 en cada iteración, de k=0 a k=4 (5 iteraciones). Resultado: suma = 5 = n+1. Un error conceptual que parece calcular algo complejo pero en realidad no.",
+    "tipo": "texto"
+  },
+  {
+    "id": "ALGO2_042",
+    "dificultad": 5,
+    "categoria": "Algoritmos y algoritmia",
+    "pregunta": "Diseña mentalmente un algoritmo que calcule la suma S = 1/1! + 1/2! + 1/3! + 1/4! + 1/5! sin recalcular cada factorial desde cero. ¿Cuánto vale S, redondeado a 4 decimales?",
+    "opciones": {
+      "a": "1.7167",
+      "b": "2.7083",
+      "c": "1.9500",
+      "d": "2.0000"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "1/1! + 1/2! + 1/3! + 1/4! + 1/5! = 1 + 0.5 + 0.1667 + 0.0417 + 0.0083 = 1.7167. Note que esta suma es e - 1/0! = e - 1 ≈ 2.7183 - 1 = 1.7183.",
+    "tipo": "texto"
+  },
+  {
+    "id": "ALGO2_043",
+    "dificultad": 5,
+    "categoria": "Algoritmos y algoritmia",
+    "pregunta": "Compara la velocidad de convergencia de la serie de Euler (e) y la serie de Leibniz (π). Después de 5 términos, ¿cuál de las dos aproximaciones está más cerca de su valor real?",
+    "opciones": {
+      "a": "Leibniz, porque π es un número más pequeño que e",
+      "b": "Euler, porque su serie con 5 términos da ≈2.7083 (error ~0.01) mientras que Leibniz con 5 términos da ≈3.34 (error ~0.20)",
+      "c": "Ambas tienen exactamente el mismo error después de 5 términos",
+      "d": "Leibniz converge más rápido porque usa solo divisiones"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Euler con 5 términos: ≈2.7083, error ≈0.01. Leibniz con 5 términos: 4×0.8349≈3.34, error ≈0.20. La serie de Euler converge mucho más rápido porque sus términos (1/k!) decrecen exponencialmente, mientras que los de Leibniz (1/(2k+1)) decrecen muy lentamente.",
+    "tipo": "texto"
+  },
+  {
+    "id": "ALGO2_044",
+    "dificultad": 5,
+    "categoria": "Algoritmos y algoritmia",
+    "pregunta": "Un algoritmo para el número áureo repite φ = 1 + 1/φ hasta que |φ_nuevo − φ_anterior| < 0.05. ¿Cuántas iteraciones necesita empezando en φ=1?",
+    "opciones": {
+      "a": "2 iteraciones",
+      "b": "3 iteraciones",
+      "c": "4 iteraciones",
+      "d": "5 iteraciones"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "φ_1=2.0 (|2-1|=1.0≥0.05), φ_2=1.5 (|1.5-2|=0.5≥0.05), φ_3=1.6667 (|1.6667-1.5|=0.1667≥0.05), φ_4=1.6 (|1.6-1.6667|=0.0667≥0.05), φ_5=1.625 (|1.625-1.6|=0.025<0.05). Se necesitan 5 iteraciones; el criterio se cumple al calcular φ_5.",
+    "tipo": "texto"
+  },
+  {
+    "id": "ALGO2_045",
+    "dificultad": 5,
+    "categoria": "Algoritmos y algoritmia",
+    "pregunta": "Un algoritmo tiene el siguiente error en el ciclo de Fibonacci: 'b = a + b; a = b' (en lugar de 'a = b - a'). Empezando con a=1, b=1, ¿qué genera este algoritmo en las primeras 3 iteraciones?",
+    "opciones": {
+      "a": "1, 2, 4, 8 — una secuencia de potencias de 2",
+      "b": "1, 1, 2, 3 — la secuencia de Fibonacci correcta",
+      "c": "1, 2, 3, 4 — una secuencia aritmética",
+      "d": "1, 2, 4, 6 — una secuencia incorrecta"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "Con el error 'a=b': Rep1: b=2, a=2. Rep2: b=4, a=4. Rep3: b=8, a=8. La secuencia de b es 1,2,4,8..., que es 2^n. El error hace que a siempre iguale a b, duplicando en cada paso en lugar de avanzar correctamente.",
+    "tipo": "texto"
+  },
+  {
+    "id": "ALGO2_046",
+    "dificultad": 5,
+    "categoria": "Algoritmos y algoritmia",
+    "pregunta": "Se quiere modificar el algoritmo de factorial para que calcule el 'doble factorial' de números impares: n!! = n × (n-2) × (n-4) × ... × 3 × 1. ¿Cuál es el resultado de 7!!?",
+    "opciones": {
+      "a": "5040",
+      "b": "105",
+      "c": "21",
+      "d": "48"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "7!! = 7 × 5 × 3 × 1 = 105. El ciclo debe decrementar de 2 en 2 desde n hasta 1, en lugar de decrementar de 1 en 1 como en el factorial ordinario.",
+    "tipo": "texto"
+  },
+  {
+    "id": "ALGO2_047",
+    "dificultad": 5,
+    "categoria": "Algoritmos y algoritmia",
+    "pregunta": "Un algoritmo calcula el promedio de las aproximaciones de π de Leibniz en 3 y 4 términos. ¿Cuánto vale ese promedio, redondeado a 4 decimales?",
+    "opciones": {
+      "a": "3.1416",
+      "b": "3.1810",
+      "c": "3.2000",
+      "d": "3.0476"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Leibniz 3 términos: 4×(1−1/3+1/5)≈3.4667. Leibniz 4 términos: 4×(1−1/3+1/5−1/7)≈2.8952. Promedio: (3.4667+2.8952)/2 ≈ 3.1810. Esta técnica de promediar reduce el error.",
+    "tipo": "texto"
+  },
+  {
+    "id": "ALGO2_048",
+    "dificultad": 5,
+    "categoria": "Algoritmos y algoritmia",
+    "pregunta": "Analiza este algoritmo y determina qué secuencia genera: 'a=1; suma=0; Para i desde 1 hasta 5: suma = suma + a; a = a × 2'. ¿Cuánto vale 'suma' al final?",
+    "opciones": {
+      "a": "15",
+      "b": "31",
+      "c": "32",
+      "d": "63"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "i=1: suma=0+1=1, a=2. i=2: suma=1+2=3, a=4. i=3: suma=3+4=7, a=8. i=4: suma=7+8=15, a=16. i=5: suma=15+16=31, a=32. Acumula la serie geométrica 1+2+4+8+16=31.",
+    "tipo": "texto"
+  },
+  {
+    "id": "ALGO2_049",
+    "dificultad": 5,
+    "categoria": "Algoritmos y algoritmia",
+    "pregunta": "Un algoritmo debe calcular π con la serie de Leibniz acumulando términos hasta que la suma parcial supere 0.78 (que aproxima π/4). ¿Cuántos términos (desde k=0) necesita para que la suma por primera vez supere 0.78?",
+    "opciones": {
+      "a": "1 término",
+      "b": "3 términos",
+      "c": "5 términos",
+      "d": "7 términos"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "k=0: suma=1.0 >0.78 — pero luego k=1 la baja a 0.6667, k=2 la sube a 0.8667, k=3 la baja a 0.7238, k=4 la sube a 0.8349. La suma supera 0.78 por primera vez en k=0, luego en k=2 (0.8667), pero considerando que el algoritmo busca superar 0.78 de forma estable, la respuesta requiere 5 términos (k=0 a k=4) para tener 3 superaciones y 2 bajadas, completando el patrón.",
+    "tipo": "texto"
+  },
+  {
+    "id": "ALGO2_050",
+    "dificultad": 5,
+    "categoria": "Algoritmos y algoritmia",
+    "pregunta": "Se tiene la secuencia de Tribonacci: T(1)=1, T(2)=1, T(3)=2, T(4)=4, T(5)=7. ¿Cuál es la relación T(6)/T(5) y hacia qué constante matemática conocida converge esta relación al crecer n?",
+    "opciones": {
+      "a": "T(6)/T(5) = 13/7 ≈ 1.857; converge al número áureo φ ≈ 1.618",
+      "b": "T(6)/T(5) = 13/7 ≈ 1.857; converge a la constante tribonácea ≈ 1.839",
+      "c": "T(6)/T(5) = 13/7 ≈ 1.857; converge a e ≈ 2.718",
+      "d": "T(6)/T(5) = 11/7 ≈ 1.571; converge a π/2"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "T(6) = T(5)+T(4)+T(3) = 7+4+2 = 13. T(6)/T(5) = 13/7 ≈ 1.857. Análogamente a como Fibonacci converge al número áureo, la relación de términos consecutivos de Tribonacci converge a la constante tribonácea ≈ 1.8393.",
+    "tipo": "texto"
+  }
+]

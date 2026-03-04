@@ -1,0 +1,302 @@
+[
+  {
+    "id": "LANG_001",
+    "dificultad": 1,
+    "categoria": "Lenguajes de programación",
+    "pregunta": "¿Cuál de los siguientes es un ejemplo de lenguaje de programación de propósito general?",
+    "opciones": {
+      "a": "MongoDB",
+      "b": "SQL",
+      "c": "HTML",
+      "d": "Python"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "Python es un lenguaje de propósito general: puede usarse para ciencia de datos, web, automatización, etc. SQL es para bases de datos, HTML es para marcado web, y MongoDB es un sistema de bases de datos, no un lenguaje de programación.",
+    "tipo": "texto"
+  },
+  {
+    "id": "LANG_002",
+    "dificultad": 1,
+    "categoria": "Lenguajes de programación",
+    "pregunta": "¿Cuál de los siguientes lenguajes fue diseñado específicamente para consultar y manipular bases de datos?",
+    "opciones": {
+      "a": "Java",
+      "b": "Haskell",
+      "c": "C++",
+      "d": "SQL"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "SQL (Structured Query Language) fue diseñado específicamente para gestionar y consultar bases de datos relacionales. Java, C++ y Haskell son lenguajes de propósito general o funcional.",
+    "tipo": "texto"
+  },
+  {
+    "id": "LANG_003",
+    "dificultad": 1,
+    "categoria": "Lenguajes de programación",
+    "pregunta": "¿Cuál de las siguientes opciones describe mejor a HTML?",
+    "opciones": {
+      "a": "Un lenguaje de marcado para estructurar contenido web",
+      "b": "Un lenguaje de propósito general como Python",
+      "c": "Un lenguaje de consulta de bases de datos",
+      "d": "Un lenguaje de programación funcional"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "HTML (HyperText Markup Language) es un lenguaje de marcado, no de programación propiamente. Se usa para estructurar el contenido de páginas web, definiendo elementos como títulos, párrafos e imágenes.",
+    "tipo": "texto"
+  },
+  {
+    "id": "LANG_004",
+    "dificultad": 1,
+    "categoria": "Lenguajes de programación",
+    "pregunta": "¿Cuál de los siguientes lenguajes es identificado como lenguaje de programación funcional?",
+    "opciones": {
+      "a": "JavaScript",
+      "b": "Python",
+      "c": "SQL",
+      "d": "Haskell"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "Haskell (junto con Lisp) es un lenguaje de programación funcional puro: trata la computación como la evaluación de funciones matemáticas, evitando el estado mutable y los efectos secundarios.",
+    "tipo": "texto"
+  },
+  {
+    "id": "LANG_005",
+    "dificultad": 2,
+    "categoria": "Lenguajes de programación",
+    "pregunta": "Un ingeniero necesita analizar datos experimentales de un laboratorio usando modelos estadísticos. ¿Cuál lenguaje del material de clase es más adecuado para esta tarea?",
+    "opciones": {
+      "a": "HTML",
+      "b": "SQL",
+      "c": "R",
+      "d": "Haskell"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "R es un lenguaje especializado en ciencia de datos y análisis estadístico. Junto con Python y Matlab, está clasificado en el material como lenguaje para ciencia de datos, lo que lo hace ideal para analizar datos experimentales.",
+    "tipo": "texto"
+  },
+  {
+    "id": "LANG_006",
+    "dificultad": 2,
+    "categoria": "Lenguajes de programación",
+    "pregunta": "¿Cuál es la diferencia principal entre un lenguaje de propósito general y un lenguaje de dominio específico?",
+    "opciones": {
+      "a": "Los lenguajes de propósito general pueden aplicarse a una amplia variedad de problemas, mientras que los de dominio específico están optimizados para un área concreta",
+      "b": "Los lenguajes de dominio específico son siempre más modernos",
+      "c": "No hay diferencia real; todos los lenguajes pueden resolver cualquier problema igual de bien",
+      "d": "Los lenguajes de propósito general son siempre más lentos"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "Un lenguaje de propósito general como Python o Java puede usarse para casi cualquier tarea. Uno de dominio específico como SQL está optimizado para su área (bases de datos) y resulta más expresivo y eficiente en ese contexto, pero no sirve igual de bien fuera de él.",
+    "tipo": "texto"
+  },
+  {
+    "id": "LANG_007",
+    "dificultad": 2,
+    "categoria": "Lenguajes de programación",
+    "pregunta": "Un desarrollador quiere construir la interfaz visual de un sitio web: estructura, estilos y comportamiento interactivo. ¿Cuál combinación de tecnologías del material es la correcta para este trabajo?",
+    "opciones": {
+      "a": "Python, R y Matlab",
+      "b": "SQL, MongoDB y Haskell",
+      "c": "HTML, CSS y JavaScript",
+      "d": "Java, C++ y Lisp"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "Según el material, los lenguajes web son HTML (estructura), CSS (estilos) y JavaScript (comportamiento interactivo). Esta combinación es el estándar para construir interfaces web en el navegador.",
+    "tipo": "texto"
+  },
+  {
+    "id": "LANG_008",
+    "dificultad": 2,
+    "categoria": "Lenguajes de programación",
+    "pregunta": "En el material de clase, Python aparece clasificado en más de una categoría de lenguajes. ¿En cuáles dos categorías aparece?",
+    "opciones": {
+      "a": "Lenguajes web y lenguajes de bases de datos",
+      "b": "Lenguajes funcionales y lenguajes de bases de datos",
+      "c": "Lenguajes de propósito general y lenguajes de ciencia de datos",
+      "d": "Lenguajes de propósito general y lenguajes web"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "En el material, Python aparece tanto en la categoría de lenguajes de propósito general (junto con C++ y Java) como en la de ciencia de datos (junto con R y Matlab), reflejando su versatilidad.",
+    "tipo": "texto"
+  },
+  {
+    "id": "LANG_009",
+    "dificultad": 3,
+    "categoria": "Lenguajes de programación",
+    "pregunta": "Un equipo puede elegir entre SQL y MongoDB para almacenar datos de usuarios. ¿Cuál afirmación describe mejor la diferencia de paradigma entre ambos?",
+    "opciones": {
+      "a": "SQL es un lenguaje de consulta relacional estructurado; MongoDB es una base de datos NoSQL orientada a documentos con su propio lenguaje de consulta",
+      "b": "MongoDB es más antiguo que SQL y fue reemplazado por este",
+      "c": "SQL es para páginas web y MongoDB es para aplicaciones de escritorio",
+      "d": "SQL y MongoDB son idénticos; solo cambia la sintaxis"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "SQL trabaja con tablas relacionales y esquemas fijos. MongoDB almacena documentos flexibles (similar a JSON) sin esquema rígido. Ambos aparecen en el material como ejemplos de lenguajes/herramientas de bases de datos, pero representan paradigmas distintos.",
+    "tipo": "texto"
+  },
+  {
+    "id": "LANG_010",
+    "dificultad": 3,
+    "categoria": "Lenguajes de programación",
+    "pregunta": "¿Por qué Haskell y Lisp se clasifican como lenguajes funcionales y no de propósito general, si técnicamente también pueden resolver problemas generales?",
+    "opciones": {
+      "a": "Porque su paradigma central es la evaluación de funciones matemáticas, lo que los distingue en diseño y filosofía aunque puedan aplicarse a problemas generales",
+      "b": "Porque son lenguajes obsoletos que ya no se usan",
+      "c": "Porque no tienen ciclos ni variables, lo que los limita a un solo tipo de problema",
+      "d": "Porque Haskell y Lisp solo pueden resolver problemas matemáticos"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "La clasificación se basa en el paradigma de diseño, no en las limitaciones. Haskell y Lisp están construidos alrededor del paradigma funcional (funciones puras, inmutabilidad), lo que determina cómo se piensa y resuelve un problema con ellos.",
+    "tipo": "texto"
+  },
+  {
+    "id": "LANG_011",
+    "dificultad": 3,
+    "categoria": "Lenguajes de programación",
+    "pregunta": "Un estudiante afirma: 'JavaScript es solo para hacer páginas web bonitas, no es un lenguaje de programación real'. ¿Cuál argumento refuta mejor esta afirmación?",
+    "opciones": {
+      "a": "JavaScript es un lenguaje de programación completo con estructuras de control, funciones y manipulación de datos; su uso web es solo uno de sus dominios de aplicación",
+      "b": "JavaScript solo es válido dentro del navegador, por lo que la afirmación es parcialmente correcta",
+      "c": "La afirmación es correcta porque CSS hace el trabajo real en las páginas web",
+      "d": "Tiene razón; JavaScript no puede hacer operaciones matemáticas complejas"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "JavaScript es un lenguaje de programación completo: tiene variables, ciclos, funciones, manejo de estructuras de datos y hoy se usa también en servidores (Node.js). Clasificarlo solo como herramienta de estilos confunde su rol con el de CSS.",
+    "tipo": "texto"
+  },
+  {
+    "id": "LANG_012",
+    "dificultad": 3,
+    "categoria": "Lenguajes de programación",
+    "pregunta": "Un ingeniero químico trabaja con simulaciones numéricas complejas. Según el material, ¿qué lenguaje especializado en ciencia de datos y cálculo numérico podría usar además de Python y R?",
+    "opciones": {
+      "a": "HTML",
+      "b": "Lisp",
+      "c": "Matlab",
+      "d": "SQL"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "Matlab está clasificado en el material como lenguaje de ciencia de datos, especialmente orientado a cálculo numérico, simulaciones y procesamiento de matrices, lo que lo hace relevante para ingeniería química.",
+    "tipo": "texto"
+  },
+  {
+    "id": "LANG_013",
+    "dificultad": 4,
+    "categoria": "Lenguajes de programación",
+    "pregunta": "Un proyecto requiere: consultar una base de datos relacional, procesar estadísticamente los resultados y mostrarlos en una página web. ¿Qué combinación de lenguajes del material cubre correctamente los tres requerimientos?",
+    "opciones": {
+      "a": "MongoDB, Matlab y CSS",
+      "b": "Java, C++ y SQL para los tres requerimientos simultáneamente",
+      "c": "Haskell, Lisp y HTML",
+      "d": "SQL (consulta), R o Python (análisis), JavaScript/HTML (visualización web)"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "Cada requerimiento tiene su herramienta: SQL para consultar bases de datos relacionales, R o Python para el análisis estadístico, y JavaScript/HTML para mostrar resultados en la web. Esta separación de responsabilidades por lenguaje es una práctica real en proyectos de ingeniería.",
+    "tipo": "texto"
+  },
+  {
+    "id": "LANG_014",
+    "dificultad": 4,
+    "categoria": "Lenguajes de programación",
+    "pregunta": "¿Por qué aprender un lenguaje de propósito general como Python es más estratégico para un ingeniero de primer semestre que aprender únicamente SQL o HTML?",
+    "opciones": {
+      "a": "Porque SQL y HTML no son lenguajes reales de programación",
+      "b": "Porque Python es el único lenguaje que funciona en todas las computadoras",
+      "c": "Porque Python es más fácil de escribir que SQL",
+      "d": "Porque Python permite resolver una gama más amplia de problemas (cálculo, datos, automatización, web), mientras que SQL y HTML son herramientas especializadas con alcance más limitado"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "Un lenguaje de propósito general ofrece mayor transferibilidad de conocimiento: las estructuras de control, funciones y algoritmia aprendidos en Python aplican a muchos dominios. SQL y HTML, aunque valiosos, tienen un campo de aplicación más acotado.",
+    "tipo": "texto"
+  },
+  {
+    "id": "LANG_015",
+    "dificultad": 4,
+    "categoria": "Lenguajes de programación",
+    "pregunta": "Un estudiante observa que C++ y Java están clasificados como lenguajes de propósito general, igual que Python. Sin embargo, los tres tienen diferencias importantes. ¿Cuál afirmación describe mejor una diferencia relevante para un primer semestre?",
+    "opciones": {
+      "a": "C++, Java y Python son idénticos; solo cambia la sintaxis superficialmente",
+      "b": "C++ y Java son lenguajes compilados con tipado estático, más cercanos al hardware; Python es interpretado con tipado dinámico, más legible para principiantes",
+      "c": "Java es exclusivo para aplicaciones móviles y C++ para videojuegos solamente",
+      "d": "Python es más lento que C++ y Java en todos los casos, por lo que no debería usarse en ingeniería"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Aunque los tres son de propósito general, tienen diferencias de paradigma y uso: C++ y Java requieren declarar tipos de variables y compilarse antes de ejecutarse, siendo más estrictos. Python es interpretado y de tipado dinámico, lo que lo hace más accesible para aprender algoritmia básica.",
+    "tipo": "texto"
+  },
+  {
+    "id": "LANG_016",
+    "dificultad": 4,
+    "categoria": "Lenguajes de programación",
+    "pregunta": "El material muestra lenguajes clasificados por categorías. ¿Qué limitación tiene esta clasificación en la práctica real del desarrollo de software?",
+    "opciones": {
+      "a": "Ninguna; la clasificación es perfecta y definitiva",
+      "b": "Los lenguajes reales no siempre caben en una sola categoría: Python sirve para propósito general, ciencia de datos y web simultáneamente; JavaScript sirve para web y también como lenguaje de servidor",
+      "c": "La clasificación es inútil porque todos los lenguajes hacen lo mismo",
+      "d": "La limitación es que solo aplica a lenguajes modernos, no a los históricos como C"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "La clasificación por categorías es una simplificación pedagógica útil, pero en la práctica los lenguajes modernos son versátiles y cruzan categorías. Python aparece en el propio material en dos categorías. Reconocer esta limitación es parte del pensamiento crítico en ingeniería.",
+    "tipo": "texto"
+  },
+  {
+    "id": "LANG_017",
+    "dificultad": 5,
+    "categoria": "Lenguajes de programación",
+    "pregunta": "El material clasifica R y Matlab como lenguajes de ciencia de datos, pero Python también aparece en esa categoría y además en propósito general. ¿Qué conclusión técnica se puede extraer sobre Python como elección para un ingeniero?",
+    "opciones": {
+      "a": "Python es inferior porque no tiene una categoría propia clara",
+      "b": "Python es superior porque puede reemplazar R y Matlab completamente en cualquier contexto",
+      "c": "Python ofrece una ventaja de transferibilidad única: las habilidades aprendidas para ciencia de datos son directamente aplicables a otros dominios, reduciendo el número de lenguajes que un ingeniero necesita dominar",
+      "d": "Que R y Matlab son más especializados y por tanto siempre mejores que Python para ciencia de datos"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "Que Python aparezca en dos categorías refleja su capacidad de transferibilidad. Un ingeniero que aprende Python para ciencia de datos no necesita aprender un lenguaje completamente distinto para automatización o desarrollo web, reduciendo la curva de aprendizaje total.",
+    "tipo": "texto"
+  },
+  {
+    "id": "LANG_018",
+    "dificultad": 5,
+    "categoria": "Lenguajes de programación",
+    "pregunta": "Analiza la evolución histórica del material: Fortran (1954, ciencia/ingeniería), C (1972, sistemas), Python (1991, propósito general). ¿Qué tendencia describe mejor esta progresión?",
+    "opciones": {
+      "a": "Los lenguajes se han vuelto progresivamente más cercanos al hardware con el tiempo",
+      "b": "Los lenguajes han evolucionado de especializados y cercanos al hardware hacia más abstractos, legibles y de mayor propósito general, democratizando la programación",
+      "c": "Fortran, C y Python son equivalentes en abstracción; solo cambia la época de creación",
+      "d": "La tendencia es irrelevante porque los lenguajes modernos ya no se relacionan con los históricos"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Fortran fue diseñado para cómputo científico específico. C, aunque más general, es cercano al hardware. Python es de alto nivel, legible y de propósito general. La tendencia es de menor a mayor abstracción, permitiendo que más personas programen sin conocer detalles de hardware.",
+    "tipo": "texto"
+  },
+  {
+    "id": "LANG_019",
+    "dificultad": 5,
+    "categoria": "Lenguajes de programación",
+    "pregunta": "Si el paradigma funcional (Haskell, Lisp) trata la computación como evaluación de funciones matemáticas sin estado mutable, ¿en qué tipo de problema de ingeniería tendría una ventaja conceptual sobre un lenguaje imperativo como C++ o Java?",
+    "opciones": {
+      "a": "En problemas que requieren controlar directamente el hardware",
+      "b": "En problemas donde la corrección matemática es crítica y los efectos secundarios indeseables, como transformaciones de datos científicos o verificación formal de algoritmos",
+      "c": "En el desarrollo de interfaces gráficas de usuario",
+      "d": "En el desarrollo de sistemas operativos y controladores de dispositivos"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "El paradigma funcional garantiza que las funciones no tienen efectos secundarios (dado el mismo input, siempre el mismo output). Esto es valioso en transformaciones matemáticas, cálculo científico y verificación formal, donde la reproducibilidad y corrección son críticas.",
+    "tipo": "texto"
+  },
+  {
+    "id": "LANG_020",
+    "dificultad": 5,
+    "categoria": "Lenguajes de programación",
+    "pregunta": "Un equipo debate si aprender primero un lenguaje de dominio específico (SQL) o uno de propósito general (Python). Desde la perspectiva de la algoritmia y el pensamiento computacional que se estudia en este curso, ¿cuál argumento es más sólido para comenzar con propósito general?",
+    "opciones": {
+      "a": "Porque SQL es muy difícil y debe dejarse para semestres avanzados",
+      "b": "Porque los lenguajes de propósito general exponen estructuras algorítmicas fundamentales (ciclos, condicionales, funciones) que son transferibles a cualquier otro lenguaje o dominio posterior",
+      "c": "Porque SQL no es un lenguaje real y no tiene utilidad práctica",
+      "d": "Porque los lenguajes de dominio específico no usan algoritmos"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Los lenguajes de propósito general enseñan los fundamentos del pensamiento algorítmico: variables, control de flujo, funciones, estructuras de datos. Este conocimiento es portable a cualquier otro lenguaje o dominio. Empezar con SQL limita el aprendizaje a un dominio específico sin construir esa base general.",
+    "tipo": "texto"
+  }
+]

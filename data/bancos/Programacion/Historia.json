@@ -1,0 +1,752 @@
+[
+  {
+    "id": "HIST_001",
+    "dificultad": 1,
+    "categoria": "Historia de la computación",
+    "pregunta": "¿Quién escribió el primer algoritmo de la historia, siendo considerada la primera programadora?",
+    "opciones": {
+      "a": "Charles Babbage",
+      "b": "Grace Hopper",
+      "c": "Alan Turing",
+      "d": "Ada Lovelace"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "Ada Lovelace escribió en 1843 el primer algoritmo diseñado para ser procesado por una máquina, razón por la que es considerada la primera programadora de la historia.",
+    "tipo": "texto"
+  },
+  {
+    "id": "HIST_002",
+    "dificultad": 1,
+    "categoria": "Historia de la computación",
+    "pregunta": "¿En qué año Alan Turing presentó las bases teóricas de la computación moderna?",
+    "opciones": {
+      "a": "1843",
+      "b": "1951",
+      "c": "1941",
+      "d": "1936"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "En 1936, Alan Turing presentó la Máquina de Turing, un modelo matemático que sentó las bases teóricas de toda la computación moderna.",
+    "tipo": "texto"
+  },
+  {
+    "id": "HIST_003",
+    "dificultad": 1,
+    "categoria": "Historia de la computación",
+    "pregunta": "¿Cómo se llama la primera computadora programable del mundo, construida en 1941?",
+    "opciones": {
+      "a": "IBM 360",
+      "b": "ENIAC",
+      "c": "Harvard Mark I",
+      "d": "Z3"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "La Z3 fue construida por Konrad Zuse en 1941 y es considerada la primera computadora programable del mundo.",
+    "tipo": "texto"
+  },
+  {
+    "id": "HIST_004",
+    "dificultad": 1,
+    "categoria": "Historia de la computación",
+    "pregunta": "¿Quién desarrolló el primer compilador en 1951, dando origen a los lenguajes de alto nivel?",
+    "opciones": {
+      "a": "Grace Hopper",
+      "b": "John Backus",
+      "c": "Dennis Ritchie",
+      "d": "Ada Lovelace"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "Grace Hopper desarrolló el primer compilador en 1951, lo que permitió escribir programas en lenguajes más cercanos al lenguaje humano en lugar de código máquina.",
+    "tipo": "texto"
+  },
+  {
+    "id": "HIST_005",
+    "dificultad": 1,
+    "categoria": "Historia de la computación",
+    "pregunta": "¿Cuál fue el primer lenguaje de programación de alto nivel ampliamente utilizado?",
+    "opciones": {
+      "a": "C",
+      "b": "COBOL",
+      "c": "Python",
+      "d": "Fortran"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "Fortran fue creado por John Backus en 1954 y es reconocido como el primer lenguaje de programación de alto nivel ampliamente utilizado en la historia.",
+    "tipo": "texto"
+  },
+  {
+    "id": "HIST_006",
+    "dificultad": 1,
+    "categoria": "Historia de la computación",
+    "pregunta": "¿Quién construyó la primera computadora programable del mundo, la Z3?",
+    "opciones": {
+      "a": "Konrad Zuse",
+      "b": "Grace Hopper",
+      "c": "John Backus",
+      "d": "Alan Turing"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "Konrad Zuse construyó la Z3 en 1941, siendo esta la primera computadora programable del mundo.",
+    "tipo": "texto"
+  },
+  {
+    "id": "HIST_007",
+    "dificultad": 1,
+    "categoria": "Historia de la computación",
+    "pregunta": "¿Qué diseñó Charles Babbage en 1822, considerado un precursor de las computadoras modernas?",
+    "opciones": {
+      "a": "La máquina de Turing",
+      "b": "El ENIAC",
+      "c": "La Difference Engine",
+      "d": "El Harvard Mark I"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "Charles Babbage diseñó la Difference Engine en 1822, una calculadora mecánica automática para tabular funciones polinómicas, considerada un precursor de las computadoras modernas.",
+    "tipo": "texto"
+  },
+  {
+    "id": "HIST_008",
+    "dificultad": 1,
+    "categoria": "Historia de la computación",
+    "pregunta": "¿Quién creó el lenguaje de programación C en 1972?",
+    "opciones": {
+      "a": "Linus Torvalds",
+      "b": "Alan Turing",
+      "c": "John Backus",
+      "d": "Dennis Ritchie"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "Dennis Ritchie creó el lenguaje C en 1972, el cual sentó las bases para el desarrollo de sistemas operativos y muchos otros lenguajes de programación modernos.",
+    "tipo": "texto"
+  },
+  {
+    "id": "HIST_009",
+    "dificultad": 1,
+    "categoria": "Historia de la computación",
+    "pregunta": "¿En qué año Linus Torvalds lanzó el kernel de Linux?",
+    "opciones": {
+      "a": "1983",
+      "b": "2004",
+      "c": "1991",
+      "d": "1972"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "Linus Torvalds lanzó el kernel de Linux en 1991, impulsando el desarrollo del software de código abierto.",
+    "tipo": "texto"
+  },
+  {
+    "id": "HIST_010",
+    "dificultad": 1,
+    "categoria": "Historia de la computación",
+    "pregunta": "¿Qué fue ENIAC, desarrollado en 1945?",
+    "opciones": {
+      "a": "La primera computadora electrónica digital de propósito general programable",
+      "b": "El primer lenguaje de programación de alto nivel",
+      "c": "La primera calculadora mecánica automática",
+      "d": "El primer sistema operativo de código abierto"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "ENIAC (1945) fue la primera computadora electrónica digital de propósito general programable, capaz de realizar 5,000 sumas por segundo.",
+    "tipo": "texto"
+  },
+  {
+    "id": "HIST_011",
+    "dificultad": 2,
+    "categoria": "Historia de la computación",
+    "pregunta": "Ada Lovelace escribió el primer algoritmo en 1843. ¿Para qué tipo de máquina fue diseñado ese algoritmo?",
+    "opciones": {
+      "a": "Para ser procesado por una máquina mecánica",
+      "b": "Para un sistema operativo",
+      "c": "Para una calculadora de bolsillo electrónica",
+      "d": "Para una computadora electrónica moderna"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "El algoritmo de Ada Lovelace fue diseñado para la Analytical Engine de Babbage, una máquina mecánica de su época, mucho antes de que existieran computadoras electrónicas.",
+    "tipo": "texto"
+  },
+  {
+    "id": "HIST_012",
+    "dificultad": 2,
+    "categoria": "Historia de la computación",
+    "pregunta": "ENIAC podía realizar 5,000 sumas por segundo. ¿Cuántas veces más rápida era que las computadoras electromecánicas de su época?",
+    "opciones": {
+      "a": "100 veces más rápida",
+      "b": "500 veces más rápida",
+      "c": "1,000 veces más rápida",
+      "d": "50 veces más rápida"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "ENIAC era 1,000 veces más rápida que las computadoras electromecánicas de su época, gracias a su tecnología de tubos de vacío en lugar de partes mecánicas móviles.",
+    "tipo": "texto"
+  },
+  {
+    "id": "HIST_013",
+    "dificultad": 2,
+    "categoria": "Historia de la computación",
+    "pregunta": "La Ley de Moore (1965) predijo que el número de transistores en un chip se duplicaría cada cierto tiempo. ¿Cada cuánto tiempo?",
+    "opciones": {
+      "a": "Cada dos años",
+      "b": "Cada cinco años",
+      "c": "Cada diez años",
+      "d": "Cada año"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "La Ley de Moore (1965) predijo que el número de transistores en un chip se duplicaría aproximadamente cada dos años, describiendo el crecimiento exponencial de la potencia de cómputo.",
+    "tipo": "texto"
+  },
+  {
+    "id": "HIST_014",
+    "dificultad": 2,
+    "categoria": "Historia de la computación",
+    "pregunta": "El lenguaje COBOL se convirtió en estándar en 1965. ¿Para qué tipo de aplicaciones fue diseñado principalmente?",
+    "opciones": {
+      "a": "Aplicaciones científicas y de ingeniería",
+      "b": "Sistemas operativos y control de hardware",
+      "c": "Aplicaciones comerciales",
+      "d": "Inteligencia artificial y aprendizaje automático"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "COBOL fue diseñado principalmente para aplicaciones comerciales, convirtiéndose en el estándar para el procesamiento de datos en bancos, empresas y gobierno.",
+    "tipo": "texto"
+  },
+  {
+    "id": "HIST_015",
+    "dificultad": 2,
+    "categoria": "Historia de la computación",
+    "pregunta": "¿Qué evento en 1983 marcó el verdadero inicio de Internet tal como lo conocemos hoy?",
+    "opciones": {
+      "a": "El lanzamiento de Facebook",
+      "b": "La creación del lenguaje Python",
+      "c": "La transición de ARPANET al protocolo TCP/IP",
+      "d": "El lanzamiento del kernel de Linux"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "En 1983, ARPANET adoptó el protocolo TCP/IP, lo que permitió conectar redes diferentes entre sí y sentó las bases de Internet tal como la conocemos actualmente.",
+    "tipo": "texto"
+  },
+  {
+    "id": "HIST_016",
+    "dificultad": 2,
+    "categoria": "Historia de la computación",
+    "pregunta": "El Harvard Mark I (1944) fue la primera máquina de procesamiento de información a gran escala de IBM. ¿Qué tipo de tecnología usaba?",
+    "opciones": {
+      "a": "Tecnología electromecánica",
+      "b": "Tubos de vacío",
+      "c": "Circuitos integrados",
+      "d": "Transistores de silicio"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "El Harvard Mark I usaba tecnología electromecánica, con 765,000 ruedas y 500 millas de cable. Esto lo hacía más lento que ENIAC, que usaba tubos de vacío.",
+    "tipo": "texto"
+  },
+  {
+    "id": "HIST_017",
+    "dificultad": 2,
+    "categoria": "Historia de la computación",
+    "pregunta": "La 'Carrera de la Frecuencia' describe el período entre 1975 y 2000. ¿Cuál fue el rango de aumento en velocidad de los procesadores durante ese período?",
+    "opciones": {
+      "a": "De 1 Hz a 1 kHz",
+      "b": "De 1 GHz a 1 THz",
+      "c": "De 1 MHz a 1 GHz",
+      "d": "De 1 kHz a 100 MHz"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "La Carrera de la Frecuencia (1975-2000) llevó a los procesadores de 1 MHz a 1 GHz, un aumento de 1,000 veces en velocidad de reloj en solo 25 años.",
+    "tipo": "texto"
+  },
+  {
+    "id": "HIST_018",
+    "dificultad": 2,
+    "categoria": "Historia de la computación",
+    "pregunta": "El IBM System/360 ejecutaba 1 MIPS (millón de instrucciones por segundo). Si una tarea requiere procesar 4 millones de instrucciones, ¿cuántos segundos tardará en completarse?",
+    "opciones": {
+      "a": "1 segundo",
+      "b": "2 segundos",
+      "c": "4 segundos",
+      "d": "8 segundos"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "Si el IBM System/360 procesa 1 millón de instrucciones por segundo y la tarea tiene 4 millones de instrucciones, tardará 4 millones / 1 millón = 4 segundos.",
+    "tipo": "texto"
+  },
+  {
+    "id": "HIST_019",
+    "dificultad": 2,
+    "categoria": "Historia de la computación",
+    "pregunta": "¿Por qué se considera que Grace Hopper hizo una contribución fundamental al desarrollo del software con su compilador de 1951?",
+    "opciones": {
+      "a": "Porque permitió escribir programas en lenguajes más cercanos al humano, en lugar de código máquina",
+      "b": "Porque el compilador aceleró el hardware directamente",
+      "c": "Porque creó la primera red de computadoras del mundo",
+      "d": "Porque el compilador hizo las computadoras más pequeñas"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "El compilador de Hopper fue fundamental porque tradujo instrucciones en lenguaje de alto nivel a código máquina, haciendo la programación más accesible y menos propensa a errores.",
+    "tipo": "texto"
+  },
+  {
+    "id": "HIST_020",
+    "dificultad": 2,
+    "categoria": "Historia de la computación",
+    "pregunta": "¿Cuál fue el hito tecnológico que marcó el año 2004 en la historia de la computación y la tecnología social?",
+    "opciones": {
+      "a": "El lanzamiento del kernel de Linux",
+      "b": "La transición de ARPANET a TCP/IP",
+      "c": "La creación del lenguaje de programación C",
+      "d": "El lanzamiento de Facebook por Mark Zuckerberg"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "En 2004, Mark Zuckerberg lanzó Facebook, marcando el inicio de la era de las redes sociales y las aplicaciones web interactivas a gran escala.",
+    "tipo": "texto"
+  },
+  {
+    "id": "HIST_021",
+    "dificultad": 3,
+    "categoria": "Historia de la computación",
+    "pregunta": "Compara ENIAC (1945) y el Harvard Mark I (1944). ¿Cuál es la diferencia tecnológica más importante entre ambas máquinas?",
+    "opciones": {
+      "a": "ENIAC usaba tarjetas perforadas; Harvard Mark I usaba transistores",
+      "b": "ENIAC era electromecánica; Harvard Mark I era electrónica de tubos de vacío",
+      "c": "ENIAC era electrónica de tubos de vacío; Harvard Mark I era electromecánica",
+      "d": "Ambas usaban la misma tecnología pero con diferente cantidad de componentes"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "La diferencia clave es tecnológica: ENIAC usaba tubos de vacío (tecnología electrónica), lo que la hacía 1,000 veces más rápida que el Harvard Mark I, que era electromecánica con partes físicas móviles.",
+    "tipo": "texto"
+  },
+  {
+    "id": "HIST_022",
+    "dificultad": 3,
+    "categoria": "Historia de la computación",
+    "pregunta": "La máquina de Turing (1936) y la Z3 (1941) son hitos distintos. ¿Cuál es la diferencia más importante entre ambas?",
+    "opciones": {
+      "a": "La máquina de Turing era un modelo matemático teórico; la Z3 era una computadora física real",
+      "b": "Ambas eran teóricas y ninguna fue construida en su época",
+      "c": "La Z3 precedió a la máquina de Turing en el tiempo",
+      "d": "La Z3 era un modelo teórico; la máquina de Turing era física y construida"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "La máquina de Turing era un modelo matemático abstracto, no una máquina física construida. La Z3, en cambio, fue una computadora física real construida por Konrad Zuse en 1941.",
+    "tipo": "texto"
+  },
+  {
+    "id": "HIST_023",
+    "dificultad": 3,
+    "categoria": "Historia de la computación",
+    "pregunta": "Según la Ley de Moore, los transistores se duplican cada dos años. Si en 1965 un chip tenía 50 transistores, ¿cuántos tendría en 1969?",
+    "opciones": {
+      "a": "100 transistores",
+      "b": "150 transistores",
+      "c": "200 transistores",
+      "d": "400 transistores"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "De 1965 a 1969 pasan 4 años, lo que equivale a 2 períodos de duplicación. 50 × 2 = 100 en 1967, y 100 × 2 = 200 en 1969.",
+    "tipo": "texto"
+  },
+  {
+    "id": "HIST_024",
+    "dificultad": 3,
+    "categoria": "Historia de la computación",
+    "pregunta": "Ordena cronológicamente estos hitos: (1) ENIAC, (2) Máquina de Turing, (3) Z3, (4) Primer compilador de Hopper.",
+    "opciones": {
+      "a": "2, 3, 1, 4",
+      "b": "1, 2, 3, 4",
+      "c": "3, 2, 1, 4",
+      "d": "2, 1, 3, 4"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "El orden correcto es: Máquina de Turing (1936), Z3 (1941), ENIAC (1945), primer compilador de Hopper (1951).",
+    "tipo": "texto"
+  },
+  {
+    "id": "HIST_025",
+    "dificultad": 3,
+    "categoria": "Historia de la computación",
+    "pregunta": "La Difference Engine de Babbage (1822) y ENIAC (1945) representan dos eras tecnológicas distintas. ¿Cuál es la diferencia fundamental entre ambas?",
+    "opciones": {
+      "a": "Una es mecánica y la otra es electrónica",
+      "b": "Una usa transistores y la otra usa tubos de vacío",
+      "c": "Ambas son equivalentes tecnológicamente pero de diferente tamaño",
+      "d": "Una es de propósito general y la otra es solo una calculadora"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "La Difference Engine era completamente mecánica (ruedas y engranajes), mientras que ENIAC era electrónica (tubos de vacío). Esta diferencia explica la enorme brecha en velocidad y capacidad entre ambas.",
+    "tipo": "texto"
+  },
+  {
+    "id": "HIST_026",
+    "dificultad": 3,
+    "categoria": "Historia de la computación",
+    "pregunta": "Ada Lovelace (1843) y Grace Hopper (1951) son pioneras de la computación. ¿Qué tienen en común sus contribuciones más importantes?",
+    "opciones": {
+      "a": "Ambas construyeron computadoras físicas que funcionaron",
+      "b": "Ambas trabajaron en el mismo proyecto durante la Segunda Guerra Mundial",
+      "c": "Ambas diseñaron hardware avanzado para su época",
+      "d": "Ambas trabajaron en aspectos relacionados con programación y algoritmos"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "Lovelace creó el primer algoritmo y Hopper el primer compilador. Ambas contribuyeron al lado de la programación y el software, no al diseño de hardware.",
+    "tipo": "texto"
+  },
+  {
+    "id": "HIST_027",
+    "dificultad": 3,
+    "categoria": "Historia de la computación",
+    "pregunta": "El lenguaje C (1972) y Fortran (1954) son lenguajes históricos importantes. ¿Cuál describe mejor la diferencia en su propósito de diseño?",
+    "opciones": {
+      "a": "Fortran fue diseñado para ciencia e ingeniería; C para sistemas operativos y software de bajo nivel",
+      "b": "C fue diseñado para ciencia e ingeniería; Fortran para sistemas operativos",
+      "c": "Ambos fueron diseñados para exactamente el mismo propósito",
+      "d": "Fortran es más moderno que C y lo reemplazó"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "Fortran (1954) fue creado por Backus para aplicaciones científicas y de ingeniería. C (1972) fue creado por Ritchie para desarrollar sistemas operativos como UNIX, siendo más cercano al hardware.",
+    "tipo": "texto"
+  },
+  {
+    "id": "HIST_028",
+    "dificultad": 3,
+    "categoria": "Historia de la computación",
+    "pregunta": "¿Por qué la transición de ARPANET a TCP/IP en 1983 fue un hito más significativo que la creación de ARPANET misma?",
+    "opciones": {
+      "a": "Porque TCP/IP era más lento pero más seguro que el protocolo anterior",
+      "b": "Porque ARPANET nunca funcionó correctamente antes de TCP/IP",
+      "c": "Porque TCP/IP permitió conectar redes diferentes entre sí, creando una red verdaderamente global",
+      "d": "Porque TCP/IP eliminó la necesidad de computadoras centrales"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "TCP/IP fue clave porque permitió que redes diferentes pudieran comunicarse entre sí (interoperabilidad). ARPANET conectaba nodos específicos; TCP/IP creó el estándar para conectar cualquier red con cualquier otra.",
+    "tipo": "texto"
+  },
+  {
+    "id": "HIST_029",
+    "dificultad": 3,
+    "categoria": "Historia de la computación",
+    "pregunta": "La Carrera de la Frecuencia (1975-2000) llevó los procesadores de 1 MHz a 1 GHz en 25 años. ¿Cuántas veces aumentó la frecuencia durante ese período?",
+    "opciones": {
+      "a": "100 veces",
+      "b": "10,000 veces",
+      "c": "25 veces",
+      "d": "1,000 veces"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "1 GHz equivale a 1,000 MHz. Si se partió de 1 MHz y se llegó a 1,000 MHz (1 GHz), el aumento fue de 1,000 veces en 25 años.",
+    "tipo": "texto"
+  },
+  {
+    "id": "HIST_030",
+    "dificultad": 3,
+    "categoria": "Historia de la computación",
+    "pregunta": "Compara el impacto de Linux (1991) y Facebook (2004) en la historia de la computación. ¿Cuál afirmación describe mejor su diferencia?",
+    "opciones": {
+      "a": "Linux fue más importante para usuarios finales no técnicos que Facebook",
+      "b": "Ambos tuvieron exactamente el mismo tipo de impacto tecnológico",
+      "c": "Facebook tuvo mayor impacto técnico en infraestructura que Linux",
+      "d": "Linux impactó la infraestructura de software de código abierto; Facebook impactó la interacción social y la web"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "Linux transformó la infraestructura de software a nivel de sistemas operativos y código abierto. Facebook, en cambio, representó un hito en la interacción social en línea y el desarrollo de aplicaciones web interactivas a escala masiva.",
+    "tipo": "texto"
+  },
+  {
+    "id": "HIST_031",
+    "dificultad": 4,
+    "categoria": "Historia de la computación",
+    "pregunta": "Un estudiante afirma: 'La Ley de Moore garantiza que las computadoras serán infinitamente rápidas en el futuro'. ¿Por qué esta afirmación es incorrecta?",
+    "opciones": {
+      "a": "Porque la Ley de Moore predice crecimiento lineal, no exponencial",
+      "b": "Porque Moore dijo que los transistores disminuirían con el tiempo",
+      "c": "Porque la duplicación de transistores tiene límites físicos y la ley es una observación empírica, no una garantía perpetua",
+      "d": "Porque la velocidad de los procesadores depende únicamente del software"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "La Ley de Moore es una observación empírica, no una ley física. Los transistores no pueden reducirse indefinidamente: existen límites físicos a escala atómica. Por eso la industria ha tenido que buscar alternativas como el procesamiento en paralelo.",
+    "tipo": "texto"
+  },
+  {
+    "id": "HIST_032",
+    "dificultad": 4,
+    "categoria": "Historia de la computación",
+    "pregunta": "Si ENIAC realizaba 5,000 sumas por segundo en 1945 y un procesador moderno realiza 3,000 millones de operaciones por segundo, ¿cuántas veces más rápido es el procesador moderno?",
+    "opciones": {
+      "a": "6,000 veces más rápido",
+      "b": "60,000 veces más rápido",
+      "c": "600,000 veces más rápido",
+      "d": "6,000,000 veces más rápido"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "3,000,000,000 operaciones/segundo ÷ 5,000 operaciones/segundo = 600,000 veces más rápido. Esto ilustra el impacto acumulado de la Ley de Moore a lo largo de décadas.",
+    "tipo": "texto"
+  },
+  {
+    "id": "HIST_033",
+    "dificultad": 4,
+    "categoria": "Historia de la computación",
+    "pregunta": "Un programador en 1955 elige programar en lenguaje ensamblador en lugar de esperar la adopción del compilador de Hopper. ¿Cuál es la principal desventaja práctica de esta decisión?",
+    "opciones": {
+      "a": "El lenguaje ensamblador no puede resolver problemas matemáticos complejos",
+      "b": "No hay desventaja real; el lenguaje ensamblador es más poderoso en todos los aspectos",
+      "c": "El lenguaje ensamblador ejecuta los programas más lentamente",
+      "d": "El lenguaje ensamblador requiere instrucciones de bajo nivel, lo que dificulta la escritura, es más propenso a errores y hace el código difícil de portar a otras máquinas"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "Programar en ensamblador significa escribir instrucciones muy cercanas al hardware, lo que es laborioso, propenso a errores y difícil de mantener o adaptar a diferentes máquinas. El compilador de Hopper resolvió exactamente este problema.",
+    "tipo": "texto"
+  },
+  {
+    "id": "HIST_034",
+    "dificultad": 4,
+    "categoria": "Historia de la computación",
+    "pregunta": "Analiza la progresión: Babbage (1822) → Lovelace (1843) → Turing (1936) → Z3 (1941) → ENIAC (1945) → Hopper (1951) → Fortran (1954). ¿Qué patrón describe mejor esta secuencia histórica?",
+    "opciones": {
+      "a": "Una evolución aleatoria sin patrón definido entre hitos",
+      "b": "Solo evolución de software; el hardware no cambió significativamente",
+      "c": "Solo evolución de hardware, ignorando completamente el software",
+      "d": "Evolución de hardware a software, de lo mecánico a lo electrónico, y de la teoría a la aplicación práctica"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "La secuencia muestra múltiples capas de evolución simultánea: mecánico → electromecánico → electrónico (hardware), y algoritmo → teoría formal → lenguajes de alto nivel (software). Hardware y software evolucionaron de forma interdependiente.",
+    "tipo": "texto"
+  },
+  {
+    "id": "HIST_035",
+    "dificultad": 4,
+    "categoria": "Historia de la computación",
+    "pregunta": "Dennis Ritchie creó el lenguaje C en 1972 para desarrollar UNIX. ¿Por qué esto fue estratégicamente importante para el desarrollo de lenguajes como Python, Java y C++?",
+    "opciones": {
+      "a": "Porque Python, Java y C++ son versiones renombradas del lenguaje C",
+      "b": "Porque C estableció conceptos y sintaxis que influyeron directamente en el diseño de lenguajes posteriores",
+      "c": "Porque sin C, las redes de computadoras no habrían podido desarrollarse",
+      "d": "Porque C es el único lenguaje que las computadoras pueden entender directamente"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "C no es el padre directo de esos lenguajes en términos de herencia de código, pero su estructura, sintaxis y filosofía de diseño influyeron profundamente en C++, Java y, de forma indirecta, en Python. Estableció convenciones que se convirtieron en estándar.",
+    "tipo": "texto"
+  },
+  {
+    "id": "HIST_036",
+    "dificultad": 4,
+    "categoria": "Historia de la computación",
+    "pregunta": "Un ingeniero en 1964 necesita procesar una tarea que requiere 2 millones de instrucciones cada segundo de forma continua. El IBM System/360 Modelo 75 ejecuta 1 MIPS. ¿Qué conclusión técnica es correcta?",
+    "opciones": {
+      "a": "El System/360 puede hacerlo, completando 2 millones de instrucciones en 1 segundo",
+      "b": "El System/360 no puede cumplir el requisito con un solo equipo; necesitaría al menos dos trabajando en paralelo",
+      "c": "El System/360 puede hacerlo porque 1 MIPS es suficiente para cualquier tarea",
+      "d": "No es posible determinarlo con la información dada"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Si se necesitan 2 millones de instrucciones por segundo de forma continua y el sistema ejecuta 1 millón por segundo (1 MIPS), la capacidad es insuficiente. Se necesitarían al menos dos unidades en paralelo para cumplir el requerimiento.",
+    "tipo": "texto"
+  },
+  {
+    "id": "HIST_037",
+    "dificultad": 4,
+    "categoria": "Historia de la computación",
+    "pregunta": "El Harvard Mark I tenía 765,000 ruedas y 500 millas de cable. ¿Qué tipo de problemas prácticos de ingeniería generaría este diseño en comparación con computadoras electrónicas posteriores?",
+    "opciones": {
+      "a": "Ninguno; era igualmente eficiente que las máquinas electrónicas",
+      "b": "Mayor consumo de energía, alta probabilidad de fallos mecánicos por desgaste, y velocidad muy inferior",
+      "c": "Solo problemas de programación, no de hardware",
+      "d": "Solo problemas de tamaño físico, sin impacto en el rendimiento o la confiabilidad"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Las partes mecánicas móviles tienen desgaste físico, mayor probabilidad de fallo, requieren mantenimiento constante y son inherentemente más lentas que los componentes electrónicos sin partes móviles.",
+    "tipo": "texto"
+  },
+  {
+    "id": "HIST_038",
+    "dificultad": 4,
+    "categoria": "Historia de la computación",
+    "pregunta": "La Carrera de la Frecuencia llevó los procesadores de 1 MHz a 1 GHz entre 1975 y 2000. Si este ritmo de crecimiento hubiera continuado otros 25 años (hasta 2025), ¿qué frecuencia teórica tendrían los procesadores hoy?",
+    "opciones": {
+      "a": "1 THz (1,000 GHz)",
+      "b": "100 GHz",
+      "c": "10 GHz",
+      "d": "10 THz"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "Si en 25 años la frecuencia aumentó 1,000 veces (de 1 MHz a 1 GHz), otros 25 años al mismo ritmo llevarían a 1 GHz × 1,000 = 1,000 GHz = 1 THz. Esto no ocurrió porque hay barreras físicas que lo impiden.",
+    "tipo": "texto"
+  },
+  {
+    "id": "HIST_039",
+    "dificultad": 4,
+    "categoria": "Historia de la computación",
+    "pregunta": "La máquina de Turing de 1936 fue un modelo teórico, no una máquina física. ¿Por qué sigue siendo considerada uno de los hitos más importantes de la historia de la computación?",
+    "opciones": {
+      "a": "Porque fue la primera máquina en calcular raíces cuadradas de forma automática",
+      "b": "Porque demostró los límites teóricos de lo que puede calcularse, estableciendo las bases conceptuales de toda la computación moderna",
+      "c": "Porque fue la primera computadora construida con transistores",
+      "d": "Porque resolvió todos los problemas matemáticos no resueltos de su época"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "La máquina de Turing definió formalmente qué es computable y qué no lo es, estableciendo un marco teórico que toda la computación moderna sigue respetando. Sin este marco, no habría bases sólidas para diseñar ni evaluar algoritmos.",
+    "tipo": "texto"
+  },
+  {
+    "id": "HIST_040",
+    "dificultad": 4,
+    "categoria": "Historia de la computación",
+    "pregunta": "Imagina que en 1944 eres ingeniero y debes elegir entre ENIAC (electrónica, 5,000 sumas/seg) y Harvard Mark I (electromecánica). ¿Cuál criterio técnico sería más decisivo para preferir ENIAC a largo plazo?",
+    "opciones": {
+      "a": "El menor tamaño físico de ENIAC",
+      "b": "La tecnología electrónica de ENIAC tiene menos partes mecánicas móviles, lo que significa mayor velocidad, menor desgaste y mayor confiabilidad a largo plazo",
+      "c": "El menor costo inicial de fabricación de ENIAC",
+      "d": "La menor cantidad de cables que usa ENIAC"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "La ausencia de partes mecánicas móviles en ENIAC implicaba menos desgaste, menor probabilidad de fallos físicos y velocidades radicalmente superiores. Esto hacía la tecnología electrónica más escalable y confiable que la electromecánica.",
+    "tipo": "texto"
+  },
+  {
+    "id": "HIST_041",
+    "dificultad": 5,
+    "categoria": "Historia de la computación",
+    "pregunta": "Un estudiante argumenta: 'La historia de la computación es solo una historia de hardware más rápido'. Usando tres hitos del material, ¿cuál opción construye el argumento contrario más sólido?",
+    "opciones": {
+      "a": "El hardware fue siempre el único factor; el software no cambió realmente nada",
+      "b": "El compilador de Hopper, el algoritmo de Lovelace y la máquina de Turing demuestran que los avances teóricos y de software son igualmente fundamentales en la historia de la computación",
+      "c": "Solo los lenguajes de programación importan; el hardware es irrelevante",
+      "d": "La historia de la computación no tiene un patrón identificable que permita hacer esa afirmación"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Lovelace creó el primer algoritmo (software conceptual), Turing definió los límites teóricos de la computación (teoría), y Hopper inventó el compilador (herramienta de software). Ninguno de estos hitos es de hardware, pero todos son fundamentales.",
+    "tipo": "texto"
+  },
+  {
+    "id": "HIST_042",
+    "dificultad": 5,
+    "categoria": "Historia de la computación",
+    "pregunta": "Ada Lovelace escribió el primer algoritmo en 1843 y Turing formalizó la teoría de la computación en 1936. ¿Qué sugiere esta brecha de 93 años sobre el desarrollo histórico de la ciencia de la computación?",
+    "opciones": {
+      "a": "Que no existió ninguna actividad intelectual relevante entre esos dos años",
+      "b": "Que los conceptos algorítmicos prácticos pueden preceder a su formalización teórica, lo que es común en el desarrollo científico",
+      "c": "Que Lovelace y Turing trabajaron en el mismo proyecto a lo largo del tiempo",
+      "d": "Que 1843 no es un hito real y la computación comenzó en 1936"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "En ciencia es frecuente que la práctica preceda a la teoría formal. Lovelace intuyó la idea de un algoritmo computacional antes de que existiera la teoría formal que lo sustentara. Turing proporcionó esa fundamentación teórica casi un siglo después.",
+    "tipo": "texto"
+  },
+  {
+    "id": "HIST_043",
+    "dificultad": 5,
+    "categoria": "Historia de la computación",
+    "pregunta": "La Ley de Moore predijo duplicación de transistores cada dos años. Si esto se cumpliera perfectamente desde 1965 hasta 2025 (60 años = 30 períodos de duplicación), ¿cuántas veces se habrían multiplicado los transistores respecto al valor inicial?",
+    "opciones": {
+      "a": "60 veces",
+      "b": "30 veces",
+      "c": "2^30 veces (aproximadamente 1,000 millones de veces)",
+      "d": "2^60 veces"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "Con 30 períodos de duplicación, el multiplicador sería 2^30 ≈ 1,073,741,824, es decir, aproximadamente mil millones de veces. Esto ilustra el poder del crecimiento exponencial aplicado durante décadas.",
+    "tipo": "texto"
+  },
+  {
+    "id": "HIST_044",
+    "dificultad": 5,
+    "categoria": "Historia de la computación",
+    "pregunta": "Analiza la siguiente afirmación: 'Sin la máquina de Turing (1936), Linux (1991) y Python no existirían'. ¿Qué tan válida es esta cadena de influencia y por qué?",
+    "opciones": {
+      "a": "Es completamente falsa; la máquina de Turing no tuvo ninguna influencia en los lenguajes modernos",
+      "b": "Es válida porque la máquina de Turing estableció qué puede computarse, fundamento teórico sobre el cual se diseñan todos los lenguajes y sistemas operativos modernos",
+      "c": "Es parcialmente cierta solo para Linux, no aplica a Python",
+      "d": "Es verdadera solo por razones históricas superficiales, no tiene conexión técnica real"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "La máquina de Turing definió formalmente el concepto de computabilidad. Toda la teoría de lenguajes de programación, compiladores y sistemas operativos está construida sobre este fundamento. Sin él, no habría un marco para saber qué puede o no puede hacer un programa.",
+    "tipo": "texto"
+  },
+  {
+    "id": "HIST_045",
+    "dificultad": 5,
+    "categoria": "Historia de la computación",
+    "pregunta": "Un historiador argumenta que 'Grace Hopper tuvo mayor impacto práctico en la computación cotidiana que Alan Turing'. ¿Cuál opción construye el argumento más sólido a favor de esta posición?",
+    "opciones": {
+      "a": "Hopper inventó Internet, lo que la hace directamente más influyente en la vida cotidiana",
+      "b": "El compilador de Hopper hizo la programación accesible para millones de personas al posibilitar lenguajes de alto nivel; el impacto de Turing, siendo fundamental, fue más abstracto y mediato",
+      "c": "Turing y Hopper hicieron exactamente el mismo tipo de aporte y no se pueden comparar",
+      "d": "Hopper diseñó el hardware de las computadoras modernas mientras que Turing solo hizo teoría irrelevante"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "El compilador de Hopper fue el puente que permitió que la programación se democratizara: sin él, solo expertos en lenguaje máquina podrían programar. Turing es igualmente fundamental, pero su impacto es más indirecto para el usuario o programador promedio.",
+    "tipo": "texto"
+  },
+  {
+    "id": "HIST_046",
+    "dificultad": 5,
+    "categoria": "Historia de la computación",
+    "pregunta": "La transición de tubos de vacío (ENIAC, 1945) a transistores y luego a circuitos integrados representa una miniaturización masiva. Si ENIAC ocupaba el tamaño de un edificio, ¿qué principio explica mejor por qué una computadora actual cabe en un bolsillo?",
+    "opciones": {
+      "a": "El desarrollo de mejores algoritmos redujo la necesidad de componentes físicos",
+      "b": "La Ley de Moore y la miniaturización continua de componentes electrónicos mediante litografía cada vez más fina",
+      "c": "El uso de lenguajes de programación más eficientes hizo innecesarios tantos componentes",
+      "d": "La reducción del consumo eléctrico fue el único factor de miniaturización"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "La miniaturización de transistores mediante procesos fotolitográficos cada vez más finos es el mecanismo físico detrás de la Ley de Moore. Menos tamaño por transistor significa más transistores en el mismo espacio, más potencia en menos volumen.",
+    "tipo": "texto"
+  },
+  {
+    "id": "HIST_047",
+    "dificultad": 5,
+    "categoria": "Historia de la computación",
+    "pregunta": "¿Cuál de los siguientes saltos históricos representó el mayor cambio en la accesibilidad de la computación para personas sin formación técnica especializada?",
+    "opciones": {
+      "a": "La transición de la Difference Engine al Harvard Mark I",
+      "b": "La creación del lenguaje Fortran en 1954",
+      "c": "La invención de ENIAC en 1945",
+      "d": "La transición de mainframes a computadoras personales y luego a dispositivos móviles"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "Los mainframes requerían personal especializado en centros de cómputo. Las computadoras personales llegaron a hogares y oficinas. Los dispositivos móviles pusieron la computación en manos de personas sin ningún conocimiento técnico. Este fue el salto más radical en accesibilidad.",
+    "tipo": "texto"
+  },
+  {
+    "id": "HIST_048",
+    "dificultad": 5,
+    "categoria": "Historia de la computación",
+    "pregunta": "Considerando la evolución desde la Difference Engine (1822) hasta la IA con GPUs (2000s), ¿cuál es la tensión fundamental que ha guiado todo el desarrollo histórico de la computación?",
+    "opciones": {
+      "a": "La tensión entre hardware barato y software caro",
+      "b": "La tensión entre la necesidad de resolver problemas cada vez más complejos y las limitaciones físicas y teóricas de las máquinas disponibles",
+      "c": "La tensión entre lenguajes de programación y sistemas operativos",
+      "d": "La tensión entre universidades privadas y empresas tecnológicas"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Desde Babbage hasta hoy, cada salto tecnológico fue impulsado por problemas que las máquinas existentes no podían resolver. Esta tensión constante entre demanda de capacidad y límites físicos/teóricos es el motor de toda la historia de la computación.",
+    "tipo": "texto"
+  },
+  {
+    "id": "HIST_049",
+    "dificultad": 5,
+    "categoria": "Historia de la computación",
+    "pregunta": "Si tuvieras que identificar el hito de la historia de la computación que tuvo el mayor efecto multiplicador sobre todos los demás avances posteriores, ¿cuál sería el argumento más sólido para elegir la máquina de Turing (1936)?",
+    "opciones": {
+      "a": "Porque fue la primera máquina construida con transistores, abaratando la computación",
+      "b": "Porque definió formalmente los límites de lo computable, estableciendo el marco teórico que valida el diseño de todo hardware, software, lenguaje y algoritmo desarrollado desde entonces",
+      "c": "Porque Turing construyó físicamente la primera computadora electrónica",
+      "d": "Porque resolvió el problema del vendedor viajero, base de todos los algoritmos de optimización"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "La máquina de Turing es el fundamento teórico de toda la computación. Sin saber qué es formalmente computable, no se podría diseñar con certeza ningún algoritmo, lenguaje o hardware. Su efecto multiplicador es total: todo lo demás construye sobre esta base.",
+    "tipo": "texto"
+  },
+  {
+    "id": "HIST_050",
+    "dificultad": 5,
+    "categoria": "Historia de la computación",
+    "pregunta": "La historia de la computación muestra que los avances más transformadores a veces combinan hardware y software simultáneamente. ¿Cuál par de hitos de la historia ilustra mejor esta interdependencia entre hardware y software?",
+    "opciones": {
+      "a": "La Difference Engine (1822) y el lenguaje COBOL (1965): una mecánica y el otro digital, sin relación directa",
+      "b": "ENIAC (1945) como hardware electrónico y el compilador de Hopper (1951): el hardware hizo posible el software avanzado, y el software hizo al hardware verdaderamente útil para más personas",
+      "c": "Linux (1991) y Facebook (2004): ambos son software y no involucran hardware",
+      "d": "La Ley de Moore (1965) y ARPANET (1983): ambas son solo teorías sin implementación real"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "ENIAC proveyó el hardware electrónico que hacía viable un compilador de alto rendimiento. El compilador de Hopper, a su vez, permitió que ese hardware fuera accesible y útil para más programadores. Esta sinergia entre hardware y software es el patrón central del avance tecnológico.",
+    "tipo": "texto"
+  }
+]
