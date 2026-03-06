@@ -26,11 +26,11 @@
       "minimo_por_tema": 4,
       "max_proporcion_tema": 0.35,
       "pesos": {
-        "Algoritmos y algoritmia": 1,
-        "Big O": 1,
-        "Historia": 1,
-        "Lenguajes de programación": 1,
-        "Diagramas": 1
+        "Algoritmos y algoritmia": 0.9,
+        "Big O": 1.25,
+        "Historia": 0.8,
+        "Lenguajes de programación": 1.0,
+        "Diagramas": 1.25
       }
     }
   },
