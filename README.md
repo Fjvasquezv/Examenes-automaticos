@@ -113,6 +113,24 @@ Crea tu archivo `data/preguntas_python.json` siguiendo este formato:
 streamlit run app.py
 ```
 
+## ✅ Preflight operativo (recomendado antes de cada prueba)
+
+Valida en un solo comando el periodo, config, bancos activos y conteo mínimo real:
+
+```bash
+python utils/preflight_exam.py
+```
+
+Opciones útiles:
+
+```bash
+# Validar un periodo específico por nombre exacto
+python utils/preflight_exam.py --periodo "QUIZZ 1 - Introducción a la Tecnología"
+
+# Simular validación para una fecha/hora puntual (formato YYYY-MM-DD HH:MM)
+python utils/preflight_exam.py --fecha "2026-03-06 11:50"
+```
+
 ## 📁 Estructura del Proyecto
 
 ```
