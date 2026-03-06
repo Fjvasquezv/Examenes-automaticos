@@ -1,0 +1,53 @@
+{
+  "metadata": {
+    "nombre_examen": "Quizz 1 - Introducción a la Tecnología",
+    "asignatura": "Introducción a la Tecnología",
+    "institucion": "Universidad ECCI",
+    "codigo_asignatura": "INTRO101"
+  },
+  "descripcion": {
+    "texto": "Evaluación diagnóstica de introducción a la tecnología.",
+    "temas": [
+      "Paradigmas e historia de la IQ",
+      "Plan de estudios de la universidad"
+    ],
+    "duracion_estimada": "45 min"
+  },
+  "parametros": {
+    "preguntas_minimas": 15,
+    "preguntas_maximas": 25,
+    "nivel_inicial": 3,
+    "umbral_estabilizacion": 0.2,
+    "ventana_estabilizacion": 3,
+    "distribucion_temas": {
+      "minimo_por_tema": 8,
+      "max_proporcion_tema": 0.6,
+      "pesos": {
+        "Paradigmas e historia de la IQ": 1.0,
+        "Plan de estudios de la universidad": 1.0
+      }
+    }
+  },
+  "sistema_calificacion": {
+    "tipo": "irt_simplificado",
+    "parametros": {
+      "max_iteraciones": 10
+    }
+  },
+  "persistencia": {
+    "metodo": "google_sheets",
+    "spreadsheet_id": "11LgtY-p59UKYCYY0GwZHCLN--KbZEPZb8poZJTEbyys"
+  },
+  "bancos_preguntas": [
+    "data/bancos/Introduccion/Paradigmas_historia_IQ.json",
+    "data/bancos/Introduccion/Plan_estudios_universidad.json"
+  ],
+  "bancos_por_tema": {
+    "Paradigmas e historia de la IQ": [
+      "data/bancos/Introduccion/Paradigmas_historia_IQ.json"
+    ],
+    "Plan de estudios de la universidad": [
+      "data/bancos/Introduccion/Plan_estudios_universidad.json"
+    ]
+  }
+}

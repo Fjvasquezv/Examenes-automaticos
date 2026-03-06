@@ -14,6 +14,16 @@
                 "Lenguajes de programación",
                 "Diagramas"
             ]
+        },
+        {
+            "nombre": "QUIZZ 1 - Introducción a la Tecnología",
+            "examen_config": "Introduccion/quizz_1.json",
+            "inicio": "2026-03-06 11:40",
+            "fin": "2026-03-06 12:10",
+            "temas": [
+                "Paradigmas e historia de la IQ",
+                "Plan de estudios de la universidad"
+            ]
         },        
         {
             "nombre": "QUIZZ 1 - Control",

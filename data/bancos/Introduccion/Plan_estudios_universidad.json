@@ -1,0 +1,17 @@
+[
+  {
+    "id": "tec_plan_001",
+    "dificultad": 2,
+    "categoria": "Plan de estudios de la universidad",
+    "pregunta": "Pregunta de ejemplo sobre el plan de estudios de la universidad.",
+    "opciones": {
+      "a": "Opción A",
+      "b": "Opción B",
+      "c": "Opción C",
+      "d": "Opción D"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Reemplaza esta pregunta por una de tu banco.",
+    "tipo": "texto"
+  }
+]

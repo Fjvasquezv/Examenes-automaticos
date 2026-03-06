@@ -1,0 +1,17 @@
+[
+  {
+    "id": "tec_paradigmas_001",
+    "dificultad": 2,
+    "categoria": "Paradigmas e historia de la IQ",
+    "pregunta": "Pregunta de ejemplo sobre paradigmas/historia de la IQ.",
+    "opciones": {
+      "a": "Opción A",
+      "b": "Opción B",
+      "c": "Opción C",
+      "d": "Opción D"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "Reemplaza esta pregunta por una de tu banco.",
+    "tipo": "texto"
+  }
+]
