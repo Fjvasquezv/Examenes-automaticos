@@ -278,6 +278,47 @@ def _git_publicar_config(base_path: Path, mensaje_commit: str) -> tuple[bool, st
         return False, str(e)
 
 
+def _git_status_todo(base_path: Path) -> tuple[bool, bool, str]:
+    try:
+        res = _run_git(base_path, ["status", "--porcelain"])
+        if res.returncode != 0:
+            msg = (res.stderr or res.stdout or "").strip()
+            return False, False, msg or "No se pudo consultar estado git"
+        salida = (res.stdout or "").strip()
+        return True, bool(salida), salida
+    except Exception as e:
+        return False, False, str(e)
+
+
+def _git_publicar_todo(base_path: Path, mensaje_commit: str) -> tuple[bool, str]:
+    try:
+        r_branch = _run_git(base_path, ["rev-parse", "--abbrev-ref", "HEAD"])
+        if r_branch.returncode != 0:
+            return False, (r_branch.stderr or r_branch.stdout or "No se pudo obtener rama actual").strip()
+        rama = (r_branch.stdout or "main").strip() or "main"
+
+        r_add = _run_git(base_path, ["add", "-A"])
+        if r_add.returncode != 0:
+            return False, (r_add.stderr or r_add.stdout or "No se pudo hacer git add").strip()
+
+        r_diff = _run_git(base_path, ["diff", "--cached", "--quiet"])
+        if r_diff.returncode == 0:
+            return False, "No hay cambios en el repositorio para publicar."
+
+        r_commit = _run_git(base_path, ["commit", "-m", mensaje_commit])
+        if r_commit.returncode != 0:
+            return False, (r_commit.stderr or r_commit.stdout or "No se pudo hacer commit").strip()
+
+        r_push = _run_git(base_path, ["push", "origin", rama])
+        if r_push.returncode != 0:
+            return False, (r_push.stderr or r_push.stdout or "No se pudo hacer push").strip()
+
+        resumen = (r_commit.stdout or "").strip()
+        return True, resumen or f"Publicado todo en origin/{rama}"
+    except Exception as e:
+        return False, str(e)
+
+
 def _reset_admin_exam_form_state(config_base: dict) -> None:
     md = config_base.get("metadata", {})
     params = config_base.get("parametros", {})
@@ -963,6 +1004,39 @@ def _render_panel_admin(base_path: Path):
                         st.code(msg_pub)
                 else:
                     st.error(msg_pub or "No se pudo publicar cambios")
+
+        st.markdown("---")
+        st.subheader("Publicación completa del repositorio")
+        st.caption("Opción B: publicar TODOS los cambios del repositorio (incluye código y otros archivos).")
+
+        ok_git_all, hay_pendientes_all, detalle_git_all = _git_status_todo(base_path)
+        if not ok_git_all:
+            st.error(f"No se pudo consultar estado git completo: {detalle_git_all}")
+        else:
+            if hay_pendientes_all:
+                st.warning("Hay cambios pendientes en el repositorio completo.")
+                st.code(detalle_git_all)
+            else:
+                st.success("No hay cambios pendientes en el repositorio.")
+
+            mensaje_all_default = f"chore: publicar todo admin {datetime.now().strftime('%Y-%m-%d %H:%M')}"
+            mensaje_commit_all = st.text_input("Mensaje commit (todo)", value=mensaje_all_default, key="admin_git_commit_msg_all")
+            confirmar_publicar_todo = st.checkbox(
+                "Confirmo que deseo publicar TODOS los cambios del repositorio",
+                key="admin_git_publish_all_confirm"
+            )
+
+            if st.button("🚀 Publicar TODO a GitHub", key="admin_git_publish_all", use_container_width=True):
+                if not confirmar_publicar_todo:
+                    st.error("Debes confirmar la publicación completa del repositorio.")
+                else:
+                    ok_pub_all, msg_pub_all = _git_publicar_todo(base_path, mensaje_commit_all)
+                    if ok_pub_all:
+                        st.success("Repositorio completo publicado en GitHub")
+                        if msg_pub_all:
+                            st.code(msg_pub_all)
+                    else:
+                        st.error(msg_pub_all or "No se pudo publicar el repositorio completo")
 
 
 def _resolver_ruta_examen_config(periodo: dict, base_path: Path) -> tuple[Path, str]:
