@@ -5,6 +5,8 @@ Maneja el guardado de resultados en Google Sheets
 import streamlit as st
 from datetime import datetime
 from typing import Dict, Any, List
+import time
+import random
 from google.oauth2 import service_account
 from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
@@ -18,6 +20,35 @@ class DataPersistence:
     COLUMNA_AUTORIZADO_CONTINUAR = 16
     COLUMNA_ESTADO_JSON = 17
     RANGO_DATOS = 'A:R'
+    MAX_REINTENTOS_API = 5
+    RETRY_BASE_SECONDS = 0.4
+
+    def _ejecutar_con_reintentos(self, request, descripcion: str = "operación"):
+        """
+        Ejecuta un request de Google API con reintentos para errores transitorios.
+        """
+        ultimo_error = None
+        for intento in range(self.MAX_REINTENTOS_API):
+            try:
+                return request.execute()
+            except HttpError as e:
+                ultimo_error = e
+                status = getattr(e.resp, 'status', None)
+                transitorio = status in (408, 409, 429, 500, 502, 503, 504)
+                if (not transitorio) or intento == self.MAX_REINTENTOS_API - 1:
+                    raise
+
+                pausa = self.RETRY_BASE_SECONDS * (2 ** intento) + random.uniform(0, 0.25)
+                time.sleep(pausa)
+            except Exception as e:
+                ultimo_error = e
+                if intento == self.MAX_REINTENTOS_API - 1:
+                    raise
+                pausa = self.RETRY_BASE_SECONDS * (2 ** intento) + random.uniform(0, 0.25)
+                time.sleep(pausa)
+
+        if ultimo_error:
+            raise ultimo_error
 
     def obtener_progreso_en_curso(self, codigo_estudiante: str) -> dict:
         """
@@ -25,10 +56,10 @@ class DataPersistence:
         Returns: dict con los campos del progreso o None si no existe.
         """
         try:
-            result = self.service.spreadsheets().values().get(
+            result = self._ejecutar_con_reintentos(self.service.spreadsheets().values().get(
                 spreadsheetId=self.spreadsheet_id,
                 range=f'{self.nombre_hoja}!{self.RANGO_DATOS}'
-            ).execute()
+            ), "obtener_progreso_en_curso")
             values = result.get('values', [])
             encabezados = values[0] if values else []
             for row in reversed(values[1:]):
@@ -148,10 +179,10 @@ class DataPersistence:
         """
         try:
             # Buscar la última fila del estudiante con estado EN_CURSO
-            result = self.service.spreadsheets().values().get(
+            result = self._ejecutar_con_reintentos(self.service.spreadsheets().values().get(
                 spreadsheetId=self.spreadsheet_id,
                 range=f'{self.nombre_hoja}!{self.RANGO_DATOS}'
-            ).execute()
+            ), "leer progreso examen")
             
             values = result.get('values', [])
             
@@ -217,10 +248,10 @@ class DataPersistence:
                     })
                 
                 body = {'data': updates, 'valueInputOption': 'RAW'}
-                self.service.spreadsheets().values().batchUpdate(
+                self._ejecutar_con_reintentos(self.service.spreadsheets().values().batchUpdate(
                     spreadsheetId=self.spreadsheet_id,
                     body=body
-                ).execute()
+                ), "actualizar progreso examen")
                 
                 return True
             
@@ -241,10 +272,10 @@ class DataPersistence:
             True si tiene un examen EN_CURSO
         """
         try:
-            result = self.service.spreadsheets().values().get(
+            result = self._ejecutar_con_reintentos(self.service.spreadsheets().values().get(
                 spreadsheetId=self.spreadsheet_id,
                 range=f'{self.nombre_hoja}!{self.RANGO_DATOS}'
-            ).execute()
+            ), "verificar examen en curso")
             
             values = result.get('values', [])
             
@@ -270,10 +301,10 @@ class DataPersistence:
             True si ya completó el examen (tiene registro con razón_terminacion diferente a EN_CURSO)
         """
         try:
-            result = self.service.spreadsheets().values().get(
+            result = self._ejecutar_con_reintentos(self.service.spreadsheets().values().get(
                 spreadsheetId=self.spreadsheet_id,
                 range=f'{self.nombre_hoja}!{self.RANGO_DATOS}'
-            ).execute()
+            ), "verificar examen completado")
             
             values = result.get('values', [])
             
@@ -311,10 +342,10 @@ class DataPersistence:
             
             # Buscar si hay una fila EN_CURSO para este estudiante
             try:
-                result = self.service.spreadsheets().values().get(
+                result = self._ejecutar_con_reintentos(self.service.spreadsheets().values().get(
                     spreadsheetId=self.spreadsheet_id,
                     range=f'{self.nombre_hoja}!{self.RANGO_DATOS}'
-                ).execute()
+                ), "leer resultados previos")
                 
                 values = result.get('values', [])
                 fila_a_actualizar = None
@@ -330,21 +361,25 @@ class DataPersistence:
                     # Actualizar la fila existente
                     range_to_update = f'{self.nombre_hoja}!A{fila_a_actualizar}:R{fila_a_actualizar}'
                     body = {'values': [datos]}
-                    self.service.spreadsheets().values().update(
+                    self._ejecutar_con_reintentos(self.service.spreadsheets().values().update(
                         spreadsheetId=self.spreadsheet_id,
                         range=range_to_update,
                         valueInputOption='RAW',
                         body=body
-                    ).execute()
+                    ), "actualizar resultados finales")
                 else:
                     # Agregar nueva fila
                     self._agregar_fila(datos)
                 
                 return True
                 
-            except HttpError as e:
-                st.error(f"⚠️ Error HTTP al acceder a Google Sheets: {e.status_code}")
-                return False
+            except HttpError:
+                # Fallback seguro: intentar append para no perder resultados.
+                try:
+                    self._agregar_fila(datos)
+                    return True
+                except Exception:
+                    return False
             
         except Exception as e:
             st.error(f"⚠️ Error al guardar resultados: {str(e)}")
@@ -416,9 +451,9 @@ class DataPersistence:
         """Verifica si existe la hoja de resultados, si no, la crea con encabezados"""
         try:
             # Intentar obtener información de la hoja
-            sheet_metadata = self.service.spreadsheets().get(
+            sheet_metadata = self._ejecutar_con_reintentos(self.service.spreadsheets().get(
                 spreadsheetId=self.spreadsheet_id
-            ).execute()
+            ), "obtener metadata de hoja")
             
             # Verificar si existe la pestaña del examen
             sheets = sheet_metadata.get('sheets', [])
@@ -455,10 +490,10 @@ class DataPersistence:
                 }]
             }
             
-            self.service.spreadsheets().batchUpdate(
+            self._ejecutar_con_reintentos(self.service.spreadsheets().batchUpdate(
                 spreadsheetId=self.spreadsheet_id,
                 body=body
-            ).execute()
+            ), "crear pestaña de resultados")
             
             # Agregar encabezados
             self._escribir_encabezados()
@@ -470,10 +505,10 @@ class DataPersistence:
         """Verifica si la primera fila tiene encabezados, si no, los agrega"""
         try:
             # Leer primera fila
-            result = self.service.spreadsheets().values().get(
+            result = self._ejecutar_con_reintentos(self.service.spreadsheets().values().get(
                 spreadsheetId=self.spreadsheet_id,
                 range=f'{self.nombre_hoja}!A1:R1'
-            ).execute()
+            ), "verificar encabezados")
             
             values = result.get('values', [])
             
@@ -515,12 +550,12 @@ class DataPersistence:
             'values': [encabezados]
         }
         
-        self.service.spreadsheets().values().update(
+        self._ejecutar_con_reintentos(self.service.spreadsheets().values().update(
             spreadsheetId=self.spreadsheet_id,
             range=f'{self.nombre_hoja}!A1',
             valueInputOption='RAW',
             body=body
-        ).execute()
+        ), "escribir encabezados")
     
     def _agregar_fila(self, datos: List[Any]):
         """
@@ -533,13 +568,13 @@ class DataPersistence:
             'values': [datos]
         }
         
-        self.service.spreadsheets().values().append(
+        self._ejecutar_con_reintentos(self.service.spreadsheets().values().append(
             spreadsheetId=self.spreadsheet_id,
             range=f'{self.nombre_hoja}!A:R',
             valueInputOption='RAW',
             insertDataOption='INSERT_ROWS',
             body=body
-        ).execute()
+        ), "agregar fila")
     
     def obtener_resultados(
         self,
@@ -558,10 +593,10 @@ class DataPersistence:
         """
         try:
             # Leer datos
-            result = self.service.spreadsheets().values().get(
+            result = self._ejecutar_con_reintentos(self.service.spreadsheets().values().get(
                 spreadsheetId=self.spreadsheet_id,
                 range=f'{self.nombre_hoja}!A:R'
-            ).execute()
+            ), "obtener resultados")
             
             values = result.get('values', [])
             
@@ -641,9 +676,9 @@ class DataPersistence:
         """
         try:
             # Intentar obtener metadata del spreadsheet
-            self.service.spreadsheets().get(
+            self._ejecutar_con_reintentos(self.service.spreadsheets().get(
                 spreadsheetId=self.spreadsheet_id
-            ).execute()
+            ), "verificar conexión")
             return True
         except Exception as e:
             st.error(f"⚠️ Error de conexión con Google Sheets: {str(e)}")
@@ -661,10 +696,10 @@ class DataPersistence:
         """Lista registros con estado EN_CURSO para la hoja actual."""
         try:
             self._verificar_o_crear_hoja()
-            result = self.service.spreadsheets().values().get(
+            result = self._ejecutar_con_reintentos(self.service.spreadsheets().values().get(
                 spreadsheetId=self.spreadsheet_id,
                 range=f'{self.nombre_hoja}!{self.RANGO_DATOS}'
-            ).execute()
+            ), "listar examenes en curso")
 
             values = result.get('values', [])
             if not values or len(values) < 2:
@@ -689,10 +724,10 @@ class DataPersistence:
         estableciendo `Autorizado_Continuar` en SI/NO.
         """
         try:
-            result = self.service.spreadsheets().values().get(
+            result = self._ejecutar_con_reintentos(self.service.spreadsheets().values().get(
                 spreadsheetId=self.spreadsheet_id,
                 range=f'{self.nombre_hoja}!{self.RANGO_DATOS}'
-            ).execute()
+            ), "leer autorizacion continuacion")
             values = result.get('values', [])
 
             fila_objetivo = None
@@ -709,12 +744,12 @@ class DataPersistence:
 
             valor = 'SI' if autorizar else 'NO'
             body = {'values': [[valor]]}
-            self.service.spreadsheets().values().update(
+            self._ejecutar_con_reintentos(self.service.spreadsheets().values().update(
                 spreadsheetId=self.spreadsheet_id,
                 range=f'{self.nombre_hoja}!Q{fila_objetivo}',
                 valueInputOption='RAW',
                 body=body
-            ).execute()
+            ), "actualizar autorizacion continuacion")
             return True
         except Exception:
             return False
