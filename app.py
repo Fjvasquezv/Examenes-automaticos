@@ -229,9 +229,17 @@ def _run_git(base_path: Path, args: list[str]) -> subprocess.CompletedProcess:
     )
 
 
+GIT_PUBLICABLE_PATHS = [
+    "config/examenes",
+    "config/disponibilidad.json",
+    "data/bancos",
+    "data/preguntas"
+]
+
+
 def _git_status_config(base_path: Path) -> tuple[bool, bool, str]:
     try:
-        res = _run_git(base_path, ["status", "--porcelain", "--", "config/examenes", "config/disponibilidad.json"])
+        res = _run_git(base_path, ["status", "--porcelain", "--"] + GIT_PUBLICABLE_PATHS)
         if res.returncode != 0:
             msg = (res.stderr or res.stdout or "").strip()
             return False, False, msg or "No se pudo consultar estado git"
@@ -248,13 +256,13 @@ def _git_publicar_config(base_path: Path, mensaje_commit: str) -> tuple[bool, st
             return False, (r_branch.stderr or r_branch.stdout or "No se pudo obtener rama actual").strip()
         rama = (r_branch.stdout or "main").strip() or "main"
 
-        r_add = _run_git(base_path, ["add", "config/examenes", "config/disponibilidad.json"])
+        r_add = _run_git(base_path, ["add"] + GIT_PUBLICABLE_PATHS)
         if r_add.returncode != 0:
             return False, (r_add.stderr or r_add.stdout or "No se pudo hacer git add").strip()
 
-        r_diff = _run_git(base_path, ["diff", "--cached", "--quiet", "--", "config/examenes", "config/disponibilidad.json"])
+        r_diff = _run_git(base_path, ["diff", "--cached", "--quiet", "--"] + GIT_PUBLICABLE_PATHS)
         if r_diff.returncode == 0:
-            return False, "No hay cambios de configuración para publicar."
+            return False, "No hay cambios publicables (configuración/bancos) para publicar."
 
         r_commit = _run_git(base_path, ["commit", "-m", mensaje_commit])
         if r_commit.returncode != 0:
@@ -932,17 +940,17 @@ def _render_panel_admin(base_path: Path):
 
         st.markdown("---")
         st.subheader("Publicación a GitHub")
-        st.caption("Opción A: guardar local y publicar cambios de configuración al repositorio.")
+        st.caption("Opción A: guardar local y publicar cambios de configuración y bancos al repositorio.")
 
         ok_git, hay_pendientes, detalle_git = _git_status_config(base_path)
         if not ok_git:
             st.error(f"No se pudo consultar estado git: {detalle_git}")
         else:
             if hay_pendientes:
-                st.warning("Hay cambios de configuración pendientes por publicar.")
+                st.warning("Hay cambios pendientes por publicar (configuración/bancos).")
                 st.code(detalle_git)
             else:
-                st.success("No hay cambios pendientes en config/examenes y config/disponibilidad.json")
+                st.success("No hay cambios pendientes en rutas publicables (configuración/bancos)")
 
             mensaje_default = f"chore: publicar cambios admin {datetime.now().strftime('%Y-%m-%d %H:%M')}"
             mensaje_commit = st.text_input("Mensaje de commit", value=mensaje_default, key="admin_git_commit_msg")
