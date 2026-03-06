@@ -1,17 +1,752 @@
 [
   {
-    "id": "tec_paradigmas_001",
-    "dificultad": 2,
-    "categoria": "Paradigmas e historia de la IQ",
-    "pregunta": "Pregunta de ejemplo sobre paradigmas/historia de la IQ.",
+    "id": "IQ_PAR_001",
+    "dificultad": 1,
+    "categoria": "Historia y evolución de la ingeniería química",
+    "pregunta": "¿Cuál fue la primera etapa del desarrollo de la ingeniería química, antes de que existieran métodos científicos formales?",
     "opciones": {
-      "a": "Opción A",
-      "b": "Opción B",
-      "c": "Opción C",
-      "d": "Opción D"
+      "a": "Etapa racional",
+      "b": "Etapa empírica",
+      "c": "Etapa industrial",
+      "d": "Etapa paradigmática"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "La etapa empírica correspondió al período en que los procesos químicos se basaban en recetas tradicionales y observación práctica, sin métodos científicos sistemáticos.",
+    "tipo": "texto"
+  },
+  {
+    "id": "IQ_PAR_002",
+    "dificultad": 1,
+    "categoria": "Historia y evolución de la ingeniería química",
+    "pregunta": "¿En qué año se dictó el primer curso de ingeniería química, según el artículo de Woinaroschy?",
+    "opciones": {
+      "a": "1901",
+      "b": "1887",
+      "c": "1885",
+      "d": "1923"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "En 1885, el prof. H.E. Armstrong dictó en el Central College de Londres el primer curso de ingeniería química, combinando formación científica con práctica técnica.",
+    "tipo": "texto"
+  },
+  {
+    "id": "IQ_PAR_003",
+    "dificultad": 1,
+    "categoria": "Primer paradigma: operaciones unitarias",
+    "pregunta": "¿Cuántos paradigmas de la ingeniería química se presentan en el artículo de Woinaroschy?",
+    "opciones": {
+      "a": "Dos",
+      "b": "Tres",
+      "c": "Cuatro",
+      "d": "Cinco"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "El artículo presenta cuatro paradigmas: operaciones unitarias, fenómenos de transporte, ingeniería de productos e ingeniería química sostenible.",
+    "tipo": "texto"
+  },
+  {
+    "id": "IQ_PAR_004",
+    "dificultad": 1,
+    "categoria": "Primer paradigma: operaciones unitarias",
+    "pregunta": "¿Cuál es el primer paradigma de la ingeniería química según Woinaroschy?",
+    "opciones": {
+      "a": "Fenómenos de transporte",
+      "b": "Ingeniería de productos",
+      "c": "Operaciones unitarias",
+      "d": "Ingeniería química sostenible"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "Las operaciones unitarias constituyen el primer paradigma. Surgieron como necesidad de sistematizar los numerosos procesos industriales que aparecieron a finales del siglo XIX.",
+    "tipo": "texto"
+  },
+  {
+    "id": "IQ_PAR_005",
+    "dificultad": 1,
+    "categoria": "Segundo paradigma: fenómenos de transporte",
+    "pregunta": "¿Cuál es el segundo paradigma de la ingeniería química?",
+    "opciones": {
+      "a": "Operaciones unitarias",
+      "b": "Fenómenos de transporte",
+      "c": "Ingeniería de productos",
+      "d": "Sostenibilidad industrial"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "El segundo paradigma es el de los fenómenos de transporte. Surgió a finales de los años 1950 para explicar científicamente lo que ocurre dentro de las operaciones unitarias.",
+    "tipo": "texto"
+  },
+  {
+    "id": "IQ_PAR_006",
+    "dificultad": 1,
+    "categoria": "Cuarto paradigma: ingeniería química sostenible",
+    "pregunta": "¿Cuál es el cuarto paradigma propuesto en el artículo?",
+    "opciones": {
+      "a": "Ingeniería de productos",
+      "b": "Simulación de procesos",
+      "c": "Ingeniería química sostenible",
+      "d": "Diseño de reactores"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "El cuarto paradigma propuesto es la ingeniería química sostenible, que responde a los requerimientos ambientales, sociales y económicos que enfrenta la industria química moderna.",
+    "tipo": "texto"
+  },
+  {
+    "id": "IQ_PAR_007",
+    "dificultad": 1,
+    "categoria": "Tercer paradigma: ingeniería de productos",
+    "pregunta": "¿Cuál es el tercer paradigma de la ingeniería química según el artículo?",
+    "opciones": {
+      "a": "Optimización de procesos",
+      "b": "Ingeniería de productos",
+      "c": "Fenómenos de transporte",
+      "d": "Control automático"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "El tercer paradigma es la ingeniería de productos (product engineering). Surge de la necesidad de diseñar productos con propiedades y calidades específicas en mercados altamente competitivos.",
+    "tipo": "texto"
+  },
+  {
+    "id": "IQ_PAR_008",
+    "dificultad": 1,
+    "categoria": "Historia y evolución de la ingeniería química",
+    "pregunta": "¿Qué disciplina científica fue clave para la transición de la etapa empírica a la etapa racional de la ingeniería química?",
+    "opciones": {
+      "a": "La biología molecular",
+      "b": "La física cuántica",
+      "c": "La química física",
+      "d": "La termodinámica estadística"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "La transición a la etapa racional se debió en gran parte a los avances de la química física (physical chemistry), que aportó métodos científicos rigurosos a los procesos industriales.",
+    "tipo": "texto"
+  },
+  {
+    "id": "IQ_PAR_009",
+    "dificultad": 1,
+    "categoria": "Cuarto paradigma: ingeniería química sostenible",
+    "pregunta": "Los tres pilares del desarrollo sostenible, según el artículo, son:",
+    "opciones": {
+      "a": "Energía, materia y catálisis",
+      "b": "Económico, ambiental y social",
+      "c": "Diseño, operación y control",
+      "d": "Producción, distribución y consumo"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "El artículo indica que los tres pilares de la sostenibilidad son las dimensiones económica, ambiental y social, los cuales deben considerarse juntos y de manera equitativa.",
+    "tipo": "texto"
+  },
+  {
+    "id": "IQ_PAR_010",
+    "dificultad": 1,
+    "categoria": "Primer paradigma: operaciones unitarias",
+    "pregunta": "Según el artículo, ¿aproximadamente cuántas operaciones unitarias existen para describir los miles de procesos químicos industriales?",
+    "opciones": {
+      "a": "Alrededor de 20",
+      "b": "Más de 500",
+      "c": "Alrededor de 80",
+      "d": "Exactamente 100"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "El artículo menciona que los miles de procesos industriales pueden describirse usando un número mucho menor de operaciones unitarias, aproximadamente 80.",
+    "tipo": "texto"
+  },
+  {
+    "id": "IQ_PAR_011",
+    "dificultad": 2,
+    "categoria": "Historia y evolución de la ingeniería química",
+    "pregunta": "George Davies publicó su 'Handbook of Chemical Engineering' por primera vez en 1901. ¿A qué etapa del desarrollo de la ingeniería química pertenece principalmente esa obra?",
+    "opciones": {
+      "a": "A la etapa racional, porque usa métodos científicos modernos",
+      "b": "A la etapa empírica, porque carece de explicaciones científicas",
+      "c": "Al segundo paradigma, porque aborda fenómenos de transporte",
+      "d": "Al tercer paradigma, porque habla de diseño de productos"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Aunque el libro de Davies tenía gran valor práctico por su abundancia de datos técnicos y económicos, le faltaban explicaciones científicas, por lo que pertenece a la etapa empírica.",
+    "tipo": "texto"
+  },
+  {
+    "id": "IQ_PAR_012",
+    "dificultad": 2,
+    "categoria": "Primer paradigma: operaciones unitarias",
+    "pregunta": "¿Cuál fue la razón principal por la que surgió el paradigma de las operaciones unitarias a finales del siglo XIX?",
+    "opciones": {
+      "a": "La necesidad de reducir costos de producción química",
+      "b": "La explosión de aplicaciones industriales químicas que requería sistematización",
+      "c": "La necesidad de entender los fenómenos físicos dentro de los procesos",
+      "d": "La competencia entre empresas por la calidad de productos"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "El primer paradigma surgió como respuesta a la explosión de aplicaciones industriales químicas, que exigía una sistematización del conocimiento sobre los procesos.",
+    "tipo": "texto"
+  },
+  {
+    "id": "IQ_PAR_013",
+    "dificultad": 2,
+    "categoria": "Primer paradigma: operaciones unitarias",
+    "pregunta": "Según el artículo, ¿cuál fue el libro representativo del paradigma de las operaciones unitarias?",
+    "opciones": {
+      "a": "Transport Phenomena, de Bird, Stewart y Lightfoot",
+      "b": "Chemical Product Design, de Cussler y Moggridge",
+      "c": "Principles of Chemical Engineering, de Walker, Lewis y McAdams",
+      "d": "Handbook of Chemical Engineering, de George Davies"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "El libro representativo del primer paradigma es 'Principles of Chemical Engineering' de Walker, Lewis y McAdams (1923), que codificó el enfoque de operaciones unitarias.",
+    "tipo": "texto"
+  },
+  {
+    "id": "IQ_PAR_014",
+    "dificultad": 2,
+    "categoria": "Segundo paradigma: fenómenos de transporte",
+    "pregunta": "¿Cuáles son los tres procesos físicos elementales que estudia el paradigma de los fenómenos de transporte?",
+    "opciones": {
+      "a": "Reacción, separación y mezcla",
+      "b": "Transporte de momento, energía y masa",
+      "c": "Conducción, convección y radiación",
+      "d": "Difusión, ebullición y condensación"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "El paradigma de los fenómenos de transporte estudia tres procesos elementales que ocurren en cualquier operación unitaria: transporte de momento, de energía y de masa.",
+    "tipo": "texto"
+  },
+  {
+    "id": "IQ_PAR_015",
+    "dificultad": 2,
+    "categoria": "Segundo paradigma: fenómenos de transporte",
+    "pregunta": "¿Cuál fue el libro que marcó el nacimiento formal del paradigma de los fenómenos de transporte?",
+    "opciones": {
+      "a": "Principles of Chemical Engineering, de Walker et al.",
+      "b": "Plant Design and Economics, de Peters et al.",
+      "c": "Transport Phenomena, de Bird, Stewart y Lightfoot",
+      "d": "Chemical Product Design, de Cussler y Moggridge"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "El paradigma de los fenómenos de transporte se ejemplifica mejor con el texto 'Transport Phenomena' de Bird, Stewart y Lightfoot, publicado en 1960.",
+    "tipo": "texto"
+  },
+  {
+    "id": "IQ_PAR_016",
+    "dificultad": 2,
+    "categoria": "Tercer paradigma: ingeniería de productos",
+    "pregunta": "¿Qué motivó el surgimiento del tercer paradigma (ingeniería de productos) en la segunda mitad del siglo XX?",
+    "opciones": {
+      "a": "La necesidad de reducir el consumo de energía en los procesos",
+      "b": "La competencia de mercado que exigía productos con mejores propiedades y calidades",
+      "c": "Las nuevas regulaciones ambientales internacionales",
+      "d": "El descubrimiento de nuevos fenómenos físicos en los reactores"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "El tercer paradigma surgió porque la diversidad de productos químicos en el mercado y la fuerte competencia entre empresas hicieron esencial el diseño de productos con propiedades y calidades superiores.",
+    "tipo": "texto"
+  },
+  {
+    "id": "IQ_PAR_017",
+    "dificultad": 2,
+    "categoria": "Cuarto paradigma: ingeniería química sostenible",
+    "pregunta": "¿Cómo define el informe Brundtland el desarrollo sostenible, según el artículo?",
+    "opciones": {
+      "a": "El desarrollo que maximiza la producción industrial sin límites",
+      "b": "El desarrollo que satisface las necesidades del presente sin comprometer la capacidad de las generaciones futuras para satisfacer las suyas",
+      "c": "El desarrollo basado únicamente en energías renovables",
+      "d": "El desarrollo que prioriza la protección ambiental sobre la economía"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "El informe Brundtland define el desarrollo sostenible como aquel que satisface las necesidades del presente sin comprometer la capacidad de las generaciones futuras para satisfacer las suyas.",
+    "tipo": "texto"
+  },
+  {
+    "id": "IQ_PAR_018",
+    "dificultad": 2,
+    "categoria": "Historia y evolución de la ingeniería química",
+    "pregunta": "Un estudiante afirma: 'Cada nuevo paradigma de la ingeniería química reemplaza completamente al anterior'. Según el artículo, ¿esta afirmación es correcta?",
+    "opciones": {
+      "a": "Sí, porque cada paradigma corrige los errores del anterior",
+      "b": "No, porque casi todos los paradigmas deben usarse juntos para resolver problemas complejos",
+      "c": "Sí, porque los paradigmas más nuevos son más completos y precisos",
+      "d": "No, porque solo los dos primeros paradigmas siguen siendo válidos"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "El artículo es claro al señalar que ningún paradigma queda obsoleto; todos deben usarse en conjunto para resolver los complejos problemas de ingeniería química.",
+    "tipo": "texto"
+  },
+  {
+    "id": "IQ_PAR_019",
+    "dificultad": 2,
+    "categoria": "Primer paradigma: operaciones unitarias",
+    "pregunta": "Según el artículo, ¿a quién se le atribuye formalmente haber introducido el concepto de 'operaciones unitarias', aunque Davies ya lo había insinuado antes?",
+    "opciones": {
+      "a": "H.E. Armstrong",
+      "b": "George Davies",
+      "c": "Arthur D. Little",
+      "d": "Thomas Kuhn"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "El concepto de operaciones unitarias fue formalmente introducido por Arthur D. Little en un informe al MIT, aunque Davies ya había insinuado la idea en su Handbook.",
+    "tipo": "texto"
+  },
+  {
+    "id": "IQ_PAR_020",
+    "dificultad": 2,
+    "categoria": "Tercer paradigma: ingeniería de productos",
+    "pregunta": "Según el artículo, ¿cuál es el libro de referencia fundamental del tercer paradigma (ingeniería de productos)?",
+    "opciones": {
+      "a": "Principles of Chemical Engineering, de Walker et al.",
+      "b": "Transport Phenomena, de Bird et al.",
+      "c": "Chemical Product Design, de Cussler y Moggridge",
+      "d": "Plant Design and Economics, de Peters et al."
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "Las bases del tercer paradigma se encuentran en el libro 'Chemical Product Design' de Cussler y Moggridge, cuya primera edición se publicó en 2001.",
+    "tipo": "texto"
+  },
+  {
+    "id": "IQ_PAR_021",
+    "dificultad": 3,
+    "categoria": "Primer paradigma: operaciones unitarias",
+    "pregunta": "El paradigma de las operaciones unitarias usa cuatro principios teóricos generales. ¿Cuál de las siguientes opciones los describe correctamente?",
+    "opciones": {
+      "a": "Balances de materia, balances de energía, control de procesos y diseño de reactores",
+      "b": "Balances de momento/energía/masa, equilibrio termodinámico de fases, relaciones de transferencia física y condiciones financieras",
+      "c": "Fenómenos de transporte, simulación, optimización y sostenibilidad",
+      "d": "Cinética química, termodinámica, hidrodinámica y diseño mecánico"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Según el artículo, el paradigma de operaciones unitarias usa: balances de momento, energía y masa; relaciones de equilibrio termodinámico de fases; relaciones cinéticas físicas de transferencia; y condiciones financieras.",
+    "tipo": "texto"
+  },
+  {
+    "id": "IQ_PAR_022",
+    "dificultad": 3,
+    "categoria": "Segundo paradigma: fenómenos de transporte",
+    "pregunta": "¿Cuál es la relación correcta entre las operaciones unitarias y los fenómenos de transporte, según el artículo?",
+    "opciones": {
+      "a": "Las operaciones unitarias son más profundas que los fenómenos de transporte",
+      "b": "Las operaciones unitarias son aplicaciones específicas de los tres procesos de transporte",
+      "c": "Los fenómenos de transporte son un subconjunto de las operaciones unitarias",
+      "d": "Ambos paradigmas estudian exactamente los mismos fenómenos físicos"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "El artículo establece que las operaciones unitarias pueden verse como aplicaciones específicas de los tres procesos fundamentales de transporte (momento, energía y masa).",
+    "tipo": "texto"
+  },
+  {
+    "id": "IQ_PAR_023",
+    "dificultad": 3,
+    "categoria": "Tercer paradigma: ingeniería de productos",
+    "pregunta": "Según el artículo, ¿en qué se diferencia fundamentalmente el enfoque del tercer paradigma respecto al objetivo tradicional de la ingeniería química?",
+    "opciones": {
+      "a": "El tercer paradigma busca el proceso de menor costo, como siempre lo hizo la ingeniería química",
+      "b": "El tercer paradigma busca maximizar el valor agregado del producto a través de propiedades mejoradas, no solo minimizar costos",
+      "c": "El tercer paradigma elimina la necesidad del diseño de procesos",
+      "d": "El tercer paradigma solo aplica a productos farmacéuticos"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "El diseño de productos busca obtener el mayor valor agregado a través de propiedades mejoradas, lo cual es más complejo que simplemente minimizar costos, que era el objetivo tradicional.",
+    "tipo": "texto"
+  },
+  {
+    "id": "IQ_PAR_024",
+    "dificultad": 3,
+    "categoria": "Cuarto paradigma: ingeniería química sostenible",
+    "pregunta": "¿Por qué la optimización de procesos en el contexto del cuarto paradigma evoluciona hacia una optimización multiobjetivo?",
+    "opciones": {
+      "a": "Porque hay más ingenieros disponibles para calcular múltiples objetivos simultáneamente",
+      "b": "Porque la función objetivo ya no es escalar sino vectorial, con componentes económicas, ecológicas y sociales",
+      "c": "Porque los métodos computacionales modernos permiten optimizar más variables",
+      "d": "Porque las regulaciones ambientales exigen al menos dos objetivos en todo diseño"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "En la ingeniería química sostenible, la función objetivo de optimización deja de ser escalar (solo económica) y se convierte en vectorial, incluyendo componentes económicas, ecológicas y sociales.",
+    "tipo": "texto"
+  },
+  {
+    "id": "IQ_PAR_025",
+    "dificultad": 3,
+    "categoria": "Historia y evolución de la ingeniería química",
+    "pregunta": "Thomas Kuhn define un paradigma científico como 'logros científicos universalmente reconocidos que, durante un tiempo, proveen problemas modelo y soluciones para una comunidad de practicantes'. ¿Qué implicación tiene esto para los paradigmas de la ingeniería química?",
+    "opciones": {
+      "a": "Que los paradigmas deben ser aceptados por todos los ingenieros para ser válidos",
+      "b": "Que las operaciones unitarias ya no son un paradigma válido porque son antiguas",
+      "c": "Que los paradigmas guían el modo en que una comunidad profesional entiende y resuelve sus problemas",
+      "d": "Que solo los libros de texto definen los paradigmas de una disciplina"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "Según Kuhn, los paradigmas establecen el marco de pensamiento y resolución de problemas para una comunidad. En ingeniería química, cada paradigma define cómo los ingenieros abordan sus retos profesionales.",
+    "tipo": "texto"
+  },
+  {
+    "id": "IQ_PAR_026",
+    "dificultad": 3,
+    "categoria": "Primer paradigma: operaciones unitarias",
+    "pregunta": "Un ingeniero dice: 'Puedo diseñar una planta química nueva sin conocer las operaciones unitarias porque ya tengo software de simulación'. ¿Qué perspectiva ofrece el artículo sobre esta afirmación?",
+    "opciones": {
+      "a": "Es correcta, porque el software reemplaza el conocimiento de operaciones unitarias",
+      "b": "Es incorrecta, porque las operaciones unitarias siguen siendo fundamentales y deben usarse junto con otros paradigmas",
+      "c": "Es parcialmente correcta, porque solo se necesitan para procesos a escala industrial",
+      "d": "Es correcta, porque el tercer paradigma ya superó las operaciones unitarias"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "El artículo es explícito en que ningún paradigma queda obsoleto. Las operaciones unitarias siguen siendo fundamentales y parte del currículo de ingeniería química.",
+    "tipo": "texto"
+  },
+  {
+    "id": "IQ_PAR_027",
+    "dificultad": 3,
+    "categoria": "Tercer paradigma: ingeniería de productos",
+    "pregunta": "Cussler y Moggridge proponen un algoritmo de 4 pasos para el diseño de productos químicos. ¿Cuál de las siguientes describe correctamente esos pasos?",
+    "opciones": {
+      "a": "Definir materia prima, diseñar reactor, separar productos, controlar calidad",
+      "b": "Identificar necesidades del cliente, generar ideas, seleccionar ideas, fabricar el producto",
+      "c": "Analizar mercado, modelar proceso, optimizar costos, escalar a planta",
+      "d": "Definir especificaciones, sintetizar rutas, simular proceso, validar experimentalmente"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "El algoritmo de Cussler y Moggridge tiene 4 pasos: identificar necesidades del cliente, generar ideas para satisfacerlas, seleccionar ideas, y fabricar el producto (que incluye todo el diseño del proceso).",
+    "tipo": "texto"
+  },
+  {
+    "id": "IQ_PAR_028",
+    "dificultad": 3,
+    "categoria": "Cuarto paradigma: ingeniería química sostenible",
+    "pregunta": "¿Cuál de las siguientes afirmaciones sobre los tres pilares del desarrollo sostenible es correcta según el artículo?",
+    "opciones": {
+      "a": "El pilar económico es más importante que los otros dos porque financia los proyectos",
+      "b": "Los tres pilares son igualmente importantes y están interrelacionados entre sí",
+      "c": "El pilar ambiental es el único obligatorio según la normativa internacional",
+      "d": "Los pilares son independientes y pueden optimizarse por separado"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "El artículo afirma que los tres pilares (económico, ambiental y social) son igualmente importantes y no son independientes; existe una interacción múltiple entre ellos.",
+    "tipo": "texto"
+  },
+  {
+    "id": "IQ_PAR_029",
+    "dificultad": 3,
+    "categoria": "Segundo paradigma: fenómenos de transporte",
+    "pregunta": "¿Qué ventaja fundamental ofrecen los fenómenos de transporte respecto a las operaciones unitarias, según el artículo?",
+    "opciones": {
+      "a": "Permiten calcular los costos de operación de una planta química",
+      "b": "Proporcionan un conocimiento científico profundo de los fenómenos que ocurren dentro de las operaciones unitarias",
+      "c": "Reemplazan la necesidad de experimentación en laboratorio",
+      "d": "Permiten diseñar productos con propiedades específicas para el mercado"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "El segundo paradigma nació de la necesidad de un conocimiento científico profundo de los fenómenos que explican lo que sucede dentro de las operaciones unitarias, superando el empirismo.",
+    "tipo": "texto"
+  },
+  {
+    "id": "IQ_PAR_030",
+    "dificultad": 3,
+    "categoria": "Historia y evolución de la ingeniería química",
+    "pregunta": "Según el artículo, ¿cuál es una diferencia importante entre la ingeniería química y otras ramas de la ingeniería en cuanto a su forma de pensar?",
+    "opciones": {
+      "a": "El químico piensa en operaciones unitarias mientras el ingeniero químico piensa en reacciones",
+      "b": "El químico piensa en reacciones químicas mientras el ingeniero químico piensa en operaciones unitarias",
+      "c": "El ingeniero químico piensa solo en términos económicos y de producción",
+      "d": "Ambos piensan de la misma manera, solo difieren en la escala de trabajo"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "El artículo establece que, así como el químico piensa en reacciones químicas, el ingeniero químico piensa en operaciones unitarias: esa es su forma característica de analizar los procesos.",
+    "tipo": "texto"
+  },
+  {
+    "id": "IQ_PAR_031",
+    "dificultad": 4,
+    "categoria": "Primer paradigma: operaciones unitarias",
+    "pregunta": "Una empresa productora de bioetanol necesita diseñar una nueva planta. El proceso incluye fermentación, destilación, deshidratación y tratamiento de efluentes. ¿Cuál paradigma proporciona el marco inicial más útil para organizar y escalar este proceso?",
+    "opciones": {
+      "a": "El cuarto paradigma, porque el bioetanol es un producto sostenible",
+      "b": "El tercer paradigma, porque es un producto diseñado para el mercado de combustibles",
+      "c": "El primer paradigma, porque permite descomponer el proceso en operaciones unitarias identificables y sistematizarlas",
+      "d": "El segundo paradigma, porque los fenómenos de transporte dominan en la destilación"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "El primer paradigma es el marco organizador fundamental: permite descomponer el proceso en operaciones unitarias (fermentación, destilación, etc.), sistematizarlas y escalarlas desde laboratorio a planta industrial.",
+    "tipo": "texto"
+  },
+  {
+    "id": "IQ_PAR_032",
+    "dificultad": 4,
+    "categoria": "Segundo paradigma: fenómenos de transporte",
+    "pregunta": "Durante el diseño de un intercambiador de calor, los ingenieros no pueden predecir el coeficiente convectivo con precisión usando solo correlaciones empíricas. ¿Qué paradigma y herramienta conceptual les daría mayor profundidad científica para entender el fenómeno?",
+    "opciones": {
+      "a": "El primer paradigma, a través del balance de energía en la operación unitaria",
+      "b": "El segundo paradigma, analizando el transporte de energía y las ecuaciones diferenciales en la capa límite",
+      "c": "El tercer paradigma, rediseñando el producto para que requiera menos transferencia de calor",
+      "d": "El cuarto paradigma, evaluando el impacto ambiental del intercambiador"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "El paradigma de los fenómenos de transporte aborda los mecanismos físicos profundos del transporte de energía, incluyendo la teoría de capa límite, proporcionando bases científicas más sólidas que las correlaciones empíricas.",
+    "tipo": "texto"
+  },
+  {
+    "id": "IQ_PAR_033",
+    "dificultad": 4,
+    "categoria": "Tercer paradigma: ingeniería de productos",
+    "pregunta": "Una empresa farmacéutica desea desarrollar un nuevo medicamento de liberación controlada. El producto debe cumplir propiedades específicas de microestructura para funcionar correctamente. Según el artículo, ¿qué tipo de ingeniería de producto aplica aquí y por qué es más compleja?",
+    "opciones": {
+      "a": "Ingeniería de productos homogéneos; es simple porque todas las propiedades son uniformes",
+      "b": "Ingeniería de productos estructurados; es más compleja porque el producto y el proceso deben diseñarse simultáneamente",
+      "c": "Ingeniería de procesos clásica; es suficiente optimizar el reactor de síntesis",
+      "d": "Ingeniería sostenible; la complejidad viene de los requisitos ambientales"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Los productos estructurados logran sus propiedades a través de una microestructura determinada por la interacción de sus componentes y el proceso de fabricación. Esto exige diseñar simultáneamente el producto y el proceso, lo que los hace significativamente más complejos.",
+    "tipo": "texto"
+  },
+  {
+    "id": "IQ_PAR_034",
+    "dificultad": 4,
+    "categoria": "Cuarto paradigma: ingeniería química sostenible",
+    "pregunta": "Un ingeniero propone optimizar una planta de producción de polipropileno minimizando únicamente el costo de producción. Desde la perspectiva del cuarto paradigma, ¿cuál es la limitación de este enfoque?",
+    "opciones": {
+      "a": "No considera la optimización de las operaciones unitarias involucradas",
+      "b": "Solo considera la dimensión económica, ignorando las dimensiones ambiental y social igualmente importantes",
+      "c": "No usa los fenómenos de transporte para entender el proceso",
+      "d": "No aplica el algoritmo de diseño de productos de Cussler y Moggridge"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "El cuarto paradigma exige que la optimización sea multiobjetivo, considerando las tres dimensiones de la sostenibilidad: económica, ambiental y social. Optimizar solo el costo ignora impactos ambientales y aspectos sociales que son igualmente importantes.",
+    "tipo": "texto"
+  },
+  {
+    "id": "IQ_PAR_035",
+    "dificultad": 4,
+    "categoria": "Historia y evolución de la ingeniería química",
+    "pregunta": "El artículo menciona que cuando los paradigmas son reconocidos como inadecuados, sus insuficiencias son frecuentemente minimizadas o ignoradas por la comunidad científica. ¿Cuál fue el ejemplo histórico que el artículo cita para ilustrar esta resistencia al cambio?",
+    "opciones": {
+      "a": "El paradigma de las operaciones unitarias fue rechazado por los químicos orgánicos",
+      "b": "El paradigma de los fenómenos de transporte fue inicialmente contestado por muchos científicos",
+      "c": "El paradigma de sostenibilidad fue rechazado por los gobiernos industrializados",
+      "d": "El paradigma de productos fue ignorado por las empresas químicas pequeñas"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "El artículo indica que lo mismo que ocurre con los paradigmas en general le ocurrió al paradigma de los fenómenos de transporte: fue inicialmente contestado por muchos científicos antes de ser aceptado.",
+    "tipo": "texto"
+  },
+  {
+    "id": "IQ_PAR_036",
+    "dificultad": 4,
+    "categoria": "Tercer paradigma: ingeniería de productos",
+    "pregunta": "Hill propone una metodología de 8 pasos para el diseño de productos químicos homogéneos. ¿Cuál de las siguientes secuencias corresponde correctamente a esa metodología?",
+    "opciones": {
+      "a": "Definir producto → requisitos técnicos → relaciones de desempeño → generar candidatos → seleccionar candidatos → diseño de proceso → análisis de riesgo → análisis financiero",
+      "b": "Identificar necesidades → generar ideas → seleccionar ideas → fabricar el producto",
+      "c": "Sintetizar rutas → evaluar económicamente → escalar → validar en planta piloto → comercializar",
+      "d": "Definir materia prima → diseñar reactor → separar subproductos → controlar emisiones → evaluar mercado"
     },
     "respuesta_correcta": "a",
-    "explicacion": "Reemplaza esta pregunta por una de tu banco.",
+    "explicacion": "La metodología de Hill consta de 8 pasos: definición del producto, requisitos técnicos, relaciones de desempeño, generación de candidatos, selección de candidatos, diseño de proceso, análisis de riesgo y análisis financiero.",
+    "tipo": "texto"
+  },
+  {
+    "id": "IQ_PAR_037",
+    "dificultad": 4,
+    "categoria": "Segundo paradigma: fenómenos de transporte",
+    "pregunta": "¿Por qué el artículo señala que, a pesar de su utilidad, el paradigma de las operaciones unitarias resultó inadecuado para ciertos problemas importantes?",
+    "opciones": {
+      "a": "Porque era demasiado matemático para los ingenieros industriales",
+      "b": "Porque no proporcionaba el conocimiento científico profundo de los fenómenos físicos que ocurren dentro de las operaciones",
+      "c": "Porque no consideraba los aspectos económicos del diseño de plantas",
+      "d": "Porque solo era aplicable a procesos de refinería de petróleo"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "El primer paradigma no proporcionaba un conocimiento científico profundo de los fenómenos físicos que explican el comportamiento dentro de las operaciones unitarias, lo que llevó al nacimiento del segundo paradigma.",
+    "tipo": "texto"
+  },
+  {
+    "id": "IQ_PAR_038",
+    "dificultad": 4,
+    "categoria": "Cuarto paradigma: ingeniería química sostenible",
+    "pregunta": "Según el artículo, ¿por qué la ingeniería química está en una posición privilegiada ('pole position') para enfrentar los retos del desarrollo sostenible, en comparación con otras disciplinas de ingeniería?",
+    "opciones": {
+      "a": "Porque trabaja con materiales peligrosos que requieren mayor regulación",
+      "b": "Por su fuerte orientación sistémica y su función de vincular ciencias naturales, ingeniería y práctica industrial",
+      "c": "Porque es la disciplina con mayor número de ingenieros en el mundo",
+      "d": "Porque desarrolló el concepto de operaciones unitarias antes que cualquier otra disciplina"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "La ingeniería química ocupa una posición privilegiada gracias a su orientación sistémica y a su capacidad de vincular las ciencias naturales, la ingeniería y la práctica industrial, cualidades esenciales para abordar la sostenibilidad.",
+    "tipo": "texto"
+  },
+  {
+    "id": "IQ_PAR_039",
+    "dificultad": 4,
+    "categoria": "Historia y evolución de la ingeniería química",
+    "pregunta": "¿Qué implicación práctica tiene para un ingeniero químico actual el hecho de que todos los paradigmas coexistan y deban usarse juntos?",
+    "opciones": {
+      "a": "Que solo necesita dominar el paradigma más reciente para ser competente",
+      "b": "Que su formación debe integrar operaciones unitarias, fenómenos de transporte, diseño de productos y sostenibilidad",
+      "c": "Que puede especializarse en un solo paradigma y ignorar los demás",
+      "d": "Que el perfil profesional del ingeniero químico es idéntico al del químico industrial"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Dado que ningún paradigma queda obsoleto y todos son necesarios para resolver problemas complejos, la formación del ingeniero químico debe integrar los cuatro paradigmas de manera equilibrada.",
+    "tipo": "texto"
+  },
+  {
+    "id": "IQ_PAR_040",
+    "dificultad": 4,
+    "categoria": "Tercer paradigma: ingeniería de productos",
+    "pregunta": "Según el artículo, ¿cuál es la posición correcta respecto a la relación entre diseño de productos y diseño de procesos en la ingeniería química moderna?",
+    "opciones": {
+      "a": "El diseño de productos reemplaza al diseño de procesos en la industria moderna",
+      "b": "El diseño de procesos es más importante y el diseño de productos es solo una moda temporal",
+      "c": "Ambos deben usarse juntos, de acuerdo con los cambios en la industria química",
+      "d": "Solo las empresas multinacionales necesitan combinar diseño de productos y de procesos"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "El artículo es explícito: el crecimiento del diseño de productos no significa que el diseño de procesos deba desaparecer. Ambos deben usarse conjuntamente, adaptándose a los cambios en la industria química.",
+    "tipo": "texto"
+  },
+  {
+    "id": "IQ_PAR_041",
+    "dificultad": 5,
+    "categoria": "Historia y evolución de la ingeniería química",
+    "pregunta": "Un investigador argumenta que la ingeniería de productos y la ingeniería química sostenible no deberían llamarse 'paradigmas' porque no han sido universalmente aceptados como lo fueron las operaciones unitarias. El propio artículo reconoce esta controversia. ¿Cuál es el argumento más sólido que presenta Woinaroschy para defenderlos como paradigmas?",
+    "opciones": {
+      "a": "Que tienen más publicaciones científicas que los dos primeros paradigmas",
+      "b": "Que son obligatorios según normas ISO internacionales de la industria química",
+      "c": "Que su importancia económica y social, junto con el volumen de investigación generado, justifica reconocerlos como paradigmas con el tiempo",
+      "d": "Que han sido adoptados en todos los planes de estudio de ingeniería química del mundo"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "Woinaroschy reconoce la controversia pero argumenta que el diseño de productos y la sostenibilidad, dada su significancia económica y social y el importante volumen de literatura e investigación generados, pueden ser aceptados como paradigmas con el tiempo por la mayoría de la comunidad.",
+    "tipo": "texto"
+  },
+  {
+    "id": "IQ_PAR_042",
+    "dificultad": 5,
+    "categoria": "Primer paradigma: operaciones unitarias",
+    "pregunta": "Un proceso industrial opera en condiciones donde las correlaciones empíricas disponibles para el coeficiente de transferencia de masa fallan porque la geometría del equipo es inusual. ¿Qué estrategia, combinando dos paradigmas, permitiría avanzar en el diseño con mayor rigor?",
+    "opciones": {
+      "a": "Aplicar únicamente el tercer paradigma rediseñando el producto para evitar la transferencia de masa problemática",
+      "b": "Usar el primer paradigma para identificar la operación unitaria y el segundo para modelar los fenómenos de transporte desde principios fundamentales",
+      "c": "Aplicar el cuarto paradigma buscando una alternativa de proceso más sostenible",
+      "d": "Usar solo datos empíricos de bibliografía y escalar directamente a planta industrial"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Esta situación ilustra perfectamente la complementariedad de los paradigmas: el primero identifica y sistematiza la operación unitaria, y el segundo permite ir más allá del empirismo, modelando los fenómenos de transporte desde principios fundamentales para geometrías no estándar.",
+    "tipo": "texto"
+  },
+  {
+    "id": "IQ_PAR_043",
+    "dificultad": 5,
+    "categoria": "Cuarto paradigma: ingeniería química sostenible",
+    "pregunta": "Una empresa petroquímica desea optimizar su proceso de producción de etileno. El equipo de ingeniería propone cuatro escenarios: (A) mínimo costo operativo, (B) mínimas emisiones de CO₂, (C) máximo empleo local, (D) balance entre costo, emisiones y empleo. ¿Cuál escenario es más coherente con el cuarto paradigma y por qué?",
+    "opciones": {
+      "a": "El escenario A, porque la viabilidad económica es la base de cualquier proyecto sostenible",
+      "b": "El escenario B, porque la reducción de emisiones es la prioridad ambiental más urgente",
+      "c": "El escenario D, porque integra las tres dimensiones de la sostenibilidad en una función objetivo vectorial multiobjetivo",
+      "d": "El escenario C, porque el impacto social es el pilar más descuidado en la industria química"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "El cuarto paradigma exige considerar simultáneamente las dimensiones económica, ambiental y social. El escenario D es el único que integra los tres pilares en una optimización multiobjetivo, que es la esencia de la ingeniería química sostenible.",
+    "tipo": "texto"
+  },
+  {
+    "id": "IQ_PAR_044",
+    "dificultad": 5,
+    "categoria": "Tercer paradigma: ingeniería de productos",
+    "pregunta": "Una startup de materiales diseña un nuevo recubrimiento antifricción para componentes automotrices. El recubrimiento debe ser duradero, de bajo costo y reducir emisiones del vehículo. Analizando desde los cuatro paradigmas, ¿cuál es la secuencia de pensamiento más completa para abordar este reto?",
+    "opciones": {
+      "a": "Primero diseñar el proceso de recubrimiento (1er paradigma), luego modelar la transferencia de calor en la aplicación (2do paradigma)",
+      "b": "Primero definir propiedades del producto y necesidades del cliente (3er paradigma), luego diseñar el proceso de fabricación (1er/2do paradigma), y finalmente evaluar el impacto ambiental y económico (4to paradigma)",
+      "c": "Primero evaluar la sostenibilidad ambiental del material (4to paradigma) y luego optimizar el costo del proceso",
+      "d": "Primero modelar los fenómenos de transporte en la aplicación (2do paradigma) y luego decidir el proceso de fabricación"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Este caso requiere integrar los cuatro paradigmas: el tercer paradigma orienta el diseño del producto según propiedades y necesidades del cliente; el primero y segundo paradigma soportan el diseño y escalado del proceso de fabricación; y el cuarto paradigma evalúa la sostenibilidad integral del producto y proceso, tal como propone la visión integradora del artículo.",
+    "tipo": "texto"
+  },
+  {
+    "id": "IQ_PAR_045",
+    "dificultad": 5,
+    "categoria": "Segundo paradigma: fenómenos de transporte",
+    "pregunta": "El artículo menciona que existe una tendencia a unificar los tres fenómenos de transporte en el concepto de 'transporte de propiedad', justificado por la analogía estructural de sus ecuaciones diferenciales. ¿Qué implicación pedagógica y práctica tiene esta unificación para un ingeniero químico?",
+    "opciones": {
+      "a": "Que el ingeniero puede olvidar las diferencias entre los tres fenómenos y trabajar siempre con la misma ecuación",
+      "b": "Que dominando la estructura matemática general del transporte, el ingeniero puede transferir el razonamiento de un fenómeno a otro y resolver casos nuevos por analogía",
+      "c": "Que los fenómenos de transporte ya no necesitan validación experimental porque son puramente teóricos",
+      "d": "Que el transporte de masa es el más importante y los otros dos son casos especiales menos relevantes"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "La unificación en el concepto de transporte de propiedad permite al ingeniero utilizar la analogía estructural entre los tres fenómenos: al dominar la forma general de las ecuaciones, puede transferir razonamiento entre momentum, energía y masa, potenciando su capacidad para abordar situaciones nuevas y complejas.",
+    "tipo": "texto"
+  },
+  {
+    "id": "IQ_PAR_046",
+    "dificultad": 5,
+    "categoria": "Historia y evolución de la ingeniería química",
+    "pregunta": "Considerando la definición de paradigma de Kuhn y la historia descrita en el artículo, ¿cuál de las siguientes situaciones hipotéticas podría desencadenar el surgimiento de un quinto paradigma en ingeniería química?",
+    "opciones": {
+      "a": "La publicación de un nuevo libro de texto de operaciones unitarias más completo",
+      "b": "Una crisis donde los cuatro paradigmas existentes sean incapaces de resolver problemas emergentes críticos, como los planteados por la biotecnología avanzada o la inteligencia artificial en procesos",
+      "c": "La creación de un nuevo software de simulación más potente",
+      "d": "El aumento del número de ingenieros químicos graduados en el mundo"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Según Kuhn, un nuevo paradigma surge cuando el paradigma actual alcanza una crisis donde sus limitaciones técnicas se hacen evidentes, impulsado por requerimientos sociales o técnicos que no puede resolver. Un nuevo campo transformador (como la integración de IA avanzada o la biología sintética en ingeniería química) podría generar esa crisis y dar lugar a un quinto paradigma.",
+    "tipo": "texto"
+  },
+  {
+    "id": "IQ_PAR_047",
+    "dificultad": 5,
+    "categoria": "Cuarto paradigma: ingeniería química sostenible",
+    "pregunta": "El artículo menciona que antes de la era de la sostenibilidad, reducir el consumo de materiales y energía era motivado principalmente por razones económicas. ¿En qué cambia fundamentalmente la perspectiva del cuarto paradigma respecto a esta reducción?",
+    "opciones": {
+      "a": "Ahora la reducción es obligatoria por ley en todos los países industrializados",
+      "b": "La reducción ya no busca solo rentabilidad; también implica cambiar la base de recursos hacia fuentes renovables y ambientalmente amigables, siendo el objetivo más amplio que el costo",
+      "c": "La reducción solo aplica a empresas con más de 500 empleados según estándares ISO",
+      "d": "La reducción se evalúa únicamente con el índice de Dow Jones de sostenibilidad"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "El cuarto paradigma amplía la perspectiva: reducir materiales y energía ya no es solo una cuestión económica. Ahora implica además cambiar la base de recursos hacia fuentes renovables y amigables con el ambiente, incorporando una dimensión ambiental y social que trasciende la rentabilidad.",
+    "tipo": "texto"
+  },
+  {
+    "id": "IQ_PAR_048",
+    "dificultad": 5,
+    "categoria": "Tercer paradigma: ingeniería de productos",
+    "pregunta": "Hill señala que el diseño de productos estructurados es significativamente más complejo que el de productos homogéneos. Un equipo de ingeniería trabaja en un emulsificante alimentario cuyas propiedades dependen del tamaño de gota y la distribución del emulsificante en la interfase. ¿Por qué este caso es un producto estructurado y qué exige eso al proceso de diseño?",
+    "opciones": {
+      "a": "Es estructurado porque contiene más de tres componentes; esto exige solo más análisis cromatográficos",
+      "b": "Es estructurado porque sus propiedades dependen de su microestructura (tamaño de gota, distribución interfacial); esto exige diseñar simultáneamente el producto y el proceso de fabricación",
+      "c": "Es estructurado porque debe cumplir normas de la FDA; esto exige solo mayor control de calidad analítica",
+      "d": "Es estructurado porque su precio es más alto que los emulsificantes simples; esto exige análisis de mercado avanzado"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Un producto estructurado logra sus propiedades funcionales a través de su microestructura (en este caso, tamaño de gota y distribución interfacial del emulsificante). Esto exige diseñar simultáneamente el producto y el proceso de fabricación, ya que el proceso determina la microestructura y por tanto las propiedades del producto final.",
+    "tipo": "texto"
+  },
+  {
+    "id": "IQ_PAR_049",
+    "dificultad": 5,
+    "categoria": "Primer paradigma: operaciones unitarias",
+    "pregunta": "El artículo señala que el paradigma de operaciones unitarias fue adoptado posteriormente por otras industrias de proceso, como la alimentaria y la industria ligera. ¿Qué capacidad del paradigma explica mejor esta transferencia a otros sectores?",
+    "opciones": {
+      "a": "Que fue desarrollado originalmente pensando en múltiples industrias simultáneamente",
+      "b": "Su capacidad de descomponer cualquier proceso en unidades funcionales comunes, independientemente del producto específico fabricado",
+      "c": "Que sus ecuaciones matemáticas son más sencillas que las de otros paradigmas",
+      "d": "Que fue el único paradigma apoyado con financiamiento gubernamental internacional"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "La fortaleza del primer paradigma reside en que permite descomponer cualquier proceso de transformación en unidades funcionales comunes (operaciones unitarias) independientemente del sector industrial. Esta generalidad es lo que permitió su adopción en industrias alimentaria, ligera y otras de proceso.",
+    "tipo": "texto"
+  },
+  {
+    "id": "IQ_PAR_050",
+    "dificultad": 5,
+    "categoria": "Historia y evolución de la ingeniería química",
+    "pregunta": "Integrando la perspectiva completa del artículo: si un egresado de ingeniería química en 2025 debe enfrentar el rediseño de una planta de producción de polímeros biodegradables para mercados globales exigentes en calidad y huella de carbono, ¿cuál es la descripción más precisa del enfoque paradigmático que debería aplicar?",
+    "opciones": {
+      "a": "Debe enfocarse exclusivamente en el cuarto paradigma porque la huella de carbono es el único criterio relevante hoy",
+      "b": "Debe usar el primero y el segundo paradigma para el proceso, ignorar el tercero porque ya está definido el producto, y consultar el cuarto solo para los permisos ambientales",
+      "c": "Debe integrar los cuatro paradigmas: operaciones unitarias y fenómenos de transporte para diseñar y escalar el proceso; ingeniería de productos para asegurar las propiedades específicas del polímero; e ingeniería química sostenible para optimizar simultáneamente los objetivos económicos, ambientales y sociales",
+      "d": "Solo necesita el tercer paradigma porque se trata de un problema de diseño de producto nuevo"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "Este caso integra los cuatro paradigmas: el primero y segundo dan las herramientas para diseñar, escalar y entender el proceso de polimerización y las operaciones de separación; el tercero guía el diseño del producto para satisfacer propiedades específicas de calidad del mercado; y el cuarto exige optimizar multiobjetivo considerando la huella de carbono, la viabilidad económica y los aspectos sociales, que es la visión completa que propone el artículo.",
     "tipo": "texto"
   }
 ]

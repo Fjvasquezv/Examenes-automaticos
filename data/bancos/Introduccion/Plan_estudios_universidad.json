@@ -1,17 +1,452 @@
 [
   {
-    "id": "tec_plan_001",
-    "dificultad": 2,
-    "categoria": "Plan de estudios de la universidad",
-    "pregunta": "Pregunta de ejemplo sobre el plan de estudios de la universidad.",
+    "id": "IQ_CURR_001",
+    "dificultad": 1,
+    "categoria": "Plan de estudios - estructura general",
+    "pregunta": "¿Cuántos créditos académicos tiene el plan de estudios propuesto (nuevo) del programa de Ingeniería Química de la Universidad ECCI?",
     "opciones": {
-      "a": "Opción A",
-      "b": "Opción B",
-      "c": "Opción C",
-      "d": "Opción D"
+      "a": "170 créditos",
+      "b": "159 créditos",
+      "c": "150 créditos",
+      "d": "180 créditos"
     },
     "respuesta_correcta": "b",
-    "explicacion": "Reemplaza esta pregunta por una de tu banco.",
+    "explicacion": "El nuevo plan de estudios propuesto tiene 159 créditos académicos, distribuidos en 54 espacios académicos a lo largo de 9 semestres. El plan anterior tenía 170 créditos.",
+    "tipo": "texto"
+  },
+  {
+    "id": "IQ_CURR_002",
+    "dificultad": 1,
+    "categoria": "Plan de estudios - estructura general",
+    "pregunta": "¿En cuántos semestres está organizado el nuevo plan de estudios del programa de Ingeniería Química de la ECCI?",
+    "opciones": {
+      "a": "8 semestres",
+      "b": "10 semestres",
+      "c": "9 semestres",
+      "d": "12 semestres"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "El nuevo plan de estudios se organiza en 9 semestres, en lugar de los 10 que tenía el plan anterior, buscando una formación más eficiente sin sacrificar calidad.",
+    "tipo": "texto"
+  },
+  {
+    "id": "IQ_CURR_003",
+    "dificultad": 1,
+    "categoria": "Campos de formación",
+    "pregunta": "¿Cuántos campos de formación tiene el plan de estudios del programa de Ingeniería Química de la ECCI?",
+    "opciones": {
+      "a": "Dos campos",
+      "b": "Tres campos",
+      "c": "Cinco campos",
+      "d": "Cuatro campos"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "El plan de estudios se estructura en cuatro campos de formación: básico, básico de la profesión, específico de la profesión y complementario (sociohumanístico y comunicación).",
+    "tipo": "texto"
+  },
+  {
+    "id": "IQ_CURR_004",
+    "dificultad": 1,
+    "categoria": "Campos de formación",
+    "pregunta": "¿Cuál campo de formación representa el mayor porcentaje de créditos en el nuevo plan de estudios?",
+    "opciones": {
+      "a": "Campo básico (18,9%)",
+      "b": "Campo específico de la profesión (49,7%)",
+      "c": "Campo básico de la profesión (25,2%)",
+      "d": "Campo complementario (6,3%)"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "El campo específico de la profesión concentra el 49,7% del plan de estudios (79 créditos), siendo el de mayor peso, lo que refleja el énfasis en formación técnica especializada.",
+    "tipo": "texto"
+  },
+  {
+    "id": "IQ_CURR_005",
+    "dificultad": 1,
+    "categoria": "Campos de formación",
+    "pregunta": "¿Cuántos créditos tiene el campo de formación básico del plan de estudios?",
+    "opciones": {
+      "a": "40 créditos",
+      "b": "10 créditos",
+      "c": "30 créditos",
+      "d": "25 créditos"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "El campo de formación básico cuenta con 30 créditos académicos, que representan el 18,9% del plan de estudios. Incluye matemáticas, física y estadística.",
+    "tipo": "texto"
+  },
+  {
+    "id": "IQ_CURR_006",
+    "dificultad": 1,
+    "categoria": "Plan de estudios - estructura general",
+    "pregunta": "¿Cuántos espacios académicos (cursos) tiene en total el nuevo plan de estudios propuesto?",
+    "opciones": {
+      "a": "67 cursos",
+      "b": "80 cursos",
+      "c": "54 cursos",
+      "d": "45 cursos"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "El nuevo plan tiene 54 espacios académicos, frente a los 67 del plan anterior, reflejando la eliminación de redundancias y una mejor estructuración del contenido curricular.",
+    "tipo": "texto"
+  },
+  {
+    "id": "IQ_CURR_007",
+    "dificultad": 2,
+    "categoria": "Campo de formación básico",
+    "pregunta": "El campo de formación básico se divide en tres áreas. ¿Cuál de las siguientes opciones describe correctamente esas tres áreas y su número de créditos?",
+    "opciones": {
+      "a": "Química (18 cr), Física (6 cr) y Estadística (6 cr)",
+      "b": "Matemáticas (18 cr), Estadística (6 cr) y Física (6 cr)",
+      "c": "Matemáticas (20 cr), Física (5 cr) y Estadística (5 cr)",
+      "d": "Matemáticas (15 cr), Física (8 cr) y Química (7 cr)"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "El campo básico tiene 30 créditos distribuidos en: Matemáticas con 18 créditos (6 cursos), Estadística con 6 créditos (2 cursos) y Física con 6 créditos (2 cursos).",
+    "tipo": "texto"
+  },
+  {
+    "id": "IQ_CURR_008",
+    "dificultad": 2,
+    "categoria": "Campo de formación básico",
+    "pregunta": "¿Cuántos créditos tiene la asignatura de Termodinámica en el plan de estudios?",
+    "opciones": {
+      "a": "3 créditos",
+      "b": "4 créditos",
+      "c": "5 créditos",
+      "d": "2 créditos"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "La asignatura Termodinámica tiene 4 créditos académicos, siendo una de las de mayor carga dentro de la línea de termodinámica del campo específico de la profesión.",
+    "tipo": "texto"
+  },
+  {
+    "id": "IQ_CURR_009",
+    "dificultad": 2,
+    "categoria": "Campo de formación básico de la profesión",
+    "pregunta": "¿Cuáles son las tres áreas que componen el campo de formación básico de la profesión?",
+    "opciones": {
+      "a": "Física, Estadística y Matemáticas avanzadas",
+      "b": "Investigación, Química y Herramientas de la ingeniería",
+      "c": "Procesos industriales, Termodinámica y Operaciones unitarias",
+      "d": "Bioquímica, Control de procesos y Simulación"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "El campo básico de la profesión (40 créditos, 25,2% del plan) se divide en: Investigación (9 cr), Química (17 cr) y Herramientas de la ingeniería (14 cr).",
+    "tipo": "texto"
+  },
+  {
+    "id": "IQ_CURR_010",
+    "dificultad": 2,
+    "categoria": "Campo específico de la profesión",
+    "pregunta": "¿Cuáles son las tres líneas formativas del campo específico de la profesión?",
+    "opciones": {
+      "a": "Investigación, Química y Física aplicada",
+      "b": "Sostenibilidad, Control y Diseño de reactores",
+      "c": "Procesos industriales, Termodinámica y Operaciones Unitarias",
+      "d": "Biología, Química orgánica y Materiales"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "El campo específico de la profesión se organiza en tres líneas: Procesos industriales (28 cr), Termodinámica (16 cr) y Operaciones Unitarias (27 cr), más un componente de Profundización (8 cr).",
+    "tipo": "texto"
+  },
+  {
+    "id": "IQ_CURR_011",
+    "dificultad": 2,
+    "categoria": "Plan de estudios - estructura general",
+    "pregunta": "¿Cuál es el nivel mínimo de promedio académico ponderado que debe mantener un estudiante para poder graduarse del programa de Ingeniería Química de la ECCI?",
+    "opciones": {
+      "a": "2.5",
+      "b": "3.5",
+      "c": "3.0",
+      "d": "4.0"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "El reglamento estudiantil exige un promedio académico ponderado no inferior a 3.0 para que el estudiante pueda optar por la graduación en programas de pregrado.",
+    "tipo": "texto"
+  },
+  {
+    "id": "IQ_CURR_012",
+    "dificultad": 3,
+    "categoria": "Plan de estudios - estructura general",
+    "pregunta": "Al comparar el plan vigente con el plan propuesto, ¿cuál de los siguientes cambios describe correctamente una diferencia entre ambos?",
+    "opciones": {
+      "a": "El plan propuesto tiene más créditos totales y más semestres que el vigente",
+      "b": "El plan propuesto reduce los semestres de 10 a 9, los créditos de 170 a 159 y los cursos de 67 a 54",
+      "c": "El plan propuesto mantiene el mismo número de créditos pero cambia la distribución por campos",
+      "d": "El plan propuesto aumenta el porcentaje de créditos electivos del 10% al 20%"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "El plan propuesto reduce la duración de 10 a 9 semestres, los créditos totales de 170 a 159 y el número de cursos de 67 a 54, buscando mayor eficiencia sin sacrificar calidad.",
+    "tipo": "texto"
+  },
+  {
+    "id": "IQ_CURR_013",
+    "dificultad": 3,
+    "categoria": "Campos de formación",
+    "pregunta": "Un estudiante dice: 'El campo complementario (sociohumanístico) es el más importante porque tiene más créditos'. ¿Es correcta esta afirmación?",
+    "opciones": {
+      "a": "Sí, porque la formación ética es la base de todo ingeniero",
+      "b": "No, porque el campo complementario tiene solo 10 créditos (6,3%), siendo el de menor peso del plan",
+      "c": "Sí, porque incluye todas las electivas del programa",
+      "d": "No, porque el campo básico tiene menos créditos aún"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "El campo complementario sociohumanístico y de comunicación tiene solo 10 créditos, que representan el 6,3% del plan, siendo el campo con menor número de créditos. El de mayor peso es el específico de la profesión con 49,7%.",
+    "tipo": "texto"
+  },
+  {
+    "id": "IQ_CURR_014",
+    "dificultad": 3,
+    "categoria": "Campo de formación básico de la profesión",
+    "pregunta": "¿Cuántos créditos tiene en total el área de Química dentro del campo de formación básico de la profesión, y cuántos cursos la componen?",
+    "opciones": {
+      "a": "12 créditos en 3 cursos",
+      "b": "20 créditos en 6 cursos",
+      "c": "17 créditos en 5 cursos",
+      "d": "14 créditos en 4 cursos"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "El área de Química tiene 17 créditos distribuidos en 5 cursos: Química general (3 cr), Química inorgánica y laboratorio (4 cr), Técnicas de análisis químico (3 cr), Química orgánica y laboratorio (4 cr) y Bioquímica (3 cr).",
+    "tipo": "texto"
+  },
+  {
+    "id": "IQ_CURR_015",
+    "dificultad": 3,
+    "categoria": "Plan de estudios - estructura general",
+    "pregunta": "Según el plan de estudios, ¿cuál de los siguientes requisitos debe cumplir un estudiante para poder graduarse como Ingeniero Químico de la ECCI? (selecciona la opción que lista todos los requisitos correctamente)",
+    "opciones": {
+      "a": "Aprobar todas las materias, tener promedio ≥ 3.0 y presentar tesis de grado obligatoria",
+      "b": "Haber cursado y aprobado el plan completo, promedio ≥ 3.0, aprobar una opción de grado, estar a paz y salvo, nivel B1 en inglés y aprobar Saber Pro",
+      "c": "Solo necesita aprobar todas las materias con promedio ≥ 3.0 y pagar derechos de grado",
+      "d": "Aprobar las materias, nivel C1 en inglés y presentar un proyecto de investigación publicado"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Para graduarse el estudiante debe: aprobar todo el plan de estudios, tener promedio ≥ 3.0, aprobar una opción de grado, estar a paz y salvo con la Universidad, acreditar nivel B1 en inglés (marco europeo) y aprobar las pruebas Saber Pro.",
+    "tipo": "texto"
+  },
+  {
+    "id": "IQ_CURR_016",
+    "dificultad": 1,
+    "categoria": "Coherencia curricular - secuenciación",
+    "pregunta": "¿Cuál de las siguientes asignaturas es la base natural para poder cursar Cálculo Diferencial?",
+    "opciones": {
+      "a": "Ecuaciones diferenciales",
+      "b": "Álgebra lineal",
+      "c": "Matemáticas básicas",
+      "d": "Cálculo vectorial"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "Matemáticas básicas proporciona los fundamentos de álgebra y trigonometría que un estudiante necesita antes de abordar el concepto de derivada en Cálculo Diferencial.",
+    "tipo": "texto"
+  },
+  {
+    "id": "IQ_CURR_017",
+    "dificultad": 1,
+    "categoria": "Coherencia curricular - secuenciación",
+    "pregunta": "Un estudiante quiere cursar Bioquímica sin haber visto Química Orgánica. ¿Es esto pedagógicamente adecuado?",
+    "opciones": {
+      "a": "Sí, porque Bioquímica es completamente independiente de la química orgánica",
+      "b": "No, porque Bioquímica estudia moléculas como proteínas, lípidos y carbohidratos que son compuestos orgánicos y requieren esa base previa",
+      "c": "Sí, porque la bioquímica solo usa conceptos de biología",
+      "d": "No, pero solo porque el reglamento lo prohíbe, no por razones de contenido"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Bioquímica estudia las macromoléculas de la vida (proteínas, lípidos, carbohidratos, ácidos nucleicos), todas compuestos orgánicos. Sin conocer los principios de la química orgánica, el estudiante no puede entender su estructura ni función.",
+    "tipo": "texto"
+  },
+  {
+    "id": "IQ_CURR_018",
+    "dificultad": 1,
+    "categoria": "Coherencia curricular - secuenciación",
+    "pregunta": "¿Por qué tiene sentido que Estadística y Probabilidad aparezca antes que Estadística Inferencial y Diseño de Experimentos?",
+    "opciones": {
+      "a": "Porque la primera es virtual y la segunda es presencial",
+      "b": "Porque la inferencia estadística y el diseño de experimentos requieren dominar primero los conceptos básicos de probabilidad y distribuciones",
+      "c": "Porque la primera tiene menos créditos y es más fácil de aprobar",
+      "d": "No tiene sentido; podrían cursarse en cualquier orden"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "La estadística inferencial (pruebas de hipótesis, intervalos de confianza) y el diseño de experimentos se fundamentan directamente en conceptos de probabilidad y distribuciones estadísticas que se aprenden en el primer curso.",
+    "tipo": "texto"
+  },
+  {
+    "id": "IQ_CURR_019",
+    "dificultad": 2,
+    "categoria": "Coherencia curricular - secuenciación",
+    "pregunta": "¿Por qué es razonable que Técnicas de Análisis Químico esté ubicada después de Química General pero antes de Química Orgánica e Inorgánica?",
+    "opciones": {
+      "a": "Porque así se ordena alfabéticamente en el plan de estudios",
+      "b": "Porque las técnicas analíticas (volumetría, análisis cuantitativo) requieren conceptos básicos de química general como estequiometría, pero luego se aplican para analizar compuestos orgánicos e inorgánicos en los cursos siguientes",
+      "c": "Porque Análisis Químico es más fácil y debe verse primero para motivar al estudiante",
+      "d": "Porque las técnicas analíticas no tienen relación con la química orgánica ni inorgánica"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Técnicas de análisis químico necesita de Química General como base (estequiometría, concentraciones, reacciones). A su vez, las técnicas aprendidas se aplicarán directamente en los laboratorios de Química Orgánica e Inorgánica que vienen después.",
+    "tipo": "texto"
+  },
+  {
+    "id": "IQ_CURR_020",
+    "dificultad": 2,
+    "categoria": "Coherencia curricular - secuenciación",
+    "pregunta": "¿Por qué es importante que Balance de Materia aparezca antes que Termodinámica, Equilibrio de Fases e Ingeniería de Reacciones en el plan?",
+    "opciones": {
+      "a": "Porque el balance de materia tiene menos créditos y se termina más rápido",
+      "b": "Porque el balance de materia enseña a contabilizar entradas y salidas en un sistema, habilidad fundamental para cualquier análisis termodinámico o de reacciones",
+      "c": "Porque son asignaturas completamente independientes y el orden no importa",
+      "d": "Porque la termodinámica no usa balances de materia en sus cálculos"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "El balance de materia enseña el principio de conservación aplicado a sistemas químicos, que es la herramienta base para analizar reactores (ingeniería de reacciones), separaciones y equipos termodinámicos. Sin esa base, los cálculos en las demás asignaturas carecen de estructura.",
+    "tipo": "texto"
+  },
+  {
+    "id": "IQ_CURR_021",
+    "dificultad": 2,
+    "categoria": "Coherencia curricular - secuenciación",
+    "pregunta": "Algoritmia y Programación y Métodos Numéricos son dos asignaturas del campo básico de la profesión. ¿En qué orden lógico deben cursarse y por qué?",
+    "opciones": {
+      "a": "Métodos Numéricos primero, porque las matemáticas son la base de la programación",
+      "b": "Pueden cursarse en cualquier orden porque no tienen relación entre sí",
+      "c": "Algoritmia y Programación primero, porque escribir un programa para resolver métodos numéricos requiere saber programar antes",
+      "d": "Deben cursarse simultáneamente para que se refuercen mutuamente"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "Algoritmia y Programación enseña a construir algoritmos y usar lenguajes de programación. Métodos Numéricos requiere implementar esos algoritmos computacionalmente (ej: método de Newton-Raphson, Runge-Kutta). Sin saber programar, el estudiante no puede aprovechar completamente los métodos numéricos.",
+    "tipo": "texto"
+  },
+  {
+    "id": "IQ_CURR_022",
+    "dificultad": 2,
+    "categoria": "Coherencia curricular - secuenciación",
+    "pregunta": "¿Por qué tiene sentido que Mecánica de Fluidos aparezca antes que Intercambiadores de Calor y Operaciones de Separación?",
+    "opciones": {
+      "a": "Porque la mecánica de fluidos tiene más créditos y debe tomarse primero",
+      "b": "Porque el flujo de fluidos es la base del transporte de masa y energía que ocurre en intercambiadores y columnas de separación",
+      "c": "Porque son asignaturas de diferentes líneas y no tienen relación entre sí",
+      "d": "Porque la mecánica de fluidos es la asignatura más difícil y conviene tomarla al inicio"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "El comportamiento de los fluidos (velocidad, presión, régimen de flujo) es fundamental para entender cómo se transfiere calor en un intercambiador y cómo se mueven las fases en columnas de destilación o absorción. Sin esa base, los diseños de estos equipos no tienen fundamento físico.",
+    "tipo": "texto"
+  },
+  {
+    "id": "IQ_CURR_023",
+    "dificultad": 3,
+    "categoria": "Coherencia curricular - secuenciación",
+    "pregunta": "Un estudiante argumenta que podría ver Simulación de Procesos Químicos en el primer semestre porque 'es solo usar un software'. ¿Qué argumento curricular refuta mejor esta idea?",
+    "opciones": {
+      "a": "Que el software es muy costoso y la universidad no lo puede instalar en primer semestre",
+      "b": "Que la simulación requiere modelar balances de materia y energía, termodinámica, cinética y operaciones unitarias; sin esas bases el estudiante no puede interpretar ni validar los resultados del simulador",
+      "c": "Que primer semestre ya tiene muchas materias y no hay espacio horario",
+      "d": "Que la simulación es una electiva y puede tomarse en cualquier momento"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Simular un proceso no es solo ingresar datos a un software: requiere construir el modelo, seleccionar termodinámica adecuada, interpretar resultados y detectar errores. Eso exige dominar previamente balance de materia, termodinámica, operaciones unitarias y cinética química.",
+    "tipo": "texto"
+  },
+  {
+    "id": "IQ_CURR_024",
+    "dificultad": 3,
+    "categoria": "Coherencia curricular - secuenciación",
+    "pregunta": "¿Por qué la asignatura Fenómenos de Transporte está ubicada dentro de la línea de Operaciones Unitarias y no en la línea de Termodinámica?",
+    "opciones": {
+      "a": "Porque se trata de un error de diseño curricular",
+      "b": "Porque los fenómenos de transporte (momentum, calor, masa) explican los mecanismos físicos que ocurren dentro de las operaciones unitarias, siendo su base científica directa",
+      "c": "Porque la termodinámica ya cubre todos los fenómenos de transporte",
+      "d": "Porque fenómenos de transporte solo aplica a sólidos y no tiene relación con termodinámica"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Los fenómenos de transporte explican, a nivel de mecanismos físicos profundos, lo que ocurre dentro de equipos como intercambiadores, columnas y reactores. Por eso su lugar natural es dentro de la línea de operaciones unitarias, como base científica de cada equipo.",
+    "tipo": "texto"
+  },
+  {
+    "id": "IQ_CURR_025",
+    "dificultad": 3,
+    "categoria": "Coherencia curricular - secuenciación",
+    "pregunta": "¿Qué problemas concretos tendría un estudiante que cursa Ingeniería de las Reacciones Químicas sin haber aprobado Termodinámica y Equilibrio Químico?",
+    "opciones": {
+      "a": "Ninguno, porque la cinética química es independiente del equilibrio termodinámico",
+      "b": "Solo tendría dificultades con los cálculos matemáticos, no con los conceptos",
+      "c": "No podría calcular la conversión máxima de reacción (limitada por el equilibrio), ni determinar si una reacción es favorable energéticamente, ni seleccionar correctamente las condiciones de operación del reactor",
+      "d": "Solo perdería el laboratorio, pero podría aprobar la parte teórica sin problemas"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "La ingeniería de reacciones necesita: termodinámica para saber si la reacción libera o absorbe calor (y diseñar el control térmico del reactor) y equilibrio químico para conocer la conversión máxima teórica. Sin esas bases, el diseño de un reactor carece de fundamento.",
+    "tipo": "texto"
+  },
+  {
+    "id": "IQ_CURR_026",
+    "dificultad": 3,
+    "categoria": "Coherencia curricular - secuenciación",
+    "pregunta": "El plan incluye dos laboratorios en la línea de Operaciones Unitarias: 'Laboratorio de Operaciones Unitarias' y 'Laboratorio de Sólidos, Fluidos y Transferencia de Calor'. ¿Qué lógica pedagógica justifica tener dos laboratorios separados en lugar de uno solo?",
+    "opciones": {
+      "a": "Es un error; podrían fusionarse en un solo laboratorio sin perder nada",
+      "b": "Se separan para que los estudiantes practiquen con dos grupos de equipos diferentes en momentos del programa donde ya tienen la teoría correspondiente, reforzando la integración teoría-práctica de forma progresiva",
+      "c": "Se separan únicamente por capacidad de espacio físico en el laboratorio",
+      "d": "El primer laboratorio es teórico y el segundo es práctico"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Tener laboratorios en momentos distintos permite que el estudiante llegue a cada práctica con la teoría ya vista. El primero acompaña las primeras operaciones unitarias; el segundo, los fenómenos de sólidos, fluidos y calor que se estudian más adelante. Esto garantiza que la práctica tenga un sustento conceptual real.",
+    "tipo": "texto"
+  },
+  {
+    "id": "IQ_CURR_027",
+    "dificultad": 4,
+    "categoria": "Coherencia curricular - secuenciación",
+    "pregunta": "Un estudiante reprobó Cálculo Diferencial y decide matricularse de todas formas en Física Mecánica, Ecuaciones Diferenciales y Álgebra Lineal al siguiente semestre. Analiza el impacto en su proceso de aprendizaje.",
+    "opciones": {
+      "a": "No hay impacto porque esas asignaturas no dependen del cálculo diferencial",
+      "b": "El impacto es leve; solo tendrá dificultades en los primeros temas de Ecuaciones Diferenciales",
+      "c": "El impacto es significativo: Ecuaciones Diferenciales requiere derivadas directamente; Física Mecánica usa derivadas para velocidad y aceleración; el dominio del cálculo es transversal y su ausencia compromete las tres asignaturas simultáneamente",
+      "d": "Solo Ecuaciones Diferenciales se vería afectada; Álgebra Lineal y Física son completamente independientes del cálculo"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "El cálculo diferencial es transversal a múltiples asignaturas: las ecuaciones diferenciales lo usan directamente; la física mecánica lo requiere para calcular velocidad, aceleración y trabajo; incluso álgebra lineal se apoya en él para transformaciones. Iniciar estas materias sin esa base implica no poder resolver una parte central de los problemas.",
+    "tipo": "texto"
+  },
+  {
+    "id": "IQ_CURR_028",
+    "dificultad": 4,
+    "categoria": "Coherencia curricular - secuenciación",
+    "pregunta": "Diseño de Plantas es la asignatura integradora por excelencia en el plan de estudios. ¿Por qué su ubicación al final del programa (semestres avanzados) es coherente con el diseño curricular, más allá de ser simplemente 'la más difícil'?",
+    "opciones": {
+      "a": "Porque el software de diseño de plantas es muy costoso y se instala último",
+      "b": "Porque diseñar una planta requiere integrar simultáneamente: balance de materia y energía, termodinámica, operaciones unitarias, control de procesos, evaluación económica y consideraciones de seguridad; es decir, prácticamente todo el plan debe haberse cursado antes",
+      "c": "Porque los profesores que la dictan solo están disponibles en semestres avanzados",
+      "d": "Porque es una electiva y el estudiante puede tomarla cuando quiera"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Diseño de plantas es una asignatura de síntesis: el estudiante debe integrar conocimientos de todas las líneas (termodinámica, operaciones unitarias, procesos, control, economía, seguridad). Su posición al final no es arbitraria; es la consecuencia lógica de que primero hay que dominar cada pieza antes de ensamblarlas en un diseño completo.",
+    "tipo": "texto"
+  },
+  {
+    "id": "IQ_CURR_029",
+    "dificultad": 5,
+    "categoria": "Coherencia curricular - secuenciación",
+    "pregunta": "El documento menciona que Cálculo Diferencial 'no solo es la base de la línea de termodinámica, sino también de procesos industriales'. ¿Qué implicación pedagógica concreta tiene esto para un estudiante de primer semestre que subestima esa asignatura?",
+    "opciones": {
+      "a": "Ninguna a largo plazo; las deficiencias en matemáticas se compensan con la experiencia práctica en laboratorio",
+      "b": "La implicación es puntual: solo afectará la asignatura de Ecuaciones Diferenciales",
+      "c": "La implicación es sistémica: una base débil en cálculo diferencial generará dificultades acumulativas en al menos dos trayectorias formativas completas (termodinámica y procesos industriales), comprometiendo la capacidad del estudiante para modelar, optimizar y diseñar procesos durante toda la carrera",
+      "d": "Solo importa si el estudiante quiere dedicarse a investigación; para trabajo industrial no es tan relevante"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "El plan reconoce explícitamente el papel transversal del cálculo diferencial. Una deficiencia en primer semestre no se queda ahí: se propaga a Balance de Materia (modelado de sistemas dinámicos), Termodinámica (cambios infinitesimales), Mecánica de Fluidos (ecuaciones de momentum), Fenómenos de Transporte y más. La debilidad inicial crea un 'efecto dominó' que afecta múltiples trayectorias.",
+    "tipo": "texto"
+  },
+  {
+    "id": "IQ_CURR_030",
+    "dificultad": 5,
+    "categoria": "Coherencia curricular - secuenciación",
+    "pregunta": "Un egresado propone rediseñar el plan de estudios moviendo Bioprocesos al segundo semestre (actualmente está en semestres avanzados). Usando los conocimientos del plan actual, ¿cuál es el argumento más completo para rechazar esa propuesta?",
+    "opciones": {
+      "a": "Porque Bioprocesos es una materia electiva y no puede moverse",
+      "b": "Porque en segundo semestre el estudiante aún no tiene los requisitos previos: le faltan Bioquímica (que requiere Química Orgánica, que requiere Química General), Balance de Materia para modelar el biorreactor, y Estadística para analizar datos experimentales; mover Bioprocesos implicaría que el estudiante carezca de al menos tres cadenas de conocimiento previo indispensables",
+      "c": "Solo porque el software de simulación de bioprocesos es avanzado y no se puede enseñar antes",
+      "d": "Porque la Dirección del Programa no permite modificaciones al plan sin aprobación del MEN"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Bioprocesos depende de al menos tres cadenas previas: (1) Química General → Química Orgánica → Bioquímica (para entender los sustratos, enzimas y metabolismos involucrados); (2) Balance de Materia → Termodinámica (para modelar el biorreactor); y (3) Estadística y Probabilidad (para diseñar experimentos y analizar datos de fermentación). Ninguna de estas cadenas está completa en segundo semestre, lo que haría la asignatura incomprensible en esa posición.",
     "tipo": "texto"
   }
 ]
