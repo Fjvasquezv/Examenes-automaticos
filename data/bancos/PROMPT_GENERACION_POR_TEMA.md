@@ -1,46 +1,60 @@
-# Prompt oficial para generar preguntas por tema (Primer semestre)
+# Plantilla oficial: generación de bancos por tema (compatibles con el sistema)
 
-Usa este prompt con cualquier LLM para generar bancos compatibles con el sistema adaptativo.
+Usa esta plantilla con cualquier LLM para generar bancos listos para cargar en el sistema adaptativo.
 
-## Prompt
+## 1) Qué necesita SÍ o SÍ un banco para funcionar
 
-Eres un diseñador instruccional experto en evaluación adaptativa para estudiantes de diferentes semestres de ingeniería química.
+Cada pregunta debe cumplir este esquema mínimo:
+- `id` (string único)
+- `dificultad` (entero de 1 a 5)
+- `categoria` (string, debe coincidir con el tema)
+- `pregunta` (string)
+- `opciones` (objeto con claves `a`, `b`, `c`, `d`)
+- `respuesta_correcta` (una sola: `a`/`b`/`c`/`d`)
+- `explicacion` (string)
+- `tipo` (`texto` recomendado)
 
-Tu tarea es generar preguntas de selección múltiple por tema, respetando estrictamente este objetivo pedagógico:
-- Lenguaje claro, concreto y sin tecnicismos innecesarios.
-- Dificultad progresiva real (niveles 1 a 5).
-- Cobertura equilibrada por tema.
-- Distractores plausibles (errores típicos de primer semestre).
+Reglas críticas de aceptación:
+- IDs únicos en todo el banco (sin duplicados).
+- JSON válido (sin comentarios, sin texto fuera del JSON).
+- `respuesta_correcta` debe existir dentro de `opciones`.
+- `categoria` debe ser exactamente el tema esperado (mismo texto).
+- Cantidad total del banco debe ser suficiente para el mínimo del examen.
 
-### Contexto de generación
+## 2) Prompt listo para copiar/pegar
+
+Eres un diseñador instruccional experto en evaluación adaptativa para estudiantes de primer semestre.
+
+Genera preguntas de selección múltiple por tema para un banco de preguntas con calidad de evaluación real.
+
+### Contexto
 - Asignatura: {{ASIGNATURA}}
 - Temas a cubrir: {{TEMAS_LISTA}}
 - Total de preguntas: {{TOTAL_PREGUNTAS}}
 - Distribución por dificultad (1-5): {{DISTRIBUCION_DIFICULTAD}}
-- Nivel del público: Primer semestre
+- Nivel del público: {{NIVEL_PUBLICO}} (por defecto: primer semestre)
 - Idioma: Español
+- Prefijo de IDs: {{PREFIJO}}
 
 ### Reglas obligatorias
-1. Genera preguntas **por tema** (cada pregunta debe incluir `categoria` = tema).
-2. Usa `dificultad` entera de 1 a 5.
-3. Mantén equilibrio por tema según la distribución solicitada.
-4. Cada pregunta debe tener 4 opciones (`a`, `b`, `c`, `d`) y una sola correcta.
-5. La opción correcta debe aparecer distribuida entre a/b/c/d (no sesgada).
-6. Evita ambigüedades, trucos o redacciones confusas.
-7. En dificultad 1-2 usa aplicación básica y reconocimiento.
-8. En dificultad 3 usa análisis intermedio.
-9. En dificultad 4-5 exige razonamiento, integración y resolución de casos cortos.
-10. No uses contenido fuera del nivel/tema solicitado
+1. Cada pregunta debe pertenecer a un tema de `{{TEMAS_LISTA}}` usando `categoria` exacta.
+2. Usa `dificultad` entera entre 1 y 5.
+3. Genera exactamente 4 opciones (`a`, `b`, `c`, `d`) y una sola respuesta correcta.
+4. Evita preguntas ambiguas, triviales o con dos respuestas plausibles.
+5. Usa distractores realistas (errores típicos del nivel).
+6. Balancea la posición de la respuesta correcta (no concentrarla en una sola letra).
+7. No incluyas contenido fuera del alcance del nivel/tema.
+8. Devuelve solo JSON válido.
 
-### Escala de dificultad esperada
-- **1 (Muy básica):** definición, identificación directa, procedimiento elemental.
-- **2 (Básica):** aplicación simple en contexto breve.
-- **3 (Media):** comparación, interpretación o cálculo intermedio.
-- **4 (Alta):** resolución de problema con varios pasos o decisiones.
-- **5 (Muy alta):** caso retador, transferencia de concepto y justificación técnica breve.
+### Escala pedagógica de dificultad
+- 1: reconocimiento/definición básica.
+- 2: aplicación simple en contexto corto.
+- 3: análisis intermedio, comparación o interpretación.
+- 4: resolución de problema con varios pasos.
+- 5: caso retador con integración de conceptos.
 
-### Formato de salida (OBLIGATORIO)
-Devuelve **solo JSON válido** (sin markdown, sin comentarios, sin texto extra), como una lista de objetos con esta estructura exacta:
+### Formato de salida obligatorio
+Devuelve solo una lista JSON, sin markdown ni comentarios, con esta estructura:
 
 [
   {
@@ -55,14 +69,32 @@ Devuelve **solo JSON válido** (sin markdown, sin comentarios, sin texto extra),
       "d": "Opción D"
     },
     "respuesta_correcta": "b",
-    "explicacion": "Explicación breve y formativa para primer semestre.",
+    "explicacion": "Explicación breve, correcta y formativa.",
     "tipo": "texto"
   }
 ]
 
-### Verificaciones antes de responder
-- JSON sintácticamente válido.
-- IDs únicos y consecutivos.
-- `categoria` coincide exactamente con uno de los temas solicitados.
-- Distribución de dificultad respetada.
-- Todas las preguntas son apropiadas para primer semestre.
+### Autoverificación obligatoria antes de responder
+- JSON parseable.
+- IDs únicos (sin repetidos).
+- Dificultad en rango 1-5.
+- `categoria` válida (solo temas permitidos).
+- 4 opciones por pregunta.
+- Una sola correcta por pregunta.
+
+## 3) Checklist operativo antes de usar el banco
+
+1. Guardar archivo en la ruta correcta (`data/bancos/<Asignatura>/<Tema>.json`).
+2. Validar estructura:
+   - `python utils/validate_question_banks.py --path data/bancos/<Asignatura>`
+3. Validar examen completo (periodo/config/bancos/cantidad):
+   - `python utils/preflight_exam.py --periodo "<NOMBRE EXACTO DEL PERIODO>"`
+4. Solo después de validar, publicar desde UI Admin o push por git.
+
+## 4) Errores frecuentes a evitar
+
+- IDs duplicados entre archivos de distintos temas.
+- Categorías escritas distinto al tema configurado (`bancos_por_tema`).
+- Preguntas con `respuesta_correcta` que no coincide con opciones.
+- Banco editado en el editor pero no guardado en disco.
+- JSON con comillas mal cerradas o comas finales inválidas.
