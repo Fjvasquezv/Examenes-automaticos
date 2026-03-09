@@ -11,6 +11,7 @@ import json
 import unicodedata
 import re
 import subprocess
+import time
 
 # Agregar AMBOS directorios al path
 base = Path(__file__).parent
@@ -24,6 +25,7 @@ from exam_logic import ExamLogic
 from ui_components import UIComponents
 from src.data_persistence import DataPersistence
 from validators import validate_codigo_estudiante
+from exam_logger import ExamLogger
 
 
 def _serializar_estado_exam_logic(exam_logic) -> str:
@@ -120,9 +122,58 @@ def _ruta_disponibilidad(base_path: Path) -> Path:
     return base_path / "config" / "disponibilidad.json"
 
 
-def _leer_json(ruta: Path) -> dict:
+@st.cache_data(ttl=60, show_spinner=False)
+def _leer_json_cacheado(ruta_str: str, firma: str) -> dict:
+    ruta = Path(ruta_str)
     with open(ruta, 'r', encoding='utf-8') as f:
         return json.load(f)
+
+
+def _leer_json(ruta: Path) -> dict:
+    firma = "missing"
+    if ruta.exists():
+        stat = ruta.stat()
+        firma = f"{stat.st_mtime_ns}-{stat.st_size}"
+    return _leer_json_cacheado(str(ruta), firma)
+
+
+@st.cache_data(ttl=3600, show_spinner=False)
+def _cargar_preguntas_bancos_cacheado(base_path_str: str, bancos: tuple[str, ...], firma: str) -> list[dict]:
+    base_path = Path(base_path_str)
+    preguntas = []
+    for archivo in bancos:
+        ruta = base_path / archivo
+        with open(ruta, 'r', encoding='utf-8') as f:
+            bloque = json.load(f)
+        if not isinstance(bloque, list):
+            raise ValueError(f"El banco debe contener una lista: {archivo}")
+        preguntas.extend(bloque)
+    return preguntas
+
+
+def _firma_bancos(base_path: Path, bancos: list[str]) -> str:
+    piezas = []
+    for archivo in bancos:
+        ruta = base_path / archivo
+        if ruta.exists():
+            stat = ruta.stat()
+            piezas.append(f"{archivo}:{stat.st_mtime_ns}:{stat.st_size}")
+        else:
+            piezas.append(f"{archivo}:missing")
+    return "|".join(piezas)
+
+
+@st.cache_resource(show_spinner=False)
+def _obtener_exam_logger(base_path_str: str) -> ExamLogger:
+    return ExamLogger(Path(base_path_str))
+
+
+def _log_evento_operacion(base_path: Path, tipo: str, mensaje: str, codigo: str = "", examen_id: str = "", extra: dict | None = None) -> None:
+    try:
+        logger = _obtener_exam_logger(str(base_path))
+        logger.evento(tipo=tipo, mensaje=mensaje, codigo_estudiante=codigo, examen_id=examen_id, extra=extra)
+    except Exception:
+        pass
 
 
 def _escribir_json(ruta: Path, data: dict) -> None:
@@ -483,7 +534,7 @@ def _render_panel_admin(base_path: Path):
             st.session_state.admin_mode = False
             st.rerun()
 
-    tab_exam, tab_prog, tab_ops = st.tabs(["Exámenes", "Programación", "Operación"])
+    tab_exam, tab_prog, tab_ops, tab_mon = st.tabs(["Exámenes", "Programación", "Operación", "Monitoreo"])
 
     with tab_exam:
         catalogo = _catalogo_examenes(base_path)
@@ -1038,6 +1089,76 @@ def _render_panel_admin(base_path: Path):
                     else:
                         st.error(msg_pub_all or "No se pudo publicar el repositorio completo")
 
+    with tab_mon:
+        st.subheader("Monitoreo en tiempo real")
+        disp = _leer_json(_ruta_disponibilidad(base_path))
+        periodos = disp.get("periodos", [])
+        if not periodos:
+            st.info("No hay periodos configurados")
+            return
+
+        etiquetas = [f"{i+1}. {p.get('nombre', 'Sin nombre')}" for i, p in enumerate(periodos)]
+        sel_mon = st.selectbox("Prueba a monitorear", etiquetas, key="admin_mon_periodo")
+        idx_mon = int(sel_mon.split('.')[0]) - 1
+        periodo_mon = periodos[idx_mon]
+
+        auto_refresh = st.checkbox("Auto refrescar", value=False, key="admin_mon_auto")
+        intervalo = st.selectbox("Intervalo (segundos)", [5, 10, 15, 30], index=1, key="admin_mon_intervalo")
+        if st.button("🔄 Refrescar ahora", key="admin_mon_refresh", use_container_width=True):
+            st.rerun()
+
+        try:
+            ruta_examen, examen_id_estable = _resolver_ruta_examen_config(periodo_mon, base_path)
+            cfg_mon = _leer_json(ruta_examen)
+            _aplicar_bancos_modulares(cfg_mon, periodo_mon)
+            cfg_mon['_examen_id'] = examen_id_estable
+
+            persistence_mon = DataPersistence(cfg_mon)
+            en_curso = persistence_mon.listar_examenes_en_curso()
+            resultados = persistence_mon.obtener_resultados(limite=2000)
+
+            completados = [r for r in resultados if str(r.get('Razon_Terminacion', '')).strip() not in ('', 'EN_CURSO')]
+            bloqueados = [
+                r for r in en_curso
+                if str(r.get('Autorizado_Continuar', 'NO')).strip().upper() not in ('SI', 'SÍ', 'YES', 'TRUE', '1')
+            ]
+
+            col_m1, col_m2, col_m3, col_m4 = st.columns(4)
+            with col_m1:
+                st.metric("Activos (EN_CURSO)", len(en_curso))
+            with col_m2:
+                st.metric("Completados", len(completados))
+            with col_m3:
+                st.metric("Bloqueados", len(bloqueados))
+            with col_m4:
+                total_vistos = len(en_curso) + len(completados)
+                pct = (len(completados) / total_vistos * 100.0) if total_vistos > 0 else 0.0
+                st.metric("Tasa completación", f"{pct:.1f}%")
+
+            st.markdown("**Estudiantes activos**")
+            if en_curso:
+                filas = []
+                for r in en_curso:
+                    filas.append({
+                        "Código": r.get("Codigo_Estudiante", ""),
+                        "Respondidas": r.get("Preguntas_Respondidas", ""),
+                        "Correctas": r.get("Correctas", ""),
+                        "Incorrectas": r.get("Incorrectas", ""),
+                        "Nivel": r.get("Nivel_Final", ""),
+                        "Autorizado": r.get("Autorizado_Continuar", "NO"),
+                        "Último estado": "EN_CURSO"
+                    })
+                st.dataframe(filas, use_container_width=True)
+            else:
+                st.info("No hay estudiantes activos en este momento.")
+
+        except Exception as e:
+            st.error(f"Error en monitoreo: {e}")
+
+        if auto_refresh:
+            time.sleep(int(intervalo))
+            st.rerun()
+
 
 def _resolver_ruta_examen_config(periodo: dict, base_path: Path) -> tuple[Path, str]:
     """
@@ -1296,9 +1417,13 @@ def main():
         if 'bancos_preguntas' not in config:
             raise ValueError("La configuración del examen debe definir 'bancos_preguntas' (arquitectura modular)")
 
+        bancos_cfg = list(config.get('bancos_preguntas', []))
+        firma_bancos = _firma_bancos(base_path, bancos_cfg)
+        preguntas_cacheadas = _cargar_preguntas_bancos_cacheado(str(base_path), tuple(bancos_cfg), firma_bancos)
+
         question_manager = QuestionManager(
-            bancos_preguntas=config['bancos_preguntas'],
-            base_path=base_path
+            base_path=base_path,
+            preguntas_data=preguntas_cacheadas
         )
         
         # Inicializar componentes
@@ -1323,8 +1448,10 @@ def main():
             ejecutar_examen(config, question_manager, ui)
             
     except FileNotFoundError as e:
+        _log_evento_operacion(base_path, "error_archivo", f"Archivo no encontrado: {str(e)}", examen_id=str(config.get('_examen_id', '')) if isinstance(config, dict) else "")
         st.error(f"❌ Error: No se encontró archivo.\n{str(e)}")
     except Exception as e:
+        _log_evento_operacion(base_path, "error_general", str(e), examen_id=str(config.get('_examen_id', '')) if isinstance(config, dict) else "")
         st.error(f"❌ Error inesperado: {str(e)}")
         st.exception(e)
 
@@ -1336,8 +1463,7 @@ def verificar_disponibilidad():
     # Cargar archivo de disponibilidad
     try:
         ruta_disponibilidad = Path(__file__).parent / "config" / "disponibilidad.json"
-        with open(ruta_disponibilidad, 'r', encoding='utf-8') as f:
-            disponibilidad = json.load(f)
+        disponibilidad = _leer_json(ruta_disponibilidad)
     except FileNotFoundError:
         return False, None, "No se encontró archivo de disponibilidad", None
     
@@ -1363,9 +1489,7 @@ def verificar_disponibilidad():
             try:
                 base_path = Path(__file__).parent
                 ruta_examen, examen_id_estable = _resolver_ruta_examen_config(periodo, base_path)
-
-                with open(ruta_examen, 'r', encoding='utf-8') as f:
-                    config_examen = json.load(f)
+                config_examen = _leer_json(ruta_examen)
 
                 # Aplicar overrides modulares desde disponibilidad (si existen)
                 _aplicar_bancos_modulares(config_examen, periodo)
@@ -1379,8 +1503,7 @@ def verificar_disponibilidad():
                 # Cargar instrucciones desde archivo separado
                 ruta_instrucciones = base_path / "config" / "instrucciones.json"
                 try:
-                    with open(ruta_instrucciones, 'r', encoding='utf-8') as f2:
-                        instrucciones = json.load(f2)
+                    instrucciones = _leer_json(ruta_instrucciones)
                 except FileNotFoundError:
                     instrucciones = {"titulo": "Instrucciones", "items": [], "advertencias": []}
                 
@@ -1440,10 +1563,13 @@ def mostrar_pantalla_inicio(config, ui):
                 st.error("⚠️ Código inválido. Debe contener solo números y letras")
             else:
                 codigo_limpio = codigo.strip().upper()
+                base_path = Path(__file__).parent
+                examen_id = str(config.get('_examen_id', ''))
                 
                 try:
                     persistence = DataPersistence(config)
                     if persistence.verificar_examen_completado(codigo_limpio):
+                        _log_evento_operacion(base_path, "acceso_bloqueado", "Intento repetido de examen completado", codigo=codigo_limpio, examen_id=examen_id)
                         st.error("⚠️ Ya completaste este examen anteriormente.")
                         st.info("💡 Solo se permite un intento por estudiante.")
                         return
@@ -1451,10 +1577,12 @@ def mostrar_pantalla_inicio(config, ui):
                     if progreso:
                         autorizado = str(progreso.get('Autorizado_Continuar', 'NO')).strip().upper() in ('SI', 'SÍ', 'YES', 'TRUE', '1')
                         if not autorizado:
+                            _log_evento_operacion(base_path, "acceso_bloqueado", "Reanudación no autorizada", codigo=codigo_limpio, examen_id=examen_id)
                             st.error("🔒 Tienes un examen en curso bloqueado para reanudación.")
                             st.info("🧑‍🏫 Solicita autorización docente. En Google Sheets, cambia la columna 'Autorizado_Continuar' a 'SI' en tu fila EN_CURSO.")
                             return
 
+                        _log_evento_operacion(base_path, "restauracion", "Examen reanudado desde estado EN_CURSO", codigo=codigo_limpio, examen_id=examen_id)
                         st.info("🔄 Se detectó un examen en curso autorizado. Restaurando progreso...")
                         st.session_state.codigo_estudiante = codigo_limpio
                         st.session_state.exam_started = True
@@ -1467,9 +1595,11 @@ def mostrar_pantalla_inicio(config, ui):
                         st.rerun()
                         return
                 except Exception as e:
+                    _log_evento_operacion(base_path, "warning_persistencia", f"Error verificando progreso: {e}", codigo=codigo_limpio, examen_id=examen_id)
                     st.warning(f"⚠️ Error al verificar progreso: {e}")
                 st.session_state.codigo_estudiante = codigo_limpio
                 st.session_state.exam_started = True
+                _log_evento_operacion(base_path, "inicio", "Inicio de examen", codigo=codigo_limpio, examen_id=examen_id)
                 st.rerun()
     
     with col3:
@@ -1497,7 +1627,9 @@ def ejecutar_examen(config, question_manager, ui):
             try:
                 persistence = DataPersistence(config)
                 persistence.guardar_inicio_examen(st.session_state.codigo_estudiante)
+                _log_evento_operacion(Path(__file__).parent, "inicio_persistido", "Registro EN_CURSO creado", codigo=st.session_state.codigo_estudiante, examen_id=str(config.get('_examen_id', '')))
             except Exception as e:
+                _log_evento_operacion(Path(__file__).parent, "warning_persistencia", f"No se pudo guardar inicio: {e}", codigo=st.session_state.codigo_estudiante, examen_id=str(config.get('_examen_id', '')))
                 st.warning(f"⚠️ No se pudo guardar el inicio del examen: {e}")
     
     exam_logic = st.session_state.exam_logic
@@ -1591,7 +1723,8 @@ def ejecutar_examen(config, question_manager, ui):
                     theta_actual=exam_logic.theta_actual,
                     estado_json=_serializar_estado_exam_logic(exam_logic)
                 )
-            except:
+            except Exception as e:
+                _log_evento_operacion(Path(__file__).parent, "warning_persistencia", f"No se pudo actualizar progreso: {e}", codigo=st.session_state.codigo_estudiante, examen_id=str(config.get('_examen_id', '')))
                 pass
             
             st.rerun()
@@ -1615,11 +1748,14 @@ def guardar_resultados(config, exam_logic):
         )
         
         if resultado:
+            _log_evento_operacion(Path(__file__).parent, "fin", "Resultados guardados exitosamente", codigo=st.session_state.codigo_estudiante, examen_id=str(config.get('_examen_id', '')), extra={"nota_final": stats.get('nota_final', 0), "preguntas": stats.get('preguntas_respondidas', 0)})
             st.success("✅ Resultados guardados exitosamente")
         else:
+            _log_evento_operacion(Path(__file__).parent, "warning_persistencia", "Guardado de resultados devolvió False", codigo=st.session_state.codigo_estudiante, examen_id=str(config.get('_examen_id', '')))
             st.warning("⚠️ Los resultados se muestran pero hubo un problema al guardar en Sheets")
         
     except Exception as e:
+        _log_evento_operacion(Path(__file__).parent, "error_persistencia", f"Error al guardar resultados: {str(e)}", codigo=st.session_state.get('codigo_estudiante', ''), examen_id=str(config.get('_examen_id', '')))
         st.error(f"⚠️ Error al guardar en Sheets: {str(e)}")
         # Los resultados se mostrarán igual porque ya están en session_state
 

@@ -11,7 +11,13 @@ from typing import List, Dict, Any, Optional
 class QuestionManager:
     """Clase para gestionar el banco de preguntas (soporta múltiples bancos)"""
 
-    def __init__(self, preguntas_file: str = None, bancos_preguntas: list = None, base_path: str = None):
+    def __init__(
+        self,
+        preguntas_file: str = None,
+        bancos_preguntas: list = None,
+        base_path: str = None,
+        preguntas_data: Optional[List[Dict[str, Any]]] = None
+    ):
         """
         Inicializa el gestor de preguntas. Permite múltiples bancos (bancos_preguntas) o un solo archivo (preguntas_file).
         Args:
@@ -26,7 +32,12 @@ class QuestionManager:
         self.base_path = Path(base_path) if base_path else Path.cwd()
         self.preguntas_usadas_ids = set()
         self.preguntas = []
-        if bancos_preguntas:
+
+        if preguntas_data is not None:
+            if not isinstance(preguntas_data, list) or len(preguntas_data) == 0:
+                raise ValueError("preguntas_data debe ser una lista no vacía")
+            self.preguntas = list(preguntas_data)
+        elif bancos_preguntas:
             for archivo in bancos_preguntas:
                 ruta = self.base_path / archivo
                 self.preguntas.extend(self._cargar_preguntas(ruta))

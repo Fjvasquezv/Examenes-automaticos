@@ -7,6 +7,8 @@ from datetime import datetime
 from typing import Dict, Any, List
 import time
 import random
+import logging
+import threading
 from google.oauth2 import service_account
 from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
@@ -22,6 +24,25 @@ class DataPersistence:
     RANGO_DATOS = 'A:R'
     MAX_REINTENTOS_API = 5
     RETRY_BASE_SECONDS = 0.4
+    MIN_INTERVALO_REQUEST_SECONDS = 0.20
+    _api_rate_lock = threading.Lock()
+    _api_next_request_ts = 0.0
+
+    _logger = logging.getLogger("examenes.data_persistence")
+    if not _logger.handlers:
+        _logger.setLevel(logging.INFO)
+        _handler = logging.StreamHandler()
+        _handler.setFormatter(logging.Formatter("%(asctime)s | %(levelname)s | %(name)s | %(message)s"))
+        _logger.addHandler(_handler)
+
+    @classmethod
+    def _respetar_rate_limit(cls):
+        """Aplica limitación global de requests para proteger cuota de Google Sheets."""
+        with cls._api_rate_lock:
+            ahora = time.time()
+            if ahora < cls._api_next_request_ts:
+                time.sleep(cls._api_next_request_ts - ahora)
+            cls._api_next_request_ts = time.time() + cls.MIN_INTERVALO_REQUEST_SECONDS
 
     def _ejecutar_con_reintentos(self, request, descripcion: str = "operación"):
         """
@@ -30,11 +51,19 @@ class DataPersistence:
         ultimo_error = None
         for intento in range(self.MAX_REINTENTOS_API):
             try:
+                self._respetar_rate_limit()
                 return request.execute()
             except HttpError as e:
                 ultimo_error = e
                 status = getattr(e.resp, 'status', None)
                 transitorio = status in (408, 409, 429, 500, 502, 503, 504)
+                self._logger.warning(
+                    "Sheets error transitorio=%s status=%s intento=%s desc=%s",
+                    transitorio,
+                    status,
+                    intento + 1,
+                    descripcion
+                )
                 if (not transitorio) or intento == self.MAX_REINTENTOS_API - 1:
                     raise
 
@@ -42,6 +71,12 @@ class DataPersistence:
                 time.sleep(pausa)
             except Exception as e:
                 ultimo_error = e
+                self._logger.warning(
+                    "Sheets excepción intento=%s desc=%s error=%s",
+                    intento + 1,
+                    descripcion,
+                    str(e)
+                )
                 if intento == self.MAX_REINTENTOS_API - 1:
                     raise
                 pausa = self.RETRY_BASE_SECONDS * (2 ** intento) + random.uniform(0, 0.25)
