@@ -1741,11 +1741,16 @@ def ejecutar_examen(config, question_manager, ui):
               mermaid.initialize({{ startOnLoad: false, theme: 'default' }});
               await mermaid.run();
               const wrap = document.getElementById('mermaid-wrap');
-              const h = wrap.scrollHeight;
-              if (window.frameElement) window.frameElement.height = h + 24;
+              const resize = () => {{
+                const h = wrap.scrollHeight;
+                if (window.frameElement) window.frameElement.height = h + 24;
+              }};
+              resize();
+              setTimeout(resize, 150);
+              setTimeout(resize, 400);
             </script>
             """
-            st_components.html(html, height=500, scrolling=False)
+            st_components.html(html, height=800, scrolling=False)
 
 def guardar_resultados(config, exam_logic):
     """Guarda los resultados del examen en Google Sheets"""
