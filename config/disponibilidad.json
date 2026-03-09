@@ -5,8 +5,8 @@
         {
             "nombre": "TEST Diagramas - Verificación mermaid",
             "examen_config": "Programacion/Parcial1_test_diagramas.json",
-            "inicio": "2026-03-08 00:00",
-            "fin": "2026-03-08 23:59",
+            "inicio": "2026-03-09 00:00",
+            "fin": "2026-03-09 23:59",
             "temas": [
                 "Diagramas"
             ]
@@ -14,8 +14,8 @@
         {
             "nombre": "Parcial 1 - Programación",
             "examen_config": "Programacion/Parcial1.json",
-            "inicio": "2026-03-09 00:00",
-            "fin": "2026-03-09 23:59",
+            "inicio": "2026-03-08 00:00",
+            "fin": "2026-03-08 23:59",
             "temas": [
                 "Algoritmos y algoritmia",
                 "Big O",
