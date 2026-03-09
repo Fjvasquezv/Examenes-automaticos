@@ -13,11 +13,11 @@
     "duracion_estimada": "5 min"
   },
   "parametros": {
-    "preguntas_minimas": 5,
-    "preguntas_maximas": 10,
+    "preguntas_minimas": 2,
+    "preguntas_maximas": 2,
     "nivel_inicial": 2,
-    "umbral_estabilizacion": 0.3,
-    "ventana_estabilizacion": 3,
+    "umbral_estabilizacion": 1.0,
+    "ventana_estabilizacion": 2,
     "distribucion_temas": {
       "minimo_por_tema": 2,
       "max_proporcion_tema": 1.0,
@@ -37,11 +37,11 @@
     "spreadsheet_id": "11LgtY-p59UKYCYY0GwZHCLN--KbZEPZb8poZJTEbyys"
   },
   "bancos_preguntas": [
-    "data/bancos/Programacion/Diagramas.json"
+    "data/bancos/Programacion/Diagramas_mermaid_test.json"
   ],
   "bancos_por_tema": {
     "Diagramas": [
-      "data/bancos/Programacion/Diagramas.json"
+      "data/bancos/Programacion/Diagramas_mermaid_test.json"
     ]
   }
 }
