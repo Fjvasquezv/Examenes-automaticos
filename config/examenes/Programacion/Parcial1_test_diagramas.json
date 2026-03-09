@@ -37,11 +37,11 @@
     "spreadsheet_id": "11LgtY-p59UKYCYY0GwZHCLN--KbZEPZb8poZJTEbyys"
   },
   "bancos_preguntas": [
-    "data/bancos/Programacion/Diagramas_mermaid_test.json"
+    "data/bancos/Programacion/Diagramas_Grafico.json"
   ],
   "bancos_por_tema": {
     "Diagramas": [
-      "data/bancos/Programacion/Diagramas_mermaid_test.json"
+      "data/bancos/Programacion/Diagramas_Grafico.json"
     ]
   }
 }

@@ -49,7 +49,7 @@
     "data/bancos/Programacion/BigO.json",
     "data/bancos/Programacion/Historia.json",
     "data/bancos/Programacion/Lenguajes_de_programacion.json",
-    "data/bancos/Programacion/Diagramas.json"
+    "data/bancos/Programacion/Diagramas_teorico.json"
   ],
   "bancos_por_tema": {
     "Algoritmos y algoritmia": [
@@ -65,7 +65,7 @@
       "data/bancos/Programacion/Lenguajes_de_programacion.json"
     ],
     "Diagramas": [
-      "data/bancos/Programacion/Diagramas.json"
+      "data/bancos/Programacion/Diagramas_teorico.json"
     ]
   }
 }
