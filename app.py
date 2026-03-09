@@ -462,21 +462,6 @@ def _render_contenido_pregunta(pregunta_obj: dict, base_path: Path) -> None:
 
     if tipo == 'mermaid':
         st.markdown(pregunta_obj.get('pregunta', ''))
-        mermaid_src = str(pregunta_obj.get('mermaid', '')).strip()
-        if mermaid_src:
-            html = f"""
-            <div id="mermaid-wrap" style="background:#fff; padding:10px; border-radius:8px;">
-              <pre class="mermaid">{mermaid_src}</pre>
-            </div>
-            <script type="module">
-              import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
-              mermaid.initialize({{ startOnLoad: false, theme: 'default' }});
-              await mermaid.run();
-              const h = document.getElementById('mermaid-wrap').scrollHeight;
-              if (window.frameElement) window.frameElement.height = h + 16;
-            </script>
-            """
-            st_components.html(html, height=600, scrolling=False)
         return
 
     st.markdown(pregunta_obj.get('pregunta', ''))
@@ -1698,8 +1683,9 @@ def ejecutar_examen(config, question_manager, ui):
         
         # Contenido de la pregunta (texto, imagen o mermaid)
         _render_contenido_pregunta(pregunta_obj, base_path)
-    
+
     with col_opciones:
+
         html_header = "<div style='background-color: #f8f9fa; padding: 8px 15px; border: 1px solid #dee2e6; border-radius: 8px 8px 0 0; border-bottom: none;'><span style='font-weight: bold; color: #495057;'>Seleccione su respuesta:</span></div>"
         st.markdown(html_header, unsafe_allow_html=True)
         
@@ -1741,7 +1727,26 @@ def ejecutar_examen(config, question_manager, ui):
                 pass
             
             st.rerun()
-            
+
+    # Diagrama mermaid renderizado a ancho completo, debajo de las columnas
+    if str(pregunta_obj.get('tipo', 'texto')).strip().lower() == 'mermaid':
+        mermaid_src = str(pregunta_obj.get('mermaid', '')).strip()
+        if mermaid_src:
+            html = f"""
+            <div id="mermaid-wrap" style="background:#fff; padding:12px; border-radius:8px; border:1px solid #dee2e6;">
+              <pre class="mermaid">{mermaid_src}</pre>
+            </div>
+            <script type="module">
+              import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+              mermaid.initialize({{ startOnLoad: false, theme: 'default' }});
+              await mermaid.run();
+              const wrap = document.getElementById('mermaid-wrap');
+              const h = wrap.scrollHeight;
+              if (window.frameElement) window.frameElement.height = h + 24;
+            </script>
+            """
+            st_components.html(html, height=500, scrolling=False)
+
 def guardar_resultados(config, exam_logic):
     """Guarda los resultados del examen en Google Sheets"""
     try:
