@@ -830,5 +830,3205 @@
     "explicacion": "La secuencia de Collatz para n=27 es famosa por su longitud. Asciende hasta un máximo de 9232 antes de descender. El número exacto de pasos para llegar de 27 a 1 es 111, resultado verificado en el estudio de la conjetura de Collatz.",
     "tipo": "mermaid",
     "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer n/]\n    B --> C[pasos = 0]\n    C --> D{n != 1?}\n    D -->|Sí| E{n mod 2 = 0?}\n    E -->|Sí| F[n = n / 2]\n    E -->|No| G[n = 3*n + 1]\n    F --> H[pasos = pasos + 1]\n    G --> H\n    H --> D\n    D -->|No| I[/Imprimir pasos/]\n    I --> J([FIN])"
+  },
+  {
+    "id": "DIAG_103",
+    "dificultad": 1,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Qué imprime el diagrama si base = 5 y altura = 3?",
+    "opciones": {
+      "a": "8",
+      "b": "15",
+      "c": "7.5",
+      "d": "30"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "El área de un triángulo es base × altura / 2. Con base=5 y altura=3: 5×3/2 = 7.5.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer base, altura/]\n    B --> C[area = base * altura / 2]\n    C --> D[/Imprimir area/]\n    D --> E([FIN])"
+  },
+  {
+    "id": "DIAG_104",
+    "dificultad": 1,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Qué imprime el diagrama si lado = 7?",
+    "opciones": {
+      "a": "7",
+      "b": "14",
+      "c": "28",
+      "d": "49"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "El perímetro de un cuadrado es 4 × lado. Con lado=7: 4×7 = 28.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer lado/]\n    B --> C[perimetro = 4 * lado]\n    C --> D[/Imprimir perimetro/]\n    D --> E([FIN])"
+  },
+  {
+    "id": "DIAG_105",
+    "dificultad": 1,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Qué imprime el diagrama si nota = 3.0?",
+    "opciones": {
+      "a": "Aprobado",
+      "b": "Reprobado",
+      "c": "3.0",
+      "d": "No imprime nada"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "La condición nota >= 3.5 es falsa para nota=3.0, por lo que se toma la rama No y se imprime 'Reprobado'.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer nota/]\n    B --> C{nota >= 3.5?}\n    C -->|Sí| D[/Imprimir 'Aprobado'/]\n    C -->|No| E[/Imprimir 'Reprobado'/]\n    D --> F([FIN])\n    E --> F"
+  },
+  {
+    "id": "DIAG_106",
+    "dificultad": 1,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Qué secuencia de valores imprime el diagrama?",
+    "opciones": {
+      "a": "5, 4, 3, 2, 1, 0",
+      "b": "5, 4, 3, 2, 1",
+      "c": "4, 3, 2, 1, 0",
+      "d": "0, 1, 2, 3, 4, 5"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "El bucle imprime c y luego decrementa. Empieza con c=5 (imprime 5), baja hasta c=1 (imprime 1). Cuando c=0 la condición c>0 es falsa y termina. Imprime: 5, 4, 3, 2, 1.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[c = 5]\n    B --> C{c > 0?}\n    C -->|Sí| D[/Imprimir c/]\n    D --> E[c = c - 1]\n    E --> C\n    C -->|No| F([FIN])"
+  },
+  {
+    "id": "DIAG_107",
+    "dificultad": 1,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Qué imprime el diagrama si minutos = 130?",
+    "opciones": {
+      "a": "1 hora 30 minutos",
+      "b": "2 horas 10 minutos",
+      "c": "2 horas 0 minutos",
+      "d": "130 minutos"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "horas = 130 div 60 = 2. min_resto = 130 mod 60 = 10. Se imprime '2 horas 10 minutos'.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer minutos/]\n    B --> C[horas = minutos div 60]\n    C --> D[min_resto = minutos mod 60]\n    D --> E[/Imprimir horas, min_resto/]\n    E --> F([FIN])"
+  },
+  {
+    "id": "DIAG_108",
+    "dificultad": 1,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Qué imprime el diagrama si n = 15?",
+    "opciones": {
+      "a": "No divisible",
+      "b": "Divisible",
+      "c": "15",
+      "d": "3"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "15 mod 5 = 0, la condición es verdadera, se imprime 'Divisible'. El 15 es múltiplo de 5.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer n/]\n    B --> C{n mod 5 = 0?}\n    C -->|Sí| D[/Imprimir 'Divisible'/]\n    C -->|No| E[/Imprimir 'No divisible'/]\n    D --> F([FIN])\n    E --> F"
+  },
+  {
+    "id": "DIAG_109",
+    "dificultad": 1,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Qué imprime el diagrama si a = 6 y b = 7?",
+    "opciones": {
+      "a": "13",
+      "b": "42",
+      "c": "1",
+      "d": "67"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "El diagrama calcula el producto. Con a=6 y b=7: prod = 6×7 = 42.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer a, b/]\n    B --> C[prod = a * b]\n    C --> D[/Imprimir prod/]\n    D --> E([FIN])"
+  },
+  {
+    "id": "DIAG_110",
+    "dificultad": 1,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Cuántas veces imprime el diagrama un número par?",
+    "opciones": {
+      "a": "4",
+      "b": "5",
+      "c": "6",
+      "d": "10"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "El bucle va de i=2 en pasos de 2: imprime 2, 4, 6, 8, 10. Cuando i=12 la condición i<=10 es falsa. Imprime exactamente 5 valores.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[i = 2]\n    B --> C{i <= 10?}\n    C -->|Sí| D[/Imprimir i/]\n    D --> E[i = i + 2]\n    E --> C\n    C -->|No| F([FIN])"
+  },
+  {
+    "id": "DIAG_111",
+    "dificultad": 1,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Qué imprime el diagrama si x = 8 y y = 4?",
+    "opciones": {
+      "a": "4",
+      "b": "6.0",
+      "c": "12",
+      "d": "2"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "promedio = (8 + 4) / 2 = 12 / 2 = 6.0. El diagrama calcula el promedio de dos números.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer x, y/]\n    B --> C[prom = (x + y) / 2]\n    C --> D[/Imprimir prom/]\n    D --> E([FIN])"
+  },
+  {
+    "id": "DIAG_112",
+    "dificultad": 1,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Qué imprime el diagrama si n = -9?",
+    "opciones": {
+      "a": "-9",
+      "b": "9",
+      "c": "0",
+      "d": "-1"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Con n=-9: la condición n < 0 es verdadera, por lo que abs = -n = -(-9) = 9. Se imprime 9.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer n/]\n    B --> C{n < 0?}\n    C -->|Sí| D[abs = -n]\n    C -->|No| E[abs = n]\n    D --> F[/Imprimir abs/]\n    E --> F\n    F --> G([FIN])"
+  },
+  {
+    "id": "DIAG_113",
+    "dificultad": 1,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Qué imprime el diagrama si n = 5?",
+    "opciones": {
+      "a": "5",
+      "b": "25",
+      "c": "125",
+      "d": "15"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "cubo = n³ = 5×5×5 = 125.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer n/]\n    B --> C[cubo = n * n * n]\n    C --> D[/Imprimir cubo/]\n    D --> E([FIN])"
+  },
+  {
+    "id": "DIAG_114",
+    "dificultad": 1,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Qué imprime el diagrama si dividendo = 17 y divisor = 5?",
+    "opciones": {
+      "a": "3 y 2",
+      "b": "3 y 1",
+      "c": "3 y 3",
+      "d": "2 y 2"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "cociente = 17 div 5 = 3. residuo = 17 mod 5 = 2. Se imprime cociente=3 y residuo=2.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer dividendo, divisor/]\n    B --> C[cociente = dividendo div divisor]\n    C --> D[residuo = dividendo mod divisor]\n    D --> E[/Imprimir cociente, residuo/]\n    E --> F([FIN])"
+  },
+  {
+    "id": "DIAG_115",
+    "dificultad": 1,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Cuál de las siguientes opciones describe correctamente qué hace el diagrama?",
+    "opciones": {
+      "a": "Imprime todos los números del 1 al n",
+      "b": "Imprime solo los números impares del 1 al n",
+      "c": "Imprime la suma de 1 a n",
+      "d": "Imprime n números pares"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "i comienza en 1 y se incrementa de 2 en 2 (i = i + 2). Al ser 1 impar, todos los valores tomados por i son impares: 1, 3, 5, ... hasta n.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer n/]\n    B --> C[i = 1]\n    C --> D{i <= n?}\n    D -->|Sí| E[/Imprimir i/]\n    E --> F[i = i + 2]\n    F --> D\n    D -->|No| G([FIN])"
+  },
+  {
+    "id": "DIAG_116",
+    "dificultad": 1,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Qué imprime el diagrama si n = 50?",
+    "opciones": {
+      "a": "Dentro del rango",
+      "b": "Fuera del rango",
+      "c": "50",
+      "d": "Verdadero"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "Con n=50: la condición n>=1 AND n<=100 se cumple (1≤50≤100), por lo que se imprime 'Dentro del rango'.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer n/]\n    B --> C{n>=1 AND n<=100?}\n    C -->|Sí| D[/Imprimir 'Dentro del rango'/]\n    C -->|No| E[/Imprimir 'Fuera del rango'/]\n    D --> F([FIN])\n    E --> F"
+  },
+  {
+    "id": "DIAG_117",
+    "dificultad": 1,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Qué imprime el diagrama si a = 3, b = 7, c = 5?",
+    "opciones": {
+      "a": "3",
+      "b": "5",
+      "c": "7",
+      "d": "15"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "El diagrama encuentra el máximo de tres valores. a=3 < b=7, así que max=7. Luego 7 >= c=5, así que max permanece 7. Se imprime 7.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer a, b, c/]\n    B --> C{a >= b?}\n    C -->|Sí| D[max = a]\n    C -->|No| E[max = b]\n    D --> F{max >= c?}\n    E --> F\n    F -->|No| G[max = c]\n    F -->|Sí| H[/Imprimir max/]\n    G --> H\n    H --> I([FIN])"
+  },
+  {
+    "id": "DIAG_118",
+    "dificultad": 1,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Qué imprime el diagrama si año = 2024?",
+    "opciones": {
+      "a": "No bisiesto",
+      "b": "Bisiesto",
+      "c": "2024",
+      "d": "Error"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "2024 mod 4 = 0, la condición es verdadera, se imprime 'Bisiesto'. (Nota: este diagrama usa la regla simplificada; el real también verifica divisibilidad por 100 y 400.)",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer año/]\n    B --> C{año mod 4 = 0?}\n    C -->|Sí| D[/Imprimir 'Bisiesto'/]\n    C -->|No| E[/Imprimir 'No bisiesto'/]\n    D --> F([FIN])\n    E --> F"
+  },
+  {
+    "id": "DIAG_119",
+    "dificultad": 1,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Qué imprime el diagrama si radio = 10?",
+    "opciones": {
+      "a": "31.4",
+      "b": "62.8",
+      "c": "314",
+      "d": "100"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Circunferencia = 2 × π × radio. Con radio=10 y π≈3.14: 2 × 3.14 × 10 = 62.8.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer radio/]\n    B --> C[pi = 3.14]\n    C --> D[circ = 2 * pi * radio]\n    D --> E[/Imprimir circ/]\n    E --> F([FIN])"
+  },
+  {
+    "id": "DIAG_120",
+    "dificultad": 1,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Qué imprime el diagrama si precio = 80 y descuento = 10?",
+    "opciones": {
+      "a": "8",
+      "b": "72",
+      "c": "10",
+      "d": "90"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "ahorro = 80 × 10 / 100 = 8. precio_final = 80 - 8 = 72. Se imprime 72.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer precio, descuento/]\n    B --> C[ahorro = precio * descuento / 100]\n    C --> D[final = precio - ahorro]\n    D --> E[/Imprimir final/]\n    E --> F([FIN])"
+  },
+  {
+    "id": "DIAG_121",
+    "dificultad": 1,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Cuántas veces se imprime 'OK' en el diagrama si n = 3?",
+    "opciones": {
+      "a": "3",
+      "b": "6",
+      "c": "9",
+      "d": "0"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "El bucle externo va de i=1 a 3 (3 iteraciones). Por cada i, el bucle interno va de j=1 a 3 (3 iteraciones). Total: 3×3 = 9 impresiones de 'OK'.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer n/]\n    B --> C[i = 1]\n    C --> D{i <= n?}\n    D -->|Sí| E[j = 1]\n    E --> F{j <= n?}\n    F -->|Sí| G[/Imprimir 'OK'/]\n    G --> H[j = j + 1]\n    H --> F\n    F -->|No| I[i = i + 1]\n    I --> D\n    D -->|No| J([FIN])"
+  },
+  {
+    "id": "DIAG_122",
+    "dificultad": 1,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Qué imprime el diagrama si x = 4?",
+    "opciones": {
+      "a": "Par positivo",
+      "b": "Impar positivo",
+      "c": "Par no positivo",
+      "d": "Impar no positivo"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "Con x=4: x>0 es verdadero → primer bloque. x mod 2=0 (4 mod 2=0) es verdadero → imprime 'Par positivo'.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer x/]\n    B --> C{x > 0?}\n    C -->|Sí| D{x mod 2 = 0?}\n    D -->|Sí| E[/Imprimir 'Par positivo'/]\n    D -->|No| F[/Imprimir 'Impar positivo'/]\n    C -->|No| G{x mod 2 = 0?}\n    G -->|Sí| H[/Imprimir 'Par no positivo'/]\n    G -->|No| I[/Imprimir 'Impar no positivo'/]\n    E --> J([FIN])\n    F --> J\n    H --> J\n    I --> J"
+  },
+  {
+    "id": "DIAG_123",
+    "dificultad": 2,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Qué expresión debe reemplazar ??? para que el diagrama calcule la suma de los cuadrados de los primeros n números impares?",
+    "opciones": {
+      "a": "i * i",
+      "b": "(2*i - 1) * (2*i - 1)",
+      "c": "i * 2",
+      "d": "i + 1"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Los números impares son 1, 3, 5, 7... El i-ésimo impar es (2i-1). Para sumar sus cuadrados se debe acumular (2i-1)².",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer n/]\n    B --> C[suma = 0]\n    C --> D[i = 1]\n    D --> E{i <= n?}\n    E -->|Sí| F[suma = suma + ???]\n    F --> G[i = i + 1]\n    G --> E\n    E -->|No| H[/Imprimir suma/]\n    H --> I([FIN])"
+  },
+  {
+    "id": "DIAG_124",
+    "dificultad": 2,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "Traza el diagrama con la secuencia de entradas: 4, -2, 7, 0, -1. ¿Cuántos negativos cuenta?",
+    "opciones": {
+      "a": "1",
+      "b": "2",
+      "c": "3",
+      "d": "0"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "De los 5 valores ingresados, los negativos son -2 y -1. El contador se incrementa exactamente 2 veces.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[cont = 0]\n    B --> C[i = 1]\n    C --> D{i <= 5?}\n    D -->|Sí| E[/Leer x/]\n    E --> F{x < 0?}\n    F -->|Sí| G[cont = cont + 1]\n    F -->|No| H[i = i + 1]\n    G --> H\n    H --> D\n    D -->|No| I[/Imprimir cont/]\n    I --> J([FIN])"
+  },
+  {
+    "id": "DIAG_125",
+    "dificultad": 2,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Qué valor debe inicializarse en ??? para que el diagrama encuentre correctamente el mínimo de n números?",
+    "opciones": {
+      "a": "0",
+      "b": "n",
+      "c": "El primer número leído",
+      "d": "999999"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "El mínimo debe inicializarse con un valor que pueda ser superado. Si se inicializa con el primer número leído, todos los demás se comparan correctamente contra él. Inicializar en 0 o 999999 puede fallar según el dominio de los datos.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer n/]\n    B --> C[/Leer min/]\n    C --> D[i = 2]\n    D --> E{i <= n?}\n    E -->|Sí| F[/Leer x/]\n    F --> G{x < min?}\n    G -->|Sí| H[min = x]\n    G -->|No| I[i = i + 1]\n    H --> I\n    I --> E\n    E -->|No| J[/Imprimir min/]\n    J --> K([FIN])"
+  },
+  {
+    "id": "DIAG_126",
+    "dificultad": 2,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Qué imprime el diagrama si n = 4?",
+    "opciones": {
+      "a": "4",
+      "b": "7",
+      "c": "10",
+      "d": "14"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "El diagrama suma los dígitos del número triangular. Los números triangulares son T(n) = n(n+1)/2. T(4) = 10. El diagrama calcula directamente la suma 1+2+3+4 = 10.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer n/]\n    B --> C[suma = 0]\n    C --> D[i = 1]\n    D --> E{i <= n?}\n    E -->|Sí| F[suma = suma + i]\n    F --> G[i = i + 1]\n    G --> E\n    E -->|No| H[/Imprimir suma/]\n    H --> I([FIN])"
+  },
+  {
+    "id": "DIAG_127",
+    "dificultad": 2,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Qué condición debe reemplazar ??? para que el diagrama verifique si un número de 3 dígitos es capicúa (palíndromo)?",
+    "opciones": {
+      "a": "centena = unidad AND decena = centena",
+      "b": "centena = unidad",
+      "c": "centena + unidad = decena",
+      "d": "n mod 2 = 0"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Un número de 3 dígitos ABC es capicúa si A = C (primer dígito igual al último). La decena del medio no necesita compararse consigo misma.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer n/]\n    B --> C[centena = n div 100]\n    C --> D[unidad = n mod 10]\n    D --> E{???}\n    E -->|Sí| F[/Imprimir 'Capicúa'/]\n    E -->|No| G[/Imprimir 'No capicúa'/]\n    F --> H([FIN])\n    G --> H"
+  },
+  {
+    "id": "DIAG_128",
+    "dificultad": 2,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Qué imprime el diagrama si se ingresa n = 7?",
+    "opciones": {
+      "a": "7 es primo",
+      "b": "7 no es primo",
+      "c": "1",
+      "d": "0"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "Para n=7: el bucle prueba divisores 2, 3, 4, 5, 6. Ninguno divide exactamente a 7 (7 mod 2=1, 7 mod 3=1, etc.). Al salir del bucle cont=0, por lo que se imprime '7 es primo'.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer n/]\n    B --> C[cont = 0]\n    C --> D[i = 2]\n    D --> E{i < n?}\n    E -->|Sí| F{n mod i = 0?}\n    F -->|Sí| G[cont = cont + 1]\n    F -->|No| H[i = i + 1]\n    G --> H\n    H --> E\n    E -->|No| I{cont = 0?}\n    I -->|Sí| J[/Imprimir n, 'es primo'/]\n    I -->|No| K[/Imprimir n, 'no es primo'/]\n    J --> L([FIN])\n    K --> L"
+  },
+  {
+    "id": "DIAG_129",
+    "dificultad": 2,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Qué imprime el diagrama si n = 135?",
+    "opciones": {
+      "a": "135",
+      "b": "531",
+      "c": "315",
+      "d": "153"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "n=135: extrae 5, inv=5, n=13. Extrae 3, inv=53, n=1. Extrae 1, inv=531, n=0. Se imprime 531 (inverso de 135).",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer n/]\n    B --> C[inv = 0]\n    C --> D{n > 0?}\n    D -->|Sí| E[inv = inv * 10 + n mod 10]\n    E --> F[n = n div 10]\n    F --> D\n    D -->|No| G[/Imprimir inv/]\n    G --> H([FIN])"
+  },
+  {
+    "id": "DIAG_130",
+    "dificultad": 2,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Qué instrucción debe reemplazar ??? para que el diagrama genere correctamente los primeros n términos de Fibonacci?",
+    "opciones": {
+      "a": "b = a + b",
+      "b": "temp = a; a = b; b = temp + b",
+      "c": "a = a + b",
+      "d": "b = a; a = b"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Para avanzar en Fibonacci se necesita: guardar a en temp, asignar a=b, luego b=temp+b (nuevo término = suma de los dos anteriores). Sin variable temporal se pierde el valor de a.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer n/]\n    B --> C[a = 0]\n    C --> D[b = 1]\n    D --> E[i = 1]\n    E --> F{i <= n?}\n    F -->|Sí| G[/Imprimir a/]\n    G --> H[???]\n    H --> I[i = i + 1]\n    I --> F\n    F -->|No| J([FIN])"
+  },
+  {
+    "id": "DIAG_131",
+    "dificultad": 2,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Cuál es la diferencia en el resultado si se cambia el operador ??? de '*' a '+' en el diagrama?",
+    "opciones": {
+      "a": "Con '*' calcula 2^8=256; con '+' calcularía 2×8=16",
+      "b": "No hay diferencia, ambos dan el mismo resultado",
+      "c": "Con '*' calcula 8!; con '+' calcula la suma",
+      "d": "Con '+' se genera un bucle infinito"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "Con ??? = '*': cada iteración multiplica res por 2 (comenzando en 1), obteniendo 2^8=256. Si fuera '+': res = 0+2+2+...+2 (8 veces) = 16. Son algoritmos completamente distintos.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[res = 1]\n    B --> C[i = 0]\n    C --> D{i < 8?}\n    D -->|Sí| E[res = res ??? 2]\n    E --> F[i = i + 1]\n    F --> D\n    D -->|No| G[/Imprimir res/]\n    G --> H([FIN])"
+  },
+  {
+    "id": "DIAG_132",
+    "dificultad": 2,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Qué imprime el diagrama si n = 12?",
+    "opciones": {
+      "a": "No Armstrong",
+      "b": "Armstrong",
+      "c": "12",
+      "d": "3"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "Dígitos de 12: 1 y 2. 1³ + 2³ = 1 + 8 = 9 ≠ 12. No es número de Armstrong. (Los Armstrong de 3 dígitos son: 153, 370, 371, 407.)",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer n/]\n    B --> C[temp = n]\n    C --> D[suma = 0]\n    D --> E{temp > 0?}\n    E -->|Sí| F[d = temp mod 10]\n    F --> G[suma = suma + d*d*d]\n    G --> H[temp = temp div 10]\n    H --> E\n    E -->|No| I{suma = n?}\n    I -->|Sí| J[/Imprimir 'Armstrong'/]\n    I -->|No| K[/Imprimir 'No Armstrong'/]\n    J --> L([FIN])\n    K --> L"
+  },
+  {
+    "id": "DIAG_133",
+    "dificultad": 2,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Qué imprime el diagrama si n = 153?",
+    "opciones": {
+      "a": "No Armstrong",
+      "b": "Armstrong",
+      "c": "9",
+      "d": "153"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Dígitos de 153: 1, 5, 3. 1³ + 5³ + 3³ = 1 + 125 + 27 = 153. Como suma = n, se imprime 'Armstrong'. El 153 es el primer número de Armstrong de 3 dígitos.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer n/]\n    B --> C[temp = n]\n    C --> D[suma = 0]\n    D --> E{temp > 0?}\n    E -->|Sí| F[d = temp mod 10]\n    F --> G[suma = suma + d*d*d]\n    G --> H[temp = temp div 10]\n    H --> E\n    E -->|No| I{suma = n?}\n    I -->|Sí| J[/Imprimir 'Armstrong'/]\n    I -->|No| K[/Imprimir 'No Armstrong'/]\n    J --> L([FIN])\n    K --> L"
+  },
+  {
+    "id": "DIAG_134",
+    "dificultad": 2,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Qué imprime el diagrama si velocidad = 90 y límite = 80?",
+    "opciones": {
+      "a": "Sin multa",
+      "b": "Multa leve",
+      "c": "Multa grave",
+      "d": "90"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "velocidad - límite = 90-80 = 10. La condición exceso > 20 es falsa, pero exceso > 0 es verdadera, por lo que se imprime 'Multa leve'.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer velocidad, limite/]\n    B --> C[exceso = velocidad - limite]\n    C --> D{exceso > 20?}\n    D -->|Sí| E[/Imprimir 'Multa grave'/]\n    D -->|No| F{exceso > 0?}\n    F -->|Sí| G[/Imprimir 'Multa leve'/]\n    F -->|No| H[/Imprimir 'Sin multa'/]\n    E --> I([FIN])\n    G --> I\n    H --> I"
+  },
+  {
+    "id": "DIAG_135",
+    "dificultad": 2,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "Traza el diagrama con base=2, exp=0. ¿Qué imprime?",
+    "opciones": {
+      "a": "0",
+      "b": "1",
+      "c": "2",
+      "d": "Error: bucle infinito"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Con exp=0: la condición i < exp (i=0 < 0) es falsa desde el inicio. El bucle no ejecuta ninguna iteración y res permanece en 1. Se imprime 1 (cualquier número a la potencia 0 es 1).",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer base, exp/]\n    B --> C[res = 1]\n    C --> D[i = 0]\n    D --> E{i < exp?}\n    E -->|Sí| F[res = res * base]\n    F --> G[i = i + 1]\n    G --> E\n    E -->|No| H[/Imprimir res/]\n    H --> I([FIN])"
+  },
+  {
+    "id": "DIAG_136",
+    "dificultad": 2,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Qué debe decir la condición ??? para que el diagrama imprima solo los múltiplos de 7 entre 1 y 100?",
+    "opciones": {
+      "a": "i > 7",
+      "b": "i mod 7 = 0",
+      "c": "i / 7 = 0",
+      "d": "i mod 7 != 0"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Un número es múltiplo de 7 cuando su residuo al dividir entre 7 es cero: i mod 7 = 0. Esto filtra correctamente 7, 14, 21, ..., 98.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[i = 1]\n    B --> C{i <= 100?}\n    C -->|Sí| D{???}\n    D -->|Sí| E[/Imprimir i/]\n    D -->|No| F[i = i + 1]\n    E --> F\n    F --> C\n    C -->|No| G([FIN])"
+  },
+  {
+    "id": "DIAG_137",
+    "dificultad": 2,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Qué imprime el diagrama si se ingresa la nota 4.5?",
+    "opciones": {
+      "a": "F",
+      "b": "C",
+      "c": "B",
+      "d": "A"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "nota=4.5: ¿>=4.5? No (es igual, sí). Espera... 4.5>=4.5 es verdadero → imprime 'A'. Corrección: la primera condición es nota>=4.5, que es verdadera para 4.5, imprime 'A'.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer nota/]\n    B --> C{nota >= 4.5?}\n    C -->|Sí| D[/Imprimir 'A'/]\n    C -->|No| E{nota >= 4.0?}\n    E -->|Sí| F[/Imprimir 'B'/]\n    E -->|No| G{nota >= 3.0?}\n    G -->|Sí| H[/Imprimir 'C'/]\n    G -->|No| I[/Imprimir 'F'/]\n    D --> J([FIN])\n    F --> J\n    H --> J\n    I --> J"
+  },
+  {
+    "id": "DIAG_138",
+    "dificultad": 2,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Qué imprime el diagrama si nota = 3.8?",
+    "opciones": {
+      "a": "F",
+      "b": "C",
+      "c": "B",
+      "d": "A"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "nota=3.8: ¿>=4.5? No. ¿>=4.0? No (3.8 < 4.0). ¿>=3.0? Sí (3.8 >= 3.0) → imprime 'C'.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer nota/]\n    B --> C{nota >= 4.5?}\n    C -->|Sí| D[/Imprimir 'A'/]\n    C -->|No| E{nota >= 4.0?}\n    E -->|Sí| F[/Imprimir 'B'/]\n    E -->|No| G{nota >= 3.0?}\n    G -->|Sí| H[/Imprimir 'C'/]\n    G -->|No| I[/Imprimir 'F'/]\n    D --> J([FIN])\n    F --> J\n    H --> J\n    I --> J"
+  },
+  {
+    "id": "DIAG_139",
+    "dificultad": 2,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Cuál es el paso que falta (???) para que el diagrama calcule correctamente el promedio de n números?",
+    "opciones": {
+      "a": "suma = suma - x",
+      "b": "suma = suma * x",
+      "c": "suma = suma + x",
+      "d": "prom = suma / i"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "Para calcular el promedio se acumula la suma de todos los valores con suma = suma + x. Al final se divide entre n para obtener el promedio.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer n/]\n    B --> C[suma = 0]\n    C --> D[i = 1]\n    D --> E{i <= n?}\n    E -->|Sí| F[/Leer x/]\n    F --> G[???]\n    G --> H[i = i + 1]\n    H --> E\n    E -->|No| I[prom = suma / n]\n    I --> J[/Imprimir prom/]\n    J --> K([FIN])"
+  },
+  {
+    "id": "DIAG_140",
+    "dificultad": 2,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Qué imprime el diagrama si n = 16?",
+    "opciones": {
+      "a": "No es potencia de 2",
+      "b": "Es potencia de 2",
+      "c": "4",
+      "d": "16"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "n=16: ¿16 mod 2=0? Sí → n=8. ¿8 mod 2=0? Sí → n=4. ¿4 mod 2=0? Sí → n=2. ¿2 mod 2=0? Sí → n=1. Sale del bucle: n=1 → imprime 'Es potencia de 2'. 16 = 2⁴.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer n/]\n    B --> C{n > 1?}\n    C -->|Sí| D{n mod 2 = 0?}\n    D -->|Sí| E[n = n / 2]\n    E --> C\n    D -->|No| F[/Imprimir 'No es potencia de 2'/]\n    F --> G([FIN])\n    C -->|No| H[/Imprimir 'Es potencia de 2'/]\n    H --> G"
+  },
+  {
+    "id": "DIAG_141",
+    "dificultad": 2,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Qué imprime el diagrama con los valores de entrada 5, 8, 3, 9, 2?",
+    "opciones": {
+      "a": "5",
+      "b": "2",
+      "c": "9",
+      "d": "27"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "El diagrama busca el mayor valor de la secuencia. max=5. Compara con 8 (8>5 → max=8), 3 (no), 9 (9>8 → max=9), 2 (no). Al final imprime max=9.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer x/]\n    B --> C[max = x]\n    C --> D[i = 2]\n    D --> E{i <= 5?}\n    E -->|Sí| F[/Leer x/]\n    F --> G{x > max?}\n    G -->|Sí| H[max = x]\n    G -->|No| I[i = i + 1]\n    H --> I\n    I --> E\n    E -->|No| J[/Imprimir max/]\n    J --> K([FIN])"
+  },
+  {
+    "id": "DIAG_142",
+    "dificultad": 2,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Qué valor debe ir en ??? para que el diagrama imprima la tabla de multiplicar del número n del 1 al 10?",
+    "opciones": {
+      "a": "n + i",
+      "b": "n * i",
+      "c": "n ^ i",
+      "d": "n mod i"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "La tabla de multiplicar de n consiste en calcular n×1, n×2, ..., n×10. La expresión correcta es n * i, que multiplica n por cada valor del contador i.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer n/]\n    B --> C[i = 1]\n    C --> D{i <= 10?}\n    D -->|Sí| E[resultado = ???]\n    E --> F[/Imprimir n, 'x', i, '=', resultado/]\n    F --> G[i = i + 1]\n    G --> D\n    D -->|No| H([FIN])"
+  },
+  {
+    "id": "DIAG_143",
+    "dificultad": 3,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Qué imprime el diagrama de conversión decimal a binario si n = 13?",
+    "opciones": {
+      "a": "1011",
+      "b": "1101",
+      "c": "1110",
+      "d": "1001"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "13÷2=6 r1, 6÷2=3 r0, 3÷2=1 r1, 1÷2=0 r1. Leyendo residuos de abajo hacia arriba: 1101. 13 en binario = 1101₂.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer n/]\n    B --> C[bin = '']\n    C --> D{n > 0?}\n    D -->|Sí| E[bin = (n mod 2) + bin]\n    E --> F[n = n div 2]\n    F --> D\n    D -->|No| G[/Imprimir bin/]\n    G --> H([FIN])"
+  },
+  {
+    "id": "DIAG_144",
+    "dificultad": 3,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Cuál es el error en el siguiente diagrama que busca encontrar si n es primo?",
+    "opciones": {
+      "a": "La condición del bucle debería ser i <= n/2",
+      "b": "La bandera debería inicializarse en falso",
+      "c": "Se imprime el resultado dentro del bucle",
+      "d": "No hay error"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "El bucle prueba divisores hasta n-1, pero basta con probar hasta √n (o al menos n/2). Usar i < n desperdicia iteraciones y es ineficiente. No genera resultados incorrectos, pero es un diseño deficiente.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer n/]\n    B --> C[esPrimo = verdadero]\n    C --> D[i = 2]\n    D --> E{i < n?}\n    E -->|Sí| F{n mod i = 0?}\n    F -->|Sí| G[esPrimo = falso]\n    F -->|No| H[i = i + 1]\n    G --> H\n    H --> E\n    E -->|No| I{esPrimo?}\n    I -->|Sí| J[/Imprimir 'Primo'/]\n    I -->|No| K[/Imprimir 'No primo'/]\n    J --> L([FIN])\n    K --> L"
+  },
+  {
+    "id": "DIAG_145",
+    "dificultad": 3,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "Traza el diagrama con arr = [3, 1, 4, 1]. ¿Cuál es el arreglo después de ordenarlo?",
+    "opciones": {
+      "a": "[1, 1, 3, 4]",
+      "b": "[4, 3, 1, 1]",
+      "c": "[1, 3, 1, 4]",
+      "d": "[3, 4, 1, 1]"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "El diagrama aplica ordenamiento burbuja (ascendente). Tras las pasadas: [1,3,4,1]→[1,3,1,4]→[1,1,3,4]. El resultado final es [1,1,3,4].",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[n = 4]\n    B --> C[i = 0]\n    C --> D{i < n-1?}\n    D -->|Sí| E[j = 0]\n    E --> F{j < n-1-i?}\n    F -->|Sí| G{arr[j] > arr[j+1]?}\n    G -->|Sí| H[intercambiar arr[j] y arr[j+1]]\n    G -->|No| I[j = j + 1]\n    H --> I\n    I --> F\n    F -->|No| J[i = i + 1]\n    J --> D\n    D -->|No| K[/Imprimir arr/]\n    K --> L([FIN])"
+  },
+  {
+    "id": "DIAG_146",
+    "dificultad": 3,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Qué imprime el diagrama con la cadena de dígitos '3172' al contar cuántos son mayores que 3?",
+    "opciones": {
+      "a": "1",
+      "b": "2",
+      "c": "3",
+      "d": "0"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "De los dígitos 3, 1, 7, 2: solo el 7 es estrictamente mayor que 3. El contador se incrementa 1 vez.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[cadena = '3172']\n    B --> C[cont = 0]\n    C --> D[i = 1]\n    D --> E{i <= 4?}\n    E -->|Sí| F[d = digito i de cadena]\n    F --> G{d > 3?}\n    G -->|Sí| H[cont = cont + 1]\n    G -->|No| I[i = i + 1]\n    H --> I\n    I --> E\n    E -->|No| J[/Imprimir cont/]\n    J --> K([FIN])"
+  },
+  {
+    "id": "DIAG_147",
+    "dificultad": 3,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Cuántos números primos imprime el diagrama para n = 20?",
+    "opciones": {
+      "a": "6",
+      "b": "8",
+      "c": "7",
+      "d": "5"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Los primos menores o iguales a 20 son: 2, 3, 5, 7, 11, 13, 17, 19. Son exactamente 8 números primos.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer n/]\n    B --> C[i = 2]\n    C --> D{i <= n?}\n    D -->|Sí| E[j = 2]\n    E --> F[esPrimo = verdadero]\n    F --> G{j < i?}\n    G -->|Sí| H{i mod j = 0?}\n    H -->|Sí| I[esPrimo = falso]\n    H -->|No| J[j = j + 1]\n    I --> J\n    J --> G\n    G -->|No| K{esPrimo?}\n    K -->|Sí| L[/Imprimir i/]\n    K -->|No| M[i = i + 1]\n    L --> M\n    M --> D\n    D -->|No| N([FIN])"
+  },
+  {
+    "id": "DIAG_148",
+    "dificultad": 3,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Cuál es el error 'off-by-one' en el diagrama que intenta calcular la mediana de 3 números?",
+    "opciones": {
+      "a": "Compara a con c antes que con b",
+      "b": "No hay error, el algoritmo es correcto",
+      "c": "La condición usa > en lugar de >=, lo que falla con valores iguales",
+      "d": "med nunca se asigna si a = b = c"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "El algoritmo ordena los tres valores y selecciona el del medio: si a <= b <= c, la mediana es b. El diagrama cubre todos los casos correctamente mediante comparaciones encadenadas.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer a, b, c/]\n    B --> C{a <= b?}\n    C -->|Sí| D{b <= c?}\n    D -->|Sí| E[med = b]\n    D -->|No| F{a <= c?}\n    F -->|Sí| G[med = c]\n    F -->|No| H[med = a]\n    C -->|No| I{a <= c?}\n    I -->|Sí| J[med = a]\n    I -->|No| K{b <= c?}\n    K -->|Sí| L[med = c]\n    K -->|No| M[med = b]\n    E --> N[/Imprimir med/]\n    G --> N\n    H --> N\n    J --> N\n    L --> N\n    M --> N\n    N --> O([FIN])"
+  },
+  {
+    "id": "DIAG_149",
+    "dificultad": 3,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Qué imprime el diagrama de suma de dígitos con n = 9875?",
+    "opciones": {
+      "a": "25",
+      "b": "29",
+      "c": "20",
+      "d": "35"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Dígitos de 9875: 9+8+7+5 = 29. El diagrama extrae cada dígito con mod 10 y lo acumula en suma.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer n/]\n    B --> C[suma = 0]\n    C --> D{n > 0?}\n    D -->|Sí| E[suma = suma + n mod 10]\n    E --> F[n = n div 10]\n    F --> D\n    D -->|No| G[/Imprimir suma/]\n    G --> H([FIN])"
+  },
+  {
+    "id": "DIAG_150",
+    "dificultad": 3,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Cuántos pasos realiza la búsqueda binaria para encontrar el 7 en el arreglo [1,3,5,7,9,11,13]?",
+    "opciones": {
+      "a": "1",
+      "b": "2",
+      "c": "3",
+      "d": "4"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "ini=0, fin=6, mid=(0+6)/2=3. arr[3]=7 = objetivo. Encontrado en 1 comparación.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[ini = 0, fin = 6]\n    B --> C{ini <= fin?}\n    C -->|Sí| D[mid = (ini + fin) div 2]\n    D --> E{arr[mid] = 7?}\n    E -->|Sí| F[/Imprimir mid/]\n    F --> G([FIN])\n    E -->|No| H{arr[mid] < 7?}\n    H -->|Sí| I[ini = mid + 1]\n    H -->|No| J[fin = mid - 1]\n    I --> C\n    J --> C\n    C -->|No| K[/Imprimir 'No encontrado'/]\n    K --> G"
+  },
+  {
+    "id": "DIAG_151",
+    "dificultad": 3,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Cuántos divisores tiene el número n = 12 según el diagrama?",
+    "opciones": {
+      "a": "4",
+      "b": "5",
+      "c": "6",
+      "d": "3"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "Los divisores de 12 son: 1, 2, 3, 4, 6, 12. Son exactamente 6 divisores. El diagrama los cuenta probando cada i de 1 a n.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer n/]\n    B --> C[cont = 0]\n    C --> D[i = 1]\n    D --> E{i <= n?}\n    E -->|Sí| F{n mod i = 0?}\n    F -->|Sí| G[cont = cont + 1]\n    F -->|No| H[i = i + 1]\n    G --> H\n    H --> E\n    E -->|No| I[/Imprimir cont/]\n    I --> J([FIN])"
+  },
+  {
+    "id": "DIAG_152",
+    "dificultad": 3,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Qué imprime el diagrama de promedio acumulado después de procesar los valores 6, 2, 10, 2?",
+    "opciones": {
+      "a": "5.0",
+      "b": "6.0",
+      "c": "4.5",
+      "d": "20"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "suma = 6+2+10+2 = 20. n = 4. promedio = 20/4 = 5.0.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[suma = 0]\n    B --> C[n = 4]\n    C --> D[i = 1]\n    D --> E{i <= n?}\n    E -->|Sí| F[/Leer x/]\n    F --> G[suma = suma + x]\n    G --> H[i = i + 1]\n    H --> E\n    E -->|No| I[prom = suma / n]\n    I --> J[/Imprimir prom/]\n    J --> K([FIN])"
+  },
+  {
+    "id": "DIAG_153",
+    "dificultad": 3,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Cuál es el error en el siguiente diagrama que intenta invertir un número?",
+    "opciones": {
+      "a": "La condición debería ser n >= 0 en lugar de n > 0",
+      "b": "inv debe inicializarse en 1, no en 0",
+      "c": "Falta multiplicar inv por 10 antes de sumar el dígito",
+      "d": "No hay error"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "Para construir el inverso dígito a dígito se necesita inv = inv * 10 + dígito. Si solo se hace inv = inv + dígito, los dígitos se suman como números en lugar de concatenarse posicionalmente.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer n/]\n    B --> C[inv = 0]\n    C --> D{n > 0?}\n    D -->|Sí| E[inv = inv + n mod 10]\n    E --> F[n = n div 10]\n    F --> D\n    D -->|No| G[/Imprimir inv/]\n    G --> H([FIN])"
+  },
+  {
+    "id": "DIAG_154",
+    "dificultad": 3,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Qué imprime el diagrama de verificación de paréntesis balanceados con la entrada '(())'?",
+    "opciones": {
+      "a": "No balanceado",
+      "b": "Balanceado",
+      "c": "2",
+      "d": "0"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "'(': cont=1. '(': cont=2. ')': cont=1. ')': cont=0. Al final cont=0 y nunca fue negativo → 'Balanceado'.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[cont = 0]\n    B --> C[i = 1]\n    C --> D{i <= longitud?}\n    D -->|Sí| E{caracter[i] = '('?}\n    E -->|Sí| F[cont = cont + 1]\n    E -->|No| G[cont = cont - 1]\n    F --> H{cont < 0?}\n    G --> H\n    H -->|Sí| I[/Imprimir 'No balanceado'/]\n    I --> J([FIN])\n    H -->|No| K[i = i + 1]\n    K --> D\n    D -->|No| L{cont = 0?}\n    L -->|Sí| M[/Imprimir 'Balanceado'/]\n    L -->|No| N[/Imprimir 'No balanceado'/]\n    M --> J\n    N --> J"
+  },
+  {
+    "id": "DIAG_155",
+    "dificultad": 3,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Qué imprime el diagrama de conversión a binario si n = 10?",
+    "opciones": {
+      "a": "1010",
+      "b": "1001",
+      "c": "1100",
+      "d": "0101"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "10÷2=5 r0, 5÷2=2 r1, 2÷2=1 r0, 1÷2=0 r1. Residuos de abajo arriba: 1010. 10 en binario = 1010₂.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer n/]\n    B --> C[bin = '']\n    C --> D{n > 0?}\n    D -->|Sí| E[bin = (n mod 2) + bin]\n    E --> F[n = n div 2]\n    F --> D\n    D -->|No| G[/Imprimir bin/]\n    G --> H([FIN])"
+  },
+  {
+    "id": "DIAG_156",
+    "dificultad": 3,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Cuántas iteraciones realiza el siguiente diagrama al calcular la raíz cuadrada entera de n = 25?",
+    "opciones": {
+      "a": "4",
+      "b": "5",
+      "c": "6",
+      "d": "25"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "El bucle prueba i=1 (1≤25), 2 (4≤25), 3 (9≤25), 4 (16≤25), 5 (25≤25). Cuando i=6: 36>25 → sale. Se realizan 5 iteraciones y se imprime 5 (√25 = 5).",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer n/]\n    B --> C[i = 1]\n    C --> D{i * i <= n?}\n    D -->|Sí| E[i = i + 1]\n    E --> D\n    D -->|No| F[raiz = i - 1]\n    F --> G[/Imprimir raiz/]\n    G --> H([FIN])"
+  },
+  {
+    "id": "DIAG_157",
+    "dificultad": 3,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Qué imprime el diagrama si se ingresa la secuencia 2, 5, 8, 2, 5?",
+    "opciones": {
+      "a": "2",
+      "b": "5",
+      "c": "8",
+      "d": "22"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "El diagrama recorre 5 valores manteniendo el máximo. max=2, luego 5>2→max=5, luego 8>5→max=8, 2<8, 5<8. Imprime 8.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer x/]\n    B --> C[max = x]\n    C --> D[i = 2]\n    D --> E{i <= 5?}\n    E -->|Sí| F[/Leer x/]\n    F --> G{x > max?}\n    G -->|Sí| H[max = x]\n    G -->|No| I[i = i + 1]\n    H --> I\n    I --> E\n    E -->|No| J[/Imprimir max/]\n    J --> K([FIN])"
+  },
+  {
+    "id": "DIAG_158",
+    "dificultad": 3,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Qué calcula el diagrama y cuál es el resultado con n = 6?",
+    "opciones": {
+      "a": "Factorial de 6 = 720",
+      "b": "Suma de factoriales 1!+2!+...+6! = 873",
+      "c": "6 al cuadrado = 36",
+      "d": "Suma de primeros 6 primos = 41"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "El diagrama acumula la suma de factoriales. fact se recalcula en cada iteración: 1!+2!+3!+4!+5!+6! = 1+2+6+24+120+720 = 873.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer n/]\n    B --> C[total = 0]\n    C --> D[i = 1]\n    D --> E{i <= n?}\n    E -->|Sí| F[fact = 1]\n    F --> G[j = 1]\n    G --> H{j <= i?}\n    H -->|Sí| I[fact = fact * j]\n    I --> J[j = j + 1]\n    J --> H\n    H -->|No| K[total = total + fact]\n    K --> L[i = i + 1]\n    L --> E\n    E -->|No| M[/Imprimir total/]\n    M --> N([FIN])"
+  },
+  {
+    "id": "DIAG_159",
+    "dificultad": 3,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Cuál es la complejidad temporal del siguiente diagrama con dos bucles, el interno dependiente del externo?",
+    "opciones": {
+      "a": "O(n)",
+      "b": "O(n log n)",
+      "c": "O(n²)",
+      "d": "O(2n)"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "El bucle externo va de 1 a n, y el bucle interno va de 1 a i. El total de operaciones es 1+2+3+...+n = n(n+1)/2 ∈ O(n²).",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer n/]\n    B --> C[i = 1]\n    C --> D{i <= n?}\n    D -->|Sí| E[j = 1]\n    E --> F{j <= i?}\n    F -->|Sí| G[/Operación O(1)/]\n    G --> H[j = j + 1]\n    H --> F\n    F -->|No| I[i = i + 1]\n    I --> D\n    D -->|No| J([FIN])"
+  },
+  {
+    "id": "DIAG_160",
+    "dificultad": 3,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Qué imprime el diagrama de verificación de número cuadrado perfecto si n = 36?",
+    "opciones": {
+      "a": "No es cuadrado perfecto",
+      "b": "Es cuadrado perfecto",
+      "c": "6",
+      "d": "1296"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "√36 = 6. 6×6 = 36 = n. La condición raiz*raiz = n es verdadera, se imprime 'Es cuadrado perfecto'.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer n/]\n    B --> C[i = 1]\n    C --> D{i * i <= n?}\n    D -->|Sí| E[i = i + 1]\n    E --> D\n    D -->|No| F[raiz = i - 1]\n    F --> G{raiz * raiz = n?}\n    G -->|Sí| H[/Imprimir 'Es cuadrado perfecto'/]\n    G -->|No| I[/Imprimir 'No es cuadrado perfecto'/]\n    H --> J([FIN])\n    I --> J"
+  },
+  {
+    "id": "DIAG_161",
+    "dificultad": 3,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Qué imprime el diagrama de inserción (valor 4 en [1,3,5,7]) al terminar?",
+    "opciones": {
+      "a": "[1,3,4,5,7]",
+      "b": "[4,1,3,5,7]",
+      "c": "[1,3,5,4,7]",
+      "d": "[1,4,3,5,7]"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "El algoritmo busca la posición correcta para insertar 4 en el arreglo ordenado [1,3,5,7]. 4 > 1, 4 > 3, 4 < 5 → se inserta antes del 5. Resultado: [1,3,4,5,7].",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[arr = 1 3 5 7]\n    B --> C[nuevo = 4]\n    C --> D[pos = 0]\n    D --> E{pos < 4 AND arr[pos] < nuevo?}\n    E -->|Sí| F[pos = pos + 1]\n    F --> E\n    E -->|No| G[insertar nuevo en posicion pos]\n    G --> H[/Imprimir arr/]\n    H --> I([FIN])"
+  },
+  {
+    "id": "DIAG_162",
+    "dificultad": 3,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Qué imprime el diagrama FizzBuzz para n = 20? ¿Cuántas veces aparece 'Buzz'?",
+    "opciones": {
+      "a": "2",
+      "b": "3",
+      "c": "4",
+      "d": "1"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "De 1 a 20, los múltiplos de 5 que NO son múltiplos de 3 (ni de 15) son: 5, 10, 20. Son 3 'Buzz'. El 15 se cuenta como 'FizzBuzz', no como 'Buzz'.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[i = 1]\n    B --> C{i <= 20?}\n    C -->|Sí| D{i mod 15 = 0?}\n    D -->|Sí| E[/Imprimir 'FizzBuzz'/]\n    D -->|No| F{i mod 3 = 0?}\n    F -->|Sí| G[/Imprimir 'Fizz'/]\n    F -->|No| H{i mod 5 = 0?}\n    H -->|Sí| I[/Imprimir 'Buzz'/]\n    H -->|No| J[/Imprimir i/]\n    E --> K[i = i + 1]\n    G --> K\n    I --> K\n    J --> K\n    K --> C\n    C -->|No| L([FIN])"
+  },
+  {
+    "id": "DIAG_163",
+    "dificultad": 4,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "Traza el siguiente diagrama con n = 4. ¿Cuál es el valor impreso?",
+    "opciones": {
+      "a": "4",
+      "b": "7",
+      "c": "10",
+      "d": "13"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "suma = 0+1+2+3+4 = 10. El diagrama acumula la suma de 0 a n inclusive (i va de 0 a n). Con n=4: 0+1+2+3+4 = 10.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer n/]\n    B --> C[suma = 0]\n    C --> D[i = 0]\n    D --> E{i <= n?}\n    E -->|Sí| F[suma = suma + i]\n    F --> G[i = i + 1]\n    G --> E\n    E -->|No| H[/Imprimir suma/]\n    H --> I([FIN])"
+  },
+  {
+    "id": "DIAG_164",
+    "dificultad": 4,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Cuántas veces se imprime '*' si n = 5?",
+    "opciones": {
+      "a": "10",
+      "b": "15",
+      "c": "20",
+      "d": "25"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "El bucle externo va de i=1 a 5. Por cada i, el interno imprime i asteriscos: fila 1→1, fila 2→2, fila 3→3, fila 4→4, fila 5→5. Total: 1+2+3+4+5 = 15.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer n/]\n    B --> C[i = 1]\n    C --> D{i <= n?}\n    D -->|Sí| E[j = 1]\n    E --> F{j <= i?}\n    F -->|Sí| G[/Imprimir '*'/]\n    G --> H[j = j + 1]\n    H --> F\n    F -->|No| I[i = i + 1]\n    I --> D\n    D -->|No| J([FIN])"
+  },
+  {
+    "id": "DIAG_165",
+    "dificultad": 4,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "El siguiente diagrama intenta calcular el producto de todos los dígitos de n. ¿Qué imprime si n = 234?",
+    "opciones": {
+      "a": "9",
+      "b": "24",
+      "c": "234",
+      "d": "6"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "n=234: extrae 4 (234 mod 10), prod=4, n=23. Extrae 3 (23 mod 10), prod=12, n=2. Extrae 2 (2 mod 10), prod=24, n=0. Sale del bucle. Imprime 24 (4×3×2 = 24).",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer n/]\n    B --> C[prod = 1]\n    C --> D{n > 0?}\n    D -->|Sí| E[prod = prod * (n mod 10)]\n    E --> F[n = n div 10]\n    F --> D\n    D -->|No| G[/Imprimir prod/]\n    G --> H([FIN])"
+  },
+  {
+    "id": "DIAG_166",
+    "dificultad": 4,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Cuál es el error en el siguiente diagrama que intenta imprimir la tabla de multiplicar del 6 del 1 al 10?",
+    "opciones": {
+      "a": "n debería inicializarse en 0",
+      "b": "El resultado se calcula mal: debería ser 6 * i",
+      "c": "El bucle termina antes de imprimir el último valor (i <= 10 debería ser i <= 10)",
+      "d": "i debería incrementarse antes de imprimir"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "El diagrama calcula resultado = i * i en lugar de resultado = 6 * i. Con esa fórmula imprime 1, 4, 9, 16... (cuadrados) en vez de 6, 12, 18, 24... (múltiplos de 6).",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[i = 1]\n    B --> C{i <= 10?}\n    C -->|Sí| D[resultado = i * i]\n    D --> E[/Imprimir '6 x', i, '=', resultado/]\n    E --> F[i = i + 1]\n    F --> C\n    C -->|No| G([FIN])"
+  },
+  {
+    "id": "DIAG_167",
+    "dificultad": 4,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "El siguiente diagrama lee 5 números e imprime cuántos están en el rango [10, 20]. Si las entradas son 8, 15, 20, 25, 10, ¿qué imprime?",
+    "opciones": {
+      "a": "2",
+      "b": "3",
+      "c": "4",
+      "d": "1"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Se evalúa cada número: 8 (8≥10? No), 15 (10≤15≤20 Sí, cont=1), 20 (10≤20≤20 Sí, cont=2), 25 (25≤20? No), 10 (10≥10 y 10≤20 Sí, cont=3). Imprime 3.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[cont = 0]\n    B --> C[i = 1]\n    C --> D{i <= 5?}\n    D -->|Sí| E[/Leer x/]\n    E --> F{x >= 10 AND x <= 20?}\n    F -->|Sí| G[cont = cont + 1]\n    F -->|No| H[i = i + 1]\n    G --> H\n    H --> D\n    D -->|No| I[/Imprimir cont/]\n    I --> J([FIN])"
+  },
+  {
+    "id": "DIAG_168",
+    "dificultad": 4,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "El diagrama clasifica una nota y lleva la cuenta de cuántos estudiantes aprobaron (nota >= 3.0) en un grupo de 5. Si las notas son 2.5, 3.1, 4.0, 1.8, 3.0, ¿qué imprime?",
+    "opciones": {
+      "a": "2",
+      "b": "3",
+      "c": "4",
+      "d": "1"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "2.5 < 3.0 → reprueba. 3.1 ≥ 3.0 → aprueba (cont=1). 4.0 ≥ 3.0 → aprueba (cont=2). 1.8 < 3.0 → reprueba. 3.0 ≥ 3.0 → aprueba (cont=3). Imprime 3.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[cont = 0]\n    B --> C[i = 1]\n    C --> D{i <= 5?}\n    D -->|Sí| E[/Leer nota/]\n    E --> F{nota >= 3.0?}\n    F -->|Sí| G[cont = cont + 1]\n    F -->|No| H[i = i + 1]\n    G --> H\n    H --> D\n    D -->|No| I[/Imprimir cont/]\n    I --> J([FIN])"
+  },
+  {
+    "id": "DIAG_169",
+    "dificultad": 4,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Qué imprime el diagrama si x = 3 y n = 4? (El diagrama calcula una potencia iterativamente)",
+    "opciones": {
+      "a": "12",
+      "b": "27",
+      "c": "81",
+      "d": "64"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "El diagrama calcula x^n = 3^4. res=1. i=1: res=3. i=2: res=9. i=3: res=27. i=4: res=81. Condición i<=4 se cumple 4 veces. Imprime 81.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer x, n/]\n    B --> C[res = 1]\n    C --> D[i = 1]\n    D --> E{i <= n?}\n    E -->|Sí| F[res = res * x]\n    F --> G[i = i + 1]\n    G --> E\n    E -->|No| H[/Imprimir res/]\n    H --> I([FIN])"
+  },
+  {
+    "id": "DIAG_170",
+    "dificultad": 4,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Cuál es el error en el diagrama que intenta calcular el factorial de n? Con n = 5 imprime 24 en lugar de 120.",
+    "opciones": {
+      "a": "prod debería inicializarse en 0",
+      "b": "El bucle debería ir de i = 1 hasta i <= n, pero empieza en i = 2 y termina en i < n, omitiendo el último factor",
+      "c": "La condición debería ser i >= n",
+      "d": "prod debería multiplicarse por n al final"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Con i=2 y condición i < n (i < 5): el bucle calcula 1×2×3×4 = 24. Omite el factor n=5. Para calcular 5! = 120, la condición correcta es i <= n (incluye el 5).",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer n/]\n    B --> C[prod = 1]\n    C --> D[i = 2]\n    D --> E{i < n?}\n    E -->|Sí| F[prod = prod * i]\n    F --> G[i = i + 1]\n    G --> E\n    E -->|No| H[/Imprimir prod/]\n    H --> I([FIN])"
+  },
+  {
+    "id": "DIAG_171",
+    "dificultad": 4,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "El diagrama calcula cuántos números del 1 al n son divisibles tanto por 2 como por 3 (es decir, divisibles por 6). ¿Qué imprime si n = 30?",
+    "opciones": {
+      "a": "3",
+      "b": "5",
+      "c": "6",
+      "d": "10"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Los múltiplos de 6 entre 1 y 30 son: 6, 12, 18, 24, 30. Son exactamente 5 números (30 ÷ 6 = 5).",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer n/]\n    B --> C[cont = 0]\n    C --> D[i = 1]\n    D --> E{i <= n?}\n    E -->|Sí| F{i mod 2 = 0 AND i mod 3 = 0?}\n    F -->|Sí| G[cont = cont + 1]\n    F -->|No| H[i = i + 1]\n    G --> H\n    H --> E\n    E -->|No| I[/Imprimir cont/]\n    I --> J([FIN])"
+  },
+  {
+    "id": "DIAG_172",
+    "dificultad": 4,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Qué secuencia de valores imprime el siguiente diagrama si n = 5?",
+    "opciones": {
+      "a": "1, 2, 3, 4, 5",
+      "b": "1, 3, 6, 10, 15",
+      "c": "1, 2, 4, 8, 16",
+      "d": "0, 1, 2, 3, 4"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "acum arranca en 0. i=1: acum=1, imprime 1. i=2: acum=3, imprime 3. i=3: acum=6, imprime 6. i=4: acum=10, imprime 10. i=5: acum=15, imprime 15. Son los números triangulares: 1, 3, 6, 10, 15.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer n/]\n    B --> C[acum = 0]\n    C --> D[i = 1]\n    D --> E{i <= n?}\n    E -->|Sí| F[acum = acum + i]\n    F --> G[/Imprimir acum/]\n    G --> H[i = i + 1]\n    H --> E\n    E -->|No| I([FIN])"
+  },
+  {
+    "id": "DIAG_173",
+    "dificultad": 4,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "El diagrama lee 6 notas e imprime el promedio solo de las que son mayores o iguales a 3.0. Si las notas son 2.0, 4.0, 3.5, 1.5, 4.5, 3.0, ¿qué imprime?",
+    "opciones": {
+      "a": "3.25",
+      "b": "3.75",
+      "c": "3.5",
+      "d": "4.0"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Notas >= 3.0: 4.0, 3.5, 4.5, 3.0 (4 notas). Suma = 4.0+3.5+4.5+3.0 = 15.0. Promedio = 15.0 / 4 = 3.75.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[suma = 0, cont = 0]\n    B --> C[i = 1]\n    C --> D{i <= 6?}\n    D -->|Sí| E[/Leer nota/]\n    E --> F{nota >= 3.0?}\n    F -->|Sí| G[suma = suma + nota]\n    G --> H[cont = cont + 1]\n    F -->|No| I[i = i + 1]\n    H --> I\n    I --> D\n    D -->|No| J[prom = suma / cont]\n    J --> K[/Imprimir prom/]\n    K --> L([FIN])"
+  },
+  {
+    "id": "DIAG_174",
+    "dificultad": 4,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Cuántos números entre 1 y 50 imprimir el siguiente diagrama? (imprime solo los que NO son divisibles entre 3 ni entre 5)",
+    "opciones": {
+      "a": "26",
+      "b": "27",
+      "c": "28",
+      "d": "30"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "De 1 a 50: múltiplos de 3 = 16, múltiplos de 5 = 10, múltiplos de 15 (ambos) = 3. Por inclusión-exclusión, divisibles por 3 o 5 = 16+10-3 = 23. No divisibles: 50-23 = 27.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[cont = 0]\n    B --> C[i = 1]\n    C --> D{i <= 50?}\n    D -->|Sí| E{i mod 3 != 0 AND i mod 5 != 0?}\n    E -->|Sí| F[/Imprimir i/]\n    F --> G[cont = cont + 1]\n    E -->|No| H[i = i + 1]\n    G --> H\n    H --> D\n    D -->|No| I[/Imprimir cont/]\n    I --> J([FIN])"
+  },
+  {
+    "id": "DIAG_175",
+    "dificultad": 4,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "Traza el diagrama con a = 5, b = 3, c = 7. ¿Cuántas veces se ejecuta el bloque 'op = op + 1'?",
+    "opciones": {
+      "a": "1",
+      "b": "2",
+      "c": "3",
+      "d": "0"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "El diagrama verifica tres condiciones de comparación. a>b: 5>3 Sí (op=1). b>c: 3>7 No. c>a: 7>5 Sí (op=2). Se ejecuta el bloque 2 veces.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer a, b, c/]\n    B --> C[op = 0]\n    C --> D{a > b?}\n    D -->|Sí| E[op = op + 1]\n    D -->|No| F{b > c?}\n    E --> F\n    F -->|Sí| G[op = op + 1]\n    F -->|No| H{c > a?}\n    G --> H\n    H -->|Sí| I[op = op + 1]\n    H -->|No| J[/Imprimir op/]\n    I --> J\n    J --> K([FIN])"
+  },
+  {
+    "id": "DIAG_176",
+    "dificultad": 4,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "El diagrama lee una secuencia de números hasta que se ingresa el 0 (centinela). ¿Qué imprime si se ingresan: 4, 7, 2, 9, 0?",
+    "opciones": {
+      "a": "La suma es 22 y hay 4 números",
+      "b": "La suma es 22 y hay 5 números",
+      "c": "La suma es 0 y hay 0 números",
+      "d": "La suma es 18 y hay 4 números"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "El 0 es centinela y no se acumula. Se leen: 4 (suma=4, cont=1), 7 (suma=11, cont=2), 2 (suma=13, cont=3), 9 (suma=22, cont=4), 0 → sale. Imprime suma=22 y cont=4.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[suma = 0, cont = 0]\n    B --> C[/Leer n/]\n    C --> D{n != 0?}\n    D -->|Sí| E[suma = suma + n]\n    E --> F[cont = cont + 1]\n    F --> G[/Leer n/]\n    G --> D\n    D -->|No| H[/Imprimir suma, cont/]\n    H --> I([FIN])"
+  },
+  {
+    "id": "DIAG_177",
+    "dificultad": 4,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Qué valor imprime el diagrama si n = 100? (El diagrama calcula cuántos dígitos tiene el número)",
+    "opciones": {
+      "a": "1",
+      "b": "2",
+      "c": "3",
+      "d": "4"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "n=100: 100>0 → n=10, cont=1. 10>0 → n=1, cont=2. 1>0 → n=0, cont=3. 0>0 es falso, sale. Imprime 3. El número 100 tiene 3 dígitos.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer n/]\n    B --> C[cont = 0]\n    C --> D{n > 0?}\n    D -->|Sí| E[n = n div 10]\n    E --> F[cont = cont + 1]\n    F --> D\n    D -->|No| G[/Imprimir cont/]\n    G --> H([FIN])"
+  },
+  {
+    "id": "DIAG_178",
+    "dificultad": 4,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Qué imprime el diagrama si se ingresan los valores 3, 1, 4, 1, 5, 9, 2, 6? ¿Cuántos son mayores que el valor anterior?",
+    "opciones": {
+      "a": "3",
+      "b": "4",
+      "c": "5",
+      "d": "2"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Secuencia: 3→1 (1<3 No), 1→4 (4>1 Sí, cont=1), 4→1 (No), 1→5 (Sí, cont=2), 5→9 (Sí, cont=3), 9→2 (No), 2→6 (Sí, cont=4). Imprime 4.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer ant/]\n    B --> C[cont = 0]\n    C --> D[i = 2]\n    D --> E{i <= 8?}\n    E -->|Sí| F[/Leer act/]\n    F --> G{act > ant?}\n    G -->|Sí| H[cont = cont + 1]\n    G -->|No| I[ant = act]\n    H --> I\n    I --> J[i = i + 1]\n    J --> E\n    E -->|No| K[/Imprimir cont/]\n    K --> L([FIN])"
+  },
+  {
+    "id": "DIAG_179",
+    "dificultad": 4,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "El siguiente diagrama clasifica edades. ¿Qué imprime si se ingresan las edades 5, 15, 25, 65, 70?",
+    "opciones": {
+      "a": "Niños:1 Jóvenes:1 Adultos:1 Mayores:2",
+      "b": "Niños:1 Jóvenes:1 Adultos:2 Mayores:1",
+      "c": "Niños:2 Jóvenes:1 Adultos:1 Mayores:1",
+      "d": "Niños:1 Jóvenes:2 Adultos:1 Mayores:1"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "5 → niño (<12, n=1). 15 → joven (12-17, j=1). 25 → adulto (18-64, a=1). 65 → mayor (>=65, m=1). 70 → mayor (>=65, m=2). Resultado: Niños=1, Jóvenes=1, Adultos=1, Mayores=2.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[n=0, j=0, a=0, m=0]\n    B --> C[i = 1]\n    C --> D{i <= 5?}\n    D -->|Sí| E[/Leer edad/]\n    E --> F{edad < 12?}\n    F -->|Sí| G[n = n + 1]\n    F -->|No| H{edad < 18?}\n    H -->|Sí| I[j = j + 1]\n    H -->|No| J{edad < 65?}\n    J -->|Sí| K[a = a + 1]\n    J -->|No| L[m = m + 1]\n    G --> M[i = i + 1]\n    I --> M\n    K --> M\n    L --> M\n    M --> D\n    D -->|No| N[/Imprimir n, j, a, m/]\n    N --> O([FIN])"
+  },
+  {
+    "id": "DIAG_180",
+    "dificultad": 4,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Cuál de los siguientes cambios haría que el diagrama entre en un bucle infinito con n = 5?",
+    "opciones": {
+      "a": "Cambiar i = i + 1 por i = i + 0",
+      "b": "Cambiar i <= n por i < n",
+      "c": "Cambiar suma = 0 por suma = 1",
+      "d": "Cambiar /Imprimir suma/ por /Imprimir i/"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "Si i = i + 0, el contador nunca avanza: i siempre vale 1, la condición i <= 5 siempre es verdadera y el bucle nunca termina. Los otros cambios alteran el resultado pero no generan bucle infinito.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer n/]\n    B --> C[suma = 0]\n    C --> D[i = 1]\n    D --> E{i <= n?}\n    E -->|Sí| F[suma = suma + i]\n    F --> G[i = i + 1]\n    G --> E\n    E -->|No| H[/Imprimir suma/]\n    H --> I([FIN])"
+  },
+  {
+    "id": "DIAG_181",
+    "dificultad": 4,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "El diagrama suma solo los números impares del 1 al n. ¿Qué expresión debe reemplazar ??? para que funcione correctamente?",
+    "opciones": {
+      "a": "i mod 2 = 0",
+      "b": "i mod 2 != 0",
+      "c": "i > 2",
+      "d": "i / 2 > 0"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Un número es impar cuando su residuo al dividir entre 2 es distinto de cero: i mod 2 != 0 (equivalente a i mod 2 = 1 para enteros positivos). La condición i mod 2 = 0 seleccionaría los pares, que es lo contrario.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer n/]\n    B --> C[suma = 0]\n    C --> D[i = 1]\n    D --> E{i <= n?}\n    E -->|Sí| F{???}\n    F -->|Sí| G[suma = suma + i]\n    F -->|No| H[i = i + 1]\n    G --> H\n    H --> E\n    E -->|No| I[/Imprimir suma/]\n    I --> J([FIN])"
+  },
+  {
+    "id": "DIAG_182",
+    "dificultad": 4,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "Traza el diagrama con n = 3. ¿Cuál es el valor final de x?",
+    "opciones": {
+      "a": "6",
+      "b": "9",
+      "c": "12",
+      "d": "18"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "x=1. i=1: x=1*3=3. i=2: x=3*3=9. i=3: condición i<3 es falsa (i=3 no es <3). Sale con x=9. Corrección: i<n con n=3 ejecuta para i=1 y i=2 (2 iteraciones). x=1×3×3=9.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer n/]\n    B --> C[x = 1]\n    C --> D[i = 1]\n    D --> E{i < n?}\n    E -->|Sí| F[x = x * n]\n    F --> G[i = i + 1]\n    G --> E\n    E -->|No| H[/Imprimir x/]\n    H --> I([FIN])"
+  },
+  {
+    "id": "DIAG_183",
+    "dificultad": 5,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "Traza el diagrama con a = 2, b = 3, c = 4. ¿Qué secuencia de valores se imprime?",
+    "opciones": {
+      "a": "2, 3, 4",
+      "b": "4, 3, 2",
+      "c": "2, 5, 9",
+      "d": "3, 5, 9"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "Imprime a=2. Luego b = a+b = 2+3 = 5, imprime 5. Luego c = b+c = 5+4 = 9, imprime 9. La secuencia es 2, 5, 9.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer a, b, c/]\n    B --> C[/Imprimir a/]\n    C --> D[b = a + b]\n    D --> E[/Imprimir b/]\n    E --> F[c = b + c]\n    F --> G[/Imprimir c/]\n    G --> H([FIN])"
+  },
+  {
+    "id": "DIAG_184",
+    "dificultad": 5,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Qué imprime el diagrama si n = 6? (Nota: el diagrama tiene DOS errores — encuéntralos)",
+    "opciones": {
+      "a": "Imprime 8 en vez de 9 — error en la condición y en el incremento",
+      "b": "Imprime 6 en vez de 9 — error en la inicialización de i",
+      "c": "Entra en bucle infinito — el contador nunca cambia correctamente",
+      "d": "Imprime 12 en vez de 9 — suma de más debido a la condición i <= n+1"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "El diagrama tiene i inicial = 0 (debería ser 1) y condición i < n (debería ser i <= n). Con n=6 calcula 0+1+2+3+4+5 = 15 en vez de 1+2+3+4+5+6 = 21. Ambos errores se compensan parcialmente.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer n/]\n    B --> C[suma = 0]\n    C --> D[i = 0]\n    D --> E{i < n?}\n    E -->|Sí| F[suma = suma + i]\n    F --> G[i = i + 1]\n    G --> E\n    E -->|No| H[/Imprimir suma/]\n    H --> I([FIN])"
+  },
+  {
+    "id": "DIAG_185",
+    "dificultad": 5,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Qué imprime el diagrama al final si se ingresan los valores 3, 8, 5, 1, 9, 4?",
+    "opciones": {
+      "a": "1 y 9",
+      "b": "3 y 8",
+      "c": "4 y 9",
+      "d": "1 y 8"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "El diagrama rastrea simultáneamente el mínimo y el máximo. min=3, max=3. 8>3→max=8. 5: ni máx ni mín. 1<3→min=1. 9>8→max=9. 4: ni. Al final: min=1, max=9.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer x/]\n    B --> C[min = x]\n    C --> D[max = x]\n    D --> E[i = 2]\n    E --> F{i <= 6?}\n    F -->|Sí| G[/Leer x/]\n    G --> H{x < min?}\n    H -->|Sí| I[min = x]\n    H -->|No| J{x > max?}\n    I --> J\n    J -->|Sí| K[max = x]\n    J -->|No| L[i = i + 1]\n    K --> L\n    L --> F\n    F -->|No| M[/Imprimir min, max/]\n    M --> N([FIN])"
+  },
+  {
+    "id": "DIAG_186",
+    "dificultad": 5,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Qué imprime el diagrama con x = 5 e y = 3? (Traza con cuidado — las variables se modifican durante la ejecución)",
+    "opciones": {
+      "a": "x=3, y=5",
+      "b": "x=5, y=3",
+      "c": "x=8, y=3",
+      "d": "x=3, y=8"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "x=5, y=3. x = x - y = 5-3 = 2. y = x + y = 2+3 = 5. x = y - x = 5-2 = 3. Al final x=3, y=5. Este método intercambia los valores sin usar variable temporal (funciona correctamente con resta).",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer x, y/]\n    B --> C[x = x - y]\n    C --> D[y = x + y]\n    D --> E[x = y - x]\n    E --> F[/Imprimir x, y/]\n    F --> G([FIN])"
+  },
+  {
+    "id": "DIAG_187",
+    "dificultad": 5,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "El diagrama intenta calcular el número de combinaciones C(n,2) = n*(n-1)/2. ¿Qué imprime si n = 7 y cuál sería el cambio mínimo para que sea correcto si actualmente da un resultado equivocado?",
+    "opciones": {
+      "a": "Imprime 21, que es correcto. No requiere cambio.",
+      "b": "Imprime 42, que es el doble. Falta dividir entre 2.",
+      "c": "Imprime 14, que es la mitad. Falta multiplicar por (n-1).",
+      "d": "Imprime 0 por error de inicialización."
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "El diagrama calcula res = n * (n-1) = 7 * 6 = 42, pero omite la división entre 2. C(7,2) = 7*6/2 = 21. El cambio mínimo es agregar res = res / 2 antes de imprimir.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer n/]\n    B --> C[res = n * (n - 1)]\n    C --> D[/Imprimir res/]\n    D --> E([FIN])"
+  },
+  {
+    "id": "DIAG_188",
+    "dificultad": 5,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "Traza el diagrama con n = 4. ¿Qué secuencia exacta de valores imprime?",
+    "opciones": {
+      "a": "4, 3, 2, 1, 0",
+      "b": "1, 2, 3, 4",
+      "c": "4, 6, 6, 4",
+      "d": "1, 3, 6, 10"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "i=1: a=4, b=1, imprime a*b=4. i=2: a=3, b=2, imprime 6. i=3: a=2, b=3, imprime 6. i=4: a=1, b=4, imprime 4. Secuencia: 4, 6, 6, 4. Es simétrica porque a+b siempre = n+1 = 5.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer n/]\n    B --> C[i = 1]\n    C --> D{i <= n?}\n    D -->|Sí| E[a = n - i + 1]\n    E --> F[b = i]\n    F --> G[/Imprimir a * b/]\n    G --> H[i = i + 1]\n    H --> D\n    D -->|No| I([FIN])"
+  },
+  {
+    "id": "DIAG_189",
+    "dificultad": 5,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "El diagrama calcula algo con los dígitos de n. ¿Qué imprime si n = 1234 y qué calcula exactamente?",
+    "opciones": {
+      "a": "Imprime 4321 — invierte el número",
+      "b": "Imprime 10 — suma los dígitos",
+      "c": "Imprime 24 — multiplica los dígitos",
+      "d": "Imprime 4 — cuenta los dígitos"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "n=1234: extrae 4 (mod 10), suma=4, n=123. Extrae 3, suma=7, n=12. Extrae 2, suma=9, n=1. Extrae 1, suma=10, n=0. Sale. Imprime 10 = 1+2+3+4.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer n/]\n    B --> C[res = 0]\n    C --> D{n > 0?}\n    D -->|Sí| E[res = res + n mod 10]\n    E --> F[n = n div 10]\n    F --> D\n    D -->|No| G[/Imprimir res/]\n    G --> H([FIN])"
+  },
+  {
+    "id": "DIAG_190",
+    "dificultad": 5,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Qué imprime el diagrama si limite = 100? (Cuenta números que satisfacen dos condiciones simultáneas)",
+    "opciones": {
+      "a": "6",
+      "b": "7",
+      "c": "8",
+      "d": "5"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "Múltiplos de 12 (= mcm(4,6)) entre 1 y 100: 12,24,36,48,60,72,84,96 = exactamente 8 números.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer limite/]\n    B --> C[cont = 0]\n    C --> D[i = 1]\n    D --> E{i <= limite?}\n    E -->|Sí| F{i mod 4 = 0?}\n    F -->|Sí| G{i mod 6 = 0?}\n    G -->|Sí| H[cont = cont + 1]\n    G -->|No| I[i = i + 1]\n    F -->|No| I\n    H --> I\n    I --> E\n    E -->|No| J[/Imprimir cont/]\n    J --> K([FIN])"
+  },
+  {
+    "id": "DIAG_191",
+    "dificultad": 5,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "El siguiente diagrama usa dos variables que se actualizan juntas. ¿Qué imprime si n = 6?",
+    "opciones": {
+      "a": "8",
+      "b": "13",
+      "c": "21",
+      "d": "34"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "a=0, b=1. i=1: temp=b=1, b=a+b=1, a=1. i=2: temp=1, b=1+1=2, a=1. i=3: temp=2, b=1+2=3, a=2. i=4: temp=3, b=2+3=5, a=3. i=5: temp=5, b=3+5=8, a=5. i=6: temp=8, b=5+8=13, a=8. Imprime b=13. Es el 7mo número de Fibonacci (F(7)=13).",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer n/]\n    B --> C[a = 0]\n    C --> D[b = 1]\n    D --> E[i = 1]\n    E --> F{i <= n?}\n    F -->|Sí| G[temp = b]\n    G --> H[b = a + b]\n    H --> I[a = temp]\n    I --> J[i = i + 1]\n    J --> F\n    F -->|No| K[/Imprimir b/]\n    K --> L([FIN])"
+  },
+  {
+    "id": "DIAG_192",
+    "dificultad": 5,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Cuál es la diferencia en el resultado si se cambia el orden de las dos instrucciones marcadas con [1] y [2]? Con base = 2, exp = 3:",
+    "opciones": {
+      "a": "Orden original: 8. Orden invertido: también 8. No hay diferencia.",
+      "b": "Orden original: 8. Orden invertido: 16. El resultado cambia porque el contador se incrementa antes.",
+      "c": "Orden original: 8. Orden invertido: 4. Se realiza una iteración menos.",
+      "d": "Orden original: 8. Orden invertido: bucle infinito."
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "Orden original: [1] res=res*base, luego [2] i=i+1. Con exp=3: i pasa por 0,1,2 → 3 multiplicaciones → 2^3=8. Si se invierte: [2] i=i+1 primero, luego [1] res*base. i pasa por 1,2,3 → la condición i<3 se cumple para i=1 e i=2 → 2 multiplicaciones → 2^2=4.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer base, exp/]\n    B --> C[res = 1]\n    C --> D[i = 0]\n    D --> E{i < exp?}\n    E -->|Sí| F[res = res * base]\n    F --> G[i = i + 1]\n    G --> E\n    E -->|No| H[/Imprimir res/]\n    H --> I([FIN])"
+  },
+  {
+    "id": "DIAG_193",
+    "dificultad": 5,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "El diagrama clasifica un número n en una de cuatro categorías. ¿Qué imprime si n = 12?",
+    "opciones": {
+      "a": "Categoría A",
+      "b": "Categoría B",
+      "c": "Categoría C",
+      "d": "Categoría D"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "n=12: ¿12 mod 2 = 0? Sí (par). ¿12 mod 3 = 0? Sí (divisible por 3). Condición: par Y div por 3 → Categoría B. Si solo par y no div por 3 sería A. Si impar y div por 3 sería C. Si impar y no div por 3 sería D.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer n/]\n    B --> C{n mod 2 = 0?}\n    C -->|Sí| D{n mod 3 = 0?}\n    D -->|Sí| E[/Imprimir 'Categoría B'/]\n    D -->|No| F[/Imprimir 'Categoría A'/]\n    C -->|No| G{n mod 3 = 0?}\n    G -->|Sí| H[/Imprimir 'Categoría C'/]\n    G -->|No| I[/Imprimir 'Categoría D'/]\n    E --> J([FIN])\n    F --> J\n    H --> J\n    I --> J"
+  },
+  {
+    "id": "DIAG_194",
+    "dificultad": 5,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Qué imprime el diagrama si n = 5? (Presta atención a cuándo se imprime vs. cuándo se actualiza)",
+    "opciones": {
+      "a": "15, 10, 6, 3, 1",
+      "b": "1, 3, 6, 10, 15",
+      "c": "5, 4, 3, 2, 1",
+      "d": "15, 14, 13, 12, 11"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "acum = n*(n+1)/2 = 15. i=5: imprime 15, acum=15-5=10. i=4: imprime 10, acum=10-4=6. i=3: imprime 6, acum=6-3=3. i=2: imprime 3, acum=3-2=1. i=1: imprime 1, acum=0. Secuencia: 15, 10, 6, 3, 1.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer n/]\n    B --> C[acum = n * (n+1) / 2]\n    C --> D[i = n]\n    D --> E{i >= 1?}\n    E -->|Sí| F[/Imprimir acum/]\n    F --> G[acum = acum - i]\n    G --> H[i = i - 1]\n    H --> E\n    E -->|No| I([FIN])"
+  },
+  {
+    "id": "DIAG_195",
+    "dificultad": 5,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Qué imprime el siguiente diagrama si a = 10, b = 4? (El diagrama calcula algo sin usar la operación mod directamente)",
+    "opciones": {
+      "a": "0",
+      "b": "1",
+      "c": "2",
+      "d": "3"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "a=10, b=4. Iteración 1: 10>=4 → a=10-4=6. Iteración 2: 6>=4 → a=6-4=2. Iteración 3: 2>=4 falso, sale. Imprime a=2. El algoritmo calcula 10 mod 4 = 2 usando restas repetidas.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer a, b/]\n    B --> C{a >= b?}\n    C -->|Sí| D[a = a - b]\n    D --> C\n    C -->|No| E[/Imprimir a/]\n    E --> F([FIN])"
+  },
+  {
+    "id": "DIAG_196",
+    "dificultad": 5,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "El siguiente diagrama tiene un error lógico sutil. ¿Cuál es y cómo afecta el resultado con n = 100?",
+    "opciones": {
+      "a": "Cuenta también el 0: imprime 51 en vez de 50 (los pares del 2 al 100).",
+      "b": "Usa i+=2 pero empieza en 1 (impar): no cuenta ningún par.",
+      "c": "La condición es i<=n pero debería ser i<n: cuenta el 100 dos veces.",
+      "d": "No hay error: imprime 50 correctamente."
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "El bucle va de i=0 a i=100 en pasos de 2: cuenta 0, 2, 4, ..., 100. Son 51 valores (0 incluido). Si el objetivo era contar los pares positivos hasta 100 (2,4,...,100), debería empezar en i=2 para obtener 50.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer n/]\n    B --> C[cont = 0]\n    C --> D[i = 0]\n    D --> E{i <= n?}\n    E -->|Sí| F{i mod 2 = 0?}\n    F -->|Sí| G[cont = cont + 1]\n    F -->|No| H[i = i + 1]\n    G --> H\n    H --> E\n    E -->|No| I[/Imprimir cont/]\n    I --> J([FIN])"
+  },
+  {
+    "id": "DIAG_197",
+    "dificultad": 5,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Qué valor final tiene la variable 'res' después de ejecutar el diagrama con n = 5? (Traza cuidadosamente — hay dos bucles anidados y res se acumula entre ambos)",
+    "opciones": {
+      "a": "25",
+      "b": "35",
+      "c": "45",
+      "d": "55"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "i=1: j suma de 1 a 5 = 15. i=2: j suma de 2 a 5 = 14. i=3: 3+4+5=12. i=4: 4+5=9. i=5: 5. Total res = 15+14+12+9+5 = 55.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer n/]\n    B --> C[res = 0]\n    C --> D[i = 1]\n    D --> E{i <= n?}\n    E -->|Sí| F[j = i]\n    F --> G{j <= n?}\n    G -->|Sí| H[res = res + j]\n    H --> I[j = j + 1]\n    I --> G\n    G -->|No| J[i = i + 1]\n    J --> E\n    E -->|No| K[/Imprimir res/]\n    K --> L([FIN])"
+  },
+  {
+    "id": "DIAG_198",
+    "dificultad": 5,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "El diagrama lee N notas y al final imprime la nota más alta, la más baja y el promedio. Si se ingresan N=5 notas: 3.5, 4.8, 2.1, 4.0, 3.9, ¿cuál de las siguientes afirmaciones es FALSA?",
+    "opciones": {
+      "a": "El mínimo es 2.1",
+      "b": "El máximo es 4.8",
+      "c": "El promedio es exactamente 3.66",
+      "d": "El promedio es mayor que el mínimo"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "Promedio = (3.5+4.8+2.1+4.0+3.9)/5 = 18.3/5 = 3.66. La opción dice 'exactamente 3.66', lo cual es correcto. Sin embargo, si el diagrama usa división entera (div), el resultado sería 3 en vez de 3.66. Si la división es real, 3.66 es correcto. La opción falsa es que el promedio sea exactamente 3.66 cuando se usa división entera.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer N/]\n    B --> C[/Leer primera nota/]\n    C --> D[min = nota]\n    D --> E[max = nota]\n    E --> F[suma = nota]\n    F --> G[i = 2]\n    G --> H{i <= N?}\n    H -->|Sí| I[/Leer nota/]\n    I --> J{nota < min?}\n    J -->|Sí| K[min = nota]\n    J -->|No| L{nota > max?}\n    K --> L\n    L -->|Sí| M[max = nota]\n    L -->|No| N2[suma = suma + nota]\n    M --> N2\n    N2 --> O[i = i + 1]\n    O --> H\n    H -->|No| P[prom = suma / N]\n    P --> Q[/Imprimir min, max, prom/]\n    Q --> R([FIN])"
+  },
+  {
+    "id": "DIAG_199",
+    "dificultad": 5,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Qué imprime el diagrama si n = 7? (El diagrama usa una bandera booleana que puede cambiar múltiples veces)",
+    "opciones": {
+      "a": "Verdadero",
+      "b": "Falso",
+      "c": "Ambos: Verdadero y Falso",
+      "d": "No imprime nada"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "n=7 (impar). bandera=verdadero. i=2: 7 mod 2=1≠0, no cambia. i=3: 7 mod 3=1≠0, no cambia. i=4: 7 mod 4=3≠0. i=5: 7 mod 5=2≠0. i=6: 7 mod 6=1≠0. Sale del bucle con bandera=verdadero. Imprime 'Verdadero'. El 7 es primo.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer n/]\n    B --> C[bandera = verdadero]\n    C --> D[i = 2]\n    D --> E{i < n?}\n    E -->|Sí| F{n mod i = 0?}\n    F -->|Sí| G[bandera = falso]\n    F -->|No| H[i = i + 1]\n    G --> H\n    H --> E\n    E -->|No| I{bandera?}\n    I -->|Sí| J[/Imprimir 'Verdadero'/]\n    I -->|No| K[/Imprimir 'Falso'/]\n    J --> L([FIN])\n    K --> L"
+  },
+  {
+    "id": "DIAG_200",
+    "dificultad": 5,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Cuál es el ÚNICO cambio que convierte este diagrama (que suma del 1 al n) en uno que suma solo los múltiplos de 3 del 1 al n?",
+    "opciones": {
+      "a": "Cambiar i = i + 1 por i = i + 3 y el valor inicial de i a 3",
+      "b": "Cambiar suma = suma + i por suma = suma + 3",
+      "c": "Cambiar la condición a i mod 3 = 0",
+      "d": "Cambiar suma = 0 por suma = 3"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "Si i comienza en 3 y se incrementa de 3 en 3, el bucle visita exactamente 3, 6, 9, 12, ..., n (o el múltiplo de 3 más cercano por debajo). La opción c añadiría una condición pero no cambiaría el recorrido. La opción a es el cambio más directo y eficiente.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer n/]\n    B --> C[suma = 0]\n    C --> D[i = 1]\n    D --> E{i <= n?}\n    E -->|Sí| F[suma = suma + i]\n    F --> G[i = i + 1]\n    G --> E\n    E -->|No| H[/Imprimir suma/]\n    H --> I([FIN])"
+  },
+  {
+    "id": "DIAG_201",
+    "dificultad": 5,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "Traza el diagrama con n = 4. ¿Cuál es el valor de 'res' al finalizar?",
+    "opciones": {
+      "a": "24",
+      "b": "16",
+      "c": "10",
+      "d": "4"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "res=1. i=1: res=1*1=1. i=2: res=1*2=2. i=3: res=2*3=6. i=4: res=6*4=24. Condición i<=n se cumple para 1,2,3,4. El diagrama calcula n! (factorial). 4! = 24.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer n/]\n    B --> C[res = 1]\n    C --> D[i = 1]\n    D --> E{i <= n?}\n    E -->|Sí| F[res = res * i]\n    F --> G[i = i + 1]\n    G --> E\n    E -->|No| H[/Imprimir res/]\n    H --> I([FIN])"
+  },
+  {
+    "id": "DIAG_202",
+    "dificultad": 5,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "El siguiente diagrama tiene tres variables que interactúan. ¿Qué imprime si x=2, y=3, z=4?",
+    "opciones": {
+      "a": "14",
+      "b": "20",
+      "c": "24",
+      "d": "26"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "x=2+3=5. y=5*4=20. z=20-5=15. El diagrama imprime y = 20.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer x, y, z/]\n    B --> C[x = x + y]\n    C --> D[y = x * z]\n    D --> E[z = y - x]\n    E --> F[/Imprimir y/]\n    F --> G([FIN])"
+  },
+  {
+    "id": "DIAG_203",
+    "dificultad": 1,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Qué imprime el diagrama si base = 4 y altura = 6?",
+    "opciones": {
+      "a": "10",
+      "b": "24",
+      "c": "12",
+      "d": "48"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "El área de un rectángulo es base × altura. Con base=4 y altura=6: area = 4 × 6 = 24.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer base, altura/]\n    B --> C[area = base * altura]\n    C --> D[/Imprimir area/]\n    D --> E([FIN])"
+  },
+  {
+    "id": "DIAG_204",
+    "dificultad": 1,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Qué imprime el diagrama si temperatura = 36.5?",
+    "opciones": {
+      "a": "Normal",
+      "b": "Fiebre",
+      "c": "Hipotermia",
+      "d": "36.5"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "temperatura=36.5: ¿36.5 < 35.0? No. ¿36.5 > 37.5? No. Se ejecuta el bloque por defecto y se imprime 'Normal'. El rango normal es 35.0 a 37.5 inclusive.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer temperatura/]\n    B --> C{temperatura < 35.0?}\n    C -->|Sí| D[/Imprimir 'Hipotermia'/]\n    C -->|No| E{temperatura > 37.5?}\n    E -->|Sí| F[/Imprimir 'Fiebre'/]\n    E -->|No| G[/Imprimir 'Normal'/]\n    D --> H([FIN])\n    F --> H\n    G --> H"
+  },
+  {
+    "id": "DIAG_205",
+    "dificultad": 1,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Cuántas veces se imprime el mensaje 'Iteración' si limite = 4?",
+    "opciones": {
+      "a": "3",
+      "b": "4",
+      "c": "5",
+      "d": "0"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "El bucle ejecuta con k=1, k=2, k=3, k=4 (condición k<=4 verdadera). Cuando k=5 la condición es falsa. Se imprime 'Iteración' exactamente 4 veces.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer limite/]\n    B --> C[k = 1]\n    C --> D{k <= limite?}\n    D -->|Sí| E[/Imprimir 'Iteración'/]\n    E --> F[k = k + 1]\n    F --> D\n    D -->|No| G([FIN])"
+  },
+  {
+    "id": "DIAG_206",
+    "dificultad": 1,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Qué imprime el diagrama si num = 17?",
+    "opciones": {
+      "a": "0",
+      "b": "1",
+      "c": "17",
+      "d": "8"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "17 mod 2 = 1 (residuo al dividir 17 entre 2). El diagrama calcula e imprime el residuo de dividir num entre 2.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer num/]\n    B --> C[res = num mod 2]\n    C --> D[/Imprimir res/]\n    D --> E([FIN])"
+  },
+  {
+    "id": "DIAG_207",
+    "dificultad": 1,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Qué imprime el diagrama si precio = 50 y cantidad = 3?",
+    "opciones": {
+      "a": "53",
+      "b": "150",
+      "c": "100",
+      "d": "47"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "total = precio × cantidad = 50 × 3 = 150.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer precio, cantidad/]\n    B --> C[total = precio * cantidad]\n    C --> D[/Imprimir total/]\n    D --> E([FIN])"
+  },
+  {
+    "id": "DIAG_208",
+    "dificultad": 1,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Qué imprime el diagrama si a = 9 y b = 9?",
+    "opciones": {
+      "a": "Son distintos",
+      "b": "Son iguales",
+      "c": "9",
+      "d": "0"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "La condición a = b evalúa 9 = 9, que es verdadero, por lo que se imprime 'Son iguales'.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer a, b/]\n    B --> C{a = b?}\n    C -->|Sí| D[/Imprimir 'Son iguales'/]\n    C -->|No| E[/Imprimir 'Son distintos'/]\n    D --> F([FIN])\n    E --> F"
+  },
+  {
+    "id": "DIAG_209",
+    "dificultad": 1,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Qué imprime el diagrama si n = 8?",
+    "opciones": {
+      "a": "2",
+      "b": "4",
+      "c": "8",
+      "d": "16"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "mitad = n / 2 = 8 / 2 = 4.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer n/]\n    B --> C[mitad = n / 2]\n    C --> D[/Imprimir mitad/]\n    D --> E([FIN])"
+  },
+  {
+    "id": "DIAG_210",
+    "dificultad": 1,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Qué imprime el diagrama si x = 3?",
+    "opciones": {
+      "a": "Menor",
+      "b": "Mayor",
+      "c": "Igual",
+      "d": "3"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "x=3: ¿3 > 5? No. ¿3 = 5? No. Se ejecuta el bloque final y se imprime 'Menor'.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer x/]\n    B --> C{x > 5?}\n    C -->|Sí| D[/Imprimir 'Mayor'/]\n    C -->|No| E{x = 5?}\n    E -->|Sí| F[/Imprimir 'Igual'/]\n    E -->|No| G[/Imprimir 'Menor'/]\n    D --> H([FIN])\n    F --> H\n    G --> H"
+  },
+  {
+    "id": "DIAG_211",
+    "dificultad": 1,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Qué secuencia imprime el diagrama?",
+    "opciones": {
+      "a": "2, 4, 6, 8, 10",
+      "b": "1, 2, 3, 4, 5",
+      "c": "0, 2, 4, 6, 8",
+      "d": "2, 4, 6, 8"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "n va de 1 a 5. Por cada n se imprime n*2: 1×2=2, 2×2=4, 3×2=6, 4×2=8, 5×2=10. Secuencia: 2, 4, 6, 8, 10.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[n = 1]\n    B --> C{n <= 5?}\n    C -->|Sí| D[/Imprimir n * 2/]\n    D --> E[n = n + 1]\n    E --> C\n    C -->|No| F([FIN])"
+  },
+  {
+    "id": "DIAG_212",
+    "dificultad": 1,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Qué imprime el diagrama si metros = 2.5?",
+    "opciones": {
+      "a": "2500",
+      "b": "250",
+      "c": "25",
+      "d": "0.25"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "1 metro = 100 centímetros. centimetros = 2.5 × 100 = 250.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer metros/]\n    B --> C[centimetros = metros * 100]\n    C --> D[/Imprimir centimetros/]\n    D --> E([FIN])"
+  },
+  {
+    "id": "DIAG_213",
+    "dificultad": 2,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Qué valor debe ir en ??? para que el diagrama calcule el perímetro de un círculo (2πr) con π = 3.1416?",
+    "opciones": {
+      "a": "radio * radio",
+      "b": "2 * 3.1416 * radio",
+      "c": "3.1416 * radio * radio",
+      "d": "radio + 3.1416"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "El perímetro (circunferencia) de un círculo es 2πr. Con π=3.1416 la fórmula es 2 × 3.1416 × radio.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer radio/]\n    B --> C[perimetro = ???]\n    C --> D[/Imprimir perimetro/]\n    D --> E([FIN])"
+  },
+  {
+    "id": "DIAG_214",
+    "dificultad": 2,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "Traza el diagrama con n = 5. ¿Cuál es el valor de 'acum' al finalizar?",
+    "opciones": {
+      "a": "15",
+      "b": "55",
+      "c": "120",
+      "d": "25"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "El diagrama acumula i² de i=1 a 5. 1+4+9+16+25 = 55.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer n/]\n    B --> C[acum = 0]\n    C --> D[i = 1]\n    D --> E{i <= n?}\n    E -->|Sí| F[acum = acum + i * i]\n    F --> G[i = i + 1]\n    G --> E\n    E -->|No| H[/Imprimir acum/]\n    H --> I([FIN])"
+  },
+  {
+    "id": "DIAG_215",
+    "dificultad": 2,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Qué condición debe reemplazar ??? para que el diagrama imprima solo los números del 1 al 100 que son múltiplos de 5 pero NO de 10?",
+    "opciones": {
+      "a": "i mod 5 = 0",
+      "b": "i mod 5 = 0 AND i mod 10 != 0",
+      "c": "i mod 10 = 5",
+      "d": "b y c son equivalentes y correctas"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "Los múltiplos de 5 que no son de 10 terminan siempre en 5: 5, 15, 25, 35... La condición i mod 10 = 5 captura exactamente esos valores. La condición b también es correcta porque i mod 5=0 Y i mod 10≠0 es equivalente a i mod 10=5. Ambas son correctas.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[i = 1]\n    B --> C{i <= 100?}\n    C -->|Sí| D{???}\n    D -->|Sí| E[/Imprimir i/]\n    D -->|No| F[i = i + 1]\n    E --> F\n    F --> C\n    C -->|No| G([FIN])"
+  },
+  {
+    "id": "DIAG_216",
+    "dificultad": 2,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Qué imprime el diagrama si se ingresan los valores 7, 3, 9, 1, 5?",
+    "opciones": {
+      "a": "7",
+      "b": "9",
+      "c": "1",
+      "d": "5"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "El diagrama busca el mayor. max=7. 3<7 no cambia. 9>7 → max=9. 1<9 no cambia. 5<9 no cambia. Imprime 9.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer max/]\n    B --> C[i = 2]\n    C --> D{i <= 5?}\n    D -->|Sí| E[/Leer x/]\n    E --> F{x > max?}\n    F -->|Sí| G[max = x]\n    F -->|No| H[i = i + 1]\n    G --> H\n    H --> D\n    D -->|No| I[/Imprimir max/]\n    I --> J([FIN])"
+  },
+  {
+    "id": "DIAG_217",
+    "dificultad": 2,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Cuántas iteraciones ejecuta el bucle si inicio = 3 y fin = 12?",
+    "opciones": {
+      "a": "9",
+      "b": "10",
+      "c": "12",
+      "d": "3"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "El bucle va de i=inicio=3 hasta i=fin=12 inclusive (condición i<=fin). Los valores son 3,4,5,6,7,8,9,10,11,12 → exactamente 10 iteraciones (12-3+1=10).",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer inicio, fin/]\n    B --> C[i = inicio]\n    C --> D{i <= fin?}\n    D -->|Sí| E[/Imprimir i/]\n    E --> F[i = i + 1]\n    F --> D\n    D -->|No| G([FIN])"
+  },
+  {
+    "id": "DIAG_218",
+    "dificultad": 2,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Qué instrucción debe reemplazar ??? para que el diagrama calcule correctamente el promedio de 4 números?",
+    "opciones": {
+      "a": "prom = suma * 4",
+      "b": "prom = suma + 4",
+      "c": "prom = suma / 4",
+      "d": "prom = suma - 4"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "El promedio se obtiene dividiendo la suma total entre la cantidad de valores. Con 4 números: prom = suma / 4.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[suma = 0]\n    B --> C[i = 1]\n    C --> D{i <= 4?}\n    D -->|Sí| E[/Leer x/]\n    E --> F[suma = suma + x]\n    F --> G[i = i + 1]\n    G --> D\n    D -->|No| H[???]\n    H --> I[/Imprimir prom/]\n    I --> J([FIN])"
+  },
+  {
+    "id": "DIAG_219",
+    "dificultad": 2,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Cuál es el error en este diagrama que intenta imprimir el doble de los números del 1 al 5?",
+    "opciones": {
+      "a": "Falta imprimir 'n * 2', imprime solo 'n'",
+      "b": "El bucle debería terminar en n <= 5, no n < 5",
+      "c": "n debería inicializarse en 0",
+      "d": "No hay error"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Con n < 5, el bucle ejecuta para n=1,2,3,4 (termina antes del 5). Imprime 2,4,6,8 en lugar de 2,4,6,8,10. La condición correcta es n <= 5 para incluir el 5.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[n = 1]\n    B --> C{n < 5?}\n    C -->|Sí| D[/Imprimir n * 2/]\n    D --> E[n = n + 1]\n    E --> C\n    C -->|No| F([FIN])"
+  },
+  {
+    "id": "DIAG_220",
+    "dificultad": 2,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "Traza el diagrama con n = 37. ¿Qué imprime?",
+    "opciones": {
+      "a": "3",
+      "b": "7",
+      "c": "10",
+      "d": "37"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "El diagrama extrae el último dígito de n con la operación mod 10. 37 mod 10 = 7. Imprime 7.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer n/]\n    B --> C[ultimo = n mod 10]\n    C --> D[/Imprimir ultimo/]\n    D --> E([FIN])"
+  },
+  {
+    "id": "DIAG_221",
+    "dificultad": 2,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Qué imprime el diagrama si saldo = 1000 y tasa = 5?",
+    "opciones": {
+      "a": "50",
+      "b": "1050",
+      "c": "105",
+      "d": "500"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "interes = 1000 × 5 / 100 = 50. nuevo_saldo = 1000 + 50 = 1050. Se imprime el saldo final: 1050.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer saldo, tasa/]\n    B --> C[interes = saldo * tasa / 100]\n    C --> D[nuevo_saldo = saldo + interes]\n    D --> E[/Imprimir nuevo_saldo/]\n    E --> F([FIN])"
+  },
+  {
+    "id": "DIAG_222",
+    "dificultad": 2,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Cuántas veces imprime un número el diagrama si n = 20?",
+    "opciones": {
+      "a": "4",
+      "b": "5",
+      "c": "6",
+      "d": "10"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "La condición es i mod 4 = 0. Múltiplos de 4 entre 1 y 20: 4, 8, 12, 16, 20. Son 5 valores.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer n/]\n    B --> C[i = 1]\n    C --> D{i <= n?}\n    D -->|Sí| E{i mod 4 = 0?}\n    E -->|Sí| F[/Imprimir i/]\n    E -->|No| G[i = i + 1]\n    F --> G\n    G --> D\n    D -->|No| H([FIN])"
+  },
+  {
+    "id": "DIAG_223",
+    "dificultad": 3,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Qué imprime el diagrama si n = 256? (El diagrama divide repetidamente entre 2)",
+    "opciones": {
+      "a": "7",
+      "b": "8",
+      "c": "9",
+      "d": "16"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "n=256: 256→128→64→32→16→8→4→2→1. Cada división entre 2 incrementa cont. Se realizan 8 divisiones hasta que n llega a 1. cont=8. El diagrama calcula el logaritmo en base 2 de n: log₂(256)=8.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer n/]\n    B --> C[cont = 0]\n    C --> D{n > 1?}\n    D -->|Sí| E[n = n div 2]\n    E --> F[cont = cont + 1]\n    F --> D\n    D -->|No| G[/Imprimir cont/]\n    G --> H([FIN])"
+  },
+  {
+    "id": "DIAG_224",
+    "dificultad": 3,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "El diagrama lee 6 números e imprime cuántos son mayores que el promedio del grupo. Con los valores 2, 8, 4, 6, 10, 6, ¿qué imprime?",
+    "opciones": {
+      "a": "2",
+      "b": "3",
+      "c": "4",
+      "d": "1"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "Promedio = 36/6 = 6. Mayores que 6: 8 y 10. Son 2 números.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[suma = 0, i = 1]\n    B --> C{i <= 6?}\n    C -->|Sí| D[/Leer x, guardar en arr[i]/]\n    D --> E[suma = suma + x]\n    E --> F[i = i + 1]\n    F --> C\n    C -->|No| G[prom = suma / 6]\n    G --> H[cont = 0, i = 1]\n    H --> I{i <= 6?}\n    I -->|Sí| J{arr[i] > prom?}\n    J -->|Sí| K[cont = cont + 1]\n    J -->|No| L[i = i + 1]\n    K --> L\n    L --> I\n    I -->|No| M[/Imprimir cont/]\n    M --> N([FIN])"
+  },
+  {
+    "id": "DIAG_225",
+    "dificultad": 3,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Cuál es el error en el diagrama que intenta intercambiar a y b, si a = 5 y b = 8?",
+    "opciones": {
+      "a": "Falta la variable temporal; el valor original de a se pierde en el segundo paso",
+      "b": "La condición a > b debería ser a < b",
+      "c": "b debería asignarse a temp antes que a",
+      "d": "No hay error, el intercambio es correcto"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "a=5, b=8. Paso 1: a=b → a=8. Ahora el valor original de a (5) se perdió. Paso 2: b=a → b=8. Resultado: a=8, b=8. Ambas variables terminan con 8. Para un intercambio correcto se necesita temp=a antes de sobreescribir a.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer a, b/]\n    B --> C[a = b]\n    C --> D[b = a]\n    D --> E[/Imprimir a, b/]\n    E --> F([FIN])"
+  },
+  {
+    "id": "DIAG_226",
+    "dificultad": 3,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Qué imprime el diagrama si n = 4 y m = 3?",
+    "opciones": {
+      "a": "7",
+      "b": "12",
+      "c": "1",
+      "d": "4"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "El diagrama suma n, m veces: resultado = 0+4+4+4 = 12. Equivale a una multiplicación por sumas repetidas: 4×3=12.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer n, m/]\n    B --> C[resultado = 0]\n    C --> D[i = 1]\n    D --> E{i <= m?}\n    E -->|Sí| F[resultado = resultado + n]\n    F --> G[i = i + 1]\n    G --> E\n    E -->|No| H[/Imprimir resultado/]\n    H --> I([FIN])"
+  },
+  {
+    "id": "DIAG_227",
+    "dificultad": 3,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Qué imprime el diagrama con n = 45?",
+    "opciones": {
+      "a": "45 es múltiplo de 9",
+      "b": "45 es múltiplo de 5 pero no de 9",
+      "c": "45 es múltiplo de ambos",
+      "d": "45 no es múltiplo de ninguno"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "45 mod 5 = 0 (Sí) y 45 mod 9 = 0 (Sí). Se ejecuta la rama de 'múltiplo de ambos'.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer n/]\n    B --> C{n mod 5 = 0?}\n    C -->|Sí| D{n mod 9 = 0?}\n    D -->|Sí| E[/Imprimir 'múltiplo de ambos'/]\n    D -->|No| F[/Imprimir 'múltiplo de 5 pero no de 9'/]\n    C -->|No| G{n mod 9 = 0?}\n    G -->|Sí| H[/Imprimir 'múltiplo de 9 pero no de 5'/]\n    G -->|No| I[/Imprimir 'no es múltiplo de ninguno'/]\n    E --> J([FIN])\n    F --> J\n    H --> J\n    I --> J"
+  },
+  {
+    "id": "DIAG_228",
+    "dificultad": 3,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "Traza el diagrama con n = 5. ¿Qué imprime?",
+    "opciones": {
+      "a": "120",
+      "b": "25",
+      "c": "15",
+      "d": "5"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "prod=1. i=5: prod=5. i=4: prod=20. i=3: prod=60. i=2: prod=120. i=1: condición i>=2 falsa, sale. Imprime 120. El diagrama calcula n! con el bucle decreciente: 5×4×3×2 = 120. Corrección: i va de n hasta 2: 5,4,3,2 → 4 multiplicaciones. prod=1×5×4×3×2=120.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer n/]\n    B --> C[prod = 1]\n    C --> D[i = n]\n    D --> E{i >= 2?}\n    E -->|Sí| F[prod = prod * i]\n    F --> G[i = i - 1]\n    G --> E\n    E -->|No| H[/Imprimir prod/]\n    H --> I([FIN])"
+  },
+  {
+    "id": "DIAG_229",
+    "dificultad": 3,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "El diagrama acumula la suma hasta que ésta supera un límite. ¿Cuántas iteraciones realiza si limite = 20?",
+    "opciones": {
+      "a": "4",
+      "b": "5",
+      "c": "6",
+      "d": "7"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "i=1: suma=1. i=2: suma=3. i=3: suma=6. i=4: suma=10. i=5: suma=15. i=6: suma=21. 21>20 → sale. Se realizaron 6 iteraciones (i fue 1,2,3,4,5,6).",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer limite/]\n    B --> C[suma = 0]\n    C --> D[i = 1]\n    D --> E{suma <= limite?}\n    E -->|Sí| F[suma = suma + i]\n    F --> G[i = i + 1]\n    G --> E\n    E -->|No| H[/Imprimir i - 1/]\n    H --> I([FIN])"
+  },
+  {
+    "id": "DIAG_230",
+    "dificultad": 3,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Qué imprime el diagrama si n = 3215?",
+    "opciones": {
+      "a": "11",
+      "b": "5123",
+      "c": "30",
+      "d": "4"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "n=3215: extrae 5 (mod 10), suma=5, n=321. Extrae 1, suma=6, n=32. Extrae 2, suma=8, n=3. Extrae 3, suma=11, n=0. Sale. Imprime 11 = 3+2+1+5.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer n/]\n    B --> C[suma = 0]\n    C --> D{n > 0?}\n    D -->|Sí| E[suma = suma + n mod 10]\n    E --> F[n = n div 10]\n    F --> D\n    D -->|No| G[/Imprimir suma/]\n    G --> H([FIN])"
+  },
+  {
+    "id": "DIAG_231",
+    "dificultad": 3,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Qué pasa si se cambia la condición del bucle de 'i <= n' a 'i < n' en el siguiente diagrama con n = 5?",
+    "opciones": {
+      "a": "El resultado cambia de 15 a 10 (no suma el último número)",
+      "b": "El resultado no cambia, sigue siendo 15",
+      "c": "El diagrama entra en bucle infinito",
+      "d": "El resultado cambia de 15 a 20 (suma un número extra)"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "Con i <= n: suma 1+2+3+4+5 = 15. Con i < n: el bucle va de i=1 hasta i=4 (i=5 no entra porque 5 < 5 es falso). Suma 1+2+3+4 = 10. El cambio omite el último valor.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer n/]\n    B --> C[suma = 0, i = 1]\n    C --> D{i <= n?}\n    D -->|Sí| E[suma = suma + i]\n    E --> F[i = i + 1]\n    F --> D\n    D -->|No| G[/Imprimir suma/]\n    G --> H([FIN])"
+  },
+  {
+    "id": "DIAG_232",
+    "dificultad": 3,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "El diagrama busca si el número n es divisible por algún valor del 2 al 6. ¿Qué imprime si n = 35?",
+    "opciones": {
+      "a": "No encontrado",
+      "b": "Divisible por 5",
+      "c": "Divisible por 7",
+      "d": "Divisible por 2"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "El bucle prueba i=2,3,4,5,6. i=2: 35 mod 2=1 No. i=3: 35 mod 3=2 No. i=4: 35 mod 4=3 No. i=5: 35 mod 5=0 Sí → imprime 'Divisible por 5' y sale. (El 7 está fuera del rango del bucle.)",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer n/]\n    B --> C[i = 2]\n    C --> D{i <= 6?}\n    D -->|Sí| E{n mod i = 0?}\n    E -->|Sí| F[/Imprimir 'Divisible por', i/]\n    F --> G([FIN])\n    E -->|No| H[i = i + 1]\n    H --> D\n    D -->|No| I[/Imprimir 'No encontrado'/]\n    I --> G"
+  },
+  {
+    "id": "DIAG_233",
+    "dificultad": 4,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Qué imprime el diagrama con las entradas 4, 7, 2, 9, 3, 6? (El diagrama calcula algo con dos acumuladores simultáneos)",
+    "opciones": {
+      "a": "Pares: 12, Impares: 19",
+      "b": "Pares: 19, Impares: 12",
+      "c": "Pares: 6, Impares: 9",
+      "d": "Pares: 2, Impares: 1"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "Pares: 4+2+6=12. Impares: 7+9+3=19. El diagrama acumula la suma de pares e impares por separado.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[sp = 0, si = 0, i = 1]\n    B --> C{i <= 6?}\n    C -->|Sí| D[/Leer x/]\n    D --> E{x mod 2 = 0?}\n    E -->|Sí| F[sp = sp + x]\n    E -->|No| G[si = si + x]\n    F --> H[i = i + 1]\n    G --> H\n    H --> C\n    C -->|No| I[/Imprimir sp, si/]\n    I --> J([FIN])"
+  },
+  {
+    "id": "DIAG_234",
+    "dificultad": 4,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "Traza el diagrama con n = 4. ¿Cuántas veces se imprime 'X'?",
+    "opciones": {
+      "a": "6",
+      "b": "9",
+      "c": "10",
+      "d": "16"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "Bucle externo i=1..4. Bucle interno j=i+1..4. i=1: j=2,3,4 → 3 impresiones. i=2: j=3,4 → 2. i=3: j=4 → 1. i=4: j>4 → 0. Total: 3+2+1+0 = 6.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer n/]\n    B --> C[i = 1]\n    C --> D{i <= n?}\n    D -->|Sí| E[j = i + 1]\n    E --> F{j <= n?}\n    F -->|Sí| G[/Imprimir 'X'/]\n    G --> H[j = j + 1]\n    H --> F\n    F -->|No| I[i = i + 1]\n    I --> D\n    D -->|No| J([FIN])"
+  },
+  {
+    "id": "DIAG_235",
+    "dificultad": 4,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "El diagrama lee números hasta que se ingresa -1 (centinela) y reporta el mayor número positivo encontrado. Con la secuencia 3, -5, 8, 2, -1, ¿qué imprime?",
+    "opciones": {
+      "a": "8",
+      "b": "3",
+      "c": "-5",
+      "d": "-1"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "Se leen: 3 (mayor_pos=3), -5 (negativo, no actualiza), 8 (8>3 → mayor_pos=8), 2 (2<8, no actualiza), -1 (centinela, sale). Imprime mayor_pos=8.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[mayor_pos = 0]\n    B --> C[/Leer x/]\n    C --> D{x != -1?}\n    D -->|Sí| E{x > 0 AND x > mayor_pos?}\n    E -->|Sí| F[mayor_pos = x]\n    E -->|No| G[/Leer x/]\n    F --> G\n    G --> D\n    D -->|No| H[/Imprimir mayor_pos/]\n    H --> I([FIN])"
+  },
+  {
+    "id": "DIAG_236",
+    "dificultad": 4,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Qué imprime el diagrama si n = 5? (El diagrama acumula de forma no lineal)",
+    "opciones": {
+      "a": "30",
+      "b": "62",
+      "c": "31",
+      "d": "32"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "acum=1. i=1: acum=1+2^1=3. i=2: acum=3+2^2=7. i=3: acum=7+2^3=15. i=4: acum=15+2^4=31. i=5: condición i<5 es falsa (5<5=No). Sale. Imprime 31. Corrección: i<n con n=5 ejecuta i=1,2,3,4. Resultado: 1+2+4+8+16=31.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer n/]\n    B --> C[acum = 1]\n    C --> D[i = 1]\n    D --> E{i < n?}\n    E -->|Sí| F[pot = 1]\n    F --> G[j = 0]\n    G --> H{j < i?}\n    H -->|Sí| I[pot = pot * 2]\n    I --> J[j = j + 1]\n    J --> H\n    H -->|No| K[acum = acum + pot]\n    K --> L[i = i + 1]\n    L --> E\n    E -->|No| M[/Imprimir acum/]\n    M --> N([FIN])"
+  },
+  {
+    "id": "DIAG_237",
+    "dificultad": 4,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "El diagrama imprime todos los pares (i, j) donde i + j = n. ¿Cuántos pares imprime si n = 5 e i, j >= 0?",
+    "opciones": {
+      "a": "4",
+      "b": "5",
+      "c": "6",
+      "d": "3"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "Pares con i+j=5 e i,j>=0: (0,5),(1,4),(2,3),(3,2),(4,1),(5,0). Son 6 pares. El bucle va de i=0 hasta i=n=5 (6 iteraciones), calculando j=n-i en cada una.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer n/]\n    B --> C[i = 0]\n    C --> D{i <= n?}\n    D -->|Sí| E[j = n - i]\n    E --> F[/Imprimir i, j/]\n    F --> G[i = i + 1]\n    G --> D\n    D -->|No| H([FIN])"
+  },
+  {
+    "id": "DIAG_238",
+    "dificultad": 4,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Cuál de las siguientes modificaciones al diagrama haría que imprimiera la suma de los primeros n números pares en lugar de los impares?",
+    "opciones": {
+      "a": "Cambiar i = 1 por i = 2 y i = i + 2 (sin cambiar nada más)",
+      "b": "Cambiar la condición a i mod 2 = 0 dentro del bucle",
+      "c": "Cambiar i = i + 2 por i = i + 1",
+      "d": "Cambiar suma = 0 por suma = 2"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "El diagrama actual suma 1,3,5,7... (impares) porque empieza en 1 e incrementa de 2 en 2. Para sumar pares (2,4,6,8...) basta con cambiar el inicio a i=2 (manteniendo el paso de 2). El incremento i=i+2 permanece igual.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer n/]\n    B --> C[suma = 0, cont = 0]\n    C --> D[i = 1]\n    D --> E{cont < n?}\n    E -->|Sí| F[suma = suma + i]\n    F --> G[cont = cont + 1]\n    G --> H[i = i + 2]\n    H --> E\n    E -->|No| I[/Imprimir suma/]\n    I --> J([FIN])"
+  },
+  {
+    "id": "DIAG_239",
+    "dificultad": 4,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "Traza el diagrama con a = 100, b = 75. ¿Cuántas veces ejecuta el bucle y qué imprime?",
+    "opciones": {
+      "a": "3 veces, imprime 25",
+      "b": "4 veces, imprime 25",
+      "c": "2 veces, imprime 50",
+      "d": "3 veces, imprime 50"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "a=100, b=75. ¿100>75? Sí → a=25 (iteración 1). ¿25>75? No → b=75-25=50 (iteración 2). ¿25>50? No → b=50-25=25 (iteración 3). ¿25>25? No → ¿25=25? Sí → sale. Imprime 25. Fueron 3 iteraciones del bucle. El diagrama calcula el MCD por restas: MCD(100,75)=25.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer a, b/]\n    B --> C{a != b?}\n    C -->|Sí| D{a > b?}\n    D -->|Sí| E[a = a - b]\n    D -->|No| F[b = b - a]\n    E --> C\n    F --> C\n    C -->|No| G[/Imprimir a/]\n    G --> H([FIN])"
+  },
+  {
+    "id": "DIAG_240",
+    "dificultad": 4,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "El diagrama tiene un error que hace que ignore el primer número de la secuencia. Con entradas 10, 20, 30, 40, imprime 90 en vez de 100. ¿Cuál es el error?",
+    "opciones": {
+      "a": "suma debería inicializarse con el primer valor leído, no en 0 después de leer el primer elemento",
+      "b": "El bucle debería ejecutarse 4 veces, no 3",
+      "c": "a y b son el mismo error visto de diferente forma",
+      "d": "El bucle comienza en i=2, por lo que lee solo 3 de los 4 valores y no acumula el primero leído"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "El diagrama lee el primer valor pero lo descarta (no lo suma) porque inicializa suma=0 después de leerlo y el bucle empieza en i=2. Solución A: inicializar suma con el primer valor leído. Solución B: empezar suma=0 ANTES de leer y el bucle de i=1 a 4. Ambas soluciones resuelven el mismo problema.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer x/]\n    B --> C[suma = 0]\n    C --> D[i = 2]\n    D --> E{i <= 4?}\n    E -->|Sí| F[/Leer x/]\n    F --> G[suma = suma + x]\n    G --> H[i = i + 1]\n    H --> E\n    E -->|No| I[/Imprimir suma/]\n    I --> J([FIN])"
+  },
+  {
+    "id": "DIAG_241",
+    "dificultad": 4,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Qué imprime el diagrama si n = 6?",
+    "opciones": {
+      "a": "6 5 4 3 2 1",
+      "b": "1 2 3 4 5 6",
+      "c": "6 4 2",
+      "d": "1 3 5"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "i empieza en n=6 y decrece de 1 en 1 hasta i=1. Imprime i en cada iteración: 6, 5, 4, 3, 2, 1.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer n/]\n    B --> C[i = n]\n    C --> D{i >= 1?}\n    D -->|Sí| E[/Imprimir i/]\n    E --> F[i = i - 1]\n    F --> D\n    D -->|No| G([FIN])"
+  },
+  {
+    "id": "DIAG_242",
+    "dificultad": 4,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "El siguiente diagrama intenta validar que una nota esté entre 0 y 5. ¿Qué imprime si el usuario ingresa sucesivamente 6, -1, 3.5?",
+    "opciones": {
+      "a": "Solo imprime 3.5 (válida)",
+      "b": "Imprime 6, -1 y 3.5",
+      "c": "Imprime 'Inválida' dos veces y luego 3.5",
+      "d": "No imprime nada"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "El diagrama repite la lectura mientras la nota sea inválida (fuera de [0,5]). nota=6: 6>5 → inválida, imprime mensaje y vuelve a leer. nota=-1: -1<0 → inválida, imprime mensaje y vuelve. nota=3.5: 0<=3.5<=5 → válida, sale del bucle. El diagrama imprime 'Inválida' dos veces y luego muestra 3.5.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer nota/]\n    B --> C{nota < 0 OR nota > 5?}\n    C -->|Sí| D[/Imprimir 'Nota inválida'/]\n    D --> E[/Leer nota/]\n    E --> C\n    C -->|No| F[/Imprimir nota/]\n    F --> G([FIN])"
+  },
+  {
+    "id": "DIAG_243",
+    "dificultad": 5,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "Traza el diagrama con x = 10, paso = 3. ¿Cuántas veces imprime un valor y cuál es el último valor impreso?",
+    "opciones": {
+      "a": "4 veces, último valor: 1",
+      "b": "3 veces, último valor: 4",
+      "c": "4 veces, último valor: 4",
+      "d": "3 veces, último valor: 1"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "x=10: imprime 10, x=10-3=7. x=7: imprime 7, x=4. x=4: imprime 4, x=1. x=1: imprime 1, x=-2. x=-2: condición x>0 falsa, sale. Se imprime 4 veces (10,7,4,1) y el último valor es 1.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer x, paso/]\n    B --> C{x > 0?}\n    C -->|Sí| D[/Imprimir x/]\n    D --> E[x = x - paso]\n    E --> C\n    C -->|No| F([FIN])"
+  },
+  {
+    "id": "DIAG_244",
+    "dificultad": 5,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Qué imprime el diagrama si n = 4? (Traza con cuidado: dos variables se actualizan de forma cruzada)",
+    "opciones": {
+      "a": "7",
+      "b": "8",
+      "c": "13",
+      "d": "21"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "p=1, q=2. Cada iteración: temp=q, q=p+q, p=temp (intercambio estilo Fibonacci). i=1: p=2,q=3. i=2: p=3,q=5. i=3: p=5,q=8. i=4: p=8,q=13. i=5: 5>4 sale. Imprime p=8.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer n/]\n    B --> C[p = 1, q = 2]\n    C --> D[i = 1]\n    D --> E{i <= n?}\n    E -->|Sí| F[temp = q]\n    F --> G[q = p + q]\n    G --> H[p = temp]\n    H --> I[i = i + 1]\n    I --> E\n    E -->|No| J[/Imprimir p/]\n    J --> K([FIN])"
+  },
+  {
+    "id": "DIAG_245",
+    "dificultad": 5,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "El diagrama tiene un error que causa que siempre imprima 0, sin importar la entrada. ¿Cuál es?",
+    "opciones": {
+      "a": "La variable 'suma' se reinicializa a 0 dentro del bucle en cada iteración",
+      "b": "La condición del bucle nunca se cumple",
+      "c": "Se imprime antes de leer los datos",
+      "d": "El incremento de i está fuera del bucle"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "En cada iteración, antes de sumar x, se ejecuta suma=0. Esto borra el acumulado anterior. Al salir del bucle, suma solo contiene el último valor leído sumado a 0, pero luego suma=0 lo reinicia. Dependiendo del orden, suma siempre termina en 0 al imprimir.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[i = 1]\n    B --> C{i <= 5?}\n    C -->|Sí| D[/Leer x/]\n    D --> E[suma = 0]\n    E --> F[suma = suma + x]\n    F --> G[i = i + 1]\n    G --> C\n    C -->|No| H[/Imprimir suma/]\n    H --> I([FIN])"
+  },
+  {
+    "id": "DIAG_246",
+    "dificultad": 5,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Qué imprime el diagrama con n = 3 y m = 4?",
+    "opciones": {
+      "a": "12",
+      "b": "81",
+      "c": "64",
+      "d": "7"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "El bucle externo ejecuta m=4 veces. En cada iteración multiplica res por n=3. res=1×3×3×3×3 = 3⁴ = 81. El diagrama calcula n^m = 3⁴ = 81.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer n, m/]\n    B --> C[res = 1]\n    C --> D[i = 1]\n    D --> E{i <= m?}\n    E -->|Sí| F[res = res * n]\n    F --> G[i = i + 1]\n    G --> E\n    E -->|No| H[/Imprimir res/]\n    H --> I([FIN])"
+  },
+  {
+    "id": "DIAG_247",
+    "dificultad": 5,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Cuál es el valor de 'resultado' al finalizar el diagrama si a = 3, b = 4, c = 5?",
+    "opciones": {
+      "a": "12",
+      "b": "25",
+      "c": "60",
+      "d": "47"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Con a=3, b=4, c=5: resultado = a² + b² = 9+16 = 25. El diagrama calcula la suma de cuadrados de a y b.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer a, b, c/]\n    B --> C[resultado = a * a + b * b]\n    C --> D{resultado > c * c?}\n    D -->|Sí| E[/Imprimir resultado/]\n    D -->|No| F[resultado = c * c]\n    F --> G[/Imprimir resultado/]\n    E --> H([FIN])\n    G --> H"
+  },
+  {
+    "id": "DIAG_248",
+    "dificultad": 5,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "El diagrama acumula valores de dos formas distintas. ¿Qué dos valores imprime si n = 4?",
+    "opciones": {
+      "a": "suma=10, producto=24",
+      "b": "suma=10, producto=4",
+      "c": "suma=4, producto=24",
+      "d": "suma=14, producto=24"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "i va de 1 a 4. suma: 0+1+2+3+4=10. producto: 1×1×2×3×4=24. Imprime suma=10 y producto=24.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer n/]\n    B --> C[suma = 0, prod = 1]\n    C --> D[i = 1]\n    D --> E{i <= n?}\n    E -->|Sí| F[suma = suma + i]\n    F --> G[prod = prod * i]\n    G --> H[i = i + 1]\n    H --> E\n    E -->|No| I[/Imprimir suma, prod/]\n    I --> J([FIN])"
+  },
+  {
+    "id": "DIAG_249",
+    "dificultad": 5,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Qué imprime el diagrama si n = 12345?",
+    "opciones": {
+      "a": "54321",
+      "b": "15",
+      "c": "5",
+      "d": "12345"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "n=12345: extrae 5, inv=5, n=1234. Extrae 4, inv=54, n=123. Extrae 3, inv=543, n=12. Extrae 2, inv=5432, n=1. Extrae 1, inv=54321, n=0. Sale. Imprime 54321 (inverso de 12345).",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer n/]\n    B --> C[inv = 0]\n    C --> D{n > 0?}\n    D -->|Sí| E[inv = inv * 10 + n mod 10]\n    E --> F[n = n div 10]\n    F --> D\n    D -->|No| G[/Imprimir inv/]\n    G --> H([FIN])"
+  },
+  {
+    "id": "DIAG_250",
+    "dificultad": 5,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "El diagrama usa una variable 'flag' para controlar la salida anticipada. ¿Qué imprime si n = 8?",
+    "opciones": {
+      "a": "Encontrado en i=2",
+      "b": "Encontrado en i=4",
+      "c": "No encontrado",
+      "d": "Encontrado en i=8"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "i=2: 8 mod 2=0 y 2>1 → flag=verdadero, imprime 'Encontrado en i=2', sale del bucle. El primer divisor de 8 mayor que 1 es 2.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer n/]\n    B --> C[flag = falso]\n    C --> D[i = 2]\n    D --> E{i <= n/2 AND NOT flag?}\n    E -->|Sí| F{n mod i = 0?}\n    F -->|Sí| G[flag = verdadero]\n    G --> H[/Imprimir 'Encontrado en i=', i/]\n    F -->|No| I[i = i + 1]\n    H --> I\n    I --> E\n    E -->|No| J{NOT flag?}\n    J -->|Sí| K[/Imprimir 'No encontrado'/]\n    J -->|No| L([FIN])\n    K --> L"
+  },
+  {
+    "id": "DIAG_251",
+    "dificultad": 5,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Qué imprime el diagrama si se ingresan 5 notas: 3.0, 4.5, 2.8, 4.0, 3.7? (El diagrama calcula algo con los dos extremos)",
+    "opciones": {
+      "a": "Diferencia = 1.7",
+      "b": "Diferencia = 2.0",
+      "c": "Diferencia = 1.5",
+      "d": "Diferencia = 0.5"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "El diagrama encuentra el máximo y mínimo. max=4.5, min=2.8. diferencia = max - min = 4.5 - 2.8 = 1.7.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer x/]\n    B --> C[min = x, max = x]\n    C --> D[i = 2]\n    D --> E{i <= 5?}\n    E -->|Sí| F[/Leer x/]\n    F --> G{x < min?}\n    G -->|Sí| H[min = x]\n    G -->|No| I{x > max?}\n    H --> I\n    I -->|Sí| J[max = x]\n    I -->|No| K[i = i + 1]\n    J --> K\n    K --> E\n    E -->|No| L[diferencia = max - min]\n    L --> M[/Imprimir diferencia/]\n    M --> N([FIN])"
+  },
+  {
+    "id": "DIAG_252",
+    "dificultad": 5,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Cuántas veces ejecuta la instrucción marcada con [*] el siguiente diagrama si n = 4?",
+    "opciones": {
+      "a": "4",
+      "b": "8",
+      "c": "10",
+      "d": "16"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "i=1: j va de 1 a 4 → 4 ejecuciones de [*]. i=2: j de 1 a 3 → 3. i=3: j de 1 a 2 → 2. i=4: j de 1 a 1 → 1. Total: 4+3+2+1 = 10.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer n/]\n    B --> C[i = 1]\n    C --> D{i <= n?}\n    D -->|Sí| E[j = 1]\n    E --> F{j <= n - i + 1?}\n    F -->|Sí| G[/* operación */]\n    G --> H[j = j + 1]\n    H --> F\n    F -->|No| I[i = i + 1]\n    I --> D\n    D -->|No| J([FIN])"
+  },
+  {
+    "id": "DIAG_253",
+    "dificultad": 1,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Qué imprime el diagrama si km = 3.5?",
+    "opciones": {
+      "a": "350",
+      "b": "3500",
+      "c": "0.35",
+      "d": "35"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "1 kilómetro = 1000 metros. metros = 3.5 × 1000 = 3500.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer km/]\n    B --> C[metros = km * 1000]\n    C --> D[/Imprimir metros/]\n    D --> E([FIN])"
+  },
+  {
+    "id": "DIAG_254",
+    "dificultad": 1,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Qué imprime el diagrama si edad = 17?",
+    "opciones": {
+      "a": "Mayor de edad",
+      "b": "Menor de edad",
+      "c": "17",
+      "d": "No imprime nada"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "edad=17: la condición edad >= 18 es falsa (17 < 18), por lo que se toma la rama No y se imprime 'Menor de edad'.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer edad/]\n    B --> C{edad >= 18?}\n    C -->|Sí| D[/Imprimir 'Mayor de edad'/]\n    C -->|No| E[/Imprimir 'Menor de edad'/]\n    D --> F([FIN])\n    E --> F"
+  },
+  {
+    "id": "DIAG_255",
+    "dificultad": 1,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Qué imprime el diagrama si cateto1 = 3 y cateto2 = 4?",
+    "opciones": {
+      "a": "7",
+      "b": "12",
+      "c": "25",
+      "d": "5"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "hip2 = 3² + 4² = 9 + 16 = 25. El diagrama calcula el cuadrado de la hipotenusa (sin aplicar raíz cuadrada). Imprime 25.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer cateto1, cateto2/]\n    B --> C[hip2 = cateto1*cateto1 + cateto2*cateto2]\n    C --> D[/Imprimir hip2/]\n    D --> E([FIN])"
+  },
+  {
+    "id": "DIAG_256",
+    "dificultad": 1,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Cuántas veces se imprime 'Hola mundo' si n = 0?",
+    "opciones": {
+      "a": "0",
+      "b": "1",
+      "c": "Infinitas veces",
+      "d": "No se puede determinar"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "Con n=0 la condición i <= 0 se evalúa con i=1: 1 <= 0 es falsa desde el inicio. El bucle no ejecuta ninguna iteración. Se imprime 'Hola mundo' cero veces.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer n/]\n    B --> C[i = 1]\n    C --> D{i <= n?}\n    D -->|Sí| E[/Imprimir 'Hola mundo'/]\n    E --> F[i = i + 1]\n    F --> D\n    D -->|No| G([FIN])"
+  },
+  {
+    "id": "DIAG_257",
+    "dificultad": 1,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Qué imprime el diagrama si hora = 14?",
+    "opciones": {
+      "a": "Buenos días",
+      "b": "Buenas tardes",
+      "c": "Buenas noches",
+      "d": "14"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "hora=14: ¿14 < 12? No. ¿14 < 18? Sí → imprime 'Buenas tardes'. El rango de tarde es de 12 a 17 inclusive.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer hora/]\n    B --> C{hora < 12?}\n    C -->|Sí| D[/Imprimir 'Buenos días'/]\n    C -->|No| E{hora < 18?}\n    E -->|Sí| F[/Imprimir 'Buenas tardes'/]\n    E -->|No| G[/Imprimir 'Buenas noches'/]\n    D --> H([FIN])\n    F --> H\n    G --> H"
+  },
+  {
+    "id": "DIAG_258",
+    "dificultad": 1,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Qué imprime el diagrama si n = 7?",
+    "opciones": {
+      "a": "7",
+      "b": "14",
+      "c": "49",
+      "d": "21"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "cuadrado = n × n = 7 × 7 = 49.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer n/]\n    B --> C[cuadrado = n * n]\n    C --> D[/Imprimir cuadrado/]\n    D --> E([FIN])"
+  },
+  {
+    "id": "DIAG_259",
+    "dificultad": 1,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Qué imprime el diagrama si costo = 80000 y descuento = 20?",
+    "opciones": {
+      "a": "16000",
+      "b": "64000",
+      "c": "96000",
+      "d": "20000"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "ahorro = 80000 × 20 / 100 = 16000. precio_final = 80000 - 16000 = 64000.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer costo, descuento/]\n    B --> C[ahorro = costo * descuento / 100]\n    C --> D[precio_final = costo - ahorro]\n    D --> E[/Imprimir precio_final/]\n    E --> F([FIN])"
+  },
+  {
+    "id": "DIAG_260",
+    "dificultad": 1,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Qué imprime el diagrama si a = 15 y b = 4?",
+    "opciones": {
+      "a": "3",
+      "b": "3.75",
+      "c": "60",
+      "d": "11"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "cociente = 15 div 4 = 3 (división entera, descarta el residuo). El diagrama usa división entera, por lo que 15 ÷ 4 = 3 con residuo 3.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer a, b/]\n    B --> C[cociente = a div b]\n    C --> D[/Imprimir cociente/]\n    D --> E([FIN])"
+  },
+  {
+    "id": "DIAG_261",
+    "dificultad": 1,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Qué imprime el diagrama si x = 5 y y = 5?",
+    "opciones": {
+      "a": "x es mayor",
+      "b": "y es mayor",
+      "c": "Son iguales",
+      "d": "No imprime nada"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "x=5, y=5. ¿5 > 5? No. ¿5 < 5? No. Se ejecuta el bloque else y se imprime 'Son iguales'.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer x, y/]\n    B --> C{x > y?}\n    C -->|Sí| D[/Imprimir 'x es mayor'/]\n    C -->|No| E{x < y?}\n    E -->|Sí| F[/Imprimir 'y es mayor'/]\n    E -->|No| G[/Imprimir 'Son iguales'/]\n    D --> H([FIN])\n    F --> H\n    G --> H"
+  },
+  {
+    "id": "DIAG_262",
+    "dificultad": 1,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Qué imprime el diagrama si notas = 3, 4, 5 (se leen de una en una)?",
+    "opciones": {
+      "a": "3",
+      "b": "4",
+      "c": "5",
+      "d": "12"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "El diagrama lee 3 notas y calcula su promedio. suma = 3+4+5 = 12. prom = 12 / 3 = 4. Imprime 4.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[suma = 0]\n    B --> C[i = 1]\n    C --> D{i <= 3?}\n    D -->|Sí| E[/Leer nota/]\n    E --> F[suma = suma + nota]\n    F --> G[i = i + 1]\n    G --> D\n    D -->|No| H[prom = suma / 3]\n    H --> I[/Imprimir prom/]\n    I --> J([FIN])"
+  },
+  {
+    "id": "DIAG_263",
+    "dificultad": 2,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Qué debe reemplazar ??? para que el diagrama cuente cuántos números del 1 al n son divisibles por 3?",
+    "opciones": {
+      "a": "i mod 3 = 1",
+      "b": "i mod 3 = 0",
+      "c": "i / 3 = 0",
+      "d": "i > 3"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Un número es divisible por 3 cuando su residuo al dividir entre 3 es cero: i mod 3 = 0. Los múltiplos de 3 son 3, 6, 9, 12...",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer n/]\n    B --> C[cont = 0, i = 1]\n    C --> D{i <= n?}\n    D -->|Sí| E{???}\n    E -->|Sí| F[cont = cont + 1]\n    E -->|No| G[i = i + 1]\n    F --> G\n    G --> D\n    D -->|No| H[/Imprimir cont/]\n    H --> I([FIN])"
+  },
+  {
+    "id": "DIAG_264",
+    "dificultad": 2,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "Traza el diagrama con n = 5. ¿Qué imprime?",
+    "opciones": {
+      "a": "5",
+      "b": "1",
+      "c": "0",
+      "d": "0"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "k=n=5. El bucle resta 1 mientras k>1: k llega a 1. Sale. Imprime k-1 = 1-1 = 0.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer n/]\n    B --> C[k = n]\n    C --> D{k > 1?}\n    D -->|Sí| E[k = k - 1]\n    E --> D\n    D -->|No| F[/Imprimir k - 1/]\n    F --> G([FIN])"
+  },
+  {
+    "id": "DIAG_265",
+    "dificultad": 2,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Cuál es el error en el siguiente diagrama que intenta calcular el promedio de 3 notas?",
+    "opciones": {
+      "a": "El promedio se divide entre 2 en lugar de 3",
+      "b": "La variable suma no se inicializa antes del bucle",
+      "c": "El bucle itera 4 veces en lugar de 3",
+      "d": "No hay error, el diagrama es correcto"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "El diagrama calcula prom = suma / 2, pero hay 3 notas, por lo que debería ser prom = suma / 3. Dividir entre 2 en vez de 3 siempre da un promedio incorrecto (más alto de lo real).",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[suma = 0, i = 1]\n    B --> C{i <= 3?}\n    C -->|Sí| D[/Leer nota/]\n    D --> E[suma = suma + nota]\n    E --> F[i = i + 1]\n    F --> C\n    C -->|No| G[prom = suma / 2]\n    G --> H[/Imprimir prom/]\n    H --> I([FIN])"
+  },
+  {
+    "id": "DIAG_266",
+    "dificultad": 2,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Qué imprime el diagrama si a = 10, b = 3?",
+    "opciones": {
+      "a": "1",
+      "b": "3",
+      "c": "7",
+      "d": "10"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "El diagrama calcula a mod b mediante restas repetidas. a=10, b=3. 10-3=7, 7-3=4, 4-3=1. Ahora 1<3, sale. Imprime 1. Equivalente: 10 mod 3 = 1.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer a, b/]\n    B --> C{a >= b?}\n    C -->|Sí| D[a = a - b]\n    D --> C\n    C -->|No| E[/Imprimir a/]\n    E --> F([FIN])"
+  },
+  {
+    "id": "DIAG_267",
+    "dificultad": 2,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Qué debe ir en ??? para que el diagrama imprima los números del 10 al 1 en orden descendente?",
+    "opciones": {
+      "a": "i = i + 1",
+      "b": "i = i - 1",
+      "c": "i = i * 2",
+      "d": "i = 10 - i"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Para contar de forma descendente desde 10 hasta 1, el contador debe decrementarse en cada iteración: i = i - 1. Con i=i+1 el contador crecería indefinidamente.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[i = 10]\n    B --> C{i >= 1?}\n    C -->|Sí| D[/Imprimir i/]\n    D --> E[???]\n    E --> C\n    C -->|No| F([FIN])"
+  },
+  {
+    "id": "DIAG_268",
+    "dificultad": 2,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Qué imprime el diagrama si se ingresan los valores 5, 8, 3?",
+    "opciones": {
+      "a": "5",
+      "b": "8",
+      "c": "3",
+      "d": "16"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "El diagrama mantiene el valor mayor. max=5. Lee 8: 8>5 → max=8. Lee 3: 3>8 No. Imprime max=8.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer max/]\n    B --> C[i = 2]\n    C --> D{i <= 3?}\n    D -->|Sí| E[/Leer x/]\n    E --> F{x > max?}\n    F -->|Sí| G[max = x]\n    F -->|No| H[i = i + 1]\n    G --> H\n    H --> D\n    D -->|No| I[/Imprimir max/]\n    I --> J([FIN])"
+  },
+  {
+    "id": "DIAG_269",
+    "dificultad": 2,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Qué imprime el diagrama si n = 6 y el valor a buscar es 6?",
+    "opciones": {
+      "a": "No encontrado",
+      "b": "Encontrado",
+      "c": "6",
+      "d": "Verdadero"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "El bucle va de i=1 a i=6 buscando si algún i es igual a n=6. Cuando i=6, la condición i=n es verdadera, imprime 'Encontrado' y sale. Si buscara un valor que no está en el rango 1..n imprimiría 'No encontrado'.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer n/]\n    B --> C[i = 1]\n    C --> D{i <= n?}\n    D -->|Sí| E{i = n?}\n    E -->|Sí| F[/Imprimir 'Encontrado'/]\n    F --> G([FIN])\n    E -->|No| H[i = i + 1]\n    H --> D\n    D -->|No| I[/Imprimir 'No encontrado'/]\n    I --> G"
+  },
+  {
+    "id": "DIAG_270",
+    "dificultad": 2,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "Traza el diagrama con n = 4. ¿Qué imprime?",
+    "opciones": {
+      "a": "1 2 3 4",
+      "b": "4 3 2 1",
+      "c": "2 4 6 8",
+      "d": "1 3 5 7"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "i va de 1 a 4. En cada iteración imprime i*2: 1×2=2, 2×2=4, 3×2=6, 4×2=8. Imprime: 2 4 6 8.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer n/]\n    B --> C[i = 1]\n    C --> D{i <= n?}\n    D -->|Sí| E[/Imprimir i * 2/]\n    E --> F[i = i + 1]\n    F --> D\n    D -->|No| G([FIN])"
+  },
+  {
+    "id": "DIAG_271",
+    "dificultad": 2,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Qué imprime el diagrama si base = 5 y exponente = 0?",
+    "opciones": {
+      "a": "0",
+      "b": "5",
+      "c": "1",
+      "d": "El bucle no termina"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "res=1. La condición i < exponente = i < 0 es falsa desde el inicio con i=0. El bucle no ejecuta ninguna iteración. Imprime res=1. Por definición matemática, cualquier número elevado a 0 es 1.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer base, exponente/]\n    B --> C[res = 1, i = 0]\n    C --> D{i < exponente?}\n    D -->|Sí| E[res = res * base]\n    E --> F[i = i + 1]\n    F --> D\n    D -->|No| G[/Imprimir res/]\n    G --> H([FIN])"
+  },
+  {
+    "id": "DIAG_272",
+    "dificultad": 2,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Qué imprime el diagrama si peso = 70 y talla = 1.75?",
+    "opciones": {
+      "a": "22.86",
+      "b": "40.0",
+      "c": "122.5",
+      "d": "70"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "IMC = peso / (talla × talla) = 70 / (1.75 × 1.75) = 70 / 3.0625 ≈ 22.86.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer peso, talla/]\n    B --> C[imc = peso / (talla * talla)]\n    C --> D[/Imprimir imc/]\n    D --> E([FIN])"
+  },
+  {
+    "id": "DIAG_273",
+    "dificultad": 3,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Qué imprime el diagrama si n = 2025?",
+    "opciones": {
+      "a": "2025 es cuadrado perfecto",
+      "b": "2025 no es cuadrado perfecto",
+      "c": "45",
+      "d": "2025"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "El diagrama incrementa i hasta que i²>n. Para n=2025: i llega a 46 (46²=2116>2025), raiz=45. Como 45²=2025=n, imprime 'es cuadrado perfecto'.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer n/]\n    B --> C[i = 1]\n    C --> D{i * i <= n?}\n    D -->|Sí| E[i = i + 1]\n    E --> D\n    D -->|No| F[raiz = i - 1]\n    F --> G{raiz * raiz = n?}\n    G -->|Sí| H[/Imprimir n, 'es cuadrado perfecto'/]\n    G -->|No| I[/Imprimir n, 'no es cuadrado perfecto'/]\n    H --> J([FIN])\n    I --> J"
+  },
+  {
+    "id": "DIAG_274",
+    "dificultad": 3,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Qué imprime el diagrama con la secuencia de entradas 4, 4, 4, 4, 4?",
+    "opciones": {
+      "a": "Todos iguales",
+      "b": "Hay diferentes",
+      "c": "4",
+      "d": "5"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "El diagrama lee el primero (ref=4) y compara los siguientes con él. Todos son 4=ref, la bandera nunca cambia a falso. Al salir, bandera sigue verdadera → imprime 'Todos iguales'.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer ref/]\n    B --> C[bandera = verdadero]\n    C --> D[i = 2]\n    D --> E{i <= 5?}\n    E -->|Sí| F[/Leer x/]\n    F --> G{x != ref?}\n    G -->|Sí| H[bandera = falso]\n    G -->|No| I[i = i + 1]\n    H --> I\n    I --> E\n    E -->|No| J{bandera?}\n    J -->|Sí| K[/Imprimir 'Todos iguales'/]\n    J -->|No| L[/Imprimir 'Hay diferentes'/]\n    K --> M([FIN])\n    L --> M"
+  },
+  {
+    "id": "DIAG_275",
+    "dificultad": 3,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Qué imprime el diagrama si n = 99?",
+    "opciones": {
+      "a": "99",
+      "b": "9",
+      "c": "18",
+      "d": "0"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "n=99: extrae 9 (99 mod 10), suma=9, n=9. Extrae 9 (9 mod 10), suma=18, n=0. Sale. Imprime 18. La suma de dígitos de 99 = 9+9 = 18.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer n/]\n    B --> C[suma = 0]\n    C --> D{n > 0?}\n    D -->|Sí| E[suma = suma + n mod 10]\n    E --> F[n = n div 10]\n    F --> D\n    D -->|No| G[/Imprimir suma/]\n    G --> H([FIN])"
+  },
+  {
+    "id": "DIAG_276",
+    "dificultad": 3,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "El diagrama cuenta cuántos números de una secuencia de 8 son mayores que su posición. Con la secuencia 2,1,5,3,6,5,8,9, ¿qué imprime?",
+    "opciones": {
+      "a": "3",
+      "b": "4",
+      "c": "5",
+      "d": "6"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "Posición vs valor: pos=1,val=2 (2>1 ✓); pos=2,val=1 (1>2 ✗); pos=3,val=5 (5>3 ✓); pos=4,val=3 (3>4 ✗); pos=5,val=6 (6>5 ✓); pos=6,val=5 (5>6 ✗); pos=7,val=8 (8>7 ✓); pos=8,val=9 (9>8 ✓). Cumplen: posiciones 1,3,5,7,8 → 5 valores.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[cont = 0]\n    B --> C[i = 1]\n    C --> D{i <= 8?}\n    D -->|Sí| E[/Leer x/]\n    E --> F{x > i?}\n    F -->|Sí| G[cont = cont + 1]\n    F -->|No| H[i = i + 1]\n    G --> H\n    H --> D\n    D -->|No| I[/Imprimir cont/]\n    I --> J([FIN])"
+  },
+  {
+    "id": "DIAG_277",
+    "dificultad": 3,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Cuántos números entre 1 y 50 imprime el diagrama?",
+    "opciones": {
+      "a": "7",
+      "b": "8",
+      "c": "9",
+      "d": "10"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "Los múltiplos de 7 entre 1 y 50 son: 7, 14, 21, 28, 35, 42, 49. Son exactamente 7 valores.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[cont = 0]\n    B --> C[i = 1]\n    C --> D{i <= 50?}\n    D -->|Sí| E{i mod 7 = 0?}\n    E -->|Sí| F[/Imprimir i/]\n    F --> G[cont = cont + 1]\n    E -->|No| H[i = i + 1]\n    G --> H\n    H --> D\n    D -->|No| I[/Imprimir cont/]\n    I --> J([FIN])"
+  },
+  {
+    "id": "DIAG_278",
+    "dificultad": 3,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Qué imprime el diagrama si n = 1000?",
+    "opciones": {
+      "a": "2",
+      "b": "3",
+      "c": "4",
+      "d": "1"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "n=1000: ¿1000 mod 10=0? Sí → n=1000/10=100, cont=1. ¿100 mod 10=0? Sí → n=10, cont=2. ¿10 mod 10=0? Sí → n=1, cont=3. ¿1 mod 10=0? No → sale. Imprime 3. El diagrama cuenta cuántos ceros tiene n al final (ceros finales): 1000 tiene 3 ceros.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer n/]\n    B --> C[cont = 0]\n    C --> D{n mod 10 = 0?}\n    D -->|Sí| E[n = n / 10]\n    E --> F[cont = cont + 1]\n    F --> D\n    D -->|No| G[/Imprimir cont/]\n    G --> H([FIN])"
+  },
+  {
+    "id": "DIAG_279",
+    "dificultad": 3,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Qué imprime el diagrama con n = 3 y m = 5?",
+    "opciones": {
+      "a": "15",
+      "b": "8",
+      "c": "2",
+      "d": "243"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "El diagrama suma n, m veces: resultado = 0+3+3+3+3+3 = 15. Equivale a la multiplicación 3×5=15 implementada con sumas repetidas.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer n, m/]\n    B --> C[resultado = 0]\n    C --> D[i = 1]\n    D --> E{i <= m?}\n    E -->|Sí| F[resultado = resultado + n]\n    F --> G[i = i + 1]\n    G --> E\n    E -->|No| H[/Imprimir resultado/]\n    H --> I([FIN])"
+  },
+  {
+    "id": "DIAG_280",
+    "dificultad": 3,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Cuál es el error lógico en el siguiente diagrama que intenta imprimir solo los números impares del 1 al 9?",
+    "opciones": {
+      "a": "La condición debería ser i mod 2 != 0, no i mod 2 = 0",
+      "b": "El bucle debería terminar en i <= 10",
+      "c": "i debería incrementarse de 2 en 2 desde el inicio, no de 1 en 1",
+      "d": "No hay error, imprime correctamente"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "La condición i mod 2 = 0 selecciona los pares (2,4,6,8), no los impares. Para imprimir impares debe usarse i mod 2 != 0 (o i mod 2 = 1), que selecciona 1,3,5,7,9.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[i = 1]\n    B --> C{i <= 9?}\n    C -->|Sí| D{i mod 2 = 0?}\n    D -->|Sí| E[/Imprimir i/]\n    D -->|No| F[i = i + 1]\n    E --> F\n    F --> C\n    C -->|No| G([FIN])"
+  },
+  {
+    "id": "DIAG_281",
+    "dificultad": 3,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Qué imprime el diagrama si n = 5 y el límite = 100?",
+    "opciones": {
+      "a": "120",
+      "b": "60",
+      "c": "No imprime nada",
+      "d": "5"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "El diagrama calcula n!=5!=120 y verifica si supera el límite. 120 > 100, por lo que imprime 'Supera el límite: 120'.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer n, limite/]\n    B --> C[fact = 1, i = 1]\n    C --> D{i <= n?}\n    D -->|Sí| E[fact = fact * i]\n    E --> F[i = i + 1]\n    F --> D\n    D -->|No| G{fact > limite?}\n    G -->|Sí| H[/Imprimir 'Supera el límite:', fact/]\n    G -->|No| I[/Imprimir 'Dentro del límite:', fact/]\n    H --> J([FIN])\n    I --> J"
+  },
+  {
+    "id": "DIAG_282",
+    "dificultad": 3,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Qué imprime el diagrama si se ingresan los 5 valores: 10, 20, 30, 20, 10?",
+    "opciones": {
+      "a": "18",
+      "b": "90",
+      "c": "45",
+      "d": "30"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "Suma = 10+20+30+20+10 = 90. Promedio = 90/5 = 18.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[suma = 0]\n    B --> C[i = 1]\n    C --> D{i <= 5?}\n    D -->|Sí| E[/Leer x/]\n    E --> F[suma = suma + x]\n    F --> G[i = i + 1]\n    G --> D\n    D -->|No| H[prom = suma / 5]\n    H --> I[/Imprimir prom/]\n    I --> J([FIN])"
+  },
+  {
+    "id": "DIAG_283",
+    "dificultad": 4,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "El diagrama clasifica cada número ingresado y lleva contadores. Con la secuencia 5, -3, 0, 7, -1, ¿qué imprime?",
+    "opciones": {
+      "a": "Pos:2 Neg:2 Cero:1",
+      "b": "Pos:2 Neg:1 Cero:2",
+      "c": "Pos:3 Neg:2 Cero:0",
+      "d": "Pos:1 Neg:2 Cero:2"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "5 → positivo (cp=1). -3 → negativo (cn=1). 0 → cero (cc=1). 7 → positivo (cp=2). -1 → negativo (cn=2). Resultado: Pos=2, Neg=2, Cero=1.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[cp=0, cn=0, cc=0]\n    B --> C[i = 1]\n    C --> D{i <= 5?}\n    D -->|Sí| E[/Leer x/]\n    E --> F{x > 0?}\n    F -->|Sí| G[cp = cp + 1]\n    F -->|No| H{x < 0?}\n    H -->|Sí| I[cn = cn + 1]\n    H -->|No| J[cc = cc + 1]\n    G --> K[i = i + 1]\n    I --> K\n    J --> K\n    K --> D\n    D -->|No| L[/Imprimir cp, cn, cc/]\n    L --> M([FIN])"
+  },
+  {
+    "id": "DIAG_284",
+    "dificultad": 4,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Qué imprime el diagrama si n = 5? (Hay dos bucles anidados donde el interno empieza siempre desde 1)",
+    "opciones": {
+      "a": "25",
+      "b": "35",
+      "c": "55",
+      "d": "30"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Para cada i de 1 a 5, el bucle interno suma 1+2+...+i. Resultados: 1, 3, 6, 10, 15. Suma global acumulada = 35.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer n/]\n    B --> C[suma = 0]\n    C --> D[i = 1]\n    D --> E{i <= n?}\n    E -->|Sí| F[j = 1]\n    F --> G{j <= i?}\n    G -->|Sí| H[suma = suma + j]\n    H --> I[j = j + 1]\n    I --> G\n    G -->|No| J[i = i + 1]\n    J --> E\n    E -->|No| K[/Imprimir suma/]\n    K --> L([FIN])"
+  },
+  {
+    "id": "DIAG_285",
+    "dificultad": 4,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "El diagrama lee pares (hora, minutos) de 3 eventos y encuentra el que ocurre más tarde. Con los pares (9,30), (14,15), (11,45), ¿qué imprime?",
+    "opciones": {
+      "a": "El evento 1",
+      "b": "El evento 2",
+      "c": "El evento 3",
+      "d": "El evento 1 y 3 empatan"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Convertir a minutos totales: evento 1: 9×60+30=570. Evento 2: 14×60+15=855. Evento 3: 11×60+45=705. Mayor: evento 2 con 855 minutos (2:15 PM es el más tarde).",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[maxMin = 0, idx = 0]\n    B --> C[i = 1]\n    C --> D{i <= 3?}\n    D -->|Sí| E[/Leer h, m/]\n    E --> F[total = h * 60 + m]\n    F --> G{total > maxMin?}\n    G -->|Sí| H[maxMin = total]\n    H --> I[idx = i]\n    G -->|No| J[i = i + 1]\n    I --> J\n    J --> D\n    D -->|No| K[/Imprimir 'El evento', idx/]\n    K --> L([FIN])"
+  },
+  {
+    "id": "DIAG_286",
+    "dificultad": 4,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Qué imprime el diagrama si n = 6? (Cuenta elementos que cumplen una doble condición en un rango)",
+    "opciones": {
+      "a": "1",
+      "b": "2",
+      "c": "3",
+      "d": "4"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "Para i=1..n-1 donde i*(n-i)>n: i=2: 2×4=8>6 ✓; i=3: 3×3=9>6 ✓; i=4: 4×2=8>6 ✓; i=1: 5<6 ✗; i=5: 5<6 ✗. Son 3 valores.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer n/]\n    B --> C[cont = 0]\n    C --> D[i = 1]\n    D --> E{i < n?}\n    E -->|Sí| F{i * (n - i) > n?}\n    F -->|Sí| G[cont = cont + 1]\n    F -->|No| H[i = i + 1]\n    G --> H\n    H --> E\n    E -->|No| I[/Imprimir cont/]\n    I --> J([FIN])"
+  },
+  {
+    "id": "DIAG_287",
+    "dificultad": 4,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "Traza el diagrama con n = 4. ¿Cuál es el valor de 'res' al finalizar?",
+    "opciones": {
+      "a": "16",
+      "b": "24",
+      "c": "64",
+      "d": "256"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "res=1. i=1: res=1*4=4. i=2: res=4*4=16. i=3: res=16*4=64. i=4: res=64*4=256. El diagrama calcula n^n = 4^4 = 256.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer n/]\n    B --> C[res = 1]\n    C --> D[i = 1]\n    D --> E{i <= n?}\n    E -->|Sí| F[res = res * n]\n    F --> G[i = i + 1]\n    G --> E\n    E -->|No| H[/Imprimir res/]\n    H --> I([FIN])"
+  },
+  {
+    "id": "DIAG_288",
+    "dificultad": 4,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "El diagrama genera pares de números. ¿Cuántos pares imprime si n = 4?",
+    "opciones": {
+      "a": "6",
+      "b": "8",
+      "c": "10",
+      "d": "12"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "El bucle externo i=1..4, el interno j=i+1..4. Los pares son: (1,2),(1,3),(1,4),(2,3),(2,4),(3,4). Son 4×3/2 = 6 pares (combinaciones de 4 tomados de 2).",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer n/]\n    B --> C[cont = 0]\n    C --> D[i = 1]\n    D --> E{i < n?}\n    E -->|Sí| F[j = i + 1]\n    F --> G{j <= n?}\n    G -->|Sí| H[/Imprimir i, j/]\n    H --> I[cont = cont + 1]\n    I --> J[j = j + 1]\n    J --> G\n    G -->|No| K[i = i + 1]\n    K --> E\n    E -->|No| L[/Imprimir cont/]\n    L --> M([FIN])"
+  },
+  {
+    "id": "DIAG_289",
+    "dificultad": 4,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Qué imprime el diagrama con la entrada n = 7? (El diagrama usa división entera repetidamente)",
+    "opciones": {
+      "a": "0",
+      "b": "1",
+      "c": "2",
+      "d": "3"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "7 en binario es 111 (todos unos). El diagrama cuenta cuántos residuos son 0 al dividir sucesivamente entre 2. Los residuos de 7 son 1,1,1 → 0 ceros. Imprime 0.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer n/]\n    B --> C[cont = 0]\n    C --> D{n > 0?}\n    D -->|Sí| E{n mod 2 = 0?}\n    E -->|Sí| F[cont = cont + 1]\n    E -->|No| G[n = n div 2]\n    F --> G\n    G --> D\n    D -->|No| H[/Imprimir cont/]\n    H --> I([FIN])"
+  },
+  {
+    "id": "DIAG_290",
+    "dificultad": 4,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Qué produce el diagrama si se ingresan sucesivamente: 3, 1, 4, 1, 5, 9?",
+    "opciones": {
+      "a": "3 incrementos y 2 decrementos",
+      "b": "4 incrementos y 1 decremento",
+      "c": "3 incrementos y 3 decrementos",
+      "d": "2 incrementos y 3 decrementos"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "ant=3. 1<3→dec=1. 4>1→inc=1. 1<4→dec=2. 5>1→inc=2. 9>5→inc=3. Resultado: 3 incrementos y 2 decrementos.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer ant/]\n    B --> C[inc=0, dec=0]\n    C --> D[i = 2]\n    D --> E{i <= 6?}\n    E -->|Sí| F[/Leer act/]\n    F --> G{act > ant?}\n    G -->|Sí| H[inc = inc + 1]\n    G -->|No| I{act < ant?}\n    I -->|Sí| J[dec = dec + 1]\n    I -->|No| K[ant = act]\n    H --> K\n    J --> K\n    K --> L[i = i + 1]\n    L --> E\n    E -->|No| M[/Imprimir inc, dec/]\n    M --> N([FIN])"
+  },
+  {
+    "id": "DIAG_291",
+    "dificultad": 4,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Qué imprime el diagrama si n = 10 y umbral = 30?",
+    "opciones": {
+      "a": "5",
+      "b": "6",
+      "c": "7",
+      "d": "8"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "El bucle acumula suma=1,3,6,10,15,21,28,36. Al llegar a suma=36>30 en la iteración i=8, se imprime i=8.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer n, umbral/]\n    B --> C[suma = 0]\n    C --> D[i = 1]\n    D --> E{suma <= umbral AND i <= n?}\n    E -->|Sí| F[suma = suma + i]\n    F --> G[i = i + 1]\n    G --> E\n    E -->|No| H[/Imprimir i - 1/]\n    H --> I([FIN])"
+  },
+  {
+    "id": "DIAG_292",
+    "dificultad": 4,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Qué imprime el diagrama si c1 = 2, c2 = 5 y n = 20? (El diagrama cuenta números en el rango [1,n] que son múltiplos de c1 pero no de c2)",
+    "opciones": {
+      "a": "6",
+      "b": "7",
+      "c": "8",
+      "d": "10"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "Múltiplos de 2 en [1,20]: 2,4,6,8,10,12,14,16,18,20 → 10. De esos, múltiplos de 5 también: 10,20 → 2. Múltiplos de 2 pero no de 5: 10-2 = 8.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer c1, c2, n/]\n    B --> C[cont = 0]\n    C --> D[i = 1]\n    D --> E{i <= n?}\n    E -->|Sí| F{i mod c1 = 0?}\n    F -->|Sí| G{i mod c2 = 0?}\n    G -->|No| H[cont = cont + 1]\n    G -->|Sí| I[i = i + 1]\n    F -->|No| I\n    H --> I\n    I --> E\n    E -->|No| J[/Imprimir cont/]\n    J --> K([FIN])"
+  },
+  {
+    "id": "DIAG_293",
+    "dificultad": 5,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Qué imprime el diagrama si n = 5? (Traza con cuidado: la variable 'paso' cambia en cada iteración)",
+    "opciones": {
+      "a": "0",
+      "b": "1",
+      "c": "2",
+      "d": "3"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "x acumula 1+2+3+4+5=15. Imprime 15 mod 5 = 0.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer n/]\n    B --> C[x = 0, paso = 1]\n    C --> D[i = 1]\n    D --> E{i <= n?}\n    E -->|Sí| F[x = x + paso]\n    F --> G[paso = paso + 1]\n    G --> H[i = i + 1]\n    H --> E\n    E -->|No| I[/Imprimir x mod n/]\n    I --> J([FIN])"
+  },
+  {
+    "id": "DIAG_294",
+    "dificultad": 5,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "El diagrama tiene un error que hace que 'suma' siempre sea negativa. ¿Cuál es?",
+    "opciones": {
+      "a": "suma se inicializa en -n en lugar de 0",
+      "b": "Se resta x en lugar de sumarlo",
+      "c": "La condición del bucle está invertida",
+      "d": "i debería empezar en 0, no en 1"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "El diagrama ejecuta suma = suma - x (resta) en lugar de suma = suma + x (suma). Sin importar los valores ingresados, siempre se acumula negativamente partiendo de 0.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[suma = 0]\n    B --> C[i = 1]\n    C --> D{i <= 5?}\n    D -->|Sí| E[/Leer x/]\n    E --> F[suma = suma - x]\n    F --> G[i = i + 1]\n    G --> D\n    D -->|No| H[/Imprimir suma/]\n    H --> I([FIN])"
+  },
+  {
+    "id": "DIAG_295",
+    "dificultad": 5,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Qué imprime el diagrama si a = 3, b = 7, n = 4?",
+    "opciones": {
+      "a": "20",
+      "b": "17",
+      "c": "10",
+      "d": "14"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "Alterna a y b: i=1→suma=3, i=2→suma=10, i=3→suma=13, i=4→suma=20. Imprime 20.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer a, b, n/]\n    B --> C[suma = 0]\n    C --> D[i = 1]\n    D --> E{i <= n?}\n    E -->|Sí| F{i mod 2 != 0?}\n    F -->|Sí| G[suma = suma + a]\n    F -->|No| H[suma = suma + b]\n    G --> I[i = i + 1]\n    H --> I\n    I --> E\n    E -->|No| J[/Imprimir suma/]\n    J --> K([FIN])"
+  },
+  {
+    "id": "DIAG_296",
+    "dificultad": 5,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Qué diferencia hay en la salida del diagrama si se intercambia el orden de las instrucciones [1] y [2]? (Con n = 3)",
+    "opciones": {
+      "a": "Original: 1 4 9 — Invertido: 1 4 9 (no cambia)",
+      "b": "Original: 1 4 9 — Invertido: 4 9 16",
+      "c": "Original: 1 4 9 — Invertido: 0 1 4",
+      "d": "Original: 1 4 9 — Invertido: bucle infinito"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Original ([1] imprimir, [2] incrementar): imprime i²=1,4,9 con i=1,2,3. Invertido ([2] incrementar primero, [1] imprimir): i empieza en 1, se incrementa a 2 antes de imprimir → imprime 4,9,16 con i=2,3,4. El inicio del bucle (i=1) pasa sin imprimir y el final (i=4) sí imprime.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer n/]\n    B --> C[i = 1]\n    C --> D{i <= n?}\n    D -->|Sí| E[/Imprimir i * i/]\n    E --> F[i = i + 1]\n    F --> D\n    D -->|No| G([FIN])"
+  },
+  {
+    "id": "DIAG_297",
+    "dificultad": 5,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Qué imprime el diagrama si n = 12? (El diagrama descompone n usando divisiones sucesivas)",
+    "opciones": {
+      "a": "2 2 3",
+      "b": "3 4",
+      "c": "2 6",
+      "d": "4 3"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "n=12, d=2. ¿12 mod 2=0? Sí → imprime 2, n=6. ¿6 mod 2=0? Sí → imprime 2, n=3. ¿3 mod 2=0? No → d=3. ¿3 mod 3=0? Sí → imprime 3, n=1. ¿1>1? No → sale. Imprime: 2 2 3. El diagrama halla los factores primos de n: 12 = 2 × 2 × 3.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer n/]\n    B --> C[d = 2]\n    C --> D{n > 1?}\n    D -->|Sí| E{n mod d = 0?}\n    E -->|Sí| F[/Imprimir d/]\n    F --> G[n = n div d]\n    G --> D\n    E -->|No| H[d = d + 1]\n    H --> D\n    D -->|No| I([FIN])"
+  },
+  {
+    "id": "DIAG_298",
+    "dificultad": 5,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Qué imprime el diagrama si n = 4? (Presta atención a que 'total' se actualiza de forma no lineal)",
+    "opciones": {
+      "a": "33",
+      "b": "40",
+      "c": "54",
+      "d": "64"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "total = Σ(i²+i) para i=1..4. i=1:2, i=2:6, i=3:12, i=4:20. Suma: 2+6+12+20=40.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer n/]\n    B --> C[total = 0]\n    C --> D[i = 1]\n    D --> E{i <= n?}\n    E -->|Sí| F[total = total + i * i + i]\n    F --> G[i = i + 1]\n    G --> E\n    E -->|No| H[/Imprimir total/]\n    H --> I([FIN])"
+  },
+  {
+    "id": "DIAG_299",
+    "dificultad": 5,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "El diagrama tiene DOS errores. ¿Cuáles son y cuál es el resultado correcto vs el incorrecto con n = 4?",
+    "opciones": {
+      "a": "Error 1: prod inicia en 0 (debería ser 1). Error 2: i empieza en 0 (debería ser 1). Imprime 0 en lugar de 24.",
+      "b": "Error 1: condición i<=n debería ser i<n. Error 2: imprime prod en vez de prod-1.",
+      "c": "Error 1: prod se suma en vez de multiplicar. Error 2: i se multiplica en vez de sumar.",
+      "d": "No hay errores, el diagrama es correcto."
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "Error 1: prod=0. Cualquier número multiplicado por 0 da 0, así que prod permanece en 0 al final. Error 2: i empieza en 0, por lo que el primer factor es 0 (aunque con prod=1 el resultado sería 0×1×2×3×4=0). Combinados: prod=0 y primer factor=0 aseguran que siempre imprime 0. El resultado correcto para 4! = 24 requiere prod=1 e i empezando en 1.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer n/]\n    B --> C[prod = 0]\n    C --> D[i = 0]\n    D --> E{i <= n?}\n    E -->|Sí| F[prod = prod * i]\n    F --> G[i = i + 1]\n    G --> E\n    E -->|No| H[/Imprimir prod/]\n    H --> I([FIN])"
+  },
+  {
+    "id": "DIAG_300",
+    "dificultad": 5,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Qué imprime el diagrama si n = 6? (El diagrama usa una variable auxiliar que 'recuerda' el estado anterior)",
+    "opciones": {
+      "a": "8",
+      "b": "12",
+      "c": "20",
+      "d": "13"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "ant=0, act=1. i=1: nuevo=0+1=1, ant=1, act=1. i=2: nuevo=1+1=2, ant=1, act=2. i=3: nuevo=1+2=3, ant=2, act=3. i=4: nuevo=2+3=5, ant=3, act=5. i=5: nuevo=3+5=8, ant=5, act=8. i=6: nuevo=5+8=13, ant=8, act=13. Sale. Imprime act=13. Es el 7mo número de Fibonacci.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer n/]\n    B --> C[ant = 0, act = 1]\n    C --> D[i = 1]\n    D --> E{i <= n?}\n    E -->|Sí| F[nuevo = ant + act]\n    F --> G[ant = act]\n    G --> H[act = nuevo]\n    H --> I[i = i + 1]\n    I --> E\n    E -->|No| J[/Imprimir act/]\n    J --> K([FIN])"
+  },
+  {
+    "id": "DIAG_301",
+    "dificultad": 5,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "¿Qué imprime el diagrama si x = 2, y = 3? (Las variables se actualizan múltiples veces de forma cruzada)",
+    "opciones": {
+      "a": "x=8, y=11",
+      "b": "x=5, y=8",
+      "c": "x=11, y=8",
+      "d": "x=6, y=9"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "x=2,y=3. Paso 1: x=x+y=5. Paso 2: y=x+y=5+3=8. Imprime x=5, y=8.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer x, y/]\n    B --> C[x = x + y]\n    C --> D[y = x + y]\n    D --> E[/Imprimir x, y/]\n    E --> F([FIN])"
+  },
+  {
+    "id": "DIAG_302",
+    "dificultad": 5,
+    "categoria": "Diagramas de flujo",
+    "pregunta": "El diagrama lee n valores y al final imprime cuántos son estrictamente mayores que el valor que les sigue (excepto el último). Con la secuencia 5, 3, 7, 7, 2, ¿qué imprime?",
+    "opciones": {
+      "a": "1",
+      "b": "2",
+      "c": "3",
+      "d": "4"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Se compara cada elemento con el siguiente. 5>3 ✓ (cont=1). 3>7 ✗. 7>7 ✗ (no es estrictamente mayor). 7>2 ✓ (cont=2). El último (2) no se compara. Imprime 2.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A([INICIO]) --> B[/Leer arr de 5 valores/]\n    B --> C[cont = 0]\n    C --> D[i = 1]\n    D --> E{i < 5?}\n    E -->|Sí| F{arr[i] > arr[i+1]?}\n    F -->|Sí| G[cont = cont + 1]\n    F -->|No| H[i = i + 1]\n    G --> H\n    H --> E\n    E -->|No| I[/Imprimir cont/]\n    I --> J([FIN])"
   }
 ]
