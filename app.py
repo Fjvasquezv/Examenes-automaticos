@@ -465,15 +465,18 @@ def _render_contenido_pregunta(pregunta_obj: dict, base_path: Path) -> None:
         mermaid_src = str(pregunta_obj.get('mermaid', '')).strip()
         if mermaid_src:
             html = f"""
-            <div style="background:#fff; padding:10px; border-radius:8px;">
+            <div id="mermaid-wrap" style="background:#fff; padding:10px; border-radius:8px;">
               <pre class="mermaid">{mermaid_src}</pre>
             </div>
             <script type="module">
               import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
-              mermaid.initialize({{ startOnLoad: true, theme: 'default' }});
+              mermaid.initialize({{ startOnLoad: false, theme: 'default' }});
+              await mermaid.run();
+              const h = document.getElementById('mermaid-wrap').scrollHeight;
+              if (window.frameElement) window.frameElement.height = h + 16;
             </script>
             """
-            st_components.html(html, height=380)
+            st_components.html(html, height=600, scrolling=False)
         return
 
     st.markdown(pregunta_obj.get('pregunta', ''))
