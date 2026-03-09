@@ -1,0 +1,47 @@
+{
+  "metadata": {
+    "nombre_examen": "TEST - Diagramas (Verificación mermaid)",
+    "asignatura": "Programación y Algoritmos",
+    "institucion": "Universidad ECCI",
+    "codigo_asignatura": "PRG101"
+  },
+  "descripcion": {
+    "texto": "Prueba de verificación del banco de Diagramas con renderizado mermaid.",
+    "temas": [
+      "Diagramas"
+    ],
+    "duracion_estimada": "5 min"
+  },
+  "parametros": {
+    "preguntas_minimas": 5,
+    "preguntas_maximas": 10,
+    "nivel_inicial": 2,
+    "umbral_estabilizacion": 0.3,
+    "ventana_estabilizacion": 3,
+    "distribucion_temas": {
+      "minimo_por_tema": 2,
+      "max_proporcion_tema": 1.0,
+      "pesos": {
+        "Diagramas": 1.0
+      }
+    }
+  },
+  "sistema_calificacion": {
+    "tipo": "irt_simplificado",
+    "parametros": {
+      "max_iteraciones": 10
+    }
+  },
+  "persistencia": {
+    "metodo": "google_sheets",
+    "spreadsheet_id": "11LgtY-p59UKYCYY0GwZHCLN--KbZEPZb8poZJTEbyys"
+  },
+  "bancos_preguntas": [
+    "data/bancos/Programacion/Diagramas.json"
+  ],
+  "bancos_por_tema": {
+    "Diagramas": [
+      "data/bancos/Programacion/Diagramas.json"
+    ]
+  }
+}

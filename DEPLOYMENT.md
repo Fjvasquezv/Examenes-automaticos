@@ -243,3 +243,14 @@ https://tu-usuario-tu-repo-abc123.streamlit.app
 ### Personalización del Dominio (Opcional)
 
 Si tienes un dominio propio, puedes configurar un CNAME en Streamlit Cloud para usar tu dominio personalizado.
+
+```mermaid
+flowchart TD
+    A([INICIO]) --> B["suma = 0\ni = 1"]
+    B --> C{i <= 5?}
+    C -->|Sí| D[suma = suma + i]
+    D --> E[i = i + 1]
+    E --> C
+    C -->|No| F[/Imprimir suma/]
+    F --> G([FIN])
+```

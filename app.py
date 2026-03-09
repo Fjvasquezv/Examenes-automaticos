@@ -3,6 +3,7 @@ Sistema de Examen Adaptativo Modular
 Orquestador Principal
 """
 import streamlit as st
+import streamlit.components.v1 as st_components
 import sys
 from pathlib import Path
 from datetime import datetime
@@ -463,7 +464,16 @@ def _render_contenido_pregunta(pregunta_obj: dict, base_path: Path) -> None:
         st.markdown(pregunta_obj.get('pregunta', ''))
         mermaid_src = str(pregunta_obj.get('mermaid', '')).strip()
         if mermaid_src:
-            st.code(mermaid_src, language='mermaid')
+            html = f"""
+            <div style="background:#fff; padding:10px; border-radius:8px;">
+              <pre class="mermaid">{mermaid_src}</pre>
+            </div>
+            <script type="module">
+              import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+              mermaid.initialize({{ startOnLoad: true, theme: 'default' }});
+            </script>
+            """
+            st_components.html(html, height=380)
         return
 
     st.markdown(pregunta_obj.get('pregunta', ''))
