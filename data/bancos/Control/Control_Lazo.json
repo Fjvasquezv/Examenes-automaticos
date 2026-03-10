@@ -1,0 +1,1107 @@
+[
+  {
+    "id": "cp_004",
+    "pregunta": "El elemento del lazo de control que mide directamente la variable física del proceso (temperatura, presión, nivel) y la convierte en una señal medible es:",
+    "opciones": {
+      "A": "El actuador",
+      "B": "El sensor",
+      "C": "El controlador",
+      "D": "El comparador"
+    },
+    "respuesta_correcta": "B",
+    "dificultad": 1,
+    "categoria": "Elementos del Lazo de Control",
+    "explicacion": "El sensor está en contacto directo con el proceso y detecta la variable física, convirtiéndola en una señal medible (por ejemplo, un termopar convierte temperatura en voltaje, un RTD en resistencia). Sin el sensor, el lazo de control no tiene información sobre el estado real del proceso."
+  },
+  {
+    "id": "cp_005",
+    "pregunta": "¿Cuál es la función del transmisor en un lazo de control?",
+    "opciones": {
+      "A": "Ejecutar la acción física sobre el fluido del proceso",
+      "B": "Calcular la diferencia entre el set point y la variable medida",
+      "C": "Convertir la señal del sensor a una señal estándar compatible con el controlador (ej: 4–20 mA)",
+      "D": "Decidir cuánto ajustar la variable manipulada"
+    },
+    "respuesta_correcta": "C",
+    "dificultad": 1,
+    "categoria": "Elementos del Lazo de Control",
+    "explicacion": "El transmisor normaliza y estandariza la señal del sensor. Por ejemplo, convierte los ohmios de un RTD o los milivoltios de un termopar en una señal de 4–20 mA compatible con el controlador. Esta estandarización permite conectar sensores de distintos fabricantes al mismo sistema de control."
+  },
+  {
+    "id": "cp_006",
+    "pregunta": "En un lazo de control, ¿cuál es la función del comparador?",
+    "opciones": {
+      "A": "Convertir la señal de control en movimiento mecánico sobre la válvula",
+      "B": "Calcular el error: la diferencia entre el set point y la variable medida",
+      "C": "Amplificar la señal del sensor para que sea compatible con el actuador",
+      "D": "Registrar históricamente los valores de la variable controlada"
+    },
+    "respuesta_correcta": "B",
+    "dificultad": 1,
+    "categoria": "Elementos del Lazo de Control",
+    "explicacion": "El comparador recibe el set point (valor deseado) y la señal medida (valor actual), y calcula el error: e = SP − PV. Esta señal de error es la que el controlador utiliza para decidir qué acción correctiva tomar. Sin el comparador, el sistema no puede saber cuánto se aleja del objetivo."
+  },
+  {
+    "id": "cp_007",
+    "pregunta": "La 'variable manipulada' en un lazo de control es:",
+    "opciones": {
+      "A": "La variable que el proceso genera de forma autónoma ante perturbaciones",
+      "B": "La variable que el sensor mide y envía como retroalimentación al controlador",
+      "C": "La variable que el controlador ajusta para influir sobre la variable controlada",
+      "D": "La referencia o set point que el operador establece en el sistema"
+    },
+    "respuesta_correcta": "C",
+    "dificultad": 1,
+    "categoria": "Elementos del Lazo de Control",
+    "explicacion": "La variable manipulada (MV) es la 'palanca' del sistema de control: el controlador la ajusta para corregir el error. Por ejemplo, en el control de temperatura de un intercambiador, el flujo de vapor de calentamiento es la variable manipulada: el controlador lo aumenta o disminuye para llevar la temperatura al set point."
+  },
+  {
+    "id": "cp_008",
+    "pregunta": "¿Cuál es la diferencia entre la 'variable controlada' y la 'variable medida'?",
+    "opciones": {
+      "A": "Son exactamente lo mismo; los términos son sinónimos en control de procesos",
+      "B": "La variable controlada es la magnitud física real del proceso que se desea mantener; la variable medida es la señal del sensor/transmisor que la representa (puede tener errores de medición)",
+      "C": "La variable controlada es siempre la temperatura; la variable medida puede ser cualquier otra magnitud",
+      "D": "La variable medida es la que el operador fija; la variable controlada es la que el proceso produce"
+    },
+    "respuesta_correcta": "B",
+    "dificultad": 1,
+    "categoria": "Elementos del Lazo de Control",
+    "explicacion": "La variable controlada es la magnitud física real que se desea mantener en el set point (ej: temperatura del reactor). La variable medida es la señal del transmisor que representa esa magnitud (ej: 12.5 mA). En un sistema ideal son iguales, pero en la práctica pueden diferir por errores de calibración, ruido o dinámica del sensor."
+  },
+  {
+    "id": "cp_009",
+    "pregunta": "En un lazo de control de nivel de un tanque: la válvula en la tubería de salida ajusta el flujo para mantener el nivel en 2 metros. ¿Cuál es la variable manipulada?",
+    "opciones": {
+      "A": "El nivel del líquido en el tanque (2 metros)",
+      "B": "El set point de nivel (2 metros)",
+      "C": "El flujo de salida controlado por la apertura de la válvula",
+      "D": "La señal del sensor de nivel instalado en el tanque"
+    },
+    "respuesta_correcta": "C",
+    "dificultad": 1,
+    "categoria": "Elementos del Lazo de Control",
+    "explicacion": "La variable manipulada es la que el controlador ajusta: en este caso, el flujo de salida a través de la válvula. Al abrir o cerrar la válvula, el controlador cambia el caudal de salida para mantener el nivel en 2 metros. El nivel es la variable controlada (objetivo) y el set point es el valor deseado (2 metros)."
+  },
+  {
+    "id": "cp_010",
+    "pregunta": "Una 'perturbación' en un proceso de control es:",
+    "opciones": {
+      "A": "La señal de error calculada por el comparador",
+      "B": "La señal que el controlador envía al actuador",
+      "C": "Una entrada no controlada al proceso que desplaza la variable controlada de su set point",
+      "D": "El cambio intencional en el set point realizado por el operador"
+    },
+    "respuesta_correcta": "C",
+    "dificultad": 1,
+    "categoria": "Elementos del Lazo de Control",
+    "explicacion": "Una perturbación es una entrada externa al proceso que no está bajo el control del controlador y que tiende a alejar la variable controlada de su set point. Por ejemplo: cambio en la temperatura ambiente, variación en la concentración de la materia prima, o aumento en la demanda de producción. El control realimentado debe detectar su efecto y compensarlo."
+  },
+  {
+    "id": "cp_013",
+    "pregunta": "¿Cuál es la función del actuador en un lazo de control?",
+    "opciones": {
+      "A": "Medir la variable controlada y enviar la señal al comparador",
+      "B": "Calcular el error entre el set point y la variable medida",
+      "C": "Recibir la señal de control y convertirla en movimiento mecánico sobre el elemento final de control",
+      "D": "Comparar la señal del proceso con los límites de alarma programados"
+    },
+    "respuesta_correcta": "C",
+    "dificultad": 1,
+    "categoria": "Elementos del Lazo de Control",
+    "explicacion": "El actuador convierte la señal eléctrica o neumática del controlador en movimiento mecánico (apertura de válvula, velocidad de motor, etc.). Por ejemplo, un actuador neumático usa aire comprimido para mover el vástago de una válvula de control. El actuador es el 'músculo' que ejecuta la acción calculada por el controlador."
+  },
+  {
+    "id": "cp_014",
+    "pregunta": "El 'elemento final de control' en la mayoría de los lazos de proceso es:",
+    "opciones": {
+      "A": "El sensor de temperatura o presión instalado en la línea de proceso",
+      "B": "El controlador electrónico que genera la señal de salida",
+      "C": "La válvula de control que regula directamente el flujo de la variable manipulada",
+      "D": "El transmisor que convierte la señal física en señal estandarizada"
+    },
+    "respuesta_correcta": "C",
+    "dificultad": 1,
+    "categoria": "Elementos del Lazo de Control",
+    "explicacion": "El elemento final de control (EFC) es el dispositivo que actúa directamente sobre el fluido o la energía del proceso. La válvula de control es el EFC más común en procesos de fluidos: al cambiar su apertura, modifica el flujo de la variable manipulada. El actuador mueve el EFC según la señal del controlador."
+  },
+  {
+    "id": "cp_015",
+    "pregunta": "En el lazo de control de temperatura de un intercambiador de calor, el flujo de vapor es la variable manipulada y la temperatura de salida del fluido de proceso es la variable controlada. ¿Cuál sería una perturbación típica de este lazo?",
+    "opciones": {
+      "A": "El set point de temperatura establecido por el operador",
+      "B": "La señal de 4–20 mA enviada por el controlador al actuador",
+      "C": "Un cambio no esperado en la temperatura de entrada del fluido de proceso",
+      "D": "La posición de la válvula de vapor en porcentaje de apertura"
+    },
+    "respuesta_correcta": "C",
+    "dificultad": 1,
+    "categoria": "Elementos del Lazo de Control",
+    "explicacion": "Una perturbación es una entrada no controlada que afecta la variable controlada. La temperatura de entrada del fluido de proceso puede cambiar por condiciones del proceso upstream y no está bajo el control del lazo de temperatura del intercambiador. El controlador debe detectar su efecto (el error que produce en la temperatura de salida) y compensarlo ajustando el flujo de vapor."
+  },
+  {
+    "id": "cp_016",
+    "pregunta": "¿Cuál de los siguientes NO es un elemento del lazo de control básico?",
+    "opciones": {
+      "A": "Sensor",
+      "B": "Controlador",
+      "C": "Diagrama P&ID del proceso",
+      "D": "Elemento final de control"
+    },
+    "respuesta_correcta": "C",
+    "dificultad": 1,
+    "categoria": "Elementos del Lazo de Control",
+    "explicacion": "Los elementos funcionales del lazo de control son: sensor, transmisor, comparador, controlador, actuador y elemento final de control. El P&ID (Piping and Instrumentation Diagram) es un documento de ingeniería que describe y representa el sistema de control, pero no es un componente que participe activamente en el procesamiento de señales dentro del lazo en tiempo real."
+  },
+  {
+    "id": "cp_018",
+    "pregunta": "El flujo de información en un lazo de control realimentado sigue el orden:",
+    "opciones": {
+      "A": "Proceso → Controlador → Comparador → Sensor → Actuador → Proceso",
+      "B": "Proceso → Sensor/Transmisor → Comparador → Controlador → Actuador → Proceso",
+      "C": "Proceso → Actuador → Controlador → Sensor → Comparador → Proceso",
+      "D": "Proceso → Comparador → Sensor → Controlador → Actuador → Proceso"
+    },
+    "respuesta_correcta": "B",
+    "dificultad": 1,
+    "categoria": "Elementos del Lazo de Control",
+    "explicacion": "El flujo de información en la trayectoria de retroalimentación es: el proceso genera la variable controlada → el sensor/transmisor la mide → el comparador calcula el error (SP − PV) → el controlador calcula la acción correctiva → el actuador ejecuta la acción sobre el elemento final de control → el proceso recibe la corrección y el ciclo continúa."
+  },
+  {
+    "id": "cp_023",
+    "pregunta": "¿Cuál de los siguientes es el orden correcto del flujo de señales en la trayectoria de realimentación de un lazo de control?",
+    "opciones": {
+      "A": "Variable controlada → Actuador → Sensor → Comparador",
+      "B": "Variable controlada → Sensor/Transmisor → Comparador → Controlador",
+      "C": "Controlador → Sensor → Comparador → Variable controlada",
+      "D": "Comparador → Variable controlada → Transmisor → Actuador"
+    },
+    "respuesta_correcta": "B",
+    "dificultad": 1,
+    "categoria": "Elementos del Lazo de Control",
+    "explicacion": "La trayectoria de retroalimentación lleva información del proceso de vuelta al comparador: la variable controlada es medida por el sensor/transmisor, que produce la señal de proceso (PV). Esa señal va al comparador, donde se resta del set point para generar el error. El controlador recibe ese error y calcula la acción correctiva."
+  },
+  {
+    "id": "cp_046",
+    "pregunta": "¿Cuál de las siguientes variables es la 'variable controlada' en el lazo de control de una caldera de vapor industrial?",
+    "opciones": {
+      "A": "El flujo de combustible al quemador (ajustado por la válvula de control)",
+      "B": "La presión del vapor en el drum de la caldera (mantenida en el set point)",
+      "C": "La señal de 4–20 mA enviada por el controlador al actuador",
+      "D": "El set point de presión establecido por el operador (ej: 10 bar)"
+    },
+    "respuesta_correcta": "B",
+    "dificultad": 2,
+    "categoria": "Elementos del Lazo de Control",
+    "explicacion": "La variable controlada es la magnitud física del proceso que se desea mantener en el set point. En una caldera, la presión del vapor es el objetivo del control: el sistema actúa para mantenerla en el valor deseado. El flujo de combustible es la variable manipulada (el medio de acción), y el set point es el valor deseado, no la variable controlada."
+  },
+  {
+    "id": "cp_049",
+    "pregunta": "¿Cuál es la función del controlador dentro del lazo de control?",
+    "opciones": {
+      "A": "Medir la variable controlada y enviar la señal al comparador",
+      "B": "Recibir el error del comparador y calcular qué ajuste debe hacerse en la variable manipulada",
+      "C": "Ejecutar físicamente la acción de control sobre el fluido del proceso",
+      "D": "Comparar el set point con la variable medida para calcular el error"
+    },
+    "respuesta_correcta": "B",
+    "dificultad": 2,
+    "categoria": "Elementos del Lazo de Control",
+    "explicacion": "El controlador es el 'cerebro' del lazo: recibe el error del comparador (SP − PV) y aplica un algoritmo para calcular la señal de control que se envía al actuador. Decide cuánto y en qué dirección actuar. La medición la realiza el sensor/transmisor, la comparación el comparador, y la ejecución física el actuador. El controlador solo calcula la acción necesaria."
+  },
+  {
+    "id": "cp_050",
+    "pregunta": "Identifica correctamente todos los elementos del lazo de control de temperatura de un horno eléctrico industrial:",
+    "opciones": {
+      "A": "Sensor: termopar; Variable manipulada: temperatura del horno; Variable controlada: potencia eléctrica",
+      "B": "Sensor: termopar; Transmisor: convierte la señal del termopar a 4–20 mA; Controlador: calcula el error y la acción; Actuador: variador de frecuencia o contactor; Elemento final de control: resistencia eléctrica; Variable manipulada: potencia eléctrica; Variable controlada: temperatura",
+      "C": "Sensor: temperatura; Controlador: horno; Actuador: resistencia eléctrica; Variable manipulada: temperatura",
+      "D": "Variable manipulada: temperatura; Variable controlada: potencia; Sensor: variador de frecuencia"
+    },
+    "respuesta_correcta": "B",
+    "dificultad": 2,
+    "categoria": "Elementos del Lazo de Control",
+    "explicacion": "El lazo completo tiene: termopar (sensor) → transmisor (convierte a 4–20 mA) → controlador (calcula error y acción) → actuador (variador de frecuencia o contactor) → resistencia eléctrica (elemento final de control, que genera calor). La variable manipulada es la potencia eléctrica entregada a la resistencia, y la variable controlada es la temperatura del horno."
+  },
+  {
+    "id": "cp_055",
+    "pregunta": "¿Qué problema tendría un lazo de control si el sensor estuviera ubicado muy lejos de la zona donde ocurre el proceso controlado, con mucho fluido entre ambos?",
+    "opciones": {
+      "A": "La señal del sensor sería más intensa por el efecto del fluido",
+      "B": "El sensor mediría una condición que ya no es la actual del proceso: habría un retardo entre el cambio real y lo que el controlador detecta",
+      "C": "El comparador recibiría dos señales idénticas y no podría calcular el error",
+      "D": "El actuador abriría la válvula en la dirección incorrecta por la distancia"
+    },
+    "respuesta_correcta": "B",
+    "dificultad": 3,
+    "categoria": "Elementos del Lazo de Control",
+    "explicacion": "Si el sensor está lejos del punto de control, hay un retardo físico: el fluido con la condición actual del proceso tarda en llegar al sensor. El controlador recibe información desactualizada y actúa sobre errores que ya no corresponden al estado presente del proceso. Este retardo de transporte dificulta el control y puede causar oscilaciones o inestabilidad."
+  },
+  {
+    "id": "cp_057",
+    "pregunta": "En el diagrama de bloques de un lazo de control, si la trayectoria de retroalimentación incluye el bloque [Transmisor] además del camino de regreso al comparador, ¿qué función cumple ese bloque del transmisor en el diagrama?",
+    "opciones": {
+      "A": "Amplifica la señal de error para que el controlador actúe con mayor fuerza",
+      "B": "Representa la conversión de la variable del proceso (en unidades físicas) a la señal estandarizada (en mA o %), que es la que llega al comparador para el cálculo del error",
+      "C": "Invierte la señal para convertir la retroalimentación de positiva a negativa",
+      "D": "Filtra las perturbaciones de alta frecuencia antes de que lleguen al controlador"
+    },
+    "respuesta_correcta": "B",
+    "dificultad": 3,
+    "categoria": "Elementos del Lazo de Control",
+    "explicacion": "El bloque del transmisor en la trayectoria de retroalimentación representa la conversión de la variable del proceso (ej: temperatura en °C) a la señal estándar (ej: 4–20 mA o 0–100%). Esta señal estandarizada es la que el comparador recibe como PV. El set point también debe expresarse en las mismas unidades para que el error se calcule de forma consistente."
+  },
+  {
+    "id": "cp_076",
+    "pregunta": "¿Cuál de las siguientes descripciones corresponde al concepto de 'variable manipulada' en el contexto del diagrama de bloques del lazo de control?",
+    "opciones": {
+      "A": "Es la señal de salida del comparador (el error)",
+      "B": "Es la señal de salida del controlador que actúa como entrada al proceso (a través del actuador)",
+      "C": "Es la señal de salida del sensor/transmisor que retroalimenta al comparador",
+      "D": "Es la señal de entrada al comparador que viene del operador (el set point)"
+    },
+    "respuesta_correcta": "B",
+    "dificultad": 4,
+    "categoria": "Elementos del Lazo de Control",
+    "explicacion": "En el diagrama de bloques del lazo, la variable manipulada es la señal de salida del controlador (o del actuador, que la amplifica/convierte) que actúa como entrada al bloque del proceso. Es la cantidad física que el sistema de control ajusta para influir sobre la variable controlada: flujo de vapor, apertura de válvula, potencia eléctrica, etc. No es el error ni el set point."
+  },
+  {
+    "id": "cp_081",
+    "pregunta": "¿Por qué en el diagrama de bloques de un lazo de control se incluye el bloque del transmisor en la trayectoria de retroalimentación, en lugar de modelar el sensor como si fuera perfecto (ganancia = 1)?",
+    "opciones": {
+      "A": "Porque el transmisor invierte la señal, convirtiendo la retroalimentación de positiva a negativa",
+      "B": "Para modelar que el transmisor puede tener su propia sensibilidad y dinámica, que afecta la señal que el comparador recibe y por tanto el comportamiento del lazo",
+      "C": "Porque el transmisor amplifica la señal del sensor para que sea mayor que el set point",
+      "D": "Para que el diagrama cumpla con los estándares ISA de representación gráfica"
+    },
+    "respuesta_correcta": "B",
+    "dificultad": 4,
+    "categoria": "Elementos del Lazo de Control",
+    "explicacion": "El transmisor no es ideal: tiene una relación de conversión específica (su sensibilidad, como 0.16 mA/°C), puede tener una respuesta dinámica propia (tiempo de respuesta del sensor) y puede tener errores de calibración. Al incluirlo como bloque en la trayectoria de retroalimentación, el modelo del diagrama de bloques reconoce que la señal que el comparador recibe como 'PV' no es exactamente igual a la variable del proceso, sino su representación a través del transmisor."
+  },
+  {
+    "id": "LAZO_021",
+    "dificultad": 2,
+    "categoria": "Lazo abierto y lazo cerrado",
+    "pregunta": "Un lavaplatos doméstico tiene un temporizador que corre el ciclo de lavado durante 40 minutos sin importar si los platos quedaron limpios o no. ¿Qué tipo de control describe esta situación?",
+    "opciones": {
+      "A": "Lazo cerrado, porque el controlador fija un tiempo determinado",
+      "B": "Lazo abierto, porque la acción de control no depende de medir el resultado del proceso",
+      "C": "Lazo cerrado con retroalimentación positiva, porque el agua caliente refuerza el lavado",
+      "D": "Lazo cerrado con set point variable, porque el tiempo puede ajustarse manualmente"
+    },
+    "respuesta_correcta": "B",
+    "explicacion": "En lazo abierto la acción de control se ejecuta sin medir ni verificar el resultado. El lavaplatos aplica agua y detergente durante 40 minutos sin sensor que confirme si los platos están limpios: si la suciedad es mayor, el resultado será incompleto y el sistema no lo detecta ni corrige. Es la característica definitoria del lazo abierto.",
+    "tipo": "texto"
+  },
+  {
+    "id": "LAZO_022",
+    "dificultad": 2,
+    "categoria": "Lazo abierto y lazo cerrado",
+    "pregunta": "Un termostato de habitación mide la temperatura actual y enciende o apaga la calefacción para mantenerla en 22 °C. ¿Cuáles son la variable controlada y la variable manipulada en este sistema?",
+    "opciones": {
+      "A": "Variable controlada: encendido/apagado del calefactor; variable manipulada: temperatura del cuarto",
+      "B": "Variable controlada: temperatura del cuarto; variable manipulada: calor entregado por el calefactor",
+      "C": "Variable controlada: 22 °C (el set point); variable manipulada: temperatura del cuarto",
+      "D": "Variable controlada: señal del termostato; variable manipulada: temperatura exterior"
+    },
+    "respuesta_correcta": "B",
+    "explicacion": "La variable controlada es lo que se desea mantener en el set point: la temperatura del cuarto. La variable manipulada es lo que el controlador ajusta para lograrlo: el calor que entrega el calefactor (al encenderlo o apagarlo). El set point (22 °C) no es la variable controlada, es el valor de referencia deseado.",
+    "tipo": "texto"
+  },
+  {
+    "id": "LAZO_023",
+    "dificultad": 2,
+    "categoria": "Variables del proceso",
+    "pregunta": "En un experimento de control de temperatura de un reactor, un técnico aumenta el flujo de agua de enfriamiento y observa que la temperatura baja. ¿Cuál es la variable independiente y cuál la variable dependiente en esta relación?",
+    "opciones": {
+      "A": "Independiente: temperatura del reactor; dependiente: flujo de agua de enfriamiento",
+      "B": "Independiente: flujo de agua de enfriamiento; dependiente: temperatura del reactor",
+      "C": "Ambas son independientes porque el técnico controla las dos",
+      "D": "Ambas son dependientes porque las dos cambian durante el experimento"
+    },
+    "respuesta_correcta": "B",
+    "explicacion": "La variable independiente es la que el experimentador controla o manipula deliberadamente: el flujo de agua de enfriamiento. La variable dependiente es la que responde al cambio: la temperatura del reactor. En términos de control, el flujo es la variable manipulada (MV) y la temperatura es la variable controlada (CV), que es también la dependiente.",
+    "tipo": "texto"
+  },
+  {
+    "id": "LAZO_024",
+    "dificultad": 2,
+    "categoria": "Variables del proceso",
+    "pregunta": "En el control del nivel de un tanque de almacenamiento, el controlador ajusta la apertura de una válvula en la tubería de entrada de agua. ¿Cuál es la variable manipulada (MV) y cuál la variable controlada (CV)?",
+    "opciones": {
+      "A": "MV: nivel del tanque; CV: apertura de la válvula de entrada",
+      "B": "MV: apertura de la válvula de entrada; CV: nivel del tanque",
+      "C": "MV: flujo de salida del tanque; CV: presión en la tubería de entrada",
+      "D": "MV: set point de nivel; CV: señal del sensor de nivel"
+    },
+    "respuesta_correcta": "B",
+    "explicacion": "La variable manipulada (MV) es lo que el controlador ajusta: la apertura de la válvula de entrada, que controla el caudal que entra al tanque. La variable controlada (CV) es el objetivo que se quiere mantener en el set point: el nivel del tanque. El controlador actúa sobre la MV para llevar y mantener la CV en su valor deseado.",
+    "tipo": "texto"
+  },
+  {
+    "id": "LAZO_025",
+    "dificultad": 2,
+    "categoria": "Retroalimentación",
+    "pregunta": "¿Por qué la retroalimentación en un lazo de control se llama 'negativa'?",
+    "opciones": {
+      "A": "Porque el sensor envía una señal de voltaje negativo al controlador",
+      "B": "Porque el comparador resta la señal medida del set point, de modo que cuando la variable sube, el error tiende a bajar la acción correctiva",
+      "C": "Porque el efecto del control siempre es negativo para el proceso",
+      "D": "Porque solo funciona cuando la variable controlada está por debajo del set point"
+    },
+    "respuesta_correcta": "B",
+    "explicacion": "Se llama 'negativa' por el signo de la operación en el comparador: error = SP − PV. Si la variable medida (PV) sube, el error baja, y el controlador reduce su acción correctiva. Esta oposición al cambio es lo que estabiliza el sistema. 'Negativa' se refiere al signo de la realimentación, no a que sea perjudicial.",
+    "tipo": "texto"
+  },
+  {
+    "id": "LAZO_026",
+    "dificultad": 2,
+    "categoria": "Variables del proceso",
+    "pregunta": "En una planta de pasteurización, la temperatura del producto se mantiene en 72 °C. Súbitamente, la temperatura de entrada del producto baja porque llegó un lote más frío. ¿Esta situación describe una perturbación o un cambio en la variable manipulada?",
+    "opciones": {
+      "A": "Un cambio en la variable manipulada, porque el controlador ajustó el flujo de vapor",
+      "B": "Una perturbación, porque es una entrada no controlada al proceso que tiende a alejar la temperatura de su set point",
+      "C": "Un cambio en el set point, porque el operador quiere una temperatura diferente",
+      "D": "Un cambio en la variable medida, porque el sensor registró un valor distinto"
+    },
+    "respuesta_correcta": "B",
+    "explicacion": "Una perturbación es cualquier entrada no controlada que afecta la variable controlada. La temperatura del producto entrante no es algo que el controlador de temperatura pueda ajustar; llega del proceso anterior y cambia por razones externas. El controlador detectará el error (la caída de temperatura) y aumentará el flujo de vapor como respuesta.",
+    "tipo": "texto"
+  },
+  {
+    "id": "LAZO_027",
+    "dificultad": 2,
+    "categoria": "Lazo abierto y lazo cerrado",
+    "pregunta": "Un sistema de riego programa el encendido de aspersores todos los días a las 6 a.m. durante 20 minutos, independientemente de si llovió o de la humedad del suelo. ¿Qué limitación fundamental tiene este sistema frente a uno que sí mide la humedad?",
+    "opciones": {
+      "A": "Ninguna; un temporizador es más confiable que un sensor de humedad",
+      "B": "No puede corregir errores: si el suelo ya está húmedo riega de más, y si hay sequía extrema riega igual de poco",
+      "C": "El sistema en lazo abierto siempre riega más de lo necesario",
+      "D": "Solo funciona con aspersores, no con goteo"
+    },
+    "respuesta_correcta": "B",
+    "explicacion": "El lazo abierto no mide el resultado de su acción, por lo que no puede corregir desviaciones. Un sistema con sensor de humedad (lazo cerrado) mediría el estado real del suelo y solo regaría cuando sea necesario, respondiendo también a perturbaciones como lluvia o cambios de temperatura. Esta capacidad de corrección es la ventaja fundamental del lazo cerrado.",
+    "tipo": "texto"
+  },
+  {
+    "id": "LAZO_028",
+    "dificultad": 3,
+    "categoria": "Lazo abierto y lazo cerrado",
+    "pregunta": "¿En cuál de las siguientes situaciones es más adecuado usar un sistema en lazo abierto en lugar de lazo cerrado?",
+    "opciones": {
+      "A": "Cuando el proceso es crítico y no se pueden tolerar desviaciones del set point",
+      "B": "Cuando el proceso es muy predecible, las perturbaciones son insignificantes y el costo de un sensor supera el beneficio del control",
+      "C": "Cuando hay perturbaciones frecuentes e impredecibles que afectan la variable controlada",
+      "D": "Cuando se necesita respuesta rápida ante cambios de carga en el proceso"
+    },
+    "respuesta_correcta": "B",
+    "explicacion": "El lazo abierto es apropiado cuando el proceso es estable y predecible (la relación entrada-salida se conoce bien), las perturbaciones son pequeñas o inexistentes, y el beneficio de agregar un sensor y retroalimentación no justifica el costo. Por ejemplo, un microondas con tiempo fijo para calentar agua es lazo abierto y funciona bien porque el proceso es repetible.",
+    "tipo": "texto"
+  },
+  {
+    "id": "LAZO_029",
+    "dificultad": 3,
+    "categoria": "Retroalimentación",
+    "pregunta": "¿Qué ocurre en un sistema de control cuando la retroalimentación es positiva en lugar de negativa?",
+    "opciones": {
+      "A": "El sistema se vuelve más estable porque refuerza la acción correctiva",
+      "B": "El sistema tiende a la inestabilidad: cualquier desviación se amplifica en lugar de corregirse",
+      "C": "El sistema funciona igual, solo cambia el nombre de la señal",
+      "D": "El controlador actúa más rápido porque suma en lugar de restar"
+    },
+    "respuesta_correcta": "B",
+    "explicacion": "Con retroalimentación positiva, el comparador suma en lugar de restar: si la variable sube, el error aumenta, el controlador actúa más fuerte, la variable sube más, y así sucesivamente. Esto produce inestabilidad: el sistema se aleja del set point en lugar de volver a él. La retroalimentación positiva existe en naturaleza (como el crecimiento poblacional sin límites), pero no sirve para control regulatorio.",
+    "tipo": "texto"
+  },
+  {
+    "id": "LAZO_030",
+    "dificultad": 3,
+    "categoria": "Elementos del Lazo de Control",
+    "pregunta": "En el control de presión de un compresor industrial: un manómetro transmisor mide la presión del tanque, un controlador electrónico recibe esa señal y decide cuánto ajustar la velocidad del motor, y un variador de frecuencia cambia la velocidad del motor del compresor. Identifica correctamente sensor, actuador y elemento final de control.",
+    "opciones": {
+      "A": "Sensor: variador de frecuencia; actuador: manómetro transmisor; EFC: motor",
+      "B": "Sensor: manómetro transmisor; actuador: variador de frecuencia; EFC: motor del compresor",
+      "C": "Sensor: controlador electrónico; actuador: manómetro; EFC: variador de frecuencia",
+      "D": "Sensor: motor; actuador: controlador; EFC: manómetro transmisor"
+    },
+    "respuesta_correcta": "B",
+    "explicacion": "El sensor/transmisor es el manómetro que mide la presión y envía la señal al controlador. El actuador es el variador de frecuencia: recibe la señal del controlador y produce el cambio físico (velocidad del motor). El elemento final de control es el motor del compresor: es quien actúa directamente sobre el proceso al variar la compresión del aire.",
+    "tipo": "texto"
+  },
+  {
+    "id": "LAZO_031",
+    "dificultad": 3,
+    "categoria": "Variables del proceso",
+    "pregunta": "¿Cuál es la diferencia entre 'variable medida' y 'variable controlada', y cuál de las dos llega al comparador del lazo?",
+    "opciones": {
+      "A": "Son lo mismo; la variable controlada llega al comparador como señal de proceso (PV)",
+      "B": "La variable controlada es la magnitud física real del proceso; la variable medida es la señal del transmisor que la representa. Al comparador llega la variable medida (señal del transmisor), no la variable física directamente",
+      "C": "La variable medida llega al actuador; la variable controlada llega al comparador",
+      "D": "La variable controlada es el set point; la variable medida es la salida del controlador"
+    },
+    "respuesta_correcta": "B",
+    "explicacion": "La variable controlada es la magnitud física real (ej: 73.2 °C en el reactor). La variable medida es lo que el transmisor reporta (ej: 12.3 mA). Al comparador llega la señal del transmisor (variable medida), no un termómetro de mercurio físico. En sistemas bien calibrados, la diferencia es pequeña, pero conceptualmente son distintas: el controlador trabaja con la representación de la realidad, no con la realidad directamente.",
+    "tipo": "texto"
+  },
+  {
+    "id": "LAZO_032",
+    "dificultad": 3,
+    "categoria": "Lazo abierto y lazo cerrado",
+    "pregunta": "Un operador cambia el set point de temperatura de una caldera de 80 °C a 90 °C para aumentar la producción. ¿Esto es un ejemplo de control de seguimiento de referencia (servo) o de control regulatorio?",
+    "opciones": {
+      "A": "Control regulatorio, porque el objetivo es rechazar la perturbación del cambio de set point",
+      "B": "Control de seguimiento de referencia (servo), porque el objetivo es que la variable controlada siga el nuevo set point",
+      "C": "Lazo abierto, porque el operador interviene manualmente",
+      "D": "Retroalimentación positiva, porque el sistema refuerza el calentamiento"
+    },
+    "respuesta_correcta": "B",
+    "explicacion": "El control de seguimiento de referencia (servo control) ocurre cuando el set point cambia y el objetivo del lazo es hacer que la variable controlada lo siga. El control regulatorio, en cambio, mantiene el set point fijo y rechaza perturbaciones. Aquí el operador cambia el set point intencionalmente y el lazo debe llevar la temperatura a 90 °C: es control servo.",
+    "tipo": "texto"
+  },
+  {
+    "id": "LAZO_033",
+    "dificultad": 3,
+    "categoria": "Lazo abierto y lazo cerrado",
+    "pregunta": "En un proceso en lazo abierto, ocurre una perturbación que eleva la temperatura por encima del set point. ¿Qué pasa con el error?",
+    "opciones": {
+      "A": "El sistema detecta el error y activa el control para corregirlo",
+      "B": "El error se mantiene indefinidamente porque no hay retroalimentación que lo detecte y corrija",
+      "C": "El error se corrige solo después de un tiempo porque el proceso es autoregulado",
+      "D": "El error se transmite al set point, actualizándolo al nuevo valor"
+    },
+    "respuesta_correcta": "B",
+    "explicacion": "En lazo abierto no existe retroalimentación: el sistema no mide la variable controlada y por tanto no sabe que hay un error. La perturbación desplaza la variable de su set point y el sistema continúa operando igual, sin ninguna acción correctiva. El error persiste hasta que alguien lo detecte manualmente o la perturbación desaparezca por sí sola.",
+    "tipo": "texto"
+  },
+  {
+    "id": "LAZO_034",
+    "dificultad": 3,
+    "categoria": "Elementos del Lazo de Control",
+    "pregunta": "En el sistema de aire acondicionado de un edificio: el termómetro en la pared mide la temperatura, el panel central recibe esa información y decide si encender o apagar los equipos, y las unidades manejadoras de aire entregan frío o calor. ¿Cuál de los siguientes elementos corresponde al controlador?",
+    "opciones": {
+      "A": "El termómetro en la pared",
+      "B": "Las unidades manejadoras de aire",
+      "C": "El panel central que decide si encender o apagar los equipos",
+      "D": "La tubería de refrigerante que lleva el frío"
+    },
+    "respuesta_correcta": "C",
+    "explicacion": "El controlador es el elemento que recibe el error (diferencia entre set point y temperatura medida) y decide qué acción tomar. En este caso, el panel central recibe la temperatura del termómetro, la compara con el set point deseado y decide si activar o desactivar las unidades. El termómetro es el sensor y las unidades manejadoras son el elemento final de control.",
+    "tipo": "texto"
+  },
+  {
+    "id": "LAZO_035",
+    "dificultad": 3,
+    "categoria": "Variables del proceso",
+    "pregunta": "En el control de temperatura de un horno de secado, el técnico identifica las siguientes variables: temperatura del horno, flujo de gas al quemador, temperatura ambiente exterior y el set point de temperatura. ¿Cuál es la variable independiente que el controlador manipula?",
+    "opciones": {
+      "A": "Temperatura del horno, porque es lo que se desea controlar",
+      "B": "Flujo de gas al quemador, porque es lo que el controlador ajusta para cambiar la temperatura",
+      "C": "Temperatura ambiente, porque varía independientemente del operador",
+      "D": "Set point de temperatura, porque el operador lo fija sin que dependa del proceso"
+    },
+    "respuesta_correcta": "B",
+    "explicacion": "La variable independiente que el controlador manipula es el flujo de gas: el controlador puede aumentarlo o disminuirlo para subir o bajar la temperatura. La temperatura del horno es la variable dependiente (variable controlada). La temperatura ambiente es también independiente, pero no es la que el controlador manipula: es una perturbación. El set point es la referencia, no una variable del proceso.",
+    "tipo": "texto"
+  },
+  {
+    "id": "LAZO_036",
+    "dificultad": 4,
+    "categoria": "Retroalimentación",
+    "pregunta": "Un ingeniero propone mejorar el control de temperatura de un reactor usando retroalimentación positiva en lugar de negativa, argumentando que así el sistema 'actúa con más fuerza'. ¿Por qué esta propuesta es incorrecta para control regulatorio?",
+    "opciones": {
+      "A": "Porque la retroalimentación positiva hace que el controlador actúe más lento",
+      "B": "Porque con retroalimentación positiva el error se amplifica en cada ciclo en lugar de reducirse, haciendo que el sistema se aleje progresivamente del set point hasta saturarse o dañarse",
+      "C": "Porque la retroalimentación positiva solo funciona con sensores analógicos, no digitales",
+      "D": "Porque la retroalimentación positiva requiere un actuador de mayor potencia que no está disponible"
+    },
+    "respuesta_correcta": "B",
+    "explicacion": "En control regulatorio el objetivo es reducir el error. Con retroalimentación negativa, error → acción correctiva → error disminuye (ciclo estabilizador). Con retroalimentación positiva, error → acción que amplifica el error → error aumenta (ciclo desestabilizador). El sistema nunca converge al set point: la variable se dispara hasta los límites físicos del proceso o hasta que algo falla.",
+    "tipo": "texto"
+  },
+  {
+    "id": "LAZO_037",
+    "dificultad": 4,
+    "categoria": "Lazo abierto y lazo cerrado",
+    "pregunta": "Dos tanques de almacenamiento tienen el mismo controlador de nivel. En el Tanque A el sensor está bien ubicado y calibrado. En el Tanque B el sensor está averiado y siempre reporta el nivel en el set point aunque el nivel real varíe. ¿Cómo se comportará el lazo del Tanque B en la práctica?",
+    "opciones": {
+      "A": "Igual que el Tanque A, porque el controlador sigue recibiendo una señal",
+      "B": "Como un lazo abierto: el controlador siempre calcula error = 0 y no actúa, aunque el nivel real se desvíe",
+      "C": "Con retroalimentación positiva, porque el sensor amplifica las variaciones de nivel",
+      "D": "Mejor que el Tanque A, porque el controlador no oscila al ver error cero"
+    },
+    "respuesta_correcta": "B",
+    "explicacion": "Si el sensor siempre reporta PV = SP, el comparador siempre calcula error = 0 y el controlador nunca envía una acción correctiva. Aunque físicamente existe la trayectoria de retroalimentación, funcionalmente el lazo se comporta como abierto: las perturbaciones reales no se detectan ni se corrigen. Esto ilustra que el lazo cerrado solo funciona si la retroalimentación es fidedigna.",
+    "tipo": "texto"
+  },
+  {
+    "id": "LAZO_038",
+    "dificultad": 4,
+    "categoria": "Variables del proceso",
+    "pregunta": "Un estudiante afirma: 'La variable manipulada y la variable independiente son siempre la misma cosa en un lazo de control'. ¿Es esta afirmación correcta? ¿Por qué?",
+    "opciones": {
+      "A": "Sí, siempre son idénticas porque ambas describen lo que el controlador ajusta",
+      "B": "No del todo: la variable manipulada es la variable independiente que el controlador elige ajustar, pero pueden existir otras variables independientes en el proceso (como perturbaciones) que no son la variable manipulada",
+      "C": "No; la variable independiente es siempre el set point y la variable manipulada es la variable controlada",
+      "D": "Sí, pero solo en lazos cerrados; en lazos abiertos son distintas"
+    },
+    "respuesta_correcta": "B",
+    "explicacion": "La variable manipulada sí es una variable independiente (el controlador la fija o ajusta), pero no todas las variables independientes del proceso son la variable manipulada. Las perturbaciones también son independientes (no dependen del proceso en cuestión), pero no las manipula el controlador. La distinción clave: la MV es la variable independiente bajo control del sistema; las perturbaciones son variables independientes fuera de ese control.",
+    "tipo": "texto"
+  },
+  {
+    "id": "LAZO_039",
+    "dificultad": 4,
+    "categoria": "Elementos del Lazo de Control",
+    "pregunta": "Un técnico describe un lazo de control así: 'El sensor mide la temperatura, envía la señal al actuador, el actuador calcula el error y envía la corrección al controlador, y el controlador abre o cierra la válvula.' ¿Cuántos errores hay en esta descripción?",
+    "opciones": {
+      "A": "Ninguno; el técnico describió correctamente el flujo del lazo",
+      "B": "Uno: el sensor debería enviar al transmisor/comparador, no al actuador",
+      "C": "Tres: el sensor envía al comparador (no al actuador); el comparador calcula el error (no el actuador); el controlador envía la señal al actuador (no abre la válvula directamente)",
+      "D": "Dos: el actuador no calcula el error, y la válvula la abre el sensor"
+    },
+    "respuesta_correcta": "C",
+    "explicacion": "El flujo correcto es: Sensor/Transmisor → Comparador (que calcula el error) → Controlador (que calcula la acción) → Actuador (que ejecuta la acción) → Elemento Final de Control (la válvula). El técnico confundió quién calcula el error (es el comparador, no el actuador), a quién envía el sensor (al comparador/transmisor, no al actuador) y quién mueve la válvula (el actuador, no el controlador directamente).",
+    "tipo": "texto"
+  },
+  {
+    "id": "LAZO_040",
+    "dificultad": 4,
+    "categoria": "Retroalimentación",
+    "pregunta": "En un lazo de control de temperatura, el set point es 80 °C y el transmisor envía su señal en grados Celsius, pero el controlador interpreta la señal en grados Fahrenheit. ¿Qué consecuencia tiene esta inconsistencia de unidades?",
+    "opciones": {
+      "A": "Ninguna, porque el controlador convierte automáticamente las unidades",
+      "B": "El comparador calcula un error incorrecto porque compara magnitudes en escalas diferentes, y el controlador actúa hacia un objetivo equivocado",
+      "C": "El sistema funciona igual pero con un error de offset constante que el operador puede corregir manualmente",
+      "D": "Solo afecta la visualización en pantalla; el control real no se ve impactado"
+    },
+    "respuesta_correcta": "B",
+    "explicacion": "El comparador realiza error = SP − PV. Si el SP está en °C (80) y el PV llega en °F (la señal que el controlador interpreta como, por ejemplo, 176), el error calculado es 80 − 176 = −96, que no tiene significado físico real. El controlador actuará intentando llevar el proceso a un estado completamente equivocado. La coherencia de unidades entre set point y variable medida es fundamental para que el lazo funcione correctamente.",
+    "tipo": "texto"
+  },
+  {
+    "id": "LAZO_041",
+    "dificultad": 5,
+    "categoria": "Lazo abierto y lazo cerrado",
+    "pregunta": "Una industria farmacéutica evalúa dos sistemas para esterilizar ampollas: Sistema A (lazo abierto) aplica vapor a 121 °C durante 15 minutos según receta validada. Sistema B (lazo cerrado) mide la temperatura real de cada ampolla y ajusta el tiempo. El gerente elige el Sistema A por ser 'más simple y confiable'. ¿Bajo qué condición específica esta decisión es técnicamente justificable?",
+    "opciones": {
+      "A": "Nunca; en farmacia siempre se debe usar lazo cerrado por regulación",
+      "B": "Cuando el proceso está completamente validado, las variables son altamente predecibles y controladas, y el sistema de lazo abierto ha demostrado repetidamente resultados dentro de especificación",
+      "C": "Cuando el costo del sensor de temperatura es mayor que el costo de las ampollas defectuosas",
+      "D": "Solo si el tiempo del ciclo es menor a 10 minutos"
+    },
+    "respuesta_correcta": "B",
+    "explicacion": "El lazo abierto es justificable cuando el proceso es suficientemente predecible y repetible que los resultados son consistentemente aceptables sin retroalimentación. En farmacia, si el proceso de esterilización está validado (se conoce que 121 °C × 15 min garantiza esterilidad en las condiciones dadas), el lazo abierto es aceptable. La clave es la validación del proceso: el lazo abierto funciona bien cuando la relación causa-efecto es bien conocida y las perturbaciones son negligibles.",
+    "tipo": "texto"
+  },
+  {
+    "id": "LAZO_042",
+    "dificultad": 5,
+    "categoria": "Retroalimentación",
+    "pregunta": "En un lazo cerrado de control de velocidad de un motor, la retroalimentación llega al comparador con un retardo de 2 segundos (el sensor tarda en responder). ¿Qué efecto conceptual tiene este retardo en el comportamiento del lazo?",
+    "opciones": {
+      "A": "Ninguno; el controlador compensa automáticamente el retardo",
+      "B": "El controlador actúa sobre información desactualizada: puede estar corrigiendo un error que ya no existe o ignorando uno que acaba de aparecer, lo que puede causar oscilaciones o respuesta lenta",
+      "C": "El lazo se vuelve más estable porque el controlador actúa con más suavidad",
+      "D": "El retardo convierte el lazo cerrado en lazo abierto automáticamente"
+    },
+    "respuesta_correcta": "B",
+    "explicacion": "El retardo en la retroalimentación es uno de los factores que más dificultan el control. Si la información que llega al comparador tiene 2 segundos de antigüedad, el controlador puede estar actuando sobre un estado que ya cambió: si corrigió un error y 2 segundos después recibe la señal del error original, puede actuar en exceso y crear oscilaciones. A mayor retardo, más difícil es mantener el lazo estable y preciso.",
+    "tipo": "texto"
+  },
+  {
+    "id": "LAZO_043",
+    "dificultad": 5,
+    "categoria": "Variables del proceso",
+    "pregunta": "En un proceso de secado industrial, la humedad del producto es la variable controlada. El técnico propone medir indirectamente la humedad usando la temperatura del aire de salida (más barata que un sensor de humedad directo). ¿Qué riesgo conceptual introduce esta decisión?",
+    "opciones": {
+      "A": "Ninguno; medir temperatura es equivalente a medir humedad en procesos de secado",
+      "B": "La variable medida (temperatura del aire) y la variable controlada real (humedad del producto) no son lo mismo: factores adicionales pueden hacer que la temperatura no refleje fielmente la humedad, generando un lazo que controla bien la temperatura pero no necesariamente la humedad",
+      "C": "El sistema se convierte en lazo abierto porque ya no hay sensor directo de la variable controlada",
+      "D": "Solo afecta la precisión del set point, no el funcionamiento del lazo"
+    },
+    "respuesta_correcta": "B",
+    "explicacion": "Cuando la variable medida no es la misma que la variable controlada (se usa una variable sustituta o proxy), el lazo garantiza solo que la variable sustituta esté en su set point, no la real. Si la temperatura del aire de salida depende también del tipo de producto, la carga del secador o variaciones en el flujo de aire, entonces controlar la temperatura no asegura que la humedad del producto sea la deseada. Es un compromiso de ingeniería que introduce riesgo si la correlación no es perfecta.",
+    "tipo": "texto"
+  },
+  {
+    "id": "LAZO_044",
+    "dificultad": 5,
+    "categoria": "Lazo abierto y lazo cerrado",
+    "pregunta": "Un proceso químico tiene perturbaciones frecuentes e impredecibles en la concentración de la materia prima, lo que afecta directamente la temperatura de reacción (variable controlada). ¿Por qué un lazo abierto sería fundamentalmente inadecuado para este proceso?",
+    "opciones": {
+      "A": "Porque el lazo abierto es más caro de mantener que el cerrado",
+      "B": "Porque en lazo abierto la acción de control es fija o programada: no puede adaptarse a perturbaciones impredecibles, por lo que el error se acumula sin corrección hasta que alguien intervenga manualmente",
+      "C": "Porque el lazo abierto no permite cambiar el set point durante la operación",
+      "D": "Porque las reacciones químicas requieren por norma el uso de lazos cerrados"
+    },
+    "respuesta_correcta": "B",
+    "explicacion": "El lazo abierto calcula su acción basándose en un modelo del proceso: 'si hago X, el proceso llegará a Y'. Cuando las perturbaciones son impredecibles, ese modelo deja de ser válido continuamente. El lazo cerrado, en cambio, no necesita predecir: mide el resultado real y corrige lo que sea necesario. Para procesos con perturbaciones frecuentes e impredecibles, la retroalimentación es esencial.",
+    "tipo": "texto"
+  },
+  {
+    "id": "LAZO_045",
+    "dificultad": 5,
+    "categoria": "Variables del proceso",
+    "pregunta": "En un lazo de control de flujo másico de gas natural, el operador identifica estas variables: presión de suministro del gas (varía por condiciones externas), apertura de la válvula de control (ajustada por el controlador), temperatura del gas (afecta la densidad y por tanto el flujo másico) y el flujo másico medido por el caudalímetro. Si el objetivo es controlar el flujo másico, ¿cuáles son las perturbaciones del lazo?",
+    "opciones": {
+      "A": "Apertura de la válvula y flujo másico medido",
+      "B": "Presión de suministro y temperatura del gas, porque afectan el flujo pero el controlador del lazo de flujo no las ajusta",
+      "C": "Solo la temperatura del gas, porque la presión es controlada por otro lazo",
+      "D": "El set point de flujo y la señal del caudalímetro"
+    },
+    "respuesta_correcta": "B",
+    "explicacion": "Las perturbaciones son variables que afectan la variable controlada pero que están fuera del control del lazo en cuestión. La presión de suministro varía por condiciones de la red de gas (externa al lazo) y la temperatura varía con las condiciones ambientales: ambas afectan el flujo másico pero el controlador de flujo no puede ajustarlas. La apertura de la válvula es la variable manipulada (sí la controla el lazo) y el flujo másico medido es la variable controlada.",
+    "tipo": "texto"
+  },
+  {
+    "id": "LAZO_046",
+    "dificultad": 5,
+    "categoria": "Retroalimentación",
+    "pregunta": "En un lazo cerrado con retroalimentación negativa, el controlador mantiene el nivel de un tanque en 50%. Tras una perturbación, el nivel sube a 65%. El controlador responde cerrando la válvula de entrada. Después de corregir, el nivel se estabiliza en 53% y no baja a 50%. ¿Qué nombre recibe este fenómeno y por qué ocurre con ciertos tipos de controladores?",
+    "opciones": {
+      "A": "Inestabilidad del lazo; ocurre porque la retroalimentación es demasiado rápida",
+      "B": "Error en estado estacionario u offset; ocurre con controladores proporcionales puros que solo actúan cuando hay error, pero a 50% exacto la acción sería cero e insuficiente para mantener el nivel",
+      "C": "Retroalimentación positiva accidental; ocurre porque el sensor invirtió la señal",
+      "D": "Perturbación persistente; el offset desaparece solo con el tiempo"
+    },
+    "respuesta_correcta": "B",
+    "explicacion": "El error en estado estacionario (offset) es una desviación permanente entre el set point y la variable controlada tras una perturbación. Con un controlador proporcional puro, la acción de control es proporcional al error: para que haya acción correctiva debe haber error. Cuando el proceso alcanza un nuevo equilibrio, existe un error residual necesario para mantener la acción del controlador. Este es uno de los límites del control proporcional puro, que se corrige con la acción integral (I).",
+    "tipo": "texto"
+  },
+  {
+    "id": "LAZO_047",
+    "dificultad": 1,
+    "categoria": "Elementos del Lazo de Control",
+    "pregunta": "¿Qué es el 'set point' (SP) en un lazo de control?",
+    "opciones": {
+      "A": "La señal que el sensor envía al controlador",
+      "B": "El valor deseado de la variable controlada que el operador establece como objetivo",
+      "C": "La diferencia entre la variable medida y la variable manipulada",
+      "D": "La posición actual del elemento final de control"
+    },
+    "respuesta_correcta": "B",
+    "explicacion": "El set point es el valor de referencia que el operador define como objetivo del proceso: la temperatura que se quiere mantener, el nivel deseado, la presión de operación, etc. El lazo de control existe precisamente para mantener la variable controlada lo más cerca posible del set point.",
+    "tipo": "texto"
+  },
+  {
+    "id": "LAZO_048",
+    "dificultad": 1,
+    "categoria": "Elementos del Lazo de Control",
+    "pregunta": "¿Cuál es el elemento del lazo de control que convierte la señal física del sensor (como milivoltios o resistencia) en una señal estandarizada que el controlador puede interpretar?",
+    "opciones": {
+      "A": "El comparador",
+      "B": "El actuador",
+      "C": "El transmisor",
+      "D": "El elemento final de control"
+    },
+    "respuesta_correcta": "C",
+    "explicacion": "El transmisor recibe la señal cruda del sensor (que puede ser una variación de voltaje, resistencia o corriente muy pequeña) y la convierte en una señal estándar que el controlador reconoce. Sin el transmisor, el controlador no podría interpretar la información del sensor de forma confiable ni comparar la señal con el set point.",
+    "tipo": "texto"
+  },
+  {
+    "id": "LAZO_049",
+    "dificultad": 2,
+    "categoria": "Lazo abierto y lazo cerrado",
+    "pregunta": "Una estufa de gas con perilla manual: el cocinero gira la perilla a 'fuego medio' y deja el agua hervir sin mirar la temperatura. ¿Qué tipo de sistema de control es este?",
+    "opciones": {
+      "A": "Lazo cerrado, porque el cocinero fijó una posición de la perilla",
+      "B": "Lazo abierto, porque la acción de control (posición de la perilla) no depende de medir la temperatura del agua",
+      "C": "Lazo cerrado con retroalimentación negativa, porque el fuego se reduce cuando el agua se calienta",
+      "D": "Lazo cerrado con set point variable, porque el cocinero puede girar la perilla"
+    },
+    "respuesta_correcta": "B",
+    "explicacion": "El cocinero fija la posición de la perilla y no la ajusta según la temperatura real del agua: no hay medición ni retroalimentación automática. Si el agua se sobrecalienta o tarda más de lo esperado, el sistema no lo detecta ni lo corrige. Es un lazo abierto donde la acción de control es fija.",
+    "tipo": "texto"
+  },
+  {
+    "id": "LAZO_050",
+    "dificultad": 2,
+    "categoria": "Variables del proceso",
+    "pregunta": "En el control automático de velocidad de un ventilador industrial, el sistema ajusta el voltaje del motor para mantener 1200 RPM. ¿Cuál es la variable controlada (CV) y cuál la variable manipulada (MV)?",
+    "opciones": {
+      "A": "CV: voltaje del motor; MV: velocidad del ventilador",
+      "B": "CV: velocidad del ventilador (RPM); MV: voltaje aplicado al motor",
+      "C": "CV: temperatura del ambiente; MV: velocidad del ventilador",
+      "D": "CV: set point de 1200 RPM; MV: señal del sensor de velocidad"
+    },
+    "respuesta_correcta": "B",
+    "explicacion": "La variable controlada es el objetivo del sistema: la velocidad en RPM, que se quiere mantener en 1200. La variable manipulada es lo que el controlador ajusta para lograrlo: el voltaje del motor. Al subir el voltaje, el motor gira más rápido; al bajarlo, más despacio.",
+    "tipo": "texto"
+  },
+  {
+    "id": "LAZO_051",
+    "dificultad": 2,
+    "categoria": "Elementos del Lazo de Control",
+    "pregunta": "En un lazo de control, el set point de temperatura es 90 °C y el sensor reporta 85 °C. ¿Cuál es el error y qué acción tomará el controlador?",
+    "opciones": {
+      "A": "Error = 85 °C; el controlador reducirá la acción de control",
+      "B": "Error = 5 °C; el controlador aumentará la acción de control para elevar la temperatura",
+      "C": "Error = 90 °C; el controlador mantendrá la acción sin cambios",
+      "D": "Error = −5 °C; el controlador abrirá la válvula de enfriamiento"
+    },
+    "respuesta_correcta": "B",
+    "explicacion": "El error se calcula como: error = SP − PV = 90 − 85 = 5 °C. Como la temperatura medida está por debajo del set point, el error es positivo y el controlador debe aumentar la acción de control (por ejemplo, abrir más la válvula de vapor) para elevar la temperatura hasta los 90 °C.",
+    "tipo": "texto"
+  },
+  {
+    "id": "LAZO_052",
+    "dificultad": 2,
+    "categoria": "Variables del proceso",
+    "pregunta": "En el control de temperatura de una habitación (set point: 22 °C), de repente se abre una ventana y entra aire frío. La temperatura baja a 19 °C. ¿Qué nombre recibe la entrada del aire frío en el contexto del lazo de control?",
+    "opciones": {
+      "A": "Variable manipulada, porque el controlador la usa para corregir el error",
+      "B": "Perturbación, porque es una entrada externa no controlada que desplaza la variable controlada de su set point",
+      "C": "Set point, porque representa el nuevo objetivo del sistema",
+      "D": "Variable medida, porque el sensor registra el cambio de temperatura"
+    },
+    "respuesta_correcta": "B",
+    "explicacion": "El aire frío que entra por la ventana es una perturbación: una entrada externa que el controlador del sistema de calefacción no puede controlar directamente y que aleja la temperatura de su set point. El lazo detectará el error (22 − 19 = 3 °C) y aumentará la calefacción para compensar.",
+    "tipo": "texto"
+  },
+  {
+    "id": "LAZO_053",
+    "dificultad": 2,
+    "categoria": "Lazo abierto y lazo cerrado",
+    "pregunta": "Una nevera doméstica tiene un termostato que mide la temperatura interior y enciende el compresor cuando sube de 5 °C y lo apaga cuando baja a 2 °C. ¿Es este un sistema de lazo abierto o cerrado? ¿Por qué?",
+    "opciones": {
+      "A": "Lazo abierto, porque el compresor solo tiene dos estados: encendido y apagado",
+      "B": "Lazo cerrado, porque la acción de control (encender/apagar el compresor) depende de la temperatura medida dentro de la nevera",
+      "C": "Lazo abierto, porque el usuario fija los límites de temperatura manualmente",
+      "D": "Lazo cerrado con retroalimentación positiva, porque el compresor frío hace que la nevera se enfríe más"
+    },
+    "respuesta_correcta": "B",
+    "explicacion": "Es un lazo cerrado porque hay retroalimentación: la temperatura interior se mide continuamente y esa medición determina si el compresor se enciende o apaga. La acción de control depende del estado actual del proceso. Aunque sea un control todo-o-nada (on/off) y no continuo, sigue siendo lazo cerrado.",
+    "tipo": "texto"
+  },
+  {
+    "id": "LAZO_054",
+    "dificultad": 3,
+    "categoria": "Lazo abierto y lazo cerrado",
+    "pregunta": "Un semáforo con temporizador fijo cambia cada 30 segundos sin importar el tráfico. Un semáforo inteligente mide cuántos carros hay en cada carril y ajusta el tiempo. ¿Qué ventaja concreta ofrece el segundo respecto al primero?",
+    "opciones": {
+      "A": "El semáforo inteligente es más barato porque no necesita temporizador",
+      "B": "El semáforo inteligente puede corregir su comportamiento ante perturbaciones (variaciones de tráfico): reduce colas y tiempos de espera al responder al estado real del proceso",
+      "C": "El semáforo inteligente es lazo abierto porque responde solo a los carros que ya pasaron",
+      "D": "Ambos son equivalentes si el tráfico es siempre el mismo"
+    },
+    "respuesta_correcta": "B",
+    "explicacion": "El semáforo inteligente es un lazo cerrado: mide la variable del proceso (densidad de tráfico) y ajusta su acción (tiempos de verde) en consecuencia. La ventaja clave es la adaptación a perturbaciones: un accidente, un evento deportivo o la hora pico producen tráfico variable e impredecible que el temporizador fijo (lazo abierto) ignora. El lazo cerrado lo detecta y compensa.",
+    "tipo": "texto"
+  },
+  {
+    "id": "LAZO_055",
+    "dificultad": 3,
+    "categoria": "Elementos del Lazo de Control",
+    "pregunta": "En una planta de tratamiento de agua, un lazo controla el pH del agua tratada en 7.0. Un electrodo de pH mide la acidez, un controlador electrónico procesa la señal, y una bomba dosificadora inyecta soda cáustica para neutralizar el ácido. Identifica correctamente: variable controlada, variable manipulada y elemento final de control.",
+    "opciones": {
+      "A": "CV: flujo de soda cáustica; MV: pH del agua; EFC: electrodo de pH",
+      "B": "CV: pH del agua; MV: flujo de soda cáustica inyectada; EFC: bomba dosificadora",
+      "C": "CV: concentración de ácido; MV: pH; EFC: controlador electrónico",
+      "D": "CV: set point de 7.0; MV: electrodo de pH; EFC: soda cáustica"
+    },
+    "respuesta_correcta": "B",
+    "explicacion": "La variable controlada (CV) es lo que se quiere mantener en el set point: el pH del agua en 7.0. La variable manipulada (MV) es lo que el controlador ajusta: el flujo de soda cáustica que inyecta la bomba. El elemento final de control (EFC) es la bomba dosificadora: el dispositivo que actúa físicamente sobre el proceso al inyectar el reactivo.",
+    "tipo": "texto"
+  },
+  {
+    "id": "LAZO_056",
+    "dificultad": 3,
+    "categoria": "Elementos del Lazo de Control",
+    "pregunta": "En un lazo de control, el error calculado por el comparador es exactamente cero (SP = PV). ¿Qué implica esto para la acción del controlador?",
+    "opciones": {
+      "A": "El controlador apaga el sistema porque ya no hay nada que corregir",
+      "B": "El controlador mantiene su última acción de control: no hay error que corregir, así que no necesita cambiar la variable manipulada",
+      "C": "El controlador envía una señal máxima al actuador para prevenir futuros errores",
+      "D": "El comparador se desconecta del lazo porque el set point y la variable medida son iguales"
+    },
+    "respuesta_correcta": "B",
+    "explicacion": "Cuando el error es cero, la variable controlada está exactamente en el set point: el objetivo se cumple. El controlador no necesita cambiar su acción, pero tampoco apaga el sistema. Mantiene el nivel de acción que está logrando ese equilibrio. El lazo sigue activo y vigilando: si aparece un error, actuará inmediatamente.",
+    "tipo": "texto"
+  },
+  {
+    "id": "LAZO_057",
+    "dificultad": 3,
+    "categoria": "Variables del proceso",
+    "pregunta": "En un lazo de temperatura, el set point baja de 100 °C a 70 °C. En ese momento, la temperatura medida es 100 °C. ¿Cuál es el nuevo error y en qué dirección actuará el controlador?",
+    "opciones": {
+      "A": "Error = +30 °C; el controlador aumenta la calefacción",
+      "B": "Error = −30 °C; el controlador reduce o elimina la calefacción para permitir que el proceso baje a 70 °C",
+      "C": "Error = 0; el controlador no actúa porque el proceso estaba en su set point anterior",
+      "D": "Error = 70 °C; el controlador abre completamente la válvula de enfriamiento"
+    },
+    "respuesta_correcta": "B",
+    "explicacion": "Nuevo error = SP − PV = 70 − 100 = −30 °C. El signo negativo indica que la temperatura está por encima del nuevo set point. El controlador debe reducir la acción de calentamiento (cerrar la válvula de vapor, apagar la resistencia) para que el proceso se enfríe hasta los 70 °C. Este es un ejemplo de control servo: el lazo sigue un cambio de set point.",
+    "tipo": "texto"
+  },
+  {
+    "id": "LAZO_058",
+    "dificultad": 3,
+    "categoria": "Elementos del Lazo de Control",
+    "pregunta": "¿Cuál es la diferencia entre quién define el set point y quién determina el valor de la variable controlada?",
+    "opciones": {
+      "A": "El set point lo fija el controlador automáticamente; la variable controlada la determina el sensor",
+      "B": "El set point lo establece el operador o el sistema de supervisión como objetivo deseado; el valor de la variable controlada lo determina el comportamiento real del proceso",
+      "C": "Ambos los determina el comparador al calcular el error",
+      "D": "El set point lo genera el actuador; la variable controlada la calcula el comparador"
+    },
+    "respuesta_correcta": "B",
+    "explicacion": "El set point es una decisión humana o de un sistema de supervisión: es el valor que se quiere lograr. El valor real de la variable controlada, en cambio, depende del proceso físico: la temperatura real del reactor, el nivel real del tanque. El trabajo del lazo de control es reducir la diferencia entre esos dos valores.",
+    "tipo": "texto"
+  },
+  {
+    "id": "LAZO_059",
+    "dificultad": 4,
+    "categoria": "Lazo abierto y lazo cerrado",
+    "pregunta": "Un proceso de fabricación tiene perturbaciones cíclicas perfectamente predecibles: cada 10 minutos exactos llega un lote de materia prima a mayor temperatura. ¿Podría un sistema de lazo abierto manejar esto adecuadamente? ¿Por qué?",
+    "opciones": {
+      "A": "No; el lazo abierto nunca puede manejar perturbaciones de ningún tipo",
+      "B": "Sí, potencialmente: si la perturbación es perfectamente conocida y repetible, se puede programar una acción correctiva anticipada en lazo abierto que compense el efecto en el momento exacto",
+      "C": "Solo si el lazo abierto tiene retroalimentación interna",
+      "D": "Sí, pero solo si el operador interviene manualmente en cada ciclo"
+    },
+    "respuesta_correcta": "B",
+    "explicacion": "La limitación del lazo abierto no es que no pueda actuar, sino que no puede corregir errores no previstos. Si la perturbación es completamente predecible (magnitud, timing y duración conocidos), se puede diseñar un programa de acción correctiva anticipada en lazo abierto. Sin embargo, cualquier variación en el patrón de la perturbación (que llegue 2 minutos antes, o a mayor temperatura) dejará al sistema sin respuesta, lo que sigue siendo una debilidad.",
+    "tipo": "texto"
+  },
+  {
+    "id": "LAZO_060",
+    "dificultad": 4,
+    "categoria": "Retroalimentación",
+    "pregunta": "¿Por qué un lazo cerrado con retroalimentación negativa es inherentemente más robusto ante variaciones inesperadas del proceso que un lazo abierto con el mismo actuador?",
+    "opciones": {
+      "A": "Porque el lazo cerrado tiene más componentes y es más complejo",
+      "B": "Porque el lazo cerrado no necesita conocer el modelo exacto del proceso: detecta el resultado real y corrige lo que sea necesario, sin importar qué causó la desviación",
+      "C": "Porque el actuador del lazo cerrado es siempre más potente",
+      "D": "Porque el lazo cerrado elimina todas las perturbaciones antes de que entren al proceso"
+    },
+    "respuesta_correcta": "B",
+    "explicacion": "El lazo abierto depende de un modelo preciso del proceso: 'si aplico X, obtengo Y'. Si el proceso cambia (desgaste, cambio de materia prima, variación de temperatura ambiente), ese modelo deja de ser válido. El lazo cerrado no necesita saber por qué ocurrió la desviación: simplemente mide la diferencia entre SP y PV y actúa. Esta independencia del modelo exacto es la robustez del lazo cerrado.",
+    "tipo": "texto"
+  },
+  {
+    "id": "LAZO_061",
+    "dificultad": 4,
+    "categoria": "Elementos del Lazo de Control",
+    "pregunta": "En un lazo de control de nivel, el sensor reporta que el nivel está en 30% cuando el set point es 70%. El controlador envía señal máxima, pero la válvula de entrada ya está al 100% de apertura. ¿Qué ocurre con el lazo?",
+    "opciones": {
+      "A": "El lazo trabaja normalmente porque el controlador sigue calculando el error",
+      "B": "El lazo no puede alcanzar el set point: el actuador está saturado y no puede entregar más caudal del que ya entrega al 100%",
+      "C": "El comparador desconecta el lazo automáticamente cuando detecta el error grande",
+      "D": "La retroalimentación negativa se convierte en positiva al saturarse el actuador"
+    },
+    "respuesta_correcta": "B",
+    "explicacion": "La saturación del actuador es un límite físico del lazo: aunque el controlador calcule que necesita más acción, el elemento final de control no puede dar más de lo que permite su diseño (en este caso, 100% de apertura). El lazo queda con error persistente no por falla del controlador, sino por una limitación física del sistema. Esto puede indicar que el proceso necesita una válvula más grande o que el set point es inalcanzable con la infraestructura instalada.",
+    "tipo": "texto"
+  },
+  {
+    "id": "LAZO_062",
+    "dificultad": 4,
+    "categoria": "Elementos del Lazo de Control",
+    "pregunta": "El sensor de temperatura de un lazo falla y queda enviando siempre 0 °C al controlador, cuando la temperatura real del proceso es 80 °C. El set point es 80 °C. ¿Cómo responderá el controlador?",
+    "opciones": {
+      "A": "No actuará porque el error calculado será 80 − 80 = 0",
+      "B": "Calculará un error de 80 − 0 = 80 °C y enviará señal máxima al actuador, aunque el proceso ya esté en el set point, provocando sobrecalentamiento",
+      "C": "Detectará que el sensor falló y se pondrá en modo manual automáticamente",
+      "D": "Enviará señal de enfriamiento porque la señal del sensor (0 °C) es menor al set point"
+    },
+    "respuesta_correcta": "B",
+    "explicacion": "El controlador trabaja con la señal del transmisor, no con la temperatura real. Si el sensor reporta 0 °C, el controlador calcula error = 80 − 0 = 80 °C y actúa como si el proceso estuviera muy frío: aumenta la calefacción al máximo. El proceso, que ya está a 80 °C, seguirá calentándose sin control. Esto ilustra que la fiabilidad del sensor es crítica para la seguridad del lazo.",
+    "tipo": "texto"
+  },
+  {
+    "id": "LAZO_063",
+    "dificultad": 4,
+    "categoria": "Variables del proceso",
+    "pregunta": "En un proceso de fermentación, la temperatura del biorreactor depende del flujo de agua de refrigeración, de la actividad metabólica de los microorganismos y de la temperatura ambiente. ¿Cuáles de estas son perturbaciones y cuál es la variable manipulada?",
+    "opciones": {
+      "A": "MV: temperatura del biorreactor; perturbaciones: flujo de agua y actividad metabólica",
+      "B": "MV: flujo de agua de refrigeración; perturbaciones: actividad metabólica y temperatura ambiente",
+      "C": "MV: actividad metabólica; perturbaciones: temperatura ambiente y flujo de agua",
+      "D": "Todas son perturbaciones porque ninguna es el set point"
+    },
+    "respuesta_correcta": "B",
+    "explicacion": "La variable manipulada (MV) es la que el controlador puede ajustar: el flujo de agua de refrigeración. La actividad metabólica de los microorganismos varía según su estado biológico y no puede controlarse directamente con el lazo de temperatura: es una perturbación. La temperatura ambiente también es externa al lazo. El controlador ajusta el agua para contrarrestar el calor generado por la fermentación y los cambios de temperatura exterior.",
+    "tipo": "texto"
+  },
+  {
+    "id": "LAZO_064",
+    "dificultad": 4,
+    "categoria": "Variables del proceso",
+    "pregunta": "Un proceso puede controlarse tanto ajustando el flujo de entrada de materia prima como ajustando la temperatura del proceso. ¿Qué criterio conceptual se usa para elegir cuál será la variable manipulada?",
+    "opciones": {
+      "A": "Siempre se elige el flujo de materia prima porque es más fácil de medir",
+      "B": "Se elige la variable que tenga mayor efecto sobre la variable controlada, sea más rápida en responder y sea más económica o práctica de manipular con un actuador",
+      "C": "Se elige la que tenga mayor valor numérico para tener más margen de ajuste",
+      "D": "Se elige la temperatura siempre porque es la variable más común en procesos industriales"
+    },
+    "respuesta_correcta": "B",
+    "explicacion": "La elección de la variable manipulada es una decisión de ingeniería. Los criterios clave son: (1) que tenga influencia efectiva sobre la variable controlada, (2) que responda con suficiente rapidez para corregir errores antes de que se propaguen, y (3) que sea práctica y económica de manipular (disponibilidad de actuador adecuado, seguridad, costo de operación).",
+    "tipo": "texto"
+  },
+  {
+    "id": "LAZO_065",
+    "dificultad": 4,
+    "categoria": "Lazo abierto y lazo cerrado",
+    "pregunta": "Un sistema de calefacción solar para agua caliente sanitaria usa colectores solares y un respaldo eléctrico. El respaldo eléctrico se activa solo cuando la temperatura baja de 40 °C. La energía solar llega sin control (depende del sol). ¿Cómo se clasifican los dos aportes energéticos en términos del lazo de control?",
+    "opciones": {
+      "A": "Ambos son variables manipuladas porque los dos calientan el agua",
+      "B": "La energía solar es una perturbación (entrada no controlada) y el respaldo eléctrico es la variable manipulada (ajustada por el lazo según la temperatura)",
+      "C": "La energía solar es la variable controlada y el respaldo eléctrico es el set point",
+      "D": "El sol es el actuador y el respaldo eléctrico es el comparador"
+    },
+    "respuesta_correcta": "B",
+    "explicacion": "La energía solar llega independientemente de lo que el lazo quiera: en días nublados hay poco, en días soleados hay mucho. El lazo no puede controlarla, por lo que es una perturbación. El respaldo eléctrico sí responde a la señal del controlador (se activa cuando la temperatura baja): es la variable manipulada. El lazo usa el respaldo para compensar lo que el sol no puede aportar.",
+    "tipo": "texto"
+  },
+  {
+    "id": "LAZO_066",
+    "dificultad": 4,
+    "categoria": "Retroalimentación",
+    "pregunta": "En un lazo cerrado, después de una perturbación, la variable controlada oscila repetidamente alrededor del set point (sube, baja, sube, baja) sin estabilizarse. ¿Qué indica este comportamiento sobre la retroalimentación del lazo?",
+    "opciones": {
+      "A": "La retroalimentación es positiva: el lazo está amplificando el error",
+      "B": "La retroalimentación negativa existe pero el controlador está reaccionando con demasiada intensidad o demasiado rápido: corrige en exceso en cada ciclo",
+      "C": "El sensor está fallando y reporta valores alternos altos y bajos",
+      "D": "No hay retroalimentación; el lazo se comporta como abierto"
+    },
+    "respuesta_correcta": "B",
+    "explicacion": "Las oscilaciones alrededor del set point indican que la retroalimentación negativa existe y está corrigiendo (el sistema vuelve hacia el SP), pero la acción correctiva es excesiva: corrige demasiado, lo que genera un nuevo error en la dirección opuesta, que a su vez es corregido en exceso, y así sucesivamente. No es retroalimentación positiva (eso causaría que la variable se dispare sin volver). Es una señal de que el controlador necesita ajuste (reducir la intensidad de la acción).",
+    "tipo": "texto"
+  },
+  {
+    "id": "LAZO_067",
+    "dificultad": 5,
+    "categoria": "Lazo abierto y lazo cerrado",
+    "pregunta": "Un proceso es naturalmente autoestable: si se perturba, vuelve solo a su punto de operación sin ninguna intervención externa. Un ingeniero agrega un lazo de control cerrado con retroalimentación negativa pero con un controlador mal ajustado. ¿Qué puede ocurrir?",
+    "opciones": {
+      "A": "El lazo cerrado siempre mejora el comportamiento, así el controlador esté mal ajustado",
+      "B": "El lazo cerrado mal ajustado puede desestabilizar un proceso que era naturalmente estable, introduciendo oscilaciones o inestabilidad que no existían antes",
+      "C": "El proceso seguirá siendo estable porque la retroalimentación es negativa",
+      "D": "El controlador se ajustará automáticamente hasta encontrar los parámetros correctos"
+    },
+    "respuesta_correcta": "B",
+    "explicacion": "Un lazo cerrado mal ajustado puede hacer más daño que bien. Si el controlador actúa con demasiada intensidad o con un tiempo de respuesta inadecuado para ese proceso, puede inducir oscilaciones crecientes incluso en un proceso que sin control sería estable. Esto demuestra que cerrar el lazo no garantiza mejora: el controlador debe estar bien sintonizado para el proceso específico.",
+    "tipo": "texto"
+  },
+  {
+    "id": "LAZO_068",
+    "dificultad": 5,
+    "categoria": "Variables del proceso",
+    "pregunta": "Un proceso de secado tiene tres variables que influyen en la humedad final del producto: temperatura del aire, velocidad del aire y humedad relativa del aire de entrada. Todas pueden manipularse con actuadores. ¿Qué consideración adicional es esencial para elegir cuál usar como variable manipulada del lazo principal?",
+    "opciones": {
+      "A": "Elegir siempre la temperatura porque es la más fácil de medir",
+      "B": "Analizar cuál tiene mayor efecto sobre la humedad del producto, responde más rápido, y cuál no introduce complicaciones al manipularla (como afectar negativamente otras variables del proceso)",
+      "C": "Elegir la que tenga el actuador más barato disponible en inventario",
+      "D": "Elegir la velocidad del aire siempre porque es la más rápida de cambiar"
+    },
+    "respuesta_correcta": "B",
+    "explicacion": "Con múltiples candidatos para variable manipulada, el criterio no es solo la efectividad individual sino también las interacciones: manipular la temperatura puede afectar la calidad del producto; cambiar la velocidad del aire puede alterar el flujo del proceso aguas abajo. La variable manipulada ideal tiene alta efectividad sobre la CV, respuesta rápida, y mínimos efectos indeseados sobre otras partes del proceso.",
+    "tipo": "texto"
+  },
+  {
+    "id": "LAZO_069",
+    "dificultad": 5,
+    "categoria": "Retroalimentación",
+    "pregunta": "Un operador observa que su lazo de temperatura funciona bien cuando el proceso es estable, pero tras cada cambio de set point, la temperatura sobrepasa el nuevo set point considerablemente antes de estabilizarse. ¿Qué característica del lazo explica este comportamiento?",
+    "opciones": {
+      "A": "La retroalimentación es positiva, lo que amplifica la respuesta al cambio de set point",
+      "B": "El controlador acumula una acción excesiva mientras el error es grande (durante el cambio de SP) y cuando la variable se acerca al nuevo set point, esa acción acumulada la hace sobrepasar",
+      "C": "El sensor está midiendo la temperatura incorrectamente solo durante los cambios de set point",
+      "D": "El lazo se convierte temporalmente en lazo abierto durante el cambio de set point"
+    },
+    "respuesta_correcta": "B",
+    "explicacion": "El sobreimpulso (overshoot) tras un cambio de set point es una característica dinámica del lazo cerrado. Cuando el error es grande (justo después del cambio de SP), el controlador aplica mucha acción correctiva. Mientras la variable se acerca al SP, el controlador puede haber acumulado demasiada 'inercia' en su acción. Al cruzar el SP, tarda en reducirla suficientemente rápido. Esto es normal en lazos ajustados agresivamente y se controla con la sintonización del controlador.",
+    "tipo": "texto"
+  },
+  {
+    "id": "LAZO_070",
+    "dificultad": 5,
+    "categoria": "Variables del proceso",
+    "pregunta": "En un proceso, el operador nota que la variable controlada nunca alcanza exactamente el set point: siempre queda 3 °C por encima, incluso cuando el sistema parece estable. Descarta problemas de sensor y actuador. ¿Qué situación del proceso podría explicar este comportamiento de forma permanente?",
+    "opciones": {
+      "A": "El set point está mal configurado en el controlador",
+      "B": "Existe una perturbación constante y persistente que requiere una acción de control continua para compensarla; con ciertos tipos de controladores esto genera un error residual permanente (offset)",
+      "C": "El lazo cerrado siempre tiene un error de 3 °C por diseño",
+      "D": "El comparador tiene un sesgo de 3 °C en el circuito electrónico"
+    },
+    "respuesta_correcta": "B",
+    "explicacion": "Una perturbación constante y persistente (por ejemplo, una carga térmica siempre presente como calor de reacción continuo) requiere que el controlador mantenga una acción correctiva permanente para compensarla. Con controladores proporcionales puros, esa acción solo existe si hay error: el sistema se estabiliza con un error residual (offset) que 'justifica' la acción necesaria para compensar la perturbación. Es el límite del control proporcional puro.",
+    "tipo": "texto"
+  },
+  {
+    "id": "LAZO_071",
+    "dificultad": 5,
+    "categoria": "Lazo abierto y lazo cerrado",
+    "pregunta": "Un operador interviene manualmente en un lazo automático: cada vez que ve que la temperatura baja por una perturbación, él sube el set point para 'ayudar'. ¿Qué problema conceptual introduce esta práctica?",
+    "opciones": {
+      "A": "Ninguno; el operador está haciendo exactamente lo que debe hacer el lazo automático",
+      "B": "El operador está usando el set point como una corrección de perturbación, cuando el set point debería ser el objetivo real del proceso. Esto enmascara el problema real (perturbación no corregida) y puede alejar el proceso del punto de operación deseado",
+      "C": "El lazo se convierte automáticamente en lazo abierto cuando el operador toca el set point",
+      "D": "El controlador se desincroniza porque recibe dos señales contradictorias"
+    },
+    "respuesta_correcta": "B",
+    "explicacion": "El set point representa el objetivo real del proceso: la temperatura que el proceso necesita para producir correctamente. Si el operador lo sube para compensar perturbaciones, está desviando el proceso de su objetivo real. Lo correcto es que el lazo cerrado rechace las perturbaciones manteniendo el mismo set point. Si no lo logra, el problema es el controlador o la capacidad del actuador, no el set point.",
+    "tipo": "texto"
+  },
+  {
+    "id": "LAZO_072",
+    "dificultad": 5,
+    "categoria": "Elementos del Lazo de Control",
+    "pregunta": "Un lazo de pH usa un sensor cuya membrana está parcialmente degradada. El sensor responde correctamente al valor final pero tarda 8 minutos en estabilizarse (normalmente debería tardar 30 segundos). ¿Cuál es el impacto en el lazo?",
+    "opciones": {
+      "A": "El lazo funciona igual porque el sensor finalmente llega al valor correcto",
+      "B": "El lazo recibe información con 8 minutos de retraso: el controlador actúa sobre un estado del proceso que ya cambió hace tiempo, lo que puede causar sobreajustes, oscilaciones o correcciones tardías e inadecuadas",
+      "C": "El lazo se vuelve más suave y estable porque el sensor filtra las variaciones rápidas",
+      "D": "El único impacto es que la pantalla del controlador tarda más en actualizar el valor"
+    },
+    "respuesta_correcta": "B",
+    "explicacion": "La dinámica del sensor es parte de la dinámica total del lazo. Un sensor lento introduce un retardo en la retroalimentación: el controlador 've' el pH de hace 8 minutos, no el actual. Si en esos 8 minutos el proceso cambió significativamente (por una perturbación o por la propia acción de control anterior), el controlador actuará sobre información desactualizada y podrá corregir en exceso o en defecto. La degradación del sensor es una causa real de inestabilidad en lazos de pH.",
+    "tipo": "texto"
+  },
+  {
+    "id": "LAZO_073",
+    "dificultad": 5,
+    "categoria": "Lazo abierto y lazo cerrado",
+    "pregunta": "Una persona ajusta manualmente la válvula de vapor de un intercambiador cada vez que nota que la temperatura se desvía del set point. ¿Es esto un lazo cerrado? ¿Qué elemento del lazo está cumpliendo el operador?",
+    "opciones": {
+      "A": "No es un lazo cerrado porque el operador actúa manualmente y no hay controlador electrónico",
+      "B": "Sí es un lazo cerrado: el operador cumple las funciones de sensor (observa la temperatura), comparador (compara con el set point en su mente) y controlador (decide cuánto abrir la válvula). Hay retroalimentación aunque sea manual",
+      "C": "Es un lazo abierto porque el operador no usa un algoritmo matemático",
+      "D": "Es retroalimentación positiva porque el operador refuerza el cambio de temperatura al abrir la válvula"
+    },
+    "respuesta_correcta": "B",
+    "explicacion": "El concepto de lazo cerrado no requiere que sea automático o electrónico: requiere retroalimentación. El operador mide (observa), compara (¿está cerca del set point?), calcula una acción (¿cuánto debo abrir la válvula?) y actúa (mueve la válvula). Es un lazo cerrado manual. La diferencia con el automático es la velocidad de respuesta, la consistencia y la disponibilidad las 24 horas.",
+    "tipo": "texto"
+  },
+  {
+    "id": "LAZO_074",
+    "dificultad": 5,
+    "categoria": "Retroalimentación",
+    "pregunta": "En un lazo de nivel, el set point es 60% y la variable controlada lleva 20 minutos estancada en 40%, aunque el controlador envía señal máxima al actuador. El sensor funciona bien y el actuador responde. ¿Cuál es la causa más probable y qué implicación tiene para el lazo?",
+    "opciones": {
+      "A": "El controlador tiene un error de programación que limita su salida al 40%",
+      "B": "El caudal de entrada máximo que puede entregar el actuador es insuficiente para superar el caudal de salida del tanque: la limitación es física del proceso, no del controlador. El lazo no puede alcanzar el set point con la infraestructura actual",
+      "C": "La retroalimentación se invirtió y el lazo está trabajando en dirección opuesta",
+      "D": "El set point de 60% está fuera del rango del sensor de nivel"
+    },
+    "respuesta_correcta": "B",
+    "explicacion": "Si el controlador envía señal máxima y la variable no avanza, la limitación es física: el sistema no puede entregar más de lo que entrega al 100% de la variable manipulada. Si el caudal de entrada al 100% de apertura de válvula es menor que el caudal de salida (demanda del proceso), el nivel nunca alcanzará el set point. El lazo cerrado no puede suplir lo que no existe físicamente: la solución requiere una válvula más grande, una bomba más potente u otra modificación al hardware del proceso.",
+    "tipo": "texto"
+  },
+  {
+    "id": "LAZO_075",
+    "dificultad": 5,
+    "categoria": "Variables del proceso",
+    "pregunta": "En un proceso de reacción química, la conversión del reactivo (porcentaje transformado en producto) es la variable controlada real. Sin embargo, no existe sensor comercial para medirla en línea. El ingeniero propone controlar la temperatura del reactor como variable sustituta. ¿Cuál es la condición fundamental para que esta estrategia sea válida?",
+    "opciones": {
+      "A": "Que la temperatura sea siempre más fácil de medir que la conversión",
+      "B": "Que exista una correlación confiable y bien establecida entre la temperatura del reactor y la conversión: que controlar la temperatura a un valor específico garantice sistemáticamente la conversión deseada",
+      "C": "Que el sensor de temperatura sea más preciso que un analizador de conversión",
+      "D": "Que la reacción sea exotérmica para que la temperatura suba con la conversión"
+    },
+    "respuesta_correcta": "B",
+    "explicacion": "Usar una variable proxy (sustituta) es válido solo si la correlación con la variable real es sólida y bien establecida. Si la temperatura del reactor siempre corresponde a la misma conversión bajo las condiciones de operación, controlar la temperatura es equivalente a controlar la conversión. Pero si esa correlación se rompe ante cambios en la concentración del reactivo, el catalizador o la presión, entonces el lazo 'controla bien la temperatura' pero produce conversiones incorrectas. La validación de la correlación es el paso crítico.",
+    "tipo": "texto"
+  }
+]

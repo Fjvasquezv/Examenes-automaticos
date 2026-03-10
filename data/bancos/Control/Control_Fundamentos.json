@@ -1,0 +1,492 @@
+[
+  {
+    "id": "cp_001",
+    "pregunta": "¿Cuál es el objetivo del control 'alrededor de un punto' en un proceso industrial?",
+    "opciones": {
+      "A": "Permitir que la variable oscile libremente entre dos límites definidos",
+      "B": "Mantener la variable controlada lo más cercana posible a un valor específico deseado (set point)",
+      "C": "Hacer que la variable siga una trayectoria que cambia con el tiempo",
+      "D": "Activar o desactivar el actuador cuando la variable cruza ciertos umbrales"
+    },
+    "respuesta_correcta": "B",
+    "dificultad": 1,
+    "categoria": "Conceptos Básicos de Control",
+    "explicacion": "El control alrededor de un punto busca mantener la variable controlada en un valor específico (set point), actuando continuamente para compensar cualquier perturbación que la aleje de ese valor. Es el tipo de control más común en procesos continuos, como mantener la temperatura de un reactor exactamente a 80°C."
+  },
+  {
+    "id": "cp_002",
+    "pregunta": "Un termostato doméstico enciende la caldera cuando la temperatura cae por debajo de 18°C y la apaga cuando supera 22°C. ¿Qué tipo de control representa?",
+    "opciones": {
+      "A": "Control alrededor de un punto, con set point en 20°C",
+      "B": "Control siguiendo un comportamiento deseado, porque la temperatura cambia con el tiempo",
+      "C": "Control entre un rango, porque actúa cuando se cruzan los límites 18°C y 22°C",
+      "D": "Control en lazo abierto, porque no mide la temperatura continuamente"
+    },
+    "respuesta_correcta": "C",
+    "dificultad": 1,
+    "categoria": "Conceptos Básicos de Control",
+    "explicacion": "El control entre un rango no busca un valor exacto sino mantener la variable dentro de un intervalo permitido. El termostato actúa solo cuando la temperatura cruza los límites (18°C o 22°C), dejando que oscile libremente dentro de la banda. No hay un set point único: hay un límite inferior y uno superior."
+  },
+  {
+    "id": "cp_003",
+    "pregunta": "En un horno de tratamiento térmico batch, la temperatura debe subir gradualmente de 25°C a 400°C en 30 minutos, mantenerse 1 hora y luego bajar lentamente. ¿Qué tipo de control describe este caso?",
+    "opciones": {
+      "A": "Control entre un rango, porque hay temperatura mínima (25°C) y máxima (400°C)",
+      "B": "Control alrededor de un punto, porque en cada momento hay un valor deseado",
+      "C": "Control siguiendo un comportamiento deseado, porque el set point varía con el tiempo según un perfil",
+      "D": "Control en lazo abierto, porque el perfil está programado de antemano"
+    },
+    "respuesta_correcta": "C",
+    "dificultad": 1,
+    "categoria": "Conceptos Básicos de Control",
+    "explicacion": "El control siguiendo un comportamiento deseado (servo o de seguimiento) tiene un set point que cambia con el tiempo según una trayectoria predefinida. El sistema debe rastrear ese perfil continuamente. Se diferencia del control alrededor de un punto (set point fijo) porque aquí el valor deseado mismo evoluciona en el tiempo."
+  },
+  {
+    "id": "cp_017",
+    "pregunta": "En el control de temperatura de un biorreactor, el set point es exactamente 37°C para el crecimiento óptimo del microorganismo. ¿Qué tipo de control es este?",
+    "opciones": {
+      "A": "Control entre un rango, porque la temperatura puede variar varios grados sin efecto",
+      "B": "Control alrededor de un punto, porque existe un valor específico que se debe mantener",
+      "C": "Control siguiendo un comportamiento deseado, porque la temperatura cambia con el ciclo de crecimiento",
+      "D": "Control en lazo abierto, porque el metabolismo microbiano es impredecible"
+    },
+    "respuesta_correcta": "B",
+    "dificultad": 1,
+    "categoria": "Conceptos Básicos de Control",
+    "explicacion": "Cuando existe un valor específico que debe mantenerse lo más exactamente posible, se usa control alrededor de un punto. El set point fijo de 37°C es el objetivo constante; el controlador actúa continuamente para mantener la temperatura en ese valor, compensando el calor generado por el metabolismo microbiano y las pérdidas al ambiente."
+  },
+  {
+    "id": "cp_024",
+    "pregunta": "¿Cuál de los tres tipos de control describe mejor el sistema de posicionamiento de un brazo robótico de manufactura, donde el brazo debe seguir una trayectoria espacial específica calculada para cada tarea?",
+    "opciones": {
+      "A": "Control entre un rango, porque el brazo puede estar en cualquier posición dentro del área de trabajo",
+      "B": "Control alrededor de un punto, porque en cada instante hay una posición deseada",
+      "C": "Control siguiendo un comportamiento deseado, porque la posición de referencia varía continuamente en el tiempo",
+      "D": "No es control de proceso; los robots no usan retroalimentación"
+    },
+    "respuesta_correcta": "C",
+    "dificultad": 1,
+    "categoria": "Conceptos Básicos de Control",
+    "explicacion": "El brazo robótico debe rastrear una trayectoria espacial donde la posición de referencia cambia constantemente en el tiempo. Esto es control servo o de seguimiento: el set point es una función del tiempo (la trayectoria programada), y el sistema debe seguirla con precisión compensando perturbaciones como variaciones de carga."
+  },
+  {
+    "id": "cp_025",
+    "pregunta": "Un compresor tiene una válvula de seguridad que abre automáticamente cuando la presión supera 15 bar y cierra cuando baja de 12 bar. ¿Qué tipo de control es?",
+    "opciones": {
+      "A": "Control alrededor de un punto (set point = 13.5 bar)",
+      "B": "Control entre un rango (límite inferior 12 bar, límite superior 15 bar)",
+      "C": "Control siguiendo un comportamiento deseado (perfil de presión variable)",
+      "D": "No es control; es solo protección del equipo sin retroalimentación"
+    },
+    "respuesta_correcta": "B",
+    "dificultad": 1,
+    "categoria": "Conceptos Básicos de Control",
+    "explicacion": "La válvula de seguridad mantiene la presión dentro de un rango (12–15 bar) actuando solo cuando se cruzan los límites. No busca un valor específico exacto sino evitar que la presión salga de la banda aceptable. Este es el patrón del control entre un rango: hay un límite inferior y uno superior, y el actuador solo actúa en los extremos."
+  },
+  {
+    "id": "cp_040",
+    "pregunta": "¿Cuál es la diferencia fundamental entre el control en lazo abierto y el control en lazo cerrado (con retroalimentación)?",
+    "opciones": {
+      "A": "El lazo abierto usa válvulas manuales; el lazo cerrado usa válvulas automáticas",
+      "B": "En lazo abierto el controlador actúa sin saber el resultado real del proceso; en lazo cerrado el controlador usa la medición de la variable controlada para corregir el error",
+      "C": "El lazo abierto es más preciso porque no tiene ruido de medición",
+      "D": "El lazo cerrado requiere un modelo matemático perfecto del proceso para funcionar"
+    },
+    "respuesta_correcta": "B",
+    "dificultad": 2,
+    "categoria": "Conceptos Básicos de Control",
+    "explicacion": "La diferencia fundamental es la retroalimentación de información. En lazo abierto: el controlador actúa según un plan prefijado sin medir el resultado real; cualquier perturbación genera un error permanente que el sistema no puede corregir. En lazo cerrado: el controlador compara continuamente el resultado real con el deseado y ajusta su acción para reducir el error, sin necesitar un modelo perfecto del proceso."
+  },
+  {
+    "id": "cp_066",
+    "pregunta": "¿Cuál de los tres tipos de control sería más apropiado para controlar el nivel de un tanque pulmón cuya función es amortiguar variaciones de flujo entre dos unidades del proceso?",
+    "opciones": {
+      "A": "Control alrededor de un punto exactamente al 50%, para máxima capacidad de amortiguación",
+      "B": "Control entre un rango (ej: 20%–80%), permitiendo que el nivel fluctúe dentro de márgenes seguros sin actuar continuamente",
+      "C": "Control siguiendo un comportamiento deseado, con el nivel variando según la demanda de la unidad siguiente",
+      "D": "Sin control; los tanques pulmón no deben controlarse para no interferir con su función"
+    },
+    "respuesta_correcta": "B",
+    "dificultad": 3,
+    "categoria": "Conceptos Básicos de Control",
+    "explicacion": "Un tanque pulmón debe AMORTIGUAR variaciones de flujo, no eliminarlas. Un control muy ajustado (alrededor de un punto exacto) transferiría las variaciones aguas abajo en lugar de absorberlas. El control entre un rango (20%–80%) permite que el nivel fluctúe libremente dentro de la banda, absorbe las variaciones de flujo como colchón, y solo actúa cuando se acerca a los límites extremos."
+  },
+  {
+    "id": "cp_068",
+    "pregunta": "Un operador aumenta el set point de temperatura de un reactor de 70°C a 80°C. ¿Qué sucede inmediatamente en el lazo de control (con retroalimentación negativa)?",
+    "opciones": {
+      "A": "La temperatura sube instantáneamente a 80°C porque el set point cambió",
+      "B": "El error se vuelve negativo (SP ahora es mayor que PV), el controlador aumenta su señal, el flujo de calefacción aumenta y la temperatura comienza a subir gradualmente hacia 80°C",
+      "C": "El error se vuelve positivo (PV > SP), el controlador reduce la calefacción y la temperatura baja",
+      "D": "El lazo no reacciona hasta que la temperatura naturalmente llegue a 80°C por inercia"
+    },
+    "respuesta_correcta": "B",
+    "dificultad": 3,
+    "categoria": "Conceptos Básicos de Control",
+    "explicacion": "Al cambiar SP de 70 a 80°C: error = SP − PV = 80 − 70 = +10°C (positivo). El controlador recibe un error positivo y aumenta su señal de salida. El actuador abre más la válvula de calefacción. El flujo de calor aumenta y la temperatura del reactor comienza a subir hacia el nuevo set point. La temperatura no salta instantáneamente: el proceso tiene inercia térmica."
+  },
+  {
+    "id": "cp_079",
+    "pregunta": "En el control de un reactor batch, durante la etapa de calentamiento el set point de temperatura sube gradualmente de 25°C a 100°C siguiendo una rampa de 5°C/min. Durante la etapa de reacción el set point se mantiene en 100°C por 2 horas. ¿Cómo cambia el tipo de control entre las dos etapas?",
+    "opciones": {
+      "A": "No cambia; en ambas etapas es control alrededor de un punto",
+      "B": "La etapa de calentamiento es control siguiendo un comportamiento deseado (set point variable); la etapa de reacción es control alrededor de un punto (set point fijo en 100°C)",
+      "C": "La etapa de calentamiento es control entre un rango; la etapa de reacción es control servo",
+      "D": "En ambas etapas es control en lazo abierto porque el perfil está programado"
+    },
+    "respuesta_correcta": "B",
+    "dificultad": 4,
+    "categoria": "Conceptos Básicos de Control",
+    "explicacion": "Durante el calentamiento, el set point cambia con el tiempo (rampa de 5°C/min): el sistema debe seguir esa trayectoria variable, que es control de seguimiento (servo). Durante la reacción, el set point es fijo en 100°C y el sistema debe rechazar perturbaciones para mantenerse en ese valor, que es control regulatorio (alrededor de un punto). Un mismo sistema puede usar distintos tipos de control en diferentes etapas de operación."
+  },
+  {
+    "id": "cp_085",
+    "pregunta": "¿Cuál de las siguientes afirmaciones es VERDADERA sobre la retroalimentación negativa en un lazo de control proporcional (solo ganancia)?",
+    "opciones": {
+      "A": "Elimina completamente el error: Y siempre llega exactamente al set point SP",
+      "B": "Reduce el error pero puede dejar un error residual (offset) porque la ganancia no puede ser infinita en la práctica",
+      "C": "No cambia el error de estado estacionario respecto al lazo abierto",
+      "D": "Solo funciona si el proceso no tiene perturbaciones externas"
+    },
+    "respuesta_correcta": "B",
+    "dificultad": 4,
+    "categoria": "Conceptos Básicos de Control",
+    "explicacion": "Un lazo de retroalimentación negativa con control proporcional puro REDUCE el error pero no lo elimina completamente: siempre queda un error residual (offset) en estado estacionario. Para que Y sea exactamente igual a SP, se necesitaría una ganancia infinita (imposible en práctica) o una acción integral que acumule el error hasta eliminarlo. El lazo reduce el error en comparación con el lazo abierto, pero no lo lleva a cero."
+  },
+  {
+    "id": "cp_089",
+    "pregunta": "¿Cuál de las siguientes situaciones describe mejor un caso donde la retroalimentación negativa del PROCESO (no del controlador) ayuda a estabilizar el sistema sin necesidad de control externo?",
+    "opciones": {
+      "A": "Reactor exotérmico: mayor T → mayor velocidad de reacción → más calor → T sube más",
+      "B": "Tanque con descarga por gravedad: mayor nivel → mayor presión hidrostática → mayor flujo de salida → nivel baja (proceso autorregulante)",
+      "C": "Columna de destilación: mayor reflujo → mayor separación → mayor pureza → mayor reflujo",
+      "D": "Intercambiador de calor: mayor T_salida → mayor consumo de vapor → mayor T_salida"
+    },
+    "respuesta_correcta": "B",
+    "dificultad": 4,
+    "categoria": "Conceptos Básicos de Control",
+    "explicacion": "El tanque con descarga por gravedad tiene retroalimentación negativa intrínseca: nivel↑ → presión hidrostática↑ → flujo de salida↑ → nivel↓. El efecto (nivel baja) se opone a la causa (nivel había subido), creando un comportamiento autorregulante. Este proceso es naturalmente estable sin controlador. Los otros casos (A, C, D) son retroalimentaciones positivas que amplificarían las desviaciones."
+  },
+  {
+    "id": "cp_094",
+    "pregunta": "¿Por qué el control 'entre un rango' produce naturalmente oscilaciones en la variable controlada, mientras que el control 'alrededor de un punto' (con acción continua) tiende a minimizarlas?",
+    "opciones": {
+      "A": "Porque el control entre un rango usa actuadores más potentes que generan sobrecorrecciones",
+      "B": "Porque el control entre un rango solo actúa en los extremos (encendido/apagado), permitiendo que la variable oscile libremente entre los límites; el control continuo ajusta la variable manipulada proporcionalmente en todo momento",
+      "C": "Porque el control alrededor de un punto tiene más sensores y puede medir con mayor precisión",
+      "D": "Porque el control entre un rango usa retroalimentación positiva que amplifica las oscilaciones"
+    },
+    "respuesta_correcta": "B",
+    "dificultad": 5,
+    "categoria": "Conceptos Básicos de Control",
+    "explicacion": "El control entre un rango (on-off) actúa en forma todo-o-nada: cuando la variable sale de la banda, el actuador va a su posición extrema (totalmente abierto o cerrado). Esto inevitablemente produce oscilaciones: el actuador corrige en exceso y la variable oscila de un límite al otro. El control continuo (alrededor de un punto) ajusta gradualmente la variable manipulada en proporción al error, evitando correcciones bruscas y minimizando las oscilaciones."
+  },
+  {
+    "id": "cp_096",
+    "pregunta": "¿Cuál de las siguientes afirmaciones integra correctamente los conceptos de 'tipos de control' y 'diagrama de causa-efecto'?",
+    "opciones": {
+      "A": "El tipo de control determina la forma matemática de los bloques en el diagrama de causa-efecto",
+      "B": "El diagrama de causa-efecto identifica qué variables son las causas (candidatas a variables manipuladas) y cuáles son los efectos (variables controladas), lo que es el primer paso para elegir el tipo de control apropiado",
+      "C": "El diagrama de causa-efecto solo aplica al control entre un rango; los otros tipos usan diagramas de flujo",
+      "D": "El tipo de control (alrededor de un punto, entre un rango, siguiendo un comportamiento) determina exclusivamente el tipo de sensor que se usa"
+    },
+    "respuesta_correcta": "B",
+    "dificultad": 5,
+    "categoria": "Conceptos Básicos de Control",
+    "explicacion": "El diagrama de causa-efecto es el análisis previo al diseño del sistema de control: identifica qué variables afectan a qué otras y en qué dirección (mediante las derivadas parciales). Esto permite elegir la variable manipulada más efectiva (la que tiene mayor sensibilidad sobre la variable controlada) y entender las perturbaciones que el lazo debe rechazar. El tipo de control (punto, rango, seguimiento) se elige según el objetivo operativo, independientemente de la estructura del diagrama."
+  },
+  {
+    "id": "cp_097",
+    "pregunta": "Un reactor batch tiene el siguiente perfil de operación: fase 1 (calentamiento), fase 2 (reacción a T constante), fase 3 (enfriamiento). En el diagrama de causa-efecto del sistema completo, la temperatura T durante la fase 2 es la variable de salida que se controla. ¿Cuál afirmación describe correctamente la relación entre el tipo de control y el diagrama de causa-efecto en cada fase?",
+    "opciones": {
+      "A": "En todas las fases el diagrama de causa-efecto es diferente porque las variables cambian con el tiempo",
+      "B": "El diagrama de causa-efecto (quién causa qué) es el mismo en todas las fases; lo que cambia es el set point del controlador: variable en las fases 1 y 3 (control servo) y fijo en la fase 2 (control regulatorio)",
+      "C": "En la fase 2 no hay diagrama de causa-efecto porque el set point es constante y no hay cambios causales",
+      "D": "El diagrama de causa-efecto solo aplica durante la fase de calentamiento porque es la más dinámica"
+    },
+    "respuesta_correcta": "B",
+    "dificultad": 5,
+    "categoria": "Conceptos Básicos de Control",
+    "explicacion": "El diagrama de causa-efecto describe las relaciones físicas entre variables del proceso (quién causa qué), que dependen del proceso mismo y no del tipo de control. El calor de la chaqueta siempre causa un cambio en T, independientemente de si el set point es fijo o variable. Lo que cambia entre fases es la ESTRATEGIA de control: en las fases 1 y 3 el set point varía en el tiempo (control servo); en la fase 2 el set point es fijo (control regulatorio). El diagrama causal es la misma estructura en todas las fases."
+  },
+  {
+    "id": "pc_101",
+    "pregunta": "Según el texto, ¿cuál es la definición más relevante de 'control' como verbo transitivo en el contexto del control de procesos?",
+    "opciones": {
+      "A": "Encender y apagar equipos según un cronograma predefinido",
+      "B": "Verificar por evidencia o experimentos, y ejercer influencia directiva sobre un sistema",
+      "C": "Registrar manualmente las variables de proceso en una bitácora",
+      "D": "Diseñar reactores químicos con capacidad de autorregulación"
+    },
+    "respuesta_correcta": "B",
+    "dificultad": 1,
+    "categoria": "Conceptos fundamentales de control",
+    "explicacion": "El diccionario Merriam-Webster citado en el texto define 'control' como verbo transitivo en dos sentidos: (1) verificar, probar o comprobar mediante evidencia o experimentos, y (2) ejercer influencia directiva o restrictiva. Esta definición es la base conceptual del control de procesos industriales."
+  },
+  {
+    "id": "pc_102",
+    "pregunta": "¿Qué tipo de comportamiento tienen TODOS los procesos industriales según el Capítulo 1?",
+    "opciones": {
+      "A": "Estático, ya que operan en estado estacionario permanente",
+      "B": "Periódico, con ciclos regulares de producción",
+      "C": "Dinámico, con comportamiento que cambia con el tiempo",
+      "D": "Lineal, siguiendo relaciones proporcionales entre variables"
+    },
+    "respuesta_correcta": "C",
+    "dificultad": 1,
+    "categoria": "Conceptos fundamentales de control",
+    "explicacion": "El texto establece explícitamente que 'todos los procesos industriales son dinámicos', es decir, su comportamiento cambia con el tiempo. Esto implica que el ingeniero de control debe entender primero la naturaleza dinámica de los procesos para luego diseñar mecanismos que influyan en su comportamiento a lo largo del tiempo."
+  },
+  {
+    "id": "pc_103",
+    "pregunta": "En el Capítulo 2, ¿cómo se denominan las variables que representan el efecto del entorno sobre el proceso?",
+    "opciones": {
+      "A": "Variables de salida (y)",
+      "B": "Variables de entrada (u)",
+      "C": "Variables manipuladas (m)",
+      "D": "Variables controladas"
+    },
+    "respuesta_correcta": "B",
+    "dificultad": 1,
+    "categoria": "Definiciones y terminología",
+    "explicacion": "Las variables de entrada (u) representan el efecto del entorno sobre el proceso. En contraste, las variables de salida (y) representan el efecto del proceso sobre el entorno. Esta clasificación es el punto de partida para analizar cualquier sistema de control desde la perspectiva del controlador."
+  },
+  {
+    "id": "pc_104",
+    "pregunta": "¿Cuál es el nombre que recibe el valor de referencia o meta deseada para una variable de control?",
+    "opciones": {
+      "A": "Variable manipulada",
+      "B": "Punto de operación",
+      "C": "Set-point (punto de ajuste, y_sp)",
+      "D": "Disturbancia medida"
+    },
+    "respuesta_correcta": "C",
+    "dificultad": 1,
+    "categoria": "Definiciones y terminología",
+    "explicacion": "El texto define el valor de referencia o meta deseada como 'set-point' (y_sp), también llamado 'reference target' (y_r). Es el valor al que el sistema de control busca llevar y mantener la variable de salida mediante la manipulación de las entradas."
+  },
+  {
+    "id": "pc_105",
+    "pregunta": "¿Cuál de los siguientes es un ejemplo de actuador en un sistema de control de procesos?",
+    "opciones": {
+      "A": "Un termopar para medir temperatura",
+      "B": "Un transmisor de presión diferencial",
+      "C": "Una válvula de control en una línea de proceso",
+      "D": "Un cromatógrafo de gases en línea"
+    },
+    "respuesta_correcta": "C",
+    "dificultad": 1,
+    "categoria": "Definiciones y terminología",
+    "explicacion": "Los actuadores permiten al operador ejercer influencia sobre el proceso ajustando las variables de entrada. Las válvulas de control y las bombas de velocidad variable son los actuadores más comunes. En contraste, los termopares, transmisores y cromatógrafos son sensores, que constituyen los 'ojos' del sistema de control."
+  },
+  {
+    "id": "pc_107",
+    "pregunta": "Según el texto, ¿a qué década se remonta el concepto de retroalimentación (feedback) en sistemas de control?",
+    "opciones": {
+      "A": "Al siglo XIX con la máquina de vapor",
+      "B": "A hace aproximadamente 2000 años con relojes de agua en Alejandría y Bagdad",
+      "C": "A la Segunda Guerra Mundial con sistemas de radar",
+      "D": "A la década de 1940 con el desarrollo de la electrónica"
+    },
+    "respuesta_correcta": "B",
+    "dificultad": 1,
+    "categoria": "Historia del control de procesos",
+    "explicacion": "El texto menciona explícitamente que la historia del control, especialmente el concepto de retroalimentación, puede rastrearse hasta hace 2000 años cuando se usaban reguladores de flotador en relojes de agua en Alejandría (Egipto) y Bagdad (Iraq)."
+  },
+  {
+    "id": "pc_108",
+    "pregunta": "¿Qué son las 'perturbaciones no medidas' (unmeasured disturbances, d_u)?",
+    "opciones": {
+      "A": "Variables de entrada que el operador puede ajustar libremente",
+      "B": "Variables de salida que no tienen sensor asociado",
+      "C": "Perturbaciones cuyo efecto en el proceso es impredecible por no poder medirse",
+      "D": "Variables internas del proceso que no afectan la salida"
+    },
+    "respuesta_correcta": "C",
+    "dificultad": 1,
+    "categoria": "Definiciones y terminología",
+    "explicacion": "Las perturbaciones no medidas (d_u) son aquellas que no pueden medirse directamente, lo que las hace especialmente problemáticas. El texto enfatiza que 'generan problemas de control más difíciles, ya que su impacto en el proceso es simplemente impredecible', a diferencia de las perturbaciones medidas (d_m) que pueden anticiparse."
+  },
+  {
+    "id": "pc_114",
+    "pregunta": "Según el texto, ¿cuál fue el principal factor económico que llevó a la adopción de controladores automáticos en las plantas industriales durante los años 1940s y 1950s?",
+    "opciones": {
+      "A": "El desarrollo de computadoras digitales más baratas",
+      "B": "El aumento en los costos de mano de obra y el desarrollo de equipos de mayor capacidad y rendimiento",
+      "C": "Las regulaciones ambientales más estrictas del gobierno",
+      "D": "La competencia internacional con plantas europeas más automatizadas"
+    },
+    "respuesta_correcta": "B",
+    "dificultad": 2,
+    "categoria": "Historia del control de procesos",
+    "explicacion": "El texto indica que con el aumento de los costos de mano de obra y equipos, y con el desarrollo de equipos y procesos de mayor capacidad en los años 1940s y 1950s, se volvió antieconómico e imposible operar plantas sin dispositivos de control automático. Esto impulsó la adopción de controladores de retroalimentación aunque sin comprensión profunda de la dinámica del proceso."
+  },
+  {
+    "id": "pc_118",
+    "pregunta": "¿Qué concepto ilustra la bicicleta (Figura 1.4) en el contexto del control de procesos?",
+    "opciones": {
+      "A": "Un proceso autorregulado que no necesita control externo",
+      "B": "Un sistema inherentemente inestable que requiere manipulación externa continua para estabilizarse y seguir una trayectoria deseada",
+      "C": "Un sistema en lazo abierto donde el corredor es el modelo inverso",
+      "D": "Un ejemplo de control MIMO con múltiples variables manipuladas independientes"
+    },
+    "respuesta_correcta": "B",
+    "dificultad": 2,
+    "categoria": "Conceptos fundamentales de control",
+    "explicacion": "El texto usa la bicicleta como analogía de un sistema inherentemente inestable que se estabiliza mediante acciones de control continuas (pedalear, dirigir, inclinarse). El corredor actúa como el sistema de control, el tráfico y los peatones son perturbaciones, y el destino es el set-point. Incluso se puede cambiar de destino, análogo a cambiar el punto de operación."
+  },
+  {
+    "id": "pc_119",
+    "pregunta": "Según la Sección 1.3.2, ¿por qué una planta opera típicamente a cierta distancia del punto óptimo teórico en la región factible?",
+    "opciones": {
+      "A": "Porque el óptimo teórico viola las regulaciones ambientales",
+      "B": "Porque los operadores no tienen acceso a la información del óptimo",
+      "C": "Para garantizar operación factible ante las perturbaciones siempre presentes en la planta",
+      "D": "Porque el punto óptimo es siempre inestable desde el punto de vista del control"
+    },
+    "respuesta_correcta": "C",
+    "dificultad": 3,
+    "categoria": "Objetivos y beneficios del control",
+    "explicacion": "El texto explica que aunque el óptimo se ubica en la esquina de la región factible, en la práctica la planta opera suficientemente lejos de ese punto para garantizar operación factible ante las perturbaciones siempre presentes. Un sistema de control más sofisticado permite minimizar las variaciones alrededor del objetivo operativo, permitiendo operar más cerca del óptimo real y, por tanto, más rentablemente."
+  },
+  {
+    "id": "pc_120",
+    "pregunta": "Un reactor químico con reacción exotérmica puede experimentar 'runaway' (fuga térmica). Desde la perspectiva del control, esto se debe a que es:",
+    "opciones": {
+      "A": "Un proceso con disturbancia medida en la composición de alimentación",
+      "B": "Un proceso inherentemente inestable que requiere manipulación externa para estabilizar su comportamiento",
+      "C": "Un sistema MIMO con múltiples variables de salida difíciles de medir",
+      "D": "Un proceso con tiempo muerto excesivo que dificulta la respuesta del controlador"
+    },
+    "respuesta_correcta": "B",
+    "dificultad": 3,
+    "categoria": "Conceptos fundamentales de control",
+    "explicacion": "El texto menciona explícitamente el reactor con reacción exotérmica como ejemplo de proceso inherentemente inestable: la temperatura puede alejarse de valores deseados y aceptables si no se emplea enfriamiento externo suficiente. Esto contrasta con procesos autorregulados (self-regulating) que son naturalmente estables y no requieren intervención externa para su estabilización."
+  },
+  {
+    "id": "pc_124",
+    "pregunta": "¿Por qué el control automático de procesos es esencial para satisfacer las regulaciones ambientales en plantas químicas modernas?",
+    "opciones": {
+      "A": "Porque los reguladores ambientales exigen que todas las plantas tengan sistemas DCS instalados",
+      "B": "Porque el monitoreo y control continuo garantiza que las emisiones al aire, agua y suelo se mantengan dentro de los límites especificados en composición y caudal",
+      "C": "Porque el control automático reduce el consumo de materias primas que generan residuos",
+      "D": "Porque los sistemas de control automatizan los reportes de cumplimiento ambiental"
+    },
+    "respuesta_correcta": "B",
+    "dificultad": 3,
+    "categoria": "Rol del control en la industria",
+    "explicacion": "El texto menciona que muchos países han promulgado leyes que exigen que las emisiones al aire, agua y suelo de plantas químicas cumplan con límites especificados en composición y caudal. El control automático continuo de las condiciones operativas es el mecanismo que permite cumplir estos requisitos, ya que el monitoreo manual intermitente sería insuficiente para garantizar el cumplimiento en todo momento."
+  },
+  {
+    "id": "pc_126",
+    "pregunta": "¿En cuál de los siguientes escenarios industriales se ilustra mejor la necesidad de 'mover el proceso de un punto de operación a otro' (objetivo 2 del control)?",
+    "opciones": {
+      "A": "Un reactor exotérmico que necesita mantenerse a temperatura constante ante cambios en la composición de alimentación",
+      "B": "Una refinería de petróleo que procesa diferentes tipos de crudo, requiriendo ajustar el punto de operación según el tipo de crudo procesado",
+      "C": "Un sistema de control de nivel en un tanque de almacenamiento con entrada variable",
+      "D": "Una planta de tratamiento de aguas que debe mantener el pH dentro de un rango permitido"
+    },
+    "respuesta_correcta": "B",
+    "dificultad": 3,
+    "categoria": "Objetivos y beneficios del control",
+    "explicacion": "El texto menciona explícitamente este ejemplo: una refinería que procesa diferentes tipos de crudo petróleo. El punto de operación deseable para un crudo liviano no sería el mismo que para uno pesado. Esto ejemplifica el segundo objetivo del control: mover el proceso de un punto de operación a otro cuando las circunstancias lo requieren, de manera automatizada y eficiente."
+  },
+  {
+    "id": "pc_127",
+    "pregunta": "Según el texto, ¿qué transformación tecnológica significativa vivió el hardware de control durante los años 1980s y 1990s?",
+    "opciones": {
+      "A": "Migración de sistemas analógicos a sistemas completamente digitales distribuidos (DCS)",
+      "B": "Transición desde hardware neumático, pasando por analógico/eléctrico, hasta sistemas basados en microprocesadores",
+      "C": "Reemplazo de controladores PID por controladores predictivos de modelo (MPC) en todas las plantas",
+      "D": "Integración de inteligencia artificial en todos los sistemas de control de lazo cerrado"
+    },
+    "respuesta_correcta": "B",
+    "dificultad": 3,
+    "categoria": "Historia del control de procesos",
+    "explicacion": "El texto describe cómo el hardware de control pasó por una transición sustancial: desde ser neumático, a analógico/eléctrico, y finalmente a basado en microprocesadores. Paralelamente, el hardware diseñado para controladores de lazo simple empezó a beneficiarse de los Sistemas de Control Distribuido (DCS) con opciones de control avanzado. Esta evolución tecnológica definió el panorama del control moderno."
+  },
+  {
+    "id": "pc_130",
+    "pregunta": "¿Por qué los ingenieros químicos de los años 1960s que aplicaban técnicas de control óptimo de la industria aeroespacial y eléctrica fueron criticados por Foss y por Lee y Weekman?",
+    "opciones": {
+      "A": "Porque usaban computadoras demasiado costosas para las plantas químicas de la época",
+      "B": "Porque las técnicas resultaban en sistemas de control inestables en los procesos químicos",
+      "C": "Porque eran técnicas no responsivas a las necesidades reales de los procesos químicos, sin reconocer la unicidad del problema de control en la industria química",
+      "D": "Porque ignoraban completamente el aspecto de seguridad en el diseño de los sistemas de control"
+    },
+    "respuesta_correcta": "C",
+    "dificultad": 4,
+    "categoria": "Historia del control de procesos",
+    "explicacion": "El texto menciona que Foss, y Lee y Weekman criticaron duramente estas prácticas por ser 'no responsivas a las necesidades reales de los procesos químicos' y argumentaron la unicidad del problema de control en la industria química frente a otras industrias. Esto refleja una tensión histórica importante: las técnicas desarrolladas para misiles y radares no eran directamente aplicables a la complejidad de los procesos químicos."
+  },
+  {
+    "id": "pc_132",
+    "pregunta": "Según la visión de 'Smart Plant' descrita por Christofides et al. (Sección 1.1), ¿cuál es el objetivo fundamental de esta visión y qué la habilita tecnológicamente?",
+    "opciones": {
+      "A": "Eliminar completamente la intervención humana mediante robots y IA, habilitado por el aprendizaje automático",
+      "B": "Integración en tiempo real de control de procesos, operaciones de planta y sistemas de negocio, habilitada por avances en infraestructura cibernética y tecnologías de comunicación",
+      "C": "Optimizar únicamente la eficiencia energética de la planta, habilitado por mejores modelos termodinámicos",
+      "D": "Centralizar todas las decisiones de control en un único servidor, habilitado por computación en la nube"
+    },
+    "respuesta_correcta": "B",
+    "dificultad": 4,
+    "categoria": "Historia del control de procesos",
+    "explicacion": "La visión 'Smart Plant' articula la integración en tiempo real del control de procesos, las operaciones de la planta y los sistemas de negocio. Esta integración es habilitada por los rápidos avances en infraestructura cibernética y tecnologías de comunicación. El objetivo es minimizar el tiempo de inactividad, eliminar incidentes y maximizar el uso de los activos de la planta."
+  },
+  {
+    "id": "pc_133",
+    "pregunta": "Analice el impacto de un sistema de control más sofisticado (avanzado) en la operación económica de una planta desde la perspectiva de la región factible y los contornos de ganancia (Sección 1.3.2). ¿Cuál es el mecanismo por el cual genera mayor rentabilidad?",
+    "opciones": {
+      "A": "Reduce los costos de capital al permitir usar equipos de menor tamaño",
+      "B": "Elimina todas las perturbaciones externas que afectan al proceso",
+      "C": "Minimiza las variaciones alrededor del objetivo operativo, permitiendo operar con límites tolerables más ajustados y, por tanto, más cerca del óptimo real de máxima ganancia",
+      "D": "Aumenta la producción al forzar al proceso siempre al punto óptimo teórico sin importar las perturbaciones"
+    },
+    "respuesta_correcta": "C",
+    "dificultad": 4,
+    "categoria": "Objetivos y beneficios del control",
+    "explicacion": "El texto explica el mecanismo: un sistema de control más sofisticado minimiza las variaciones alrededor del objetivo operativo. Esto permite ajustar los límites operativos tolerables (shrinking the tolerable operating limits). Al reducir estos límites, el objetivo operativo puede posicionarse más cerca del óptimo real de máxima ganancia. Esta ganancia, cuantificada por el movimiento hacia un régimen más rentable, establece los beneficios financieros del sistema de control."
+  },
+  {
+    "id": "pc_134",
+    "pregunta": "Un proceso opera normalmente en estado estacionario pero experimenta perturbaciones frecuentes en las propiedades de la corriente de alimentación (composición, temperatura, caudal). Desde la perspectiva de clasificación del texto, estas perturbaciones son perturbaciones en el 'entorno operativo'. ¿Cuál es el enfoque correcto del sistema de control para manejar esta situación?",
+    "opciones": {
+      "A": "Diseñar tanques de almacenamiento más grandes para absorber las perturbaciones (solución estructural, no de control)",
+      "B": "Implementar control feedforward exclusivamente basado en las mediciones de las propiedades de alimentación",
+      "C": "Implementar un sistema de control que proporcione compensación para tales perturbaciones y mantenga el proceso tan cerca como sea posible del punto de operación deseado durante el mayor tiempo posible",
+      "D": "Diseñar un nuevo proceso más robusto que no sea sensible a variaciones en la alimentación"
+    },
+    "respuesta_correcta": "C",
+    "dificultad": 4,
+    "categoria": "Objetivos y beneficios del control",
+    "explicacion": "El texto describe exactamente este escenario: cuando un proceso en estado estacionario experimenta perturbaciones frecuentes en su entorno operativo (propiedades de alimentación fluctuantes), se requiere un sistema de control que proporcione compensación para dichas perturbaciones y mantenga el proceso lo más cerca posible del punto de operación deseado. Esta es la función regulatoria esencial de un sistema de control."
+  },
+  {
+    "id": "pc_137",
+    "pregunta": "El ISC (Integrated Systems Control) descrito en el texto representa el rol expandido del control moderno. Analice cómo esta evolución desde el control tradicional hasta el ISC refleja los cambios históricos descritos en el Capítulo 1 y las implicaciones para la clasificación de variables del Capítulo 2.",
+    "opciones": {
+      "A": "El ISC simplemente automatiza las mismas tareas que hacían los operadores antes de los 1940s, sin cambios en la clasificación de variables",
+      "B": "El ISC extiende el alcance del 'proceso' más allá del equipo físico para incluir información, optimización, programación y mantenimiento; esto expande el conjunto de variables relevantes más allá de las variables físicas de proceso, incorporando variables de negocio y de información como entradas y salidas del sistema de control",
+      "C": "El ISC elimina la necesidad de clasificar variables en manipuladas y perturbaciones ya que todo se controla automáticamente",
+      "D": "El ISC solo es relevante para plantas muy grandes y no aplica a instalaciones medianas o pequeñas"
+    },
+    "respuesta_correcta": "B",
+    "dificultad": 5,
+    "categoria": "Rol del control en la industria",
+    "explicacion": "El ISC representa una extensión fundamental: el 'proceso' ya no es solo el equipo físico sino la planta completa incluyendo gestión de información, adquisición de datos, control de procesos, optimización en línea, programación, producción y planificación de mantenimiento. Esto expande la clasificación del Capítulo 2: las variables de entrada ahora incluyen señales de mercado, demanda del cliente y condiciones de suministro; las variables de salida incluyen métricas de negocio. Esta integración refleja la evolución desde el control manual (pre-1940s) hasta el DCS (1980s) hasta el ISC moderno."
+  },
+  {
+    "id": "pc_140",
+    "pregunta": "Sintetice los conceptos históricos, técnicos y de diseño presentados en ambos capítulos: La evolución del control de procesos desde el control manual (pre-1940s) hasta la visión de 'Smart Plant' puede describirse como una expansión progresiva del 'sistema' bajo control. Identifique la secuencia evolutiva correcta de lo que constituye el 'sistema' en cada era.",
+    "opciones": {
+      "A": "Variable individual → Loop de control → Unidad de proceso → Planta completa → Empresa integrada con sistemas de negocio",
+      "B": "Planta completa → Unidad de proceso → Loop de control → Variable individual → Empresa",
+      "C": "Operador humano → Controlador PID → DCS → MPC → Inteligencia Artificial",
+      "D": "Válvula manual → Controlador neumático → Controlador electrónico → Computadora digital → Red de computadoras"
+    },
+    "respuesta_correcta": "A",
+    "dificultad": 5,
+    "categoria": "Historia del control de procesos",
+    "explicacion": "La evolución descrita en el Capítulo 1 sigue esta progresión: (1) Pre-1940s: operadores ajustaban variables individuales manualmente; (2) 1940s-50s: se agregaron controladores de lazo simple (control de una variable); (3) 1960s-70s: se desarrolló el control a nivel de unidad de proceso con análisis dinámico; (4) 1980s-90s: DCS permitió control a nivel de planta completa con integración de múltiples loops; (5) Visión Smart Plant: integración de la planta completa con sistemas de operaciones y negocios (ISC). Esta progresión refleja una expansión sistemática del alcance del 'sistema' bajo control, desde una variable hasta la empresa integrada."
+  }
+]

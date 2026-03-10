@@ -1,0 +1,282 @@
+[
+  {
+    "id": "pc_106",
+    "pregunta": "¿Qué estructura de control se utiliza cuando existe una sola variable de salida (objetivo de control) y una sola variable manipulada?",
+    "opciones": {
+      "A": "MIMO (Multiple-Input Multiple-Output)",
+      "B": "SISO (Single-Input Single-Output)",
+      "C": "Control feedforward",
+      "D": "Control en cascada"
+    },
+    "respuesta_correcta": "B",
+    "dificultad": 1,
+    "categoria": "Configuraciones de control",
+    "explicacion": "SISO (Single-Input Single-Output) es la estructura donde una única variable manipulada se usa para controlar una única variable de salida. Cuando hay más de una variable de salida y más de una variable manipulada, se utiliza la estructura MIMO (Multiple-Input Multiple-Output)."
+  },
+  {
+    "id": "pc_109",
+    "pregunta": "En el proceso de mezcla (blending) del 'Continuing Problem' del Capítulo 1, ¿cuál es la principal preocupación operacional?",
+    "opciones": {
+      "A": "Mantener la presión del tanque dentro de límites seguros",
+      "B": "Controlar la temperatura de las corrientes de alimentación",
+      "C": "La calidad (composición) de la corriente de mezcla final, x",
+      "D": "Minimizar el consumo de energía en las bombas"
+    },
+    "respuesta_correcta": "C",
+    "dificultad": 2,
+    "categoria": "Aplicaciones de control",
+    "explicacion": "El texto indica que en el proceso de mezcla, la principal preocupación operacional es la calidad (composición) de la corriente de mezcla final, representada por x. El objetivo es alcanzar la composición objetivo ajustando las válvulas en las corrientes de alimentación, aunque esto también afecta el nivel del líquido en el tanque."
+  },
+  {
+    "id": "pc_110",
+    "pregunta": "En el proceso de mezcla con dos corrientes de alimentación (F1, x1) y (F2, x2), ¿cuál de las siguientes variables es considerada una perturbación posible?",
+    "opciones": {
+      "A": "El caudal de salida F",
+      "B": "Las composiciones x1 y x2 de las corrientes de entrada",
+      "C": "El caudal F1 de la primera corriente de alimentación",
+      "D": "El volumen V del tanque"
+    },
+    "respuesta_correcta": "B",
+    "dificultad": 2,
+    "categoria": "Aplicaciones de control",
+    "explicacion": "Según la clasificación del problema continuo en el Capítulo 2, las composiciones x1 y x2 son perturbaciones ya que varían dependiendo de las condiciones del proceso upstream y no pueden ajustarse directamente. En contraste, F1 y F2 son posibles variables manipuladas que el sistema de control puede ajustar mediante válvulas."
+  },
+  {
+    "id": "pc_111",
+    "pregunta": "Para el calentador de tanque agitado del Ejemplo 2.1, si el objetivo es mantener tanto el nivel como la temperatura, ¿qué estructura de control corresponde?",
+    "opciones": {
+      "A": "SISO, controlando solo la temperatura con el vapor",
+      "B": "MIMO, usando el caudal de salida F y el caudal de vapor F_st como variables manipuladas",
+      "C": "Control feedforward basado en la temperatura de entrada",
+      "D": "Control abierto (open-loop) con modelo inverso del proceso"
+    },
+    "respuesta_correcta": "B",
+    "dificultad": 2,
+    "categoria": "Aplicaciones de control",
+    "explicacion": "El Ejemplo 2.4 establece que al tener dos variables de control (nivel h y temperatura T) y dos variables manipuladas (caudal de salida F y caudal de vapor F_st), el sistema es esencialmente MIMO. El caudal de vapor afecta principalmente la temperatura, mientras que el caudal de salida influye principalmente en el nivel del líquido."
+  },
+  {
+    "id": "pc_112",
+    "pregunta": "Según el texto, ¿por qué el control en lazo abierto (open-loop) tiene limitaciones prácticas importantes?",
+    "opciones": {
+      "A": "Porque requiere demasiados sensores instalados en el proceso",
+      "B": "Porque el modelo perfecto del proceso no existe, puede ser difícil invertirlo, y no detecta desviaciones reales del modelo",
+      "C": "Porque solo funciona para sistemas SISO y no para sistemas MIMO",
+      "D": "Porque es más costoso de implementar que el control en lazo cerrado"
+    },
+    "respuesta_correcta": "B",
+    "dificultad": 2,
+    "categoria": "Configuraciones de control",
+    "explicacion": "El texto lista tres limitaciones prácticas del control open-loop: (1) la suposición de un modelo perfecto del proceso nunca es verdadera, (2) puede ser computacionalmente difícil o imposible invertir el modelo para obtener m(t) como función de y_r(t), y (3) no permite al controlador detectar el estado real del proceso cuando difiere de la predicción del modelo."
+  },
+  {
+    "id": "pc_113",
+    "pregunta": "¿Qué diferencia fundamental existe entre el control feedforward y el control feedback?",
+    "opciones": {
+      "A": "El feedforward usa medición de la salida; el feedback usa medición de la perturbación",
+      "B": "El feedforward actúa anticipadamente usando medición de perturbaciones; el feedback actúa usando medición de la variable de salida",
+      "C": "El feedforward es manual; el feedback es automático",
+      "D": "El feedforward funciona solo en sistemas MIMO; el feedback solo en SISO"
+    },
+    "respuesta_correcta": "B",
+    "dificultad": 2,
+    "categoria": "Configuraciones de control",
+    "explicacion": "El control feedforward obtiene información sobre cambios en las perturbaciones y produce acciones de control anticipativas para contrarrestar su efecto antes de que afecten la salida. El control feedback, en cambio, usa la medición directa de la variable de salida para generar la señal de control, actuando de manera reactiva una vez que la perturbación ya afectó el proceso."
+  },
+  {
+    "id": "pc_115",
+    "pregunta": "En la columna de destilación del Ejemplo 2.2, ¿cuál de las siguientes es una perturbación NO medida (unmeasured disturbance)?",
+    "opciones": {
+      "A": "La temperatura del agua de enfriamiento al condensador",
+      "B": "El caudal de alimentación a la columna",
+      "C": "La composición de la alimentación",
+      "D": "La presión del vapor al rehervidor"
+    },
+    "respuesta_correcta": "C",
+    "dificultad": 2,
+    "categoria": "Aplicaciones de control",
+    "explicacion": "Según el Ejemplo 2.2, la composición de la alimentación es una perturbación no medida porque es difícil y costosa de medir (los sensores de composición en línea son caros, poco confiables o no disponibles). En contraste, el caudal y temperatura de alimentación, las condiciones del agua de enfriamiento (temperatura) y las condiciones del vapor (presión) son perturbaciones medibles."
+  },
+  {
+    "id": "pc_116",
+    "pregunta": "¿Cuál de los siguientes representa la secuencia correcta de los 5 pasos del diseño de un sistema de control según la Sección 2.3?",
+    "opciones": {
+      "A": "Seleccionar actuadores → Instalar sensores → Definir objetivos → Ajustar controlador → Elegir configuración",
+      "B": "Definir objetivos de control → Seleccionar variables medidas → Seleccionar variables manipuladas → Seleccionar configuración de control → Sintonizar el controlador",
+      "C": "Sintonizar controlador → Seleccionar variables → Definir objetivos → Instalar hardware → Comisionar",
+      "D": "Modelar el proceso → Diseñar controlador → Simular → Implementar → Entrenar operadores"
+    },
+    "respuesta_correcta": "B",
+    "dificultad": 2,
+    "categoria": "Diseño del sistema de control",
+    "explicacion": "La Sección 2.3 establece cinco pasos sistemáticos: (1) Definir objetivos de control, (2) Seleccionar variables medidas para monitorear el proceso, (3) Seleccionar variables manipuladas para producir cambios en el proceso, (4) Seleccionar la configuración de control (feedback, feedforward, SISO, MIMO), y (5) Sintonizar el controlador determinando los parámetros de la ley de control."
+  },
+  {
+    "id": "pc_117",
+    "pregunta": "En el contexto del diseño de proyectos de control (Sección 2.4), ¿qué ocurre durante la etapa de 'Commissioning'?",
+    "opciones": {
+      "A": "Se instalan los cables de interconexión y se verifica la comunicación en red",
+      "B": "Se especifican las funciones de control regulatorio y de seguridad",
+      "C": "Se pone en línea sistemáticamente cada sistema de la planta y se verifica que la tecnología de control satisface los objetivos operacionales",
+      "D": "El ingeniero de control entrega la planta al personal operativo"
+    },
+    "respuesta_correcta": "C",
+    "dificultad": 2,
+    "categoria": "Diseño del sistema de control",
+    "explicacion": "La etapa de 'Commissioning' es donde cada sistema de la planta se pone en línea de manera sistemática y la tecnología de control asociada se verifica para satisfacer los objetivos operacionales generales. Además, en esta etapa los parámetros iniciales de control pueden cambiarse (sintonizarse) y se pueden experimentar diferentes configuraciones para evaluar su impacto en el desempeño del proceso."
+  },
+  {
+    "id": "pc_121",
+    "pregunta": "Para la columna de destilación del Ejemplo 2.2, ¿cuáles son las composiciones del destilado y los fondos desde el punto de vista de la medibilidad?",
+    "opciones": {
+      "A": "Ambas son variables de salida medidas directamente con sensores baratos y confiables",
+      "B": "Ambas son variables de salida no medidas porque son difíciles y costosas de medir directamente",
+      "C": "La composición del destilado es medida pero la de los fondos no",
+      "D": "Ninguna de las dos es relevante para el diseño del sistema de control"
+    },
+    "respuesta_correcta": "B",
+    "dificultad": 3,
+    "categoria": "Aplicaciones de control",
+    "explicacion": "Según el Ejemplo 2.2, las composiciones del destilado y los fondos son variables de salida no medidas (unmeasured outputs, y_u) porque ambas pueden ser difíciles y costosas de medir. Esto representa un desafío de control importante ya que las variables de mayor interés de calidad del producto no están disponibles directamente. Se recurre entonces a medir variables proxy como temperaturas en los platos."
+  },
+  {
+    "id": "pc_122",
+    "pregunta": "¿Cuál es el 'trade-off' fundamental en el diseño de sistemas de control de procesos mencionado en la Sección 1.3.1?",
+    "opciones": {
+      "A": "El balance entre el costo del sistema de control y el beneficio económico generado",
+      "B": "El balance entre acciones de control agresivas con respuestas rápidas (mejor desempeño) versus acciones conservadoras con respuestas lentas (mayor estabilidad)",
+      "C": "La selección entre sensores de alta precisión costosos y sensores económicos menos precisos",
+      "D": "La elección entre control SISO simple y control MIMO complejo pero más efectivo"
+    },
+    "respuesta_correcta": "B",
+    "dificultad": 3,
+    "categoria": "Diseño del sistema de control",
+    "explicacion": "La Sección 1.3.1 identifica el 'design trade-off' permanente entre desempeño y estabilidad: un buen desempeño típicamente requiere acciones de control agresivas y respuestas rápidas, mientras que la estabilidad generalmente se preserva con acciones conservadoras y respuestas lentas. El objetivo primario en el diseño avanzado de control es maximizar el desempeño garantizando la estabilidad."
+  },
+  {
+    "id": "pc_123",
+    "pregunta": "En el procedimiento de clasificación de variables de la Figura 2.6, ¿cuál es la secuencia correcta de abstracción desde el proceso real hasta la representación para el controlador?",
+    "opciones": {
+      "A": "Representación del controlador → Vista del operador → Diagrama de bloque simplificado",
+      "B": "Vista del operador del proceso → Encapsulación en bloque definiendo fronteras → Representación esquemática según vista del controlador",
+      "C": "Identificación de sensores → Identificación de actuadores → Configuración del sistema de control",
+      "D": "Balances de materia y energía → Modelo matemático → Función de transferencia"
+    },
+    "respuesta_correcta": "B",
+    "dificultad": 3,
+    "categoria": "Diseño del sistema de control",
+    "explicacion": "El procedimiento descrito en la Sección 2.1 y la Figura 2.6 comienza desde 'la vista del operador del proceso', procede con la encapsulación del proceso en un bloque definiendo las fronteras del problema, y termina en la etapa final donde el problema se representa esquemáticamente según 'la vista del controlador'. Esta representación final es más simple y muestra claramente las variables involucradas."
+  },
+  {
+    "id": "pc_125",
+    "pregunta": "Considere un tanque de mezcla con nivel que varía. Si el área de la sección transversal es A y el nivel es h, el volumen es V = Ah. En el problema continuo del Capítulo 2, ¿por qué el caudal de salida F no puede elegirse libremente como variable manipulada independiente?",
+    "opciones": {
+      "A": "Porque F ya está fijo por las condiciones aguas abajo del proceso",
+      "B": "Porque F también varía con el nivel h del tanque ya que el flujo depende de la altura hidrostática",
+      "C": "Porque F es una variable de entrada no manipulada por definición en procesos de mezcla",
+      "D": "Porque F tiene un sensor de composición incorporado que lo convierte en variable de salida"
+    },
+    "respuesta_correcta": "B",
+    "dificultad": 3,
+    "categoria": "Aplicaciones de control",
+    "explicacion": "El texto en la solución del problema continuo del Capítulo 2 señala que el caudal de salida F también varía con el nivel h ya que el flujo depende de la altura hidrostática del líquido en el tanque. Por tanto, las variables medidas reales a considerar son h y x. Esta interdependencia es la razón por la que la configuración de control debe considerar cuidadosamente qué se mide y qué se manipula."
+  },
+  {
+    "id": "pc_128",
+    "pregunta": "Un ingeniero propone instalar un control feedforward para compensar variaciones en la temperatura de alimentación a un intercambiador de calor. Sin embargo, también sabe que la composición de alimentación varía ocasionalmente pero no puede medirse. ¿Cuál es la estrategia de control más robusta que podría implementar?",
+    "opciones": {
+      "A": "Solo control feedforward, ya que es suficiente para manejar la perturbación conocida",
+      "B": "Solo control feedback, eliminando la necesidad de medir la temperatura de alimentación",
+      "C": "Una combinación feedforward-feedback: feedforward para la perturbación medida (temperatura) y feedback para corregir el efecto de perturbaciones no medidas (composición)",
+      "D": "Control en lazo abierto con el modelo inverso del intercambiador de calor"
+    },
+    "respuesta_correcta": "C",
+    "dificultad": 4,
+    "categoria": "Configuraciones de control",
+    "explicacion": "El texto describe el esquema combinado feedforward-feedback como el más robusto. El feedforward actúa anticipadamente sobre perturbaciones medidas (temperatura de alimentación), produciendo una acción correctiva antes de que afecten la salida. El feedback compensa las perturbaciones no medidas (composición), ajustando la acción de control basado en la medición de la variable controlada. Esta combinación aparece en el Ejemplo 2.3 (configuración d de la Figura 2.14)."
+  },
+  {
+    "id": "pc_129",
+    "pregunta": "En el contexto del diseño del proyecto de control (Sección 2.4), durante la etapa de 'Ingeniería Preliminar', el ingeniero de control trabaja con un Diagrama de Flujo de Proceso (PFD). ¿Cuál de las siguientes actividades NO corresponde a esta etapa?",
+    "opciones": {
+      "A": "Desarrollar la descripción de operación del proceso y el concepto de control",
+      "B": "Definir la estrategia preliminar de automatización y control",
+      "C": "Especificar las funciones de control de seguridad instrumentado (SIS) en detalle para adquisición de hardware",
+      "D": "Preparar el presupuesto preliminar de tecnología de control"
+    },
+    "respuesta_correcta": "C",
+    "dificultad": 4,
+    "categoria": "Diseño del sistema de control",
+    "explicacion": "La especificación detallada de las funciones de control (incluyendo funciones de seguridad instrumentado) corresponde a la etapa de 'Ingeniería Detallada', no a la preliminar. La Ingeniería Preliminar se enfoca en: desarrollar la descripción operacional y concepto de control, definir la estrategia preliminar de automatización, definir la arquitectura preliminar del sistema, y preparar el presupuesto de tecnología. La especificación detallada para adquisición de hardware ocurre en la siguiente etapa."
+  },
+  {
+    "id": "pc_131",
+    "pregunta": "Considere el proceso de mezcla con dos corrientes de alimentación. Si las composiciones x1 y x2 son perturbaciones y los caudales F1, F2 son variables manipuladas, ¿qué limitación fundamental tendría un sistema de control feedforward puro para este proceso?",
+    "opciones": {
+      "A": "No podría ajustar las válvulas de F1 y F2 porque son variables manipuladas, no sensores",
+      "B": "Si x1 o x2 no pueden medirse directamente (sensores de composición caros/no disponibles), el feedforward no podría actuar sobre estas perturbaciones no medidas",
+      "C": "El feedforward no funciona para sistemas con más de una variable manipulada",
+      "D": "El balance de materia del sistema de mezcla no permite implementar feedforward"
+    },
+    "respuesta_correcta": "B",
+    "dificultad": 4,
+    "categoria": "Configuraciones de control",
+    "explicacion": "El control feedforward requiere que las perturbaciones sean medibles para actuar anticipadamente. El texto señala que en procesos reales, la composición de las corrientes puede ser difícil de medir porque los sensores de composición en línea son costosos, poco confiables o simplemente no disponibles. Si x1 o x2 no pueden medirse, el feedforward no puede actuar sobre ellas, haciendo necesario incorporar control feedback que actúe sobre la medición de la composición del producto final x."
+  },
+  {
+    "id": "pc_135",
+    "pregunta": "Integre los conceptos del Capítulo 1 y 2: Para una planta química que debe satisfacer especificaciones de calidad del producto, restricciones operativas de equipos, regulaciones de seguridad y ambientales, y objetivos económicos, ¿cuál sería la jerarquía correcta de prioridades en el diseño del sistema de control?",
+    "opciones": {
+      "A": "Económico → Calidad → Seguridad → Ambiental → Restricciones operativas",
+      "B": "Seguridad → Restricciones ambientales → Especificaciones de producción → Restricciones operativas → Economía",
+      "C": "Calidad del producto → Seguridad → Economía → Ambiental → Restricciones operativas",
+      "D": "Restricciones operativas → Ambiental → Calidad → Economía → Seguridad"
+    },
+    "respuesta_correcta": "B",
+    "dificultad": 5,
+    "categoria": "Diseño del sistema de control",
+    "explicacion": "El texto establece implícitamente esta jerarquía a través de los requisitos del Capítulo 1 (Sección 1.2.1): la seguridad es el requisito primario (bienestar del personal, comunidad y empresa), seguida por las regulaciones ambientales (mandatos legales), luego las especificaciones de producción (calidad y capacidad), las restricciones operativas (límites físicos de equipos), y finalmente la economía (maximizar ganancias dentro de todos los demás límites). El resumen de la Sección 1.4 confirma que 'el buen diseño de control aborda una jerarquía de objetivos de control, desde la seguridad hasta la calidad del producto y la rentabilidad de la planta'."
+  },
+  {
+    "id": "pc_136",
+    "pregunta": "Considere el diseño del sistema de control para la columna de destilación del Ejemplo 2.2. Las composiciones de destilado y fondos (variables críticas de calidad) son variables de salida no medidas. ¿Qué enfoque de diseño integra correctamente los conceptos de los Capítulos 1 y 2 para abordar este desafío?",
+    "opciones": {
+      "A": "Eliminar los objetivos de composición ya que no pueden medirse directamente y redefinir el control solo en términos de temperatura",
+      "B": "Usar solo control feedback sobre las composiciones, instalando analizadores en línea independientemente del costo",
+      "C": "Usar variables sustitutivas medibles (temperaturas en platos específicos) como variables de control proxy, combinando control feedback sobre estas temperaturas con feedforward sobre perturbaciones medidas, reconociendo que las composiciones serán salidas no medidas y aceptando la limitación",
+      "D": "Implementar control manual por parte de operadores expertos que ajusten basados en análisis de laboratorio"
+    },
+    "respuesta_correcta": "C",
+    "dificultad": 5,
+    "categoria": "Aplicaciones de control",
+    "explicacion": "Este es un problema clásico de control de destilación. Cuando las variables de mayor interés (composiciones) son no medibles directamente, se utilizan variables proxy medibles (temperaturas en platos) como sustitutos para el control. Esta estrategia combina: (1) feedback sobre temperaturas medibles como proxy de composición, (2) feedforward sobre perturbaciones medibles (caudal y temperatura de alimentación, presión de vapor). La opción C integra correctamente la clasificación de variables del Capítulo 2 con los objetivos de control del Capítulo 1."
+  },
+  {
+    "id": "pc_138",
+    "pregunta": "Desde la perspectiva integrada de los Capítulos 1 y 2, evalúe la siguiente afirmación: 'Para un proceso inestable con perturbaciones tanto medidas como no medidas, la estrategia de control óptima es siempre el control feedback puro, ya que no depende del conocimiento previo del proceso ni de la medición de perturbaciones.' ¿Es correcta esta afirmación?",
+    "opciones": {
+      "A": "Sí, porque el feedback siempre es suficiente para estabilizar cualquier proceso inestable",
+      "B": "No, porque el feedback actúa reactivamente después de que la perturbación ya afectó el proceso; para perturbaciones medidas, el feedforward puede anticipar y compensar más rápidamente, mientras que el feedback maneja las perturbaciones no medidas; la combinación es superior al feedback puro",
+      "C": "Sí, porque el feedback en lazo cerrado siempre tiene mejor desempeño que cualquier combinación con feedforward",
+      "D": "No, porque para procesos inestables solo el control en lazo abierto con modelo inverso puede funcionar correctamente"
+    },
+    "respuesta_correcta": "B",
+    "dificultad": 5,
+    "categoria": "Configuraciones de control",
+    "explicacion": "La afirmación es incorrecta. El texto describe claramente que el feedback actúa reactivamente usando la medición de la salida, lo que significa que la perturbación ya afectó el proceso antes de que el controlador actúe. Para perturbaciones medidas, el feedforward puede anticipar y compensar más rápidamente. La estrategia combinada feedforward-feedback es superior: el feedforward maneja eficientemente las perturbaciones medidas y el feedback corrige el efecto residual de perturbaciones no medidas y errores del modelo. Para procesos inestables, esto es especialmente crítico ya que la velocidad de respuesta es fundamental."
+  },
+  {
+    "id": "pc_139",
+    "pregunta": "Integre los conceptos de los Capítulos 1 y 2 para responder: En el diseño de control para una nueva planta (grassroot design), el texto sugiere que la controlabilidad debe considerarse desde las etapas conceptuales del diseño del proceso. ¿Cuál es la implicación más profunda de esta recomendación para el ingeniero de proceso?",
+    "opciones": {
+      "A": "Que el ingeniero de proceso debe especializarse en control antes de diseñar procesos",
+      "B": "Que las decisiones de diseño del proceso (topología, sizing de equipos, integración de calor) afectan fundamentalmente las variables disponibles para manipulación y las perturbaciones a las que estará sujeto el proceso, determinando si el sistema será operable y controlable desde la raíz",
+      "C": "Que el diseño del sistema de control siempre debe hacerse antes que el diseño del proceso",
+      "D": "Que la controlabilidad solo puede evaluarse después de construir la planta mediante pruebas experimentales"
+    },
+    "respuesta_correcta": "B",
+    "dificultad": 5,
+    "categoria": "Diseño del sistema de control",
+    "explicacion": "Esta es la implicación más profunda del texto: las decisiones de diseño del proceso determinan fundamentalmente qué variables existen para manipular (grados de libertad), qué perturbaciones afectarán al sistema, y si el proceso será inherentemente estable o inestable. Un proceso diseñado sin considerar la controlabilidad puede resultar en un sistema donde los objetivos de control son inalcanzables independientemente del sofisticado sistema de control implementado. Esto refleja la visión del texto de que 'la controlabilidad de la planta debe ser uno de los objetivos durante el diseño conceptual del proceso junto con la rentabilidad, factibilidad y seguridad'."
+  }
+]

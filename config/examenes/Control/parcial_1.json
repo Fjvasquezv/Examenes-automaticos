@@ -9,13 +9,13 @@
     "texto": "Parcial modular de Control de Procesos.",
     "temas": [
       "Fundamentos",
-      "Bloques",
-      "Sistemas"
+      "Lazo",
+      "Diseño y Aplicaciones"
     ],
     "duracion_estimada": "2 horas"
   },
   "parametros": {
-    "preguntas_minimas": 20,
+    "preguntas_minimas": 25,
     "preguntas_maximas": 35,
     "nivel_inicial": 3,
     "umbral_estabilizacion": 0.2,
@@ -32,17 +32,19 @@
     "spreadsheet_id": "11LgtY-p59UKYCYY0GwZHCLN--KbZEPZb8poZJTEbyys"
   },
   "bancos_preguntas": [
-    "data/preguntas/ControlQuizzC1_1.json"
+    "data/bancos/Control/Control_Fundamentos.json",
+    "data/bancos/Control/Control_Lazo.json",
+    "data/bancos/Control/Control_Diseno_Aplicaciones.json"
   ],
   "bancos_por_tema": {
     "Fundamentos": [
-      "data/preguntas/ControlQuizzC1_1.json"
+      "data/bancos/Control/Control_Fundamentos.json"
     ],
-    "Bloques": [
-      "data/preguntas/ControlQuizzC1_1.json"
+    "Lazo": [
+      "data/bancos/Control/Control_Lazo.json"
     ],
-    "Sistemas": [
-      "data/preguntas/ControlQuizzC1_1.json"
+    "Diseño y Aplicaciones": [
+      "data/bancos/Control/Control_Diseno_Aplicaciones.json"
     ]
   }
 }

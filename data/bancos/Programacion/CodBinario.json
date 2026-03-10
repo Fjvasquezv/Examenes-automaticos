@@ -1,0 +1,2252 @@
+[
+  {
+    "id": "CODBINARIO_001",
+    "dificultad": 1,
+    "categoria": "Bit y byte",
+    "pregunta": "¿Cuántos valores distintos puede representar un único bit?",
+    "opciones": {
+      "a": "1",
+      "b": "2",
+      "c": "8",
+      "d": "10"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Un bit solo puede estar en dos estados: 0 o 1. Por eso puede representar exactamente 2 valores distintos. Todo el almacenamiento digital se construye combinando bits.",
+    "tipo": "texto"
+  },
+  {
+    "id": "CODBINARIO_002",
+    "dificultad": 1,
+    "categoria": "Bit y byte",
+    "pregunta": "¿Cuántos bits tiene un byte?",
+    "opciones": {
+      "a": "4",
+      "b": "16",
+      "c": "8",
+      "d": "10"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "Un byte está formado por 8 bits. Esta es la unidad básica de almacenamiento en la mayoría de las arquitecturas de computadoras modernas.",
+    "tipo": "texto"
+  },
+  {
+    "id": "CODBINARIO_003",
+    "dificultad": 1,
+    "categoria": "Sistema binario",
+    "pregunta": "¿Qué base numérica utiliza el sistema binario?",
+    "opciones": {
+      "a": "Base 8",
+      "b": "Base 16",
+      "c": "Base 10",
+      "d": "Base 2"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "El sistema binario es de base 2: solo usa los dígitos 0 y 1. En contraste, el sistema decimal que usamos cotidianamente es de base 10 y usa los dígitos del 0 al 9.",
+    "tipo": "texto"
+  },
+  {
+    "id": "CODBINARIO_004",
+    "dificultad": 1,
+    "categoria": "Sistema binario",
+    "pregunta": "¿Cuál de los siguientes es un número binario válido?",
+    "opciones": {
+      "a": "1012",
+      "b": "2110",
+      "c": "1010",
+      "d": "3001"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "En binario solo existen los dígitos 0 y 1. El número 1010 es válido. Los demás contienen los dígitos 2 o 3, que no existen en el sistema binario.",
+    "tipo": "texto"
+  },
+  {
+    "id": "CODBINARIO_005",
+    "dificultad": 1,
+    "categoria": "Sistema binario",
+    "pregunta": "¿Cuál es el siguiente número en la secuencia binaria: 0, 1, 10, 11, ___?",
+    "opciones": {
+      "a": "12",
+      "b": "100",
+      "c": "111",
+      "d": "101"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "En binario, después de 11 (decimal 3) viene 100 (decimal 4). Al igual que en decimal pasamos de 9 a 10, en binario al agotar los dígitos disponibles se agrega una nueva posición.",
+    "tipo": "texto"
+  },
+  {
+    "id": "CODBINARIO_006",
+    "dificultad": 1,
+    "categoria": "Bit y byte",
+    "pregunta": "¿Cuántos valores distintos puede representar un byte (8 bits)?",
+    "opciones": {
+      "a": "8",
+      "b": "16",
+      "c": "128",
+      "d": "256"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "Con 8 bits se pueden representar 2⁸ = 256 valores distintos, que van del 0 al 255 en enteros sin signo.",
+    "tipo": "texto"
+  },
+  {
+    "id": "CODBINARIO_007",
+    "dificultad": 1,
+    "categoria": "Sistema binario",
+    "pregunta": "¿Cuál es el valor decimal del número binario 10?",
+    "opciones": {
+      "a": "1",
+      "b": "10",
+      "c": "2",
+      "d": "4"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "El número binario 10 tiene un 1 en la posición de valor 2¹ y un 0 en la posición de valor 2⁰. Resultado: 1×2 + 0×1 = 2.",
+    "tipo": "texto"
+  },
+  {
+    "id": "CODBINARIO_008",
+    "dificultad": 1,
+    "categoria": "Sistema binario",
+    "pregunta": "¿Cuál es el valor decimal del número binario 100?",
+    "opciones": {
+      "a": "3",
+      "b": "4",
+      "c": "100",
+      "d": "8"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "El número binario 100 tiene un 1 en la posición 2² y ceros en las demás. Resultado: 1×4 + 0×2 + 0×1 = 4.",
+    "tipo": "texto"
+  },
+  {
+    "id": "CODBINARIO_009",
+    "dificultad": 1,
+    "categoria": "Bit y byte",
+    "pregunta": "¿Cuál es la unidad mínima de información en un sistema digital?",
+    "opciones": {
+      "a": "Byte",
+      "b": "Nibble",
+      "c": "Bit",
+      "d": "Kilobyte"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "El bit (binary digit) es la unidad mínima de información: representa un estado binario (0 o 1). Todo lo demás, bytes, kilobytes, etc., son agrupaciones de bits.",
+    "tipo": "texto"
+  },
+  {
+    "id": "CODBINARIO_010",
+    "dificultad": 1,
+    "categoria": "Sistema binario",
+    "pregunta": "En el sistema binario, ¿qué dígito tiene el mayor valor posicional en el número 1101?",
+    "opciones": {
+      "a": "El primer 1 (de izquierda a derecha)",
+      "b": "El 0",
+      "c": "El último 1 (de izquierda a derecha)",
+      "d": "Todos valen igual"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "Al igual que en decimal, el dígito más a la izquierda (el más significativo) tiene el mayor valor posicional. En 1101, el primer 1 representa 2³ = 8.",
+    "tipo": "texto"
+  },
+  {
+    "id": "CODBINARIO_011",
+    "dificultad": 2,
+    "categoria": "Conversión binario-decimal",
+    "pregunta": "¿Cuál es el valor decimal del número binario 1101?",
+    "opciones": {
+      "a": "11",
+      "b": "12",
+      "c": "13",
+      "d": "14"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "1101 en binario: 1×2³ + 1×2² + 0×2¹ + 1×2⁰ = 8 + 4 + 0 + 1 = 13.",
+    "tipo": "texto"
+  },
+  {
+    "id": "CODBINARIO_012",
+    "dificultad": 2,
+    "categoria": "Conversión decimal-binario",
+    "pregunta": "¿Cuál es la representación binaria del número decimal 5?",
+    "opciones": {
+      "a": "110",
+      "b": "101",
+      "c": "011",
+      "d": "100"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "5 en binario: 5 ÷ 2 = 2 resto 1; 2 ÷ 2 = 1 resto 0; 1 ÷ 2 = 0 resto 1. Leyendo los restos de abajo hacia arriba: 101.",
+    "tipo": "texto"
+  },
+  {
+    "id": "CODBINARIO_013",
+    "dificultad": 2,
+    "categoria": "Conversión decimal-binario",
+    "pregunta": "¿Cuál es la representación binaria del número decimal 10?",
+    "opciones": {
+      "a": "1010",
+      "b": "1100",
+      "c": "0110",
+      "d": "1001"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "10 en binario: 10 ÷ 2 = 5 r0; 5 ÷ 2 = 2 r1; 2 ÷ 2 = 1 r0; 1 ÷ 2 = 0 r1. Restos de abajo a arriba: 1010.",
+    "tipo": "texto"
+  },
+  {
+    "id": "CODBINARIO_014",
+    "dificultad": 2,
+    "categoria": "Enteros sin signo",
+    "pregunta": "¿Cuántos bits se necesitan como mínimo para representar todos los números del 0 al 15?",
+    "opciones": {
+      "a": "3",
+      "b": "4",
+      "c": "5",
+      "d": "8"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Con 4 bits se representan 2⁴ = 16 valores (del 0 al 15). Con 3 bits solo llegaríamos al 7. El número 15 en binario es 1111, que requiere exactamente 4 bits.",
+    "tipo": "texto"
+  },
+  {
+    "id": "CODBINARIO_015",
+    "dificultad": 2,
+    "categoria": "Conversión binario-decimal",
+    "pregunta": "¿Cuál es el valor decimal del número binario 11111111?",
+    "opciones": {
+      "a": "128",
+      "b": "127",
+      "c": "255",
+      "d": "256"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "11111111 en binario tiene todos los 8 bits en 1. Su valor es 2⁸ - 1 = 256 - 1 = 255. Es el máximo valor que puede almacenar un byte sin signo.",
+    "tipo": "texto"
+  },
+  {
+    "id": "CODBINARIO_016",
+    "dificultad": 2,
+    "categoria": "Conversión decimal-binario",
+    "pregunta": "¿Cuál es la representación binaria del número decimal 8?",
+    "opciones": {
+      "a": "0111",
+      "b": "1001",
+      "c": "1000",
+      "d": "1100"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "8 es exactamente 2³. En binario eso es un 1 en la posición de valor 8 y ceros en las demás: 1000.",
+    "tipo": "texto"
+  },
+  {
+    "id": "CODBINARIO_017",
+    "dificultad": 2,
+    "categoria": "Enteros sin signo",
+    "pregunta": "¿Cuál es el mayor número entero positivo que se puede representar con 3 bits?",
+    "opciones": {
+      "a": "3",
+      "b": "6",
+      "c": "7",
+      "d": "8"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "Con 3 bits se representan 2³ = 8 valores (0 al 7). El máximo es 7, representado como 111 en binario.",
+    "tipo": "texto"
+  },
+  {
+    "id": "CODBINARIO_018",
+    "dificultad": 2,
+    "categoria": "Enteros sin signo",
+    "pregunta": "¿Cuántos valores distintos puede representar un campo de 4 bits?",
+    "opciones": {
+      "a": "8",
+      "b": "4",
+      "c": "16",
+      "d": "32"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "Con n bits se representan 2ⁿ valores. Con 4 bits: 2⁴ = 16 valores distintos (del 0 al 15).",
+    "tipo": "texto"
+  },
+  {
+    "id": "CODBINARIO_019",
+    "dificultad": 2,
+    "categoria": "Conversión binario-decimal",
+    "pregunta": "¿Cuál es el valor decimal del número binario 10000?",
+    "opciones": {
+      "a": "8",
+      "b": "16",
+      "c": "32",
+      "d": "10"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "10000 en binario tiene un 1 en la posición 2⁴ = 16. Todos los demás bits son 0. Por lo tanto su valor decimal es 16.",
+    "tipo": "texto"
+  },
+  {
+    "id": "CODBINARIO_020",
+    "dificultad": 2,
+    "categoria": "Conversión decimal-binario",
+    "pregunta": "¿Cuál es la representación binaria del número decimal 25?",
+    "opciones": {
+      "a": "10101",
+      "b": "11001",
+      "c": "11010",
+      "d": "10011"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "25 = 16 + 8 + 1 = 2⁴ + 2³ + 2⁰. En binario: 11001. Verificación: 1×16 + 1×8 + 0×4 + 0×2 + 1×1 = 25.",
+    "tipo": "texto"
+  },
+  {
+    "id": "CODBINARIO_021",
+    "dificultad": 3,
+    "categoria": "Sistema hexadecimal",
+    "pregunta": "¿Cuál es el equivalente hexadecimal del grupo binario 1111?",
+    "opciones": {
+      "a": "E",
+      "b": "F",
+      "c": "9",
+      "d": "15"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "1111 en binario equivale a 15 en decimal, y 15 se representa como F en hexadecimal. El hexadecimal usa A-F para los valores del 10 al 15.",
+    "tipo": "texto"
+  },
+  {
+    "id": "CODBINARIO_022",
+    "dificultad": 3,
+    "categoria": "Sistema hexadecimal",
+    "pregunta": "¿Cuántos bits representa exactamente un dígito hexadecimal?",
+    "opciones": {
+      "a": "2",
+      "b": "3",
+      "c": "4",
+      "d": "8"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "El hexadecimal tiene base 16 = 2⁴, por lo que cada dígito hex representa exactamente 4 bits. Esto hace que 2 dígitos hex representen 1 byte.",
+    "tipo": "texto"
+  },
+  {
+    "id": "CODBINARIO_023",
+    "dificultad": 3,
+    "categoria": "Sistema hexadecimal",
+    "pregunta": "¿Cuál es el equivalente hexadecimal del número binario 10101100?",
+    "opciones": {
+      "a": "AB",
+      "b": "BC",
+      "c": "AC",
+      "d": "CA"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "Se divide en grupos de 4 bits: 1010 = 10 = A, y 1100 = 12 = C. Por lo tanto 10101100 en binario es AC en hexadecimal.",
+    "tipo": "texto"
+  },
+  {
+    "id": "CODBINARIO_024",
+    "dificultad": 3,
+    "categoria": "Complemento a dos",
+    "pregunta": "¿Cuál es el complemento a 2 del número 0001 (4 bits)?",
+    "opciones": {
+      "a": "1110",
+      "b": "1111",
+      "c": "0111",
+      "d": "1001"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Para obtener el complemento a 2: primero se invierte cada bit (complemento a 1): 0001 → 1110. Luego se suma 1: 1110 + 1 = 1111. Este resultado representa -1.",
+    "tipo": "texto"
+  },
+  {
+    "id": "CODBINARIO_025",
+    "dificultad": 3,
+    "categoria": "Aritmética binaria",
+    "pregunta": "¿Cuál es el resultado de la suma binaria 1011 + 0101?",
+    "opciones": {
+      "a": "1111",
+      "b": "10001",
+      "c": "10000",
+      "d": "1110"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "1011 + 0101: desde la derecha: 1+1=10 (0, llevo 1); 1+0+1=10 (0, llevo 1); 0+1+1=10 (0, llevo 1); 1+0+1=10 (0, llevo 1). Resultado: 10000.",
+    "tipo": "texto"
+  },
+  {
+    "id": "CODBINARIO_026",
+    "dificultad": 3,
+    "categoria": "Aritmética binaria",
+    "pregunta": "¿Cuál es el resultado de la suma binaria 111 + 001?",
+    "opciones": {
+      "a": "1001",
+      "b": "1000",
+      "c": "0111",
+      "d": "1100"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "111 + 001: 1+1=10 (0, llevo 1); 1+0+1=10 (0, llevo 1); 1+0+1=10 (0, llevo 1); llevo 1. Resultado: 1000 (decimal 8 = 7+1).",
+    "tipo": "texto"
+  },
+  {
+    "id": "CODBINARIO_027",
+    "dificultad": 3,
+    "categoria": "Sistema hexadecimal",
+    "pregunta": "¿Cuál es el equivalente binario del número hexadecimal A3?",
+    "opciones": {
+      "a": "10100011",
+      "b": "11000011",
+      "c": "10110011",
+      "d": "10100111"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "A en hexadecimal = 10 en decimal = 1010 en binario. 3 en hexadecimal = 0011 en binario. Concatenando: 10100011.",
+    "tipo": "texto"
+  },
+  {
+    "id": "CODBINARIO_028",
+    "dificultad": 3,
+    "categoria": "Complemento a dos",
+    "pregunta": "¿Cómo se representa -5 en complemento a 2 con 8 bits? (5 decimal = 00000101)",
+    "opciones": {
+      "a": "10000101",
+      "b": "11111010",
+      "c": "11111011",
+      "d": "01111011"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "Para -5: invertir 00000101 → 11111010 (complemento a 1). Luego sumar 1: 11111010 + 1 = 11111011. Verificación: 11111011 en complemento a 2 representa -5.",
+    "tipo": "texto"
+  },
+  {
+    "id": "CODBINARIO_029",
+    "dificultad": 3,
+    "categoria": "Complemento a dos",
+    "pregunta": "En representación de complemento a 2 con 4 bits, ¿qué número decimal representa 1110?",
+    "opciones": {
+      "a": "14",
+      "b": "-1",
+      "c": "-2",
+      "d": "-3"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "1110 comienza con 1, por lo que es negativo en complemento a 2. Invertir: 0001. Sumar 1: 0010 = 2. Por lo tanto 1110 representa -2.",
+    "tipo": "texto"
+  },
+  {
+    "id": "CODBINARIO_030",
+    "dificultad": 3,
+    "categoria": "Sistema hexadecimal",
+    "pregunta": "¿Cuál es el equivalente hexadecimal del número decimal 255?",
+    "opciones": {
+      "a": "EF",
+      "b": "FE",
+      "c": "FF",
+      "d": "F0"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "255 en binario es 11111111. Dividido en grupos de 4: 1111 = F y 1111 = F. Por lo tanto 255 decimal = FF hexadecimal.",
+    "tipo": "texto"
+  },
+  {
+    "id": "CODBINARIO_031",
+    "dificultad": 4,
+    "categoria": "IEEE 754",
+    "pregunta": "En el estándar IEEE 754 de precisión simple (32 bits), ¿cuántos bits se utilizan para el exponente?",
+    "opciones": {
+      "a": "7",
+      "b": "8",
+      "c": "10",
+      "d": "23"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "En IEEE 754 precisión simple: 1 bit de signo + 8 bits de exponente + 23 bits de mantisa = 32 bits en total.",
+    "tipo": "texto"
+  },
+  {
+    "id": "CODBINARIO_032",
+    "dificultad": 4,
+    "categoria": "Codificación de caracteres",
+    "pregunta": "¿Cuál es el código ASCII decimal del carácter 'A' (letra A mayúscula)?",
+    "opciones": {
+      "a": "41",
+      "b": "65",
+      "c": "97",
+      "d": "48"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "La letra 'A' mayúscula tiene el código ASCII 65 (decimal), que en binario es 01000001. La 'a' minúscula es 97. El dígito '0' empieza en 48.",
+    "tipo": "texto"
+  },
+  {
+    "id": "CODBINARIO_033",
+    "dificultad": 4,
+    "categoria": "Operaciones bit a bit",
+    "pregunta": "¿Cuál es el resultado de la operación bit a bit 1010 AND 1100?",
+    "opciones": {
+      "a": "1110",
+      "b": "0110",
+      "c": "1000",
+      "d": "0010"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "AND produce 1 solo cuando ambos bits son 1. Bit a bit: 1AND1=1, 0AND1=0, 1AND0=0, 0AND0=0. Resultado: 1000.",
+    "tipo": "texto"
+  },
+  {
+    "id": "CODBINARIO_034",
+    "dificultad": 4,
+    "categoria": "Operaciones bit a bit",
+    "pregunta": "¿Cuál es el resultado de la operación bit a bit 1010 OR 1100?",
+    "opciones": {
+      "a": "1010",
+      "b": "1110",
+      "c": "0110",
+      "d": "1000"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "OR produce 1 cuando al menos uno de los bits es 1. Bit a bit: 1OR1=1, 0OR1=1, 1OR0=1, 0OR0=0. Resultado: 1110.",
+    "tipo": "texto"
+  },
+  {
+    "id": "CODBINARIO_035",
+    "dificultad": 4,
+    "categoria": "Operaciones bit a bit",
+    "pregunta": "¿Cuál es el resultado de la operación bit a bit 1010 XOR 1100?",
+    "opciones": {
+      "a": "1110",
+      "b": "1000",
+      "c": "0110",
+      "d": "0100"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "XOR produce 1 cuando los bits son diferentes. Bit a bit: 1XOR1=0, 0XOR1=1, 1XOR0=1, 0XOR0=0. Resultado: 0110.",
+    "tipo": "texto"
+  },
+  {
+    "id": "CODBINARIO_036",
+    "dificultad": 4,
+    "categoria": "Máscaras de bits",
+    "pregunta": "¿Para qué se utiliza principalmente una máscara de bits en programación?",
+    "opciones": {
+      "a": "Para ocultar datos sensibles en la memoria",
+      "b": "Para aislar, activar o desactivar bits específicos de un valor",
+      "c": "Para convertir números decimales a binario",
+      "d": "Para comprimir datos en disco"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Una máscara de bits se aplica con AND, OR o XOR para operar sobre bits específicos: con AND se aíslan bits (poniendo 1 donde quiero leer, 0 donde quiero ignorar), con OR se activan, con XOR se invierten.",
+    "tipo": "texto"
+  },
+  {
+    "id": "CODBINARIO_037",
+    "dificultad": 4,
+    "categoria": "Operaciones bit a bit",
+    "pregunta": "Si se aplica un desplazamiento lógico a la izquierda (left shift) de 1 posición al número 0011, ¿cuál es el resultado?",
+    "opciones": {
+      "a": "0001",
+      "b": "1100",
+      "c": "0110",
+      "d": "1001"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "El desplazamiento a la izquierda mueve todos los bits una posición hacia la izquierda e introduce un 0 a la derecha: 0011 → 0110. Esto equivale a multiplicar por 2 (de 3 a 6).",
+    "tipo": "texto"
+  },
+  {
+    "id": "CODBINARIO_038",
+    "dificultad": 4,
+    "categoria": "IEEE 754",
+    "pregunta": "En IEEE 754 precisión simple, el exponente usa 'exceso-127' (bias). Si el exponente real es 0, ¿qué valor se almacena en los 8 bits de exponente?",
+    "opciones": {
+      "a": "0",
+      "b": "64",
+      "c": "127",
+      "d": "128"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "Para representar el exponente real se suma el bias de 127: exponente almacenado = exponente real + 127. Si el exponente real es 0, se almacena 0 + 127 = 127.",
+    "tipo": "texto"
+  },
+  {
+    "id": "CODBINARIO_039",
+    "dificultad": 4,
+    "categoria": "Codificación de caracteres",
+    "pregunta": "¿Cuántos caracteres distintos puede representar el código ASCII estándar de 7 bits?",
+    "opciones": {
+      "a": "64",
+      "b": "128",
+      "c": "256",
+      "d": "512"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Con 7 bits se representan 2⁷ = 128 caracteres. El ASCII estándar incluye letras, dígitos, puntuación y caracteres de control (como salto de línea y tabulador).",
+    "tipo": "texto"
+  },
+  {
+    "id": "CODBINARIO_040",
+    "dificultad": 4,
+    "categoria": "Operaciones bit a bit",
+    "pregunta": "¿Cuál es el resultado de aplicar NOT al número binario 10110010 (8 bits)?",
+    "opciones": {
+      "a": "10110010",
+      "b": "01001101",
+      "c": "11111110",
+      "d": "00000010"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "La operación NOT invierte cada bit. 10110010 → 01001101. Cada 1 se convierte en 0 y cada 0 en 1.",
+    "tipo": "texto"
+  },
+  {
+    "id": "CODBINARIO_041",
+    "dificultad": 5,
+    "categoria": "Detección de errores",
+    "pregunta": "¿Cuántos bits de paridad necesita el código Hamming para proteger 4 bits de datos?",
+    "opciones": {
+      "a": "2",
+      "b": "3",
+      "c": "4",
+      "d": "5"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Para proteger m bits de datos se necesitan r bits de paridad tal que 2ʳ ≥ m + r + 1. Para m=4: 2³ = 8 ≥ 4 + 3 + 1 = 8. Se necesitan 3 bits de paridad, dando un código Hamming(7,4).",
+    "tipo": "texto"
+  },
+  {
+    "id": "CODBINARIO_042",
+    "dificultad": 5,
+    "categoria": "IEEE 754",
+    "pregunta": "En IEEE 754 precisión simple, ¿qué representa un patrón con todos los bits del exponente en 1 y mantisa distinta de 0?",
+    "opciones": {
+      "a": "El número más grande representable",
+      "b": "Infinito positivo o negativo",
+      "c": "NaN (Not a Number)",
+      "d": "Cero"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "En IEEE 754, exponente todo-1 con mantisa ≠ 0 representa NaN (Not a Number), resultado de operaciones inválidas como 0/0 o √(-1). Si la mantisa es 0, representa ±Infinito.",
+    "tipo": "texto"
+  },
+  {
+    "id": "CODBINARIO_043",
+    "dificultad": 5,
+    "categoria": "Detección de errores",
+    "pregunta": "¿Cuál es la técnica de detección de errores más simple que agrega un bit extra para asegurar que el número total de bits '1' sea par?",
+    "opciones": {
+      "a": "CRC (Cyclic Redundancy Check)",
+      "b": "Checksum",
+      "c": "Paridad par",
+      "d": "Código Hamming"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "La paridad par agrega un solo bit extra de forma que el total de unos sea par. Es simple pero solo detecta errores en un número impar de bits; no puede corregirlos ni detectar errores en número par de bits.",
+    "tipo": "texto"
+  },
+  {
+    "id": "CODBINARIO_044",
+    "dificultad": 5,
+    "categoria": "Detección de errores",
+    "pregunta": "En el código Hamming, ¿en qué posiciones se ubican los bits de paridad dentro del mensaje codificado?",
+    "opciones": {
+      "a": "Al final del mensaje, después de los datos",
+      "b": "En posiciones que son potencias de 2 (1, 2, 4, 8...)",
+      "c": "En posiciones pares (2, 4, 6, 8...)",
+      "d": "Intercalados de forma aleatoria entre los datos"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "En el código Hamming, los bits de paridad se colocan en las posiciones 1, 2, 4, 8, 16... (potencias de 2). Cada bit de paridad cubre un subconjunto específico de posiciones de datos.",
+    "tipo": "texto"
+  },
+  {
+    "id": "CODBINARIO_045",
+    "dificultad": 5,
+    "categoria": "Operaciones bit a bit",
+    "pregunta": "¿Cuál es la diferencia principal entre un desplazamiento lógico y uno aritmético a la derecha?",
+    "opciones": {
+      "a": "El lógico es más rápido que el aritmético",
+      "b": "El aritmético preserva el bit de signo (extiende con el MSB), el lógico siempre introduce ceros",
+      "c": "El aritmético solo funciona con números positivos",
+      "d": "No hay diferencia: ambos introducen ceros por la izquierda"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "El desplazamiento aritmético derecho replica el bit de signo (MSB) para mantener el signo del número, permitiendo dividir enteros con signo por 2. El lógico siempre introduce 0s, útil para valores sin signo.",
+    "tipo": "texto"
+  },
+  {
+    "id": "CODBINARIO_046",
+    "dificultad": 5,
+    "categoria": "IEEE 754",
+    "pregunta": "En IEEE 754 precisión simple, ¿cuántos bits componen la mantisa (fracción)?",
+    "opciones": {
+      "a": "8",
+      "b": "16",
+      "c": "23",
+      "d": "24"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "La mantisa en IEEE 754 precisión simple tiene 23 bits almacenados. Sin embargo, gracias al 'bit implícito' (hidden bit), se obtiene una precisión efectiva de 24 bits, ya que los números normalizados siempre tienen un 1 implícito antes del punto binario.",
+    "tipo": "texto"
+  },
+  {
+    "id": "CODBINARIO_047",
+    "dificultad": 5,
+    "categoria": "Detección de errores",
+    "pregunta": "Si un byte se transmite con paridad par y al recibirlo se detecta que el número de unos es impar, ¿qué conclusión se puede sacar?",
+    "opciones": {
+      "a": "No ocurrió ningún error, el receptor calculó mal",
+      "b": "Se alteró exactamente 1 bit durante la transmisión",
+      "c": "Se alteró un número impar de bits durante la transmisión",
+      "d": "Se alteraron exactamente 2 bits durante la transmisión"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "La paridad par detecta que algo cambió, pero no puede determinar cuántos bits exactamente. Un número impar de cambios (1, 3, 5...) altera la paridad. Un número par de cambios (2, 4...) pasaría desapercibido.",
+    "tipo": "texto"
+  },
+  {
+    "id": "CODBINARIO_048",
+    "dificultad": 5,
+    "categoria": "Detección de errores",
+    "pregunta": "¿Cuántos bits de paridad necesita el código Hamming para proteger 8 bits de datos?",
+    "opciones": {
+      "a": "3",
+      "b": "4",
+      "c": "5",
+      "d": "8"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Para m=8 bits de datos, se busca r tal que 2ʳ ≥ m + r + 1. Con r=4: 2⁴ = 16 ≥ 8 + 4 + 1 = 13. Se necesitan 4 bits de paridad, generando un código de 12 bits en total.",
+    "tipo": "texto"
+  },
+  {
+    "id": "CODBINARIO_049",
+    "dificultad": 5,
+    "categoria": "IEEE 754",
+    "pregunta": "¿Qué es el 'bit implícito' (hidden bit) en la representación IEEE 754 de números normalizados?",
+    "opciones": {
+      "a": "Un bit de signo extra que no se almacena",
+      "b": "El bit 1 antes del punto binario que no se almacena porque siempre es 1 en números normalizados",
+      "c": "El bit menos significativo de la mantisa que se descarta por redondeo",
+      "d": "Un bit de control que indica si el número está normalizado"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Todo número normalizado en IEEE 754 tiene la forma 1.xxx × 2ⁿ. Como ese '1' antes del punto binario es siempre 1, no hace falta almacenarlo: está implícito. Esto da 1 bit extra de precisión sin costo de almacenamiento.",
+    "tipo": "texto"
+  },
+  {
+    "id": "CODBINARIO_050",
+    "dificultad": 5,
+    "categoria": "Máscaras de bits",
+    "pregunta": "Un programador quiere verificar si el bit 3 (contando desde 0 en el bit menos significativo) de un byte está activo. ¿Qué máscara y operación debe usar?",
+    "opciones": {
+      "a": "byte OR 00001000 y verificar si el resultado es no-cero",
+      "b": "byte AND 00001000 y verificar si el resultado es no-cero",
+      "c": "byte XOR 00001000 y verificar si el resultado es cero",
+      "d": "byte AND 00001000 y verificar si el resultado es cero"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Para verificar si el bit 3 está activo: crear máscara 00001000 (= 8 decimal, donde solo el bit 3 es 1). Aplicar AND: si el bit 3 del byte es 1, el resultado es 00001000 (no-cero). Si es 0, el resultado es 00000000 (cero).",
+    "tipo": "texto"
+  },
+  {
+    "id": "CODBINARIO_051",
+    "dificultad": 1,
+    "categoria": "Bit y byte",
+    "pregunta": "¿Cuántos bits tiene un nibble?",
+    "opciones": {
+      "a": "2",
+      "b": "4",
+      "c": "8",
+      "d": "16"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Un nibble es una agrupación de 4 bits, equivalente a medio byte. Es útil porque representa exactamente un dígito hexadecimal (valores del 0 al 15).",
+    "tipo": "texto"
+  },
+  {
+    "id": "CODBINARIO_052",
+    "dificultad": 1,
+    "categoria": "Bit y byte",
+    "pregunta": "En el número binario 1011, ¿cuál es el LSB (bit menos significativo)?",
+    "opciones": {
+      "a": "El 1 de la izquierda (representa 2³)",
+      "b": "El 0 (representa 2¹)",
+      "c": "El 1 de la derecha (representa 2⁰)",
+      "d": "Todos los bits tienen el mismo peso"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "El LSB (Least Significant Bit) es el bit más a la derecha, el de menor peso posicional (2⁰ = 1). En 1011, el LSB es el 1 de la derecha. Su opuesto es el MSB (Most Significant Bit), el más a la izquierda.",
+    "tipo": "texto"
+  },
+  {
+    "id": "CODBINARIO_053",
+    "dificultad": 1,
+    "categoria": "Sistema binario",
+    "pregunta": "¿Por qué los computadores usan el sistema binario en lugar del decimal?",
+    "opciones": {
+      "a": "Porque los ingenieros decidieron arbitrariamente usarlo",
+      "b": "Porque los circuitos electrónicos representan fácilmente dos estados: voltaje alto (1) y voltaje bajo (0)",
+      "c": "Porque el sistema binario es matemáticamente más preciso que el decimal",
+      "d": "Porque los números binarios son más cortos que los decimales"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "El binario es ideal para hardware porque un transistor o circuito solo necesita distinguir dos estados: encendido/apagado, voltaje alto/bajo. Representar 10 estados distintos (decimal) sería mucho más complejo y propenso a errores.",
+    "tipo": "texto"
+  },
+  {
+    "id": "CODBINARIO_054",
+    "dificultad": 1,
+    "categoria": "Sistema binario",
+    "pregunta": "¿Qué ocurre con el valor de un número binario cuando se agrega un cero a su derecha? Por ejemplo, de 101 a 1010.",
+    "opciones": {
+      "a": "El valor se mantiene igual",
+      "b": "El valor se duplica (multiplica por 2)",
+      "c": "El valor aumenta en 1",
+      "d": "El valor se divide entre 2"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Agregar un cero a la derecha desplaza todos los bits una posición a la izquierda, multiplicando el valor por 2. Igual que en decimal: 5 → 50 es multiplicar por 10 (la base). En binario: 101 (=5) → 1010 (=10).",
+    "tipo": "texto"
+  },
+  {
+    "id": "CODBINARIO_055",
+    "dificultad": 1,
+    "categoria": "Sistema binario",
+    "pregunta": "¿Cuántas combinaciones distintas se pueden formar con 2 bits?",
+    "opciones": {
+      "a": "2",
+      "b": "3",
+      "c": "4",
+      "d": "8"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "Con 2 bits se pueden formar 2² = 4 combinaciones: 00, 01, 10 y 11. En general, con n bits se tienen 2ⁿ combinaciones posibles.",
+    "tipo": "texto"
+  },
+  {
+    "id": "CODBINARIO_056",
+    "dificultad": 1,
+    "categoria": "Bit y byte",
+    "pregunta": "¿Cuántos kilobytes (KB) hay en 1 megabyte (MB) en el contexto de almacenamiento digital?",
+    "opciones": {
+      "a": "100",
+      "b": "1000",
+      "c": "1024",
+      "d": "2048"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "En el sistema binario de almacenamiento, 1 KB = 2¹⁰ = 1024 bytes y 1 MB = 2²⁰ bytes. Por lo tanto 1 MB = 1024 KB. Esto se debe a que las potencias de 2 son las unidades naturales del sistema binario.",
+    "tipo": "texto"
+  },
+  {
+    "id": "CODBINARIO_057",
+    "dificultad": 1,
+    "categoria": "Sistema binario",
+    "pregunta": "¿Cuál es el valor decimal de 2⁰?",
+    "opciones": {
+      "a": "0",
+      "b": "1",
+      "c": "2",
+      "d": "4"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Cualquier número elevado a la potencia 0 es igual a 1. Por eso el bit de menor peso en binario (posición 0, el LSB) siempre tiene valor 1 cuando está activado.",
+    "tipo": "texto"
+  },
+  {
+    "id": "CODBINARIO_058",
+    "dificultad": 1,
+    "categoria": "Sistema binario",
+    "pregunta": "¿Cuál de las siguientes afirmaciones describe correctamente la diferencia entre sistema decimal y sistema binario?",
+    "opciones": {
+      "a": "El decimal usa base 2, el binario usa base 10",
+      "b": "Ambos sistemas pueden representar los mismos valores, pero con distinta notación",
+      "c": "El binario solo puede representar números positivos",
+      "d": "El decimal es más eficiente para computadoras porque usa más dígitos"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Tanto el sistema decimal como el binario pueden representar exactamente los mismos valores numéricos. La diferencia es la notación: el mismo número se escribe diferente en cada base. Por ejemplo, 10 decimal = 1010 binario.",
+    "tipo": "texto"
+  },
+  {
+    "id": "CODBINARIO_059",
+    "dificultad": 1,
+    "categoria": "Sistema binario",
+    "pregunta": "¿Cuál es el valor decimal del número binario 1000?",
+    "opciones": {
+      "a": "3",
+      "b": "4",
+      "c": "8",
+      "d": "1000"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "1000 en binario tiene un 1 en la posición 2³ = 8 y ceros en las demás. Su valor decimal es 8. Observa que cada vez que el '1' se desplaza una posición a la izquierda, el valor se duplica: 1=1, 10=2, 100=4, 1000=8.",
+    "tipo": "texto"
+  },
+  {
+    "id": "CODBINARIO_060",
+    "dificultad": 1,
+    "categoria": "Sistema binario",
+    "pregunta": "En binario, ¿cuántos dígitos tiene el número que representa el valor decimal 7?",
+    "opciones": {
+      "a": "1 dígito",
+      "b": "2 dígitos",
+      "c": "3 dígitos",
+      "d": "7 dígitos"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "7 en binario es 111, que tiene 3 dígitos. En general, para saber cuántos bits se necesitan para representar un número N, se calcula ⌊log₂(N)⌋ + 1. Para 7: ⌊log₂(7)⌋ + 1 = 2 + 1 = 3.",
+    "tipo": "texto"
+  },
+  {
+    "id": "CODBINARIO_061",
+    "dificultad": 2,
+    "categoria": "Conversión binario-decimal",
+    "pregunta": "¿Cuál es el valor decimal del número binario 1001?",
+    "opciones": {
+      "a": "5",
+      "b": "7",
+      "c": "9",
+      "d": "11"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "1001 en binario: 1×2³ + 0×2² + 0×2¹ + 1×2⁰ = 8 + 0 + 0 + 1 = 9.",
+    "tipo": "texto"
+  },
+  {
+    "id": "CODBINARIO_062",
+    "dificultad": 2,
+    "categoria": "Conversión decimal-binario",
+    "pregunta": "¿Cuál es la representación binaria del número decimal 15?",
+    "opciones": {
+      "a": "1011",
+      "b": "1110",
+      "c": "1111",
+      "d": "1101"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "15 = 8 + 4 + 2 + 1 = 2³ + 2² + 2¹ + 2⁰. Todos los bits están en 1: 1111. Es el máximo representable con 4 bits sin signo.",
+    "tipo": "texto"
+  },
+  {
+    "id": "CODBINARIO_063",
+    "dificultad": 2,
+    "categoria": "Conversión binario-decimal",
+    "pregunta": "¿Cuál es el valor decimal del número binario 10111?",
+    "opciones": {
+      "a": "19",
+      "b": "21",
+      "c": "23",
+      "d": "27"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "10111: 1×2⁴ + 0×2³ + 1×2² + 1×2¹ + 1×2⁰ = 16 + 0 + 4 + 2 + 1 = 23.",
+    "tipo": "texto"
+  },
+  {
+    "id": "CODBINARIO_064",
+    "dificultad": 2,
+    "categoria": "Conversión decimal-binario",
+    "pregunta": "¿Cuál es la representación binaria del número decimal 20?",
+    "opciones": {
+      "a": "10010",
+      "b": "10100",
+      "c": "10110",
+      "d": "11000"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "20 = 16 + 4 = 2⁴ + 2². En binario: 10100. Verificación: 1×16 + 0×8 + 1×4 + 0×2 + 0×1 = 20.",
+    "tipo": "texto"
+  },
+  {
+    "id": "CODBINARIO_065",
+    "dificultad": 2,
+    "categoria": "Enteros sin signo",
+    "pregunta": "¿Cuál es el mayor número sin signo que puede almacenarse en 16 bits?",
+    "opciones": {
+      "a": "255",
+      "b": "1023",
+      "c": "32767",
+      "d": "65535"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "Con 16 bits se representan 2¹⁶ = 65536 valores. El máximo sin signo es 2¹⁶ - 1 = 65535, representado como 1111111111111111 en binario.",
+    "tipo": "texto"
+  },
+  {
+    "id": "CODBINARIO_066",
+    "dificultad": 2,
+    "categoria": "Conversión binario-decimal",
+    "pregunta": "¿Cuál es el valor decimal del número binario 11010?",
+    "opciones": {
+      "a": "22",
+      "b": "24",
+      "c": "26",
+      "d": "28"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "11010: 1×2⁴ + 1×2³ + 0×2² + 1×2¹ + 0×2⁰ = 16 + 8 + 0 + 2 + 0 = 26.",
+    "tipo": "texto"
+  },
+  {
+    "id": "CODBINARIO_067",
+    "dificultad": 2,
+    "categoria": "Conversión decimal-binario",
+    "pregunta": "¿Cuál es la representación binaria del número decimal 3?",
+    "opciones": {
+      "a": "10",
+      "b": "11",
+      "c": "100",
+      "d": "111"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "3 = 2 + 1 = 2¹ + 2⁰. En binario: 11. Verificación: 1×2 + 1×1 = 3.",
+    "tipo": "texto"
+  },
+  {
+    "id": "CODBINARIO_068",
+    "dificultad": 2,
+    "categoria": "Enteros sin signo",
+    "pregunta": "¿Cuántos bits son necesarios como mínimo para representar el número decimal 100 en binario?",
+    "opciones": {
+      "a": "5 bits",
+      "b": "6 bits",
+      "c": "7 bits",
+      "d": "8 bits"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "100 en binario es 1100100 (7 bits). Con 6 bits el máximo es 63 (2⁶-1), insuficiente. Con 7 bits el máximo es 127 (2⁷-1 ≥ 100). Por eso se necesitan mínimo 7 bits.",
+    "tipo": "texto"
+  },
+  {
+    "id": "CODBINARIO_069",
+    "dificultad": 2,
+    "categoria": "Conversión decimal-binario",
+    "pregunta": "¿Cuál es la representación binaria del número decimal 64?",
+    "opciones": {
+      "a": "111111",
+      "b": "1000000",
+      "c": "1100000",
+      "d": "0111111"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "64 es exactamente 2⁶. En binario es 1000000: un 1 en la posición de valor 64 y seis ceros. Al ser potencia de 2, su representación binaria siempre es 1 seguido de ceros.",
+    "tipo": "texto"
+  },
+  {
+    "id": "CODBINARIO_070",
+    "dificultad": 2,
+    "categoria": "Conversión binario-decimal",
+    "pregunta": "¿Cuál es el valor decimal del número binario 101010?",
+    "opciones": {
+      "a": "32",
+      "b": "38",
+      "c": "42",
+      "d": "44"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "101010: 1×2⁵ + 0×2⁴ + 1×2³ + 0×2² + 1×2¹ + 0×2⁰ = 32 + 0 + 8 + 0 + 2 + 0 = 42.",
+    "tipo": "texto"
+  },
+  {
+    "id": "CODBINARIO_071",
+    "dificultad": 3,
+    "categoria": "Sistema hexadecimal",
+    "pregunta": "¿Cuál es el equivalente binario (4 bits) del dígito hexadecimal B?",
+    "opciones": {
+      "a": "1010",
+      "b": "1011",
+      "c": "1100",
+      "d": "1101"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "B en hexadecimal = 11 en decimal = 1011 en binario. Verificación: 1×8 + 0×4 + 1×2 + 1×1 = 11.",
+    "tipo": "texto"
+  },
+  {
+    "id": "CODBINARIO_072",
+    "dificultad": 3,
+    "categoria": "Sistema hexadecimal",
+    "pregunta": "¿Cuál es el valor decimal del número hexadecimal 1B?",
+    "opciones": {
+      "a": "21",
+      "b": "25",
+      "c": "27",
+      "d": "31"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "1B hexadecimal: 1×16¹ + 11×16⁰ = 16 + 11 = 27. Recuerda que B = 11 en decimal.",
+    "tipo": "texto"
+  },
+  {
+    "id": "CODBINARIO_073",
+    "dificultad": 3,
+    "categoria": "Complemento a dos",
+    "pregunta": "¿Cuál es el complemento a 1 del número binario 10110?",
+    "opciones": {
+      "a": "01010",
+      "b": "01001",
+      "c": "10001",
+      "d": "11001"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "El complemento a 1 invierte cada bit individualmente: 1→0, 0→1. Entonces 10110 → 01001. El complemento a 1 es el primer paso para calcular el complemento a 2.",
+    "tipo": "texto"
+  },
+  {
+    "id": "CODBINARIO_074",
+    "dificultad": 3,
+    "categoria": "Aritmética binaria",
+    "pregunta": "¿Cuál es el resultado de la suma binaria 1100 + 0011?",
+    "opciones": {
+      "a": "1110",
+      "b": "1010",
+      "c": "1111",
+      "d": "10000"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "1100 + 0011: cada posición suma un 1 y un 0, sin acarreo. Resultado: 1111 (decimal 15 = 12 + 3). Es una suma sin acarreos porque los bits no coinciden en ninguna posición.",
+    "tipo": "texto"
+  },
+  {
+    "id": "CODBINARIO_075",
+    "dificultad": 3,
+    "categoria": "Complemento a dos",
+    "pregunta": "En complemento a 2 con 4 bits, ¿qué número decimal representa el patrón 1111?",
+    "opciones": {
+      "a": "15",
+      "b": "-0",
+      "c": "-1",
+      "d": "-15"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "1111 comienza con 1: es negativo en complemento a 2. Para encontrar su magnitud: invertir 1111 → 0000, sumar 1 → 0001 = 1. Por lo tanto 1111 representa -1.",
+    "tipo": "texto"
+  },
+  {
+    "id": "CODBINARIO_076",
+    "dificultad": 3,
+    "categoria": "Sistema hexadecimal",
+    "pregunta": "¿Cuál es el equivalente hexadecimal del número decimal 16?",
+    "opciones": {
+      "a": "G",
+      "b": "10",
+      "c": "1F",
+      "d": "0F"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "16 en decimal = 1×16 + 0 = '10' en hexadecimal. Al igual que en decimal el 10 significa 'una decena y cero unidades', en hexadecimal 10 significa 'un dieciséis y cero unidades'.",
+    "tipo": "texto"
+  },
+  {
+    "id": "CODBINARIO_077",
+    "dificultad": 3,
+    "categoria": "Complemento a dos",
+    "pregunta": "Para calcular 7 - 3 usando complemento a 2 con 4 bits, ¿cuál es la representación de -3?",
+    "opciones": {
+      "a": "1011",
+      "b": "1100",
+      "c": "1101",
+      "d": "1110"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "3 en 4 bits = 0011. Complemento a 1: 1100. Sumar 1: 1101. Por lo tanto -3 en complemento a 2 (4 bits) = 1101. Para verificar: 0111 + 1101 = 10100, y los 4 bits bajos dan 0100 = 4 = 7-3. ✓",
+    "tipo": "texto"
+  },
+  {
+    "id": "CODBINARIO_078",
+    "dificultad": 3,
+    "categoria": "Aritmética binaria",
+    "pregunta": "¿Cuál es el resultado de la suma binaria 0101 + 1010?",
+    "opciones": {
+      "a": "1110",
+      "b": "1010",
+      "c": "1111",
+      "d": "10101"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "0101 + 1010: cada posición tiene exactamente un 1 y un 0, por lo que no hay acarreos. Resultado: 1111 (decimal 15 = 5 + 10). Este es un caso especial donde los bits complementarios se suman perfectamente.",
+    "tipo": "texto"
+  },
+  {
+    "id": "CODBINARIO_079",
+    "dificultad": 3,
+    "categoria": "Sistema hexadecimal",
+    "pregunta": "¿Cuál es el equivalente hexadecimal del número binario 00010011?",
+    "opciones": {
+      "a": "12",
+      "b": "13",
+      "c": "19",
+      "d": "23"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Dividir en grupos de 4: 0001 = 1 y 0011 = 3. Por lo tanto 00010011 en binario = 13 en hexadecimal (que es 19 en decimal). Cuidado: 13 hex ≠ 13 decimal.",
+    "tipo": "texto"
+  },
+  {
+    "id": "CODBINARIO_080",
+    "dificultad": 3,
+    "categoria": "Aritmética binaria",
+    "pregunta": "Al sumar dos números binarios de 4 bits sin signo, ¿qué ocurre si el resultado requiere un 5° bit?",
+    "opciones": {
+      "a": "La suma es inválida y no puede calcularse",
+      "b": "El 5° bit se ignora y el resultado almacenado en 4 bits es incorrecto (desbordamiento)",
+      "c": "El resultado se redondea automáticamente al mayor valor de 4 bits",
+      "d": "El computador convierte automáticamente a 8 bits"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Cuando la suma de dos números de N bits produce un resultado que requiere N+1 bits, ocurre un desbordamiento (overflow). Si solo hay 4 bits disponibles, el bit de acarreo final se pierde y el resultado almacenado es incorrecto.",
+    "tipo": "texto"
+  },
+  {
+    "id": "CODBINARIO_081",
+    "dificultad": 4,
+    "categoria": "Codificación de caracteres",
+    "pregunta": "¿Cuál es el código ASCII decimal del carácter espacio (' ')?",
+    "opciones": {
+      "a": "0",
+      "b": "32",
+      "c": "64",
+      "d": "127"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "El espacio tiene el código ASCII 32 (decimal), que en binario es 00100000. Es el primer carácter imprimible de la tabla ASCII. Los valores del 0 al 31 son caracteres de control no imprimibles.",
+    "tipo": "texto"
+  },
+  {
+    "id": "CODBINARIO_082",
+    "dificultad": 4,
+    "categoria": "Codificación de caracteres",
+    "pregunta": "¿Cuál es el código ASCII decimal del dígito '0' (el carácter cero)?",
+    "opciones": {
+      "a": "0",
+      "b": "30",
+      "c": "48",
+      "d": "58"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "El carácter '0' tiene el código ASCII 48. Los dígitos del '0' al '9' ocupan los códigos 48-57. Por eso, para convertir un dígito ASCII a su valor numérico basta restar 48: '5' (código 53) → 53 - 48 = 5.",
+    "tipo": "texto"
+  },
+  {
+    "id": "CODBINARIO_083",
+    "dificultad": 4,
+    "categoria": "IEEE 754",
+    "pregunta": "¿Cuántos bits tiene un número de punto flotante de precisión doble (double) según el estándar IEEE 754?",
+    "opciones": {
+      "a": "32",
+      "b": "48",
+      "c": "64",
+      "d": "128"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "IEEE 754 precisión doble usa 64 bits: 1 bit de signo + 11 bits de exponente + 52 bits de mantisa. Esto le da mucho más rango y precisión que el float de 32 bits.",
+    "tipo": "texto"
+  },
+  {
+    "id": "CODBINARIO_084",
+    "dificultad": 4,
+    "categoria": "Operaciones bit a bit",
+    "pregunta": "Si se aplica un desplazamiento lógico a la derecha (right shift) de 1 posición al número 1100, ¿cuál es el resultado?",
+    "opciones": {
+      "a": "1100",
+      "b": "1000",
+      "c": "0110",
+      "d": "0011"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "El desplazamiento lógico a la derecha introduce un 0 por la izquierda y descarta el bit más a la derecha: 1100 → 0110. Esto equivale a dividir por 2 (de 12 a 6) cuando no hay pérdida de bits.",
+    "tipo": "texto"
+  },
+  {
+    "id": "CODBINARIO_085",
+    "dificultad": 4,
+    "categoria": "Operaciones bit a bit",
+    "pregunta": "¿Cuál es el resultado de aplicar la operación XOR a un número con sí mismo? Por ejemplo, 10110101 XOR 10110101.",
+    "opciones": {
+      "a": "11111111",
+      "b": "10110101",
+      "c": "00000000",
+      "d": "01001010"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "XOR de un número consigo mismo siempre produce 0 en todos los bits, porque cada bit se compara con sí mismo: 0 XOR 0 = 0 y 1 XOR 1 = 0. Esta propiedad se usa en criptografía y para intercambiar variables.",
+    "tipo": "texto"
+  },
+  {
+    "id": "CODBINARIO_086",
+    "dificultad": 4,
+    "categoria": "Operaciones bit a bit",
+    "pregunta": "¿Cuál es el resultado de 00001111 OR 11110000?",
+    "opciones": {
+      "a": "00000000",
+      "b": "01111110",
+      "c": "11111111",
+      "d": "10101010"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "00001111 OR 11110000: estas dos máscaras cubren exactamente posiciones complementarias. Cada posición tiene al menos un 1, por lo que OR produce 11111111 = 255.",
+    "tipo": "texto"
+  },
+  {
+    "id": "CODBINARIO_087",
+    "dificultad": 4,
+    "categoria": "Máscaras de bits",
+    "pregunta": "¿Cuál es la máscara hexadecimal para extraer los 4 bits más significativos (MSB) de un byte?",
+    "opciones": {
+      "a": "0x0F (00001111)",
+      "b": "0xFF (11111111)",
+      "c": "0xF0 (11110000)",
+      "d": "0x80 (10000000)"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "Para extraer los 4 bits más significativos de un byte, se aplica AND con la máscara 0xF0 = 11110000. Los bits donde la máscara tiene 1 se conservan y los que tienen 0 se borran.",
+    "tipo": "texto"
+  },
+  {
+    "id": "CODBINARIO_088",
+    "dificultad": 4,
+    "categoria": "Codificación de caracteres",
+    "pregunta": "¿Cuántos bytes ocupa el carácter 'A' (ASCII) codificado en UTF-8?",
+    "opciones": {
+      "a": "1 byte",
+      "b": "2 bytes",
+      "c": "3 bytes",
+      "d": "4 bytes"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "UTF-8 es compatible con ASCII para los primeros 128 caracteres: cualquier carácter ASCII (códigos 0-127) se codifica en exactamente 1 byte en UTF-8. Los caracteres fuera de ese rango requieren 2, 3 o 4 bytes.",
+    "tipo": "texto"
+  },
+  {
+    "id": "CODBINARIO_089",
+    "dificultad": 4,
+    "categoria": "IEEE 754",
+    "pregunta": "En IEEE 754 precisión simple, ¿qué posición ocupa el bit de signo del número?",
+    "opciones": {
+      "a": "El bit menos significativo (posición 0)",
+      "b": "El bit más significativo (posición 31)",
+      "c": "El bit en la posición 8",
+      "d": "Los primeros 8 bits"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "En IEEE 754 precisión simple, el bit de signo es el bit 31 (el más significativo). Un 0 indica número positivo y un 1 indica negativo. Le siguen 8 bits de exponente (bits 30-23) y 23 bits de mantisa (bits 22-0).",
+    "tipo": "texto"
+  },
+  {
+    "id": "CODBINARIO_090",
+    "dificultad": 4,
+    "categoria": "Operaciones bit a bit",
+    "pregunta": "¿Qué efecto tiene aplicar AND con la máscara 11111110 a cualquier byte?",
+    "opciones": {
+      "a": "Activa el bit menos significativo",
+      "b": "Invierte el bit menos significativo",
+      "c": "Pone a 0 el bit menos significativo, dejando los demás intactos",
+      "d": "Pone a 1 todos los bits excepto el menos significativo"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "La máscara 11111110 tiene un 0 solo en la posición 0 (LSB). Al aplicar AND, todos los bits quedan iguales excepto el LSB, que siempre resulta 0. Esto 'limpia' o 'apaga' el bit menos significativo.",
+    "tipo": "texto"
+  },
+  {
+    "id": "CODBINARIO_091",
+    "dificultad": 5,
+    "categoria": "Detección de errores",
+    "pregunta": "En el código Hamming(7,4), si se recibe un mensaje con exactamente 1 bit de error, ¿qué puede hacer el receptor?",
+    "opciones": {
+      "a": "Solo detectar que hay un error, pero no corregirlo",
+      "b": "Detectar y corregir automáticamente el bit erróneo",
+      "c": "Solicitar siempre una retransmisión del mensaje",
+      "d": "Ignorar el error si no afecta los bits de datos"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "El código Hamming es un código SEC (Single Error Correction): puede detectar y corregir un único bit de error. Los bits de paridad permiten calcular el 'síndrome', que indica exactamente la posición del bit erróneo para corregirlo.",
+    "tipo": "texto"
+  },
+  {
+    "id": "CODBINARIO_092",
+    "dificultad": 5,
+    "categoria": "IEEE 754",
+    "pregunta": "En IEEE 754 precisión simple, ¿cómo se representa +Infinito?",
+    "opciones": {
+      "a": "Bit de signo = 0, exponente = 00000000, mantisa = 0",
+      "b": "Bit de signo = 0, exponente = 11111111, mantisa = 0",
+      "c": "Bit de signo = 0, exponente = 11111111, mantisa ≠ 0",
+      "d": "Bit de signo = 1, exponente = 11111111, mantisa = 0"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "+Infinito en IEEE 754: signo = 0 (positivo), exponente = todos en 1 (11111111), mantisa = todos en 0. Si la mantisa fuera ≠ 0, sería NaN. Si el signo fuera 1 con mantisa 0, sería -Infinito.",
+    "tipo": "texto"
+  },
+  {
+    "id": "CODBINARIO_093",
+    "dificultad": 5,
+    "categoria": "Complemento a dos",
+    "pregunta": "¿Cuál es el rango de valores que puede representar un entero con signo de 8 bits en complemento a 2?",
+    "opciones": {
+      "a": "0 a 255",
+      "b": "-127 a 127",
+      "c": "-128 a 127",
+      "d": "-128 a 128"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "Con 8 bits en complemento a 2: el mínimo es -2⁷ = -128 (representado como 10000000) y el máximo es 2⁷ - 1 = 127 (representado como 01111111). El rango es asimétrico porque el cero usa uno de los patrones positivos.",
+    "tipo": "texto"
+  },
+  {
+    "id": "CODBINARIO_094",
+    "dificultad": 5,
+    "categoria": "Complemento a dos",
+    "pregunta": "¿Cuál es la fórmula general para el valor mínimo representable con n bits en complemento a 2?",
+    "opciones": {
+      "a": "-(2ⁿ - 1)",
+      "b": "-2^(n-1)",
+      "c": "-(2^(n-1) - 1)",
+      "d": "-2ⁿ"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "En complemento a 2 con n bits, el valor mínimo es -2^(n-1) y el máximo es 2^(n-1) - 1. Para n=8: mínimo = -128, máximo = 127. El mínimo negativo siempre tiene una mayor magnitud que el positivo máximo.",
+    "tipo": "texto"
+  },
+  {
+    "id": "CODBINARIO_095",
+    "dificultad": 5,
+    "categoria": "Operaciones bit a bit",
+    "pregunta": "¿Qué propiedad del XOR permite intercambiar dos variables A y B sin usar una variable temporal?",
+    "opciones": {
+      "a": "XOR es conmutativo: A XOR B = B XOR A",
+      "b": "XOR es su propio inverso: (A XOR B) XOR B = A",
+      "c": "XOR con 0 es neutro: A XOR 0 = A",
+      "d": "XOR es asociativo: A XOR (B XOR C) = (A XOR B) XOR C"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "El truco es: A = A XOR B; B = A XOR B (ahora B = original A XOR B XOR B = original A); A = A XOR B (ahora A = A XOR B XOR original A = original B). Esto funciona porque aplicar XOR dos veces con el mismo valor restaura el original.",
+    "tipo": "texto"
+  },
+  {
+    "id": "CODBINARIO_096",
+    "dificultad": 5,
+    "categoria": "IEEE 754",
+    "pregunta": "En IEEE 754, ¿qué condición caracteriza a los números subnormales (también llamados denormalizados)?",
+    "opciones": {
+      "a": "Tienen el exponente almacenado igual a 255",
+      "b": "Tienen el exponente almacenado igual a 0 y la mantisa distinta de 0",
+      "c": "Tienen el bit de signo en 1 y la mantisa en 0",
+      "d": "Tienen todos los bits de la mantisa en 1"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Los números subnormales tienen exponente almacenado = 0 y mantisa ≠ 0. A diferencia de los normalizados, no tienen el bit implícito 1. Se usan para representar valores muy cercanos a cero, extendiendo el rango mínimo del formato.",
+    "tipo": "texto"
+  },
+  {
+    "id": "CODBINARIO_097",
+    "dificultad": 5,
+    "categoria": "Complemento a dos",
+    "pregunta": "¿Cuál es la extensión de signo del número 1000 (4 bits, que representa -8 en complemento a 2) al ampliarlo a 8 bits?",
+    "opciones": {
+      "a": "00001000",
+      "b": "10001000",
+      "c": "11111000",
+      "d": "11110000"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "La extensión de signo replica el bit de signo (MSB) en las nuevas posiciones. Como 1000 tiene MSB = 1 (negativo), se rellena con 1s por la izquierda: 11111000. Verificación: 11111000 en complemento a 2 de 8 bits = -8. ✓",
+    "tipo": "texto"
+  },
+  {
+    "id": "CODBINARIO_098",
+    "dificultad": 5,
+    "categoria": "Aritmética binaria",
+    "pregunta": "En complemento a 2 con 4 bits, ¿qué ocurre al sumar 0110 (6) + 0100 (4)?",
+    "opciones": {
+      "a": "El resultado es 1010, que representa correctamente 10",
+      "b": "Ocurre overflow: el resultado 1010 parece -6 en complemento a 2, pero debería ser +10",
+      "c": "El resultado es 0000 porque se descartan los bits extra",
+      "d": "La operación es inválida cuando los operandos son impares"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "0110 + 0100 = 1010. Pero en complemento a 2 de 4 bits, 1010 representa -6, no +10. Hay overflow porque la suma de dos positivos dio un resultado con MSB=1 (negativo). El rango máximo positivo de 4 bits con signo es 7.",
+    "tipo": "texto"
+  },
+  {
+    "id": "CODBINARIO_099",
+    "dificultad": 5,
+    "categoria": "Detección de errores",
+    "pregunta": "¿Cuál es la diferencia entre un código SEC y un código SEC-DED en sistemas de detección/corrección de errores?",
+    "opciones": {
+      "a": "SEC corrige 1 bit; SEC-DED corrige 1 bit y además detecta (sin corregir) errores de 2 bits",
+      "b": "SEC detecta 1 bit; SEC-DED detecta 2 bits",
+      "c": "SEC corrige 2 bits; SEC-DED corrige 1 bit",
+      "d": "No hay diferencia, son nombres distintos para el mismo código"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "SEC (Single Error Correction) como el código Hamming básico corrige 1 bit. SEC-DED (Single Error Correction, Double Error Detection) agrega un bit de paridad global extra: puede corregir 1 bit de error y además detectar (sin corregir) cuando ocurren 2 bits de error simultáneos.",
+    "tipo": "texto"
+  },
+  {
+    "id": "CODBINARIO_100",
+    "dificultad": 5,
+    "categoria": "IEEE 754",
+    "pregunta": "En IEEE 754, el cero negativo (-0) y el cero positivo (+0) tienen representaciones binarias distintas. ¿En qué difieren?",
+    "opciones": {
+      "a": "En el exponente: +0 tiene exponente 0, -0 tiene exponente 127",
+      "b": "Solo en el bit de signo: +0 tiene signo=0 y -0 tiene signo=1, ambos con exponente y mantisa en 0",
+      "c": "En la mantisa: +0 tiene mantisa 0 y -0 tiene mantisa todo-1",
+      "d": "Son idénticos: IEEE 754 no admite un cero negativo"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "En IEEE 754, tanto +0 como -0 tienen exponente = 0 y mantisa = 0. La única diferencia es el bit de signo: +0 es 00000...0 y -0 es 10000...0. Aunque son distintos en bits, matemáticamente +0 = -0 en todas las comparaciones.",
+    "tipo": "texto"
+  },
+  {
+    "id": "CODBINARIO_101",
+    "dificultad": 1,
+    "categoria": "Bit y byte",
+    "pregunta": "¿Qué significa la palabra 'bit'?",
+    "opciones": {
+      "a": "Binary integer type",
+      "b": "Binary digit",
+      "c": "Byte information token",
+      "d": "Basic information transistor"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "'Bit' es la contracción de 'binary digit' (dígito binario). El término fue acuñado por el matemático John Tukey en 1947 y popularizado por Claude Shannon en su teoría de la información.",
+    "tipo": "texto"
+  },
+  {
+    "id": "CODBINARIO_102",
+    "dificultad": 1,
+    "categoria": "Bit y byte",
+    "pregunta": "¿Cuántos bits hay en 2 bytes?",
+    "opciones": {
+      "a": "2",
+      "b": "8",
+      "c": "16",
+      "d": "32"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "1 byte = 8 bits. Por lo tanto 2 bytes = 2 × 8 = 16 bits. De forma general, n bytes = n × 8 bits.",
+    "tipo": "texto"
+  },
+  {
+    "id": "CODBINARIO_103",
+    "dificultad": 1,
+    "categoria": "Sistema binario",
+    "pregunta": "¿Cuál es el valor decimal del número binario 11?",
+    "opciones": {
+      "a": "1",
+      "b": "2",
+      "c": "3",
+      "d": "11"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "11 en binario: 1×2¹ + 1×2⁰ = 2 + 1 = 3. En binario, el número 11 representa tres unidades, no once.",
+    "tipo": "texto"
+  },
+  {
+    "id": "CODBINARIO_104",
+    "dificultad": 1,
+    "categoria": "Sistema binario",
+    "pregunta": "¿Cuántos símbolos diferentes utiliza el sistema binario?",
+    "opciones": {
+      "a": "1",
+      "b": "2",
+      "c": "8",
+      "d": "10"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "El sistema binario solo usa 2 símbolos: el 0 y el 1. De ahí su nombre 'binario' (del latín 'binarius', que significa 'compuesto de dos').",
+    "tipo": "texto"
+  },
+  {
+    "id": "CODBINARIO_105",
+    "dificultad": 1,
+    "categoria": "Sistema binario",
+    "pregunta": "¿Cuál es el valor decimal del número binario 101?",
+    "opciones": {
+      "a": "3",
+      "b": "4",
+      "c": "5",
+      "d": "101"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "101 en binario: 1×2² + 0×2¹ + 1×2⁰ = 4 + 0 + 1 = 5.",
+    "tipo": "texto"
+  },
+  {
+    "id": "CODBINARIO_106",
+    "dificultad": 1,
+    "categoria": "Sistema binario",
+    "pregunta": "¿Cuál es el valor decimal de 2¹?",
+    "opciones": {
+      "a": "1",
+      "b": "2",
+      "c": "4",
+      "d": "8"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "2¹ = 2. Es el valor posicional del segundo bit desde la derecha en cualquier número binario. Por eso el número binario 10 vale 2.",
+    "tipo": "texto"
+  },
+  {
+    "id": "CODBINARIO_107",
+    "dificultad": 1,
+    "categoria": "Sistema binario",
+    "pregunta": "¿Cuál es el valor decimal de 2²?",
+    "opciones": {
+      "a": "2",
+      "b": "4",
+      "c": "6",
+      "d": "8"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "2² = 4. Es el valor posicional del tercer bit desde la derecha. En binario, cada posición vale el doble que la anterior: 1, 2, 4, 8, 16...",
+    "tipo": "texto"
+  },
+  {
+    "id": "CODBINARIO_108",
+    "dificultad": 1,
+    "categoria": "Sistema binario",
+    "pregunta": "¿Qué número decimal representa el número binario formado únicamente por ceros (por ejemplo, 0000)?",
+    "opciones": {
+      "a": "Es un número inválido en binario",
+      "b": "Depende de cuántos ceros haya",
+      "c": "Siempre representa el valor 0",
+      "d": "Representa un número negativo"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "Sin importar cuántos ceros tenga, cualquier número binario compuesto solo de ceros siempre representa el valor decimal 0. Al no haber ningún bit en 1, la suma de valores posicionales es 0.",
+    "tipo": "texto"
+  },
+  {
+    "id": "CODBINARIO_109",
+    "dificultad": 1,
+    "categoria": "Sistema binario",
+    "pregunta": "¿Cuál de los siguientes números binarios tiene el mayor valor decimal?",
+    "opciones": {
+      "a": "1010",
+      "b": "0111",
+      "c": "1001",
+      "d": "1111"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "1111 = 15, 1010 = 10, 0111 = 7, 1001 = 9. El mayor es 1111. En general, el número binario con todos los bits en 1 es siempre el máximo representable con esa cantidad de bits.",
+    "tipo": "texto"
+  },
+  {
+    "id": "CODBINARIO_110",
+    "dificultad": 1,
+    "categoria": "Sistema binario",
+    "pregunta": "¿Cuál es el valor decimal de 2³?",
+    "opciones": {
+      "a": "6",
+      "b": "8",
+      "c": "9",
+      "d": "16"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "2³ = 2 × 2 × 2 = 8. Es el valor del cuarto bit desde la derecha. La secuencia de potencias de 2 es: 2⁰=1, 2¹=2, 2²=4, 2³=8, 2⁴=16...",
+    "tipo": "texto"
+  },
+  {
+    "id": "CODBINARIO_111",
+    "dificultad": 2,
+    "categoria": "Conversión binario-decimal",
+    "pregunta": "¿Cuál es el valor decimal del número binario 110?",
+    "opciones": {
+      "a": "4",
+      "b": "5",
+      "c": "6",
+      "d": "7"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "110 en binario: 1×2² + 1×2¹ + 0×2⁰ = 4 + 2 + 0 = 6.",
+    "tipo": "texto"
+  },
+  {
+    "id": "CODBINARIO_112",
+    "dificultad": 2,
+    "categoria": "Conversión decimal-binario",
+    "pregunta": "¿Cuál es la representación binaria del número decimal 12?",
+    "opciones": {
+      "a": "1010",
+      "b": "1100",
+      "c": "1001",
+      "d": "1110"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "12 = 8 + 4 = 2³ + 2². En binario: 1100. Verificación: 1×8 + 1×4 + 0×2 + 0×1 = 12.",
+    "tipo": "texto"
+  },
+  {
+    "id": "CODBINARIO_113",
+    "dificultad": 2,
+    "categoria": "Conversión binario-decimal",
+    "pregunta": "¿Cuál es el valor decimal del número binario 10101?",
+    "opciones": {
+      "a": "19",
+      "b": "21",
+      "c": "23",
+      "d": "25"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "10101: 1×2⁴ + 0×2³ + 1×2² + 0×2¹ + 1×2⁰ = 16 + 0 + 4 + 0 + 1 = 21.",
+    "tipo": "texto"
+  },
+  {
+    "id": "CODBINARIO_114",
+    "dificultad": 2,
+    "categoria": "Conversión decimal-binario",
+    "pregunta": "¿Cuál es la representación binaria del número decimal 30?",
+    "opciones": {
+      "a": "11011",
+      "b": "11100",
+      "c": "11110",
+      "d": "10111"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "30 = 16 + 8 + 4 + 2 = 2⁴ + 2³ + 2² + 2¹. En binario: 11110. Verificación: 1×16 + 1×8 + 1×4 + 1×2 + 0×1 = 30.",
+    "tipo": "texto"
+  },
+  {
+    "id": "CODBINARIO_115",
+    "dificultad": 2,
+    "categoria": "Conversión binario-decimal",
+    "pregunta": "¿Cuál es el valor decimal del número binario 11100?",
+    "opciones": {
+      "a": "24",
+      "b": "26",
+      "c": "28",
+      "d": "30"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "11100: 1×2⁴ + 1×2³ + 1×2² + 0×2¹ + 0×2⁰ = 16 + 8 + 4 + 0 + 0 = 28.",
+    "tipo": "texto"
+  },
+  {
+    "id": "CODBINARIO_116",
+    "dificultad": 2,
+    "categoria": "Conversión decimal-binario",
+    "pregunta": "¿Cuál es la representación binaria del número decimal 17?",
+    "opciones": {
+      "a": "10001",
+      "b": "10010",
+      "c": "10100",
+      "d": "11001"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "17 = 16 + 1 = 2⁴ + 2⁰. En binario: 10001. Verificación: 1×16 + 0×8 + 0×4 + 0×2 + 1×1 = 17.",
+    "tipo": "texto"
+  },
+  {
+    "id": "CODBINARIO_117",
+    "dificultad": 2,
+    "categoria": "Enteros sin signo",
+    "pregunta": "¿Cuántos bits se necesitan como mínimo para representar el número decimal 50 en binario?",
+    "opciones": {
+      "a": "5 bits",
+      "b": "6 bits",
+      "c": "7 bits",
+      "d": "8 bits"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Con 5 bits el máximo es 31 (insuficiente). Con 6 bits el máximo es 63 ≥ 50. Por lo tanto se necesitan mínimo 6 bits. En binario, 50 = 110010.",
+    "tipo": "texto"
+  },
+  {
+    "id": "CODBINARIO_118",
+    "dificultad": 2,
+    "categoria": "Conversión decimal-binario",
+    "pregunta": "¿Cuál es la representación binaria del número decimal 32?",
+    "opciones": {
+      "a": "11111",
+      "b": "100000",
+      "c": "110000",
+      "d": "010000"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "32 es exactamente 2⁵. En binario es 100000: un 1 en la posición de valor 32 seguido de cinco ceros.",
+    "tipo": "texto"
+  },
+  {
+    "id": "CODBINARIO_119",
+    "dificultad": 2,
+    "categoria": "Conversión binario-decimal",
+    "pregunta": "¿Cuál es el valor decimal del número binario 1010011?",
+    "opciones": {
+      "a": "75",
+      "b": "79",
+      "c": "83",
+      "d": "91"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "1010011: 1×2⁶ + 0×2⁵ + 1×2⁴ + 0×2³ + 0×2² + 1×2¹ + 1×2⁰ = 64 + 0 + 16 + 0 + 0 + 2 + 1 = 83.",
+    "tipo": "texto"
+  },
+  {
+    "id": "CODBINARIO_120",
+    "dificultad": 2,
+    "categoria": "Conversión decimal-binario",
+    "pregunta": "¿Cuál es la representación binaria del número decimal 48?",
+    "opciones": {
+      "a": "101000",
+      "b": "110000",
+      "c": "100110",
+      "d": "111000"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "48 = 32 + 16 = 2⁵ + 2⁴. En binario: 110000. Verificación: 1×32 + 1×16 + 0+0+0+0 = 48.",
+    "tipo": "texto"
+  },
+  {
+    "id": "CODBINARIO_121",
+    "dificultad": 3,
+    "categoria": "Sistema hexadecimal",
+    "pregunta": "¿Cuál es el equivalente binario (4 bits) del dígito hexadecimal C?",
+    "opciones": {
+      "a": "1010",
+      "b": "1011",
+      "c": "1100",
+      "d": "1110"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "C en hexadecimal = 12 en decimal = 1100 en binario (8+4=12). Los dígitos hex del A al F corresponden a: A=1010, B=1011, C=1100, D=1101, E=1110, F=1111.",
+    "tipo": "texto"
+  },
+  {
+    "id": "CODBINARIO_122",
+    "dificultad": 3,
+    "categoria": "Sistema hexadecimal",
+    "pregunta": "¿Cuál es el valor decimal del número hexadecimal 2F?",
+    "opciones": {
+      "a": "29",
+      "b": "41",
+      "c": "47",
+      "d": "63"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "2F hexadecimal: 2×16 + 15×1 = 32 + 15 = 47. Recuerda que F = 15 en decimal.",
+    "tipo": "texto"
+  },
+  {
+    "id": "CODBINARIO_123",
+    "dificultad": 3,
+    "categoria": "Sistema hexadecimal",
+    "pregunta": "¿Cuál es el equivalente hexadecimal del número binario 11110000?",
+    "opciones": {
+      "a": "EF",
+      "b": "F0",
+      "c": "0F",
+      "d": "FE"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Dividir en grupos de 4: 1111 = F y 0000 = 0. Por lo tanto 11110000 = F0 en hexadecimal. Esta es la máscara clásica para extraer los 4 bits superiores de un byte.",
+    "tipo": "texto"
+  },
+  {
+    "id": "CODBINARIO_124",
+    "dificultad": 3,
+    "categoria": "Complemento a dos",
+    "pregunta": "¿Cuál es el complemento a 2 del número 0100 (4 bits)?",
+    "opciones": {
+      "a": "1011",
+      "b": "1100",
+      "c": "0011",
+      "d": "1010"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Para -4 en complemento a 2: invertir 0100 → 1011 (complemento a 1). Luego sumar 1: 1011 + 1 = 1100. Verificación: 1100 en complemento a 2 de 4 bits representa -4.",
+    "tipo": "texto"
+  },
+  {
+    "id": "CODBINARIO_125",
+    "dificultad": 3,
+    "categoria": "Complemento a dos",
+    "pregunta": "En complemento a 2 con 4 bits, ¿qué número decimal representa el patrón 1001?",
+    "opciones": {
+      "a": "9",
+      "b": "-6",
+      "c": "-7",
+      "d": "-9"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "1001 comienza con 1: es negativo. Para encontrar su magnitud: invertir 1001 → 0110, sumar 1 → 0111 = 7. Por lo tanto 1001 representa -7.",
+    "tipo": "texto"
+  },
+  {
+    "id": "CODBINARIO_126",
+    "dificultad": 3,
+    "categoria": "Aritmética binaria",
+    "pregunta": "¿Cuál es el resultado de la suma binaria 10011 + 00101?",
+    "opciones": {
+      "a": "10110",
+      "b": "11000",
+      "c": "11010",
+      "d": "10111"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "10011 + 00101: 10011=19, 00101=5, suma=24. Verificación bit a bit: 1+1=10(0,1); 1+0+1=10(0,1); 0+1+1=10(0,1); 0+0+1=1; 1+0=1. Resultado: 11000 = 24. ✓",
+    "tipo": "texto"
+  },
+  {
+    "id": "CODBINARIO_127",
+    "dificultad": 3,
+    "categoria": "Sistema hexadecimal",
+    "pregunta": "¿Cuál es el equivalente hexadecimal del número decimal 32?",
+    "opciones": {
+      "a": "1F",
+      "b": "20",
+      "c": "22",
+      "d": "3A"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "32 ÷ 16 = 2 con resto 0. Por lo tanto 32 en hexadecimal es 20 (dos dieciséis y cero unidades). No confundir con 20 decimal.",
+    "tipo": "texto"
+  },
+  {
+    "id": "CODBINARIO_128",
+    "dificultad": 3,
+    "categoria": "Complemento a dos",
+    "pregunta": "En complemento a 2 con 4 bits, ¿cuál es el rango completo de valores representables?",
+    "opciones": {
+      "a": "0 a 15",
+      "b": "-7 a 7",
+      "c": "-8 a 7",
+      "d": "-8 a 8"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "Con 4 bits en complemento a 2: el mínimo es -2³ = -8 (patrón 1000) y el máximo es 2³ - 1 = 7 (patrón 0111). El rango es asimétrico: hay un negativo más que positivos.",
+    "tipo": "texto"
+  },
+  {
+    "id": "CODBINARIO_129",
+    "dificultad": 3,
+    "categoria": "Complemento a dos",
+    "pregunta": "En complemento a 2 con 4 bits, ¿qué número decimal representa el patrón 1000?",
+    "opciones": {
+      "a": "8",
+      "b": "-0",
+      "c": "-7",
+      "d": "-8"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "1000 en complemento a 2 de 4 bits es el valor mínimo: -2³ = -8. Es un caso especial: si intentas invertir (0111) y sumar 1 (1000), obtienes el mismo patrón. No hay un +8 representable con 4 bits con signo.",
+    "tipo": "texto"
+  },
+  {
+    "id": "CODBINARIO_130",
+    "dificultad": 3,
+    "categoria": "Sistema hexadecimal",
+    "pregunta": "¿Cuál es el valor decimal del dígito hexadecimal E?",
+    "opciones": {
+      "a": "11",
+      "b": "13",
+      "c": "14",
+      "d": "15"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "Los dígitos hexadecimales A al F representan: A=10, B=11, C=12, D=13, E=14, F=15. E equivale a 14 en decimal y a 1110 en binario.",
+    "tipo": "texto"
+  },
+  {
+    "id": "CODBINARIO_131",
+    "dificultad": 4,
+    "categoria": "Codificación de caracteres",
+    "pregunta": "¿Cuál es el código ASCII decimal de la letra 'a' (a minúscula)?",
+    "opciones": {
+      "a": "65",
+      "b": "90",
+      "c": "97",
+      "d": "112"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "La 'a' minúscula tiene el código ASCII 97. Las letras minúsculas van del 97 ('a') al 122 ('z'). La diferencia entre mayúscula y minúscula es siempre 32: 'A'=65, 'a'=65+32=97.",
+    "tipo": "texto"
+  },
+  {
+    "id": "CODBINARIO_132",
+    "dificultad": 4,
+    "categoria": "Codificación de caracteres",
+    "pregunta": "¿Cuál es el código ASCII decimal de la letra 'Z' (Z mayúscula)?",
+    "opciones": {
+      "a": "80",
+      "b": "85",
+      "c": "88",
+      "d": "90"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "Las letras mayúsculas van del 65 ('A') al 90 ('Z'). 'Z' = 65 + 25 = 90. En binario: 01011010.",
+    "tipo": "texto"
+  },
+  {
+    "id": "CODBINARIO_133",
+    "dificultad": 4,
+    "categoria": "Operaciones bit a bit",
+    "pregunta": "Si se aplica un desplazamiento lógico a la izquierda de 2 posiciones al número 00000001, ¿cuál es el resultado?",
+    "opciones": {
+      "a": "00000010",
+      "b": "00000100",
+      "c": "00001000",
+      "d": "10000000"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "00000001 desplazado 2 posiciones a la izquierda: 00000100. Cada desplazamiento a la izquierda multiplica por 2, así que 2 posiciones multiplican por 4: 1 × 4 = 4 = 00000100.",
+    "tipo": "texto"
+  },
+  {
+    "id": "CODBINARIO_134",
+    "dificultad": 4,
+    "categoria": "Máscaras de bits",
+    "pregunta": "¿Qué operación bit a bit se usa para ACTIVAR (poner a 1) un bit específico sin modificar los demás?",
+    "opciones": {
+      "a": "AND con una máscara que tiene 1 en esa posición",
+      "b": "OR con una máscara que tiene 1 en esa posición",
+      "c": "XOR con una máscara que tiene 1 en esa posición",
+      "d": "NOT sobre el byte completo"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Para activar un bit se usa OR con una máscara de 1 en esa posición: cualquier bit OR 1 = 1 (lo activa), y cualquier bit OR 0 = el bit original (no lo toca). Ejemplo: 10100000 OR 00000100 = 10100100.",
+    "tipo": "texto"
+  },
+  {
+    "id": "CODBINARIO_135",
+    "dificultad": 4,
+    "categoria": "Operaciones bit a bit",
+    "pregunta": "¿Cuál es el resultado de aplicar un desplazamiento lógico a la derecha de 2 posiciones al número 11000000?",
+    "opciones": {
+      "a": "11110000",
+      "b": "00110000",
+      "c": "00001100",
+      "d": "00000011"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "11000000 desplazado 2 posiciones a la derecha (lógico, introduce ceros por la izquierda): 00110000. Esto equivale a dividir por 4: 192 ÷ 4 = 48 = 00110000.",
+    "tipo": "texto"
+  },
+  {
+    "id": "CODBINARIO_136",
+    "dificultad": 4,
+    "categoria": "Operaciones bit a bit",
+    "pregunta": "¿Qué operación bit a bit se usa para INVERTIR (toggle) un bit específico sin modificar los demás?",
+    "opciones": {
+      "a": "AND con una máscara que tiene 1 en esa posición",
+      "b": "OR con una máscara que tiene 1 en esa posición",
+      "c": "XOR con una máscara que tiene 1 en esa posición",
+      "d": "NOT sobre el byte completo"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "Para invertir un bit específico se usa XOR con 1 en esa posición: 0 XOR 1 = 1 y 1 XOR 1 = 0 (invierte). Los demás bits hacen XOR con 0 y quedan igual. Ejemplo: 10100100 XOR 00000100 = 10100000.",
+    "tipo": "texto"
+  },
+  {
+    "id": "CODBINARIO_137",
+    "dificultad": 4,
+    "categoria": "Codificación de caracteres",
+    "pregunta": "¿Cuántos bytes ocupa generalmente un carácter chino codificado en UTF-8?",
+    "opciones": {
+      "a": "1 byte",
+      "b": "2 bytes",
+      "c": "3 bytes",
+      "d": "4 bytes"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "Los caracteres del bloque CJK (Chino, Japonés, Coreano) tienen códigos Unicode entre U+0800 y U+FFFF, que UTF-8 codifica en 3 bytes. UTF-8 usa de 1 a 4 bytes según el rango del código Unicode del carácter.",
+    "tipo": "texto"
+  },
+  {
+    "id": "CODBINARIO_138",
+    "dificultad": 4,
+    "categoria": "IEEE 754",
+    "pregunta": "En IEEE 754 precisión simple, si el exponente almacenado es 130, ¿cuál es el exponente real (sin bias)?",
+    "opciones": {
+      "a": "3",
+      "b": "130",
+      "c": "257",
+      "d": "-3"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "El exponente real = exponente almacenado - bias = 130 - 127 = 3. Por lo tanto el número tiene la forma 1.mantisa × 2³. El bias de 127 permite representar exponentes negativos sin bit de signo adicional.",
+    "tipo": "texto"
+  },
+  {
+    "id": "CODBINARIO_139",
+    "dificultad": 4,
+    "categoria": "Operaciones bit a bit",
+    "pregunta": "¿Cuál es el resultado de aplicar NOT al número binario 01010101 (8 bits)?",
+    "opciones": {
+      "a": "10101010",
+      "b": "01010101",
+      "c": "11111111",
+      "d": "00000000"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "NOT invierte cada bit: 01010101 → 10101010. Este patrón alternado es llamativo: el original tiene 1s en posiciones pares (0,2,4,6) y el resultado los tiene en posiciones impares (1,3,5,7).",
+    "tipo": "texto"
+  },
+  {
+    "id": "CODBINARIO_140",
+    "dificultad": 4,
+    "categoria": "Máscaras de bits",
+    "pregunta": "¿Qué operación bit a bit se usa para BORRAR (poner a 0) un bit específico sin modificar los demás?",
+    "opciones": {
+      "a": "AND con una máscara que tiene 0 en esa posición y 1 en las demás",
+      "b": "OR con una máscara que tiene 0 en esa posición y 1 en las demás",
+      "c": "XOR con una máscara que tiene 1 en esa posición",
+      "d": "NOT sobre la máscara y luego OR"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "Para borrar (limpiar) un bit se usa AND con una máscara de 0 en esa posición y 1 en las demás: cualquier bit AND 0 = 0 (lo borra), y cualquier bit AND 1 = el bit original. Ejemplo: para borrar el bit 2: máscara = 11111011, byte AND máscara.",
+    "tipo": "texto"
+  },
+  {
+    "id": "CODBINARIO_141",
+    "dificultad": 5,
+    "categoria": "Complemento a dos",
+    "pregunta": "En complemento a 2 con 8 bits, ¿qué ocurre al intentar calcular el negativo del valor mínimo (-128)?",
+    "opciones": {
+      "a": "El resultado es +128 y se almacena correctamente",
+      "b": "Ocurre overflow: -(-128) = +128 no es representable con 8 bits con signo",
+      "c": "El resultado es 0 porque el mínimo y el máximo se cancelan",
+      "d": "El resultado es -128 nuevamente, sin cambios"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "-128 en 8 bits = 10000000. Aplicar complemento a 2: invertir → 01111111, sumar 1 → 10000000 = -128 otra vez. Esto ocurre porque +128 está fuera del rango [-128, 127]: es un caso especial de overflow en complemento a 2.",
+    "tipo": "texto"
+  },
+  {
+    "id": "CODBINARIO_142",
+    "dificultad": 5,
+    "categoria": "IEEE 754",
+    "pregunta": "¿Qué valor decimal representa el patrón IEEE 754 precisión simple: signo=0, exponente=01111111, mantisa=00000000000000000000000?",
+    "opciones": {
+      "a": "0.0",
+      "b": "0.5",
+      "c": "1.0",
+      "d": "2.0"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "Signo=0 (+). Exponente=01111111=127, exponente real=127-127=0. Mantisa=0, con el bit implícito: 1.0. Valor = (+1) × 1.0 × 2⁰ = 1.0.",
+    "tipo": "texto"
+  },
+  {
+    "id": "CODBINARIO_143",
+    "dificultad": 5,
+    "categoria": "Detección de errores",
+    "pregunta": "En el código Hamming, si el síndrome calculado al recibir un mensaje es 0 (todos los bits de paridad son correctos), ¿qué significa?",
+    "opciones": {
+      "a": "Hay exactamente 1 bit de error en la posición 0",
+      "b": "No se detectó ningún error en el mensaje recibido",
+      "c": "Hay un error en el bit de paridad, pero los datos son correctos",
+      "d": "El mensaje está vacío"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "El síndrome es el resultado de verificar todos los bits de paridad. Si todos coinciden (síndrome = 0), el mensaje se recibió sin errores detectables. Un síndrome distinto de 0 indica el número de posición del bit erróneo.",
+    "tipo": "texto"
+  },
+  {
+    "id": "CODBINARIO_144",
+    "dificultad": 5,
+    "categoria": "Operaciones bit a bit",
+    "pregunta": "¿Cuántos bits en '1' (popcount) tiene el número binario 10110101?",
+    "opciones": {
+      "a": "3",
+      "b": "4",
+      "c": "5",
+      "d": "6"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "10110101: contando los '1': posición 7=1, posición 5=1, posición 4=1, posición 2=1, posición 0=1. Total: 5 bits en '1'. El popcount es importante en criptografía, compresión y en el cálculo de bits de paridad.",
+    "tipo": "texto"
+  },
+  {
+    "id": "CODBINARIO_145",
+    "dificultad": 5,
+    "categoria": "Complemento a dos",
+    "pregunta": "La fórmula para negar un número en complemento a 2 es: -N = NOT(N) + 1. Si se aplica esta fórmula al número 0 (00000000 en 8 bits), ¿qué resultado se obtiene?",
+    "opciones": {
+      "a": "10000000 (-128)",
+      "b": "11111111 (-1)",
+      "c": "00000000 (0)",
+      "d": "00000001 (1)"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "NOT(00000000) = 11111111. Luego 11111111 + 1 = 100000000, pero en 8 bits el acarreo se descarta: resultado = 00000000 = 0. Esto confirma que el cero es su propio negativo: -0 = 0 en complemento a 2.",
+    "tipo": "texto"
+  },
+  {
+    "id": "CODBINARIO_146",
+    "dificultad": 5,
+    "categoria": "IEEE 754",
+    "pregunta": "En el estándar IEEE 754 de precisión doble (64 bits), ¿cuántos bits se destinan al exponente?",
+    "opciones": {
+      "a": "8",
+      "b": "10",
+      "c": "11",
+      "d": "15"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "IEEE 754 doble precisión: 1 bit de signo + 11 bits de exponente + 52 bits de mantisa = 64 bits. El exponente de 11 bits con bias de 1023 permite representar exponentes reales de -1022 a +1023.",
+    "tipo": "texto"
+  },
+  {
+    "id": "CODBINARIO_147",
+    "dificultad": 5,
+    "categoria": "Aritmética binaria",
+    "pregunta": "En complemento a 2, ¿cómo se detecta que ocurrió overflow al sumar dos números con signo?",
+    "opciones": {
+      "a": "Cuando el resultado tiene más bits que los operandos",
+      "b": "Cuando dos operandos de igual signo producen un resultado de signo opuesto",
+      "c": "Cuando el resultado es mayor que 255",
+      "d": "Cuando hay un acarreo (carry) en la suma"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "En complemento a 2, hay overflow si y solo si dos operandos del mismo signo producen un resultado de signo contrario. Ejemplo: 0110 (6) + 0101 (5) = 1011 (que parece -5, no +11). Positivo + Positivo = Negativo → overflow.",
+    "tipo": "texto"
+  },
+  {
+    "id": "CODBINARIO_148",
+    "dificultad": 5,
+    "categoria": "Operaciones bit a bit",
+    "pregunta": "Si se cifra el carácter 'A' (ASCII 65) con la clave XOR 42, ¿cuál es el byte resultante?",
+    "opciones": {
+      "a": "23",
+      "b": "107",
+      "c": "103",
+      "d": "123"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "65 = 01000001, 42 = 00101010. XOR: 01000001 XOR 00101010 = 01101011 = 64+32+8+2+1 = 107. Para descifrar, basta aplicar XOR con la misma clave 42 otra vez: 107 XOR 42 = 65 = 'A'.",
+    "tipo": "texto"
+  },
+  {
+    "id": "CODBINARIO_149",
+    "dificultad": 5,
+    "categoria": "Detección de errores",
+    "pregunta": "¿Cuál es la distancia de Hamming mínima que debe tener un código para poder corregir 1 bit de error?",
+    "opciones": {
+      "a": "1",
+      "b": "2",
+      "c": "3",
+      "d": "4"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "Para corregir t errores se necesita una distancia mínima de 2t+1. Para corregir 1 error (t=1): distancia mínima = 3. Esto garantiza que cualquier palabra de código con 1 bit alterado esté más cerca de la palabra original que de cualquier otra válida.",
+    "tipo": "texto"
+  },
+  {
+    "id": "CODBINARIO_150",
+    "dificultad": 5,
+    "categoria": "IEEE 754",
+    "pregunta": "¿Qué valor decimal representa el patrón IEEE 754 precisión simple: signo=0, exponente=01111110, mantisa=00000000000000000000000?",
+    "opciones": {
+      "a": "0.25",
+      "b": "0.5",
+      "c": "1.0",
+      "d": "2.0"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Signo=0 (+). Exponente=01111110=126, exponente real=126-127=-1. Mantisa=0, con bit implícito: 1.0. Valor = (+1) × 1.0 × 2⁻¹ = 0.5.",
+    "tipo": "texto"
+  }
+]

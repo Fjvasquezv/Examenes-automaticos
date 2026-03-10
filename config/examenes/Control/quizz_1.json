@@ -32,17 +32,19 @@
     "spreadsheet_id": "11LgtY-p59UKYCYY0GwZHCLN--KbZEPZb8poZJTEbyys"
   },
   "bancos_preguntas": [
-    "data/preguntas/ControlQuizzC1_1.json"
+    "data/bancos/Control/Control_Fundamentos.json",
+    "data/bancos/Control/Control_Lazo.json",
+    "data/bancos/Control/Control_Diseno_Aplicaciones.json"
   ],
   "bancos_por_tema": {
-    "Fundamentos": [
-      "data/preguntas/ControlQuizzC1_1.json"
+    "Conceptos básicos": [
+      "data/bancos/Control/Control_Fundamentos.json"
     ],
-    "Bloques": [
-      "data/preguntas/ControlQuizzC1_1.json"
+    "Diagramas de bloques": [
+      "data/bancos/Control/Control_Lazo.json"
     ],
-    "Sistemas": [
-      "data/preguntas/ControlQuizzC1_1.json"
+    "Análisis de sistemas": [
+      "data/bancos/Control/Control_Diseno_Aplicaciones.json"
     ]
   }
 }
