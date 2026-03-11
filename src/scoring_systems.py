@@ -34,16 +34,19 @@ class IRTSimplificado(ScoringSystem):
     y calcula una nota normalizada basada en esta habilidad.
     """
     
-    def __init__(self, max_iteraciones: int = 10):
+    def __init__(self, max_iteraciones: int = 10, prior_sigma: float = 1.25):
         """
         Inicializa el sistema IRT
         
         Args:
             max_iteraciones: Número máximo de iteraciones para estimar theta
+            prior_sigma: Desviación estándar del prior gaussiano de theta para
+                estabilizar la estimación con pocas respuestas.
         """
         self.max_iteraciones = max_iteraciones
         self.theta_min = -3.0
         self.theta_max = 3.0
+        self.prior_sigma = max(0.2, float(prior_sigma))
         self._ultimo_theta = 0.0  # Warm start para Newton-Raphson
     
     def probabilidad_respuesta_correcta(self, theta: float, dificultad: int) -> float:
@@ -85,6 +88,8 @@ class IRTSimplificado(ScoringSystem):
         # Warm start: usar última estimación como punto inicial
         theta = self._ultimo_theta
         
+        prior_var = self.prior_sigma ** 2
+
         for _ in range(self.max_iteraciones):
             # Calcular primera y segunda derivada de la log-verosimilitud
             primera_derivada = 0.0
@@ -105,6 +110,12 @@ class IRTSimplificado(ScoringSystem):
                 else:
                     primera_derivada -= p
                     segunda_derivada -= p * (1 - p)
+
+            # Regularización MAP con prior gaussiano N(0, prior_sigma^2)
+            # log prior = -(theta^2)/(2*sigma^2)
+            # d/dtheta = -theta/sigma^2 ; d2/dtheta2 = -1/sigma^2
+            primera_derivada -= theta / prior_var
+            segunda_derivada -= 1.0 / prior_var
             
             # Evitar división por cero
             if abs(segunda_derivada) < 0.001:
@@ -133,7 +144,9 @@ class IRTSimplificado(ScoringSystem):
         """
         # Rango efectivo de theta basado en dificultades reales
         theta_min_efectivo = -2.0
-        theta_max_efectivo = 2.5
+        # Ajuste de calibración: exigir mayor theta para notas altas
+        # y reducir sobreestimación en desempeños mixtos.
+        theta_max_efectivo = 3.5
         
         # Limitar theta al rango efectivo
         theta_limitado = max(theta_min_efectivo, min(theta_max_efectivo, theta))
@@ -433,7 +446,7 @@ def crear_sistema_calificacion(config: Dict[str, Any]) -> ScoringSystem:
     params = config['sistema_calificacion'].get('parametros', {})
     
     if tipo == 'irt_simplificado':
-        irt_keys = {'max_iteraciones'}
+        irt_keys = {'max_iteraciones', 'prior_sigma'}
         return IRTSimplificado(**{k: v for k, v in params.items() if k in irt_keys})
     elif tipo == 'elo':
         elo_keys = {'k_factor', 'rating_inicial'}

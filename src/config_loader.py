@@ -154,6 +154,26 @@ class ConfigLoader:
         
         if params['ventana_estabilizacion'] < 2:
             raise ValueError("ventana_estabilizacion debe ser al menos 2")
+
+        # Validar parámetros opcionales de ventana dinámica
+        if 'ventana_estabilizacion_dinamica' in params and not isinstance(params['ventana_estabilizacion_dinamica'], bool):
+            raise ValueError("ventana_estabilizacion_dinamica debe ser booleano")
+
+        if 'proporcion_ventana_estabilizacion' in params:
+            if float(params['proporcion_ventana_estabilizacion']) <= 0:
+                raise ValueError("proporcion_ventana_estabilizacion debe ser positivo")
+
+        if 'ventana_estabilizacion_min' in params:
+            if int(params['ventana_estabilizacion_min']) < 2:
+                raise ValueError("ventana_estabilizacion_min debe ser al menos 2")
+
+        if 'ventana_estabilizacion_max' in params:
+            if int(params['ventana_estabilizacion_max']) < 2:
+                raise ValueError("ventana_estabilizacion_max debe ser al menos 2")
+
+        if 'ventana_estabilizacion_min' in params and 'ventana_estabilizacion_max' in params:
+            if int(params['ventana_estabilizacion_min']) > int(params['ventana_estabilizacion_max']):
+                raise ValueError("ventana_estabilizacion_min no puede ser mayor a ventana_estabilizacion_max")
         
         # Validar sistema de calificación
         tipos_validos = ['irt_simplificado', 'elo', 'hibrido']

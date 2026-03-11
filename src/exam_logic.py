@@ -30,6 +30,21 @@ class ExamLogic:
         self.nivel_inicial = config['parametros']['nivel_inicial']
         self.umbral_estabilizacion = config['parametros']['umbral_estabilizacion']
         self.ventana_estabilizacion = config['parametros']['ventana_estabilizacion']
+        self.ventana_estabilizacion_dinamica = bool(
+            config['parametros'].get('ventana_estabilizacion_dinamica', False)
+        )
+        self.proporcion_ventana_estabilizacion = float(
+            config['parametros'].get('proporcion_ventana_estabilizacion', 0.4)
+        )
+        self.ventana_estabilizacion_min = int(
+            config['parametros'].get('ventana_estabilizacion_min', 3)
+        )
+        ventana_max_cfg = config['parametros'].get('ventana_estabilizacion_max')
+        self.ventana_estabilizacion_max = (
+            int(ventana_max_cfg)
+            if ventana_max_cfg is not None
+            else None
+        )
         
         # Sistema de calificación
         self.scoring_system = crear_sistema_calificacion(config)
@@ -397,8 +412,9 @@ class ExamLogic:
             return False
         
         # Verificar estabilización de la nota (rango + pendiente)
-        if len(self.historial_notas) >= self.ventana_estabilizacion:
-            ultimas_notas = self.historial_notas[-self.ventana_estabilizacion:]
+        ventana_actual = self._obtener_ventana_estabilizacion_actual()
+        if len(self.historial_notas) >= ventana_actual:
+            ultimas_notas = self.historial_notas[-ventana_actual:]
             
             # Calcular rango de variación
             max_nota = max(ultimas_notas)
@@ -563,8 +579,9 @@ class ExamLogic:
         if self.pregunta_actual >= self.preguntas_maximas:
             return "Máximo de preguntas alcanzado"
         
-        if len(self.historial_notas) >= self.ventana_estabilizacion:
-            ultimas_notas = self.historial_notas[-self.ventana_estabilizacion:]
+        ventana_actual = self._obtener_ventana_estabilizacion_actual()
+        if len(self.historial_notas) >= ventana_actual:
+            ultimas_notas = self.historial_notas[-ventana_actual:]
             variacion = max(ultimas_notas) - min(ultimas_notas)
             
             if variacion <= self.umbral_estabilizacion:
@@ -573,6 +590,25 @@ class ExamLogic:
                     return "Nota estabilizada"
         
         return "Sin preguntas disponibles"
+
+    def _obtener_ventana_estabilizacion_actual(self) -> int:
+        """
+        Obtiene la ventana de estabilización efectiva.
+        Si está habilitado el modo dinámico, la ventana crece proporcionalmente
+        al número de preguntas respondidas.
+        """
+        if not self.ventana_estabilizacion_dinamica:
+            return max(2, int(self.ventana_estabilizacion))
+
+        respondidas = max(0, int(self.pregunta_actual))
+        proporcion = max(0.01, float(self.proporcion_ventana_estabilizacion))
+        ventana = math.ceil(respondidas * proporcion)
+        ventana = max(int(self.ventana_estabilizacion_min), ventana, 2)
+
+        if self.ventana_estabilizacion_max is not None:
+            ventana = min(ventana, max(2, int(self.ventana_estabilizacion_max)))
+
+        return ventana
     
     def obtener_resumen_pregunta_actual(self) -> Dict[str, Any]:
         """
