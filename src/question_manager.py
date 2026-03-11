@@ -90,7 +90,8 @@ class QuestionManager:
         nivel: int, 
         preguntas_usadas,
         theta: float = None,
-        categorias_prioritarias: Optional[set] = None
+        categorias_prioritarias: Optional[set] = None,
+        max_desviacion_nivel: int = 4
     ) -> Optional[Dict[str, Any]]:
         """
         Obtiene una pregunta del nivel especificado que no haya sido usada.
@@ -103,12 +104,15 @@ class QuestionManager:
             theta: Habilidad estimada del estudiante (IRT). Si se provee,
                    se usa selección por máxima información.
             categorias_prioritarias: Conjunto opcional de categorías a priorizar.
+                 max_desviacion_nivel: Distancia máxima permitida respecto al
+                     nivel objetivo al buscar fallback por escasez.
             
         Returns:
             Diccionario con la pregunta o None si no hay preguntas disponibles
         """
         # Asegurar que el nivel esté en rango válido
         nivel = max(1, min(5, nivel))
+        max_desviacion_nivel = max(1, min(4, int(max_desviacion_nivel)))
         
         categorias_objetivo = set(categorias_prioritarias) if categorias_prioritarias else None
 
@@ -127,8 +131,8 @@ class QuestionManager:
         # Si no hay preguntas disponibles en este nivel exacto, buscar en niveles cercanos
         if not preguntas_disponibles:
             # Buscar el/los niveles más cercanos disponibles por distancia
-            # Distancia 1 primero, luego 2, 3, 4
-            for distancia in range(1, 5):
+            # Distancia 1 primero, luego hasta max_desviacion_nivel
+            for distancia in range(1, max_desviacion_nivel + 1):
                 candidatos_distancia = []
 
                 nivel_arriba = nivel + distancia
@@ -155,7 +159,8 @@ class QuestionManager:
                     nivel,
                     preguntas_usadas,
                     theta=theta,
-                    categorias_prioritarias=None
+                    categorias_prioritarias=None,
+                    max_desviacion_nivel=max_desviacion_nivel
                 )
             return None
         

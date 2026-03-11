@@ -23,7 +23,8 @@
     "ventana_estabilizacion": 3,
     "ventana_estabilizacion_dinamica": true,
     "proporcion_ventana_estabilizacion": 0.45,
-    "ventana_estabilizacion_min": 3
+    "ventana_estabilizacion_min": 3,
+    "max_desviacion_nivel_pregunta": 3
   },
   "sistema_calificacion": {
     "tipo": "irt_simplificado",

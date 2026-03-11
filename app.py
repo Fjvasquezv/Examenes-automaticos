@@ -1580,6 +1580,16 @@ def mostrar_pantalla_inicio(config, ui):
                             st.info("🧑‍🏫 Solicita autorización docente. En Google Sheets, cambia la columna 'Autorizado_Continuar' a 'SI' en tu fila EN_CURSO.")
                             return
 
+                        # Consumir autorización al momento de reanudar para evitar
+                        # que el estudiante entre/salga repetidamente del parcial.
+                        if not persistence.autorizar_continuacion(codigo_limpio, False):
+                            _log_evento_operacion(base_path, "acceso_bloqueado", "No se pudo consumir autorización de reanudación", codigo=codigo_limpio, examen_id=examen_id)
+                            st.error("🔒 No se pudo validar el consumo de autorización para reanudar.")
+                            st.info("🧑‍🏫 Intenta nuevamente o solicita autorización docente.")
+                            return
+
+                        _log_evento_operacion(base_path, "autorizacion_consumida", "Autorización de reanudación consumida", codigo=codigo_limpio, examen_id=examen_id)
+
                         _log_evento_operacion(base_path, "restauracion", "Examen reanudado desde estado EN_CURSO", codigo=codigo_limpio, examen_id=examen_id)
                         st.info("🔄 Se detectó un examen en curso autorizado. Restaurando progreso...")
                         st.session_state.codigo_estudiante = codigo_limpio
@@ -1709,10 +1719,15 @@ def ejecutar_examen(config, question_manager, ui):
             options=list(opciones_mezcladas.keys()),
             format_func=lambda x: f"{x}) {opciones_mezcladas[x]}",
             key=f"respuesta_{exam_logic.pregunta_actual}",
+            index=None,
             label_visibility="collapsed"
         )
         
         if st.button("🚀 Confirmar Respuesta", type="primary", use_container_width=True):
+            if not respuesta_seleccionada:
+                st.warning("⚠️ Debes seleccionar una opción antes de confirmar.")
+                st.stop()
+
             exam_logic.procesar_respuesta(
                 pregunta_obj,
                 respuesta_seleccionada,
@@ -1723,6 +1738,9 @@ def ejecutar_examen(config, question_manager, ui):
                 del st.session_state[pregunta_key]
             if opciones_key in st.session_state:
                 del st.session_state[opciones_key]
+            respuesta_key = f"respuesta_{exam_logic.pregunta_actual - 1}"
+            if respuesta_key in st.session_state:
+                del st.session_state[respuesta_key]
             
             try:
                 persistence = DataPersistence(config)

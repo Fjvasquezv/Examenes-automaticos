@@ -28,6 +28,8 @@ class ExamLogic:
         self.preguntas_minimas = config['parametros']['preguntas_minimas']
         self.preguntas_maximas = config['parametros']['preguntas_maximas']
         self.nivel_inicial = config['parametros']['nivel_inicial']
+        # Fase de evaluación inicial: al menos 30% del mínimo del examen
+        self.preguntas_evaluacion_inicial = max(4, math.ceil(self.preguntas_minimas * 0.30))
         self.umbral_estabilizacion = config['parametros']['umbral_estabilizacion']
         self.ventana_estabilizacion = config['parametros']['ventana_estabilizacion']
         self.ventana_estabilizacion_dinamica = bool(
@@ -71,6 +73,9 @@ class ExamLogic:
         self.objetivo_por_categoria = self._calcular_objetivo_por_categoria()
         self.minimo_por_categoria = self._calcular_minimo_por_categoria()
         self.maximo_por_categoria = self._calcular_maximo_por_categoria()
+        self.max_desviacion_nivel_pregunta = int(
+            max(1, min(4, config['parametros'].get('max_desviacion_nivel_pregunta', 3)))
+        )
         
         # Pregunta actual
         self.pregunta_actual_obj = None
@@ -90,7 +95,8 @@ class ExamLogic:
             self.nivel_actual,
             self.preguntas_usadas_set,
             theta=self.theta_actual,
-            categorias_prioritarias=categorias_prioritarias
+            categorias_prioritarias=categorias_prioritarias,
+            max_desviacion_nivel=self.max_desviacion_nivel_pregunta
         )
         
         if pregunta is None:
@@ -320,11 +326,12 @@ class ExamLogic:
         del modelo estadístico (theta en IRT, rating en Elo).
         Elimina aleatoriedad: el nivel se deriva directamente del modelo.
         
-        Nota: Requiere mínimo 4 respuestas para evitar inestabilidad con pocas muestras.
-        Con < 4 respuestas, theta es demasiado volátil y puede causar saltos de nivel erráticos.
+        Nota: Requiere una fase inicial de calibración antes de adaptar nivel.
+        El umbral se define como al menos 30% de preguntas_minimas (con piso de 4)
+        para evitar inestabilidad con pocas muestras.
         """
-        if len(self.preguntas_respondidas) < 4:
-            return  # Necesita al menos 4 respuestas para estimación estable
+        if len(self.preguntas_respondidas) < self.preguntas_evaluacion_inicial:
+            return  # Mantener nivel inicial durante evaluación inicial
         
         nivel_estimado = self.nivel_actual
         stats = self.scoring_system.obtener_estadisticas(self.preguntas_respondidas)

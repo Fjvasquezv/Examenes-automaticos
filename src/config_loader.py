@@ -174,6 +174,11 @@ class ConfigLoader:
         if 'ventana_estabilizacion_min' in params and 'ventana_estabilizacion_max' in params:
             if int(params['ventana_estabilizacion_min']) > int(params['ventana_estabilizacion_max']):
                 raise ValueError("ventana_estabilizacion_min no puede ser mayor a ventana_estabilizacion_max")
+
+        if 'max_desviacion_nivel_pregunta' in params:
+            max_desv = int(params['max_desviacion_nivel_pregunta'])
+            if not (1 <= max_desv <= 4):
+                raise ValueError("max_desviacion_nivel_pregunta debe estar entre 1 y 4")
         
         # Validar sistema de calificación
         tipos_validos = ['irt_simplificado', 'elo', 'hibrido']
