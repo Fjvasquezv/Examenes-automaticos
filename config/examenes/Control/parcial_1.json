@@ -10,7 +10,8 @@
     "temas": [
       "Fundamentos",
       "Lazo",
-      "Diseño y Aplicaciones"
+      "Diseño y Aplicaciones",
+      "Diagramas de Causa-Efecto"
     ],
     "duracion_estimada": "2 horas"
   },
@@ -34,7 +35,8 @@
   "bancos_preguntas": [
     "data/bancos/Control/Control_Fundamentos.json",
     "data/bancos/Control/Control_Lazo.json",
-    "data/bancos/Control/Control_Diseno_Aplicaciones.json"
+    "data/bancos/Control/Control_Diseno_Aplicaciones.json",
+    "data/bancos/Control/Control_Diagramas_CausaEfecto.json"
   ],
   "bancos_por_tema": {
     "Fundamentos": [
@@ -45,6 +47,9 @@
     ],
     "Diseño y Aplicaciones": [
       "data/bancos/Control/Control_Diseno_Aplicaciones.json"
+    ],
+    "Diagramas de Causa-Efecto": [
+      "data/bancos/Control/Control_Diagramas_CausaEfecto.json"
     ]
   }
 }

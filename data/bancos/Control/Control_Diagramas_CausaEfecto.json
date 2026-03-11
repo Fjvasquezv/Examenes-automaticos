@@ -1,0 +1,802 @@
+[
+  {
+    "id": "dg_ctrl_001",
+    "dificultad": 1,
+    "categoria": "Diagramas de causa-efecto",
+    "pregunta": "Observe el siguiente diagrama de un tanque de nivel. Si la válvula de entrada se abre más, ¿qué variable se ve afectada directamente?",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A[Apertura de válvula ↑] -->|aumenta| B[Flujo de entrada ↑]",
+    "opciones": {
+      "a": "El flujo de entrada aumenta",
+      "b": "La temperatura del tanque disminuye",
+      "c": "La presión del tanque baja inmediatamente",
+      "d": "La concentración del fluido cambia"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "Al abrir más la válvula de entrada, el efecto directo e inmediato es que el flujo de entrada al tanque aumenta. Las demás variables no son afectadas directamente por esta acción."
+  },
+  {
+    "id": "dg_ctrl_002",
+    "dificultad": 1,
+    "categoria": "Diagramas de causa-efecto",
+    "pregunta": "En un intercambiador de calor, observe el diagrama. Si el flujo de vapor de calefacción aumenta, ¿qué variable se ve afectada directamente?",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A[Flujo de vapor ↑] -->|aumenta| B[Temperatura del proceso ↑]",
+    "opciones": {
+      "a": "El nivel del tanque sube",
+      "b": "La temperatura del proceso aumenta",
+      "c": "La presión del sistema baja",
+      "d": "El caudal de salida disminuye"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "El flujo de vapor entrega más energía al proceso, por lo que la temperatura del fluido del proceso aumenta directamente. Es la relación causa-efecto fundamental en un intercambiador de calor."
+  },
+  {
+    "id": "dg_ctrl_003",
+    "dificultad": 1,
+    "categoria": "Diagramas de causa-efecto",
+    "pregunta": "En un sistema de bomba y tubería, si la velocidad de la bomba disminuye, ¿qué ocurre directamente?",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A[Velocidad de bomba ↓] -->|disminuye| B[Caudal de salida ↓]",
+    "opciones": {
+      "a": "La temperatura del fluido sube",
+      "b": "La presión de descarga aumenta",
+      "c": "El caudal de salida disminuye",
+      "d": "El nivel del tanque receptor baja inmediatamente"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "Al reducir la velocidad de la bomba, su capacidad de impulsar fluido disminuye directamente, reduciendo el caudal de salida. Este es el efecto inmediato y directo de la causa."
+  },
+  {
+    "id": "dg_ctrl_004",
+    "dificultad": 1,
+    "categoria": "Diagramas de causa-efecto",
+    "pregunta": "En un reactor simple, observe el diagrama. Si la temperatura del reactor aumenta, ¿qué variable se ve afectada directamente?",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A[Temperatura del reactor ↑] -->|aumenta| B[Velocidad de reacción ↑]",
+    "opciones": {
+      "a": "La presión del sistema disminuye",
+      "b": "El nivel del reactor baja",
+      "c": "La velocidad de reacción aumenta",
+      "d": "El flujo de alimentación se reduce"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "En un reactor, el aumento de temperatura tiene como efecto directo el incremento en la velocidad de reacción. Esta es una relación fundamental en cinética química, expresada aquí sin matemáticas."
+  },
+  {
+    "id": "dg_ctrl_005",
+    "dificultad": 1,
+    "categoria": "Diagramas de causa-efecto",
+    "pregunta": "En un separador gas-líquido, si la presión interna sube, ¿qué ocurre directamente con el gas?",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A[Presión interna ↑] -->|aumenta| B[Flujo de gas de salida ↑]",
+    "opciones": {
+      "a": "El líquido en el separador se evapora",
+      "b": "El flujo de gas de salida aumenta",
+      "c": "La temperatura del separador disminuye",
+      "d": "El nivel de líquido sube inmediatamente"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Al aumentar la presión interna del separador, el gas tiende a salir con mayor fuerza a través de la salida de gas, aumentando directamente el flujo de gas de salida."
+  },
+  {
+    "id": "dg_ctrl_006",
+    "dificultad": 1,
+    "categoria": "Diagramas de causa-efecto",
+    "pregunta": "En un tanque con válvula de salida, observe el diagrama. Si la válvula de salida se cierra, ¿qué variable cambia directamente?",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A[Válvula de salida se cierra ↓] -->|disminuye| B[Flujo de salida ↓]",
+    "opciones": {
+      "a": "La concentración del fluido aumenta",
+      "b": "La temperatura del tanque sube",
+      "c": "El flujo de salida disminuye",
+      "d": "La densidad del fluido cambia"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "Al cerrar la válvula de salida, el efecto directo es que el flujo de salida disminuye. Esta es la relación más simple y directa entre una acción de control y su efecto inmediato."
+  },
+  {
+    "id": "dg_ctrl_007",
+    "dificultad": 1,
+    "categoria": "Diagramas de causa-efecto",
+    "pregunta": "En un intercambiador de calor, si el flujo del fluido frío aumenta, ¿qué variable se afecta directamente?",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A[Flujo fluido frío ↑] -->|disminuye| B[Temperatura de salida del proceso ↓]",
+    "opciones": {
+      "a": "La temperatura de salida del proceso disminuye",
+      "b": "La presión del sistema aumenta",
+      "c": "El nivel del tanque de servicio sube",
+      "d": "La velocidad de la bomba aumenta"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "Al aumentar el flujo del fluido frío, hay más capacidad de absorber calor, lo que reduce directamente la temperatura de salida del fluido del proceso. Es la relación directa en un intercambiador."
+  },
+  {
+    "id": "dg_ctrl_008",
+    "dificultad": 1,
+    "categoria": "Diagramas de causa-efecto",
+    "pregunta": "En un tanque de nivel, si el flujo de entrada supera al flujo de salida, ¿qué ocurre directamente?",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A[Flujo entrada > Flujo salida] -->|aumenta| B[Nivel del tanque ↑]",
+    "opciones": {
+      "a": "La temperatura del tanque sube",
+      "b": "El nivel del tanque aumenta",
+      "c": "La presión disminuye",
+      "d": "La concentración se diluye inmediatamente"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Cuando el flujo de entrada es mayor que el de salida, el balance de masa hace que el nivel del tanque suba. Este es el principio fundamental del control de nivel."
+  },
+  {
+    "id": "dg_ctrl_009",
+    "dificultad": 1,
+    "categoria": "Diagramas de causa-efecto",
+    "pregunta": "En un reactor simple, si se reduce el flujo de reactivo de alimentación, ¿qué variable se afecta directamente?",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A[Flujo de reactivo ↓] -->|disminuye| B[Concentración en el reactor ↓]",
+    "opciones": {
+      "a": "La temperatura del reactor sube",
+      "b": "La presión aumenta inmediatamente",
+      "c": "La concentración en el reactor disminuye",
+      "d": "La velocidad de la bomba de alimentación cambia"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "Al reducir el flujo de reactivo que entra al reactor, llega menos materia prima, lo que reduce directamente la concentración del reactivo dentro del reactor."
+  },
+  {
+    "id": "dg_ctrl_010",
+    "dificultad": 1,
+    "categoria": "Diagramas de causa-efecto",
+    "pregunta": "En un separador gas-líquido, si el flujo de alimentación líquida aumenta, ¿qué variable se ve afectada directamente?",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A[Flujo de alimentación líquida ↑] -->|aumenta| B[Nivel de líquido en separador ↑]",
+    "opciones": {
+      "a": "La presión de gas disminuye",
+      "b": "La temperatura del separador sube",
+      "c": "El nivel de líquido en el separador aumenta",
+      "d": "El flujo de gas de salida aumenta inmediatamente"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "Al aumentar el flujo de alimentación líquida al separador, entra más líquido del que sale, por lo que el nivel de líquido en el separador aumenta directamente."
+  },
+  {
+    "id": "dg_ctrl_011",
+    "dificultad": 2,
+    "categoria": "Diagramas de causa-efecto",
+    "pregunta": "En un tanque de nivel, siga la cadena de efectos. Si la válvula de entrada se abre más, ¿cuál es el efecto FINAL sobre el caudal de salida por rebose?",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A[Apertura de válvula de entrada ↑] -->|aumenta| B[Flujo de entrada ↑]\n    B -->|aumenta| C[Nivel del tanque ↑]\n    C -->|aumenta| D[Caudal de salida por rebose ↑]",
+    "opciones": {
+      "a": "El caudal de salida por rebose disminuye",
+      "b": "El caudal de salida por rebose no cambia",
+      "c": "El caudal de salida por rebose aumenta",
+      "d": "El caudal de salida por rebose primero sube y luego baja"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "Siguiendo la cadena: más apertura → más flujo de entrada → nivel sube → el rebose aumenta. Cada eslabón transmite el aumento al siguiente, por lo que el efecto final es un aumento en el caudal de rebose."
+  },
+  {
+    "id": "dg_ctrl_012",
+    "dificultad": 2,
+    "categoria": "Diagramas de causa-efecto",
+    "pregunta": "En un sistema de calentamiento, siga la cadena. Si la temperatura de la fuente de calor disminuye, ¿cuál es el efecto final sobre la velocidad de reacción en el reactor?",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A[Temperatura de fuente de calor ↓] -->|disminuye| B[Temperatura del intercambiador ↓]\n    B -->|disminuye| C[Temperatura de entrada al reactor ↓]\n    C -->|disminuye| D[Velocidad de reacción ↓]",
+    "opciones": {
+      "a": "La velocidad de reacción aumenta",
+      "b": "La velocidad de reacción disminuye",
+      "c": "La velocidad de reacción no cambia",
+      "d": "La velocidad de reacción primero baja y luego se estabiliza al mismo nivel"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "La cadena de efectos es toda en dirección decreciente: menos calor → menos temperatura en el intercambiador → menos temperatura en el reactor → velocidad de reacción más baja."
+  },
+  {
+    "id": "dg_ctrl_013",
+    "dificultad": 2,
+    "categoria": "Diagramas de causa-efecto",
+    "pregunta": "En una tubería con bomba, siga la cadena. Si se aumenta la restricción en la tubería (válvula se cierra parcialmente), ¿cuál es el efecto final sobre el caudal que llega al tanque destino?",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A[Restricción en tubería ↑] -->|disminuye| B[Caudal en tubería ↓]\n    B -->|disminuye| C[Velocidad del fluido ↓]\n    C -->|disminuye| D[Caudal al tanque destino ↓]",
+    "opciones": {
+      "a": "El caudal al tanque destino aumenta",
+      "b": "El caudal al tanque destino se mantiene igual",
+      "c": "El caudal al tanque destino disminuye",
+      "d": "El caudal al tanque destino oscila"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "Al aumentar la restricción, el flujo a través de la tubería disminuye, la velocidad del fluido baja y como consecuencia el caudal que llega al destino también disminuye. La cadena propaga la disminución."
+  },
+  {
+    "id": "dg_ctrl_014",
+    "dificultad": 2,
+    "categoria": "Diagramas de causa-efecto",
+    "pregunta": "En un separador gas-líquido, siga la cadena. Si la temperatura de alimentación aumenta, ¿cuál es el efecto final sobre el nivel de líquido en el separador?",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A[Temperatura de alimentación ↑] -->|aumenta| B[Fracción de vapor en alimentación ↑]\n    B -->|disminuye| C[Fracción líquida en alimentación ↓]\n    C -->|disminuye| D[Nivel de líquido en separador ↓]",
+    "opciones": {
+      "a": "El nivel de líquido aumenta",
+      "b": "El nivel de líquido no cambia",
+      "c": "El nivel de líquido disminuye",
+      "d": "El nivel de líquido primero sube y luego baja"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "Al subir la temperatura, más líquido se convierte en vapor, por lo que la fracción líquida disminuye y llega menos líquido al separador, haciendo bajar el nivel de líquido."
+  },
+  {
+    "id": "dg_ctrl_015",
+    "dificultad": 2,
+    "categoria": "Diagramas de causa-efecto",
+    "pregunta": "En un reactor con enfriamiento, siga la cadena. Si el flujo del refrigerante aumenta, ¿cuál es el efecto final sobre la concentración del producto?",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A[Flujo de refrigerante ↑] -->|disminuye| B[Temperatura del reactor ↓]\n    B -->|disminuye| C[Velocidad de reacción ↓]\n    C -->|disminuye| D[Concentración de producto ↓]",
+    "opciones": {
+      "a": "La concentración de producto aumenta",
+      "b": "La concentración de producto disminuye",
+      "c": "La concentración de producto se mantiene constante",
+      "d": "La concentración de producto aumenta y luego disminuye"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Más refrigerante baja la temperatura del reactor, lo que reduce la velocidad de reacción y, como consecuencia, se produce menos producto, disminuyendo su concentración en el reactor."
+  },
+  {
+    "id": "dg_ctrl_016",
+    "dificultad": 2,
+    "categoria": "Diagramas de causa-efecto",
+    "pregunta": "En un sistema de calentamiento a través de intercambiador, siga la cadena. Si la presión del vapor de calefacción disminuye, ¿cuál es el efecto final sobre la temperatura del producto?",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A[Presión del vapor de calefacción ↓] -->|disminuye| B[Temperatura del vapor ↓]\n    B -->|disminuye| C[Transferencia de calor ↓]\n    C -->|disminuye| D[Temperatura del producto ↓]",
+    "opciones": {
+      "a": "La temperatura del producto aumenta",
+      "b": "La temperatura del producto no varía",
+      "c": "La temperatura del producto disminuye",
+      "d": "La temperatura del producto oscila entre valores extremos"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "Menor presión de vapor implica menor temperatura del vapor, lo que reduce la transferencia de calor al proceso y finalmente disminuye la temperatura del producto a la salida del intercambiador."
+  },
+  {
+    "id": "dg_ctrl_017",
+    "dificultad": 2,
+    "categoria": "Diagramas de causa-efecto",
+    "pregunta": "En un tanque presurizado, siga la cadena. Si el flujo de gas inerte de entrada aumenta, ¿cuál es el efecto final sobre el flujo de gas de purga de salida?",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A[Flujo de gas inerte ↑] -->|aumenta| B[Presión en el tanque ↑]\n    B -->|aumenta| C[Diferencial de presión en válvula de purga ↑]\n    C -->|aumenta| D[Flujo de gas de purga ↑]",
+    "opciones": {
+      "a": "El flujo de gas de purga disminuye",
+      "b": "El flujo de gas de purga aumenta",
+      "c": "El flujo de gas de purga no cambia",
+      "d": "La válvula de purga se cierra automáticamente"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Al entrar más gas inerte, la presión del tanque sube, lo que incrementa el diferencial de presión sobre la válvula de purga y, como resultado, el flujo de purga también aumenta."
+  },
+  {
+    "id": "dg_ctrl_018",
+    "dificultad": 2,
+    "categoria": "Diagramas de causa-efecto",
+    "pregunta": "En un proceso de enfriamiento, siga la cadena. Si la carga térmica del proceso aumenta, ¿cuál es el efecto final sobre la temperatura de salida del producto?",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A[Carga térmica del proceso ↑] -->|disminuye| B[Capacidad de enfriamiento disponible ↓]\n    B -->|disminuye| C[Tasa de remoción de calor ↓]\n    C -->|aumenta| D[Temperatura de salida del producto ↑]",
+    "opciones": {
+      "a": "La temperatura de salida disminuye",
+      "b": "La temperatura de salida no cambia",
+      "c": "La temperatura de salida aumenta",
+      "d": "La temperatura de salida se vuelve inestable"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "Al aumentar la carga térmica, la capacidad de enfriamiento disponible se hace insuficiente, se remueve menos calor del sistema y por ello la temperatura de salida del producto aumenta."
+  },
+  {
+    "id": "dg_ctrl_019",
+    "dificultad": 2,
+    "categoria": "Diagramas de causa-efecto",
+    "pregunta": "En un sistema de llenado, siga la cadena. Si la densidad del fluido aumenta, ¿cuál es el efecto final sobre el nivel indicado por un sensor de presión hidrostática?",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A[Densidad del fluido ↑] -->|aumenta| B[Presión hidrostática ↑]\n    B -->|aumenta| C[Señal del sensor de presión ↑]\n    C -->|aumenta| D[Nivel indicado por el sensor ↑]",
+    "opciones": {
+      "a": "El nivel indicado disminuye",
+      "b": "El nivel indicado no cambia",
+      "c": "El nivel indicado aumenta aunque el nivel real sea el mismo",
+      "d": "El sensor deja de funcionar"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "Si la densidad del fluido sube, la presión hidrostática aumenta incluso si el nivel físico real no cambió. El sensor interpreta esta mayor presión como un nivel más alto, dando una lectura errónea al alza."
+  },
+  {
+    "id": "dg_ctrl_020",
+    "dificultad": 2,
+    "categoria": "Diagramas de causa-efecto",
+    "pregunta": "En un sistema bomba-tubería, siga la cadena. Si la temperatura del fluido bombeado aumenta, ¿cuál es el efecto final sobre el caudal entregado?",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A[Temperatura del fluido ↑] -->|disminuye| B[Densidad del fluido ↓]\n    B -->|disminuye| C[Viscosidad del fluido ↓]\n    C -->|aumenta| D[Caudal entregado ↑]",
+    "opciones": {
+      "a": "El caudal entregado disminuye porque el fluido es más ligero",
+      "b": "El caudal entregado aumenta porque el fluido fluye más fácilmente",
+      "c": "El caudal entregado no cambia con la temperatura",
+      "d": "El caudal entregado primero aumenta y luego disminuye"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Al aumentar la temperatura, el fluido se hace menos denso y menos viscoso, por lo que fluye con menos resistencia y la bomba puede entregar mayor caudal con la misma energía."
+  },
+  {
+    "id": "dg_ctrl_021",
+    "dificultad": 3,
+    "categoria": "Diagramas de causa-efecto",
+    "pregunta": "En un tanque de nivel, una sola causa genera dos efectos simultáneos. Si el flujo de entrada aumenta, ¿cuál de los siguientes efectos NO ocurre directamente?",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A[Flujo de entrada ↑] -->|aumenta| B[Nivel del tanque ↑]\n    A -->|aumenta| C[Tiempo de llenado ↓ se acorta]",
+    "opciones": {
+      "a": "El nivel del tanque aumenta",
+      "b": "El tiempo de llenado se acorta",
+      "c": "La temperatura del fluido en el tanque aumenta",
+      "d": "Ambos, el nivel y el tiempo de llenado, se ven afectados"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "El aumento del flujo de entrada afecta directamente tanto el nivel del tanque como el tiempo de llenado. La temperatura del fluido en el tanque NO se ve afectada directamente por el cambio en flujo de entrada."
+  },
+  {
+    "id": "dg_ctrl_022",
+    "dificultad": 3,
+    "categoria": "Diagramas de causa-efecto",
+    "pregunta": "En un reactor con chaqueta de enfriamiento, una causa afecta dos variables simultáneamente. Si la temperatura de entrada del reactivo aumenta, ¿cuáles son los DOS efectos directos?",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A[Temperatura de entrada del reactivo ↑] -->|aumenta| B[Temperatura del reactor ↑]\n    A -->|aumenta| C[Velocidad de reacción inicial ↑]",
+    "opciones": {
+      "a": "Solo sube la temperatura del reactor, la velocidad de reacción no cambia aún",
+      "b": "Suben tanto la temperatura del reactor como la velocidad de reacción inicial",
+      "c": "Solo sube la velocidad de reacción, la temperatura se regula automáticamente",
+      "d": "Bajan tanto la temperatura como la velocidad de reacción"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Cuando entra reactivo más caliente, tanto la temperatura del reactor como la velocidad de reacción inicial aumentan simultáneamente, ya que ambas dependen directamente de la temperatura de la alimentación."
+  },
+  {
+    "id": "dg_ctrl_023",
+    "dificultad": 3,
+    "categoria": "Diagramas de causa-efecto",
+    "pregunta": "En un separador, dos causas convergen sobre una variable. Si tanto el flujo de alimentación como la temperatura de alimentación aumentan al mismo tiempo, ¿qué ocurre con la presión interna del separador?",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A[Flujo de alimentación ↑] -->|aumenta| S{Presión interna\ndel separador}\n    B[Temperatura de alimentación ↑] -->|aumenta| S",
+    "opciones": {
+      "a": "La presión interna disminuye porque se generan más vapores",
+      "b": "La presión interna aumenta porque ambas causas la incrementan",
+      "c": "La presión interna no cambia porque los efectos se cancelan",
+      "d": "La presión primero baja y luego sube"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Ambas causas contribuyen a aumentar la presión interna: más flujo trae más material al separador y mayor temperatura genera más vapores. Al actuar en el mismo sentido, el efecto neto es un aumento de la presión."
+  },
+  {
+    "id": "dg_ctrl_024",
+    "dificultad": 3,
+    "categoria": "Diagramas de causa-efecto",
+    "pregunta": "En un intercambiador de calor, observe la bifurcación. Si la temperatura del fluido caliente disminuye, ¿cuál de los siguientes efectos NO ocurre?",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A[Temperatura fluido caliente ↓] -->|disminuye| B[Transferencia de calor ↓]\n    A -->|disminuye| C[Temperatura de salida del fluido frío ↓]",
+    "opciones": {
+      "a": "La transferencia de calor disminuye",
+      "b": "La temperatura de salida del fluido frío disminuye",
+      "c": "La presión de operación del intercambiador aumenta",
+      "d": "Tanto la transferencia de calor como la temperatura del fluido frío disminuyen"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "La disminución de temperatura del fluido caliente reduce la transferencia de calor y la temperatura de salida del fluido frío. La presión de operación del intercambiador no es un efecto directo de este cambio de temperatura."
+  },
+  {
+    "id": "dg_ctrl_025",
+    "dificultad": 3,
+    "categoria": "Diagramas de causa-efecto",
+    "pregunta": "En un tanque con dos entradas, dos causas se suman. Si el flujo de entrada A aumenta pero el flujo de entrada B disminuye en la misma proporción, ¿qué ocurre con el nivel?",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A[Flujo entrada A ↑] -->|aumenta| S{Nivel del\ntanque}\n    B[Flujo entrada B ↓] -->|disminuye| S",
+    "opciones": {
+      "a": "El nivel sube porque A domina sobre B",
+      "b": "El nivel baja porque B domina sobre A",
+      "c": "El nivel no cambia porque los efectos se cancelan",
+      "d": "El nivel oscila entre subir y bajar"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "Cuando una entrada sube y la otra baja en la misma proporción, el flujo total neto no cambia. Los efectos se cancelan mutuamente y el nivel permanece constante."
+  },
+  {
+    "id": "dg_ctrl_026",
+    "dificultad": 3,
+    "categoria": "Diagramas de causa-efecto",
+    "pregunta": "En un reactor, una perturbación genera bifurcación. Si la concentración del reactivo de alimentación aumenta, ¿cuáles son los dos efectos directos?",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A[Concentración de reactivo ↑] -->|aumenta| B[Velocidad de reacción ↑]\n    A -->|aumenta| C[Concentración de producto potencial ↑]",
+    "opciones": {
+      "a": "Solo aumenta la velocidad de reacción",
+      "b": "Solo aumenta la concentración de producto potencial",
+      "c": "Aumentan tanto la velocidad de reacción como la concentración de producto potencial",
+      "d": "La velocidad sube pero la concentración de producto baja"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "Una mayor concentración de reactivo afecta simultáneamente dos variables: acelera la reacción (más moléculas disponibles para reaccionar) e incrementa la concentración de producto potencial que puede generarse."
+  },
+  {
+    "id": "dg_ctrl_027",
+    "dificultad": 3,
+    "categoria": "Diagramas de causa-efecto",
+    "pregunta": "En un sistema de presión, dos variables influyen sobre una. Si la temperatura sube y el volumen del recipiente permanece fijo, ¿qué ocurre con la presión?",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A[Temperatura ↑] -->|aumenta| S{Presión del\nrecipiente}\n    B[Volumen constante] -->|no cambia| S",
+    "opciones": {
+      "a": "La presión disminuye porque hay más espacio relativo",
+      "b": "La presión no cambia porque el volumen no varía",
+      "c": "La presión aumenta porque la temperatura sube con volumen fijo",
+      "d": "La presión oscila sin tendencia definida"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "Con volumen constante, el único factor que cambia es la temperatura. Al subir la temperatura, las moléculas se mueven más rápido y golpean las paredes con más fuerza, aumentando la presión."
+  },
+  {
+    "id": "dg_ctrl_028",
+    "dificultad": 3,
+    "categoria": "Diagramas de causa-efecto",
+    "pregunta": "En un separador gas-líquido, una causa produce bifurcación. Si la presión interna disminuye, ¿cuál de los siguientes efectos NO es consecuencia directa?",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A[Presión interna ↓] -->|disminuye| B[Flujo de gas de salida ↓]\n    A -->|aumenta| C[Evaporación de líquido ↑]",
+    "opciones": {
+      "a": "El flujo de gas de salida disminuye",
+      "b": "La evaporación de líquido aumenta",
+      "c": "La temperatura del separador sube inmediatamente",
+      "d": "Ambos, el flujo de gas baja y la evaporación sube"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "Al bajar la presión, el gas sale con menos fuerza (flujo de gas disminuye) y la menor presión favorece la evaporación del líquido. La temperatura del separador no es un efecto directo de este cambio de presión."
+  },
+  {
+    "id": "dg_ctrl_029",
+    "dificultad": 3,
+    "categoria": "Diagramas de causa-efecto",
+    "pregunta": "En un sistema de calefacción, dos causas actúan sobre la temperatura final del proceso. Si el flujo de vapor sube pero la temperatura ambiente baja, ¿qué ocurre con la temperatura del proceso?",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A[Flujo de vapor ↑] -->|aumenta| S{Temperatura\ndel proceso}\n    B[Temperatura ambiente ↓] -->|disminuye| S",
+    "opciones": {
+      "a": "La temperatura del proceso definitivamente sube",
+      "b": "La temperatura del proceso definitivamente baja",
+      "c": "La temperatura del proceso no cambia en ningún caso",
+      "d": "El efecto neto depende de cuál de las dos causas sea más fuerte"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "Cuando dos causas actúan en sentidos opuestos, el resultado neto depende de la magnitud relativa de cada efecto. Sin saber cuál influencia domina, no se puede determinar si la temperatura sube o baja."
+  },
+  {
+    "id": "dg_ctrl_030",
+    "dificultad": 3,
+    "categoria": "Diagramas de causa-efecto",
+    "pregunta": "En un tanque con bomba de recirculación, una causa genera bifurcación. Si la velocidad de la bomba aumenta, ¿cuál efecto NO ocurre directamente según el diagrama?",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A[Velocidad de bomba ↑] -->|aumenta| B[Caudal de recirculación ↑]\n    A -->|aumenta| C[Presión de descarga de bomba ↑]",
+    "opciones": {
+      "a": "El caudal de recirculación aumenta",
+      "b": "La presión de descarga de la bomba aumenta",
+      "c": "La temperatura del motor de la bomba disminuye",
+      "d": "Tanto el caudal como la presión de descarga aumentan"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "Al aumentar la velocidad de la bomba, tanto el caudal de recirculación como la presión de descarga aumentan directamente. La temperatura del motor no es un efecto indicado en el diagrama y no sería una disminución."
+  },
+  {
+    "id": "dg_ctrl_031",
+    "dificultad": 4,
+    "categoria": "Diagramas de causa-efecto",
+    "pregunta": "En un reactor con tres entradas, observe el sumador complejo. Si la temperatura del reactivo A sube, el flujo del catalizador B baja y el flujo del disolvente C se mantiene, ¿qué ocurre con la velocidad de reacción?",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A[Temperatura reactivo A ↑] -->|aumenta| S{Velocidad de\nreacción}\n    B[Flujo catalizador B ↓] -->|disminuye| S\n    C[Flujo disolvente C igual] -->|sin cambio| S",
+    "opciones": {
+      "a": "La velocidad definitivamente sube porque la temperatura siempre domina",
+      "b": "La velocidad definitivamente baja porque el catalizador es más importante",
+      "c": "La velocidad no cambia porque hay tres variables",
+      "d": "El efecto neto es incierto sin conocer la magnitud relativa de cada influencia"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "Dos causas actúan en sentidos opuestos: la temperatura sube la velocidad y la reducción del catalizador la disminuye. Sin conocer cuál efecto domina cuantitativamente, no se puede determinar el resultado neto."
+  },
+  {
+    "id": "dg_ctrl_032",
+    "dificultad": 4,
+    "categoria": "Diagramas de causa-efecto",
+    "pregunta": "En una cadena larga con sumador en medio, siga todos los pasos. Si la presión de vapor de calefacción sube, ¿cuál es el efecto final sobre la concentración de producto en el reactor?",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A[Presión de vapor ↑] -->|aumenta| B[Temperatura del vapor ↑]\n    B -->|aumenta| S{Temperatura\ndel reactor}\n    C[Flujo de refrigerante constante] -->|sin cambio| S\n    S -->|aumenta| D[Velocidad de reacción ↑]\n    D -->|aumenta| E[Concentración de producto ↑]",
+    "opciones": {
+      "a": "La concentración de producto disminuye",
+      "b": "La concentración de producto no cambia porque el refrigerante compensa",
+      "c": "La concentración de producto aumenta",
+      "d": "La concentración de producto oscila"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "Con el refrigerante constante, el aumento de temperatura del vapor eleva la temperatura del reactor, lo que acelera la reacción y produce más producto. El refrigerante no cambia, por lo que no hay compensación."
+  },
+  {
+    "id": "dg_ctrl_033",
+    "dificultad": 4,
+    "categoria": "Diagramas de causa-efecto",
+    "pregunta": "Una perturbación interrumpe la cadena normal. En el siguiente sistema, si la bomba de alimentación falla (flujo cae a cero), ¿qué le pasa al nivel del tanque destino?",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A[Bomba de alimentación falla] -->|cae a cero| B[Flujo en tubería ↓ a cero]\n    B -->|interrumpe| C[Flujo de entrada al tanque destino ↓ a cero]\n    C -->|disminuye| D[Nivel del tanque destino ↓]\n    E[Flujo de salida del tanque continúa] -->|disminuye| D",
+    "opciones": {
+      "a": "El nivel del tanque destino no cambia porque la salida también para",
+      "b": "El nivel del tanque destino sube porque la bomba empuja fluido",
+      "c": "El nivel del tanque destino baja porque entra menos pero sigue saliendo",
+      "d": "El nivel oscila hasta que se restablece la bomba"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "Si la bomba falla, no entra fluido al tanque destino, pero el flujo de salida continúa. El tanque pierde fluido sin reposición, por lo que el nivel cae continuamente hasta que se restaure la bomba o se cierre la salida."
+  },
+  {
+    "id": "dg_ctrl_034",
+    "dificultad": 4,
+    "categoria": "Diagramas de causa-efecto",
+    "pregunta": "En un intercambiador, una variable que normalmente sube ahora baja. Si el flujo de vapor DISMINUYE en lugar de aumentar, ¿qué ocurre con la temperatura del producto al final de la cadena?",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A[Flujo de vapor ↓ en vez de ↑] -->|disminuye| B[Calor transferido ↓]\n    B -->|disminuye| C[Temperatura del proceso ↓]\n    C -->|disminuye| D[Temperatura del producto a la salida ↓]",
+    "opciones": {
+      "a": "La temperatura del producto aumenta porque hay menos resistencia",
+      "b": "La temperatura del producto no cambia, el intercambiador se autorregula",
+      "c": "La temperatura del producto disminuye",
+      "d": "La temperatura del producto sube primero y luego baja"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "Al disminuir el flujo de vapor, se transfiere menos calor al proceso, la temperatura del proceso baja y en consecuencia la temperatura del producto a la salida también disminuye. La cadena de efectos va toda en dirección decreciente."
+  },
+  {
+    "id": "dg_ctrl_035",
+    "dificultad": 4,
+    "categoria": "Diagramas de causa-efecto",
+    "pregunta": "En un separador con tres entradas al sumador de presión, si el flujo de alimentación baja, la temperatura sube y el flujo de gas de entrada sube, ¿cuál es el efecto neto sobre la presión del separador?",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A[Flujo de alimentación ↓] -->|disminuye| S{Presión del\nseparador}\n    B[Temperatura de alimentación ↑] -->|aumenta| S\n    C[Flujo de gas de entrada ↑] -->|aumenta| S",
+    "opciones": {
+      "a": "La presión definitivamente sube porque dos causas la incrementan contra una que la baja",
+      "b": "La presión definitivamente baja porque el flujo de alimentación es la causa más importante",
+      "c": "La presión no cambia porque hay tres variables",
+      "d": "El efecto es impredecible sin importar el número de causas"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "Dos causas (temperatura y flujo de gas) aumentan la presión, mientras que solo una (flujo de alimentación) la disminuye. Con dos causas actuando en sentido positivo contra una negativa, la presión neta tiende a subir."
+  },
+  {
+    "id": "dg_ctrl_036",
+    "dificultad": 4,
+    "categoria": "Diagramas de causa-efecto",
+    "pregunta": "En una cadena larga de bomba a reactor, una perturbación en el medio cambia la dirección del efecto. Si la tubería se parcialmente bloquea (restricción aumenta), ¿qué le ocurre finalmente a la concentración en el reactor?",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A[Restricción en tubería ↑] -->|disminuye| B[Caudal de reactivo al reactor ↓]\n    B -->|disminuye| C[Concentración de reactivo en reactor ↓]\n    C -->|disminuye| D[Velocidad de reacción ↓]\n    D -->|disminuye| E[Concentración de producto ↓]",
+    "opciones": {
+      "a": "La concentración de producto aumenta porque hay menos dilución",
+      "b": "La concentración de producto disminuye",
+      "c": "La concentración de producto no cambia",
+      "d": "La concentración de producto sube y luego cae"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "El bloqueo reduce el flujo de reactivo, lo que baja la concentración del reactivo en el reactor, reduce la velocidad de reacción y finalmente disminuye la concentración del producto generado."
+  },
+  {
+    "id": "dg_ctrl_037",
+    "dificultad": 4,
+    "categoria": "Diagramas de causa-efecto",
+    "pregunta": "En un sistema de nivel con sumador, si el flujo de entrada BAJA en vez de subir como estaba planeado, ¿qué ocurre con el tiempo de vaciado del tanque?",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A[Flujo de entrada ↓ en vez de ↑] -->|disminuye| S{Nivel del\ntanque}\n    B[Flujo de salida constante] -->|disminuye| S\n    S -->|disminuye| C[Tiempo de vaciado ↓ se acorta]",
+    "opciones": {
+      "a": "El tiempo de vaciado se alarga porque entra menos fluido",
+      "b": "El tiempo de vaciado no cambia porque la salida es constante",
+      "c": "El tiempo de vaciado se acorta porque el nivel baja más rápido",
+      "d": "El tiempo de vaciado es imposible de determinar"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "Al bajar el flujo de entrada con salida constante, el nivel cae más rápido de lo esperado. Cuanto más bajo sea el nivel, menos tiempo resta para vaciarse completamente, por lo que el tiempo de vaciado se acorta."
+  },
+  {
+    "id": "dg_ctrl_038",
+    "dificultad": 4,
+    "categoria": "Diagramas de causa-efecto",
+    "pregunta": "En un reactor con tres factores que afectan la selectividad, si la temperatura sube, el tiempo de residencia baja y la concentración del inhibidor sube, ¿qué ocurre con la selectividad del producto deseado?",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A[Temperatura ↑] -->|aumenta| S{Selectividad\ndel producto}\n    B[Tiempo de residencia ↓] -->|disminuye| S\n    C[Concentración de inhibidor ↑] -->|disminuye| S",
+    "opciones": {
+      "a": "La selectividad sube porque la temperatura siempre domina",
+      "b": "La selectividad baja porque dos causas la reducen y solo una la aumenta",
+      "c": "La selectividad no cambia porque los tres efectos se equilibran",
+      "d": "La selectividad sube y luego baja cíclicamente"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Dos factores actúan en contra de la selectividad (menos tiempo de residencia e inhibidor más concentrado) mientras solo uno la favorece (temperatura). Con dos efectos negativos dominando, la selectividad tiende a bajar."
+  },
+  {
+    "id": "dg_ctrl_039",
+    "dificultad": 4,
+    "categoria": "Diagramas de causa-efecto",
+    "pregunta": "En un intercambiador con perturbación repentina, si el fluido caliente entra de repente más frío de lo normal, ¿qué ocurre al final de la cadena con la temperatura de salida del fluido frío?",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A[Temperatura entrada fluido caliente ↓ inesperadamente] -->|disminuye| B[Diferencial de temperatura ↓]\n    B -->|disminuye| C[Tasa de transferencia de calor ↓]\n    C -->|disminuye| D[Temperatura salida fluido frío ↓]",
+    "opciones": {
+      "a": "La temperatura de salida del fluido frío sube para compensar",
+      "b": "La temperatura de salida del fluido frío baja",
+      "c": "La temperatura de salida del fluido frío no cambia",
+      "d": "El intercambiador deja de funcionar completamente"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Cuando el fluido caliente entra más frío, la diferencia de temperatura entre los dos fluidos disminuye, lo que reduce la fuerza impulsora para la transferencia de calor. Con menos calor transferido, el fluido frío sale a menor temperatura."
+  },
+  {
+    "id": "dg_ctrl_040",
+    "dificultad": 4,
+    "categoria": "Diagramas de causa-efecto",
+    "pregunta": "En un sistema de tres variables actuando sobre el nivel de un separador, si el flujo de alimentación sube, el flujo de líquido de salida también sube y la evaporación baja, ¿qué ocurre con el nivel de líquido?",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A[Flujo de alimentación ↑] -->|aumenta| S{Nivel de líquido\nen separador}\n    B[Flujo de salida de líquido ↑] -->|disminuye| S\n    C[Evaporación ↓] -->|aumenta| S",
+    "opciones": {
+      "a": "El nivel sube porque la alimentación y la menor evaporación lo aumentan, contra la salida que lo baja",
+      "b": "El nivel baja porque el flujo de salida es la variable dominante",
+      "c": "El nivel no cambia porque hay equilibrio perfecto",
+      "d": "El nivel oscila sin tendencia clara"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "Dos factores incrementan el nivel (más alimentación y menos evaporación) mientras uno lo reduce (más salida). Con dos causas positivas contra una negativa, el nivel tiende a subir, aunque el efecto exacto depende de las magnitudes."
+  },
+  {
+    "id": "dg_ctrl_041",
+    "dificultad": 5,
+    "categoria": "Diagramas de causa-efecto",
+    "pregunta": "En este sistema complejo con sumadores y bifurcaciones, ¿cuál es el nodo CRÍTICO cuya variación afecta a la mayor cantidad de variables del sistema?",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A[Temperatura del reactor ↑] -->|aumenta| B[Velocidad de reacción ↑]\n    A -->|aumenta| C[Presión del reactor ↑]\n    A -->|aumenta| D[Concentración de vapor ↑]\n    B -->|aumenta| E[Concentración de producto ↑]\n    C -->|aumenta| F[Flujo de gas de alivio ↑]\n    D -->|aumenta| F",
+    "opciones": {
+      "a": "La velocidad de reacción, porque genera el producto",
+      "b": "La presión del reactor, porque activa el alivio",
+      "c": "La temperatura del reactor, porque afecta directamente a tres variables simultáneamente",
+      "d": "El flujo de gas de alivio, porque es el efecto final del sistema"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "La temperatura del reactor es el nodo crítico porque afecta directamente a tres variables: velocidad de reacción, presión y concentración de vapor. Ningún otro nodo tiene tantas conexiones directas de salida en este diagrama."
+  },
+  {
+    "id": "dg_ctrl_042",
+    "dificultad": 5,
+    "categoria": "Diagramas de causa-efecto",
+    "pregunta": "En este sistema complejo, identifique la causa raíz de que el flujo de producto final disminuya. Trace hacia atrás desde el efecto.",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A[Falla en suministro de vapor] -->|disminuye| B[Temperatura del intercambiador ↓]\n    B -->|disminuye| C[Temperatura de entrada al reactor ↓]\n    C -->|disminuye| D[Velocidad de reacción ↓]\n    D -->|disminuye| E[Concentración de producto ↓]\n    E -->|disminuye| F[Flujo de producto final ↓]",
+    "opciones": {
+      "a": "La baja velocidad de reacción es la causa raíz",
+      "b": "La baja temperatura del reactor es la causa raíz",
+      "c": "La falla en el suministro de vapor es la causa raíz",
+      "d": "La baja concentración de producto es la causa raíz"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "Trazando hacia atrás desde el efecto final, cada paso tiene una causa anterior hasta llegar a la falla en el suministro de vapor, que no tiene causa anterior en el diagrama. Ese es el nodo origen, la verdadera causa raíz del problema."
+  },
+  {
+    "id": "dg_ctrl_043",
+    "dificultad": 5,
+    "categoria": "Diagramas de causa-efecto",
+    "pregunta": "En este sistema complejo, dos ramas convergen con efectos opuestos sobre la temperatura del reactor. ¿Cuál es el efecto NETO sobre la temperatura si ambas ramas ocurren simultáneamente con igual magnitud?",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A[Flujo de vapor de calefacción ↑] -->|aumenta| S{Temperatura\ndel reactor}\n    B[Flujo de refrigerante ↑] -->|disminuye| S\n    S -->|aumenta| C[Velocidad de reacción]\n    S -->|aumenta| D[Presión del reactor]",
+    "opciones": {
+      "a": "La temperatura sube porque el calentamiento siempre domina sobre el enfriamiento",
+      "b": "La temperatura baja porque el refrigerante tiene más inercia térmica",
+      "c": "La temperatura no cambia porque los efectos se cancelan con igual magnitud",
+      "d": "La temperatura oscila entre subir y bajar continuamente"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "Cuando dos efectos de igual magnitud actúan en sentidos opuestos sobre el mismo nodo sumador, el efecto neto es cero y la temperatura del reactor permanece constante. Esto es la base del control por balance de energía."
+  },
+  {
+    "id": "dg_ctrl_044",
+    "dificultad": 5,
+    "categoria": "Diagramas de causa-efecto",
+    "pregunta": "En este sistema de tanque con recirculación, analice el comportamiento global. Si la válvula de recirculación se abre completamente, ¿qué ocurre con el flujo neto de producto que llega al siguiente proceso?",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A[Válvula de recirculación totalmente abierta] -->|aumenta| B[Flujo de recirculación ↑]\n    B -->|disminuye| C[Flujo disponible hacia siguiente proceso ↓]\n    B -->|aumenta| D[Nivel del tanque ↑]\n    D -->|aumenta| E[Presión hidrostática ↑]\n    E -->|aumenta| C",
+    "opciones": {
+      "a": "El flujo al siguiente proceso aumenta porque la mayor presión lo impulsa",
+      "b": "El flujo al siguiente proceso disminuye porque la recirculación consume caudal aunque la presión ayuda un poco",
+      "c": "El flujo al siguiente proceso no cambia porque los efectos se equilibran perfectamente",
+      "d": "El flujo al siguiente proceso primero baja y luego sube indefinidamente"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "La recirculación resta caudal disponible para el siguiente proceso. Aunque el aumento de nivel incrementa la presión hidrostática y ayuda ligeramente, el efecto dominante es la pérdida directa de caudal por recirculación, resultando en menor flujo neto hacia el siguiente proceso."
+  },
+  {
+    "id": "dg_ctrl_045",
+    "dificultad": 5,
+    "categoria": "Diagramas de causa-efecto",
+    "pregunta": "En este sistema complejo de reactor con separador, si la temperatura de la fuente de calor externa sube, ¿qué le ocurre finalmente al nivel de líquido en el separador aguas abajo?",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A[Temperatura fuente externa ↑] -->|aumenta| B[Temperatura del reactor ↑]\n    B -->|aumenta| C[Velocidad de reacción ↑]\n    C -->|aumenta| D[Producción de vapor en reactor ↑]\n    D -->|aumenta| E[Flujo de vapor al separador ↑]\n    E -->|disminuye| F[Nivel de líquido en separador ↓]",
+    "opciones": {
+      "a": "El nivel de líquido en el separador sube porque hay más producción",
+      "b": "El nivel de líquido en el separador baja porque llega más vapor y menos líquido",
+      "c": "El nivel de líquido en el separador no cambia",
+      "d": "El nivel sube primero y luego baja cuando el separador se ajusta"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "La cadena es: más calor → más temperatura → más reacción → más vapor generado → más vapor llega al separador. Si llega más material en fase vapor, hay menos en fase líquida, por lo que el nivel de líquido en el separador disminuye."
+  },
+  {
+    "id": "dg_ctrl_046",
+    "dificultad": 5,
+    "categoria": "Diagramas de causa-efecto",
+    "pregunta": "En este sistema complejo con múltiples ramas, si la bomba principal falla, ¿cuál variable actúa como nodo de propagación crítico que amplifica el fallo hacia más partes del sistema?",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A[Falla de bomba principal] -->|cae a cero| B[Flujo de reactivo ↓ a cero]\n    B -->|disminuye| C[Nivel del reactor ↓]\n    B -->|disminuye| D[Concentración del reactor ↓]\n    C -->|disminuye| E[Señal del sensor de nivel ↓]\n    D -->|disminuye| F[Velocidad de reacción ↓]\n    F -->|disminuye| G[Temperatura del reactor ↓]",
+    "opciones": {
+      "a": "La temperatura del reactor, porque afecta todo lo demás",
+      "b": "El flujo de reactivo, porque su colapso genera dos ramas de efectos simultáneos",
+      "c": "El nivel del reactor, porque el sensor lo detecta primero",
+      "d": "La velocidad de reacción, porque es el corazón del proceso"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "El flujo de reactivo es el nodo de propagación crítico porque su caída a cero genera simultáneamente dos ramas de efectos: la caída del nivel (que activa la alarma del sensor) y la caída de concentración (que reduce la reacción y la temperatura). Ningún otro nodo tiene esta ramificación doble desde el punto de falla."
+  },
+  {
+    "id": "dg_ctrl_047",
+    "dificultad": 5,
+    "categoria": "Diagramas de causa-efecto",
+    "pregunta": "En este sistema con retroalimentación implícita, si la concentración de producto sube, genera un efecto que a su vez reduce la velocidad de reacción. Analizando el diagrama completo, ¿cómo se denomina este comportamiento del sistema?",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A[Velocidad de reacción ↑] -->|aumenta| B[Concentración de producto ↑]\n    B -->|inhibe| C[Velocidad de reacción ↓]\n    C -->|disminuye| D[Concentración de producto ↓]\n    D -->|libera inhibición| A",
+    "opciones": {
+      "a": "Retroalimentación positiva: el sistema se amplifica indefinidamente",
+      "b": "Sistema sin control: cada variable actúa independientemente",
+      "c": "Retroalimentación negativa: el producto inhibe su propia producción, tendiendo al equilibrio",
+      "d": "Sistema inestable: las variables oscilan sin converger"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "Cuando el producto inhibe su propia producción, se establece una retroalimentación negativa: más producto reduce la reacción, lo que baja el producto, lo que libera la inhibición y reactiva la reacción. Este mecanismo autorregulador tiende al equilibrio."
+  },
+  {
+    "id": "dg_ctrl_048",
+    "dificultad": 5,
+    "categoria": "Diagramas de causa-efecto",
+    "pregunta": "En este sistema con sumadores y bifurcaciones múltiples, si TODAS las variables de entrada aumentan simultáneamente, ¿qué variable del sistema experimenta el mayor número de influencias positivas acumuladas?",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A[Flujo de reactivo ↑] -->|aumenta| S1{Temperatura\ndel reactor}\n    B[Flujo de vapor ↑] -->|aumenta| S1\n    S1 -->|aumenta| C[Velocidad de reacción ↑]\n    S1 -->|aumenta| D[Presión del reactor ↑]\n    C -->|aumenta| S2{Concentración\nde producto}\n    A -->|aumenta| S2\n    D -->|aumenta| E[Flujo de alivio ↑]",
+    "opciones": {
+      "a": "La presión del reactor, porque recibe efectos de todas las variables",
+      "b": "La concentración de producto, porque recibe influencias de la velocidad de reacción Y del flujo de reactivo directamente",
+      "c": "La temperatura del reactor, porque tiene más entradas directas",
+      "d": "El flujo de alivio, porque es el efecto final más alejado"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "La concentración de producto recibe dos influencias positivas acumuladas: la velocidad de reacción (que ya acumuló el efecto de temperatura y flujo de reactivo) y el flujo de reactivo directamente. La temperatura recibe dos entradas directas pero la concentración acumula efectos de más ramas del diagrama."
+  },
+  {
+    "id": "dg_ctrl_049",
+    "dificultad": 5,
+    "categoria": "Diagramas de causa-efecto",
+    "pregunta": "En este sistema complejo de separador con recirculación y reactor, analice el efecto completo en el sistema. Si la válvula de recirculación del separador se cierra completamente, ¿cuál es el efecto final sobre la temperatura del reactor?",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A[Válvula de recirculación cerrada] -->|cae a cero| B[Flujo de recirculación al reactor ↓ a cero]\n    B -->|disminuye| C[Concentración de reactivo en reactor ↓]\n    C -->|disminuye| D[Velocidad de reacción ↓]\n    D -->|disminuye| E[Calor generado por reacción ↓]\n    E -->|disminuye| F[Temperatura del reactor ↓]",
+    "opciones": {
+      "a": "La temperatura del reactor sube porque hay menos masa que calentar",
+      "b": "La temperatura del reactor no cambia porque el calentamiento externo compensa",
+      "c": "La temperatura del reactor baja porque la reacción genera menos calor",
+      "d": "La temperatura del reactor primero sube y luego baja al nuevo equilibrio"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "Sin recirculación, llega menos reactivo al reactor, la concentración baja, la reacción se hace más lenta, se genera menos calor por la reacción exotérmica y finalmente la temperatura del reactor disminuye. La cadena completa va en dirección decreciente."
+  },
+  {
+    "id": "dg_ctrl_050",
+    "dificultad": 5,
+    "categoria": "Diagramas de causa-efecto",
+    "pregunta": "En este sistema complejo con múltiples sumadores, si la presión del sistema BAJA de forma repentina, analice todos los efectos. ¿Cuál es la descripción más completa y correcta del comportamiento global del sistema?",
+    "tipo": "mermaid",
+    "mermaid": "flowchart TD\n    A[Presión del sistema ↓] -->|disminuye| B[Flujo de gas de salida ↓]\n    A -->|aumenta| C[Evaporación de líquido ↑]\n    A -->|disminuye| D[Temperatura de ebullición ↓]\n    C -->|disminuye| E[Nivel de líquido ↓]\n    D -->|aumenta| C\n    B -->|disminuye| F[Caudal de producto gaseoso ↓]",
+    "opciones": {
+      "a": "Solo disminuyen los flujos de salida, todo lo demás permanece igual",
+      "b": "La presión baja causa simultáneamente: menos flujo de gas de salida, más evaporación (amplificada por menor temperatura de ebullición), y caída del nivel de líquido",
+      "c": "La caída de presión solo afecta el flujo de gas, el nivel de líquido se mantiene",
+      "d": "Todos los efectos son negativos: todo disminuye cuando baja la presión"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Una caída de presión genera efectos múltiples y en distintas direcciones: el flujo de gas de salida baja (menos fuerza impulsora), pero la evaporación aumenta porque la menor presión reduce la temperatura de ebullición, lo que a su vez amplifica la evaporación y hace bajar el nivel de líquido. El sistema responde con efectos tanto positivos como negativos en distintas variables."
+  }
+]

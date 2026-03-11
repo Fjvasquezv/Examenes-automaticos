@@ -1656,6 +1656,21 @@ def ejecutar_examen(config, question_manager, ui):
         pregunta_obj = exam_logic.obtener_siguiente_pregunta()
         
         if pregunta_obj is None:
+            if exam_logic.pregunta_actual < exam_logic.preguntas_minimas:
+                faltantes = exam_logic.preguntas_minimas - exam_logic.pregunta_actual
+                _log_evento_operacion(
+                    Path(__file__).parent,
+                    "error_sin_preguntas_minimo_no_cumplido",
+                    f"Sin preguntas disponibles antes de mínimo: respondidas={exam_logic.pregunta_actual}, minimo={exam_logic.preguntas_minimas}, faltantes={faltantes}",
+                    codigo=st.session_state.get('codigo_estudiante', ''),
+                    examen_id=str(config.get('_examen_id', ''))
+                )
+                st.error(
+                    f"⚠️ No hay suficientes preguntas disponibles para completar el mínimo del examen. "
+                    f"Respondidas: {exam_logic.pregunta_actual} / Mínimo: {exam_logic.preguntas_minimas}."
+                )
+                st.stop()
+
             st.session_state.exam_finished = True
             guardar_resultados(config, exam_logic)
             st.rerun()
