@@ -881,7 +881,7 @@
       "d": "$[F/m] = [T^{-2}]$ y $[\\nabla V_g] = [LT^{-2}]$ — distintos"
     },
     "respuesta_correcta": "b",
-    "explicacion": "Definición 1: $[\\vec{g}] = [F/m] = [MLT^{-2}]/[M] = [LT^{-2}]$. Definición 2: el operador gradiente $\\nabla$ divide entre longitud ($[L^{-1}]$), entonces $[\\nabla V_g] = [L^{-1}][L^2T^{-2}] = [LT^{-2}]$. Ambas dan $[LT^{-2}]$ ✓. La opción a comete el error de no aplicar el operador gradiente (que divide entre $L$).",
+    "explicacion": "Definición 1: $[\\vec{g}] = [F/m] = [MLT^{-2}]/[M] = [LT^{-2}]$. Definición 2: el operador gradiente $\\nabla$ divide entre longitud ($[L^{-1}]$), entonces $[\\nabla V_g] = [L^{-1}][L^2T^{-2}] = [LT^{-2}]$. Ambas dan $[LT^{-2}]$ . La opción a comete el error de no aplicar el operador gradiente (que divide entre $L$).",
     "tipo": "texto"
   },
   {
