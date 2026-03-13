@@ -43,8 +43,11 @@
         {
             "nombre": "Parcial 1 - Control",
             "examen_config": "Control/parcial_1.json",
-            "inicio": "2026-03-10 18:00",
-            "fin": "2026-03-10 21:00"
+            "inicio": "2026-03-12 19:00",
+            "fin": "2026-03-12 22:00",
+            "bancos_preguntas": [
+                "data/bancos/Control/Diagramas_Grafico.json"
+            ]
         },
         {
             "nombre": "Parcial 1 - Optimización",

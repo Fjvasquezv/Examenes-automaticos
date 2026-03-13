@@ -2,6 +2,7 @@
 Persistencia de Datos
 Maneja el guardado de resultados en Google Sheets
 """
+import json
 import streamlit as st
 from datetime import datetime
 from typing import Dict, Any, List
@@ -21,7 +22,8 @@ class DataPersistence:
     COLUMNA_ESTADO = 14
     COLUMNA_AUTORIZADO_CONTINUAR = 16
     COLUMNA_ESTADO_JSON = 17
-    RANGO_DATOS = 'A:R'
+    COLUMNA_CLAVES_RESPUESTAS = 18
+    RANGO_DATOS = 'A:S'
     MAX_REINTENTOS_API = 5
     RETRY_BASE_SECONDS = 0.4
     MIN_INTERVALO_REQUEST_SECONDS = 0.20
@@ -394,7 +396,7 @@ class DataPersistence:
                 
                 if fila_a_actualizar:
                     # Actualizar la fila existente
-                    range_to_update = f'{self.nombre_hoja}!A{fila_a_actualizar}:R{fila_a_actualizar}'
+                    range_to_update = f'{self.nombre_hoja}!A{fila_a_actualizar}:S{fila_a_actualizar}'
                     body = {'values': [datos]}
                     self._ejecutar_con_reintentos(self.service.spreadsheets().values().update(
                         spreadsheetId=self.spreadsheet_id,
@@ -479,7 +481,21 @@ class DataPersistence:
 
         # Estado serializado (solo aplica EN_CURSO)
         datos.append('')
-        
+
+        # Claves de respuesta: ID, letra elegida, letra correcta y opciones mostradas
+        claves = []
+        for d in stats.get('detalle_respuestas', []):
+            entry = {
+                'id': d.get('pregunta_id', ''),
+                'sel': d.get('letra_seleccionada', ''),
+                'ok': d.get('letra_correcta', ''),
+            }
+            opts = d.get('opciones_mostradas')
+            if opts:
+                entry['opts'] = opts
+            claves.append(entry)
+        datos.append(json.dumps(claves, ensure_ascii=False) if claves else '')
+
         return datos
     
     def _verificar_o_crear_hoja(self):
@@ -578,7 +594,8 @@ class DataPersistence:
             'Razon_Terminacion',
             'Sistema_Calificacion',
             'Autorizado_Continuar',
-            'Estado_JSON'
+            'Estado_JSON',
+            'Claves_Respuestas'
         ]
         
         body = {
@@ -605,7 +622,7 @@ class DataPersistence:
         
         self._ejecutar_con_reintentos(self.service.spreadsheets().values().append(
             spreadsheetId=self.spreadsheet_id,
-            range=f'{self.nombre_hoja}!A:R',
+            range=f'{self.nombre_hoja}!A:S',
             valueInputOption='RAW',
             insertDataOption='INSERT_ROWS',
             body=body
@@ -630,7 +647,7 @@ class DataPersistence:
             # Leer datos
             result = self._ejecutar_con_reintentos(self.service.spreadsheets().values().get(
                 spreadsheetId=self.spreadsheet_id,
-                range=f'{self.nombre_hoja}!A:R'
+                range=f'{self.nombre_hoja}!A:S'
             ), "obtener resultados")
             
             values = result.get('values', [])

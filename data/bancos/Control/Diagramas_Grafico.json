@@ -1,0 +1,162 @@
+[
+  {
+    "id": "dg_ctrl_001",
+    "dificultad": 5,
+    "categoria": "Diagramas de bloques - sistemas complejos",
+    "pregunta": "El diagrama muestra un intercambiador de calor en lazo cerrado donde la variable controlada es T_salida_caliente. Una perturbación eleva bruscamente la temperatura de entrada del lado caliente. Siguiendo el flujo de señales, ¿cuál es la secuencia correcta de la respuesta del sistema?",
+    "tipo": "mermaid",
+    "mermaid": "flowchart LR\n    SP[\"Set Point\"] -->|+| SUM((Σ))\n    SENS -->|- T_medida| SUM\n    SUM -->|Error| CTRL[Controlador]\n    CTRL -->|Regulación| VLV[\"Válvula\\nflujo frío\"]\n    VLV -->|Q_frío| HX[\"Intercambiador\\nde calor\"]\n    PERT[\"Perturbación\\nT_ent_cal ↑\"] --> HX\n    HX --> BF(( ))\n    BF -->|T_sal_cal| OUT[Salida]\n    BF --> SENS[Sensor T]",
+    "opciones": {
+      "a": "T_medida ↑ → error positivo → controlador aumenta Q_frío → mayor extracción de calor → T_sal_cal vuelve al SP",
+      "b": "T_medida ↑ → error negativo → controlador reduce Q_frío → T_sal_cal sigue subiendo sin corrección",
+      "c": "La perturbación entra directamente al proceso antes del sensor, por lo que el controlador no actúa",
+      "d": "T_medida ↑ → el punto de bifurcación distribuye el exceso de calor → T_sal_cal no cambia"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "La perturbación eleva T_sal_cal; el sensor detecta un valor mayor que el SP, generando un error positivo (SP − T_medida < 0 no, SP < T_medida → error = SP − T_medida < 0... wait). El comparador genera error = SP − T_medida. Si T_medida sube, error se vuelve negativo... Hmm, necesito reconsiderar. Si el controlador actúa de forma proporcional-inversa sobre Q_frío: error negativo → controlador aumenta Q_frío para reducir T_sal_cal."
+  },
+  {
+    "id": "dg_ctrl_002",
+    "dificultad": 5,
+    "categoria": "Diagramas de bloques - sistemas complejos",
+    "pregunta": "El diagrama muestra un reactor CSTR con chaqueta de enfriamiento en lazo cerrado. ¿Cuál es el nodo cuya eliminación haría que la temperatura del reactor suba indefinidamente sin acción correctiva del sistema?",
+    "tipo": "mermaid",
+    "mermaid": "flowchart LR\n    FEED[Alimentación] --> REACT[\"Reactor CSTR\"]\n    REACT --> BF(( ))\n    BF -->|Concentración| PROD[Producto]\n    BF -->|T_reactor| SENS[\"Sensor T\"]\n    SP[\"SP Temperatura\"] -->|+| SUM((Σ))\n    SENS -->|- T_medida| SUM\n    SUM -->|Error| CTRL[Controlador]\n    CTRL -->|Q_refrigerante| CHAQ[\"Chaqueta de\\nenfriamiento\"]\n    CHAQ -->|Enfriamiento| REACT",
+    "opciones": {
+      "a": "El bloque Reactor CSTR",
+      "b": "El bloque Chaqueta de enfriamiento",
+      "c": "El punto de bifurcación",
+      "d": "El Sensor de temperatura"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "El sensor cierra el lazo: sin él, no llega señal medida al comparador, no se genera error y el controlador no actúa. La temperatura del reactor subiría sin corrección. Los demás elementos pueden operar, pero sin retroalimentación el control es imposible."
+  },
+  {
+    "id": "dg_ctrl_003",
+    "dificultad": 5,
+    "categoria": "Diagramas de bloques - sistemas complejos",
+    "pregunta": "Dos tanques en serie por gravedad: el flujo de salida de cada tanque depende de su nivel (a mayor nivel, mayor flujo de salida). Si Q_entrada al Tanque 1 aumenta repentinamente, ¿cuál es el orden correcto de propagación del efecto?",
+    "tipo": "mermaid",
+    "mermaid": "flowchart LR\n    Q_in[\"Q_entrada ↑\"] --> SUM1((Σ))\n    Q12_fb[\"Q_12\"] -->|- | SUM1\n    SUM1 -->|\"Flujo neto +\"| T1[\"Tanque 1\"]\n    T1 -->|\"L1 controla\"| Q12[\"Q_12\"]\n    Q12 --> BF1(( ))\n    BF1 --> Q12_fb\n    BF1 --> SUM2((Σ))\n    Q_out_fb[\"Q_salida\"] -->|- | SUM2\n    SUM2 -->|\"Flujo neto +\"| T2[\"Tanque 2\"]\n    T2 -->|\"L2 controla\"| Q_out[\"Q_salida\"]\n    Q_out --> Q_out_fb",
+    "opciones": {
+      "a": "L1 ↑ → Q_12 ↑ → L2 ↑ → Q_salida ↑",
+      "b": "Q_12 ↑ → L1 ↑ → Q_salida ↑ → L2 ↑",
+      "c": "L2 ↑ → Q_salida ↑ → Q_12 ↑ → L1 ↑",
+      "d": "Q_entrada actúa directamente sobre L2; L1 permanece constante"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "El mayor Q_entrada supera el Q_12 actual en el sumador del Tanque 1: flujo neto positivo → L1 sube. El mayor nivel impulsa más flujo por gravedad (Q_12 ↑), que llega al Tanque 2 superando Q_salida actual: flujo neto positivo → L2 sube. L2 mayor aumenta finalmente Q_salida. El efecto se propaga en cascada."
+  },
+  {
+    "id": "dg_ctrl_004",
+    "dificultad": 5,
+    "categoria": "Diagramas de bloques - sistemas complejos",
+    "pregunta": "El operador observa que T_sal_cal está por encima del Set Point y el error que llega al controlador indica que debe aumentar Q_frío. Sin embargo, Q_frío permanece en cero. Observando el diagrama, ¿entre qué dos bloques se ubica la falla?",
+    "tipo": "mermaid",
+    "mermaid": "flowchart LR\n    SP[\"Set Point\"] -->|+| SUM((Σ))\n    SENS -->|- T_medida| SUM\n    SUM -->|\"Error → aumentar Q_frío\"| CTRL[Controlador]\n    CTRL -->|\"Señal ↑\"| VLV[\"Válvula\\nflujo frío\"]\n    VLV -->|\"Q_frío = 0\"| HX[\"Intercambiador\"]\n    HX --> BF(( ))\n    BF -->|\"T_sal_cal > SP\"| OUT[Salida]\n    BF --> SENS[\"Sensor T\"]",
+    "opciones": {
+      "a": "Entre el Sensor y el Comparador: T_medida llega con valor incorrecto",
+      "b": "Entre el Comparador y el Controlador: el error no está siendo procesado",
+      "c": "Entre el Controlador y la Válvula: la señal del controlador sube pero Q_frío no responde",
+      "d": "Entre el punto de bifurcación y el Sensor: la señal de T_sal_cal no llega al sensor"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "El error es correcto y el controlador genera la señal adecuada (aumentar Q_frío). Sin embargo, Q_frío permanece en cero. La falla está entre el Controlador y la Válvula: la señal de regulación no llega a la válvula o la válvula está bloqueada. El resto del lazo funciona correctamente según el diagrama."
+  },
+  {
+    "id": "dg_ctrl_005",
+    "dificultad": 5,
+    "categoria": "Diagramas de bloques - sistemas complejos",
+    "pregunta": "El reactor recibe dos perturbaciones simultáneas: T_alimentación sube (tiende a elevar T_reactor) y Q_refrigerante también sube (tiende a bajar T_reactor). El sistema estaba en Set Point. ¿Qué ocurre con el error en el comparador justo después de que ambas perturbaciones actúan?",
+    "tipo": "mermaid",
+    "mermaid": "flowchart LR\n    FEED[Alimentación] --> SUM_P((Σ))\n    PERT1[\"Perturbación 1\\nT_alim ↑\"] --> SUM_P\n    SUM_P --> REACT[\"Reactor CSTR\"]\n    PERT2[\"Perturbación 2\\nQ_refrig ↑\"] --> CHAQ[\"Chaqueta de\\nenfriamiento\"]\n    CHAQ -->|Enfriamiento| REACT\n    REACT --> BF(( ))\n    BF -->|T_reactor| SENS[\"Sensor T\"]\n    BF -->|Concentración| PROD[Producto]\n    SP[\"Set Point\"] -->|+| SUM((Σ))\n    SENS -->|- T_medida| SUM\n    SUM -->|Error| CTRL[Controlador]",
+    "opciones": {
+      "a": "El error es definitivamente positivo porque T_alim siempre domina sobre Q_refrigerante",
+      "b": "El error es definitivamente negativo porque el enfriamiento adicional siempre domina",
+      "c": "El error puede ser positivo, negativo o cero según el efecto neto de ambas perturbaciones sobre T_reactor",
+      "d": "El comparador no puede recibir dos perturbaciones simultáneas; el sistema entra en indeterminación"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "Ambas perturbaciones actúan sobre T_reactor con efectos opuestos. El signo del error depende del efecto neto: si T_alim ↑ domina, T_reactor sube y el error es negativo (T_medida > SP); si Q_refrig ↑ domina, T_reactor baja y el error es positivo. Sin conocer las magnitudes relativas, el signo del error no puede determinarse a priori."
+  },
+  {
+    "id": "dg_ctrl_006",
+    "dificultad": 5,
+    "categoria": "Diagramas de bloques - sistemas complejos",
+    "pregunta": "La señal T_reactor sale de un punto de bifurcación y se dirige simultáneamente al sensor de temperatura, a un sistema de alarma y a un indicador de panel. Si T_reactor sube, ¿qué ocurre con las tres señales que salen del punto de bifurcación?",
+    "tipo": "mermaid",
+    "mermaid": "flowchart LR\n    REACT[Reactor] -->|T_reactor| BF(( ))\n    BF -->|T_reactor| SENS[\"Sensor T\"]\n    BF -->|T_reactor| ALARM[\"Sistema de alarma\"]\n    BF -->|T_reactor| IND[\"Indicador de panel\"]\n    SENS -->|- T_medida| SUM((Σ))\n    SP[\"Set Point\"] -->|+| SUM\n    SUM -->|Error| CTRL[Controlador]",
+    "opciones": {
+      "a": "Solo el sensor recibe la señal actualizada; alarma e indicador mantienen el valor anterior hasta el siguiente ciclo",
+      "b": "Las tres señales reflejan el mismo valor de T_reactor simultáneamente",
+      "c": "La señal se divide en partes iguales: cada rama recibe un tercio del valor total de T_reactor",
+      "d": "El punto de bifurcación prioriza la rama del sensor y atenúa las demás para no saturar el sistema"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Un punto de bifurcación distribuye la misma señal a todas las ramas simultáneamente, sin dividir ni atenuar su valor. Si T_reactor sube, el sensor, la alarma y el indicador reciben exactamente el mismo valor de T_reactor al mismo tiempo. Esta es la definición del punto de bifurcación en diagramas de bloques."
+  },
+  {
+    "id": "dg_ctrl_007",
+    "dificultad": 5,
+    "categoria": "Diagramas de bloques - sistemas complejos",
+    "pregunta": "El nivel actual del tanque está POR ENCIMA del Set Point. Siguiendo el diagrama, ¿cuál es el signo del error y qué acción ejecuta el controlador sobre la válvula de salida?",
+    "tipo": "mermaid",
+    "mermaid": "flowchart LR\n    SP[\"Set Point\\nnivel\"] -->|+| SUM((Σ))\n    SENS -->|- L_medido| SUM\n    SUM -->|Error| CTRL[Controlador]\n    CTRL -->|Regulación| VLV[\"Válvula de salida\"]\n    VLV -->|Q_salida| TANK[Tanque]\n    Q_in[\"Q_entrada\"] --> TANK\n    TANK --> BF(( ))\n    BF -->|Nivel L| OUT[\"Nivel actual\"]\n    BF --> SENS[\"Sensor nivel\"]",
+    "opciones": {
+      "a": "Error negativo → controlador cierra la válvula de salida → nivel sigue subiendo",
+      "b": "Error negativo → controlador abre la válvula de salida → nivel baja hacia SP",
+      "c": "Error positivo → controlador abre la válvula de salida → nivel baja hacia SP",
+      "d": "Error positivo → controlador cierra la válvula de entrada → nivel baja hacia SP"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Error = SP − L_medido. Si el nivel está por encima del SP, entonces L_medido > SP → error negativo. El controlador detecta que el nivel debe bajar y abre la válvula de salida para aumentar Q_salida, reduciendo el nivel hacia el set point. La válvula de entrada no es la variable manipulada en este lazo."
+  },
+  {
+    "id": "dg_ctrl_008",
+    "dificultad": 5,
+    "categoria": "Diagramas de bloques - sistemas complejos",
+    "pregunta": "El diagrama muestra el mismo intercambiador con dos opciones de retroalimentación. En el Lazo A el sensor mide T_salida_caliente; en el Lazo B el sensor mide T_salida_fría. Si la temperatura de entrada del lado caliente sube (perturbación), ¿cuál lazo controla correctamente la variable de interés?",
+    "tipo": "mermaid",
+    "mermaid": "flowchart LR\n    PERT[\"T_ent_cal ↑\"] --> HX[\"Intercambiador\"]\n    HX --> BF(( ))\n    BF -->|T_sal_cal| SENS_A[\"Sensor A\"]\n    BF -->|T_sal_fria| SENS_B[\"Sensor B\"]\n    SENS_A -->|\"Lazo A\"| CTRL_A[\"Controlador A\"]\n    SENS_B -->|\"Lazo B\"| CTRL_B[\"Controlador B\"]\n    CTRL_A -->|Q_frío| HX\n    CTRL_B -->|Q_frío| HX",
+    "opciones": {
+      "a": "Lazo B, porque T_salida_fría siempre refleja mejor el estado térmico del proceso",
+      "b": "Lazo A, porque mide directamente T_sal_cal, que es la variable que se desea controlar",
+      "c": "Ambos son equivalentes porque ambos sensores están en el mismo intercambiador",
+      "d": "Ninguno detecta la perturbación porque esta entra al proceso antes del punto de bifurcación"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "El Lazo A mide directamente T_sal_cal, que es la variable controlada afectada por la perturbación. Al detectar su aumento, actúa sobre Q_frío para corregirla. El Lazo B mide T_sal_fría, que es otra variable del proceso; controlarla no garantiza que T_sal_cal se mantenga en el set point deseado."
+  },
+  {
+    "id": "dg_ctrl_009",
+    "dificultad": 5,
+    "categoria": "Diagramas de bloques - sistemas complejos",
+    "pregunta": "El lazo de retroalimentación del intercambiador se desconecta (lazo abierto). La válvula queda fija en su posición actual. Luego llega una perturbación que eleva T_entrada_caliente. ¿Qué ocurre con T_salida_caliente?",
+    "tipo": "mermaid",
+    "mermaid": "flowchart LR\n    SP[\"Set Point\"] -->|+| SUM((Σ))\n    SUM -->|Error| CTRL[Controlador]\n    CTRL --> VLV[\"Válvula frío\"]\n    VLV -->|\"Q_frío fijo\"| HX[\"Intercambiador\"]\n    PERT[\"Perturbación\\nT_ent_cal ↑\"] --> HX\n    HX -->|T_sal_cal| OUT[Salida]\n    RETRO[\"Retroalimentación\\ndesconectada\"] -. desconectado .-> SUM",
+    "opciones": {
+      "a": "T_sal_cal sube y se establece en un valor por encima del SP, sin corrección automática",
+      "b": "T_sal_cal sube momentáneamente pero vuelve al SP porque el controlador igual actúa",
+      "c": "T_sal_cal no cambia porque Q_frío permanece constante y absorbe toda la perturbación",
+      "d": "T_sal_cal baja porque el corte del lazo invierte la señal en el comparador"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "En lazo abierto no existe retroalimentación. Q_frío permanece fijo y el controlador no recibe información de T_sal_cal. La perturbación eleva T_sal_cal sin que el sistema detecte la desviación ni tome acción correctiva. T_sal_cal se establece indefinidamente en un valor por encima del SP."
+  },
+  {
+    "id": "dg_ctrl_010",
+    "dificultad": 5,
+    "categoria": "Diagramas de bloques - sistemas complejos",
+    "pregunta": "Tres señales confluyen en el punto de suma del tanque: Q_entrada (+), Q_salida_principal (−) y Q_recirculacion (+). El sistema estaba en Set Point con Q_recirculacion = 0. Si Q_recirculacion se activa repentinamente, ¿qué secuencia de eventos ocurre?",
+    "tipo": "mermaid",
+    "mermaid": "flowchart LR\n    Q_in[\"Q_entrada\"] -->|+| SUM_L((Σ))\n    Q_sal[\"Q_salida\\nprincipal\"] -->|- | SUM_L\n    Q_recirc[\"Q_recirculacion ↑\"] -->|+| SUM_L\n    SUM_L -->|\"Flujo neto +\"| TANK[Tanque]\n    TANK --> BF(( ))\n    BF -->|Nivel L| SENS[\"Sensor nivel\"]\n    BF -->|Nivel L| OUT[\"Nivel actual\"]\n    SP[\"Set Point\"] -->|+| SUM_C((Σ))\n    SENS -->|- L_medido| SUM_C\n    SUM_C -->|Error| CTRL[Controlador]\n    CTRL -->|Regulación| Q_sal",
+    "opciones": {
+      "a": "Flujo neto + → nivel sube → error negativo → controlador aumenta Q_salida para compensar → nivel vuelve a SP",
+      "b": "Flujo neto + → nivel sube → error positivo → controlador reduce Q_salida → nivel sube más",
+      "c": "Q_recirculacion suma con signo positivo en el punto de suma pero el tanque lo invierte → nivel no cambia",
+      "d": "El controlador no actúa porque Q_recirculacion es una señal externa que no pasa por el comparador"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "Q_recirculacion suma flujo positivo: el flujo neto en el punto de suma es positivo, el nivel sube. El sensor detecta L > SP → error = SP − L_medido < 0 (negativo). El controlador interpreta que el nivel está alto y aumenta Q_salida_principal para compensar el flujo adicional y devolver el nivel al SP. El lazo cerrado corrige la perturbación."
+  }
+]

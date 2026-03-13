@@ -38,7 +38,9 @@ def _serializar_estado_exam_logic(exam_logic) -> str:
             'dificultad': r.get('dificultad', 3),
             'categoria': r.get('categoria', 'Sin categoría'),
             'correcta': bool(r.get('correcta', False)),
-            'nivel_en_pregunta': r.get('nivel_en_pregunta', 3)
+            'nivel_en_pregunta': r.get('nivel_en_pregunta', 3),
+            'letra_seleccionada': r.get('letra_seleccionada', ''),
+            'letra_correcta': r.get('letra_correcta', ''),
         })
 
     payload = {

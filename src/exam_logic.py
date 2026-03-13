@@ -283,6 +283,9 @@ class ExamLogic:
         # Ver si el texto seleccionado coincide con el texto correcto
         texto_seleccionado = opciones_mezcladas[respuesta_seleccionada]
         es_correcta = (texto_seleccionado == texto_correcto)
+
+        # Letra correcta en el orden mostrado al estudiante
+        letra_correcta = next((k for k, v in opciones_mezcladas.items() if v == texto_correcto), '')
         
         # Actualizar contadores
         if es_correcta:
@@ -297,11 +300,14 @@ class ExamLogic:
             'categoria': pregunta.get('categoria', 'Sin categoría'),
             'correcta': es_correcta,
             'nivel_en_pregunta': self.nivel_actual,
-            # NUEVO: Guardar detalles para retroalimentación
             'pregunta_texto': pregunta['pregunta'],
             'respuesta_correcta_texto': texto_correcto,
             'respuesta_estudiante_texto': texto_seleccionado,
-            'explicacion': pregunta.get('explicacion', 'Sin explicación disponible')
+            'explicacion': pregunta.get('explicacion', 'Sin explicación disponible'),
+            # Claves para reconstruir el examen tal como fue presentado
+            'letra_seleccionada': respuesta_seleccionada,
+            'letra_correcta': letra_correcta,
+            'opciones_mostradas': dict(opciones_mezcladas),
         }
         self.preguntas_respondidas.append(respuesta_info)
         
@@ -477,13 +483,17 @@ class ExamLogic:
         detalle_respuestas = []
         for respuesta in self.preguntas_respondidas:
             detalle_respuestas.append({
+                'pregunta_id': respuesta.get('pregunta_id', ''),
                 'pregunta': respuesta.get('pregunta_texto', f"Pregunta {respuesta.get('pregunta_id', '')}"),
                 'categoria': respuesta.get('categoria', 'Sin categoría'),
                 'dificultad': respuesta.get('dificultad', 3),
                 'correcta': bool(respuesta.get('correcta', False)),
                 'respuesta_correcta': respuesta.get('respuesta_correcta_texto', 'No disponible'),
                 'respuesta_estudiante': respuesta.get('respuesta_estudiante_texto', 'No disponible'),
-                'explicacion': respuesta.get('explicacion', 'Sin explicación disponible')
+                'explicacion': respuesta.get('explicacion', 'Sin explicación disponible'),
+                'letra_seleccionada': respuesta.get('letra_seleccionada', ''),
+                'letra_correcta': respuesta.get('letra_correcta', ''),
+                'opciones_mostradas': respuesta.get('opciones_mostradas', {}),
             })
         
         return {
