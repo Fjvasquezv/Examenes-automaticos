@@ -876,7 +876,7 @@
     "pregunta": "El campo gravitacional $\\vec{g}$ puede definirse como $\\vec{g} = \\vec{F}/m$ (fuerza por unidad de masa) o como $\\vec{g} = -\\nabla V_g$ (gradiente del potencial gravitacional, $[V_g] = [L^2T^{-2}]$). ¿Cuál es la verificación dimensional que confirma que ambas definiciones son consistentes?",
     "opciones": {
       "a": "$[F/m] = [LT^{-2}]$ pero $[\\nabla V_g] = [L^2T^{-2}]$ — son distintos, el gradiente añade una $L$",
-      "b": "$[F/m] = [MLT^{-2}]/[M] = [LT^{-2}]$ y $[\\nabla V_g] = [L^2T^{-2}]/[L] = [LT^{-2}]$ — ambos coinciden ✓",
+      "b": "$[F/m] = [MLT^{-2}]/[M] = [LT^{-2}]$ y $[\\nabla V_g] = [L^2T^{-2}]/[L] = [LT^{-2}]$ — ambos coinciden ",
       "c": "$[F/m] = [LT^{-3}]$ y $[\\nabla V_g] = [LT^{-3}]$ — coinciden pero el cálculo es incorrecto",
       "d": "$[F/m] = [T^{-2}]$ y $[\\nabla V_g] = [LT^{-2}]$ — distintos"
     },
