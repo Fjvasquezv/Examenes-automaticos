@@ -3,15 +3,15 @@
     "id": "analisis_dim_001",
     "dificultad": 5,
     "categoria": "Análisis dimensional",
-    "pregunta": "La resistencia hidráulica $R_h$ se define como la razón entre la diferencia de presión $\\Delta P$ y el caudal volumétrico $Q$, es decir $R_h = \\Delta P / Q$. Si $[\\Delta P] = [M \\, L^{-1} T^{-2}]$ y $[Q] = [L^3 T^{-1}]$, ¿cuáles son las dimensiones de $R_h$?",
+    "pregunta": "La resistencia hidráulica $R_h$ se define como la razón entre la diferencia de presión $\\Delta P$ y el caudal volumétrico $Q$, es decir $R_h = \\Delta P / Q$. Si $[\\Delta P] = [M L^{-1} T^{-2}]$ y $[Q] = [L^3 T^{-1}]$, ¿cuáles son las dimensiones de $R_h$?",
     "opciones": {
-      "a": "$[M \\, L^{-4} T^{-1}]$",
-      "b": "$[M \\, L^{2} T^{-3}]$",
-      "c": "$[M \\, L^{-2} T^{-1}]$",
-      "d": "$[M \\, L^{-1} T^{-3}]$"
+      "a": "$[M L^{-4} T^{-1}]$",
+      "b": "$[M L^{2} T^{-3}]$",
+      "c": "$[M L^{-2} T^{-1}]$",
+      "d": "$[M L^{-1} T^{-3}]$"
     },
     "respuesta_correcta": "a",
-    "explicacion": "Dividiendo: $[M L^{-1} T^{-2}] / [L^3 T^{-1}] = [M L^{-1-3} T^{-2+1}] = [M L^{-4} T^{-1}]$. Nota: esta es la misma dimensión que la viscosidad dinámica $\\eta$ dividida por $L^3$, lo cual tiene sentido físico en la ley de Poiseuille.",
+    "explicacion": "Dividiendo: $[M L^{-1} T^{-2}] / [L^3 T^{-1}] = [M L^{-1-3} T^{-2+1}] = [M L^{-4} T^{-1}]$. Esta dimensión equivale a la viscosidad dinámica $[\\eta]$ dividida por $L^3$, coherente con la ley de Poiseuille $Q = \\Delta P \\pi r^4 / (8 \\eta L)$.",
     "tipo": "texto"
   },
   {
@@ -33,7 +33,7 @@
     "id": "analisis_dim_003",
     "dificultad": 5,
     "categoria": "Análisis dimensional",
-    "pregunta": "La ley de Stefan-Boltzmann establece que la potencia irradiada por unidad de área es $j = \\sigma T^4$, donde $T$ es temperatura. Sabiendo que potencia por unidad de área tiene dimensiones $[M T^{-3}]$ (en notación compacta) y que temperatura tiene dimensión $[\\Theta]$, ¿cuáles son las dimensiones de la constante de Stefan-Boltzmann $\\sigma$?",
+    "pregunta": "La ley de Stefan-Boltzmann establece que la potencia irradiada por unidad de área es $j = \\sigma T^4$, donde $T$ es temperatura. Sabiendo que potencia por unidad de área tiene dimensiones $[M T^{-3}]$ (forma compacta, omitiendo $L^0$) y que temperatura tiene dimensión $[\\Theta]$, ¿cuáles son las dimensiones de la constante de Stefan-Boltzmann $\\sigma$?",
     "opciones": {
       "a": "$[M T^{-3} \\Theta^{-3}]$",
       "b": "$[M T^{-3} \\Theta^{-4}]$",
@@ -41,22 +41,22 @@
       "d": "$[M T^{-2} \\Theta^{-4}]$"
     },
     "respuesta_correcta": "b",
-    "explicacion": "Despejando $\\sigma = j / T^4$: $[\\sigma] = [M T^{-3}] / [\\Theta^4] = [M T^{-3} \\Theta^{-4}]$. El resultado muestra que $\\sigma$ conecta la escala de temperatura con la escala de flujo energético radiativo, lo cual refleja el origen cuántico de la radiación de cuerpo negro.",
+    "explicacion": "Despejando $\\sigma = j / T^4$: $[\\sigma] = [M T^{-3}] / [\\Theta^4] = [M T^{-3} \\Theta^{-4}]$. El resultado conecta la escala de temperatura con el flujo energético radiativo; en SI la unidad es $W m^{-2} K^{-4}$.",
     "tipo": "texto"
   },
   {
     "id": "analisis_dim_004",
     "dificultad": 5,
     "categoria": "Análisis dimensional",
-    "pregunta": "La fuerza entre dos conductores paralelos de longitud $L$ separados una distancia $d$ que conducen corrientes $I_1$ e $I_2$ es:\n$$F = \\frac{\\mu_0 \\, I_1 I_2 L}{2\\pi d}$$\nDonde $\\mu_0$ es la permeabilidad magnética del vacío. Usando $[F] = [M L T^{-2}]$ e $[I] = [A]$ (corriente), ¿cuáles son las dimensiones de $\\mu_0$?",
+    "pregunta": "La fuerza entre dos conductores paralelos de longitud $L$ separados una distancia $d$ que conducen corrientes $I_1$ e $I_2$ es:\n$$F = \\frac{\\mu_0 \\, I_1 I_2 L}{2\\pi d}$$\nUsando $[F] = [M L T^{-2}]$ e $[I] = [A]$, ¿cuáles son las dimensiones de la permeabilidad magnética $\\mu_0$?",
     "opciones": {
-      "a": "$[M L A^{-2} T^{-2}]$",
+      "a": "$[M L^2 T^{-2} A^{-2}]$",
       "b": "$[M L T^{-2} A^{-2}]$",
-      "c": "$[M L^2 T^{-2} A^{-2}]$",
+      "c": "$[M L^2 T^{-3} A^{-2}]$",
       "d": "$[M L T^{-1} A^{-2}]$"
     },
     "respuesta_correcta": "b",
-    "explicacion": "Despejando: $[\\mu_0] = [F \\cdot d] / [I^2 L] = [M L T^{-2} \\cdot L] / [A^2 \\cdot L] = [M L T^{-2} A^{-2}]$. Nótese que $\\mu_0$ tiene las mismas dimensiones que $M L T^{-2} A^{-2}$, equivalente a $H/m$ (henrios por metro) en el SI.",
+    "explicacion": "Despejando: $[\\mu_0] = [F \\cdot d] / [I^2 L] = [MLT^{-2} \\cdot L] / [A^2 \\cdot L] = [ML^2T^{-2}] / [A^2L] = [MLT^{-2}A^{-2}]$. Equivale a $H/m$ (henrios por metro) en el SI. La opción a ($[ML^2T^{-2}A^{-2}]$) corresponde a la inductancia (henry); c ($[ML^2T^{-3}A^{-2}]$) sería resistencia; d tiene $T^{-1}$ incorrecto.",
     "tipo": "texto"
   },
   {
@@ -71,7 +71,7 @@
       "d": "$[M^{1/2} L^{-1/2} T^{-1} A^{-1}]$"
     },
     "respuesta_correcta": "a",
-    "explicacion": "De $u_B = B^2/(2\\mu_0)$: $[B^2] = [u_B][\\mu_0] = [M L^{-1} T^{-2}][M L T^{-2} A^{-2}] = [M^2 T^{-4} A^{-2}]$. Por tanto $[B] = [M T^{-2} A^{-1}]$. Esto equivale al Tesla en SI: $[T] = [kg \\cdot s^{-2} \\cdot A^{-1}]$.",
+    "explicacion": "De $u_B = B^2/(2\\mu_0)$: $[B^2] = [u_B][\\mu_0] = [M L^{-1} T^{-2}][M L T^{-2} A^{-2}] = [M^2 T^{-4} A^{-2}]$. Por tanto $[B] = [M T^{-2} A^{-1}]$, equivalente al Tesla en SI: $[\\text{T}] = [\\text{kg} \\cdot \\text{s}^{-2} \\cdot \\text{A}^{-1}]$.",
     "tipo": "texto"
   },
   {
@@ -86,14 +86,14 @@
       "d": "$c \\propto (\\gamma / \\rho_s)^{1/3}$"
     },
     "respuesta_correcta": "a",
-    "explicacion": "Se busca $c = \\gamma^\\alpha \\rho_s^\\beta$ con $[c] = [L T^{-1}]$. Planteando: $[M^\\alpha T^{-2\\alpha}][M^\\beta L^{-2\\beta}] = [L T^{-1}]$. Del sistema: $\\alpha + \\beta = 0$, $-2\\beta = 1$, $-2\\alpha = -1$. Resolviendo: $\\alpha = 1/2$, $\\beta = -1/2$. Por tanto $c \\propto \\sqrt{\\gamma/\\rho_s}$.",
+    "explicacion": "Se busca $c = \\gamma^\\alpha \\rho_s^\\beta$ con $[c] = [L T^{-1}]$. Sistema: M: $\\alpha + \\beta = 0$; T: $-2\\alpha = -1$; L: $-2\\beta = 1$. Resolviendo: $\\alpha = 1/2$, $\\beta = -1/2$. Por tanto $c \\propto \\sqrt{\\gamma/\\rho_s}$. Verificación: $\\sqrt{[MT^{-2}]/[ML^{-2}]} = \\sqrt{[L^2T^{-2}]} = [LT^{-1}]$ ✓.",
     "tipo": "texto"
   },
   {
     "id": "analisis_dim_007",
     "dificultad": 5,
     "categoria": "Análisis dimensional",
-    "pregunta": "La permitividad eléctrica del vacío $\\varepsilon_0$ aparece en la ley de Coulomb: $F = q^2 / (4\\pi \\varepsilon_0 r^2)$. Sabiendo que $[F] = [M L T^{-2}]$, $[q] = [A T]$ (carga eléctrica) y $[r] = [L]$, ¿cuáles son las dimensiones de $\\varepsilon_0$?",
+    "pregunta": "La permitividad eléctrica del vacío $\\varepsilon_0$ aparece en la ley de Coulomb: $F = q^2 / (4\\pi \\varepsilon_0 r^2)$. Sabiendo que $[F] = [M L T^{-2}]$, $[q] = [A T]$ y $[r] = [L]$, ¿cuáles son las dimensiones de $\\varepsilon_0$?",
     "opciones": {
       "a": "$[M^{-1} L^{-3} T^4 A^2]$",
       "b": "$[M^{-1} L^{-2} T^3 A^2]$",
@@ -101,29 +101,29 @@
       "d": "$[M^{-1} L^{-3} T^2 A^2]$"
     },
     "respuesta_correcta": "a",
-    "explicacion": "Despejando $\\varepsilon_0 = q^2/(F r^2)$: $[\\varepsilon_0] = [A^2 T^2] / ([M L T^{-2}][L^2]) = [A^2 T^2] / [M L^3 T^{-2}] = [M^{-1} L^{-3} T^4 A^2]$. Nótese la relación $c^2 = 1/(\\varepsilon_0 \\mu_0)$: verificando dimensiones, $[\\varepsilon_0][\\mu_0] = [M^{-1}L^{-3}T^4A^2][MLT^{-2}A^{-2}] = [L^{-2}T^2]= [c^{-2}]$. ✓",
+    "explicacion": "Despejando $\\varepsilon_0 = q^2/(F r^2)$: $[\\varepsilon_0] = [A^2 T^2] / ([M L T^{-2}][L^2]) = [A^2 T^2] / [M L^3 T^{-2}] = [M^{-1} L^{-3} T^4 A^2]$. Verificación de consistencia: $[\\varepsilon_0][\\mu_0] = [M^{-1}L^{-3}T^4A^2][MLT^{-2}A^{-2}] = [L^{-2}T^2] = [c^{-2}]$ ✓.",
     "tipo": "texto"
   },
   {
     "id": "analisis_dim_008",
     "dificultad": 5,
     "categoria": "Análisis dimensional",
-    "pregunta": "En mecánica cuántica, la constante de Planck reducida $\\hbar$ tiene dimensiones $[M L^2 T^{-1}]$. La función de onda $\\psi$ en 3D tiene dimensiones $[L^{-3/2}]$ por condición de normalización ($\\int |\\psi|^2 dV = 1$). El término cinético de la ecuación de Schrödinger es $\\hat{T}\\psi = -\\frac{\\hbar^2}{2m} \\nabla^2 \\psi$. ¿Cuáles son las dimensiones de $\\hat{T}\\psi$?",
+    "pregunta": "En mecánica cuántica, $\\hbar$ tiene dimensiones $[M L^2 T^{-1}]$. La función de onda $\\psi$ en 3D tiene dimensiones $[L^{-3/2}]$ por normalización ($\\int |\\psi|^2 dV = 1$). El término cinético de la ecuación de Schrödinger es $\\hat{T}\\psi = -\\frac{\\hbar^2}{2m} \\nabla^2 \\psi$. ¿Cuáles son las dimensiones de $\\hat{T}\\psi$?",
     "opciones": {
       "a": "$[M L^{1/2} T^{-2}]$",
       "b": "$[M L^{-1/2} T^{-2}]$",
       "c": "$[M^{-1} L^{-7/2} T^{-1}]$",
       "d": "$[M L^{-3/2} T^{-2}]$"
     },
-    "respuesta_correcta": "b",
-    "explicacion": "$[\\hbar^2/m] = [M^2 L^4 T^{-2}]/[M] = [M L^4 T^{-2}]$. El laplaciano $\\nabla^2$ tiene dimensiones $[L^{-2}]$. Entonces: $[\\hbar^2/m \\cdot \\nabla^2 \\psi] = [M L^4 T^{-2}][L^{-2}][L^{-3/2}] = [M L^{4-2-3/2} T^{-2}] = [M L^{-1/2} T^{-2}]$. Esto equivale a energía ($[M L^2 T^{-2}]$) multiplicada por $[L^{-5/2}]$, coherente con $E\\psi$ siendo densidad de energía en cierto sentido.",
+    "respuesta_correcta": "a",
+    "explicacion": "$[\\hbar^2/m] = [M^2 L^4 T^{-2}]/[M] = [M L^4 T^{-2}]$. El operador laplaciano $\\nabla^2$ actúa como $[L^{-2}]$. Entonces: $[\\hat{T}\\psi] = [M L^4 T^{-2}][L^{-2}][L^{-3/2}] = [M L^{4-2-3/2} T^{-2}] = [M L^{+1/2} T^{-2}]$. Verificación: la ecuación de Schrödinger exige $[\\hat{T}\\psi] = [E \\cdot \\psi] = [ML^2T^{-2}][L^{-3/2}] = [ML^{1/2}T^{-2}]$ ✓.",
     "tipo": "texto"
   },
   {
     "id": "analisis_dim_009",
     "dificultad": 5,
     "categoria": "Análisis dimensional",
-    "pregunta": "La constante de Hubble $H_0$ describe la expansión del universo mediante $v = H_0 \\, d$, donde $v$ es la velocidad de recesión de una galaxia y $d$ su distancia. Astrofísicamente, $H_0$ se expresa en unidades de $\\text{km} \\cdot \\text{s}^{-1} \\cdot \\text{Mpc}^{-1}$. En términos de dimensiones fundamentales $[M, L, T]$, ¿cuál es la dimensión de $H_0$?",
+    "pregunta": "La constante de Hubble $H_0$ describe la expansión del universo mediante $v = H_0 d$, donde $v$ es la velocidad de recesión y $d$ la distancia. Se expresa en unidades de $\\text{km} \\cdot \\text{s}^{-1} \\cdot \\text{Mpc}^{-1}$. En términos de dimensiones fundamentales, ¿cuál es la dimensión de $H_0$?",
     "opciones": {
       "a": "$[L T^{-2}]$",
       "b": "$[T^{-1}]$",
@@ -131,14 +131,14 @@
       "d": "$[M L^{-3} T^{-1}]$"
     },
     "respuesta_correcta": "b",
-    "explicacion": "De $v = H_0 d$: $[H_0] = [v]/[d] = [L T^{-1}]/[L] = [T^{-1}]$. La constante de Hubble es simplemente una frecuencia (inverso del tiempo). Su recíproco $1/H_0 \\approx 14 \\times 10^9$ años da la escala de tiempo del universo. Las unidades $\\text{km s}^{-1} \\text{Mpc}^{-1}$ son inconvenientes pero dimensionalmente equivalentes a $[T^{-1}]$.",
+    "explicacion": "De $v = H_0 d$: $[H_0] = [v]/[d] = [L T^{-1}]/[L] = [T^{-1}]$. $H_0$ es simplemente una frecuencia. Su recíproco $1/H_0 \\approx 14 \\times 10^9$ años es la escala de tiempo del universo. Las unidades km s$^{-1}$ Mpc$^{-1}$ son inconvenientes pero dimensionalmente $[T^{-1}]$.",
     "tipo": "texto"
   },
   {
     "id": "analisis_dim_010",
     "dificultad": 5,
     "categoria": "Análisis dimensional",
-    "pregunta": "Se propone que la longitud de Planck $\\ell_P$ (escala en que la física cuántica y la gravedad se combinan) depende únicamente de $G$ (constante gravitacional, $[M^{-1} L^3 T^{-2}]$), $\\hbar$ (constante de Planck reducida, $[M L^2 T^{-1}]$) y $c$ (velocidad de la luz, $[L T^{-1}]$). ¿Cuál es la combinación dimensional correcta $\\ell_P = G^\\alpha \\hbar^\\beta c^\\gamma$ que tiene dimensiones de longitud?",
+    "pregunta": "La longitud de Planck $\\ell_P$ depende únicamente de $G$ ($[M^{-1} L^3 T^{-2}]$), $\\hbar$ ($[M L^2 T^{-1}]$) y $c$ ($[L T^{-1}]$). Resolviendo el sistema $\\ell_P = G^\\alpha \\hbar^\\beta c^\\gamma$, ¿cuáles son los exponentes correctos?",
     "opciones": {
       "a": "$\\alpha = 1/2,\\; \\beta = 1/2,\\; \\gamma = -3/2$",
       "b": "$\\alpha = 1/2,\\; \\beta = 1/2,\\; \\gamma = -1/2$",
@@ -146,7 +146,1432 @@
       "d": "$\\alpha = 1,\\; \\beta = 1/2,\\; \\gamma = -5/2$"
     },
     "respuesta_correcta": "a",
-    "explicacion": "Planteando $[G^\\alpha \\hbar^\\beta c^\\gamma] = [L]$: Sistema $M: -\\alpha + \\beta = 0$; $L: 3\\alpha + 2\\beta + \\gamma = 1$; $T: -2\\alpha - \\beta - \\gamma = 0$. De la primera: $\\alpha = \\beta$. Sumando la segunda y tercera: $\\alpha + \\beta = 1 \\Rightarrow \\alpha = \\beta = 1/2$. Sustituyendo: $3/2 + 1 + \\gamma = 1 \\Rightarrow \\gamma = -3/2$. Por tanto $\\ell_P = \\sqrt{G\\hbar/c^3} \\approx 1.6 \\times 10^{-35}$ m.",
+    "explicacion": "Sistema dimensional para $[L]$: M: $-\\alpha + \\beta = 0$; L: $3\\alpha + 2\\beta + \\gamma = 1$; T: $-2\\alpha - \\beta - \\gamma = 0$. De M: $\\alpha = \\beta$. Sumando L y T: $\\alpha + \\beta = 1 \\Rightarrow \\alpha = \\beta = 1/2$. Sustituyendo en L: $3/2 + 1 + \\gamma = 1 \\Rightarrow \\gamma = -3/2$. Así $\\ell_P = \\sqrt{G\\hbar/c^3} \\approx 1.6 \\times 10^{-35}$ m.",
+    "tipo": "texto"
+  },
+  {
+    "id": "analisis_dim_011",
+    "dificultad": 5,
+    "categoria": "Análisis dimensional",
+    "pregunta": "La constante de Boltzmann $k_B$ relaciona energía con temperatura: $E_{\\text{térmica}} = k_B T$. Si $[E] = [M L^2 T^{-2}]$ y la temperatura tiene dimensión fundamental $[\\Theta]$, ¿cuáles son las dimensiones de $k_B$?",
+    "opciones": {
+      "a": "$[M L^2 T^{-1} \\Theta^{-1}]$",
+      "b": "$[M L^2 T^{-2} \\Theta^{-1}]$",
+      "c": "$[M L T^{-2} \\Theta^{-1}]$",
+      "d": "$[M L^2 T^{-3} \\Theta^{-1}]$"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Directamente: $[k_B] = [E/T] = [M L^2 T^{-2}] / [\\Theta] = [M L^2 T^{-2} \\Theta^{-1}]$. La opción a tiene $T^{-1}$ en lugar de $T^{-2}$ (dimensión de $\\hbar$ por temperatura), c omite una $L$, y d sería dimensión de potencia por temperatura. En SI: $k_B \\approx 1.38 \\times 10^{-23}$ J/K.",
+    "tipo": "texto"
+  },
+  {
+    "id": "analisis_dim_012",
+    "dificultad": 5,
+    "categoria": "Análisis dimensional",
+    "pregunta": "El potencial eléctrico se define como energía por unidad de carga: $V = W/q$, con $[W] = [M L^2 T^{-2}]$ y carga $[q] = [A T]$. La capacitancia de un condensador es $C = q/V$. ¿Cuáles son las dimensiones de $C$?",
+    "opciones": {
+      "a": "$[M^{-1} L^{-2} T^3 A]$",
+      "b": "$[M^{-1} L^{-2} T^4 A^2]$",
+      "c": "$[M L^2 T^{-3} A^{-1}]$",
+      "d": "$[M^{-1} L^{-2} T^3 A^2]$"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Primero: $[V] = [ML^2T^{-2}]/[AT] = [ML^2T^{-3}A^{-1}]$ (voltios). Luego: $[C] = [q/V] = [AT]/[ML^2T^{-3}A^{-1}] = [AT \\cdot M^{-1}L^{-2}T^3A] = [M^{-1}L^{-2}T^4A^2]$. La opción a omite una $A$; c son dimensiones de $V$ (no de $C$); d tiene $T^3$ en lugar de $T^4$.",
+    "tipo": "texto"
+  },
+  {
+    "id": "analisis_dim_013",
+    "dificultad": 5,
+    "categoria": "Análisis dimensional",
+    "pregunta": "La ley de Faraday-Lenz para un inductor establece $\\mathcal{E} = -L_{\\text{ind}} \\, dI/dt$, donde $\\mathcal{E}$ es la fuerza electromotriz ($[M L^2 T^{-3} A^{-1}]$) e $I$ es la corriente ($[A]$). ¿Cuáles son las dimensiones de la inductancia $L_{\\text{ind}}$?",
+    "opciones": {
+      "a": "$[M L^2 T^{-2} A^{-2}]$",
+      "b": "$[M L^2 T^{-3} A^{-2}]$",
+      "c": "$[M L T^{-2} A^{-2}]$",
+      "d": "$[M L^2 T^{-1} A^{-2}]$"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "$[dI/dt] = [A T^{-1}]$. Despejando: $[L_{\\text{ind}}] = [\\mathcal{E}] / [dI/dt] = [ML^2T^{-3}A^{-1}] / [AT^{-1}] = [ML^2T^{-2}A^{-2}]$. Equivale al Henry (H) en SI: $1\\,\\text{H} = 1\\,\\text{kg}\\cdot\\text{m}^2\\cdot\\text{s}^{-2}\\cdot\\text{A}^{-2}$. Notar que $[L_{\\text{ind}}] = [\\mu_0 \\cdot L]$, coherente con la inductancia de un solenoide $L = \\mu_0 N^2 A / l$.",
+    "tipo": "texto"
+  },
+  {
+    "id": "analisis_dim_014",
+    "dificultad": 5,
+    "categoria": "Análisis dimensional",
+    "pregunta": "Se propone que la velocidad del sonido en un fluido depende de la presión $P$ ($[M L^{-1} T^{-2}]$) y la densidad $\\rho$ ($[M L^{-3}]$). ¿Cuál de las siguientes expresiones tiene las dimensiones correctas de velocidad $[L T^{-1}]$?",
+    "opciones": {
+      "a": "$\\sqrt{\\rho / P}$",
+      "b": "$P / \\rho$",
+      "c": "$\\sqrt{P / \\rho}$",
+      "d": "$\\sqrt{P \\cdot \\rho}$"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "$[P/\\rho] = [ML^{-1}T^{-2}]/[ML^{-3}] = [L^2T^{-2}]$, entonces $[\\sqrt{P/\\rho}] = [LT^{-1}]$ ✓. Verificando las otras: a) $\\sqrt{\\rho/P}$ tiene dimensiones $[L^{-1}T]$; b) $P/\\rho$ tiene $[L^2T^{-2}]$ (velocidad al cuadrado); d) $\\sqrt{P\\rho}$ tiene $[M L^{-2} T^{-2}]$.",
+    "tipo": "texto"
+  },
+  {
+    "id": "analisis_dim_015",
+    "dificultad": 5,
+    "categoria": "Análisis dimensional",
+    "pregunta": "La difusividad térmica se define como $\\alpha = \\kappa / (\\rho c_p)$, donde $\\kappa$ es conductividad térmica ($[M L T^{-3} \\Theta^{-1}]$), $\\rho$ es densidad ($[M L^{-3}]$) y $c_p$ es calor específico a presión constante ($[L^2 T^{-2} \\Theta^{-1}]$). ¿Cuáles son las dimensiones de $\\alpha$?",
+    "opciones": {
+      "a": "$[L T^{-1}]$",
+      "b": "$[L^2 T^{-2}]$",
+      "c": "$[L^2 T^{-1}]$",
+      "d": "$[M L T^{-3}]$"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "$[\\rho c_p] = [ML^{-3}][L^2T^{-2}\\Theta^{-1}] = [ML^{-1}T^{-2}\\Theta^{-1}]$. Dividiendo: $[\\alpha] = [MLT^{-3}\\Theta^{-1}] / [ML^{-1}T^{-2}\\Theta^{-1}] = [L^{1-(-1)} T^{-3-(-2)}] = [L^2 T^{-1}]$. Comparte dimensiones con la viscosidad cinemática $\\nu = \\eta/\\rho$ y el coeficiente de difusión másica $D$.",
+    "tipo": "texto"
+  },
+  {
+    "id": "analisis_dim_016",
+    "dificultad": 5,
+    "categoria": "Análisis dimensional",
+    "pregunta": "La longitud de Jeans $\\lambda_J = c_s \\sqrt{\\pi / (G \\rho)}$ marca la escala en que una nube de gas colapsa gravitacionalmente. Dados $[c_s] = [L T^{-1}]$, $[G] = [M^{-1} L^3 T^{-2}]$ y $[\\rho] = [M L^{-3}]$, ¿qué análisis dimensional es correcto?",
+    "opciones": {
+      "a": "$[G\\rho] = [L^{-3}T^{-2}]$, por lo tanto $\\lambda_J$ no es una longitud",
+      "b": "$[G\\rho] = [T^{-2}]$, y $[c_s / \\sqrt{G\\rho}] = [LT^{-1}]/[T^{-1}] = [L]$ ✓",
+      "c": "$[G\\rho] = [M^{-1}T^{-2}]$, y $\\sqrt{1/(G\\rho)}$ tiene dimensiones $[M^{1/2}T]$",
+      "d": "$[G\\rho] = [L^3T^{-2}]$, y $\\lambda_J$ resultaría en $[L^{5/2}T^{-2}]$"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "$[G\\rho] = [M^{-1}L^3T^{-2}][ML^{-3}] = [T^{-2}]$ (las masas y longitudes se cancelan completamente). Por tanto $[\\sqrt{1/(G\\rho)}] = [T]$ y $[c_s \\sqrt{1/(G\\rho)}] = [LT^{-1}][T] = [L]$ ✓. Esta simplificación dimensional revela que la frecuencia de Jeans $\\omega_J = \\sqrt{G\\rho}$ tiene dimensiones $[T^{-1}]$.",
+    "tipo": "texto"
+  },
+  {
+    "id": "analisis_dim_017",
+    "dificultad": 5,
+    "categoria": "Análisis dimensional",
+    "pregunta": "La presión que ejerce la radiación electromagnética sobre una superficie es $P_{\\text{rad}} = I/c$, donde $I$ es la intensidad luminosa (potencia por unidad de área) con $[I] = [M T^{-3}]$ y $c$ es la velocidad de la luz. ¿Cuáles son las dimensiones de $P_{\\text{rad}}$?",
+    "opciones": {
+      "a": "$[M T^{-2}]$",
+      "b": "$[M T^{-4}]$",
+      "c": "$[M L^{-1} T^{-2}]$",
+      "d": "$[M L^{-1} T^{-3}]$"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "$[P_{\\text{rad}}] = [I/c] = [MT^{-3}] / [LT^{-1}] = [MT^{-3} \\cdot L^{-1} \\cdot T] = [ML^{-1}T^{-2}]$, que son exactamente las dimensiones de una presión ✓. Esto confirma que la luz ejerce una fuerza real sobre las superficies (presión de radiación). La opción a es tensión superficial, b carece de sentido físico directo.",
+    "tipo": "texto"
+  },
+  {
+    "id": "analisis_dim_018",
+    "dificultad": 5,
+    "categoria": "Análisis dimensional",
+    "pregunta": "El radio de Schwarzschild de un agujero negro es $r_s = 2GM/c^2$, donde $[G] = [M^{-1} L^3 T^{-2}]$, $[M_{\\text{bh}}] = [M]$ y $[c] = [L T^{-1}]$. ¿Cuál de las siguientes cadenas de cálculo dimensional es correcta?",
+    "opciones": {
+      "a": "$[GM/c^2] = [M^{-1}L^3T^{-2}][M] \\cdot [L^2T^{-2}] = [L^5T^{-4}]$ (división incorrecta)",
+      "b": "$[GM/c^2] = [L^3T^{-2}] / [T^{-2}] = [L^3]$ (olvidó dividir entre $L^2$)",
+      "c": "$[GM/c^2] = [M^{-1}L^3T^{-2}][M] / [LT^{-1}] = [L^2T^{-1}]$ (usó $c$ en vez de $c^2$)",
+      "d": "$[GM/c^2] = [M^{-1}L^3T^{-2}][M] / [L^2T^{-2}] = [L^3T^{-2}] / [L^2T^{-2}] = [L]$ ✓"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "Paso a paso: $[GM] = [M^{-1}L^3T^{-2}][M] = [L^3T^{-2}]$; $[c^2] = [L^2T^{-2}]$; $[GM/c^2] = [L^3T^{-2}]/[L^2T^{-2}] = [L]$ ✓. El radio de Schwarzschild es una longitud, como debe ser. Las demás opciones ilustran errores algebraicos comunes en el análisis dimensional.",
+    "tipo": "texto"
+  },
+  {
+    "id": "analisis_dim_019",
+    "dificultad": 5,
+    "categoria": "Análisis dimensional",
+    "pregunta": "La viscosidad dinámica $\\eta$ tiene dimensiones $[M L^{-1} T^{-1}]$. La viscosidad cinemática se define como $\\nu = \\eta/\\rho$. ¿Con cuál de las siguientes magnitudes comparte dimensiones $\\nu$?",
+    "opciones": {
+      "a": "Conductividad térmica $\\kappa$, con dimensiones $[M L T^{-3} \\Theta^{-1}]$",
+      "b": "Presión $P$, con dimensiones $[M L^{-1} T^{-2}]$",
+      "c": "Calor específico $c_p$, con dimensiones $[L^2 T^{-2} \\Theta^{-1}]$",
+      "d": "Difusividad térmica $\\alpha = \\kappa/(\\rho c_p)$, con dimensiones $[L^2 T^{-1}]$"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "$[\\nu] = [ML^{-1}T^{-1}]/[ML^{-3}] = [L^{-1+3}T^{-1}] = [L^2T^{-1}]$. Esta es exactamente la misma dimensión de la difusividad térmica $\\alpha$ y del coeficiente de difusión másica $D$. El cociente $\\nu/\\alpha = Pr$ (número de Prandtl) es adimensional justamente porque ambos tienen las mismas dimensiones.",
+    "tipo": "texto"
+  },
+  {
+    "id": "analisis_dim_020",
+    "dificultad": 5,
+    "categoria": "Análisis dimensional",
+    "pregunta": "La fuerza sobre una carga eléctrica en un campo eléctrico es $\\vec{F} = q\\vec{E}$. Dado que $[F] = [M L T^{-2}]$ y la carga $[q] = [A T]$, ¿cuáles son las dimensiones del campo eléctrico $\\vec{E}$?",
+    "opciones": {
+      "a": "$[M L T^{-3} A^{-1}]$",
+      "b": "$[M L^2 T^{-3} A^{-1}]$",
+      "c": "$[M L T^{-2} A^{-1}]$",
+      "d": "$[M L T^{-3} A]$"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "$[\\vec{E}] = [F/q] = [MLT^{-2}]/[AT] = [MLT^{-3}A^{-1}]$. Equivale a $V/m$ en SI: $[V/m] = [ML^2T^{-3}A^{-1}]/[L] = [MLT^{-3}A^{-1}]$ ✓. También se puede derivar de $\\vec{E} = -\\nabla V$: gradiente de potencial tiene dimensiones $[V/m]$.",
+    "tipo": "texto"
+  },
+  {
+    "id": "analisis_dim_021",
+    "dificultad": 5,
+    "categoria": "Análisis dimensional",
+    "pregunta": "El número de Péclet compara transporte advectivo con difusivo: $Pe = vL/\\alpha$, donde $\\alpha$ es difusividad térmica ($[L^2 T^{-1}]$). ¿Cuál de las siguientes verificaciones demuestra correctamente que $Pe$ es adimensional?",
+    "opciones": {
+      "a": "$[vL/\\alpha] = [LT^{-1}][L]/[L^2T^{-1}] = [L^2T^{-1}]/[L^2T^{-1}] = [L^0T^0] = 1$ ✓",
+      "b": "$[vL/\\alpha] = [LT^{-1}][L]/[L^2T^{-1}] = [L^2T^{-1}]/[L^2T^{-1}] = [T^{-2}]$",
+      "c": "$[vL/\\alpha] = [LT^{-1}][L]/[L^2T^{-1}] = [L^3T^{-2}]/[L^2T^{-1}] = [LT^{-1}]$",
+      "d": "$[vL/\\alpha] = [LT^{-1}] \\cdot [L] / [L^2T^{-1}] = [L^{-1}T]$"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "El numerador $[vL] = [LT^{-1}][L] = [L^2T^{-1}]$. Dividiendo entre $[\\alpha] = [L^2T^{-1}]$, todas las dimensiones se cancelan dando $[1]$. Las opciones b, c y d contienen errores algebraicos en la simplificación. El número de Péclet es el análogo térmico del número de Reynolds.",
+    "tipo": "texto"
+  },
+  {
+    "id": "analisis_dim_022",
+    "dificultad": 5,
+    "categoria": "Análisis dimensional",
+    "pregunta": "El torque sobre un dipolo magnético en un campo $\\vec{B}$ es $\\vec{\\tau} = \\vec{\\mu}_m \\times \\vec{B}$. Dado que $[\\tau] = [M L^2 T^{-2}]$ y $[B] = [M T^{-2} A^{-1}]$, ¿cuáles son las dimensiones del momento dipolar magnético $\\mu_m$?",
+    "opciones": {
+      "a": "$[M L^2 T^{-2} A^{-1}]$",
+      "b": "$[L^2 A]$",
+      "c": "$[L^2 T A]$",
+      "d": "$[M L^2 T^{-2} A]$"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "$[\\mu_m] = [\\tau/B] = [ML^2T^{-2}] / [MT^{-2}A^{-1}] = [ML^2T^{-2} \\cdot M^{-1}T^2A] = [L^2A]$. Esto es coherente con la definición $\\mu_m = I \\cdot A_{\\text{loop}}$: corriente $[A]$ por área $[L^2]$. En SI la unidad es A·m².",
+    "tipo": "texto"
+  },
+  {
+    "id": "analisis_dim_023",
+    "dificultad": 5,
+    "categoria": "Análisis dimensional",
+    "pregunta": "La segunda ley de Fick (ecuación de difusión) establece $\\partial c / \\partial t = D \\nabla^2 c$, donde $c$ es la concentración de partículas con dimensiones $[L^{-3}]$. ¿Cuáles son las dimensiones del coeficiente de difusión $D$?",
+    "opciones": {
+      "a": "$[L T^{-2}]$",
+      "b": "$[L^2 T^{-1}]$",
+      "c": "$[L^3 T^{-1}]$",
+      "d": "$[L^2 T^{-2}]$"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "$[\\partial c/\\partial t] = [L^{-3}T^{-1}]$; $[\\nabla^2 c] = [L^{-2}][L^{-3}] = [L^{-5}]$. De la igualdad: $[D] = [L^{-3}T^{-1}] / [L^{-5}] = [L^2T^{-1}]$. Las tres magnitudes difusivas fundamentales (coeficiente de difusión másica $D$, difusividad térmica $\\alpha$ y viscosidad cinemática $\\nu$) comparten las dimensiones $[L^2T^{-1}]$.",
+    "tipo": "texto"
+  },
+  {
+    "id": "analisis_dim_024",
+    "dificultad": 5,
+    "categoria": "Análisis dimensional",
+    "pregunta": "La ley de Ohm en forma diferencial es $\\vec{J} = \\sigma_e \\vec{E}$, donde $\\vec{J}$ es densidad de corriente ($[A L^{-2}]$) y $\\vec{E}$ es el campo eléctrico ($[M L T^{-3} A^{-1}]$). ¿Cuáles son las dimensiones de la conductividad eléctrica $\\sigma_e$?",
+    "opciones": {
+      "a": "$[M L^3 T^{-3} A^{-2}]$",
+      "b": "$[M^{-1} L^{-2} T^3 A^2]$",
+      "c": "$[M^{-1} L^{-3} T^3 A^2]$",
+      "d": "$[M^{-1} L^{-3} T^2 A^2]$"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "$[\\sigma_e] = [J/E] = [AL^{-2}] / [MLT^{-3}A^{-1}] = [AL^{-2} \\cdot M^{-1}L^{-1}T^3A] = [M^{-1}L^{-3}T^3A^2]$. La opción a son las dimensiones de la resistividad (inverso de $\\sigma_e$); b tiene un exponente de $L$ incorrecto; d tiene $T^2$ en lugar de $T^3$. En SI: $[S/m] = [A^2 s^3 / (kg \\cdot m^3)]$.",
+    "tipo": "texto"
+  },
+  {
+    "id": "analisis_dim_025",
+    "dificultad": 5,
+    "categoria": "Análisis dimensional",
+    "pregunta": "El módulo de compresibilidad $K$ (bulk modulus) tiene las mismas dimensiones que la presión: $[K] = [M L^{-1} T^{-2}]$. La velocidad del sonido es $c_s = \\sqrt{\\gamma K / \\rho}$ ($\\gamma$ adimensional). ¿Cuál de los siguientes grupos formados con $K$, $\\rho$ y $c_s$ es adimensional?",
+    "opciones": {
+      "a": "$K \\rho / c_s$",
+      "b": "$K c_s / \\rho$",
+      "c": "$\\rho c_s / K$",
+      "d": "$K / (\\rho c_s^2)$"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "Verificando d: $[K/(\\rho c_s^2)] = [ML^{-1}T^{-2}] / ([ML^{-3}][L^2T^{-2}]) = [ML^{-1}T^{-2}] / [ML^{-1}T^{-2}] = [1]$ ✓. De hecho $K/( \\rho c_s^2) = 1/\\gamma$ es la recíproca del coeficiente adiabático. Las demás: a tiene $[ML^{-2}T^{-3}]$; b tiene $[L^5T^{-3}M^0]$... verificando: $[c_s] = [LT^{-1}]$, $[Kc_s/\\rho] = [ML^{-1}T^{-2}][LT^{-1}]/[ML^{-3}] = [L^3T^{-3}]$; c tiene $[L^{-1}T]$.",
+    "tipo": "texto"
+  },
+  {
+    "id": "analisis_dim_026",
+    "dificultad": 5,
+    "categoria": "Análisis dimensional",
+    "pregunta": "Un estudiante propone cuatro expresiones como posible número de Reynolds, siendo $\\rho$ densidad ($[ML^{-3}]$), $v$ velocidad ($[LT^{-1}]$), $L$ longitud ($[L]$) y $\\eta$ viscosidad dinámica ($[ML^{-1}T^{-1}]$). ¿Cuál es la única expresión adimensional?",
+    "opciones": {
+      "a": "$\\rho v L^2 / \\eta$",
+      "b": "$\\rho v L / \\eta$",
+      "c": "$\\rho v / (\\eta L)$",
+      "d": "$\\eta v L / \\rho$"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "b: $[\\rho v L/\\eta] = [ML^{-3}][LT^{-1}][L]/[ML^{-1}T^{-1}] = [ML^{-1}T^{-1}]/[ML^{-1}T^{-1}] = [1]$ ✓. Verificando los demás: a) $[\\rho vL^2/\\eta] = [L]$; c) $[\\rho v/(\\eta L)] = [L^{-2}]$; d) $[\\eta vL/\\rho] = [ML^{-1}T^{-1}][LT^{-1}][L]/[ML^{-3}] = [L^4T^{-2}]$.",
+    "tipo": "texto"
+  },
+  {
+    "id": "analisis_dim_027",
+    "dificultad": 5,
+    "categoria": "Análisis dimensional",
+    "pregunta": "En superconductores, la longitud de penetración de London es $\\lambda_L = \\sqrt{m_e / (\\mu_0 n_s e^2)}$, donde $[m_e] = [M]$, $[\\mu_0] = [M L T^{-2} A^{-2}]$, $[n_s] = [L^{-3}]$ y $[e] = [A T]$. ¿Cuáles son las dimensiones de $\\mu_0 n_s e^2$?",
+    "opciones": {
+      "a": "$[M L^{-2}]$",
+      "b": "$[M L^{-2} T^{-2}]$",
+      "c": "$[M L^{-2} T^{2} A^{2}]$",
+      "d": "$[M^{-1} L^{-2}]$"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "$[\\mu_0 n_s e^2] = [MLT^{-2}A^{-2}][L^{-3}][A^2T^2] = [M \\cdot L^{1-3} \\cdot T^{-2+2} \\cdot A^{-2+2}] = [ML^{-2}]$. Por tanto $[m_e/(\\mu_0 n_s e^2)] = [M]/[ML^{-2}] = [L^2]$ y $[\\lambda_L] = [L]$ ✓. Esta confirmación dimensional verifica que la longitud de penetración es efectivamente una longitud.",
+    "tipo": "texto"
+  },
+  {
+    "id": "analisis_dim_028",
+    "dificultad": 5,
+    "categoria": "Análisis dimensional",
+    "pregunta": "El número de Weber compara fuerzas inerciales con tensión superficial: $We = \\rho v^2 L / \\gamma$. Para que $We$ sea adimensional, con $[\\rho] = [M L^{-3}]$, $[v] = [L T^{-1}]$ y $[L] = [L]$, ¿cuáles deben ser las dimensiones de $\\gamma$ (tensión superficial)?",
+    "opciones": {
+      "a": "$[M L T^{-2}]$",
+      "b": "$[M T^{-2}]$",
+      "c": "$[M L^{-1} T^{-2}]$",
+      "d": "$[M T^{-1}]$"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "El numerador: $[\\rho v^2 L] = [ML^{-3}][L^2T^{-2}][L] = [MT^{-2}]$. Para que $We = \\rho v^2 L / \\gamma$ sea adimensional, $[\\gamma]$ debe ser igual al numerador: $[\\gamma] = [MT^{-2}]$. Esto es físicamente correcto: tensión superficial = fuerza/longitud = $[MLT^{-2}]/[L] = [MT^{-2}]$. La opción c es presión, a es tensión en un hilo ($N$).",
+    "tipo": "texto"
+  },
+  {
+    "id": "analisis_dim_029",
+    "dificultad": 5,
+    "categoria": "Análisis dimensional",
+    "pregunta": "Una carga acelerada emite radiación electromagnética. La potencia irradiada según la fórmula de Larmor es:\n$$P = \\frac{e^2 a^2}{6\\pi \\varepsilon_0 c^3}$$\ndonde $[\\varepsilon_0] = [M^{-1} L^{-3} T^4 A^2]$, $[c] = [L T^{-1}]$, $[a] = [L T^{-2}]$ y $[e] = [A T]$. ¿Cuáles son las dimensiones de $P$?",
+    "opciones": {
+      "a": "$[M L^2 T^{-3}]$",
+      "b": "$[M L T^{-3}]$",
+      "c": "$[M L^2 T^{-4}]$",
+      "d": "$[M L^3 T^{-3}]$"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "Numerador: $[e^2 a^2] = [A^2T^2][L^2T^{-4}] = [A^2L^2T^{-2}]$. Denominador: $[\\varepsilon_0 c^3] = [M^{-1}L^{-3}T^4A^2][L^3T^{-3}] = [M^{-1}T^1A^2]$. División: $[P] = [A^2L^2T^{-2}] / [M^{-1}T^1A^2] = [A^2L^2T^{-2} \\cdot MT^{-1}A^{-2}] = [ML^2T^{-3}]$ ✓. Efectivamente son dimensiones de potencia (vatios).",
+    "tipo": "texto"
+  },
+  {
+    "id": "analisis_dim_030",
+    "dificultad": 5,
+    "categoria": "Análisis dimensional",
+    "pregunta": "Maxwell demostró que la velocidad de la luz es $c = 1/\\sqrt{\\varepsilon_0 \\mu_0}$. Dado $[\\varepsilon_0] = [M^{-1} L^{-3} T^4 A^2]$ y $[\\mu_0] = [M L T^{-2} A^{-2}]$, ¿qué análisis dimensional confirma que $1/\\sqrt{\\varepsilon_0 \\mu_0}$ tiene dimensiones de velocidad?",
+    "opciones": {
+      "a": "$[\\varepsilon_0 \\mu_0] = [L^{-2}T^2]$, por tanto $[1/\\sqrt{\\varepsilon_0\\mu_0}] = [LT^{-1}]$ ✓",
+      "b": "$[\\varepsilon_0 \\mu_0] = [M^{-2}L^{-2}T^2]$, por tanto $[1/\\sqrt{\\varepsilon_0\\mu_0}] = [ML]$ (no es velocidad)",
+      "c": "$[\\varepsilon_0 \\mu_0] = [L^{2}T^{-2}]$, por tanto $[1/\\sqrt{\\varepsilon_0\\mu_0}] = [L^{-1}T]$ (no es velocidad)",
+      "d": "$[\\varepsilon_0 \\mu_0] = [L^{-2}T^{-2}]$, por tanto $[1/\\sqrt{\\varepsilon_0\\mu_0}] = [LT]$ (no es velocidad)"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "$[\\varepsilon_0 \\mu_0] = [M^{-1}L^{-3}T^4A^2][MLT^{-2}A^{-2}] = [M^{0}L^{-2}T^{2}A^{0}] = [L^{-2}T^2]$. Tomando raíz: $[\\sqrt{\\varepsilon_0\\mu_0}] = [L^{-1}T]$. Tomando recíproco: $[1/\\sqrt{\\varepsilon_0\\mu_0}] = [LT^{-1}]$ ✓. Este resultado fue la evidencia dimensional que llevó a Maxwell a predecir que la luz es una onda electromagnética.",
+    "tipo": "texto"
+  },
+  {
+    "id": "analisis_dim_031",
+    "dificultad": 4,
+    "categoria": "Análisis dimensional",
+    "pregunta": "La ley de Stokes para la fuerza de arrastre sobre una esfera moviéndose lentamente en un fluido viscoso es $F = 6\\pi\\eta r v$. Dado que $[F] = [M L T^{-2}]$, $[r] = [L]$ y $[v] = [L T^{-1}]$, ¿cuáles son las dimensiones de la viscosidad dinámica $\\eta$?",
+    "opciones": {
+      "a": "$[M L^{-2} T^{-1}]$",
+      "b": "$[M L^{-1} T^{-2}]$",
+      "c": "$[M L^{-1} T^{-1}]$",
+      "d": "$[M L^{2} T^{-1}]$"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "$[\\eta] = [F/(rv)] = [MLT^{-2}] / ([L][LT^{-1}]) = [MLT^{-2}] / [L^2T^{-1}] = [ML^{-1}T^{-1}]$. Esta es la dimensión del Pascal·segundo (Pa·s). La opción b sería dimensión de presión; la a tiene un exponente de L incorrecto.",
+    "tipo": "texto"
+  },
+  {
+    "id": "analisis_dim_032",
+    "dificultad": 4,
+    "categoria": "Análisis dimensional",
+    "pregunta": "El módulo de Young relaciona esfuerzo con deformación: $E_Y = \\sigma / \\varepsilon$, donde el esfuerzo $\\sigma = F/A$ y la deformación $\\varepsilon = \\Delta L / L$ es adimensional. ¿Cuáles son las dimensiones de $E_Y$?",
+    "opciones": {
+      "a": "$[M L^2 T^{-2}]$",
+      "b": "$[M L^{-1} T^{-2}]$",
+      "c": "$[M L T^{-2}]$",
+      "d": "$[M^2 L^{-1} T^{-2}]$"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Como $\\varepsilon$ es adimensional, $[E_Y] = [\\sigma] = [F/A] = [MLT^{-2}]/[L^2] = [ML^{-1}T^{-2}]$. Son las mismas dimensiones que la presión. Esto tiene sentido: el módulo de Young mide la \"rigidez\" del material y se expresa en Pa (pascales) igual que la presión.",
+    "tipo": "texto"
+  },
+  {
+    "id": "analisis_dim_033",
+    "dificultad": 4,
+    "categoria": "Análisis dimensional",
+    "pregunta": "El momento angular orbital de una partícula es $\\vec{L} = \\vec{r} \\times \\vec{p}$, donde $\\vec{p} = m\\vec{v}$ es el momento lineal. ¿Cuáles son las dimensiones de $\\vec{L}$, y con qué constante fundamental comparte dimensiones?",
+    "opciones": {
+      "a": "$[M L^2 T^{-1}]$; mismas dimensiones que la constante de Planck reducida $\\hbar$",
+      "b": "$[M L T^{-1}]$; mismas dimensiones que el momento lineal $p$",
+      "c": "$[M L^2 T^{-2}]$; mismas dimensiones que la energía",
+      "d": "$[M L^3 T^{-1}]$; magnitud sin análogo conocido"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "$[\\vec{L}] = [r][m][v] = [L][M][LT^{-1}] = [ML^2T^{-1}]$. Esta es exactamente la dimensión de $\\hbar$ (constante de Planck reducida), lo cual no es coincidencia: en mecánica cuántica el momento angular se cuantiza en múltiplos de $\\hbar$.",
+    "tipo": "texto"
+  },
+  {
+    "id": "analisis_dim_034",
+    "dificultad": 4,
+    "categoria": "Análisis dimensional",
+    "pregunta": "La potencia instantánea entregada por una fuerza es $P = \\vec{F} \\cdot \\vec{v}$. También se puede calcular como $P = W/t$ (trabajo por unidad de tiempo). Usando cualquiera de las dos expresiones, ¿cuáles son las dimensiones de $P$?",
+    "opciones": {
+      "a": "$[M L^2 T^{-2}]$",
+      "b": "$[M L T^{-3}]$",
+      "c": "$[M L^2 T^{-4}]$",
+      "d": "$[M L^2 T^{-3}]$"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "Desde $P = Fv$: $[P] = [MLT^{-2}][LT^{-1}] = [ML^2T^{-3}]$. Verificando con $P = W/t$: $[W/t] = [ML^2T^{-2}]/[T] = [ML^2T^{-3}]$ ✓. La opción a sería energía (sin la $T$ extra); la b omite una $L$.",
+    "tipo": "texto"
+  },
+  {
+    "id": "analisis_dim_035",
+    "dificultad": 4,
+    "categoria": "Análisis dimensional",
+    "pregunta": "La ley de Fourier establece que el flujo de calor por unidad de área es $q = -\\kappa \\, dT/dx$. Si el flujo de calor $q$ tiene dimensiones $[M T^{-3}]$ (potencia por área) y el gradiente de temperatura tiene dimensiones $[\\Theta L^{-1}]$, ¿cuáles son las dimensiones de la conductividad térmica $\\kappa$?",
+    "opciones": {
+      "a": "$[M L^2 T^{-3} \\Theta^{-1}]$",
+      "b": "$[M L T^{-3} \\Theta^{-1}]$",
+      "c": "$[M T^{-3} \\Theta^{-1}]$",
+      "d": "$[M L T^{-2} \\Theta^{-1}]$"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Despejando $\\kappa = q / (dT/dx)$: $[\\kappa] = [MT^{-3}] / [\\Theta L^{-1}] = [MT^{-3} \\cdot L \\cdot \\Theta^{-1}] = [MLT^{-3}\\Theta^{-1}]$. En SI equivale a $W/(m\\cdot K)$. La opción a tiene $L^2$ en lugar de $L$ (sería difusividad multiplicada por $\\rho c_p$).",
+    "tipo": "texto"
+  },
+  {
+    "id": "analisis_dim_036",
+    "dificultad": 4,
+    "categoria": "Análisis dimensional",
+    "pregunta": "La ley de Hooke establece $F = kx$, donde $k$ es la constante del resorte y $x$ el desplazamiento. ¿Cuáles son las dimensiones de $k$, y cuál de las siguientes magnitudes comparte esas mismas dimensiones?",
+    "opciones": {
+      "a": "$[M T^{-2}]$; la tensión superficial $\\gamma$ (fuerza por unidad de longitud) tiene las mismas dimensiones",
+      "b": "$[M T^{-1}]$; el impulso de una fuerza tiene las mismas dimensiones",
+      "c": "$[M L T^{-2}]$; la fuerza tiene las mismas dimensiones",
+      "d": "$[M L^{-1} T^{-2}]$; la presión tiene las mismas dimensiones"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "$[k] = [F/x] = [MLT^{-2}]/[L] = [MT^{-2}]$. La tensión superficial también tiene dimensiones $[MT^{-2}]$ (fuerza/longitud = $[MLT^{-2}/L]$). Físicamente son magnitudes distintas pero dimensionalmente equivalentes. En SI: $k$ se mide en N/m y $\\gamma$ también en N/m.",
+    "tipo": "texto"
+  },
+  {
+    "id": "analisis_dim_037",
+    "dificultad": 4,
+    "categoria": "Análisis dimensional",
+    "pregunta": "La densidad de energía almacenada en un campo eléctrico es $u_E = \\varepsilon_0 E_{\\text{campo}}^2 / 2$. Usando $[\\varepsilon_0] = [M^{-1} L^{-3} T^4 A^2]$ y $[E_{\\text{campo}}] = [M L T^{-3} A^{-1}]$, ¿qué dimensiones tiene $u_E$?",
+    "opciones": {
+      "a": "$[M L^{-2} T^{-2}]$",
+      "b": "$[M T^{-2}]$",
+      "c": "$[M L^{-1} T^{-2}]$",
+      "d": "$[M L^{2} T^{-2}]$"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "$[E_{\\text{campo}}^2] = [M^2 L^2 T^{-6} A^{-2}]$. Entonces: $[\\varepsilon_0 E_{\\text{campo}}^2] = [M^{-1}L^{-3}T^4A^2][M^2L^2T^{-6}A^{-2}] = [M^1 L^{-1} T^{-2}] = [ML^{-1}T^{-2}]$. Esta es la dimensión de presión y densidad de energía ($J/m^3$), lo cual es físicamente correcto: la densidad de energía es energía por unidad de volumen.",
+    "tipo": "texto"
+  },
+  {
+    "id": "analisis_dim_038",
+    "dificultad": 4,
+    "categoria": "Análisis dimensional",
+    "pregunta": "La ley de Ohm establece $V = IR$, donde $[V] = [M L^2 T^{-3} A^{-1}]$ (voltios) e $[I] = [A]$ (amperes). ¿Cuáles son las dimensiones de la resistencia eléctrica $R$?",
+    "opciones": {
+      "a": "$[M L^2 T^{-2} A^{-2}]$",
+      "b": "$[M L^2 T^{-3} A]$",
+      "c": "$[M^{-1} L^{-2} T^3 A^2]$",
+      "d": "$[M L^2 T^{-3} A^{-2}]$"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "$[R] = [V/I] = [ML^2T^{-3}A^{-1}]/[A] = [ML^2T^{-3}A^{-2}]$. En SI equivale al Ohm ($\\Omega$). La opción a corresponde a la inductancia ($[L_{ind}]$); la c es la conductancia eléctrica (inversa de $R$); la b tiene signo positivo en $A$, incorrecto.",
+    "tipo": "texto"
+  },
+  {
+    "id": "analisis_dim_039",
+    "dificultad": 4,
+    "categoria": "Análisis dimensional",
+    "pregunta": "Para un objeto en movimiento circular uniforme, la aceleración centrípeta es $a_c = v^2/r$. ¿Cuál de las siguientes afirmaciones sobre sus dimensiones es correcta?",
+    "opciones": {
+      "a": "$[a_c] = [L^2 T^{-2}]$ porque $v$ aparece al cuadrado",
+      "b": "$[a_c] = [L T^{-2}]$ porque $[v^2/r] = [L^2T^{-2}]/[L] = [LT^{-2}]$ ✓",
+      "c": "$[a_c] = [T^{-2}]$ porque las longitudes del numerador y denominador se cancelan",
+      "d": "$[a_c] = [L^2 T^{-3}]$ porque interviene la velocidad que tiene dimensiones de $L/T$"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "$[v^2/r] = [L^2T^{-2}]/[L] = [LT^{-2}]$, que son las dimensiones correctas de una aceleración. La opción a olvidó dividir entre $[r] = [L]$; la c cancela incorrectamente dos $L$ del numerador; la d tiene un error de exponente en $T$.",
+    "tipo": "texto"
+  },
+  {
+    "id": "analisis_dim_040",
+    "dificultad": 4,
+    "categoria": "Análisis dimensional",
+    "pregunta": "El torque es $\\vec{\\tau} = \\vec{r} \\times \\vec{F}$ y la energía potencial gravitacional es $E_p = mgh$. Un estudiante afirma que «torque y energía son la misma magnitud física porque tienen las mismas dimensiones». ¿Cuál es la evaluación correcta de esta afirmación?",
+    "opciones": {
+      "a": "Es falsa: $[\\tau] = [ML^2T^{-2}]$ pero $[E_p] = [MLT^{-2}]$, son dimensionalmente distintos",
+      "b": "Es falsa: $[\\tau] = [MLT^{-2}]$ pero $[E_p] = [ML^2T^{-2}]$, son dimensionalmente distintos",
+      "c": "Es verdadera: al compartir dimensiones $[ML^2T^{-2}]$ son la misma magnitud física",
+      "d": "Es parcialmente correcta: ambos tienen dimensiones $[ML^2T^{-2}]$, pero igualdad dimensional no implica identidad física"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "$[\\tau] = [L][MLT^{-2}] = [ML^2T^{-2}]$ y $[E_p] = [M][LT^{-2}][L] = [ML^2T^{-2}]$ son dimensionalmente iguales. Sin embargo, son magnitudes físicamente distintas: el torque es un vector axial y la energía es un escalar. El análisis dimensional no distingue entre magnitudes con las mismas dimensiones; se necesita el contexto físico. Este es un límite fundamental del método.",
+    "tipo": "texto"
+  },
+  {
+    "id": "analisis_dim_041",
+    "dificultad": 4,
+    "categoria": "Análisis dimensional",
+    "pregunta": "La constante de gravitación universal $G$ aparece en la ley de Newton: $F = G M m / r^2$. Dado que $[F] = [M L T^{-2}]$, $[M] = [m] = [M]$ y $[r] = [L]$, ¿cuáles son las dimensiones de $G$?",
+    "opciones": {
+      "a": "$[M^{-1} L^2 T^{-2}]$",
+      "b": "$[M^{-1} L^3 T^{-3}]$",
+      "c": "$[M^{-1} L^3 T^{-2}]$",
+      "d": "$[M L^3 T^{-2}]$"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "$[G] = [F r^2 / (Mm)] = [MLT^{-2}][L^2] / [M^2] = [ML^3T^{-2}] / [M^2] = [M^{-1}L^3T^{-2}]$. La opción a tiene $L^2$ en lugar de $L^3$; la b tiene $T^{-3}$; la d no tiene el $M^{-1}$ (olvida dividir entre masa²). En SI: $G \\approx 6.67 \\times 10^{-11}$ m³ kg⁻¹ s⁻².",
+    "tipo": "texto"
+  },
+  {
+    "id": "analisis_dim_042",
+    "dificultad": 4,
+    "categoria": "Análisis dimensional",
+    "pregunta": "La intensidad sonora $I$ es la potencia acústica $W$ que atraviesa una unidad de área. Si $[W] = [M L^2 T^{-3}]$ y el área $[A] = [L^2]$, ¿cuáles son las dimensiones de $I$? Además, el nivel en decibeles es $L_{dB} = 10\\log_{10}(I/I_0)$. ¿Qué implica esto sobre $I_0$?",
+    "opciones": {
+      "a": "$[I] = [M L^2 T^{-3}]$; $I_0$ puede tener cualquier dimensión porque el logaritmo las elimina",
+      "b": "$[I] = [M T^{-3}]$; $I_0$ debe tener las mismas dimensiones $[MT^{-3}]$ para que $I/I_0$ sea adimensional ✓",
+      "c": "$[I] = [M L^{-2} T^{-3}]$; $I_0$ es adimensional",
+      "d": "$[I] = [M T^{-3}]$; $I_0$ puede tener cualquier valor por ser una referencia"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "$[I] = [W/A] = [ML^2T^{-3}]/[L^2] = [MT^{-3}]$. Para que el argumento del logaritmo sea adimensional (requisito matemático estricto: el logaritmo solo acepta argumentos adimensionales), $I_0$ debe tener las mismas dimensiones $[MT^{-3}]$ que $I$. En la práctica $I_0 = 10^{-12}$ W/m² es la intensidad de referencia (umbral de audición).",
+    "tipo": "texto"
+  },
+  {
+    "id": "analisis_dim_043",
+    "dificultad": 4,
+    "categoria": "Análisis dimensional",
+    "pregunta": "Para un péndulo simple de longitud $l$ en un campo gravitacional $g$, la frecuencia angular de oscilación $\\omega$ depende solo de $g$ y $l$. Usando análisis dimensional, ¿cuál es la expresión correcta para $\\omega$?",
+    "opciones": {
+      "a": "$\\omega \\propto \\sqrt{g/l}$",
+      "b": "$\\omega \\propto g/l$",
+      "c": "$\\omega \\propto \\sqrt{l/g}$",
+      "d": "$\\omega \\propto \\sqrt{g \\cdot l}$"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "Se busca $\\omega = g^\\alpha l^\\beta$ con $[\\omega] = [T^{-1}]$. Planteando: $[LT^{-2}]^\\alpha [L]^\\beta = [T^{-1}]$. Para $T$: $-2\\alpha = -1 \\Rightarrow \\alpha = 1/2$. Para $L$: $\\alpha + \\beta = 0 \\Rightarrow \\beta = -1/2$. Por tanto $\\omega \\propto \\sqrt{g/l}$. Verificación: $\\sqrt{[LT^{-2}]/[L]} = \\sqrt{[T^{-2}]} = [T^{-1}]$ ✓.",
+    "tipo": "texto"
+  },
+  {
+    "id": "analisis_dim_044",
+    "dificultad": 4,
+    "categoria": "Análisis dimensional",
+    "pregunta": "La posición vertical correcta de un proyectil es $y = y_0 + v_{0y}t - \\frac{1}{2}gt^2$. Un estudiante escribe accidentalmente $y = y_0 + v_{0y}t^2 - \\frac{1}{2}gt$. Todos los términos de una ecuación válida deben tener las mismas dimensiones $[L]$. ¿Cuál es el resultado del análisis dimensional de la ecuación incorrecta?",
+    "opciones": {
+      "a": "Ambas ecuaciones son dimensionalmente correctas; el error es solo numérico",
+      "b": "Solo el término $y_0$ es incorrecto en la ecuación del estudiante",
+      "c": "Los términos $v_{0y}t^2$ y $gt$ son dimensionalmente incorrectos: $[v_{0y}t^2] = [LT]$ y $[gt] = [LT^{-1}]$, ninguno es $[L]$",
+      "d": "Solo el término $gt$ es incorrecto; $v_{0y}t^2$ tiene dimensiones $[L]$"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "En la ecuación correcta: $[v_{0y}t] = [LT^{-1}][T] = [L]$ ✓ y $[gt^2] = [LT^{-2}][T^2] = [L]$ ✓. En la ecuación del estudiante: $[v_{0y}t^2] = [LT^{-1}][T^2] = [LT]$ ✗ y $[gt] = [LT^{-2}][T] = [LT^{-1}]$ ✗. El análisis dimensional habría revelado el error inmediatamente.",
+    "tipo": "texto"
+  },
+  {
+    "id": "analisis_dim_045",
+    "dificultad": 4,
+    "categoria": "Análisis dimensional",
+    "pregunta": "La presión hidrostática a profundidad $h$ es $P = P_0 + \\rho g h$, donde $[P_0] = [M L^{-1} T^{-2}]$. Para que la ecuación sea dimensionalmente homogénea, ¿cuál es la verificación correcta del término $\\rho g h$?",
+    "opciones": {
+      "a": "$[\\rho g h] = [ML^{-3}][LT^{-2}][L] = [ML^{-2}T^{-2}]$ — no es igual a $[P_0]$, la ecuación es incorrecta",
+      "b": "$[\\rho g h] = [ML^{-3}][LT^{-2}][L] = [ML^{-1}T^{-2}]$ — igual a $[P_0]$, la ecuación es homogénea ✓",
+      "c": "$[\\rho g h] = [ML^{-3}][LT^{-2}][L] = [MT^{-2}]$ — no es presión, la ecuación es inconsistente",
+      "d": "$[\\rho g h] = [ML^{-3}][LT^{-2}][L] = [ML^{-3}T^{-2}]$ — la ecuación no es homogénea"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "$[\\rho g h] = [ML^{-3}][LT^{-2}][L] = [M \\cdot L^{-3+1+1} \\cdot T^{-2}] = [ML^{-1}T^{-2}]$. Esto es idéntico a $[P_0]$, confirmando que la ecuación es dimensionalmente homogénea ✓. El error en la opción a suma $-3+1+1 = -1$ incorrectamente; la c olvida incluir los exponentes de $L$.",
+    "tipo": "texto"
+  },
+  {
+    "id": "analisis_dim_046",
+    "dificultad": 4,
+    "categoria": "Análisis dimensional",
+    "pregunta": "La energía cinética de una partícula es $E_k = \\frac{1}{2}mv^2$, lo que da dimensiones $[M L^2 T^{-2}]$. ¿Cuál de los siguientes grupos de magnitudes comparte esas mismas dimensiones?",
+    "opciones": {
+      "a": "Trabajo, calor y potencia",
+      "b": "Trabajo, calor y energía potencial gravitacional",
+      "c": "Potencia, torque y trabajo",
+      "d": "Energía cinética, presión y calor"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "$[E_k] = [M][LT^{-1}]^2 = [ML^2T^{-2}]$. Trabajo: $[Fd] = [MLT^{-2}][L] = [ML^2T^{-2}]$ ✓. Calor: también energía, $[ML^2T^{-2}]$ ✓. Energía potencial: $[mgh] = [M][LT^{-2}][L] = [ML^2T^{-2}]$ ✓. La potencia tiene dimensiones $[ML^2T^{-3}]$ (energía por tiempo), diferente; la presión tiene $[ML^{-1}T^{-2}]$, también diferente.",
+    "tipo": "texto"
+  },
+  {
+    "id": "analisis_dim_047",
+    "dificultad": 4,
+    "categoria": "Análisis dimensional",
+    "pregunta": "El teorema impulso-momento establece que el impulso $\\vec{J} = \\vec{F}\\,\\Delta t$ es igual al cambio de momento lineal $\\Delta\\vec{p} = m\\Delta\\vec{v}$. ¿Cuál es la verificación dimensional correcta de esta equivalencia?",
+    "opciones": {
+      "a": "$[F\\Delta t] = [MLT^{-2}]$ y $[m\\Delta v] = [MLT^{-2}]$ — son iguales ✓",
+      "b": "$[F\\Delta t] = [MLT^{-1}]$ pero $[m\\Delta v] = [ML^2T^{-1}]$ — son distintos, el teorema es empírico",
+      "c": "$[F\\Delta t] = [MLT^{-2}][T] = [MLT^{-1}]$ y $[m\\Delta v] = [M][LT^{-1}] = [MLT^{-1}]$ — ambos $[MLT^{-1}]$ ✓",
+      "d": "$[F\\Delta t] = [ML^2T^{-1}]$ y $[m\\Delta v] = [MLT^{-1}]$ — no coinciden dimensionalmente"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "Impulso: $[J] = [F\\Delta t] = [MLT^{-2}][T] = [MLT^{-1}]$. Momento lineal: $[p] = [mv] = [M][LT^{-1}] = [MLT^{-1}]$. Ambos tienen dimensiones $[MLT^{-1}]$, lo que es consistente con el teorema $J = \\Delta p$. La opción a comete el error de no multiplicar por $[T]$ al calcular el impulso.",
+    "tipo": "texto"
+  },
+  {
+    "id": "analisis_dim_048",
+    "dificultad": 4,
+    "categoria": "Análisis dimensional",
+    "pregunta": "El calor absorbido por una sustancia es $Q = m c_p \\Delta T$, donde $m$ es masa, $c_p$ es el calor específico y $\\Delta T$ es la variación de temperatura ($[\\Theta]$). Si $[Q] = [M L^2 T^{-2}]$, ¿cuáles son las dimensiones de $c_p$?",
+    "opciones": {
+      "a": "$[M L^2 T^{-2} \\Theta^{-1}]$",
+      "b": "$[L^2 T^{-3} \\Theta^{-1}]$",
+      "c": "$[L^2 T^{-2} \\Theta^{-1}]$",
+      "d": "$[M T^{-2} \\Theta^{-1}]$"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "$[c_p] = [Q/(m \\Delta T)] = [ML^2T^{-2}] / ([M][\\Theta]) = [L^2T^{-2}\\Theta^{-1}]$. La opción a incluye una $M$ de más (sería la capacidad calorífica total $C = mc_p$); b tiene $T^{-3}$ que corresponde a potencia por temperatura; d pierde las dimensiones de $L^2$.",
+    "tipo": "texto"
+  },
+  {
+    "id": "analisis_dim_049",
+    "dificultad": 4,
+    "categoria": "Análisis dimensional",
+    "pregunta": "El número de Froude $Fr = v / \\sqrt{gL}$ compara fuerzas inerciales con fuerzas gravitacionales en flujo libre. ¿Cuál de los siguientes cálculos verifica correctamente que $Fr$ es adimensional?",
+    "opciones": {
+      "a": "$[v/\\sqrt{gL}] = [LT^{-1}] / [L^{1/2}T^{-2}] = [L^{1/2}T]$ — no es adimensional",
+      "b": "$[v/\\sqrt{gL}] = [LT^{-1}] / \\sqrt{[LT^{-2}][L]} = [LT^{-1}] / [LT^{-1}] = [1]$ ✓",
+      "c": "$[v/\\sqrt{gL}] = [LT^{-1}] / [LT^{-2}] = [T]$ — tiene dimensiones de tiempo",
+      "d": "$[v/\\sqrt{gL}] = [LT^{-1}] \\cdot [L^{1/2}T^{-1}] = [L^{3/2}T^{-2}]$ — no es adimensional"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "$\\sqrt{[gL]} = \\sqrt{[LT^{-2}][L]} = \\sqrt{[L^2T^{-2}]} = [LT^{-1}]$, que coincide con las dimensiones de velocidad. Por tanto $[v/\\sqrt{gL}] = [LT^{-1}]/[LT^{-1}] = [1]$ ✓. La opción a toma raíz solo de $L$ pero no de $T^{-2}$; c no toma la raíz cuadrada de $gL$; d multiplica en lugar de dividir.",
+    "tipo": "texto"
+  },
+  {
+    "id": "analisis_dim_050",
+    "dificultad": 4,
+    "categoria": "Análisis dimensional",
+    "pregunta": "El potencial gravitacional (energía potencial por unidad de masa) se define como $V_g = -GM/r$. Usando $[G] = [M^{-1}L^3T^{-2}]$, $[M] = [M]$ y $[r] = [L]$, ¿cuáles son las dimensiones de $V_g$?",
+    "opciones": {
+      "a": "$[L T^{-2}]$",
+      "b": "$[M L^2 T^{-2}]$",
+      "c": "$[L^2 T^{-2}]$",
+      "d": "$[M^{-1} L^3 T^{-2}]$"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "$[V_g] = [GM/r] = [M^{-1}L^3T^{-2}][M]/[L] = [L^{3-1}T^{-2}] = [L^2T^{-2}]$. Son las dimensiones de energía por unidad de masa (J/kg). La opción a serían dimensiones de aceleración ($g$); b sería energía total (no por unidad de masa); d es la constante $G$ sin dividir entre $r$ o multiplicar por $M$.",
+    "tipo": "texto"
+  },
+  {
+    "id": "analisis_dim_051",
+    "dificultad": 4,
+    "categoria": "Análisis dimensional",
+    "pregunta": "La aceleración angular $\\alpha = d\\omega/dt$ tiene dimensiones $[T^{-2}]$. El torque y el momento de inercia se relacionan por $\\tau = I\\alpha$. Dado que $[\\tau] = [M L^2 T^{-2}]$, ¿cuáles son las dimensiones del momento de inercia $I$?",
+    "opciones": {
+      "a": "$[M L^2 T^{-2}]$",
+      "b": "$[M L^2]$",
+      "c": "$[M L^2 T^{-1}]$",
+      "d": "$[M L^3 T^{-2}]$"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "$[I] = [\\tau/\\alpha] = [ML^2T^{-2}]/[T^{-2}] = [ML^2T^{-2+2}] = [ML^2]$. Los exponentes de $T$ se cancelan. Esto es consistente con la definición $I = \\sum m_i r_i^2$: $[I] = [M][L^2] = [ML^2]$ ✓. La opción a es torque/energía; c es momento angular; d no tiene fundamento directo.",
+    "tipo": "texto"
+  },
+  {
+    "id": "analisis_dim_052",
+    "dificultad": 4,
+    "categoria": "Análisis dimensional",
+    "pregunta": "En la ecuación de Bernoulli, el término de presión dinámica es $\\frac{1}{2}\\rho v^2$. ¿Cuál de las siguientes cadenas de cálculo es correcta al verificar que tiene dimensiones de presión $[M L^{-1} T^{-2}]$?",
+    "opciones": {
+      "a": "$[\\rho v^2] = [ML^{-3}][L^2T^{-2}] = [ML^{-2}T^{-2}]$ — no es presión",
+      "b": "$[\\rho v^2] = [ML^{-3}][L^2T^{-2}] = [ML^{-3}T^{-2}]$ — los exponentes de $L$ no se sumaron",
+      "c": "$[\\rho v^2] = [ML^{-3}][L^2T^{-2}] = [ML^{3}T^{-2}]$ — error de signo en exponente de $L$",
+      "d": "$[\\rho v^2] = [ML^{-3}][L^2T^{-2}] = [ML^{-1}T^{-2}]$ ✓ — correcto, igual que presión estática"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "Sumando exponentes de $L$: $-3 + 2 = -1$. Resultado: $[ML^{-1}T^{-2}]$, idéntico a la presión estática. Esto justifica que en la ecuación de Bernoulli $P + \\frac{1}{2}\\rho v^2 + \\rho g h = \\text{cte}$, todos los términos tengan las mismas dimensiones. Las opciones a, b y c cometen errores en la suma de los exponentes de $L$.",
+    "tipo": "texto"
+  },
+  {
+    "id": "analisis_dim_053",
+    "dificultad": 4,
+    "categoria": "Análisis dimensional",
+    "pregunta": "El flujo magnético a través de una superficie es $\\Phi_B = B \\cdot A \\cdot \\cos\\theta$, donde $\\theta$ es un ángulo (adimensional). Dado $[B] = [M T^{-2} A^{-1}]$ y $[A_{\\text{sup}}] = [L^2]$, ¿cuáles son las dimensiones de $\\Phi_B$?",
+    "opciones": {
+      "a": "$[M T^{-2} A^{-1}]$",
+      "b": "$[M L T^{-2} A^{-1}]$",
+      "c": "$[M L^2 T^{-2} A^{-1}]$",
+      "d": "$[M L^2 T^{-3} A^{-1}]$"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "$[\\Phi_B] = [B][A_{\\text{sup}}] = [MT^{-2}A^{-1}][L^2] = [ML^2T^{-2}A^{-1}]$. En SI equivale al Weber (Wb). Verificación mediante la ley de Faraday: $[\\mathcal{E}] = [d\\Phi_B/dt] = [ML^2T^{-2}A^{-1}]/[T] = [ML^2T^{-3}A^{-1}]$ = voltios ✓. La opción a son dimensiones de $B$ sola (sin el área); d sería la EMF inducida.",
+    "tipo": "texto"
+  },
+  {
+    "id": "analisis_dim_054",
+    "dificultad": 4,
+    "categoria": "Análisis dimensional",
+    "pregunta": "La energía almacenada en un condensador es $E = \\frac{1}{2}CV^2$. Usando $[C] = [M^{-1}L^{-2}T^4A^2]$ y $[V] = [ML^2T^{-3}A^{-1}]$, ¿cuál es el resultado correcto de verificar las dimensiones?",
+    "opciones": {
+      "a": "$[CV^2] = [M^{-1}L^{-2}T^4A^2][M^2L^4T^{-6}A^{-2}] = [ML^2T^{-2}]$ ✓ — energía",
+      "b": "$[CV^2] = [M^{-1}L^{-2}T^4A^2][M^2L^4T^{-6}A^{-2}] = [ML^2T^{-3}]$ — sería potencia",
+      "c": "$[CV^2] = [M^{-1}L^{-2}T^4A^2][M^2L^4T^{-6}A^{-2}] = [ML^2T^{-4}]$ — error en $T$",
+      "d": "$[CV^2] = [M^2L^4T^{-6}A^{-2}]$ — olvidó multiplicar por las dimensiones de $C$"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "$[V^2] = [ML^2T^{-3}A^{-1}]^2 = [M^2L^4T^{-6}A^{-2}]$. Multiplicando por $[C]$: $[M^{-1+2}L^{-2+4}T^{4-6}A^{2-2}] = [ML^2T^{-2}]$ ✓. Son las dimensiones de energía (joules), confirmando que $E = CV^2/2$ es una expresión de energía.",
+    "tipo": "texto"
+  },
+  {
+    "id": "analisis_dim_055",
+    "dificultad": 4,
+    "categoria": "Análisis dimensional",
+    "pregunta": "El trabajo realizado al mover una carga $q$ a través de una diferencia de potencial $V$ es $W = qV$. Dado $[q] = [AT]$ y $[V] = [ML^2T^{-3}A^{-1}]$, ¿cuáles son las dimensiones de $W$ y confirman que es una energía?",
+    "opciones": {
+      "a": "$[qV] = [AT][ML^2T^{-3}A^{-1}] = [ML^2T^{-4}]$ — no son dimensiones de energía",
+      "b": "$[qV] = [AT][ML^2T^{-3}A^{-1}] = [ML^2T^{-1}]$ — dimensiones de momento angular",
+      "c": "$[qV] = [AT][ML^2T^{-3}A^{-1}] = [ML^2T^{-2}]$ ✓ — dimensiones de energía",
+      "d": "$[qV] = [AT][ML^2T^{-3}A^{-1}] = [ML^3T^{-3}A]$ — cálculo incorrecto"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "$[qV] = [AT][ML^2T^{-3}A^{-1}]$. Acumulando: $M^1$, $L^2$, $T^{1-3} = T^{-2}$, $A^{1-1} = A^0$. Resultado: $[ML^2T^{-2}]$ ✓, que son las dimensiones del joule (energía). La opción a suma $T^{1-3} = -4$ incorrectamente; b obtiene $T^{-1}$ (momento angular).",
+    "tipo": "texto"
+  },
+  {
+    "id": "analisis_dim_056",
+    "dificultad": 4,
+    "categoria": "Análisis dimensional",
+    "pregunta": "La tercera ley de Kepler para órbitas circulares establece $T_{\\text{orb}}^2 = 4\\pi^2 r^3/(GM)$. ¿Cuál es el análisis dimensional correcto que verifica que $r^3/(GM)$ tiene dimensiones de tiempo al cuadrado?",
+    "opciones": {
+      "a": "$[r^3/(GM)] = [L^3]/[L^3T^{-2}] = [T^{-2}]$ — invertido, serían $[T_{\\text{orb}}^{-2}]$",
+      "b": "$[r^3/(GM)] = [L^3]/[M^{-1}L^3T^{-2} \\cdot M] = [L^6T^{-2}]$ — no simplificó $L^3$",
+      "c": "$[r^3/(GM)] = [L^3 \\cdot M] / [M^{-1}L^3T^{-2}] = [M^2T^2]$ — invirtió el denominador",
+      "d": "$[r^3/(GM)] = [L^3]/[M^{-1}L^3T^{-2} \\cdot M] = [L^3]/[L^3T^{-2}] = [T^2]$ ✓"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "$[GM] = [M^{-1}L^3T^{-2}][M] = [L^3T^{-2}]$. Entonces $[r^3/(GM)] = [L^3]/[L^3T^{-2}] = [T^2]$ ✓. Esto verifica que $T_{\\text{orb}}^2 \\propto r^3$, la versión dimensional de la 3ª ley de Kepler. La opción a invierte el cociente; b no simplifica los $L^3$ del numerador y denominador.",
+    "tipo": "texto"
+  },
+  {
+    "id": "analisis_dim_057",
+    "dificultad": 4,
+    "categoria": "Análisis dimensional",
+    "pregunta": "La densidad de corriente eléctrica $\\vec{J}$ representa la corriente por unidad de área de sección transversal: $\\vec{J} = I/A_{\\text{sección}}$. ¿Cuáles son las dimensiones de $\\vec{J}$?",
+    "opciones": {
+      "a": "$[A L^{-1}]$",
+      "b": "$[A L^{-2}]$",
+      "c": "$[A L^{-3}]$",
+      "d": "$[A T L^{-2}]$"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "$[J] = [I/A_{\\text{sección}}] = [A]/[L^2] = [AL^{-2}]$. Verificación mediante la ley de Ohm diferencial $J = \\sigma_e E$: $[\\sigma_e E] = [M^{-1}L^{-3}T^3A^2][MLT^{-3}A^{-1}] = [A^{2-1}L^{-3+1}M^{-1+1}T^{3-3}] = [AL^{-2}]$ ✓. La opción a sería corriente por unidad de longitud; c por unidad de volumen; d incluye carga en lugar de corriente.",
+    "tipo": "texto"
+  },
+  {
+    "id": "analisis_dim_058",
+    "dificultad": 4,
+    "categoria": "Análisis dimensional",
+    "pregunta": "Dado un flujo con densidad $\\rho$ ($[ML^{-3}]$), velocidad $v$ ($[LT^{-1}]$), velocidad del sonido $c_s$ ($[LT^{-1}]$) y viscosidad dinámica $\\eta$ ($[ML^{-1}T^{-1}]$), ¿cuál de las siguientes expresiones es la única adimensional?",
+    "opciones": {
+      "a": "$\\rho v / \\eta$",
+      "b": "$v / c_s$",
+      "c": "$c_s / \\eta$",
+      "d": "$\\rho c_s$"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "b) $[v/c_s] = [LT^{-1}]/[LT^{-1}] = [1]$ ✓ — número de Mach. Verificando las demás: a) $[\\rho v/\\eta] = [ML^{-3}][LT^{-1}]/[ML^{-1}T^{-1}] = [ML^{-2}T^{-1}]/[ML^{-1}T^{-1}] = [L^{-1}]$ — no adimensional; c) $[c_s/\\eta] = [LT^{-1}]/[ML^{-1}T^{-1}] = [M^{-1}L^2]$ — no adimensional; d) $[\\rho c_s] = [ML^{-3}][LT^{-1}] = [ML^{-2}T^{-1}]$ — no adimensional.",
+    "tipo": "texto"
+  },
+  {
+    "id": "analisis_dim_059",
+    "dificultad": 4,
+    "categoria": "Análisis dimensional",
+    "pregunta": "El campo gravitacional $\\vec{g}$ puede definirse como $\\vec{g} = \\vec{F}/m$ (fuerza por unidad de masa) o como $\\vec{g} = -\\nabla V_g$ (gradiente del potencial gravitacional, $[V_g] = [L^2T^{-2}]$). ¿Cuál es la verificación dimensional que confirma que ambas definiciones son consistentes?",
+    "opciones": {
+      "a": "$[F/m] = [LT^{-2}]$ pero $[\\nabla V_g] = [L^2T^{-2}]$ — son distintos, el gradiente añade una $L$",
+      "b": "$[F/m] = [MLT^{-2}]/[M] = [LT^{-2}]$ y $[\\nabla V_g] = [L^2T^{-2}]/[L] = [LT^{-2}]$ — ambos coinciden ✓",
+      "c": "$[F/m] = [LT^{-3}]$ y $[\\nabla V_g] = [LT^{-3}]$ — coinciden pero el cálculo es incorrecto",
+      "d": "$[F/m] = [T^{-2}]$ y $[\\nabla V_g] = [LT^{-2}]$ — distintos"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Definición 1: $[\\vec{g}] = [F/m] = [MLT^{-2}]/[M] = [LT^{-2}]$. Definición 2: el operador gradiente $\\nabla$ divide entre longitud ($[L^{-1}]$), entonces $[\\nabla V_g] = [L^{-1}][L^2T^{-2}] = [LT^{-2}]$. Ambas dan $[LT^{-2}]$ ✓. La opción a comete el error de no aplicar el operador gradiente (que divide entre $L$).",
+    "tipo": "texto"
+  },
+  {
+    "id": "analisis_dim_060",
+    "dificultad": 4,
+    "categoria": "Análisis dimensional",
+    "pregunta": "La intensidad de una onda esférica decrece con la distancia según la ley del inverso del cuadrado: $I = P_0/(4\\pi r^2)$, donde $P_0$ es la potencia de la fuente. ¿Cuál de los siguientes cálculos confirma que $I$ tiene dimensiones de intensidad $[M T^{-3}]$?",
+    "opciones": {
+      "a": "$[P_0/r^2] = [ML^2T^{-3}]/[L^2] = [ML^4T^{-3}]$ — multiplicó en lugar de dividir $L^2$",
+      "b": "$[P_0/r^2] = [ML^2T^{-3}]/[L^2] = [ML^{-2}T^{-3}]$ — error: $L^{2-2} \\neq L^{-2}$",
+      "c": "$[P_0/r^2] = [ML^2T^{-3}]/[L^2] = [MT^{-2}]$ — error de exponente en $T$",
+      "d": "$[P_0/r^2] = [ML^2T^{-3}]/[L^2] = [ML^{2-2}T^{-3}] = [MT^{-3}]$ ✓ — dimensiones de intensidad"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "Dividiendo potencias de $L$: $L^2/L^2 = L^{2-2} = L^0 = 1$. La dimensión $L$ desaparece, y el resultado es $[MT^{-3}]$ ✓, que equivale a $W/m^2$ (potencia por unidad de área), la definición de intensidad. Las opciones a, b y c ilustran errores aritméticos típicos: multiplicar en lugar de dividir, invertir el exponente, o transferir incorrectamente el exponente de $T$.",
+    "tipo": "texto"
+  },
+  {
+    "id": "analisis_dim_061",
+    "dificultad": 3,
+    "categoria": "Análisis dimensional",
+    "pregunta": "La velocidad media de un objeto se define como $v = \\Delta x / \\Delta t$, donde $\\Delta x$ es el desplazamiento y $\\Delta t$ el intervalo de tiempo. ¿Cuáles son las dimensiones de $v$?",
+    "opciones": {
+      "a": "$[L T^{-2}]$",
+      "b": "$[L T^{-1}]$",
+      "c": "$[L^2 T^{-1}]$",
+      "d": "$[L T]$"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "$[v] = [\\Delta x / \\Delta t] = [L]/[T] = [LT^{-1}]$. La opción a corresponde a la aceleración (velocidad dividida nuevamente entre tiempo); c tiene $L^2$ sin justificación; d implicaría que la velocidad aumenta con el tiempo, lo cual no tiene sentido dimensional.",
+    "tipo": "texto"
+  },
+  {
+    "id": "analisis_dim_062",
+    "dificultad": 3,
+    "categoria": "Análisis dimensional",
+    "pregunta": "La aceleración se define como la variación de velocidad por unidad de tiempo: $a = \\Delta v / \\Delta t$. Dado que $[v] = [L T^{-1}]$, ¿cuáles son las dimensiones de $a$?",
+    "opciones": {
+      "a": "$[L T^{-2}]$",
+      "b": "$[L T^{-1}]$",
+      "c": "$[L^2 T^{-2}]$",
+      "d": "$[T^{-2}]$"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "$[a] = [\\Delta v / \\Delta t] = [LT^{-1}] / [T] = [LT^{-1-1}] = [LT^{-2}]$. La opción b es velocidad (no aceleración); c sería velocidad al cuadrado; d olvida la dimensión $[L]$ que proviene del desplazamiento en la velocidad.",
+    "tipo": "texto"
+  },
+  {
+    "id": "analisis_dim_063",
+    "dificultad": 3,
+    "categoria": "Análisis dimensional",
+    "pregunta": "La densidad de un material es $\\rho = m / V$, donde $m$ es la masa y $V$ el volumen ($[L^3]$). ¿Cuáles son las dimensiones de $\\rho$?",
+    "opciones": {
+      "a": "$[M L^3]$",
+      "b": "$[M L^{-2}]$",
+      "c": "$[M L^{-3}]$",
+      "d": "$[M^2 L^{-3}]$"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "$[\\rho] = [m/V] = [M]/[L^3] = [ML^{-3}]$. La opción a tiene exponente positivo en $L$ (inverso de densidad); b usa $L^{-2}$ confundiendo volumen con área; d introduce $M^2$ sin justificación alguna.",
+    "tipo": "texto"
+  },
+  {
+    "id": "analisis_dim_064",
+    "dificultad": 3,
+    "categoria": "Análisis dimensional",
+    "pregunta": "La presión se define como fuerza por unidad de área: $P = F / A$. Dado que $[F] = [M L T^{-2}]$ y $[A] = [L^2]$, ¿cuáles son las dimensiones de $P$?",
+    "opciones": {
+      "a": "$[M L T^{-2}]$",
+      "b": "$[M L^{-2} T^{-2}]$",
+      "c": "$[M T^{-2}]$",
+      "d": "$[M L^{-1} T^{-2}]$"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "$[P] = [F/A] = [MLT^{-2}]/[L^2] = [ML^{1-2}T^{-2}] = [ML^{-1}T^{-2}]$. La opción a son dimensiones de fuerza (no se dividió entre área); b tiene $L^{-2}$ por error al calcular $1-2=-2$ siendo en realidad $1-2=-1$; c pierde la dependencia espacial.",
+    "tipo": "texto"
+  },
+  {
+    "id": "analisis_dim_065",
+    "dificultad": 3,
+    "categoria": "Análisis dimensional",
+    "pregunta": "El peso específico se define como $\\gamma_w = \\rho g$, donde $\\rho$ es la densidad del fluido ($[M L^{-3}]$) y $g$ es la aceleración gravitacional ($[L T^{-2}]$). ¿Cuáles son las dimensiones de $\\gamma_w$?",
+    "opciones": {
+      "a": "$[M L^{-3} T^{-2}]$",
+      "b": "$[M L^{-2} T^{-2}]$",
+      "c": "$[M T^{-2}]$",
+      "d": "$[M L^{-1} T^{-2}]$"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "$[\\gamma_w] = [\\rho g] = [ML^{-3}][LT^{-2}] = [ML^{-3+1}T^{-2}] = [ML^{-2}T^{-2}]$. La opción a no suma el $[L]$ que aporta $g$ (error: $-3+0 = -3$); c elimina toda dependencia en $L$; d corresponde a presión ($L^{-1}$), que tendría $-3+2=-1$.",
+    "tipo": "texto"
+  },
+  {
+    "id": "analisis_dim_066",
+    "dificultad": 3,
+    "categoria": "Análisis dimensional",
+    "pregunta": "El número de onda $k$ de una onda se define como $k = 2\\pi / \\lambda$, donde $\\lambda$ es la longitud de onda y $2\\pi$ es adimensional. ¿Cuáles son las dimensiones de $k$?",
+    "opciones": {
+      "a": "$[L]$",
+      "b": "$[T^{-1}]$",
+      "c": "$[L T^{-1}]$",
+      "d": "$[L^{-1}]$"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "$[k] = [2\\pi/\\lambda] = [1]/[L] = [L^{-1}]$. La opción a es la longitud de onda misma (sin invertir); b son dimensiones de frecuencia temporal $f$, no del número de onda; c son dimensiones de velocidad. El número de onda es la \"frecuencia espacial\": ciclos por unidad de longitud.",
+    "tipo": "texto"
+  },
+  {
+    "id": "analisis_dim_067",
+    "dificultad": 3,
+    "categoria": "Análisis dimensional",
+    "pregunta": "La longitud de onda se obtiene como $\\lambda = v / f$, donde $v$ es velocidad de propagación ($[L T^{-1}]$) y $f$ es frecuencia ($[T^{-1}]$). ¿Cuál de los siguientes cálculos es correcto?",
+    "opciones": {
+      "a": "$[v/f] = [LT^{-1}] \\times [T^{-1}] = [LT^{-2}]$ — se multiplicó en lugar de dividir",
+      "b": "$[v/f] = [LT^{-1}] / [T^{-1}] = [LT^{-2}]$ — dividir por $[T^{-1}]$ equivale a multiplicar por otro $[T^{-1}]$",
+      "c": "$[v/f] = [LT^{-1}] / [T^{-1}] = [LT^{-1} \\cdot T] = [L]$ ✓",
+      "d": "$[v/f] = [LT^{-1}] / [T^{-1}] = [L^2 T^{-2}]$ — aparece un $L$ extra sin justificación"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "Dividir entre $[T^{-1}]$ equivale a multiplicar por $[T^{+1}]$: $[LT^{-1}]/[T^{-1}] = [LT^{-1}] \\cdot [T] = [LT^{-1+1}] = [L]$ ✓. La longitud de onda es, en efecto, una longitud. La opción b aplica incorrectamente la regla al tratar la división como $(-1)/(-1) = -1$ en los exponentes.",
+    "tipo": "texto"
+  },
+  {
+    "id": "analisis_dim_068",
+    "dificultad": 3,
+    "categoria": "Análisis dimensional",
+    "pregunta": "El caudal volumétrico de un fluido es $Q = A \\cdot v$, donde $A$ es el área de la sección transversal ($[L^2]$) y $v$ es la velocidad del fluido ($[L T^{-1}]$). ¿Cuáles son las dimensiones de $Q$?",
+    "opciones": {
+      "a": "$[L^2 T^{-1}]$",
+      "b": "$[L^3 T^{-2}]$",
+      "c": "$[L^3 T^{-1}]$",
+      "d": "$[L^2 T^{-2}]$"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "$[Q] = [A \\cdot v] = [L^2][LT^{-1}] = [L^{2+1}T^{-1}] = [L^3T^{-1}]$. La opción a solo tiene $L^2$ (olvidó el $L$ adicional que aporta la velocidad); b tiene $T^{-2}$ como si $v$ tuviera dimensiones de aceleración; d combina errores en $L$ y $T$.",
+    "tipo": "texto"
+  },
+  {
+    "id": "analisis_dim_069",
+    "dificultad": 3,
+    "categoria": "Análisis dimensional",
+    "pregunta": "La ecuación de estado del gas ideal es $PV = nRT$, con $[P] = [M L^{-1} T^{-2}]$, $[V] = [L^3]$, $n$ en moles ($[N]$) y $T$ temperatura ($[\\Theta]$). ¿Cuáles son las dimensiones de la constante de gases $R$?",
+    "opciones": {
+      "a": "$[M L^2 T^{-2} N^{-1} \\Theta^{-1}]$",
+      "b": "$[M L^2 T^{-3} N^{-1} \\Theta^{-1}]$",
+      "c": "$[M T^{-2} N^{-1} \\Theta^{-1}]$",
+      "d": "$[M L^2 T^{-2} \\Theta^{-1}]$"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "$[PV] = [ML^{-1}T^{-2}][L^3] = [ML^{2}T^{-2}]$. Despejando: $[R] = [PV/(nT)] = [ML^2T^{-2}]/([N][\\Theta]) = [ML^2T^{-2}N^{-1}\\Theta^{-1}]$. La opción b tiene $T^{-3}$ (potencia/mol/temperatura); c pierde ambas dimensiones de $L$; d omite $N^{-1}$ de los moles.",
+    "tipo": "texto"
+  },
+  {
+    "id": "analisis_dim_070",
+    "dificultad": 3,
+    "categoria": "Análisis dimensional",
+    "pregunta": "La segunda ley de Newton establece $\\vec{F} = m\\vec{a}$. ¿Cuál de las siguientes verificaciones es correcta?",
+    "opciones": {
+      "a": "$[ma] = [M][LT^{-1}] = [MLT^{-1}]$ — se usó velocidad en lugar de aceleración",
+      "b": "$[ma] = [M][LT^{-2}] = [MLT^{-2}]$ ✓ — dimensiones del newton",
+      "c": "$[ma] = [M][T^{-2}] = [MT^{-2}]$ — se olvidó la $[L]$ de la aceleración",
+      "d": "$[ma] = [M][L^2T^{-2}] = [ML^2T^{-2}]$ — se usó $v^2$ en lugar de $a$"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "La aceleración tiene dimensiones $[LT^{-2}]$, por tanto $[F] = [M][LT^{-2}] = [MLT^{-2}]$ ✓. Las otras opciones ilustran confusiones frecuentes: a confunde $a$ con $v$ ($[LT^{-1}]$ en lugar de $[LT^{-2}]$); c omite la $L$ del desplazamiento; d usa $v^2$ cuya dimensión es energía cinética por unidad de masa.",
+    "tipo": "texto"
+  },
+  {
+    "id": "analisis_dim_071",
+    "dificultad": 3,
+    "categoria": "Análisis dimensional",
+    "pregunta": "El caudal másico es $\\dot{m} = \\rho A v$, donde $\\rho = [M L^{-3}]$, $A = [L^2]$ y $v = [L T^{-1}]$. ¿Cuáles son las dimensiones de $\\dot{m}$?",
+    "opciones": {
+      "a": "$[M T^{-1}]$",
+      "b": "$[M L^3 T^{-1}]$",
+      "c": "$[M L^{-1} T^{-1}]$",
+      "d": "$[M L^3 T^{-2}]$"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "$[\\dot{m}] = [ML^{-3}][L^2][LT^{-1}] = [M \\cdot L^{-3+2+1} \\cdot T^{-1}] = [ML^0 T^{-1}] = [MT^{-1}]$. Los exponentes de $L$ se cancelan exactamente: $-3+2+1 = 0$. La opción b invierte el signo de $L$; c da $L^{-1}$ en lugar de $L^0$; d añade un $T^{-2}$ injustificado.",
+    "tipo": "texto"
+  },
+  {
+    "id": "analisis_dim_072",
+    "dificultad": 3,
+    "categoria": "Análisis dimensional",
+    "pregunta": "La ecuación cinemática $v = v_0 + at$ requiere que todos sus términos tengan dimensiones $[L T^{-1}]$ para ser válida. ¿Cuál evaluación dimensional es correcta?",
+    "opciones": {
+      "a": "$[v_0] = [LT^{-1}]$ pero $[at] = [LT^{-2}]$ — son diferentes, la ecuación sería inválida",
+      "b": "$[v_0] = [LT]$ y $[at] = [LT^{-1}]$ — $v_0$ tiene dimensiones incorrectas",
+      "c": "$[v_0] = [LT^{-1}]$ pero $[at] = [LT^{-3}]$ — error al multiplicar $a \\times t$",
+      "d": "$[v_0] = [LT^{-1}]$ y $[at] = [LT^{-2}][T] = [LT^{-1}]$ — ecuación homogénea ✓"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "$[v_0] = [LT^{-1}]$ ✓. Para $[at]$: $[LT^{-2}][T] = [LT^{-2+1}] = [LT^{-1}]$ ✓. Ambos términos tienen las mismas dimensiones que $[v]$, la ecuación es homogénea. La opción a olvida aplicar el $[T]$ al calcular $[at]$; c obtiene $T^{-3}$ como si dividiera en lugar de multiplicar.",
+    "tipo": "texto"
+  },
+  {
+    "id": "analisis_dim_073",
+    "dificultad": 3,
+    "categoria": "Análisis dimensional",
+    "pregunta": "La carga eléctrica acumulada se puede expresar como $q = I \\cdot t$, siendo $I$ la corriente ($[A]$) y $t$ el tiempo. ¿Cuáles son las dimensiones de $q$?",
+    "opciones": {
+      "a": "$[A]$",
+      "b": "$[A T^2]$",
+      "c": "$[A T]$",
+      "d": "$[A T^{-1}]$"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "$[q] = [I \\cdot t] = [A][T] = [AT]$. Equivale al coulombio (C): $1\\,\\text{C} = 1\\,\\text{A}\\cdot\\text{s}$. La opción a omite el tiempo (sería solo la corriente); b multiplica el tiempo dos veces ($T^2$); d divide en lugar de multiplicar, dando $[AT^{-1}]$ que son dimensiones de aceleración de carga (inusual).",
+    "tipo": "texto"
+  },
+  {
+    "id": "analisis_dim_074",
+    "dificultad": 3,
+    "categoria": "Análisis dimensional",
+    "pregunta": "Una magnitud física $X$ tiene dimensiones $[M L^2 T^{-3}]$. ¿Cuál de las siguientes magnitudes corresponde a $X$?",
+    "opciones": {
+      "a": "Fuerza",
+      "b": "Energía",
+      "c": "Impulso",
+      "d": "Potencia"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "Potencia = energía / tiempo: $[P] = [ML^2T^{-2}]/[T] = [ML^2T^{-3}]$ ✓. Las demás: Fuerza $[MLT^{-2}]$ (falta un $L$, sobra un $T^{-1}$); Energía $[ML^2T^{-2}]$ (un factor $T$ menos que potencia); Impulso $[MLT^{-1}]$. En SI la potencia se mide en watts: $1\\,\\text{W} = 1\\,\\text{J/s}$.",
+    "tipo": "texto"
+  },
+  {
+    "id": "analisis_dim_075",
+    "dificultad": 3,
+    "categoria": "Análisis dimensional",
+    "pregunta": "Una magnitud física $Y$ tiene dimensiones $[M L^{-1} T^{-2}]$. ¿Cuál de las siguientes magnitudes corresponde a $Y$?",
+    "opciones": {
+      "a": "Presión",
+      "b": "Fuerza",
+      "c": "Aceleración",
+      "d": "Densidad"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "Presión = fuerza / área: $[P] = [MLT^{-2}]/[L^2] = [ML^{-1}T^{-2}]$ ✓. Las demás: Fuerza $[MLT^{-2}]$ (con $L^{+1}$, no $L^{-1}$); Aceleración $[LT^{-2}]$ (sin $M$); Densidad $[ML^{-3}]$ (sin factor $T$). Nota: la densidad de energía $u = E/V$ también comparte estas dimensiones, ilustrando que distintas magnitudes físicas pueden ser dimensionalmente equivalentes.",
+    "tipo": "texto"
+  },
+  {
+    "id": "analisis_dim_076",
+    "dificultad": 2,
+    "categoria": "Análisis dimensional",
+    "pregunta": "La dimensión $[L^2]$ corresponde a la magnitud física:",
+    "opciones": {
+      "a": "Longitud",
+      "b": "Volumen",
+      "c": "Área",
+      "d": "Velocidad"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "El área es el producto de dos longitudes: $[A] = [L][L] = [L^2]$. La longitud tiene dimensión $[L]$ (exponente 1), el volumen $[L^3]$ (exponente 3), y la velocidad $[LT^{-1}]$ (involucra tiempo).",
+    "tipo": "texto"
+  },
+  {
+    "id": "analisis_dim_077",
+    "dificultad": 2,
+    "categoria": "Análisis dimensional",
+    "pregunta": "La dimensión $[L^3]$ corresponde a la magnitud física:",
+    "opciones": {
+      "a": "Área",
+      "b": "Longitud",
+      "c": "Aceleración",
+      "d": "Volumen"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "El volumen es el producto de tres longitudes: $[V] = [L][L][L] = [L^3]$. El área es $[L^2]$, la longitud es $[L]$, y la aceleración es $[LT^{-2}]$ (involucra tiempo). El superíndice 3 indica tres factores de longitud multiplicados.",
+    "tipo": "texto"
+  },
+  {
+    "id": "analisis_dim_078",
+    "dificultad": 2,
+    "categoria": "Análisis dimensional",
+    "pregunta": "¿Cuántas dimensiones fundamentales reconoce el Sistema Internacional de Unidades (SI)?",
+    "opciones": {
+      "a": "5",
+      "b": "7",
+      "c": "6",
+      "d": "9"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "El SI define exactamente 7 dimensiones fundamentales: longitud $[L]$, masa $[M]$, tiempo $[T]$, corriente eléctrica $[A]$, temperatura termodinámica $[\\Theta]$, cantidad de sustancia $[N]$ e intensidad luminosa $[J]$. Todas las demás magnitudes físicas se expresan como combinaciones de estas siete.",
+    "tipo": "texto"
+  },
+  {
+    "id": "analisis_dim_079",
+    "dificultad": 2,
+    "categoria": "Análisis dimensional",
+    "pregunta": "La ecuación cinemática $x = v \\cdot t$ relaciona desplazamiento, velocidad y tiempo. ¿Es homogénea dimensionalmente?",
+    "opciones": {
+      "a": "No, porque $[v] = [LT^{-1}]$ y $[t] = [T]$ tienen dimensiones distintas y no pueden multiplicarse",
+      "b": "Sí, con resultado $[LT^{-2}]$ porque la velocidad aporta $T^{-1}$ y el tiempo aporta $T^{-1}$",
+      "c": "Sí, con resultado $[LT]$ porque $T^{-1} \\cdot T = T^{-1+1} = T^0$... pero se conserva $T$ por el desplazamiento",
+      "d": "Sí: $[vt] = [LT^{-1}][T] = [LT^{-1+1}] = [L] = [x]$ ✓"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "$[v \\cdot t] = [LT^{-1}][T] = [L \\cdot T^{-1+1}] = [L \\cdot T^0] = [L]$, que coincide con la dimensión del desplazamiento $[x] = [L]$. La ecuación es dimensionalmente homogénea. La opción b suma en vez de restar exponentes; la c presenta una contradicción interna.",
+    "tipo": "texto"
+  },
+  {
+    "id": "analisis_dim_080",
+    "dificultad": 2,
+    "categoria": "Análisis dimensional",
+    "pregunta": "Una magnitud física tiene dimensión $[T^{-1}]$. ¿A qué magnitud corresponde?",
+    "opciones": {
+      "a": "Aceleración",
+      "b": "Velocidad",
+      "c": "Frecuencia",
+      "d": "Longitud de onda"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "La frecuencia $f$ es el número de ciclos por unidad de tiempo: $[f] = 1/[T] = [T^{-1}]$. En SI corresponde al hertz: $1\\,\\text{Hz} = 1\\,\\text{s}^{-1}$. La aceleración es $[LT^{-2}]$, la velocidad $[LT^{-1}]$ (ambas incluyen $L$), y la longitud de onda es $[L]$.",
+    "tipo": "texto"
+  },
+  {
+    "id": "analisis_dim_081",
+    "dificultad": 2,
+    "categoria": "Análisis dimensional",
+    "pregunta": "En cinemática aparece la expresión $a t^2$, donde $a$ es aceleración y $t$ es tiempo. ¿Cuál es su dimensión?",
+    "opciones": {
+      "a": "$[L T^{-4}]$ — se multiplican los exponentes: $(-2) \\times 2 = -4$",
+      "b": "$[L]$ — se suman los exponentes de $T$: $T^{-2} \\cdot T^2 = T^{-2+2} = T^0$",
+      "c": "$[L T^{2}]$ — el exponente de $T$ en $a$ se ignora",
+      "d": "$[L^2 T^{-2}]$ — el exponente 2 de $t$ se aplica también a $L$"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "$[at^2] = [LT^{-2}][T^2] = [L \\cdot T^{-2+2}] = [L \\cdot T^0] = [L]$. Al multiplicar potencias de la misma base se suman los exponentes: $-2 + 2 = 0$, por lo que $T$ desaparece. La opción a multiplica los exponentes (error común); la d aplica el cuadrado de $t$ también a $L$.",
+    "tipo": "texto"
+  },
+  {
+    "id": "analisis_dim_082",
+    "dificultad": 2,
+    "categoria": "Análisis dimensional",
+    "pregunta": "¿Cuál de las siguientes magnitudes físicas es adimensional (no tiene dimensiones)?",
+    "opciones": {
+      "a": "Masa",
+      "b": "Temperatura",
+      "c": "Ángulo (medido en radianes)",
+      "d": "Corriente eléctrica"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "El ángulo en radianes se define como la razón entre la longitud del arco $s$ y el radio $r$: $\\theta = s/r$. Dado que $[s] = [L]$ y $[r] = [L]$, se tiene $[\\theta] = [L]/[L] = 1$, es decir, adimensional. La masa $[M]$, la temperatura $[\\Theta]$ y la corriente $[A]$ son dimensiones fundamentales del SI.",
+    "tipo": "texto"
+  },
+  {
+    "id": "analisis_dim_083",
+    "dificultad": 2,
+    "categoria": "Análisis dimensional",
+    "pregunta": "El trabajo se calcula como $W = F \\cdot d$, donde $F$ es fuerza $[MLT^{-2}]$ y $d$ es desplazamiento $[L]$. ¿Cuáles son las dimensiones del trabajo?",
+    "opciones": {
+      "a": "$[M L T^{-2}]$",
+      "b": "$[M L^2 T^{-2}]$",
+      "c": "$[M L^2 T^{-3}]$",
+      "d": "$[M L T^{-1}]$"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "$[W] = [F][d] = [MLT^{-2}][L] = [M \\cdot L^{1+1} \\cdot T^{-2}] = [ML^2T^{-2}]$. En SI equivale al joule: $1\\,\\text{J} = 1\\,\\text{N}\\cdot\\text{m}$. La opción a es solo la fuerza (olvidó multiplicar por $d$); la c es potencia (añade un $T^{-1}$ extra); la d es momento lineal.",
+    "tipo": "texto"
+  },
+  {
+    "id": "analisis_dim_084",
+    "dificultad": 2,
+    "categoria": "Análisis dimensional",
+    "pregunta": "¿Qué significa que una ecuación física sea *dimensionalmente homogénea*?",
+    "opciones": {
+      "a": "Que todos los términos de la ecuación tienen las mismas dimensiones",
+      "b": "Que todos los coeficientes numéricos de la ecuación son iguales a 1",
+      "c": "Que la ecuación solo contiene magnitudes fundamentales del SI",
+      "d": "Que las unidades utilizadas pertenecen al Sistema Internacional"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "La homogeneidad dimensional exige que cada término sumado o igualado en una ecuación tenga exactamente las mismas dimensiones. Por ejemplo, en $v^2 = v_0^2 + 2as$ todos los términos tienen dimensión $[L^2T^{-2}]$. Las opciones b, c y d confunden la propiedad dimensional con aspectos numéricos o de sistema de unidades.",
+    "tipo": "texto"
+  },
+  {
+    "id": "analisis_dim_085",
+    "dificultad": 2,
+    "categoria": "Análisis dimensional",
+    "pregunta": "El momento lineal se define como $p = m \\cdot v$, con $m$ la masa y $v$ la velocidad. ¿Cuáles son sus dimensiones?",
+    "opciones": {
+      "a": "$[M L T^{-1}]$",
+      "b": "$[M L T^{-2}]$",
+      "c": "$[M L^2 T^{-1}]$",
+      "d": "$[M L^2 T^{-2}]$"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "$[p] = [m][v] = [M][LT^{-1}] = [MLT^{-1}]$. En SI el kg·m/s es la unidad del momento lineal. La opción b es la dimensión de la fuerza ($[MLT^{-2}]$); la c corresponde al momento angular ($[ML^2T^{-1}]$); la d a la energía ($[ML^2T^{-2}]$).",
+    "tipo": "texto"
+  },
+  {
+    "id": "analisis_dim_086",
+    "dificultad": 2,
+    "categoria": "Análisis dimensional",
+    "pregunta": "En una expresión dimensional, un exponente negativo en una dimensión —como $[T^{-1}]$— indica que:",
+    "opciones": {
+      "a": "Esa dimensión no está presente en la magnitud",
+      "b": "La magnitud tiene un valor numérico negativo",
+      "c": "Esa dimensión aparece en el denominador de la expresión",
+      "d": "La dimensión está elevada a una potencia par, lo que la hace positiva"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "$[T^{-1}]$ es equivalente a escribir $1/[T]$: la dimensión $T$ está en el denominador. Por ejemplo, la velocidad $[LT^{-1}] = L/T$ significa longitud dividida entre tiempo. Un exponente negativo nunca indica ausencia (eso sería exponente 0) ni valor negativo (el signo del exponente es independiente del valor de la magnitud).",
+    "tipo": "texto"
+  },
+  {
+    "id": "analisis_dim_087",
+    "dificultad": 2,
+    "categoria": "Análisis dimensional",
+    "pregunta": "En el análisis dimensional, la temperatura termodinámica se representa con el símbolo:",
+    "opciones": {
+      "a": "$[T]$",
+      "b": "$[K]$",
+      "c": "$[M]$",
+      "d": "$[\\Theta]$"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "La temperatura termodinámica se denota $[\\Theta]$ (theta) para evitar confusión con $[T]$, que en análisis dimensional representa el tiempo. $[K]$ es la unidad kelvin (no la dimensión). $[M]$ es la dimensión de masa. El uso de $[\\Theta]$ es estándar en textos de análisis dimensional.",
+    "tipo": "texto"
+  },
+  {
+    "id": "analisis_dim_088",
+    "dificultad": 2,
+    "categoria": "Análisis dimensional",
+    "pregunta": "¿Cuál de las siguientes afirmaciones sobre el análisis dimensional es correcta?",
+    "opciones": {
+      "a": "Si una ecuación es dimensionalmente homogénea, entonces es físicamente correcta",
+      "b": "El análisis dimensional permite determinar las constantes numéricas de una ecuación",
+      "c": "Una ecuación dimensionalmente incorrecta puede ser válida si se usan las unidades adecuadas",
+      "d": "Dos magnitudes pueden tener las mismas dimensiones sin ser la misma magnitud física (e.g., energía y torque son $[ML^2T^{-2}]$)"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "La homogeneidad dimensional es condición necesaria pero no suficiente: energía y torque comparten $[ML^2T^{-2}]$ pero son magnitudes conceptualmente distintas. El análisis dimensional tampoco determina constantes numéricas (opción b) ni puede validar ecuaciones incorrectas con unidades distintas (opción c).",
+    "tipo": "texto"
+  },
+  {
+    "id": "analisis_dim_089",
+    "dificultad": 2,
+    "categoria": "Análisis dimensional",
+    "pregunta": "¿Cuál es la dimensión del ángulo medido en radianes?",
+    "opciones": {
+      "a": "Adimensional (dimensión 1), porque es la razón entre dos longitudes: arco / radio",
+      "b": "$[L]$, porque el arco que define el ángulo tiene dimensión de longitud",
+      "c": "$[L^2]$, porque involucra dos longitudes (arco y radio) multiplicadas",
+      "d": "$[L^{-1}]$, porque el radio divide al arco"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "El radián se define como $\\theta = s/r$, con $s$ la longitud de arco $[L]$ y $r$ el radio $[L]$. El cociente $[L]/[L] = 1$ es adimensional. La opción b confunde la dimensión del arco con la del ángulo; la c multiplica en lugar de dividir; la d invierte el cociente.",
+    "tipo": "texto"
+  },
+  {
+    "id": "analisis_dim_090",
+    "dificultad": 2,
+    "categoria": "Análisis dimensional",
+    "pregunta": "La ecuación cinemática $v = \\sqrt{2as}$ relaciona velocidad $v$, aceleración $a$ y desplazamiento $s$. ¿Es dimensionalmente homogénea?",
+    "opciones": {
+      "a": "No, porque $[a] = [LT^{-2}]$ y $[s] = [L]$ tienen dimensiones distintas y no pueden multiplicarse bajo una raíz",
+      "b": "Sí: $[\\sqrt{as}] = \\sqrt{[LT^{-2}][L]} = \\sqrt{[L^2T^{-2}]} = [LT^{-1}] = [v]$ ✓",
+      "c": "Sí, pero con resultado $[LT^{-2}]$, que no coincide con $[v]$",
+      "d": "No, porque la raíz cuadrada altera las dimensiones de forma impredecible"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "$[as] = [LT^{-2}][L] = [L^2T^{-2}]$. Aplicando la raíz: $\\sqrt{[L^2T^{-2}]} = [L^{2/2}T^{-2/2}] = [LT^{-1}]$, que coincide con $[v]$. La ecuación es homogénea. La raíz cuadrada divide todos los exponentes por 2, de forma perfectamente predecible (opción d es incorrecta).",
+    "tipo": "texto"
+  },
+  {
+    "id": "analisis_dim_091",
+    "dificultad": 1,
+    "categoria": "Análisis dimensional",
+    "pregunta": "¿Con qué símbolo dimensional se representa la masa en el análisis dimensional?",
+    "opciones": {
+      "a": "$[M]$",
+      "b": "$[K]$",
+      "c": "$[T]$",
+      "d": "$[L]$"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "La masa se representa con $[M]$. Los otros símbolos corresponden a: $[T]$ = tiempo, $[L]$ = longitud, y $[K]$ es la unidad kelvin (no un símbolo dimensional).",
+    "tipo": "texto"
+  },
+  {
+    "id": "analisis_dim_092",
+    "dificultad": 1,
+    "categoria": "Análisis dimensional",
+    "pregunta": "¿Con qué símbolo dimensional se representa el tiempo?",
+    "opciones": {
+      "a": "$[L]$",
+      "b": "$[M]$",
+      "c": "$[T]$",
+      "d": "$[\\Theta]$"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "El tiempo se representa con $[T]$. No confundir con $[\\Theta]$, que representa la temperatura termodinámica. $[L]$ es longitud y $[M]$ es masa.",
+    "tipo": "texto"
+  },
+  {
+    "id": "analisis_dim_093",
+    "dificultad": 1,
+    "categoria": "Análisis dimensional",
+    "pregunta": "¿Con qué símbolo dimensional se representa la longitud?",
+    "opciones": {
+      "a": "$[M]$",
+      "b": "$[L]$",
+      "c": "$[T]$",
+      "d": "$[A]$"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "La longitud se representa con $[L]$. Los demás símbolos son: $[M]$ = masa, $[T]$ = tiempo, $[A]$ = corriente eléctrica (amperio).",
+    "tipo": "texto"
+  },
+  {
+    "id": "analisis_dim_094",
+    "dificultad": 1,
+    "categoria": "Análisis dimensional",
+    "pregunta": "La velocidad se define como \"distancia recorrida por unidad de tiempo\". ¿Qué dimensiones fundamentales están presentes en la velocidad?",
+    "opciones": {
+      "a": "Solo longitud $[L]$",
+      "b": "Masa y longitud: $[M]$ y $[L]$",
+      "c": "Longitud y temperatura: $[L]$ y $[\\Theta]$",
+      "d": "Longitud y tiempo: $[L]$ y $[T]$"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "La velocidad es distancia/tiempo, por lo que involucra $[L]$ (longitud) en el numerador y $[T]$ (tiempo) en el denominador: $[v] = [LT^{-1}]$. No intervienen ni la masa ni la temperatura.",
+    "tipo": "texto"
+  },
+  {
+    "id": "analisis_dim_095",
+    "dificultad": 1,
+    "categoria": "Análisis dimensional",
+    "pregunta": "¿Cuál de las siguientes es una dimensión *fundamental* del SI (no derivada de otras)?",
+    "opciones": {
+      "a": "Masa $[M]$",
+      "b": "Velocidad $[LT^{-1}]$",
+      "c": "Fuerza $[MLT^{-2}]$",
+      "d": "Energía $[ML^2T^{-2}]$"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "La masa $[M]$ es una de las 7 dimensiones fundamentales del SI: no se puede expresar como combinación de otras. La velocidad, la fuerza y la energía son magnitudes derivadas: se definen a partir de $[M]$, $[L]$ y $[T]$.",
+    "tipo": "texto"
+  },
+  {
+    "id": "analisis_dim_096",
+    "dificultad": 1,
+    "categoria": "Análisis dimensional",
+    "pregunta": "¿Cuál de las siguientes es una magnitud *derivada* (no fundamental)?",
+    "opciones": {
+      "a": "Tiempo",
+      "b": "Velocidad",
+      "c": "Longitud",
+      "d": "Masa"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "La velocidad es derivada porque se construye a partir de longitud y tiempo: $[v] = [LT^{-1}]$. El tiempo $[T]$, la longitud $[L]$ y la masa $[M]$ son dimensiones fundamentales del SI, es decir, no se definen en términos de otras.",
+    "tipo": "texto"
+  },
+  {
+    "id": "analisis_dim_097",
+    "dificultad": 1,
+    "categoria": "Análisis dimensional",
+    "pregunta": "¿Cómo se expresa en notación dimensional una magnitud adimensional?",
+    "opciones": {
+      "a": "$[M^1 L^1 T^1]$",
+      "b": "$[M^{-1} L^{-1} T^{-1}]$",
+      "c": "$[M^0 L^0 T^0]$",
+      "d": "$[M L T]$"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "Una magnitud adimensional tiene todos sus exponentes dimensionales iguales a cero: $[M^0 L^0 T^0] = 1$. Esto significa que no depende de ninguna dimensión fundamental. Las opciones a y d representan una magnitud con todas las dimensiones en el numerador; la b las coloca todas en el denominador.",
+    "tipo": "texto"
+  },
+  {
+    "id": "analisis_dim_098",
+    "dificultad": 1,
+    "categoria": "Análisis dimensional",
+    "pregunta": "En una ecuación física, ¿es válida la expresión $x + t$, donde $x$ es desplazamiento $[L]$ y $t$ es tiempo $[T]$?",
+    "opciones": {
+      "a": "Sí, siempre que se usen las mismas unidades del SI",
+      "b": "Sí, porque ambas son dimensiones fundamentales del SI",
+      "c": "Sí, si los valores numéricos son iguales",
+      "d": "No, porque $[L]$ y $[T]$ son dimensiones distintas y no se pueden sumar"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "El principio de homogeneidad dimensional prohíbe sumar términos con dimensiones distintas: sumar metros con segundos carece de significado físico, independientemente de las unidades o valores numéricos usados.",
+    "tipo": "texto"
+  },
+  {
+    "id": "analisis_dim_099",
+    "dificultad": 1,
+    "categoria": "Análisis dimensional",
+    "pregunta": "La Segunda Ley de Newton establece $F = ma$, con masa $[M]$ y aceleración $[LT^{-2}]$. ¿Cuáles son las dimensiones de la fuerza?",
+    "opciones": {
+      "a": "$[M L T^{-2}]$",
+      "b": "$[M L T^{2}]$",
+      "c": "$[M L^2 T^{-2}]$",
+      "d": "$[L T^{-2}]$"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "$[F] = [m][a] = [M][LT^{-2}] = [MLT^{-2}]$. En SI corresponde al newton: $1\\,\\text{N} = 1\\,\\text{kg}\\cdot\\text{m/s}^2$. La opción b invierte el signo del exponente de $T$; la c añade un $L$ extra (energía); la d omite la masa.",
+    "tipo": "texto"
+  },
+  {
+    "id": "analisis_dim_100",
+    "dificultad": 1,
+    "categoria": "Análisis dimensional",
+    "pregunta": "¿Con qué símbolo se representa la dimensión de la corriente eléctrica en el SI?",
+    "opciones": {
+      "a": "$[C]$",
+      "b": "$[A]$",
+      "c": "$[E]$",
+      "d": "$[I]$"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "La corriente eléctrica se representa con $[A]$ (de amperio, su unidad en el SI). $[C]$ es el coulombio (carga eléctrica), $[I]$ es la notación de variable usual en circuitos (no la notación dimensional), y $[E]$ no es un símbolo dimensional estándar del SI.",
+    "tipo": "texto"
+  },
+  {
+    "id": "analisis_dim_101",
+    "dificultad": 1,
+    "categoria": "Análisis dimensional",
+    "pregunta": "¿Cuál de las siguientes magnitudes físicas tiene dimensión $[L]$?",
+    "opciones": {
+      "a": "Velocidad",
+      "b": "Área",
+      "c": "Distancia",
+      "d": "Volumen"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "La distancia (o longitud) tiene dimensión $[L]$ con exponente 1. El área es $[L^2]$, el volumen es $[L^3]$, y la velocidad es $[LT^{-1}]$. Solo la distancia/longitud tiene exactamente $[L^1]$.",
+    "tipo": "texto"
+  },
+  {
+    "id": "analisis_dim_102",
+    "dificultad": 1,
+    "categoria": "Análisis dimensional",
+    "pregunta": "La densidad se define como $\\rho = m/V$, con masa $[M]$ y volumen $[L^3]$. ¿Cuáles son sus dimensiones?",
+    "opciones": {
+      "a": "$[M L^3]$",
+      "b": "$[M L^{-1}]$",
+      "c": "$[M^{-1} L^3]$",
+      "d": "$[M L^{-3}]$"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "$[\\rho] = [m]/[V] = [M]/[L^3] = [M \\cdot L^{-3}] = [ML^{-3}]$. La división convierte $L^3$ en el denominador, dando el exponente $-3$. La opción a multiplica en lugar de dividir; la b da $L^{-1}$ (error aritmético); la c invierte masa y longitud.",
+    "tipo": "texto"
+  },
+  {
+    "id": "analisis_dim_103",
+    "dificultad": 1,
+    "categoria": "Análisis dimensional",
+    "pregunta": "Según el principio de homogeneidad dimensional, ¿qué condición deben cumplir los términos que se suman en una ecuación física?",
+    "opciones": {
+      "a": "Deben tener las mismas dimensiones",
+      "b": "Deben tener el mismo valor numérico",
+      "c": "Deben expresarse en unidades del SI",
+      "d": "Deben ser magnitudes fundamentales"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "El principio de homogeneidad establece que solo se pueden sumar (o igualar) términos que tengan idénticas dimensiones. Por ejemplo, en $d = v_0 t + \\frac{1}{2}at^2$ todos los términos tienen dimensión $[L]$. Las opciones b, c y d confunden la condición dimensional con aspectos numéricos o de sistema de unidades.",
+    "tipo": "texto"
+  },
+  {
+    "id": "analisis_dim_104",
+    "dificultad": 1,
+    "categoria": "Análisis dimensional",
+    "pregunta": "¿Cuál es la expresión dimensional correcta para la velocidad?",
+    "opciones": {
+      "a": "$[L T]$",
+      "b": "$[L T^{-1}]$",
+      "c": "$[L^2 T^{-1}]$",
+      "d": "$[L T^{-2}]$"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "La velocidad es distancia/tiempo: $[v] = [L]/[T] = [LT^{-1}]$. La opción a multiplica longitud por tiempo (sin sentido físico directo); la c añade un $L$ extra; la d es la dimensión de la aceleración ($[LT^{-2}]$).",
+    "tipo": "texto"
+  },
+  {
+    "id": "analisis_dim_105",
+    "dificultad": 1,
+    "categoria": "Análisis dimensional",
+    "pregunta": "En análisis dimensional, ¿qué dimensión tiene una constante numérica pura como $\\pi$, $2$ o $0.5$?",
+    "opciones": {
+      "a": "$[M^{-1} L^{-1} T^{-1}]$",
+      "b": "$[M L T]$",
+      "c": "Ninguna — es adimensional: $[M^0 L^0 T^0] = 1$",
+      "d": "Depende del contexto en que se use la constante"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "Las constantes numéricas puras son adimensionales por definición: $[\\pi] = [2] = [0.5] = 1$. Su valor no cambia con el sistema de unidades. Por eso, en el análisis dimensional se pueden incluir o ignorar libremente: solo afectan la magnitud numérica, no la estructura dimensional de la ecuación.",
     "tipo": "texto"
   }
 ]

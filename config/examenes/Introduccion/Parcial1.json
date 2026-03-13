@@ -10,7 +10,8 @@
     "temas": [
       "Paradigmas e historia de la IQ",
       "Plan de estudios de la universidad",
-      "Análisis dimensional"
+      "Análisis dimensional",
+      "Factores de conversión"
     ],
     "duracion_estimada": "2 horas"
   },
@@ -23,7 +24,15 @@
     "ventana_estabilizacion_dinamica": true,
     "proporcion_ventana_estabilizacion": 0.45,
     "ventana_estabilizacion_min": 3,
-    "max_desviacion_nivel_pregunta": 3
+    "max_desviacion_nivel_pregunta": 3,
+    "distribucion_temas": {
+      "pesos": {
+        "Análisis dimensional": 0.3,
+        "Factores de conversión": 0.3,
+        "Plan de estudios de la universidad": 0.2,
+        "Paradigmas e historia de la IQ": 0.2
+      }
+    }
   },
   "sistema_calificacion": {
     "tipo": "irt_simplificado",

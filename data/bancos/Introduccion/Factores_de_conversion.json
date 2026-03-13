@@ -1,0 +1,1577 @@
+[
+  {
+    "id": "factores_conv_001",
+    "dificultad": 5,
+    "categoria": "Factores de conversión",
+    "pregunta": "Convierte 3.5 kW a BTU/hr.",
+    "opciones": {
+      "a": "1 026 BTU/hr",
+      "b": "11 942 BTU/hr",
+      "c": "3 412 BTU/hr",
+      "d": "119 420 BTU/hr"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "1 kW = 3 412 BTU/hr. Entonces 3.5 × 3 412 = 11 942 BTU/hr. La opción a surge de multiplicar por 0.2931 (inverso) en lugar de dividir: 3 500 × 0.2931 ≈ 1 026. La c es solo el factor sin aplicar los 3.5 kW.",
+    "tipo": "texto"
+  },
+  {
+    "id": "factores_conv_002",
+    "dificultad": 5,
+    "categoria": "Factores de conversión",
+    "pregunta": "Una losa soporta una presión distribuida de 200 lbf/ft². Convierte ese valor a Pa.",
+    "opciones": {
+      "a": "9 576 Pa",
+      "b": "889.6 Pa",
+      "c": "95 760 Pa",
+      "d": "957.6 Pa"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "1 lbf/ft² = 4.448 N / 0.09290 m² = 47.88 Pa. Resultado: 200 × 47.88 = 9 576 Pa. La opción b omite la conversión de ft² a m² (solo aplica lbf → N: 200 × 4.448 = 889.6). Las opciones c y d son errores de potencia de diez.",
+    "tipo": "texto"
+  },
+  {
+    "id": "factores_conv_003",
+    "dificultad": 5,
+    "categoria": "Factores de conversión",
+    "pregunta": "Un sistema de ventilación extrae 1 500 cfm (ft³/min). Convierte ese caudal a m³/s.",
+    "opciones": {
+      "a": "42.48 m³/s",
+      "b": "0.02832 m³/s",
+      "c": "0.708 m³/s",
+      "d": "2 521 m³/s"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "1 ft³ = 0.02832 m³; 1 min = 60 s. Resultado: 1 500 × 0.02832 / 60 = 42.48 / 60 = 0.708 m³/s. La opción a olvidó dividir por 60. La d invirtió el factor de volumen.",
+    "tipo": "texto"
+  },
+  {
+    "id": "factores_conv_004",
+    "dificultad": 5,
+    "categoria": "Factores de conversión",
+    "pregunta": "Un aceite tiene una viscosidad dinámica de 0.05 Pa·s. Exprésala en cP (centipoise).",
+    "opciones": {
+      "a": "0.00005 cP",
+      "b": "0.05 cP",
+      "c": "5 cP",
+      "d": "50 cP"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "1 Pa·s = 1 000 cP. Resultado: 0.05 × 1 000 = 50 cP. La opción c usó el factor 100 en lugar de 1 000. La b no aplicó conversión alguna. La a dividió en lugar de multiplicar.",
+    "tipo": "texto"
+  },
+  {
+    "id": "factores_conv_005",
+    "dificultad": 5,
+    "categoria": "Factores de conversión",
+    "pregunta": "El coeficiente de transferencia de calor de una pared es 120 BTU/(hr·ft²·°F). Conviértelo a W/(m²·K).",
+    "opciones": {
+      "a": "21.1 W/(m²·K)",
+      "b": "681.4 W/(m²·K)",
+      "c": "207.1 W/(m²·K)",
+      "d": "5 678 W/(m²·K)"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "1 BTU/(hr·ft²·°F) = 5.678 W/(m²·K). Resultado: 120 × 5.678 = 681.4 W/(m²·K). La opción a dividió en lugar de multiplicar. La c confundió el factor de conductividad (1.731) con el de coeficiente convectivo.",
+    "tipo": "texto"
+  },
+  {
+    "id": "factores_conv_006",
+    "dificultad": 5,
+    "categoria": "Factores de conversión",
+    "pregunta": "Una placa metálica tiene un área de 4.5 ft². ¿Cuántos m² son?",
+    "opciones": {
+      "a": "0.4181 m²",
+      "b": "1.372 m²",
+      "c": "48.44 m²",
+      "d": "0.04181 m²"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "1 ft = 0.3048 m → 1 ft² = (0.3048)² = 0.09290 m². Resultado: 4.5 × 0.09290 = 0.4181 m². La opción b usó el factor lineal sin elevar al cuadrado (4.5 × 0.3048 = 1.372). La c invirtió el factor.",
+    "tipo": "texto"
+  },
+  {
+    "id": "factores_conv_007",
+    "dificultad": 5,
+    "categoria": "Factores de conversión",
+    "pregunta": "Un motor entrega 25 hp. Convierte esa potencia a kW.",
+    "opciones": {
+      "a": "0.02984 kW",
+      "b": "74.57 kW",
+      "c": "18.64 kW",
+      "d": "33.53 kW"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "1 hp = 0.7457 kW. Resultado: 25 × 0.7457 = 18.64 kW. La opción d aplicó el factor inverso: 25 × 1.341 (siendo 1 kW = 1.341 hp) → 33.53. La b olvidó dividir por 1 000 al pasar de W a kW.",
+    "tipo": "texto"
+  },
+  {
+    "id": "factores_conv_008",
+    "dificultad": 5,
+    "categoria": "Factores de conversión",
+    "pregunta": "Un alimento aporta 2 000 kcal. Convierte esa energía a MJ.",
+    "opciones": {
+      "a": "477.8 MJ",
+      "b": "8 372 MJ",
+      "c": "0.8372 MJ",
+      "d": "8.372 MJ"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "1 kcal = 4.186 kJ. Resultado: 2 000 × 4.186 = 8 372 kJ = 8.372 MJ. La opción b olvidó dividir por 1 000 al convertir kJ a MJ. La a invirtió el factor (2 000 / 4.186 = 477.8).",
+    "tipo": "texto"
+  },
+  {
+    "id": "factores_conv_009",
+    "dificultad": 5,
+    "categoria": "Factores de conversión",
+    "pregunta": "El calor específico del agua es 1 BTU/(lbm·°F). Conviértelo a kJ/(kg·K).",
+    "opciones": {
+      "a": "4.187 kJ/(kg·K)",
+      "b": "0.4187 kJ/(kg·K)",
+      "c": "41.87 kJ/(kg·K)",
+      "d": "2.326 kJ/(kg·K)"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "1 BTU/(lbm·°F) equivale aproximadamente a 4.187 kJ/(kg·K). Si el valor base es 1 BTU/(lbm·°F), el resultado numérico es 4.187 kJ/(kg·K).",
+    "tipo": "texto"
+  },
+  {
+    "id": "factores_conv_010",
+    "dificultad": 5,
+    "categoria": "Factores de conversión",
+    "pregunta": "La conductividad térmica del cobre es 750 W/(m·K). Conviértela a BTU/(hr·ft·°F).",
+    "opciones": {
+      "a": "433.4 BTU/(hr·ft·°F)",
+      "b": "1 297 BTU/(hr·ft·°F)",
+      "c": "43.34 BTU/(hr·ft·°F)",
+      "d": "1.299 BTU/(hr·ft·°F)"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "1 W/(m·K) = 0.5779 BTU/(hr·ft·°F). Resultado: 750 × 0.5779 = 433.4. La opción b usó el factor inverso (750 / 0.5779 ≈ 1 297). Las opciones c y d son errores de escala.",
+    "tipo": "texto"
+  },
+  {
+    "id": "factores_conv_011",
+    "dificultad": 5,
+    "categoria": "Factores de conversión",
+    "pregunta": "La viscosidad cinemática de un fluido es 8 St (stokes). Exprésala en m²/s.",
+    "opciones": {
+      "a": "8×10⁻⁶ m²/s",
+      "b": "0.8 m²/s",
+      "c": "8×10⁻⁴ m²/s",
+      "d": "8×10⁻² m²/s"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "1 St = 1 cm²/s = 10⁻⁴ m²/s. Resultado: 8 × 10⁻⁴ = 8×10⁻⁴ m²/s. La opción a confundió stokes con centistokes (1 cSt = 10⁻⁶ m²/s). Las opciones b y d son errores de potencia de diez.",
+    "tipo": "texto"
+  },
+  {
+    "id": "factores_conv_012",
+    "dificultad": 5,
+    "categoria": "Factores de conversión",
+    "pregunta": "Un eje transmite una potencia de 300 ft·lbf/s. Conviértela a kW.",
+    "opciones": {
+      "a": "221 kW",
+      "b": "406.8 kW",
+      "c": "0.5455 kW",
+      "d": "0.4068 kW"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "1 ft·lbf/s = 1.356 W. Resultado: 300 × 1.356 = 406.8 W = 0.4068 kW. La opción b olvidó dividir por 1 000 para convertir W a kW. La c calculó los hp (300/550 = 0.5455 hp) pero no los convirtió a kW.",
+    "tipo": "texto"
+  },
+  {
+    "id": "factores_conv_013",
+    "dificultad": 5,
+    "categoria": "Factores de conversión",
+    "pregunta": "El agua tiene una densidad de 62.4 lbm/ft³. Conviértela a kg/m³.",
+    "opciones": {
+      "a": "999 kg/m³",
+      "b": "92.7 kg/m³",
+      "c": "0.801 kg/m³",
+      "d": "9 990 kg/m³"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "1 lbm = 0.4536 kg; 1 ft³ = (0.3048)³ = 0.02832 m³. Resultado: 62.4 × 0.4536 / 0.02832 = 28.30 / 0.02832 ≈ 999 kg/m³. La opción b usó el factor lineal 0.3048 para el volumen en lugar del cúbico. La c multiplicó por 0.02832 en lugar de dividir.",
+    "tipo": "texto"
+  },
+  {
+    "id": "factores_conv_014",
+    "dificultad": 5,
+    "categoria": "Factores de conversión",
+    "pregunta": "Un equipo de refrigeración tiene capacidad de 1 tonelada de refrigeración. Exprésala en kW.",
+    "opciones": {
+      "a": "0.2844 kW",
+      "b": "3.517 kW",
+      "c": "3 517 kW",
+      "d": "35.17 kW"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "1 ton de refrigeración = 12 000 BTU/hr = 3 517 W = 3.517 kW. La opción a invirtió el factor (1/3.517). La c olvidó dividir por 1 000 para expresar en kW.",
+    "tipo": "texto"
+  },
+  {
+    "id": "factores_conv_015",
+    "dificultad": 5,
+    "categoria": "Factores de conversión",
+    "pregunta": "Un buque navega a 50 nudos (knots). Convierte esa velocidad a m/s.",
+    "opciones": {
+      "a": "92.6 m/s",
+      "b": "1.944 m/s",
+      "c": "25.72 m/s",
+      "d": "97.2 m/s"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "1 knot = 1 852 m/hr = 1 852/3 600 m/s = 0.5144 m/s. Resultado: 50 × 0.5144 = 25.72 m/s. La opción a confundió km/h con m/s (50 × 1.852 = 92.6). La d invirtió el factor (50 / 0.5144 = 97.2).",
+    "tipo": "texto"
+  },
+  {
+    "id": "factores_conv_016",
+    "dificultad": 5,
+    "categoria": "Factores de conversión",
+    "pregunta": "Un torquímetro registra 500 lbf·in. Convierte ese torque a N·m.",
+    "opciones": {
+      "a": "2 224 N·m",
+      "b": "56.49 N·m",
+      "c": "12.70 N·m",
+      "d": "564.9 N·m"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "1 lbf = 4.448 N; 1 in = 0.0254 m. Resultado: 500 × 4.448 × 0.0254 = 500 × 0.1130 = 56.49 N·m. La opción a convirtió solo lbf → N (500 × 4.448 = 2 224). La c convirtió solo in → m (500 × 0.0254 = 12.70). La d usó 1 in = 0.254 m (potencia de diez errónea).",
+    "tipo": "texto"
+  },
+  {
+    "id": "factores_conv_017",
+    "dificultad": 5,
+    "categoria": "Factores de conversión",
+    "pregunta": "Una reacción libera 1 200 BTU. Convierte esa energía a kWh.",
+    "opciones": {
+      "a": "1 265 kWh",
+      "b": "0.3517 kWh",
+      "c": "3.517 kWh",
+      "d": "0.03517 kWh"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "1 BTU = 1 055 J; 1 kWh = 3 600 000 J. Resultado: 1 200 × 1 055 / 3 600 000 = 1 266 000 / 3 600 000 = 0.3517 kWh. La opción a olvidó dividir por 3 600 para pasar de J a kWh.",
+    "tipo": "texto"
+  },
+  {
+    "id": "factores_conv_018",
+    "dificultad": 5,
+    "categoria": "Factores de conversión",
+    "pregunta": "Un lubricante tiene una viscosidad de 0.8 P (poise). Conviértela a Pa·s.",
+    "opciones": {
+      "a": "0.08 Pa·s",
+      "b": "8 Pa·s",
+      "c": "0.008 Pa·s",
+      "d": "0.8 Pa·s"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "1 P = 0.1 Pa·s. Resultado: 0.8 × 0.1 = 0.08 Pa·s. La opción b invirtió el factor (0.8 / 0.1 = 8). La d no aplicó conversión alguna.",
+    "tipo": "texto"
+  },
+  {
+    "id": "factores_conv_019",
+    "dificultad": 5,
+    "categoria": "Factores de conversión",
+    "pregunta": "Un manómetro indica 10 in·Hg (pulgadas de mercurio). Convierte esa presión a kPa.",
+    "opciones": {
+      "a": "2.953 kPa",
+      "b": "338.6 kPa",
+      "c": "33.86 kPa",
+      "d": "0.3386 kPa"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "1 in·Hg = 3.386 kPa. Resultado: 10 × 3.386 = 33.86 kPa. La opción a invirtió el factor (10 / 3.386 = 2.953). La b confundió in·Hg con mm·Hg al escalar mal por un factor de diez.",
+    "tipo": "texto"
+  },
+  {
+    "id": "factores_conv_020",
+    "dificultad": 5,
+    "categoria": "Factores de conversión",
+    "pregunta": "Una batería almacena 5 kWh de energía. Exprésala en MJ.",
+    "opciones": {
+      "a": "1.389 MJ",
+      "b": "18 000 MJ",
+      "c": "0.18 MJ",
+      "d": "18 MJ"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "1 kWh = 3.6 MJ. Resultado: 5 × 3.6 = 18 MJ. La opción a invirtió el factor (5 / 3.6 = 1.389). La b confundió MJ con kJ (5 × 3 600 = 18 000 kJ, no MJ).",
+    "tipo": "texto"
+  },
+  {
+    "id": "factores_conv_021",
+    "dificultad": 5,
+    "categoria": "Factores de conversión",
+    "pregunta": "La irradiancia solar en una superficie es 400 W/m². Conviértela a BTU/(hr·ft²).",
+    "opciones": {
+      "a": "1 262 BTU/(hr·ft²)",
+      "b": "126.8 BTU/(hr·ft²)",
+      "c": "40 460 BTU/(hr·ft²)",
+      "d": "12.68 BTU/(hr·ft²)"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "1 W/m² = 0.3170 BTU/(hr·ft²). Resultado: 400 × 0.3170 = 126.8. La opción a invirtió el factor (400 / 0.3170 ≈ 1 262). La d es un error de escala (×10 menor).",
+    "tipo": "texto"
+  },
+  {
+    "id": "factores_conv_022",
+    "dificultad": 5,
+    "categoria": "Factores de conversión",
+    "pregunta": "La viscosidad cinemática del aire es 15 m²/s (valor hipotético). Exprésala en cSt (centistokes).",
+    "opciones": {
+      "a": "1.5×10⁷ cSt",
+      "b": "1.5×10⁻⁵ cSt",
+      "c": "15 000 cSt",
+      "d": "1.5×10⁻⁷ cSt"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "1 cSt = 10⁻⁶ m²/s → 1 m²/s = 10⁶ cSt. Resultado: 15 × 10⁶ = 1.5×10⁷ cSt. La opción b dividió por 10⁶ en lugar de multiplicar. La c usó el factor 1 000 en lugar de 10⁶.",
+    "tipo": "texto"
+  },
+  {
+    "id": "factores_conv_023",
+    "dificultad": 5,
+    "categoria": "Factores de conversión",
+    "pregunta": "La presión de vapor del agua a 25 °C es 25 kPa (aprox.). Conviértela a mmHg.",
+    "opciones": {
+      "a": "3 333 mmHg",
+      "b": "3.334 mmHg",
+      "c": "187.5 mmHg",
+      "d": "18.75 mmHg"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "1 mmHg = 133.3 Pa. Resultado: 25 000 Pa / 133.3 Pa·mmHg⁻¹ = 187.5 mmHg. La opción a usó 1 kPa = 133.3 mmHg (olvidó multiplicar por 1 000 la presión en Pa). La d es error de escala.",
+    "tipo": "texto"
+  },
+  {
+    "id": "factores_conv_024",
+    "dificultad": 5,
+    "categoria": "Factores de conversión",
+    "pregunta": "Un embalse tiene un volumen de 3.5 acre·ft. Conviértelo a m³.",
+    "opciones": {
+      "a": "401.6 m³",
+      "b": "14 165 m³",
+      "c": "43 170 m³",
+      "d": "4 317 m³"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "1 acre = 4 047 m²; 1 ft = 0.3048 m → 1 acre·ft = 4 047 × 0.3048 = 1 233.5 m³. Resultado: 3.5 × 1 233.5 = 4 317 m³. La opción a usó 1 ft³ = 0.02832 m³ (factor cúbico) en lugar del factor lineal para la única dimensión ft: 3.5 × 4 047 × 0.02832 ≈ 401.6 m³.",
+    "tipo": "texto"
+  },
+  {
+    "id": "factores_conv_025",
+    "dificultad": 5,
+    "categoria": "Factores de conversión",
+    "pregunta": "La difusividad térmica de un material es 0.02 m²/s. Exprésala en St (stokes).",
+    "opciones": {
+      "a": "200 St",
+      "b": "2 000 St",
+      "c": "2 St",
+      "d": "0.000002 St"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "1 St = 10⁻⁴ m²/s → 1 m²/s = 10⁴ St. Resultado: 0.02 × 10⁴ = 200 St. La opción b tiene un error de escala ×10. La c usó el factor 100 en lugar de 10 000.",
+    "tipo": "texto"
+  },
+  {
+    "id": "factores_conv_026",
+    "dificultad": 5,
+    "categoria": "Factores de conversión",
+    "pregunta": "Una caldera produce vapor con una potencia de 80 hp. Conviértela a BTU/hr.",
+    "opciones": {
+      "a": "203 600 BTU/hr",
+      "b": "31.45 BTU/hr",
+      "c": "20 360 BTU/hr",
+      "d": "59 656 BTU/hr"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "1 hp = 2 545 BTU/hr. Resultado: 80 × 2 545 = 203 600 BTU/hr. La opción d convirtió hp a W (80 × 745.7 = 59 656) pero no continuó a BTU/hr. La c es error de escala.",
+    "tipo": "texto"
+  },
+  {
+    "id": "factores_conv_027",
+    "dificultad": 5,
+    "categoria": "Factores de conversión",
+    "pregunta": "La temperatura de fusión del plomo es 600 K (aprox.). Conviértela a °F.",
+    "opciones": {
+      "a": "620.33 °F",
+      "b": "572.00 °F",
+      "c": "1 112.00 °F",
+      "d": "327.00 °F"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "Primero: T(°C) = 600 − 273.15 = 326.85 °C. Luego: T(°F) = 326.85 × 9/5 + 32 = 620.33 °F.",
+    "tipo": "texto"
+  },
+  {
+    "id": "factores_conv_028",
+    "dificultad": 5,
+    "categoria": "Factores de conversión",
+    "pregunta": "El magma tiene una viscosidad de 5 000 Pa·s. Conviértela a lbm/(ft·s).",
+    "opciones": {
+      "a": "36 165 lbm/(ft·s)",
+      "b": "11 023 lbm/(ft·s)",
+      "c": "1 490 lbm/(ft·s)",
+      "d": "3 360 lbm/(ft·s)"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "1 Pa·s = 1 kg/(m·s). Convirtiendo: 1 kg = 2.2046 lbm; 1 m = 3.2808 ft → 1 Pa·s = 2.2046/3.2808 = 0.6720 lbm/(ft·s). Resultado: 5 000 × 0.6720 = 3 360 lbm/(ft·s). La opción b solo convirtió la masa y olvidó la longitud. La a usó el factor de longitud invertido.",
+    "tipo": "texto"
+  },
+  {
+    "id": "factores_conv_029",
+    "dificultad": 5,
+    "categoria": "Factores de conversión",
+    "pregunta": "La conductividad térmica de un ladrillo es 200 BTU/(hr·ft·°F). Conviértela a W/(m·K).",
+    "opciones": {
+      "a": "346.2 W/(m·K)",
+      "b": "115.5 W/(m·K)",
+      "c": "3 462 W/(m·K)",
+      "d": "34.62 W/(m·K)"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "1 BTU/(hr·ft·°F) = 1.731 W/(m·K). Resultado: 200 × 1.731 = 346.2 W/(m·K). La opción b dividió en lugar de multiplicar (200 / 1.731 = 115.5). Las opciones c y d son errores de escala.",
+    "tipo": "texto"
+  },
+  {
+    "id": "factores_conv_030",
+    "dificultad": 5,
+    "categoria": "Factores de conversión",
+    "pregunta": "Una solución salina tiene una densidad de 850 kg/m³. Conviértela a lbm/gal.",
+    "opciones": {
+      "a": "70.94 lbm/gal",
+      "b": "7.094 lbm/gal",
+      "c": "1.874 lbm/gal",
+      "d": "1.458 lbm/gal"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "1 kg = 2.2046 lbm; 1 m³ = 264.17 gal. Resultado: 850 × 2.2046 / 264.17 = 1 874 / 264.17 = 7.094 lbm/gal. La opción a es error de escala ×10. La c usó 1 m³ ≈ 1 000 gal (valor incorrecto). La d invirtió el factor de masa.",
+    "tipo": "texto"
+  },
+  {
+    "id": "factores_conv_031",
+    "dificultad": 4,
+    "categoria": "Factores de conversión",
+    "pregunta": "La presión atmosférica estándar es 1 atm. Un recipiente opera a 5 atm. Conviértelas a Pa.",
+    "opciones": {
+      "a": "20 265 Pa",
+      "b": "50 663 Pa",
+      "c": "506 625 Pa",
+      "d": "5 066 250 Pa"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "1 atm = 101 325 Pa. Resultado: 5 × 101 325 = 506 625 Pa. La opción a dividió en lugar de multiplicar. La d aplicó el factor con un cero de más.",
+    "tipo": "texto"
+  },
+  {
+    "id": "factores_conv_032",
+    "dificultad": 4,
+    "categoria": "Factores de conversión",
+    "pregunta": "Un proceso libera 500 BTU de calor. Exprésalo en kJ.",
+    "opciones": {
+      "a": "473.9 kJ",
+      "b": "52.75 kJ",
+      "c": "5 275 kJ",
+      "d": "527.5 kJ"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "1 BTU = 1.055 kJ. Resultado: 500 × 1.055 = 527.5 kJ. La opción a dividió en lugar de multiplicar. Las opciones b y c son errores de factor de diez.",
+    "tipo": "texto"
+  },
+  {
+    "id": "factores_conv_033",
+    "dificultad": 4,
+    "categoria": "Factores de conversión",
+    "pregunta": "Un automóvil circula a 100 mph. Convierte esa velocidad a m/s.",
+    "opciones": {
+      "a": "44.70 m/s",
+      "b": "27.78 m/s",
+      "c": "160.9 m/s",
+      "d": "0.0621 m/s"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "1 milla = 1 609.34 m; 1 hr = 3 600 s. Resultado: 100 × 1 609.34 / 3 600 = 44.70 m/s. La opción b confundió mph con km/h (100/3.6 = 27.78, que es la conversión correcta para km/h, no mph). La c olvidó dividir por 3 600.",
+    "tipo": "texto"
+  },
+  {
+    "id": "factores_conv_034",
+    "dificultad": 4,
+    "categoria": "Factores de conversión",
+    "pregunta": "Una ventana tiene un área de 6 ft². ¿Cuántos m² son?",
+    "opciones": {
+      "a": "1.829 m²",
+      "b": "0.5574 m²",
+      "c": "64.58 m²",
+      "d": "0.05574 m²"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "1 ft² = (0.3048)² = 0.09290 m². Resultado: 6 × 0.09290 = 0.5574 m². La opción a usó el factor lineal sin elevar al cuadrado (6 × 0.3048 = 1.829). La c invirtió el factor.",
+    "tipo": "texto"
+  },
+  {
+    "id": "factores_conv_035",
+    "dificultad": 4,
+    "categoria": "Factores de conversión",
+    "pregunta": "Un recipiente tiene un volumen de 2 ft³. Conviértelo a m³.",
+    "opciones": {
+      "a": "70.62 m³",
+      "b": "0.6096 m³",
+      "c": "0.05664 m³",
+      "d": "0.005664 m³"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "1 ft³ = (0.3048)³ = 0.02832 m³. Resultado: 2 × 0.02832 = 0.05664 m³. La opción b usó el factor lineal (2 × 0.3048 = 0.6096). La a invirtió el factor.",
+    "tipo": "texto"
+  },
+  {
+    "id": "factores_conv_036",
+    "dificultad": 4,
+    "categoria": "Factores de conversión",
+    "pregunta": "El hierro fundido tiene una densidad de 8.0 g/cm³. Conviértela a kg/m³.",
+    "opciones": {
+      "a": "0.008 kg/m³",
+      "b": "8 kg/m³",
+      "c": "80 000 kg/m³",
+      "d": "8 000 kg/m³"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "1 g/cm³ = 0.001 kg / (10⁻⁶ m³) = 1 000 kg/m³. Resultado: 8.0 × 1 000 = 8 000 kg/m³. La opción a solo convirtió g → kg (8 × 0.001 = 0.008) sin convertir cm³ → m³. La b usó incorrectamente 1 g/cm³ = 1 kg/m³.",
+    "tipo": "texto"
+  },
+  {
+    "id": "factores_conv_037",
+    "dificultad": 4,
+    "categoria": "Factores de conversión",
+    "pregunta": "Un motor eléctrico consume 10 hp. Convierte esa potencia a W.",
+    "opciones": {
+      "a": "7 457 W",
+      "b": "74.57 W",
+      "c": "13 410 W",
+      "d": "74 570 W"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "1 hp = 745.7 W. Resultado: 10 × 745.7 = 7 457 W. La opción c aplicó el factor inverso (1 kW = 1.341 hp → 10 × 1 341 = 13 410). Las opciones b y d son errores de escala.",
+    "tipo": "texto"
+  },
+  {
+    "id": "factores_conv_038",
+    "dificultad": 4,
+    "categoria": "Factores de conversión",
+    "pregunta": "Una bomba dosificadora suministra 50 L/min. Convierte ese caudal a m³/s.",
+    "opciones": {
+      "a": "0.05 m³/s",
+      "b": "8.333×10⁻⁴ m³/s",
+      "c": "50 000 m³/s",
+      "d": "8.333×10⁻² m³/s"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "1 L = 10⁻³ m³; 1 min = 60 s. Resultado: 50 × 10⁻³ / 60 = 8.333×10⁻⁴ m³/s. La opción a convirtió L → m³ pero olvidó dividir por 60 (min → s). La d es error de escala.",
+    "tipo": "texto"
+  },
+  {
+    "id": "factores_conv_039",
+    "dificultad": 4,
+    "categoria": "Factores de conversión",
+    "pregunta": "Un resorte soporta una carga de 1 000 kgf. Convierte esa fuerza a N.",
+    "opciones": {
+      "a": "102.0 N",
+      "b": "1 000 N",
+      "c": "9 807 N",
+      "d": "98 070 N"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "1 kgf = 9.807 N (peso de 1 kg en gravedad estándar). Resultado: 1 000 × 9.807 = 9 807 N. La opción a dividió en lugar de multiplicar. La b confundió kgf con kg-masa (1 kgf ≈ 9.807 N, no 1 N).",
+    "tipo": "texto"
+  },
+  {
+    "id": "factores_conv_040",
+    "dificultad": 4,
+    "categoria": "Factores de conversión",
+    "pregunta": "El poder calorífico de un combustible es 400 cal/g. Conviértelo a kJ/kg.",
+    "opciones": {
+      "a": "95.56 kJ/kg",
+      "b": "167.4 kJ/kg",
+      "c": "16 744 kJ/kg",
+      "d": "1 674.4 kJ/kg"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "1 cal/g = 4.186 kJ/kg (1 cal = 4.186 J y 1 g = 10⁻³ kg → razón 1 000, que se cancela). Resultado: 400 × 4.186 = 1 674.4 kJ/kg. La opción a dividió por el factor. Las b y c son errores de escala.",
+    "tipo": "texto"
+  },
+  {
+    "id": "factores_conv_041",
+    "dificultad": 4,
+    "categoria": "Factores de conversión",
+    "pregunta": "Una llave dinamométrica aplica 25 kgf·m de torque. Conviértelo a N·m.",
+    "opciones": {
+      "a": "245.2 N·m",
+      "b": "2.550 N·m",
+      "c": "2 452 N·m",
+      "d": "0.2550 N·m"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "1 kgf·m = 9.807 N·m. Resultado: 25 × 9.807 = 245.2 N·m. La opción b dividió por el factor. La c tiene un error de escala ×10.",
+    "tipo": "texto"
+  },
+  {
+    "id": "factores_conv_042",
+    "dificultad": 4,
+    "categoria": "Factores de conversión",
+    "pregunta": "Un proceso experimenta una diferencia de temperatura de ΔT = 50 °F. Expresa esa diferencia en kelvin (ΔK).",
+    "opciones": {
+      "a": "90.0 K",
+      "b": "27.78 K",
+      "c": "10.0 K",
+      "d": "283.2 K"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Para diferencias de temperatura (no temperaturas absolutas): ΔK = ΔF × 5/9. Resultado: 50 × 5/9 = 27.78 K. La opción a usó la razón inversa (×9/5). La c restó 32 antes de multiplicar — error que aplica al convertir temperaturas absolutas, no diferencias. La d convirtió como temperatura absoluta (resultado en K absolutos, no ΔK).",
+    "tipo": "texto"
+  },
+  {
+    "id": "factores_conv_043",
+    "dificultad": 4,
+    "categoria": "Factores de conversión",
+    "pregunta": "Un motor gira a 1 800 rpm. Convierte esa velocidad angular a rad/s.",
+    "opciones": {
+      "a": "17 188 rad/s",
+      "b": "30 rad/s",
+      "c": "188.5 rad/s",
+      "d": "1 800 rad/s"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "1 rpm = 2π/60 rad/s. Resultado: 1 800 × 2π/60 = 1 800 × 0.10472 = 188.5 rad/s. La opción b calculó 1 800/60 = 30 rev/s pero olvidó multiplicar por 2π. La a calculó 1 800 × 2π sin dividir por 60.",
+    "tipo": "texto"
+  },
+  {
+    "id": "factores_conv_044",
+    "dificultad": 4,
+    "categoria": "Factores de conversión",
+    "pregunta": "Una bomba circula 5 gal/min. Convierte ese caudal a m³/s.",
+    "opciones": {
+      "a": "3.154×10⁻² m³/s",
+      "b": "5.000×10⁻³ m³/s",
+      "c": "1.893×10⁻² m³/s",
+      "d": "3.154×10⁻⁴ m³/s"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "1 gal = 3.785×10⁻³ m³; 1 min = 60 s. Resultado: 5 × 3.785×10⁻³ / 60 = 1.893×10⁻² / 60 = 3.154×10⁻⁴ m³/s. La opción c olvidó dividir por 60. La a tiene un error de escala ×100.",
+    "tipo": "texto"
+  },
+  {
+    "id": "factores_conv_045",
+    "dificultad": 4,
+    "categoria": "Factores de conversión",
+    "pregunta": "La presión de salida de un compresor es 5 bar. Conviértela a kPa.",
+    "opciones": {
+      "a": "500 kPa",
+      "b": "5 000 kPa",
+      "c": "50 kPa",
+      "d": "5 kPa"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "1 bar = 100 kPa. Resultado: 5 × 100 = 500 kPa. La opción b confundió bar con MPa (1 MPa = 10 bar → 5 bar = 0.5 MPa = 500 kPa, pero usando 1 bar = 1 000 kPa daría 5 000, error común). La c usó 1 bar = 10 kPa.",
+    "tipo": "texto"
+  },
+  {
+    "id": "factores_conv_046",
+    "dificultad": 4,
+    "categoria": "Factores de conversión",
+    "pregunta": "El vapor de agua a 300 °C se introduce en una turbina. Convierte esa temperatura a K.",
+    "opciones": {
+      "a": "26.85 K",
+      "b": "573.2 K",
+      "c": "572.0 K",
+      "d": "300 K"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "T(K) = T(°C) + 273.15. Resultado: 300 + 273.15 = 573.15 ≈ 573.2 K. La opción a restó en lugar de sumar (300 − 273.15 = 26.85). La d no aplicó conversión alguna.",
+    "tipo": "texto"
+  },
+  {
+    "id": "factores_conv_047",
+    "dificultad": 4,
+    "categoria": "Factores de conversión",
+    "pregunta": "Un snack aporta 2 000 J de energía. Conviértelos a kcal.",
+    "opciones": {
+      "a": "477.7 kcal",
+      "b": "2.000 kcal",
+      "c": "0.4777 kcal",
+      "d": "8.372 kcal"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "1 kcal = 4 186 J. Resultado: 2 000 / 4 186 = 0.4777 kcal. La opción a usó 1 kcal = 4.186 J (olvidó el prefijo kilo, factor 1 000 de diferencia). La b usó incorrectamente 1 kcal = 1 000 J.",
+    "tipo": "texto"
+  },
+  {
+    "id": "factores_conv_048",
+    "dificultad": 4,
+    "categoria": "Factores de conversión",
+    "pregunta": "Un ciclista alcanza los 15 m/s. Convierte esa velocidad a km/h.",
+    "opciones": {
+      "a": "4.167 km/h",
+      "b": "150 km/h",
+      "c": "1 500 km/h",
+      "d": "54 km/h"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "1 m/s = 3.6 km/h. Resultado: 15 × 3.6 = 54 km/h. La opción a dividió en lugar de multiplicar (15/3.6 = 4.167). La b usó el factor 10 en lugar de 3.6.",
+    "tipo": "texto"
+  },
+  {
+    "id": "factores_conv_049",
+    "dificultad": 4,
+    "categoria": "Factores de conversión",
+    "pregunta": "Una caja cúbica tiene un volumen de 8 in³. Conviértelo a mL.",
+    "opciones": {
+      "a": "131.1 mL",
+      "b": "20.32 mL",
+      "c": "51.62 mL",
+      "d": "1 311 mL"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "1 in = 2.54 cm → 1 in³ = (2.54)³ = 16.387 cm³ = 16.387 mL. Resultado: 8 × 16.387 = 131.1 mL. La opción b usó el factor lineal sin cubicar (8 × 2.54 = 20.32). La c usó el factor cuadrado en lugar del cúbico: 8 × (2.54)² = 51.62.",
+    "tipo": "texto"
+  },
+  {
+    "id": "factores_conv_050",
+    "dificultad": 4,
+    "categoria": "Factores de conversión",
+    "pregunta": "Un fluido tiene una densidad de 1.5 kg/L. Conviértela a kg/m³.",
+    "opciones": {
+      "a": "0.0015 kg/m³",
+      "b": "1 500 kg/m³",
+      "c": "150 kg/m³",
+      "d": "15 000 kg/m³"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "1 L = 10⁻³ m³ → 1 kg/L = 1 kg / 10⁻³ m³ = 1 000 kg/m³. Resultado: 1.5 × 1 000 = 1 500 kg/m³. La opción a multiplicó por 10⁻³ en lugar de dividir. La c usó incorrectamente 1 L = 0.01 m³.",
+    "tipo": "texto"
+  },
+  {
+    "id": "factores_conv_051",
+    "dificultad": 4,
+    "categoria": "Factores de conversión",
+    "pregunta": "Una lámpara disipa 45 W. Exprésalo en cal/s.",
+    "opciones": {
+      "a": "188.4 cal/s",
+      "b": "107.5 cal/s",
+      "c": "10.75 cal/s",
+      "d": "1.075 cal/s"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "1 W = 0.2389 cal/s. Resultado: 45 × 0.2389 = 10.75 cal/s. La opción a dividió en lugar de multiplicar (45 / 0.2389 = 188.4). Las b y d son errores de escala.",
+    "tipo": "texto"
+  },
+  {
+    "id": "factores_conv_052",
+    "dificultad": 4,
+    "categoria": "Factores de conversión",
+    "pregunta": "La entalpía de vaporización del agua es 2.5 kJ/kg (valor hipotético simplificado). Conviértela a BTU/lbm.",
+    "opciones": {
+      "a": "5.813 BTU/lbm",
+      "b": "10.75 BTU/lbm",
+      "c": "0.1075 BTU/lbm",
+      "d": "1.075 BTU/lbm"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "1 kJ/kg = 0.4299 BTU/lbm. Resultado: 2.5 × 0.4299 = 1.075 BTU/lbm. La opción a dividió en lugar de multiplicar (2.5 / 0.4299 = 5.813). Las b y c son errores de escala.",
+    "tipo": "texto"
+  },
+  {
+    "id": "factores_conv_053",
+    "dificultad": 4,
+    "categoria": "Factores de conversión",
+    "pregunta": "La presión barométrica estándar es 760 mmHg. Conviértela a Pa.",
+    "opciones": {
+      "a": "101 308 Pa",
+      "b": "5.700 Pa",
+      "c": "1 013 000 Pa",
+      "d": "10 131 Pa"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "1 mmHg = 133.3 Pa. Resultado: 760 × 133.3 = 101 308 Pa ≈ 101 325 Pa (presión atmosférica estándar). La opción b dividió en lugar de multiplicar. La c tiene un error de escala ×10.",
+    "tipo": "texto"
+  },
+  {
+    "id": "factores_conv_054",
+    "dificultad": 4,
+    "categoria": "Factores de conversión",
+    "pregunta": "Un pistón se desplaza a 12 in/s. Convierte esa velocidad a cm/s.",
+    "opciones": {
+      "a": "4.724 cm/s",
+      "b": "30.48 cm/s",
+      "c": "304.8 cm/s",
+      "d": "0.3048 cm/s"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "1 in = 2.54 cm. Resultado: 12 × 2.54 = 30.48 cm/s. La opción a dividió en lugar de multiplicar (12/2.54 = 4.724). La c usó 1 in = 25.4 cm (confundió cm con mm en la tabla).",
+    "tipo": "texto"
+  },
+  {
+    "id": "factores_conv_055",
+    "dificultad": 4,
+    "categoria": "Factores de conversión",
+    "pregunta": "Un banco de baterías almacena 3.5 MJ. Conviértelo a kWh.",
+    "opciones": {
+      "a": "12.60 kWh",
+      "b": "9.722 kWh",
+      "c": "0.9722 kWh",
+      "d": "0.09722 kWh"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "1 kWh = 3.6 MJ. Resultado: 3.5 / 3.6 = 0.9722 kWh. La opción a multiplicó en lugar de dividir (3.5 × 3.6 = 12.60). La b es error de escala ×10.",
+    "tipo": "texto"
+  },
+  {
+    "id": "factores_conv_056",
+    "dificultad": 4,
+    "categoria": "Factores de conversión",
+    "pregunta": "La masa molar del dióxido de carbono es 44 g/mol (aprox.). Conviértela a kg/kmol.",
+    "opciones": {
+      "a": "0.044 kg/kmol",
+      "b": "44 kg/kmol",
+      "c": "4.4 kg/kmol",
+      "d": "440 kg/kmol"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "1 g/mol es numéricamente igual a 1 kg/kmol porque se convierten simultáneamente gramos a kg y mol a kmol. Por tanto, 44 g/mol = 44 kg/kmol.",
+    "tipo": "texto"
+  },
+  {
+    "id": "factores_conv_057",
+    "dificultad": 4,
+    "categoria": "Factores de conversión",
+    "pregunta": "Un tren bala alcanza 30 m/s. Convierte esa velocidad a mph.",
+    "opciones": {
+      "a": "67.11 mph",
+      "b": "13.41 mph",
+      "c": "48.28 mph",
+      "d": "108.0 mph"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "1 m/s = 3 600/1 609.34 mph = 2.237 mph. Resultado: 30 × 2.237 = 67.11 mph. La opción b dividió en lugar de multiplicar (30/2.237 = 13.41). La d convirtió m/s a km/h (30 × 3.6 = 108) en lugar de mph.",
+    "tipo": "texto"
+  },
+  {
+    "id": "factores_conv_058",
+    "dificultad": 4,
+    "categoria": "Factores de conversión",
+    "pregunta": "La presión al fondo de un tanque es 1 000 Pa. Conviértela a cmH₂O.",
+    "opciones": {
+      "a": "98.07 cmH₂O",
+      "b": "10.20 cmH₂O",
+      "c": "1.020 cmH₂O",
+      "d": "102.0 cmH₂O"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "1 cmH₂O = 98.07 Pa. Resultado: 1 000 / 98.07 = 10.20 cmH₂O. La opción a invirtió el factor (98.07 cmH₂O por Pa en lugar de Pa por cmH₂O). Las opciones c y d son errores de escala.",
+    "tipo": "texto"
+  },
+  {
+    "id": "factores_conv_059",
+    "dificultad": 4,
+    "categoria": "Factores de conversión",
+    "pregunta": "Un calentador eléctrico disipa 150 W. Exprésalo en BTU/hr.",
+    "opciones": {
+      "a": "43.97 BTU/hr",
+      "b": "51.18 BTU/hr",
+      "c": "511.8 BTU/hr",
+      "d": "5 118 BTU/hr"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "1 W = 3.412 BTU/hr. Resultado: 150 × 3.412 = 511.8 BTU/hr. La opción a dividió en lugar de multiplicar (150/3.412 = 43.97). Las b y d son errores de escala.",
+    "tipo": "texto"
+  },
+  {
+    "id": "factores_conv_060",
+    "dificultad": 4,
+    "categoria": "Factores de conversión",
+    "pregunta": "Un sistema de riego descarga 0.5 m³/h. Convierte ese caudal a L/s.",
+    "opciones": {
+      "a": "500 L/s",
+      "b": "1.800 L/s",
+      "c": "1.389 L/s",
+      "d": "0.1389 L/s"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "1 m³ = 1 000 L; 1 h = 3 600 s. Resultado: 0.5 × 1 000 / 3 600 = 500/3 600 = 0.1389 L/s. La opción a convirtió m³ → L pero olvidó dividir por 3 600. La b invirtió ambas conversiones (0.5 × 3 600/1 000 = 1.8).",
+    "tipo": "texto"
+  },
+  {
+    "id": "factores_conv_061",
+    "dificultad": 1,
+    "categoria": "Factores de conversión",
+    "pregunta": "Convierte 4.2 kg a gramos.",
+    "opciones": {
+      "a": "42 g",
+      "b": "420 g",
+      "c": "4 200 g",
+      "d": "42 000 g"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "1 kg = 1000 g. Entonces 4.2 kg = 4200 g.",
+    "tipo": "texto"
+  },
+  {
+    "id": "factores_conv_062",
+    "dificultad": 1,
+    "categoria": "Factores de conversión",
+    "pregunta": "Convierte 250 cm a metros.",
+    "opciones": {
+      "a": "0.25 m",
+      "b": "2.5 m",
+      "c": "25 m",
+      "d": "2500 m"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "1 m = 100 cm. Entonces 250 cm / 100 = 2.5 m.",
+    "tipo": "texto"
+  },
+  {
+    "id": "factores_conv_063",
+    "dificultad": 1,
+    "categoria": "Factores de conversión",
+    "pregunta": "Convierte 0.75 L a mL.",
+    "opciones": {
+      "a": "7.5 mL",
+      "b": "75 mL",
+      "c": "750 mL",
+      "d": "7 500 mL"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "1 L = 1000 mL. Entonces 0.75 L = 750 mL.",
+    "tipo": "texto"
+  },
+  {
+    "id": "factores_conv_064",
+    "dificultad": 1,
+    "categoria": "Factores de conversión",
+    "pregunta": "Convierte 3.2 km a metros.",
+    "opciones": {
+      "a": "320 m",
+      "b": "3 200 m",
+      "c": "32 000 m",
+      "d": "0.0032 m"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "1 km = 1000 m. Entonces 3.2 km = 3200 m.",
+    "tipo": "texto"
+  },
+  {
+    "id": "factores_conv_065",
+    "dificultad": 1,
+    "categoria": "Factores de conversión",
+    "pregunta": "Convierte 7.5 minutos a segundos.",
+    "opciones": {
+      "a": "75 s",
+      "b": "450 s",
+      "c": "750 s",
+      "d": "4 500 s"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "1 min = 60 s. Entonces 7.5 x 60 = 450 s.",
+    "tipo": "texto"
+  },
+  {
+    "id": "factores_conv_066",
+    "dificultad": 1,
+    "categoria": "Factores de conversión",
+    "pregunta": "Convierte 2.4 bar a kPa.",
+    "opciones": {
+      "a": "24 kPa",
+      "b": "240 kPa",
+      "c": "2 400 kPa",
+      "d": "0.24 kPa"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "1 bar = 100 kPa. Entonces 2.4 bar = 240 kPa.",
+    "tipo": "texto"
+  },
+  {
+    "id": "factores_conv_067",
+    "dificultad": 1,
+    "categoria": "Factores de conversión",
+    "pregunta": "Convierte 12 m/s a km/h.",
+    "opciones": {
+      "a": "4.32 km/h",
+      "b": "43.2 km/h",
+      "c": "120 km/h",
+      "d": "1.2 km/h"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "1 m/s = 3.6 km/h. Entonces 12 x 3.6 = 43.2 km/h.",
+    "tipo": "texto"
+  },
+  {
+    "id": "factores_conv_068",
+    "dificultad": 1,
+    "categoria": "Factores de conversión",
+    "pregunta": "Convierte 25 C a K.",
+    "opciones": {
+      "a": "248.15 K",
+      "b": "273.15 K",
+      "c": "298.15 K",
+      "d": "325.15 K"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "T(K) = T(C) + 273.15. Entonces 25 + 273.15 = 298.15 K.",
+    "tipo": "texto"
+  },
+  {
+    "id": "factores_conv_069",
+    "dificultad": 1,
+    "categoria": "Factores de conversión",
+    "pregunta": "Convierte 2 kWh a MJ.",
+    "opciones": {
+      "a": "0.72 MJ",
+      "b": "7.2 MJ",
+      "c": "72 MJ",
+      "d": "0.072 MJ"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "1 kWh = 3.6 MJ. Entonces 2 x 3.6 = 7.2 MJ.",
+    "tipo": "texto"
+  },
+  {
+    "id": "factores_conv_070",
+    "dificultad": 1,
+    "categoria": "Factores de conversión",
+    "pregunta": "Convierte 1.2 g/cm3 a kg/m3.",
+    "opciones": {
+      "a": "120 kg/m3",
+      "b": "1 200 kg/m3",
+      "c": "12 000 kg/m3",
+      "d": "0.0012 kg/m3"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "1 g/cm3 = 1000 kg/m3. Entonces 1.2 g/cm3 = 1200 kg/m3.",
+    "tipo": "texto"
+  },
+  {
+    "id": "factores_conv_071",
+    "dificultad": 1,
+    "categoria": "Factores de conversión",
+    "pregunta": "Convierte 10 ft a metros.",
+    "opciones": {
+      "a": "3.048 m",
+      "b": "30.48 m",
+      "c": "0.3048 m",
+      "d": "1.00 m"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "1 ft = 0.3048 m. Entonces 10 ft = 3.048 m.",
+    "tipo": "texto"
+  },
+  {
+    "id": "factores_conv_072",
+    "dificultad": 1,
+    "categoria": "Factores de conversión",
+    "pregunta": "Convierte 5 gal (US) a litros.",
+    "opciones": {
+      "a": "1.321 L",
+      "b": "18.93 L",
+      "c": "50.00 L",
+      "d": "189.3 L"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "1 gal (US) = 3.785 L. Entonces 5 x 3.785 = 18.93 L.",
+    "tipo": "texto"
+  },
+  {
+    "id": "factores_conv_073",
+    "dificultad": 1,
+    "categoria": "Factores de conversión",
+    "pregunta": "Convierte 30 psi a kPa.",
+    "opciones": {
+      "a": "20.68 kPa",
+      "b": "206.8 kPa",
+      "c": "2 068 kPa",
+      "d": "68.95 kPa"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "1 psi = 6.895 kPa. Entonces 30 x 6.895 = 206.8 kPa.",
+    "tipo": "texto"
+  },
+  {
+    "id": "factores_conv_074",
+    "dificultad": 1,
+    "categoria": "Factores de conversión",
+    "pregunta": "Convierte 5 hp a kW.",
+    "opciones": {
+      "a": "0.3729 kW",
+      "b": "3.729 kW",
+      "c": "37.29 kW",
+      "d": "6.705 kW"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "1 hp = 0.7457 kW. Entonces 5 x 0.7457 = 3.729 kW.",
+    "tipo": "texto"
+  },
+  {
+    "id": "factores_conv_075",
+    "dificultad": 1,
+    "categoria": "Factores de conversión",
+    "pregunta": "Convierte 120 kcal a kJ.",
+    "opciones": {
+      "a": "28.63 kJ",
+      "b": "502.3 kJ",
+      "c": "5 023 kJ",
+      "d": "1.20 kJ"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "1 kcal = 4.186 kJ. Entonces 120 x 4.186 = 502.3 kJ.",
+    "tipo": "texto"
+  },
+  {
+    "id": "factores_conv_076",
+    "dificultad": 2,
+    "categoria": "Factores de conversión",
+    "pregunta": "Convierte 250 L/h a m3/s.",
+    "opciones": {
+      "a": "6.944e-5 m3/s",
+      "b": "6.944e-4 m3/s",
+      "c": "0.06944 m3/s",
+      "d": "0.2500 m3/s"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "250 L/h = 0.25 m3/h. Luego 0.25/3600 = 6.944e-5 m3/s.",
+    "tipo": "texto"
+  },
+  {
+    "id": "factores_conv_077",
+    "dificultad": 2,
+    "categoria": "Factores de conversión",
+    "pregunta": "Convierte 18 km/h a m/s.",
+    "opciones": {
+      "a": "1.8 m/s",
+      "b": "5.0 m/s",
+      "c": "6.48 m/s",
+      "d": "50.0 m/s"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Para pasar de km/h a m/s se divide entre 3.6. Entonces 18/3.6 = 5.0 m/s.",
+    "tipo": "texto"
+  },
+  {
+    "id": "factores_conv_078",
+    "dificultad": 2,
+    "categoria": "Factores de conversión",
+    "pregunta": "Convierte 2.5 in a cm.",
+    "opciones": {
+      "a": "0.984 cm",
+      "b": "6.35 cm",
+      "c": "25.4 cm",
+      "d": "63.5 cm"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "1 in = 2.54 cm. Entonces 2.5 x 2.54 = 6.35 cm.",
+    "tipo": "texto"
+  },
+  {
+    "id": "factores_conv_079",
+    "dificultad": 2,
+    "categoria": "Factores de conversión",
+    "pregunta": "Convierte 14.7 psi a kPa.",
+    "opciones": {
+      "a": "101.3 kPa",
+      "b": "10.13 kPa",
+      "c": "1 013 kPa",
+      "d": "68.95 kPa"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "14.7 x 6.895 = 101.3 kPa aproximadamente.",
+    "tipo": "texto"
+  },
+  {
+    "id": "factores_conv_080",
+    "dificultad": 2,
+    "categoria": "Factores de conversión",
+    "pregunta": "Convierte 1200 rpm a rad/s.",
+    "opciones": {
+      "a": "20.0 rad/s",
+      "b": "62.83 rad/s",
+      "c": "125.7 rad/s",
+      "d": "1 200 rad/s"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "1200 rpm x (2pi/60) = 125.7 rad/s.",
+    "tipo": "texto"
+  },
+  {
+    "id": "factores_conv_081",
+    "dificultad": 2,
+    "categoria": "Factores de conversión",
+    "pregunta": "Convierte 35 lbm a kg.",
+    "opciones": {
+      "a": "15.88 kg",
+      "b": "35.00 kg",
+      "c": "77.16 kg",
+      "d": "1.588 kg"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "1 lbm = 0.4536 kg. Entonces 35 x 0.4536 = 15.88 kg.",
+    "tipo": "texto"
+  },
+  {
+    "id": "factores_conv_082",
+    "dificultad": 2,
+    "categoria": "Factores de conversión",
+    "pregunta": "Convierte 3 ft2 a m2.",
+    "opciones": {
+      "a": "0.2787 m2",
+      "b": "0.9144 m2",
+      "c": "32.29 m2",
+      "d": "0.02787 m2"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "1 ft2 = 0.09290 m2. Entonces 3 x 0.09290 = 0.2787 m2.",
+    "tipo": "texto"
+  },
+  {
+    "id": "factores_conv_083",
+    "dificultad": 2,
+    "categoria": "Factores de conversión",
+    "pregunta": "Convierte 40 BTU a kJ.",
+    "opciones": {
+      "a": "4.22 kJ",
+      "b": "42.2 kJ",
+      "c": "168.8 kJ",
+      "d": "0.1688 kJ"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "1 BTU = 1.055 kJ. Entonces 40 x 1.055 = 42.2 kJ.",
+    "tipo": "texto"
+  },
+  {
+    "id": "factores_conv_084",
+    "dificultad": 2,
+    "categoria": "Factores de conversión",
+    "pregunta": "Convierte 2500 W a hp.",
+    "opciones": {
+      "a": "1.863 hp",
+      "b": "3.352 hp",
+      "c": "18.63 hp",
+      "d": "33.52 hp"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "1 hp = 745.7 W. Entonces 2500/745.7 = 3.352 hp.",
+    "tipo": "texto"
+  },
+  {
+    "id": "factores_conv_085",
+    "dificultad": 2,
+    "categoria": "Factores de conversión",
+    "pregunta": "Convierte 0.75 m3/min a L/s.",
+    "opciones": {
+      "a": "12.5 L/s",
+      "b": "45.0 L/s",
+      "c": "750 L/s",
+      "d": "0.0125 L/s"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "0.75 m3/min = 750 L/min. Luego 750/60 = 12.5 L/s.",
+    "tipo": "texto"
+  },
+  {
+    "id": "factores_conv_086",
+    "dificultad": 2,
+    "categoria": "Factores de conversión",
+    "pregunta": "Convierte 500 mmHg a kPa.",
+    "opciones": {
+      "a": "6.667 kPa",
+      "b": "66.66 kPa",
+      "c": "666.6 kPa",
+      "d": "3.750 kPa"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "1 mmHg = 0.1333 kPa. Entonces 500 x 0.1333 = 66.66 kPa.",
+    "tipo": "texto"
+  },
+  {
+    "id": "factores_conv_087",
+    "dificultad": 2,
+    "categoria": "Factores de conversión",
+    "pregunta": "Convierte 68 F a C.",
+    "opciones": {
+      "a": "10 C",
+      "b": "20 C",
+      "c": "30 C",
+      "d": "40 C"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "T(C) = (T(F) - 32) x 5/9. Entonces (68 - 32) x 5/9 = 20 C.",
+    "tipo": "texto"
+  },
+  {
+    "id": "factores_conv_088",
+    "dificultad": 2,
+    "categoria": "Factores de conversión",
+    "pregunta": "Convierte 5 cP a Pa.s.",
+    "opciones": {
+      "a": "0.5 Pa.s",
+      "b": "0.05 Pa.s",
+      "c": "0.005 Pa.s",
+      "d": "5 Pa.s"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "1 cP = 0.001 Pa.s. Entonces 5 cP = 0.005 Pa.s.",
+    "tipo": "texto"
+  },
+  {
+    "id": "factores_conv_089",
+    "dificultad": 2,
+    "categoria": "Factores de conversión",
+    "pregunta": "Convierte 2 St a cSt.",
+    "opciones": {
+      "a": "20 cSt",
+      "b": "200 cSt",
+      "c": "2 000 cSt",
+      "d": "0.2 cSt"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "1 St = 100 cSt. Entonces 2 St = 200 cSt.",
+    "tipo": "texto"
+  },
+  {
+    "id": "factores_conv_090",
+    "dificultad": 2,
+    "categoria": "Factores de conversión",
+    "pregunta": "Convierte 1.2 toneladas de refrigeracion a kW.",
+    "opciones": {
+      "a": "2.93 kW",
+      "b": "3.52 kW",
+      "c": "4.22 kW",
+      "d": "12.0 kW"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "1 TR = 3.517 kW. Entonces 1.2 x 3.517 = 4.22 kW.",
+    "tipo": "texto"
+  },
+  {
+    "id": "factores_conv_091",
+    "dificultad": 3,
+    "categoria": "Factores de conversión",
+    "pregunta": "Convierte 0.35 BTU/(lbm.F) a kJ/(kg.K).",
+    "opciones": {
+      "a": "0.1466 kJ/(kg.K)",
+      "b": "1.466 kJ/(kg.K)",
+      "c": "14.66 kJ/(kg.K)",
+      "d": "3.583 kJ/(kg.K)"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "1 BTU/(lbm.F) = 4.187 kJ/(kg.K). Entonces 0.35 x 4.187 = 1.466 kJ/(kg.K).",
+    "tipo": "texto"
+  },
+  {
+    "id": "factores_conv_092",
+    "dificultad": 3,
+    "categoria": "Factores de conversión",
+    "pregunta": "Convierte 3.2e-5 m2/s a cSt.",
+    "opciones": {
+      "a": "3.2 cSt",
+      "b": "32 cSt",
+      "c": "320 cSt",
+      "d": "0.32 cSt"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "1 cSt = 1e-6 m2/s. Entonces 3.2e-5 / 1e-6 = 32 cSt.",
+    "tipo": "texto"
+  },
+  {
+    "id": "factores_conv_093",
+    "dificultad": 3,
+    "categoria": "Factores de conversión",
+    "pregunta": "Convierte 2.4e5 Pa a psi.",
+    "opciones": {
+      "a": "3.48 psi",
+      "b": "24.0 psi",
+      "c": "34.81 psi",
+      "d": "348.1 psi"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "1 psi = 6894.76 Pa. Entonces 240000 / 6894.76 = 34.81 psi.",
+    "tipo": "texto"
+  },
+  {
+    "id": "factores_conv_094",
+    "dificultad": 3,
+    "categoria": "Factores de conversión",
+    "pregunta": "Convierte 75 gal/min a m3/h.",
+    "opciones": {
+      "a": "1.703 m3/h",
+      "b": "17.03 m3/h",
+      "c": "170.3 m3/h",
+      "d": "0.1703 m3/h"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "75 gal/min x 0.003785 m3/gal x 60 min/h = 17.03 m3/h.",
+    "tipo": "texto"
+  },
+  {
+    "id": "factores_conv_095",
+    "dificultad": 3,
+    "categoria": "Factores de conversión",
+    "pregunta": "Convierte 12 lbf.ft a N.m.",
+    "opciones": {
+      "a": "1.627 N.m",
+      "b": "16.27 N.m",
+      "c": "122.0 N.m",
+      "d": "27.12 N.m"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "1 lbf.ft = 1.3558 N.m. Entonces 12 x 1.3558 = 16.27 N.m.",
+    "tipo": "texto"
+  },
+  {
+    "id": "factores_conv_096",
+    "dificultad": 3,
+    "categoria": "Factores de conversión",
+    "pregunta": "Convierte 0.18 kWh a BTU.",
+    "opciones": {
+      "a": "61.42 BTU",
+      "b": "614.2 BTU",
+      "c": "6 142 BTU",
+      "d": "3 412 BTU"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "1 kWh = 3412 BTU. Entonces 0.18 x 3412 = 614.2 BTU.",
+    "tipo": "texto"
+  },
+  {
+    "id": "factores_conv_097",
+    "dificultad": 3,
+    "categoria": "Factores de conversión",
+    "pregunta": "Convierte 2.8 lbm/gal a kg/m3.",
+    "opciones": {
+      "a": "33.55 kg/m3",
+      "b": "335.5 kg/m3",
+      "c": "3 355 kg/m3",
+      "d": "83.55 kg/m3"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "1 lbm/gal = 119.826 kg/m3. Entonces 2.8 x 119.826 = 335.5 kg/m3.",
+    "tipo": "texto"
+  },
+  {
+    "id": "factores_conv_098",
+    "dificultad": 3,
+    "categoria": "Factores de conversión",
+    "pregunta": "Convierte 650 W/m2 a BTU/(hr.ft2).",
+    "opciones": {
+      "a": "20.61 BTU/(hr.ft2)",
+      "b": "206.1 BTU/(hr.ft2)",
+      "c": "2 061 BTU/(hr.ft2)",
+      "d": "65.0 BTU/(hr.ft2)"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "1 W/m2 = 0.3170 BTU/(hr.ft2). Entonces 650 x 0.3170 = 206.1.",
+    "tipo": "texto"
+  },
+  {
+    "id": "factores_conv_099",
+    "dificultad": 3,
+    "categoria": "Factores de conversión",
+    "pregunta": "Convierte 2500 cm3/s a L/min.",
+    "opciones": {
+      "a": "15 L/min",
+      "b": "150 L/min",
+      "c": "1.5 L/min",
+      "d": "1 500 L/min"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "2500 cm3/s = 2.5 L/s. Luego 2.5 x 60 = 150 L/min.",
+    "tipo": "texto"
+  },
+  {
+    "id": "factores_conv_100",
+    "dificultad": 3,
+    "categoria": "Factores de conversión",
+    "pregunta": "Convierte 4.2 bar a psi.",
+    "opciones": {
+      "a": "6.09 psi",
+      "b": "42.0 psi",
+      "c": "60.9 psi",
+      "d": "609 psi"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "1 bar = 14.5038 psi. Entonces 4.2 x 14.5038 = 60.9 psi.",
+    "tipo": "texto"
+  },
+  {
+    "id": "factores_conv_101",
+    "dificultad": 3,
+    "categoria": "Factores de conversión",
+    "pregunta": "Convierte 12 kmol/h a mol/s.",
+    "opciones": {
+      "a": "0.3333 mol/s",
+      "b": "3.333 mol/s",
+      "c": "33.33 mol/s",
+      "d": "333.3 mol/s"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "12 kmol/h = 12000 mol/h. Luego 12000/3600 = 3.333 mol/s.",
+    "tipo": "texto"
+  },
+  {
+    "id": "factores_conv_102",
+    "dificultad": 3,
+    "categoria": "Factores de conversión",
+    "pregunta": "Convierte 0.45 kg/s a lbm/min.",
+    "opciones": {
+      "a": "5.952 lbm/min",
+      "b": "59.52 lbm/min",
+      "c": "595.2 lbm/min",
+      "d": "26.46 lbm/min"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "0.45 kg/s x 2.2046 lbm/kg x 60 s/min = 59.52 lbm/min.",
+    "tipo": "texto"
+  },
+  {
+    "id": "factores_conv_103",
+    "dificultad": 3,
+    "categoria": "Factores de conversión",
+    "pregunta": "Convierte 95 ft3/min a m3/h.",
+    "opciones": {
+      "a": "16.14 m3/h",
+      "b": "161.4 m3/h",
+      "c": "1.614 m3/h",
+      "d": "950 m3/h"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "95 ft3/min x 0.0283168 m3/ft3 x 60 = 161.4 m3/h.",
+    "tipo": "texto"
+  },
+  {
+    "id": "factores_conv_104",
+    "dificultad": 3,
+    "categoria": "Factores de conversión",
+    "pregunta": "Convierte 0.0025 Pa.s a cP.",
+    "opciones": {
+      "a": "0.25 cP",
+      "b": "2.5 cP",
+      "c": "25 cP",
+      "d": "250 cP"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "1 Pa.s = 1000 cP. Entonces 0.0025 x 1000 = 2.5 cP.",
+    "tipo": "texto"
+  },
+  {
+    "id": "factores_conv_105",
+    "dificultad": 3,
+    "categoria": "Factores de conversión",
+    "pregunta": "Convierte 250 kPa a mmHg.",
+    "opciones": {
+      "a": "1875 mmHg",
+      "b": "18.75 mmHg",
+      "c": "187.5 mmHg",
+      "d": "2500 mmHg"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "250 kPa = 250000 Pa. Como 1 mmHg = 133.322 Pa, entonces 250000/133.322 = 1875 mmHg.",
+    "tipo": "texto"
+  }
+]
