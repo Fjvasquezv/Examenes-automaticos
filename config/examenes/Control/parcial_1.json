@@ -11,13 +11,14 @@
       "Fundamentos",
       "Lazo",
       "Diseño y Aplicaciones",
-      "Diagramas de Causa-Efecto"
+      "Diagramas de Causa-Efecto",
+      "Diagramas Gráfico"
     ],
     "duracion_estimada": "2 horas"
   },
   "parametros": {
-    "preguntas_minimas": 10,
-    "preguntas_maximas": 10,
+    "preguntas_minimas": 35,
+    "preguntas_maximas": 50,
     "nivel_inicial": 3,
     "umbral_estabilizacion": 0.2,
     "ventana_estabilizacion": 3,
@@ -40,7 +41,8 @@
     "data/bancos/Control/Control_Fundamentos.json",
     "data/bancos/Control/Control_Lazo.json",
     "data/bancos/Control/Control_Diseno_Aplicaciones.json",
-    "data/bancos/Control/Control_Diagramas_CausaEfecto.json"
+    "data/bancos/Control/Control_Diagramas_CausaEfecto.json",
+    "data/bancos/Control/Diagramas_Grafico.json"
   ],
   "bancos_por_tema": {
     "Fundamentos": [
@@ -54,6 +56,9 @@
     ],
     "Diagramas de Causa-Efecto": [
       "data/bancos/Control/Control_Diagramas_CausaEfecto.json"
+    ],
+    "Diagramas Gráfico": [
+      "data/bancos/Control/Diagramas_Grafico.json"
     ]
   }
 }
