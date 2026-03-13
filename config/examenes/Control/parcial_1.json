@@ -16,8 +16,8 @@
     "duracion_estimada": "2 horas"
   },
   "parametros": {
-    "preguntas_minimas": 25,
-    "preguntas_maximas": 35,
+    "preguntas_minimas": 10,
+    "preguntas_maximas": 10,
     "nivel_inicial": 3,
     "umbral_estabilizacion": 0.2,
     "ventana_estabilizacion": 3,
