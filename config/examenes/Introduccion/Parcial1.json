@@ -1,0 +1,54 @@
+{
+  "metadata": {
+    "nombre_examen": "Parcial1 - Introducción a la Tecnología",
+    "asignatura": "Introducción a la Tecnología",
+    "institucion": "Universidad ECCI",
+    "codigo_asignatura": "INTRO101"
+  },
+  "descripcion": {
+    "texto": "Parcial modular de Introducción a la Tecnología.",
+    "temas": [
+      "Paradigmas e historia de la IQ",
+      "Plan de estudios de la universidad",
+      "Análisis dimensional"
+    ],
+    "duracion_estimada": "2 horas"
+  },
+  "parametros": {
+    "preguntas_minimas": 35,
+    "preguntas_maximas": 50,
+    "nivel_inicial": 3,
+    "umbral_estabilizacion": 0.2,
+    "ventana_estabilizacion": 3,
+    "ventana_estabilizacion_dinamica": true,
+    "proporcion_ventana_estabilizacion": 0.45,
+    "ventana_estabilizacion_min": 3,
+    "max_desviacion_nivel_pregunta": 3
+  },
+  "sistema_calificacion": {
+    "tipo": "irt_simplificado",
+    "parametros": {
+      "max_iteraciones": 10
+    }
+  },
+  "persistencia": {
+    "metodo": "google_sheets",
+    "spreadsheet_id": "11LgtY-p59UKYCYY0GwZHCLN--KbZEPZb8poZJTEbyys"
+  },
+  "bancos_preguntas": [
+    "data/bancos/Introduccion/Paradigmas_historia_IQ.json",
+    "data/bancos/Introduccion/Plan_estudios_universidad.json",
+    "data/bancos/Introduccion/Analisis_dimensional.json"
+  ],
+  "bancos_por_tema": {
+    "Paradigmas e historia de la IQ": [
+      "data/bancos/Introduccion/Paradigmas_historia_IQ.json"
+    ],
+    "Plan de estudios de la universidad": [
+      "data/bancos/Introduccion/Plan_estudios_universidad.json"
+    ],
+    "Análisis dimensional": [
+      "data/bancos/Introduccion/Analisis_dimensional.json"
+    ]
+  }
+}

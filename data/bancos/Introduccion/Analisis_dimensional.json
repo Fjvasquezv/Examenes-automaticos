@@ -1,0 +1,152 @@
+[
+  {
+    "id": "analisis_dim_001",
+    "dificultad": 5,
+    "categoria": "Análisis dimensional",
+    "pregunta": "La resistencia hidráulica $R_h$ se define como la razón entre la diferencia de presión $\\Delta P$ y el caudal volumétrico $Q$, es decir $R_h = \\Delta P / Q$. Si $[\\Delta P] = [M \\, L^{-1} T^{-2}]$ y $[Q] = [L^3 T^{-1}]$, ¿cuáles son las dimensiones de $R_h$?",
+    "opciones": {
+      "a": "$[M \\, L^{-4} T^{-1}]$",
+      "b": "$[M \\, L^{2} T^{-3}]$",
+      "c": "$[M \\, L^{-2} T^{-1}]$",
+      "d": "$[M \\, L^{-1} T^{-3}]$"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "Dividiendo: $[M L^{-1} T^{-2}] / [L^3 T^{-1}] = [M L^{-1-3} T^{-2+1}] = [M L^{-4} T^{-1}]$. Nota: esta es la misma dimensión que la viscosidad dinámica $\\eta$ dividida por $L^3$, lo cual tiene sentido físico en la ley de Poiseuille.",
+    "tipo": "texto"
+  },
+  {
+    "id": "analisis_dim_002",
+    "dificultad": 5,
+    "categoria": "Análisis dimensional",
+    "pregunta": "El teorema de Buckingham Pi establece que si un fenómeno involucra $n$ variables y $k$ dimensiones fundamentales independientes, se forman $n - k$ grupos adimensionales. Un problema de convección forzada depende de: velocidad $v$, densidad $\\rho$, viscosidad dinámica $\\eta$, conductividad térmica $\\kappa$, calor específico $c_p$, longitud $L$ y diferencia de temperatura $\\Delta T$. ¿Cuántos grupos adimensionales se forman si las dimensiones fundamentales son $M$, $L$, $T$ y $\\Theta$ (temperatura)?",
+    "opciones": {
+      "a": "2",
+      "b": "3",
+      "c": "4",
+      "d": "5"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "$n = 7$ variables, $k = 4$ dimensiones fundamentales ($M, L, T, \\Theta$). Por el teorema de Buckingham: $n - k = 7 - 4 = 3$ grupos adimensionales. Estos corresponden típicamente al número de Reynolds $Re$, número de Prandtl $Pr$ y número de Nusselt $Nu$.",
+    "tipo": "texto"
+  },
+  {
+    "id": "analisis_dim_003",
+    "dificultad": 5,
+    "categoria": "Análisis dimensional",
+    "pregunta": "La ley de Stefan-Boltzmann establece que la potencia irradiada por unidad de área es $j = \\sigma T^4$, donde $T$ es temperatura. Sabiendo que potencia por unidad de área tiene dimensiones $[M T^{-3}]$ (en notación compacta) y que temperatura tiene dimensión $[\\Theta]$, ¿cuáles son las dimensiones de la constante de Stefan-Boltzmann $\\sigma$?",
+    "opciones": {
+      "a": "$[M T^{-3} \\Theta^{-3}]$",
+      "b": "$[M T^{-3} \\Theta^{-4}]$",
+      "c": "$[M L^{2} T^{-3} \\Theta^{-4}]$",
+      "d": "$[M T^{-2} \\Theta^{-4}]$"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Despejando $\\sigma = j / T^4$: $[\\sigma] = [M T^{-3}] / [\\Theta^4] = [M T^{-3} \\Theta^{-4}]$. El resultado muestra que $\\sigma$ conecta la escala de temperatura con la escala de flujo energético radiativo, lo cual refleja el origen cuántico de la radiación de cuerpo negro.",
+    "tipo": "texto"
+  },
+  {
+    "id": "analisis_dim_004",
+    "dificultad": 5,
+    "categoria": "Análisis dimensional",
+    "pregunta": "La fuerza entre dos conductores paralelos de longitud $L$ separados una distancia $d$ que conducen corrientes $I_1$ e $I_2$ es:\n$$F = \\frac{\\mu_0 \\, I_1 I_2 L}{2\\pi d}$$\nDonde $\\mu_0$ es la permeabilidad magnética del vacío. Usando $[F] = [M L T^{-2}]$ e $[I] = [A]$ (corriente), ¿cuáles son las dimensiones de $\\mu_0$?",
+    "opciones": {
+      "a": "$[M L A^{-2} T^{-2}]$",
+      "b": "$[M L T^{-2} A^{-2}]$",
+      "c": "$[M L^2 T^{-2} A^{-2}]$",
+      "d": "$[M L T^{-1} A^{-2}]$"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Despejando: $[\\mu_0] = [F \\cdot d] / [I^2 L] = [M L T^{-2} \\cdot L] / [A^2 \\cdot L] = [M L T^{-2} A^{-2}]$. Nótese que $\\mu_0$ tiene las mismas dimensiones que $M L T^{-2} A^{-2}$, equivalente a $H/m$ (henrios por metro) en el SI.",
+    "tipo": "texto"
+  },
+  {
+    "id": "analisis_dim_005",
+    "dificultad": 5,
+    "categoria": "Análisis dimensional",
+    "pregunta": "La densidad de energía almacenada en un campo magnético es $u_B = B^2 / (2\\mu_0)$, donde $B$ es la inducción magnética. Si $[u_B] = [M L^{-1} T^{-2}]$ y $[\\mu_0] = [M L T^{-2} A^{-2}]$, ¿cuáles son las dimensiones de $B$?",
+    "opciones": {
+      "a": "$[M T^{-2} A^{-1}]$",
+      "b": "$[M L T^{-2} A^{-1}]$",
+      "c": "$[M T^{-1} A^{-1}]$",
+      "d": "$[M^{1/2} L^{-1/2} T^{-1} A^{-1}]$"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "De $u_B = B^2/(2\\mu_0)$: $[B^2] = [u_B][\\mu_0] = [M L^{-1} T^{-2}][M L T^{-2} A^{-2}] = [M^2 T^{-4} A^{-2}]$. Por tanto $[B] = [M T^{-2} A^{-1}]$. Esto equivale al Tesla en SI: $[T] = [kg \\cdot s^{-2} \\cdot A^{-1}]$.",
+    "tipo": "texto"
+  },
+  {
+    "id": "analisis_dim_006",
+    "dificultad": 5,
+    "categoria": "Análisis dimensional",
+    "pregunta": "En una membrana bidimensional tensa, la velocidad de propagación de ondas transversales depende de la tensión superficial $\\gamma$ (fuerza por unidad de longitud, $[M T^{-2}]$) y de la densidad superficial $\\rho_s$ (masa por unidad de área, $[M L^{-2}]$). Usando análisis dimensional, ¿cuál es la expresión correcta para la velocidad de onda $c$?",
+    "opciones": {
+      "a": "$c \\propto \\sqrt{\\gamma / \\rho_s}$",
+      "b": "$c \\propto \\gamma / \\rho_s$",
+      "c": "$c \\propto \\sqrt{\\rho_s / \\gamma}$",
+      "d": "$c \\propto (\\gamma / \\rho_s)^{1/3}$"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "Se busca $c = \\gamma^\\alpha \\rho_s^\\beta$ con $[c] = [L T^{-1}]$. Planteando: $[M^\\alpha T^{-2\\alpha}][M^\\beta L^{-2\\beta}] = [L T^{-1}]$. Del sistema: $\\alpha + \\beta = 0$, $-2\\beta = 1$, $-2\\alpha = -1$. Resolviendo: $\\alpha = 1/2$, $\\beta = -1/2$. Por tanto $c \\propto \\sqrt{\\gamma/\\rho_s}$.",
+    "tipo": "texto"
+  },
+  {
+    "id": "analisis_dim_007",
+    "dificultad": 5,
+    "categoria": "Análisis dimensional",
+    "pregunta": "La permitividad eléctrica del vacío $\\varepsilon_0$ aparece en la ley de Coulomb: $F = q^2 / (4\\pi \\varepsilon_0 r^2)$. Sabiendo que $[F] = [M L T^{-2}]$, $[q] = [A T]$ (carga eléctrica) y $[r] = [L]$, ¿cuáles son las dimensiones de $\\varepsilon_0$?",
+    "opciones": {
+      "a": "$[M^{-1} L^{-3} T^4 A^2]$",
+      "b": "$[M^{-1} L^{-2} T^3 A^2]$",
+      "c": "$[M L^{3} T^{-4} A^{-2}]$",
+      "d": "$[M^{-1} L^{-3} T^2 A^2]$"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "Despejando $\\varepsilon_0 = q^2/(F r^2)$: $[\\varepsilon_0] = [A^2 T^2] / ([M L T^{-2}][L^2]) = [A^2 T^2] / [M L^3 T^{-2}] = [M^{-1} L^{-3} T^4 A^2]$. Nótese la relación $c^2 = 1/(\\varepsilon_0 \\mu_0)$: verificando dimensiones, $[\\varepsilon_0][\\mu_0] = [M^{-1}L^{-3}T^4A^2][MLT^{-2}A^{-2}] = [L^{-2}T^2]= [c^{-2}]$. ✓",
+    "tipo": "texto"
+  },
+  {
+    "id": "analisis_dim_008",
+    "dificultad": 5,
+    "categoria": "Análisis dimensional",
+    "pregunta": "En mecánica cuántica, la constante de Planck reducida $\\hbar$ tiene dimensiones $[M L^2 T^{-1}]$. La función de onda $\\psi$ en 3D tiene dimensiones $[L^{-3/2}]$ por condición de normalización ($\\int |\\psi|^2 dV = 1$). El término cinético de la ecuación de Schrödinger es $\\hat{T}\\psi = -\\frac{\\hbar^2}{2m} \\nabla^2 \\psi$. ¿Cuáles son las dimensiones de $\\hat{T}\\psi$?",
+    "opciones": {
+      "a": "$[M L^{1/2} T^{-2}]$",
+      "b": "$[M L^{-1/2} T^{-2}]$",
+      "c": "$[M^{-1} L^{-7/2} T^{-1}]$",
+      "d": "$[M L^{-3/2} T^{-2}]$"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "$[\\hbar^2/m] = [M^2 L^4 T^{-2}]/[M] = [M L^4 T^{-2}]$. El laplaciano $\\nabla^2$ tiene dimensiones $[L^{-2}]$. Entonces: $[\\hbar^2/m \\cdot \\nabla^2 \\psi] = [M L^4 T^{-2}][L^{-2}][L^{-3/2}] = [M L^{4-2-3/2} T^{-2}] = [M L^{-1/2} T^{-2}]$. Esto equivale a energía ($[M L^2 T^{-2}]$) multiplicada por $[L^{-5/2}]$, coherente con $E\\psi$ siendo densidad de energía en cierto sentido.",
+    "tipo": "texto"
+  },
+  {
+    "id": "analisis_dim_009",
+    "dificultad": 5,
+    "categoria": "Análisis dimensional",
+    "pregunta": "La constante de Hubble $H_0$ describe la expansión del universo mediante $v = H_0 \\, d$, donde $v$ es la velocidad de recesión de una galaxia y $d$ su distancia. Astrofísicamente, $H_0$ se expresa en unidades de $\\text{km} \\cdot \\text{s}^{-1} \\cdot \\text{Mpc}^{-1}$. En términos de dimensiones fundamentales $[M, L, T]$, ¿cuál es la dimensión de $H_0$?",
+    "opciones": {
+      "a": "$[L T^{-2}]$",
+      "b": "$[T^{-1}]$",
+      "c": "$[L^{-1} T]$",
+      "d": "$[M L^{-3} T^{-1}]$"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "De $v = H_0 d$: $[H_0] = [v]/[d] = [L T^{-1}]/[L] = [T^{-1}]$. La constante de Hubble es simplemente una frecuencia (inverso del tiempo). Su recíproco $1/H_0 \\approx 14 \\times 10^9$ años da la escala de tiempo del universo. Las unidades $\\text{km s}^{-1} \\text{Mpc}^{-1}$ son inconvenientes pero dimensionalmente equivalentes a $[T^{-1}]$.",
+    "tipo": "texto"
+  },
+  {
+    "id": "analisis_dim_010",
+    "dificultad": 5,
+    "categoria": "Análisis dimensional",
+    "pregunta": "Se propone que la longitud de Planck $\\ell_P$ (escala en que la física cuántica y la gravedad se combinan) depende únicamente de $G$ (constante gravitacional, $[M^{-1} L^3 T^{-2}]$), $\\hbar$ (constante de Planck reducida, $[M L^2 T^{-1}]$) y $c$ (velocidad de la luz, $[L T^{-1}]$). ¿Cuál es la combinación dimensional correcta $\\ell_P = G^\\alpha \\hbar^\\beta c^\\gamma$ que tiene dimensiones de longitud?",
+    "opciones": {
+      "a": "$\\alpha = 1/2,\\; \\beta = 1/2,\\; \\gamma = -3/2$",
+      "b": "$\\alpha = 1/2,\\; \\beta = 1/2,\\; \\gamma = -1/2$",
+      "c": "$\\alpha = 1/3,\\; \\beta = 1/3,\\; \\gamma = -1$",
+      "d": "$\\alpha = 1,\\; \\beta = 1/2,\\; \\gamma = -5/2$"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "Planteando $[G^\\alpha \\hbar^\\beta c^\\gamma] = [L]$: Sistema $M: -\\alpha + \\beta = 0$; $L: 3\\alpha + 2\\beta + \\gamma = 1$; $T: -2\\alpha - \\beta - \\gamma = 0$. De la primera: $\\alpha = \\beta$. Sumando la segunda y tercera: $\\alpha + \\beta = 1 \\Rightarrow \\alpha = \\beta = 1/2$. Sustituyendo: $3/2 + 1 + \\gamma = 1 \\Rightarrow \\gamma = -3/2$. Por tanto $\\ell_P = \\sqrt{G\\hbar/c^3} \\approx 1.6 \\times 10^{-35}$ m.",
+    "tipo": "texto"
+  }
+]

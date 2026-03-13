@@ -318,5 +318,165 @@
     },
     "respuesta_correcta": "b",
     "explicacion": "La perturbación eleva T_sal_cal en el intercambiador. La bifurcación envía esta señal al sensor, que genera T_medida ↑. El comparador calcula el error (SP − T_medida < 0). El controlador responde ajustando la señal de regulación, la válvula aumenta Q_frío y el intercambiador extrae más calor. La información viaja siempre a través del sensor y el comparador — nunca hay un atajo directo al controlador."
+  },
+  {
+    "id": "dg_ctrl_021",
+    "dificultad": 3,
+    "categoria": "Diagramas de bloques - bifurcación",
+    "pregunta": "La válvula de flujo frío se cierra parcialmente. Siguiendo el diagrama, ¿qué ocurre con T_sal_cal y cómo afecta esto a los dos procesos aguas abajo?",
+    "tipo": "mermaid",
+    "mermaid": "flowchart LR\n    VLV[Válvula frío] -->|Q_frío ↓| HX[Intercambiador]\n    HX -->|T_sal_cal| BF(( ))\n    BF -->|T_sal_cal| PA[Proceso A]\n    BF -->|T_sal_cal| PB[Proceso B]",
+    "opciones": {
+      "a": "T_sal_cal sube y solo Proceso A recibe fluido más caliente; Proceso B no se ve afectado",
+      "b": "T_sal_cal sube y ambos procesos reciben fluido más caliente simultáneamente",
+      "c": "T_sal_cal baja porque al entrar menos fluido frío hay menos intercambio de calor",
+      "d": "T_sal_cal sube pero la bifurcación divide el aumento: Proceso A recibe la mitad y Proceso B la otra mitad"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Menos Q_frío → menor extracción de calor → T_sal_cal sube. La bifurcación distribuye la misma señal (T_sal_cal ↑) a todas las ramas simultáneamente y sin dividir su valor. Ambos procesos reciben exactamente el mismo aumento de temperatura al mismo tiempo."
+  },
+  {
+    "id": "dg_ctrl_022",
+    "dificultad": 3,
+    "categoria": "Diagramas de bloques - sumador simple",
+    "pregunta": "El sistema está en estado estacionario. De repente, Q_entrada y Q_salida aumentan en la misma magnitud. ¿Qué ocurre con el flujo neto en el punto de suma y con el nivel del tanque?",
+    "tipo": "mermaid",
+    "mermaid": "flowchart LR\n    Q_in[Q_entrada ↑] -->|+| SUM((Σ))\n    Q_out[Q_salida ↑] -->|- | SUM\n    SUM -->|Flujo neto| TANK[Tanque]\n    TANK -->|Nivel L| OUT[Nivel]",
+    "opciones": {
+      "a": "Flujo neto aumenta porque Q_entrada sube; el nivel sube",
+      "b": "Flujo neto disminuye porque Q_salida sube; el nivel baja",
+      "c": "Flujo neto no cambia porque los aumentos se cancelan en el punto de suma; el nivel permanece igual",
+      "d": "El punto de suma no puede recibir dos cambios simultáneos; el resultado es indeterminado"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "Flujo neto = Q_entrada(+) − Q_salida(−). Si ambos aumentan en la misma magnitud, el incremento positivo y el negativo se cancelan exactamente en el punto de suma. El flujo neto no cambia y el nivel del tanque permanece igual."
+  },
+  {
+    "id": "dg_ctrl_023",
+    "dificultad": 3,
+    "categoria": "Diagramas de bloques - bifurcación",
+    "pregunta": "La temperatura del reactor sube. Según el diagrama de bloques, ¿qué ocurre con la velocidad de reacción y con la temperatura de salida del producto?",
+    "tipo": "mermaid",
+    "mermaid": "flowchart LR\n    REACT[Reactor] -->|T_reactor ↑| BF(( ))\n    BF -->|T_reactor| VEL[Velocidad de reacción]\n    BF -->|T_reactor| T_prod[T salida producto]",
+    "opciones": {
+      "a": "Solo la velocidad de reacción cambia; T_salida_producto es independiente de T_reactor",
+      "b": "Velocidad de reacción ↑ y T_salida_producto ↑ simultáneamente",
+      "c": "T_reactor se divide entre las dos ramas: velocidad recibe la mitad y T_salida_producto la otra mitad",
+      "d": "Velocidad de reacción ↑ pero T_salida_producto ↓ porque la reacción consume el calor"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "El punto de bifurcación distribuye T_reactor ↑ a ambas ramas con el mismo valor de forma simultánea. Mayor T_reactor implica mayor velocidad de reacción (cinética más rápida) y también que el producto sale del reactor a mayor temperatura. Ambas variables se ven afectadas al mismo tiempo."
+  },
+  {
+    "id": "dg_ctrl_024",
+    "dificultad": 3,
+    "categoria": "Diagramas de bloques - sumador simple",
+    "pregunta": "El Set Point baja mientras T_medida permanece constante. ¿Qué ocurre con la señal de error que sale del comparador?",
+    "tipo": "mermaid",
+    "mermaid": "flowchart LR\n    SP[Set Point ↓] -->|+| SUM((Σ))\n    T_med[T_medida] -->|- | SUM\n    SUM -->|Error| OUT[Señal de error]",
+    "opciones": {
+      "a": "El error aumenta (se vuelve más positivo) porque el Set Point cambió",
+      "b": "El error disminuye (se vuelve más negativo) porque SP < T_medida",
+      "c": "El error permanece igual porque T_medida no cambió",
+      "d": "El error se vuelve cero porque el comparador se reinicia cuando cambia el SP"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Error = SP − T_medida. Si SP baja y T_medida permanece constante, la diferencia SP − T_medida disminuye: el error se vuelve más negativo (o menos positivo). El comparador recalcula el error de inmediato al cambiar cualquiera de sus entradas."
+  },
+  {
+    "id": "dg_ctrl_025",
+    "dificultad": 3,
+    "categoria": "Diagramas de bloques - bifurcación",
+    "pregunta": "El flujo de entrada al tanque aumenta repentinamente. El nivel del tanque sube y desde un punto de bifurcación controla dos salidas por gravedad. ¿Qué ocurre con Q_salida_1 y Q_salida_2?",
+    "tipo": "mermaid",
+    "mermaid": "flowchart LR\n    Q_in[Q_entrada ↑] --> TANK[Tanque]\n    TANK -->|Nivel L ↑| BF(( ))\n    BF -->|Nivel L| Q_out1[Q_salida 1]\n    BF -->|Nivel L| Q_out2[Q_salida 2]",
+    "opciones": {
+      "a": "Q_salida_1 aumenta primero; Q_salida_2 aumenta después con un retardo",
+      "b": "Solo Q_salida_1 aumenta porque la bifurcación prioriza la primera rama",
+      "c": "Q_salida_1 y Q_salida_2 aumentan simultáneamente al recibir el mismo nivel elevado",
+      "d": "El nivel se divide entre las dos salidas: cada una recibe la mitad del aumento"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "La bifurcación distribuye la misma señal de nivel a ambas ramas al mismo tiempo. Un nivel más alto impulsa un mayor flujo de salida por gravedad en ambas líneas simultáneamente, con el mismo valor de nivel como entrada."
+  },
+  {
+    "id": "dg_ctrl_026",
+    "dificultad": 3,
+    "categoria": "Diagramas de bloques - identificación de elementos",
+    "pregunta": "En el diagrama se muestran dos tipos de nodos: uno con símbolo Σ y otro representado como un círculo sin etiqueta. ¿Cuál es la diferencia funcional entre ambos?",
+    "tipo": "mermaid",
+    "mermaid": "flowchart LR\n    Q_in[Q_entrada] -->|+| SUM((Σ))\n    Q_out[Q_salida] -->|- | SUM\n    SUM -->|Flujo neto| TANK[Tanque]\n    TANK -->|Nivel L| BF(( ))\n    BF -->|Nivel L| SENS[Sensor]\n    BF -->|Nivel L| IND[Indicador]",
+    "opciones": {
+      "a": "Σ recibe múltiples señales y produce una sola salida combinándolas; (( )) recibe una señal y la distribuye a múltiples salidas",
+      "b": "Σ distribuye señales a múltiples destinos; (( )) las combina en una sola",
+      "c": "Ambos son sumadores; la diferencia es que Σ suma y (( )) resta",
+      "d": "Σ se usa solo para señales de control; (( )) se usa solo para señales de proceso"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "El punto de suma (Σ) recibe dos o más señales con sus signos y produce una única señal resultado de combinarlas (suma algebraica). El punto de bifurcación (( )) recibe una sola señal y la distribuye idéntica a múltiples destinos sin modificarla. Son opuestos en estructura: N entradas → 1 salida vs 1 entrada → N salidas."
+  },
+  {
+    "id": "dg_ctrl_027",
+    "dificultad": 3,
+    "categoria": "Diagramas de bloques - bifurcación",
+    "pregunta": "Una válvula de vapor alimenta en paralelo a dos intercambiadores. La señal Q_vapor se bifurca hacia ambos. Si la válvula se cierra parcialmente, ¿qué ocurre con las temperaturas de salida de cada intercambiador?",
+    "tipo": "mermaid",
+    "mermaid": "flowchart LR\n    VLV[Válvula vapor] -->|Q_vapor ↓| BF(( ))\n    BF -->|Q_vapor| HX1[Intercambiador 1]\n    BF -->|Q_vapor| HX2[Intercambiador 2]\n    HX1 -->|T_sal_1| OUT1[Proceso 1]\n    HX2 -->|T_sal_2| OUT2[Proceso 2]",
+    "opciones": {
+      "a": "T_sal_1 baja pero T_sal_2 no cambia porque la bifurcación protege la segunda rama",
+      "b": "T_sal_1 y T_sal_2 bajan simultáneamente porque ambos intercambiadores reciben menos vapor",
+      "c": "T_sal_1 baja más que T_sal_2 porque el Intercambiador 1 está primero en el diagrama",
+      "d": "Ninguna temperatura cambia porque la válvula no afecta la bifurcación"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "La bifurcación distribuye la misma señal Q_vapor ↓ a ambos intercambiadores simultáneamente. Menos vapor en HX1 → menos calor transferido → T_sal_1 baja. Igual para HX2 → T_sal_2 baja. Ambas temperaturas bajan al mismo tiempo porque los dos intercambiadores reciben el mismo Q_vapor reducido."
+  },
+  {
+    "id": "dg_ctrl_028",
+    "dificultad": 3,
+    "categoria": "Diagramas de bloques - sumador simple",
+    "pregunta": "En un mezclador, Q_A aumenta en la misma magnitud en que Q_B disminuye. ¿Qué ocurre con Q_total en el punto de suma?",
+    "tipo": "mermaid",
+    "mermaid": "flowchart LR\n    Q_A[Q_alimentación A ↑] -->|+| SUM((Σ))\n    Q_B[Q_alimentación B ↓] -->|+| SUM\n    SUM -->|Q_total| MIX[Mezclador]\n    MIX -->|Mezcla| OUT[Salida]",
+    "opciones": {
+      "a": "Q_total aumenta porque Q_A sube",
+      "b": "Q_total disminuye porque Q_B baja",
+      "c": "Q_total no cambia porque el aumento de Q_A cancela la disminución de Q_B en el punto de suma",
+      "d": "Q_total aumenta el doble porque hay dos cambios simultáneos"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "Q_total = Q_A + Q_B. Si Q_A sube en ΔQ y Q_B baja en ΔQ: Q_total = (Q_A + ΔQ) + (Q_B − ΔQ) = Q_A + Q_B. Los cambios se cancelan exactamente en el punto de suma y Q_total permanece igual."
+  },
+  {
+    "id": "dg_ctrl_029",
+    "dificultad": 3,
+    "categoria": "Diagramas de bloques - bifurcación",
+    "pregunta": "T_sal_cal sale del intercambiador y se bifurca hacia un sensor de temperatura y hacia la línea de entrega al proceso. T_sal_cal baja por una reducción en Q_vapor. ¿Qué valores muestran el sensor y la línea de entrega?",
+    "tipo": "mermaid",
+    "mermaid": "flowchart LR\n    HX[Intercambiador] -->|T_sal_cal ↓| BF(( ))\n    BF -->|T_sal_cal| SENS[Sensor]\n    BF -->|T_sal_cal| PROD[Entrega al proceso]\n    SENS -->|T_medida| IND[Indicador]",
+    "opciones": {
+      "a": "El sensor detecta la caída de temperatura pero la entrega al proceso mantiene el valor anterior",
+      "b": "Tanto el sensor como la entrega al proceso reflejan el mismo valor reducido de T_sal_cal",
+      "c": "La caída de T_sal_cal se divide: el sensor recibe la mitad de la caída y la entrega la otra mitad",
+      "d": "El indicador muestra la temperatura correcta pero la entrega al proceso no cambia porque está después de la bifurcación"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "La bifurcación distribuye el mismo valor de T_sal_cal a todas sus ramas sin modificarlo. Si T_sal_cal baja, tanto el sensor como la línea de entrega al proceso reciben exactamente el mismo valor reducido de forma simultánea. El indicador mostrará la temperatura disminuida y el proceso recibirá el fluido más frío."
+  },
+  {
+    "id": "dg_ctrl_030",
+    "dificultad": 3,
+    "categoria": "Diagramas de bloques - sumador simple",
+    "pregunta": "El sistema está en estado estacionario (flujo neto = 0). Una perturbación reduce Q_salida mientras Q_entrada permanece constante. ¿Qué ocurre con el flujo neto y el nivel del tanque?",
+    "tipo": "mermaid",
+    "mermaid": "flowchart LR\n    Q_in[Q_entrada] -->|+| SUM((Σ))\n    Q_out[Q_salida ↓] -->|- | SUM\n    SUM -->|Flujo neto| TANK[Tanque]\n    TANK -->|Nivel L| OUT[Nivel]",
+    "opciones": {
+      "a": "Flujo neto permanece en cero porque Q_entrada no cambió; el nivel no varía",
+      "b": "Flujo neto se vuelve negativo porque Q_salida bajó; el nivel baja",
+      "c": "Flujo neto se vuelve positivo porque el término negativo (Q_salida) disminuyó; el nivel sube",
+      "d": "Flujo neto se vuelve positivo porque Q_entrada ahora domina; el nivel sube"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "Flujo neto = Q_entrada − Q_salida. Si Q_salida disminuye mientras Q_entrada es constante, el término que se resta es menor: flujo neto = Q_entrada − Q_salida_menor > 0. El flujo neto se vuelve positivo y el nivel del tanque sube. La opción d dice lo mismo pero por la razón incorrecta: no es que Q_entrada 'domine', sino que el término negativo se redujo."
   }
 ]
