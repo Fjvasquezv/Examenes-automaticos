@@ -47,7 +47,8 @@
   "bancos_preguntas": [
     "data/bancos/Introduccion/Paradigmas_historia_IQ.json",
     "data/bancos/Introduccion/Plan_estudios_universidad.json",
-    "data/bancos/Introduccion/Analisis_dimensional.json"
+    "data/bancos/Introduccion/Analisis_dimensional.json",
+    "data/bancos/Introduccion/Factores_de_conversion.json"
   ],
   "bancos_por_tema": {
     "Paradigmas e historia de la IQ": [
@@ -58,6 +59,9 @@
     ],
     "Análisis dimensional": [
       "data/bancos/Introduccion/Analisis_dimensional.json"
+    ],
+    "Factores de conversión": [
+      "data/bancos/Introduccion/Factores_de_conversion.json"
     ]
   }
 }
