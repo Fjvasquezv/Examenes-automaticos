@@ -19,7 +19,7 @@
     "preguntas_minimas": 35,
     "preguntas_maximas": 50,
     "nivel_inicial": 3,
-    "umbral_estabilizacion": 0.2,
+    "umbral_estabilizacion": 2.5,
     "ventana_estabilizacion": 3,
     "ventana_estabilizacion_dinamica": true,
     "proporcion_ventana_estabilizacion": 0.45,
