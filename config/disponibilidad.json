@@ -49,14 +49,14 @@
         {
             "nombre": "QUIZZ 1 - Control",
             "examen_config": "Control/quizz_1.json",
-            "inicio": "2026-02-26 20:15",
-            "fin": "2026-02-26 21:45"
+            "inicio": "2026-03-25 17:00",
+            "fin": "2026-03-26 18:15"
         },
         {
             "nombre": "Parcial 1 - Control",
             "examen_config": "Control/parcial_1.json",
-            "inicio": "2026-03-12 19:00",
-            "fin": "2026-03-12 22:00"
+            "inicio": "2026-03-27 17:00",
+            "fin": "2026-03-27 18:30"
         },
         {
             "nombre": "Parcial 1 - Optimización",
