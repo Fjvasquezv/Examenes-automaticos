@@ -6,8 +6,12 @@ import random
 import math
 from typing import Dict, Any, Optional
 
-from question_manager import QuestionManager
-from scoring_systems import crear_sistema_calificacion
+try:
+    from .question_manager import QuestionManager
+    from .scoring_systems import crear_sistema_calificacion
+except ImportError:
+    from question_manager import QuestionManager
+    from scoring_systems import crear_sistema_calificacion
 
 
 class ExamLogic:

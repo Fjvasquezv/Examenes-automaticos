@@ -4,7 +4,6 @@ Orquestador Principal
 """
 import streamlit as st
 import streamlit.components.v1 as st_components
-import sys
 from pathlib import Path
 from datetime import datetime
 from zoneinfo import ZoneInfo
@@ -14,25 +13,36 @@ import re
 import subprocess
 import time
 
-# Agregar AMBOS directorios al path
-base = Path(__file__).parent
-sys.path.insert(0, str(base / "src"))
-sys.path.insert(0, str(base / "utils"))
-
-# Importar SIN prefijos
-from config_loader import ConfigLoader
-from question_manager import QuestionManager
-from exam_logic import ExamLogic
-from ui_components import UIComponents
-from exam_security import (
-    get_security_policy,
-    render_security_banner,
-    apply_client_hardening,
-    render_focus_counter_sentinel,
-)
-from src.data_persistence import DataPersistence
-from validators import validate_codigo_estudiante
-from exam_logger import ExamLogger
+# Imports robustos para ejecución local y en Streamlit Cloud.
+try:
+    from src.config_loader import ConfigLoader
+    from src.question_manager import QuestionManager
+    from src.exam_logic import ExamLogic
+    from src.ui_components import UIComponents
+    from src.exam_security import (
+        get_security_policy,
+        render_security_banner,
+        apply_client_hardening,
+        render_focus_counter_sentinel,
+    )
+    from src.data_persistence import DataPersistence
+    from utils.validators import validate_codigo_estudiante
+    from utils.exam_logger import ExamLogger
+except ModuleNotFoundError:
+    # Compatibilidad con ejecución donde src/ y utils/ están en PYTHONPATH.
+    from config_loader import ConfigLoader
+    from question_manager import QuestionManager
+    from exam_logic import ExamLogic
+    from ui_components import UIComponents
+    from exam_security import (
+        get_security_policy,
+        render_security_banner,
+        apply_client_hardening,
+        render_focus_counter_sentinel,
+    )
+    from data_persistence import DataPersistence
+    from validators import validate_codigo_estudiante
+    from exam_logger import ExamLogger
 
 
 def _serializar_estado_exam_logic(exam_logic) -> str:

@@ -22,13 +22,17 @@
     "umbral_estabilizacion": 0.2,
     "ventana_estabilizacion": 3,
     "distribucion_temas": {
-      "minimo_por_tema": 6,
-      "max_proporcion_tema": 0.4,
+      "minimo_por_tema": 2,
+      "max_proporcion_tema": 0.35,
       "pesos": {
-        "Código binario": 1.0,
-        "Operaciones binarias": 1.1,
-        "Empaquetado y desempaquetado": 1.0,
-        "Punto flotante completo": 1.2
+        "Bit y byte": 0.7,
+        "Sistema binario": 0.7,
+        "Conversión binario-decimal": 1.0,
+        "Conversión decimal-binario": 1.0,
+        "Enteros sin signo": 0.9,
+        "Operaciones bit a bit": 1.2,
+        "Empaquetado de datos": 1.1,
+        "Punto flotante": 1.4
       }
     }
   },
@@ -46,20 +50,32 @@
     "spreadsheet_id": "11LgtY-p59UKYCYY0GwZHCLN--KbZEPZb8poZJTEbyys"
   },
   "bancos_preguntas": [
-    "data/bancos/Programacion/CodBinario.json"
+    "data/bancos/Programacion/Fundamentos_binarios/Fundamentos_binarios.json"
   ],
   "bancos_por_tema": {
-    "Código binario": [
-      "data/bancos/Programacion/CodBinario.json"
+    "Bit y byte": [
+      "data/bancos/Programacion/Fundamentos_binarios/Fundamentos_binarios.json"
     ],
-    "Operaciones binarias": [
-      "data/bancos/Programacion/CodBinario.json"
+    "Sistema binario": [
+      "data/bancos/Programacion/Fundamentos_binarios/Fundamentos_binarios.json"
     ],
-    "Empaquetado y desempaquetado": [
-      "data/bancos/Programacion/CodBinario.json"
+    "Conversión binario-decimal": [
+      "data/bancos/Programacion/Fundamentos_binarios/Fundamentos_binarios.json"
     ],
-    "Punto flotante completo": [
-      "data/bancos/Programacion/CodBinario.json"
+    "Conversión decimal-binario": [
+      "data/bancos/Programacion/Fundamentos_binarios/Fundamentos_binarios.json"
+    ],
+    "Enteros sin signo": [
+      "data/bancos/Programacion/Fundamentos_binarios/Fundamentos_binarios.json"
+    ],
+    "Operaciones bit a bit": [
+      "data/bancos/Programacion/Fundamentos_binarios/Fundamentos_binarios.json"
+    ],
+    "Empaquetado de datos": [
+      "data/bancos/Programacion/Fundamentos_binarios/Fundamentos_binarios.json"
+    ],
+    "Punto flotante": [
+      "data/bancos/Programacion/Fundamentos_binarios/Fundamentos_binarios.json"
     ]
   }
 }
