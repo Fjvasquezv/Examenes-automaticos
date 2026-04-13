@@ -24,6 +24,12 @@ from config_loader import ConfigLoader
 from question_manager import QuestionManager
 from exam_logic import ExamLogic
 from ui_components import UIComponents
+from exam_security import (
+    get_security_policy,
+    render_security_banner,
+    apply_client_hardening,
+    render_focus_counter_sentinel,
+)
 from src.data_persistence import DataPersistence
 from validators import validate_codigo_estudiante
 from exam_logger import ExamLogger
@@ -1428,6 +1434,7 @@ def main():
         
         # Inicializar componentes
         ui = UIComponents(config)
+        security_policy = get_security_policy(config)
         
         # Verificar que hay suficientes preguntas
         total_preguntas = len(question_manager.preguntas)
@@ -1441,11 +1448,11 @@ def main():
         
         # Flujo principal
         if not st.session_state.exam_started:
-            mostrar_pantalla_inicio(config, ui)
+            mostrar_pantalla_inicio(config, ui, security_policy)
         elif st.session_state.exam_finished:
             mostrar_resultados(config, ui)
         else:
-            ejecutar_examen(config, question_manager, ui)
+            ejecutar_examen(config, question_manager, ui, security_policy)
             
     except FileNotFoundError as e:
         _log_evento_operacion(base_path, "error_archivo", f"Archivo no encontrado: {str(e)}", examen_id=str(config.get('_examen_id', '')) if isinstance(config, dict) else "")
@@ -1535,11 +1542,12 @@ def verificar_disponibilidad():
     return False, None, mensaje, periodos
 
 
-def mostrar_pantalla_inicio(config, ui):
+def mostrar_pantalla_inicio(config, ui, security_policy):
     """Muestra la pantalla de inicio del examen"""
     
     # Mostrar instrucciones
     ui.mostrar_instrucciones()
+    render_security_banner(security_policy)
     
     st.markdown("<hr style='margin: 10px 0;'>", unsafe_allow_html=True)
     st.markdown("##### 📝 Comencemos por tú código (ARCA)")
@@ -1621,8 +1629,79 @@ def mostrar_pantalla_inicio(config, ui):
             - ✅ Calificación basada en IRT
             """)
 
-def ejecutar_examen(config, question_manager, ui):
+def _manejar_umbral_foco(config: dict, security_policy: dict, focus_count: int) -> None:
+    """
+    Registra nuevas perdidas de foco en el log y, si se supera el umbral
+    configurado, registra la alerta en Sheets y detiene el examen.
+    """
+    if not security_policy.get("habilitado", True):
+        return
+    if not security_policy.get("detectar_perdida_foco", True):
+        return
+
+    prev = int(st.session_state.get('_sec_fl_prev_logged', 0))
+    if focus_count > prev:
+        delta = focus_count - prev
+        st.session_state['_sec_fl_prev_logged'] = focus_count
+        _log_evento_operacion(
+            Path(__file__).parent,
+            "perdida_foco",
+            f"Cambios de foco detectados: +{delta} (total={focus_count})",
+            codigo=st.session_state.get('codigo_estudiante', ''),
+            examen_id=str(config.get('_examen_id', '')),
+            extra={"focus_losses": focus_count, "delta": delta},
+        )
+
+    max_perm = int(security_policy.get("max_perdidas_foco_permitidas", 0))
+    if max_perm > 0 and focus_count >= max_perm:
+        _log_evento_operacion(
+            Path(__file__).parent,
+            "alerta_seguridad",
+            f"Umbral de perdidas de foco superado: {focus_count}/{max_perm}",
+            codigo=st.session_state.get('codigo_estudiante', ''),
+            examen_id=str(config.get('_examen_id', '')),
+            extra={"focus_losses": focus_count, "max": max_perm},
+        )
+        try:
+            persistence = DataPersistence(config)
+            persistence.registrar_alerta_seguridad(
+                st.session_state.get('codigo_estudiante', ''),
+                "max_perdidas_foco",
+                f"focus_losses={focus_count},max_permitidas={max_perm}",
+            )
+        except Exception:
+            pass
+
+        st.error(
+            f"🚨 Se detectaron {focus_count} cambios de pestaña/foco "
+            f"(máximo permitido: {max_perm}). "
+            "El intento ha sido marcado para revisión docente. "
+            "No puedes continuar este examen."
+        )
+        st.warning("Si crees que es un error, comunícate con tu docente.")
+        st.stop()
+
+
+def ejecutar_examen(config, question_manager, ui, security_policy):
     """Ejecuta la lógica del examen"""
+
+    codigo = str(st.session_state.get("codigo_estudiante") or "")
+    apply_client_hardening(security_policy, codigo_estudiante=codigo)
+    focus_count = render_focus_counter_sentinel(security_policy)
+    _manejar_umbral_foco(config, security_policy, focus_count)
+
+    if 'security_policy_logged' not in st.session_state:
+        st.session_state.security_policy_logged = False
+    if not st.session_state.security_policy_logged:
+        _log_evento_operacion(
+            Path(__file__).parent,
+            "seguridad_cliente",
+            "Politica de hardening cliente aplicada",
+            codigo=st.session_state.get('codigo_estudiante', ''),
+            examen_id=str(config.get('_examen_id', '')),
+            extra={"policy": security_policy}
+        )
+        st.session_state.security_policy_logged = True
     
     # Inicializar lógica del examen si es necesario
     if 'exam_logic' not in st.session_state:

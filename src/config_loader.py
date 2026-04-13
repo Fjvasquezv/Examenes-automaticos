@@ -30,6 +30,7 @@ class ConfigLoader:
     # Claves opcionales con sub-claves esperadas
     OPTIONAL_KEYS = {
         'descripcion': ['texto', 'temas'],
+        'seguridad_cliente': [],
     }
     
     def __init__(self, base_path: Path = None):
@@ -190,6 +191,52 @@ class ConfigLoader:
         # Validar método de persistencia
         if config['persistencia']['metodo'] != 'google_sheets':
             raise ValueError("método de persistencia debe ser 'google_sheets'")
+
+        # Validar seguridad de cliente (opcional)
+        if 'seguridad_cliente' in config:
+            sec = config['seguridad_cliente']
+            if not isinstance(sec, dict):
+                raise ValueError("seguridad_cliente debe ser un objeto JSON")
+
+            bool_keys = [
+                'habilitado',
+                'fullscreen_obligatorio',
+                'bloquear_copiar_pegar',
+                'bloquear_menu_contexto',
+                'bloquear_seleccion_texto',
+                'bloquear_atajos_comunes',
+                'detectar_perdida_foco',
+                'advertir_salida_pestana',
+            ]
+            for key in bool_keys:
+                if key in sec and not isinstance(sec[key], bool):
+                    raise ValueError(f"seguridad_cliente.{key} debe ser booleano")
+
+            if 'mensaje_disuasion' in sec and not isinstance(sec['mensaje_disuasion'], str):
+                raise ValueError("seguridad_cliente.mensaje_disuasion debe ser string")
+
+            if 'max_alertas_en_pantalla' in sec:
+                try:
+                    max_alertas = int(sec['max_alertas_en_pantalla'])
+                except Exception:
+                    raise ValueError("seguridad_cliente.max_alertas_en_pantalla debe ser entero")
+                if not (1 <= max_alertas <= 10):
+                    raise ValueError("seguridad_cliente.max_alertas_en_pantalla debe estar entre 1 y 10")
+
+            _PERFILES_VALIDOS = {'sin_restricciones', 'quiz', 'parcial', 'supletorio'}
+            if 'perfil' in sec:
+                if str(sec['perfil']) not in _PERFILES_VALIDOS:
+                    raise ValueError(
+                        f"seguridad_cliente.perfil debe ser uno de: {', '.join(sorted(_PERFILES_VALIDOS))}"
+                    )
+
+            if 'max_perdidas_foco_permitidas' in sec:
+                try:
+                    max_fl = int(sec['max_perdidas_foco_permitidas'])
+                except Exception:
+                    raise ValueError("seguridad_cliente.max_perdidas_foco_permitidas debe ser entero")
+                if max_fl < 0:
+                    raise ValueError("seguridad_cliente.max_perdidas_foco_permitidas debe ser >= 0")
     
     def crear_template_config(self, output_file: str = "config/examenes/examen_template.json") -> None:
         """

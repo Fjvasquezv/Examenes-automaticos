@@ -26,6 +26,9 @@
       }
     }
   },
+  "seguridad_cliente": {
+    "perfil": "sin_restricciones"
+  },
   "sistema_calificacion": {
     "tipo": "irt_simplificado",
     "parametros": {

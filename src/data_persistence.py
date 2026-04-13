@@ -20,10 +20,11 @@ class DataPersistence:
     """Clase para manejar la persistencia en Google Sheets"""
 
     COLUMNA_ESTADO = 14
+    COLUMNA_ALERTA_SEG = 19   # columna T (nueva — alerta de seguridad)
     COLUMNA_AUTORIZADO_CONTINUAR = 16
     COLUMNA_ESTADO_JSON = 17
     COLUMNA_CLAVES_RESPUESTAS = 18
-    RANGO_DATOS = 'A:S'
+    RANGO_DATOS = 'A:T'
     MAX_REINTENTOS_API = 5
     RETRY_BASE_SECONDS = 0.4
     MIN_INTERVALO_REQUEST_SECONDS = 0.20
@@ -769,6 +770,51 @@ class DataPersistence:
             return salida
         except Exception:
             return []
+
+    def registrar_alerta_seguridad(self, codigo_estudiante: str, tipo: str, detalle: str) -> bool:
+        """
+        Escribe una alerta de seguridad en la columna T de la fila EN_CURSO
+        del estudiante para que el docente la vea en la hoja de resultados.
+        No cambia el estado del intento; el bloqueo se gestiona via st.stop()
+        en el frontend y via Autorizado_Continuar=NO en caso de reingreso.
+        """
+        try:
+            result = self._ejecutar_con_reintentos(
+                self.service.spreadsheets().values().get(
+                    spreadsheetId=self.spreadsheet_id,
+                    range=f'{self.nombre_hoja}!{self.RANGO_DATOS}'
+                ), "registrar_alerta_seguridad"
+            )
+            values = result.get('values', [])
+
+            fila_objetivo = None
+            for i in range(len(values) - 1, 0, -1):
+                row = values[i]
+                if len(row) > self.COLUMNA_ESTADO and len(row) > 1:
+                    if row[1] == codigo_estudiante and row[self.COLUMNA_ESTADO] == 'EN_CURSO':
+                        fila_objetivo = i + 1
+                        break
+
+            if not fila_objetivo:
+                return False
+
+            from datetime import datetime
+            from zoneinfo import ZoneInfo
+            ts = datetime.now(ZoneInfo("America/Bogota")).strftime("%Y-%m-%d %H:%M:%S")
+            alerta_texto = f"[{ts}][{tipo}] {detalle}"
+
+            body = {'values': [[alerta_texto]], 'majorDimension': 'ROWS'}
+            self._ejecutar_con_reintentos(
+                self.service.spreadsheets().values().update(
+                    spreadsheetId=self.spreadsheet_id,
+                    range=f'{self.nombre_hoja}!T{fila_objetivo}',
+                    valueInputOption='RAW',
+                    body=body
+                ), "registrar_alerta_seguridad"
+            )
+            return True
+        except Exception:
+            return False
 
     def autorizar_continuacion(self, codigo_estudiante: str, autorizar: bool = True) -> bool:
         """

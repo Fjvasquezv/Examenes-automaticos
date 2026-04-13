@@ -21,6 +21,9 @@
     "umbral_estabilizacion": 0.2,
     "ventana_estabilizacion": 3
   },
+  "seguridad_cliente": {
+    "perfil": "quiz"
+  },
   "sistema_calificacion": {
     "tipo": "irt_simplificado",
     "parametros": {

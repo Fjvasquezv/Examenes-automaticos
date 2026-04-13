@@ -1,0 +1,1502 @@
+[
+  {
+    "id": "FUNDBINARIO_001",
+    "dificultad": 1,
+    "categoria": "Bit y byte",
+    "pregunta": "¿Cuántos valores distintos puede representar una cadena de 4 bits?",
+    "opciones": {
+      "a": "4",
+      "b": "8",
+      "c": "16",
+      "d": "32"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "Con 4 bits hay 2⁴ = 16 combinaciones posibles, desde 0000 hasta 1111. En general, con n bits se pueden representar 2ⁿ valores distintos.",
+    "tipo": "texto"
+  },
+  {
+    "id": "FUNDBINARIO_002",
+    "dificultad": 1,
+    "categoria": "Sistema binario",
+    "pregunta": "¿Por qué las computadoras usan el sistema binario en lugar del decimal?",
+    "opciones": {
+      "a": "Porque sus dos estados (0 y 1) se corresponden naturalmente con señales eléctricas de apagado y encendido",
+      "b": "Porque los números binarios ocupan menos espacio en memoria",
+      "c": "Porque los cálculos en binario son más rápidos que en decimal",
+      "d": "Porque el sistema binario puede representar más números que el decimal"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "El hardware digital trabaja con transistores que solo tienen dos estados estables: conducen o no conducen. Esos dos estados se mapean directamente a 0 y 1, haciendo que el binario sea la representación natural para los circuitos.",
+    "tipo": "texto"
+  },
+  {
+    "id": "FUNDBINARIO_003",
+    "dificultad": 1,
+    "categoria": "Bit y byte",
+    "pregunta": "¿Cuántos bits se necesitan para representar exactamente 8 valores distintos?",
+    "opciones": {
+      "a": "2",
+      "b": "3",
+      "c": "4",
+      "d": "8"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "2³ = 8, así que 3 bits generan exactamente 8 combinaciones: 000, 001, 010, 011, 100, 101, 110 y 111. Con 2 bits solo habría 4 y con 4 bits habría 16.",
+    "tipo": "texto"
+  },
+  {
+    "id": "FUNDBINARIO_004",
+    "dificultad": 1,
+    "categoria": "Sistema binario",
+    "pregunta": "En el número binario 1011, ¿cuál es el valor posicional (peso) del bit más a la izquierda?",
+    "opciones": {
+      "a": "1",
+      "b": "2",
+      "c": "4",
+      "d": "8"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "En binario, las posiciones se numeran de derecha a izquierda empezando en 0. El bit más a la izquierda de un número de 4 bits está en la posición 3, cuyo peso es 2³ = 8.",
+    "tipo": "texto"
+  },
+  {
+    "id": "FUNDBINARIO_005",
+    "dificultad": 1,
+    "categoria": "Bit y byte",
+    "pregunta": "¿Cuántos bytes ocupa un valor almacenado en 16 bits?",
+    "opciones": {
+      "a": "1",
+      "b": "2",
+      "c": "4",
+      "d": "16"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Un byte son 8 bits. Por lo tanto 16 bits = 16 ÷ 8 = 2 bytes.",
+    "tipo": "texto"
+  },
+  {
+    "id": "FUNDBINARIO_006",
+    "dificultad": 2,
+    "categoria": "Conversión binario-decimal",
+    "pregunta": "¿Cuál es el valor decimal de 10110 en binario?",
+    "opciones": {
+      "a": "22",
+      "b": "18",
+      "c": "26",
+      "d": "20"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "10110 = 1×16 + 0×8 + 1×4 + 1×2 + 0×1 = 16 + 4 + 2 = 22.",
+    "tipo": "texto"
+  },
+  {
+    "id": "FUNDBINARIO_007",
+    "dificultad": 2,
+    "categoria": "Conversión decimal-binario",
+    "pregunta": "¿Cuál es la representación binaria del número decimal 13?",
+    "opciones": {
+      "a": "1001",
+      "b": "1011",
+      "c": "1110",
+      "d": "1101"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "13 = 8 + 4 + 1 → posiciones 3, 2 y 0 activas → 1101. Verificación: 13 ÷ 2 = 6 r1, 6 ÷ 2 = 3 r0, 3 ÷ 2 = 1 r1, 1 ÷ 2 = 0 r1 → leyendo restos de abajo arriba: 1101.",
+    "tipo": "texto"
+  },
+  {
+    "id": "FUNDBINARIO_008",
+    "dificultad": 2,
+    "categoria": "Conversión binario-decimal",
+    "pregunta": "¿Cuál es el valor decimal de 1001 en binario?",
+    "opciones": {
+      "a": "9",
+      "b": "5",
+      "c": "11",
+      "d": "7"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "1001 = 1×8 + 0×4 + 0×2 + 1×1 = 8 + 1 = 9.",
+    "tipo": "texto"
+  },
+  {
+    "id": "FUNDBINARIO_009",
+    "dificultad": 2,
+    "categoria": "Conversión decimal-binario",
+    "pregunta": "¿Cuál es la representación binaria del número decimal 20?",
+    "opciones": {
+      "a": "10100",
+      "b": "10010",
+      "c": "10110",
+      "d": "10001"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "20 = 16 + 4 → posiciones 4 y 2 activas → 10100. Verificación: 1×16 + 0×8 + 1×4 + 0×2 + 0×1 = 20.",
+    "tipo": "texto"
+  },
+  {
+    "id": "FUNDBINARIO_010",
+    "dificultad": 2,
+    "categoria": "Sistema binario",
+    "pregunta": "¿Cuántos números distintos se pueden representar con exactamente 6 bits?",
+    "opciones": {
+      "a": "32",
+      "b": "36",
+      "c": "48",
+      "d": "64"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "Con 6 bits hay 2⁶ = 64 combinaciones posibles, desde 000000 (0) hasta 111111 (63).",
+    "tipo": "texto"
+  },
+  {
+    "id": "FUNDBINARIO_011",
+    "dificultad": 3,
+    "categoria": "Conversión decimal-binario",
+    "pregunta": "¿Cuál es la representación binaria del número decimal 53?",
+    "opciones": {
+      "a": "110101",
+      "b": "101101",
+      "c": "100111",
+      "d": "110011"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "53 = 32 + 16 + 4 + 1 → posiciones 5, 4, 2 y 0 activas → 110101. Verificación: 1×32 + 1×16 + 0×8 + 1×4 + 0×2 + 1×1 = 53.",
+    "tipo": "texto"
+  },
+  {
+    "id": "FUNDBINARIO_012",
+    "dificultad": 3,
+    "categoria": "Conversión binario-decimal",
+    "pregunta": "¿Cuál es el valor decimal de 11001010 en binario?",
+    "opciones": {
+      "a": "198",
+      "b": "194",
+      "c": "206",
+      "d": "202"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "11001010 = 1×128 + 1×64 + 0×32 + 0×16 + 1×8 + 0×4 + 1×2 + 0×1 = 128 + 64 + 8 + 2 = 202.",
+    "tipo": "texto"
+  },
+  {
+    "id": "FUNDBINARIO_013",
+    "dificultad": 3,
+    "categoria": "Enteros sin signo",
+    "pregunta": "Con 5 bits sin signo, ¿cuál es el número más grande que se puede representar?",
+    "opciones": {
+      "a": "31",
+      "b": "16",
+      "c": "32",
+      "d": "63"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "Con 5 bits se generan 2⁵ = 32 valores, que van de 0 a 31. El máximo es 11111 en binario = 16+8+4+2+1 = 31. El 32 es la cantidad de valores, no el valor máximo.",
+    "tipo": "texto"
+  },
+  {
+    "id": "FUNDBINARIO_014",
+    "dificultad": 3,
+    "categoria": "Conversión decimal-binario",
+    "pregunta": "¿Cuál es la representación en 8 bits del número decimal 75?",
+    "opciones": {
+      "a": "01001101",
+      "b": "01001011",
+      "c": "01010011",
+      "d": "01001001"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "75 = 64 + 8 + 2 + 1 → posiciones 6, 3, 1 y 0 activas → 01001011. Verificación: 64+8+2+1 = 75.",
+    "tipo": "texto"
+  },
+  {
+    "id": "FUNDBINARIO_015",
+    "dificultad": 3,
+    "categoria": "Conversión binario-decimal",
+    "pregunta": "¿Cuál es el valor decimal de 101101 en binario?",
+    "opciones": {
+      "a": "45",
+      "b": "41",
+      "c": "47",
+      "d": "43"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "101101 = 1×32 + 0×16 + 1×8 + 1×4 + 0×2 + 1×1 = 32 + 8 + 4 + 1 = 45.",
+    "tipo": "texto"
+  },
+  {
+    "id": "FUNDBINARIO_016",
+    "dificultad": 4,
+    "categoria": "Enteros sin signo",
+    "pregunta": "Un sistema usa 8 bits sin signo para un contador. Si el contador está en 255 y se le suma 1, ¿qué valor queda almacenado?",
+    "opciones": {
+      "a": "256",
+      "b": "255",
+      "c": "-1",
+      "d": "0"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "255 en binario es 11111111. Al sumar 1 el resultado sería 100000000, que requiere 9 bits. El 9° bit no cabe en el registro y se descarta, dejando 00000000 = 0. Este fenómeno se llama desbordamiento (overflow).",
+    "tipo": "texto"
+  },
+  {
+    "id": "FUNDBINARIO_017",
+    "dificultad": 4,
+    "categoria": "Enteros sin signo",
+    "pregunta": "¿Cuántos bits se necesitan como mínimo para almacenar sin signo el número decimal 200?",
+    "opciones": {
+      "a": "6",
+      "b": "7",
+      "c": "9",
+      "d": "8"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "Con 7 bits el máximo representable es 2⁷ − 1 = 127, insuficiente para 200. Con 8 bits el máximo es 2⁸ − 1 = 255, que sí alcanza para almacenar 200.",
+    "tipo": "texto"
+  },
+  {
+    "id": "FUNDBINARIO_018",
+    "dificultad": 4,
+    "categoria": "Conversión decimal-binario",
+    "pregunta": "¿Cuál es la representación en 8 bits del número decimal 173?",
+    "opciones": {
+      "a": "10101100",
+      "b": "10110101",
+      "c": "10100111",
+      "d": "10101101"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "173 = 128 + 32 + 8 + 4 + 1 → posiciones 7, 5, 3, 2 y 0 activas → 10101101. Verificación: 128+32+8+4+1 = 173.",
+    "tipo": "texto"
+  },
+  {
+    "id": "FUNDBINARIO_019",
+    "dificultad": 4,
+    "categoria": "Enteros sin signo",
+    "pregunta": "Un registro de 4 bits almacena el patrón 1111. ¿Cuál es su valor decimal interpretado como entero sin signo?",
+    "opciones": {
+      "a": "15",
+      "b": "8",
+      "c": "16",
+      "d": "14"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "1111 = 1×8 + 1×4 + 1×2 + 1×1 = 8+4+2+1 = 15. Este es el valor máximo posible en 4 bits sin signo (2⁴ − 1).",
+    "tipo": "texto"
+  },
+  {
+    "id": "FUNDBINARIO_020",
+    "dificultad": 4,
+    "categoria": "Conversión binario-decimal",
+    "pregunta": "¿Cuál es el valor decimal de 10111011 en binario?",
+    "opciones": {
+      "a": "183",
+      "b": "185",
+      "c": "187",
+      "d": "189"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "10111011 = 1×128 + 0×64 + 1×32 + 1×16 + 1×8 + 0×4 + 1×2 + 1×1 = 128+32+16+8+2+1 = 187.",
+    "tipo": "texto"
+  },
+  {
+    "id": "FUNDBINARIO_021",
+    "dificultad": 5,
+    "categoria": "Enteros sin signo",
+    "pregunta": "El número decimal 37 se almacena en 8 bits. Si se invierten todos sus bits, ¿cuál es el valor decimal del patrón resultante?",
+    "opciones": {
+      "a": "217",
+      "b": "218",
+      "c": "219",
+      "d": "220"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "37 en 8 bits = 00100101. Invertido bit a bit → 11011010 = 128+64+16+8+2 = 218. Atajo: invertir todos los bits de N en 8 bits siempre da 255 − N, y 255 − 37 = 218.",
+    "tipo": "texto"
+  },
+  {
+    "id": "FUNDBINARIO_022",
+    "dificultad": 5,
+    "categoria": "Enteros sin signo",
+    "pregunta": "Un registro de 8 bits sin signo contiene el valor 200. Se le suman 100. ¿Cuál es el valor almacenado después de la operación?",
+    "opciones": {
+      "a": "300",
+      "b": "45",
+      "c": "44",
+      "d": "100"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "200 + 100 = 300. En binario, 300 = 100101100 (9 bits). El bit de mayor peso se descarta al no caber en 8 bits: queda 00101100 = 32+8+4 = 44. También puede calcularse como 300 − 256 = 44.",
+    "tipo": "texto"
+  },
+  {
+    "id": "FUNDBINARIO_023",
+    "dificultad": 5,
+    "categoria": "Sistema binario",
+    "pregunta": "¿Cuántos números pares distintos se pueden representar con exactamente 4 bits sin signo?",
+    "opciones": {
+      "a": "4",
+      "b": "7",
+      "c": "8",
+      "d": "9"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "Los 16 valores de 4 bits van de 0 a 15. Los pares son: 0, 2, 4, 6, 8, 10, 12 y 14, en total 8 valores. Un número binario es par si y solo si su bit menos significativo (el de más a la derecha) es 0.",
+    "tipo": "texto"
+  },
+  {
+    "id": "FUNDBINARIO_024",
+    "dificultad": 5,
+    "categoria": "Enteros sin signo",
+    "pregunta": "Se quiere almacenar el resultado de sumar 100 + 75 en un registro de 7 bits sin signo. ¿Qué ocurre?",
+    "opciones": {
+      "a": "Se almacena correctamente como 1010111",
+      "b": "Hay overflow y se almacena el valor 47",
+      "c": "Hay overflow y se almacena el valor 0",
+      "d": "El sistema rechaza la operación automáticamente"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "100 + 75 = 175. El máximo en 7 bits sin signo es 2⁷ − 1 = 127. Como 175 > 127 hay overflow: se descarta el bit de mayor peso y el resultado es 175 − 128 = 47.",
+    "tipo": "texto"
+  },
+  {
+    "id": "FUNDBINARIO_025",
+    "dificultad": 5,
+    "categoria": "Enteros sin signo",
+    "pregunta": "¿Cuántos bits se necesitan como mínimo para representar sin signo el número decimal 1000?",
+    "opciones": {
+      "a": "8",
+      "b": "9",
+      "c": "11",
+      "d": "10"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "Con 9 bits el máximo es 2⁹ − 1 = 511, insuficiente para 1000. Con 10 bits el máximo es 2¹⁰ − 1 = 1023, que sí alcanza. Por lo tanto se necesitan al menos 10 bits.",
+    "tipo": "texto"
+  },
+  {
+    "id": "FUNDBINARIO_026",
+    "dificultad": 1,
+    "categoria": "Operaciones bit a bit",
+    "pregunta": "¿Cuándo produce un 1 la operación AND entre dos bits?",
+    "opciones": {
+      "a": "Cuando al menos uno de los dos bits es 1",
+      "b": "Cuando los dos bits son distintos",
+      "c": "Cuando ambos bits son 1",
+      "d": "Siempre produce 1"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "AND es una operación que solo devuelve 1 cuando los dos bits de entrada son 1. Si alguno es 0, el resultado es 0. Tabla: 0 AND 0 = 0, 0 AND 1 = 0, 1 AND 0 = 0, 1 AND 1 = 1.",
+    "tipo": "texto"
+  },
+  {
+    "id": "FUNDBINARIO_027",
+    "dificultad": 1,
+    "categoria": "Operaciones bit a bit",
+    "pregunta": "¿Cuándo produce un 1 la operación OR entre dos bits?",
+    "opciones": {
+      "a": "Solo cuando ambos bits son 1",
+      "b": "Cuando al menos uno de los dos bits es 1",
+      "c": "Cuando los dos bits son distintos",
+      "d": "Solo cuando el primer bit es 1"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "OR devuelve 1 si al menos uno de los bits es 1. Solo devuelve 0 cuando ambos son 0. Tabla: 0 OR 0 = 0, 0 OR 1 = 1, 1 OR 0 = 1, 1 OR 1 = 1.",
+    "tipo": "texto"
+  },
+  {
+    "id": "FUNDBINARIO_028",
+    "dificultad": 1,
+    "categoria": "Operaciones bit a bit",
+    "pregunta": "¿Qué hace la operación NOT aplicada a un bit?",
+    "opciones": {
+      "a": "Lo multiplica por -1",
+      "b": "Lo desplaza una posición a la izquierda",
+      "c": "Lo fuerza siempre a 0",
+      "d": "Invierte su valor: 0 pasa a ser 1 y 1 pasa a ser 0"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "NOT es la operación de negación o inversión: cambia cada 0 por 1 y cada 1 por 0. Aplicado a un número completo, invierte todos sus bits simultáneamente.",
+    "tipo": "texto"
+  },
+  {
+    "id": "FUNDBINARIO_029",
+    "dificultad": 1,
+    "categoria": "Operaciones bit a bit",
+    "pregunta": "¿Cuándo produce un 1 la operación XOR entre dos bits?",
+    "opciones": {
+      "a": "Cuando ambos bits son 1",
+      "b": "Cuando los dos bits son distintos",
+      "c": "Cuando los dos bits son iguales",
+      "d": "Cuando el primer bit es mayor que el segundo"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "XOR (OR exclusivo) devuelve 1 solo cuando los bits son diferentes entre sí. Si son iguales (ambos 0 o ambos 1) el resultado es 0. Tabla: 0 XOR 0 = 0, 0 XOR 1 = 1, 1 XOR 0 = 1, 1 XOR 1 = 0.",
+    "tipo": "texto"
+  },
+  {
+    "id": "FUNDBINARIO_030",
+    "dificultad": 1,
+    "categoria": "Operaciones bit a bit",
+    "pregunta": "¿Cuál es el resultado de aplicar AND entre el bit 1 y el bit 0?",
+    "opciones": {
+      "a": "1",
+      "b": "0",
+      "c": "-1",
+      "d": "Depende del orden en que se apliquen"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "AND requiere que ambos bits sean 1 para dar 1. Como uno de los bits es 0, el resultado es 0. AND es además conmutativo: 1 AND 0 = 0 AND 1 = 0.",
+    "tipo": "texto"
+  },
+  {
+    "id": "FUNDBINARIO_031",
+    "dificultad": 2,
+    "categoria": "Operaciones bit a bit",
+    "pregunta": "¿Cuál es el resultado de 1100 AND 1010?",
+    "opciones": {
+      "a": "1110",
+      "b": "1000",
+      "c": "0110",
+      "d": "0010"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "AND se aplica bit a bit: 1&1=1, 1&0=0, 0&1=0, 0&0=0 → 1000. Solo queda un 1 donde ambos patrones tenían 1 en la misma posición.",
+    "tipo": "texto"
+  },
+  {
+    "id": "FUNDBINARIO_032",
+    "dificultad": 2,
+    "categoria": "Operaciones bit a bit",
+    "pregunta": "¿Cuál es el resultado de 1100 OR 1010?",
+    "opciones": {
+      "a": "1000",
+      "b": "0110",
+      "c": "1110",
+      "d": "1010"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "OR se aplica bit a bit: 1|1=1, 1|0=1, 0|1=1, 0|0=0 → 1110. Queda un 1 en toda posición donde al menos uno de los dos patrones tenía un 1.",
+    "tipo": "texto"
+  },
+  {
+    "id": "FUNDBINARIO_033",
+    "dificultad": 2,
+    "categoria": "Operaciones bit a bit",
+    "pregunta": "¿Cuál es el resultado de 1100 XOR 1010?",
+    "opciones": {
+      "a": "1110",
+      "b": "1000",
+      "c": "0110",
+      "d": "0010"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "XOR se aplica bit a bit: 1^1=0, 1^0=1, 0^1=1, 0^0=0 → 0110. Queda un 1 solo donde los bits de ambos patrones son diferentes.",
+    "tipo": "texto"
+  },
+  {
+    "id": "FUNDBINARIO_034",
+    "dificultad": 2,
+    "categoria": "Operaciones bit a bit",
+    "pregunta": "¿Cuál es el resultado de aplicar NOT al patrón 1010 en 4 bits?",
+    "opciones": {
+      "a": "1111",
+      "b": "0000",
+      "c": "1010",
+      "d": "0101"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "NOT invierte cada bit individualmente: NOT(1)=0, NOT(0)=1, NOT(1)=0, NOT(0)=1 → 0101.",
+    "tipo": "texto"
+  },
+  {
+    "id": "FUNDBINARIO_035",
+    "dificultad": 2,
+    "categoria": "Operaciones bit a bit",
+    "pregunta": "¿Cuál es el resultado de desplazar 1 posición a la izquierda el patrón 0011 en 4 bits?",
+    "opciones": {
+      "a": "0001",
+      "b": "0110",
+      "c": "1100",
+      "d": "0111"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Un desplazamiento a la izquierda mueve todos los bits una posición hacia la izquierda. El bit más a la izquierda (0) sale y se descarta; por la derecha entra un 0. 0011 → 0110.",
+    "tipo": "texto"
+  },
+  {
+    "id": "FUNDBINARIO_036",
+    "dificultad": 3,
+    "categoria": "Operaciones bit a bit",
+    "pregunta": "El número decimal 5 (00000101 en 8 bits) se desplaza 2 posiciones a la izquierda. ¿Cuál es el resultado decimal?",
+    "opciones": {
+      "a": "20",
+      "b": "10",
+      "c": "25",
+      "d": "15"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "00000101 desplazado 2 a la izquierda → 00010100 = 16+4 = 20. Cada posición de desplazamiento a la izquierda multiplica el valor por 2, así que 2 posiciones equivalen a multiplicar por 4: 5 × 4 = 20.",
+    "tipo": "texto"
+  },
+  {
+    "id": "FUNDBINARIO_037",
+    "dificultad": 3,
+    "categoria": "Operaciones bit a bit",
+    "pregunta": "El número decimal 24 (00011000 en 8 bits) se desplaza 3 posiciones a la derecha. ¿Cuál es el resultado decimal?",
+    "opciones": {
+      "a": "2",
+      "b": "3",
+      "c": "4",
+      "d": "6"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "00011000 desplazado 3 a la derecha → 00000011 = 2+1 = 3. Cada posición de desplazamiento a la derecha divide el valor entre 2 (descartando el resto), así que 3 posiciones dividen por 8: 24 ÷ 8 = 3.",
+    "tipo": "texto"
+  },
+  {
+    "id": "FUNDBINARIO_038",
+    "dificultad": 3,
+    "categoria": "Operaciones bit a bit",
+    "pregunta": "¿Cuál es el resultado de aplicar XOR entre un número y sí mismo?",
+    "opciones": {
+      "a": "El doble del número",
+      "b": "El número sin cambios",
+      "c": "1",
+      "d": "0"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "Cuando un número hace XOR consigo mismo, cada bit compara con su igual: 0^0=0 y 1^1=0. Todos los bits del resultado son 0. Por ejemplo: 1011 XOR 1011 = 0000.",
+    "tipo": "texto"
+  },
+  {
+    "id": "FUNDBINARIO_039",
+    "dificultad": 3,
+    "categoria": "Operaciones bit a bit",
+    "pregunta": "Un desplazamiento a la izquierda de 3 posiciones equivale a multiplicar el número por:",
+    "opciones": {
+      "a": "3",
+      "b": "6",
+      "c": "8",
+      "d": "16"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "Cada posición de desplazamiento a la izquierda multiplica por 2. Tres posiciones equivalen a multiplicar por 2³ = 8. En general, desplazar n posiciones a la izquierda multiplica por 2ⁿ.",
+    "tipo": "texto"
+  },
+  {
+    "id": "FUNDBINARIO_040",
+    "dificultad": 3,
+    "categoria": "Operaciones bit a bit",
+    "pregunta": "Se aplica NOT al número 10000001 en 8 bits. ¿Cuál es el valor decimal del resultado?",
+    "opciones": {
+      "a": "126",
+      "b": "124",
+      "c": "127",
+      "d": "125"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "NOT 10000001 invierte todos los bits → 01111110 = 64+32+16+8+4+2 = 126. Atajo: NOT de N en 8 bits siempre es 255 − N, y 255 − 129 = 126 (ya que 10000001 = 128+1 = 129).",
+    "tipo": "texto"
+  },
+  {
+    "id": "FUNDBINARIO_041",
+    "dificultad": 4,
+    "categoria": "Operaciones bit a bit",
+    "pregunta": "Se quiere obtener solo los 4 bits menos significativos del número 10110111 en 8 bits, forzando los 4 superiores a 0. ¿Qué operación logra esto?",
+    "opciones": {
+      "a": "10110111 OR 00001111",
+      "b": "10110111 AND 11110000",
+      "c": "10110111 XOR 11110000",
+      "d": "10110111 AND 00001111"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "AND con 00001111 conserva los 4 bits inferiores tal como están (X AND 1 = X) y fuerza los 4 superiores a 0 (X AND 0 = 0). Resultado: 00000111. Este patrón de bits usado para aislar campos se llama máscara.",
+    "tipo": "texto"
+  },
+  {
+    "id": "FUNDBINARIO_042",
+    "dificultad": 4,
+    "categoria": "Operaciones bit a bit",
+    "pregunta": "Se quiere activar (poner en 1) el bit en la posición 3 (contando desde 0 a la derecha) del número 00000010, sin modificar los demás bits. ¿Qué operación se aplica?",
+    "opciones": {
+      "a": "AND con 00001000",
+      "b": "OR con 11110111",
+      "c": "OR con 00001000",
+      "d": "XOR con 11110111"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "OR con un patrón que tiene 1 en la posición deseada activa ese bit sin tocar los demás: X OR 1 = 1, X OR 0 = X. La posición 3 tiene peso 2³ = 8 = 00001000. Resultado: 00001010.",
+    "tipo": "texto"
+  },
+  {
+    "id": "FUNDBINARIO_043",
+    "dificultad": 4,
+    "categoria": "Operaciones bit a bit",
+    "pregunta": "¿Qué operación permite cambiar el estado de un bit específico sin importar su valor actual (si era 0 lo pone en 1, y si era 1 lo pone en 0)?",
+    "opciones": {
+      "a": "AND",
+      "b": "OR",
+      "c": "NOT",
+      "d": "XOR"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "XOR con 1 siempre invierte el bit: 0 XOR 1 = 1 y 1 XOR 1 = 0. Los demás bits no se tocan si se hace XOR con 0: X XOR 0 = X. Esto lo hace la operación ideal para alternar un bit específico.",
+    "tipo": "texto"
+  },
+  {
+    "id": "FUNDBINARIO_044",
+    "dificultad": 4,
+    "categoria": "Operaciones bit a bit",
+    "pregunta": "Se quiere forzar a 0 el bit en la posición 2 del número 11111111 en 8 bits, sin modificar los demás. ¿Con qué patrón se hace AND?",
+    "opciones": {
+      "a": "AND con 11111011",
+      "b": "AND con 00000100",
+      "c": "OR con 11111011",
+      "d": "AND con 11110011"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "Para forzar a 0 un bit con AND, se usa un patrón con 0 en esa posición y 1 en todas las demás: X AND 0 = 0 y X AND 1 = X. La posición 2 tiene peso 4 = 00000100, así que el patrón es 11111011.",
+    "tipo": "texto"
+  },
+  {
+    "id": "FUNDBINARIO_045",
+    "dificultad": 4,
+    "categoria": "Operaciones bit a bit",
+    "pregunta": "El número 00000111 (decimal 7) se desplaza 2 posiciones a la derecha. ¿Qué valor decimal queda y qué ocurre con los bits desplazados?",
+    "opciones": {
+      "a": "Queda 3, sin pérdida de información",
+      "b": "Queda 2, los bits desplazados se guardan temporalmente",
+      "c": "Queda 1, los bits desplazados se pierden",
+      "d": "Queda 4, los bits se rotan al otro extremo"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "00000111 >> 2 → 00000001 = 1. Los dos bits menos significativos (11 = valor 3) salen por la derecha y se descartan permanentemente. Un desplazamiento a la derecha de 2 equivale a división entera entre 4: 7 ÷ 4 = 1 (resto 3, que se pierde).",
+    "tipo": "texto"
+  },
+  {
+    "id": "FUNDBINARIO_046",
+    "dificultad": 5,
+    "categoria": "Operaciones bit a bit",
+    "pregunta": "Al número 10101100 en 8 bits se le aplica AND con 00111111 y al resultado se le aplica un desplazamiento de 2 posiciones a la derecha. ¿Cuál es el valor decimal final?",
+    "opciones": {
+      "a": "8",
+      "b": "11",
+      "c": "14",
+      "d": "22"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Paso 1: 10101100 AND 00111111 = 00101100 = 44. Paso 2: 44 >> 2 → 00001011 = 8+2+1 = 11. El AND elimina los dos bits superiores y el desplazamiento divide entre 4.",
+    "tipo": "texto"
+  },
+  {
+    "id": "FUNDBINARIO_047",
+    "dificultad": 5,
+    "categoria": "Operaciones bit a bit",
+    "pregunta": "Si X = 01101001 y se calcula X XOR 11111111, ¿cuál es el valor decimal del resultado?",
+    "opciones": {
+      "a": "148",
+      "b": "149",
+      "c": "150",
+      "d": "151"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "XOR con 11111111 invierte todos los bits: 01101001 → 10010110 = 128+16+4+2 = 150. Esto equivale a aplicar NOT al número. Atajo: 255 − 105 = 150, donde 01101001 = 64+32+8+1 = 105.",
+    "tipo": "texto"
+  },
+  {
+    "id": "FUNDBINARIO_048",
+    "dificultad": 5,
+    "categoria": "Operaciones bit a bit",
+    "pregunta": "El número 10110000 en 8 bits se desplaza 2 posiciones a la izquierda. ¿Cuál es el resultado en 8 bits?",
+    "opciones": {
+      "a": "11000000",
+      "b": "00101100",
+      "c": "10110000",
+      "d": "11001100"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "Al desplazar 2 a la izquierda, los dos bits más significativos (10) salen y se pierden. El resto se mueve dos posiciones a la izquierda y entran dos ceros por la derecha: 10110000 → 11000000. Los bits que no caben en el registro se descartan.",
+    "tipo": "texto"
+  },
+  {
+    "id": "FUNDBINARIO_049",
+    "dificultad": 5,
+    "categoria": "Operaciones bit a bit",
+    "pregunta": "¿Cuál es el resultado decimal de (10011001 OR 00100100) AND 01111111?",
+    "opciones": {
+      "a": "57",
+      "b": "59",
+      "c": "61",
+      "d": "63"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "Paso 1: 10011001 OR 00100100 = 10111101 = 189. Paso 2: 10111101 AND 01111111 = 00111101 = 32+16+8+4+1 = 61. El AND con 01111111 borra el bit más significativo (128), convirtiendo 189 en 61.",
+    "tipo": "texto"
+  },
+  {
+    "id": "FUNDBINARIO_050",
+    "dificultad": 5,
+    "categoria": "Operaciones bit a bit",
+    "pregunta": "Un registro de 8 bits almacena el valor decimal 200. Se aplica un desplazamiento de 2 posiciones a la derecha. ¿Cuál es el resultado decimal?",
+    "opciones": {
+      "a": "48",
+      "b": "50",
+      "c": "52",
+      "d": "100"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "200 = 11001000. Desplazado 2 a la derecha → 00110010 = 32+16+2 = 50. Equivale a dividir entre 4: 200 ÷ 4 = 50. Los dos bits que salen por la derecha (00) no aportan información en este caso.",
+    "tipo": "texto"
+  },
+  {
+    "id": "FUNDBINARIO_051",
+    "dificultad": 1,
+    "categoria": "Empaquetado de datos",
+    "pregunta": "¿Cuál es el propósito principal de empaquetar varios valores en un mismo número binario?",
+    "opciones": {
+      "a": "Hacer los cálculos aritméticos más rápidos",
+      "b": "Almacenar múltiples valores en menos espacio aprovechando todos los bits disponibles",
+      "c": "Facilitar la conversión entre sistemas numéricos",
+      "d": "Evitar el overflow en operaciones aritméticas"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Empaquetar datos permite almacenar varios valores pequeños dentro de un mismo número, usando grupos de bits para cada uno. Esto ahorra memoria cuando los valores son pequeños y no necesitan un byte o un entero entero cada uno.",
+    "tipo": "texto"
+  },
+  {
+    "id": "FUNDBINARIO_052",
+    "dificultad": 1,
+    "categoria": "Empaquetado de datos",
+    "pregunta": "En el contexto del empaquetado de datos, ¿qué es un campo?",
+    "opciones": {
+      "a": "Una operación que combina dos registros con OR",
+      "b": "El bit más significativo de un número",
+      "c": "El resultado de aplicar AND a un byte",
+      "d": "Un grupo de bits consecutivos dentro de un número que almacena un valor específico"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "Un campo es una región de bits delimitada dentro de un número más grande. Por ejemplo, en un byte se puede definir que los bits 0-3 forman el campo 'color' y los bits 4-7 forman el campo 'tamaño', cada uno representando su propio valor.",
+    "tipo": "texto"
+  },
+  {
+    "id": "FUNDBINARIO_053",
+    "dificultad": 1,
+    "categoria": "Empaquetado de datos",
+    "pregunta": "Un byte se divide en dos campos iguales de 4 bits. ¿Cuántos valores distintos puede representar cada campo?",
+    "opciones": {
+      "a": "16",
+      "b": "8",
+      "c": "4",
+      "d": "32"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "Con 4 bits se pueden representar 2⁴ = 16 valores distintos, desde 0000 (0) hasta 1111 (15). Dividir el byte en dos campos de 4 bits permite almacenar dos números independientes, cada uno entre 0 y 15.",
+    "tipo": "texto"
+  },
+  {
+    "id": "FUNDBINARIO_054",
+    "dificultad": 1,
+    "categoria": "Empaquetado de datos",
+    "pregunta": "¿Qué operación se usa para insertar un campo ya posicionado en un registro sin alterar los demás bits?",
+    "opciones": {
+      "a": "NOT",
+      "b": "AND",
+      "c": "OR",
+      "d": "XOR"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "OR activa bits sin afectar los que ya están en 1 ni los que están en 0 en otras posiciones: X OR 0 = X (no toca los demás bits) y X OR 1 = 1 (activa el bit deseado). Por eso es la operación para insertar un campo sobre un fondo de ceros.",
+    "tipo": "texto"
+  },
+  {
+    "id": "FUNDBINARIO_055",
+    "dificultad": 1,
+    "categoria": "Empaquetado de datos",
+    "pregunta": "Al extraer un campo almacenado en los bits 4 a 6 de un registro, ¿cuál es el primer paso?",
+    "opciones": {
+      "a": "Aplicar AND con 11111111 al registro",
+      "b": "Aplicar NOT al registro completo",
+      "c": "Multiplicar el registro por 16",
+      "d": "Desplazar el registro a la derecha 4 posiciones para alinear el campo con los bits menos significativos"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "Para extraer un campo, primero se desplaza el registro a la derecha tantas posiciones como la posición inicial del campo (en este caso 4), llevando el campo a los bits 0-2. Luego se aplica AND con una máscara que aísla esos bits inferiores y descarta el resto.",
+    "tipo": "texto"
+  },
+  {
+    "id": "FUNDBINARIO_056",
+    "dificultad": 2,
+    "categoria": "Empaquetado de datos",
+    "pregunta": "¿Cuál es el valor decimal del campo almacenado en los 3 bits menos significativos del número 10110101?",
+    "opciones": {
+      "a": "7",
+      "b": "4",
+      "c": "5",
+      "d": "6"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "Los 3 bits menos significativos se extraen con AND 00000111: 10110101 AND 00000111 = 00000101 = 4+1 = 5. No se necesita desplazamiento porque el campo ya está en las posiciones 0-2.",
+    "tipo": "texto"
+  },
+  {
+    "id": "FUNDBINARIO_057",
+    "dificultad": 2,
+    "categoria": "Empaquetado de datos",
+    "pregunta": "¿Qué patrón se usa como máscara para extraer exactamente los 4 bits menos significativos de un byte, descartando los 4 superiores?",
+    "opciones": {
+      "a": "11110000",
+      "b": "00001111",
+      "c": "11111111",
+      "d": "11111100"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "La máscara 00001111 tiene 1s en las posiciones 0-3 y 0s en las posiciones 4-7. Al hacer AND: los bits 0-3 se conservan (X AND 1 = X) y los bits 4-7 se borran (X AND 0 = 0).",
+    "tipo": "texto"
+  },
+  {
+    "id": "FUNDBINARIO_058",
+    "dificultad": 2,
+    "categoria": "Empaquetado de datos",
+    "pregunta": "Se quiere almacenar el valor 3 (binario: 011) en los bits 0-2 de un registro de 8 bits vacío (00000000). ¿Cuál es el resultado?",
+    "opciones": {
+      "a": "00000111",
+      "b": "00000110",
+      "c": "00001100",
+      "d": "00000011"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "El valor 3 en binario es 011. Como va en los bits 0-2 (la posición más baja), no necesita desplazamiento: 3 << 0 = 3 = 00000011. El registro resultante es 00000011.",
+    "tipo": "texto"
+  },
+  {
+    "id": "FUNDBINARIO_059",
+    "dificultad": 2,
+    "categoria": "Empaquetado de datos",
+    "pregunta": "Del número 01100101, se extraen los 4 bits más significativos (bits 4-7). ¿Cuál es su valor decimal?",
+    "opciones": {
+      "a": "5",
+      "b": "6",
+      "c": "3",
+      "d": "7"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Se desplaza 4 posiciones a la derecha: 01100101 >> 4 = 00000110 = 4+2 = 6. Los 4 bits superiores del original (0110) corresponden al valor 6.",
+    "tipo": "texto"
+  },
+  {
+    "id": "FUNDBINARIO_060",
+    "dificultad": 2,
+    "categoria": "Empaquetado de datos",
+    "pregunta": "Se quiere colocar el valor 5 (binario: 101) en los bits 3-5 de un registro vacío. ¿Cuál es el resultado decimal del registro?",
+    "opciones": {
+      "a": "40",
+      "b": "5",
+      "c": "15",
+      "d": "160"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "Para colocar 5 en los bits 3-5, se desplaza a la izquierda 3 posiciones: 5 << 3 = 101000 = 32+8 = 40. El registro queda como 00101000 = 40.",
+    "tipo": "texto"
+  },
+  {
+    "id": "FUNDBINARIO_061",
+    "dificultad": 3,
+    "categoria": "Empaquetado de datos",
+    "pregunta": "Se extrae el campo en los bits 3-5 del número 10110110. Primero se desplaza 3 posiciones a la derecha y luego se aplica AND con 00000111. ¿Cuál es el valor decimal del campo?",
+    "opciones": {
+      "a": "4",
+      "b": "3",
+      "c": "5",
+      "d": "6"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "Paso 1: 10110110 >> 3 = 00010110 = 22. Paso 2: 22 AND 7 = 00010110 AND 00000111 = 00000110 = 6. Los bits 3-5 del original (110) representan el valor 6 en ese campo de 3 bits.",
+    "tipo": "texto"
+  },
+  {
+    "id": "FUNDBINARIO_062",
+    "dificultad": 3,
+    "categoria": "Empaquetado de datos",
+    "pregunta": "Se empacan dos valores en un byte vacío: A=2 en los bits 0-2 y B=5 en los bits 3-5. ¿Cuál es el valor decimal del byte resultante?",
+    "opciones": {
+      "a": "7",
+      "b": "40",
+      "c": "42",
+      "d": "34"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "A=2 en bits 0-2: 2 << 0 = 00000010. B=5 en bits 3-5: 5 << 3 = 00101000 = 40. Combinados con OR: 00000010 OR 00101000 = 00101010 = 32+8+2 = 42.",
+    "tipo": "texto"
+  },
+  {
+    "id": "FUNDBINARIO_063",
+    "dificultad": 3,
+    "categoria": "Empaquetado de datos",
+    "pregunta": "¿Qué máscara se debe usar para aislar el campo ubicado en los bits 2, 3 y 4 de un byte?",
+    "opciones": {
+      "a": "00011100",
+      "b": "00000111",
+      "c": "00111000",
+      "d": "11000011"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "Las posiciones 2, 3 y 4 tienen pesos 4, 8 y 16 respectivamente. La máscara debe tener 1s exactamente en esas posiciones: 4+8+16 = 28 = 00011100.",
+    "tipo": "texto"
+  },
+  {
+    "id": "FUNDBINARIO_064",
+    "dificultad": 3,
+    "categoria": "Empaquetado de datos",
+    "pregunta": "Un registro almacena un color: bits 0-2 = azul, bits 3-5 = verde, bits 6-7 = rojo. El registro contiene 11010110. ¿Cuál es el valor decimal del campo verde (bits 3-5)?",
+    "opciones": {
+      "a": "5",
+      "b": "2",
+      "c": "6",
+      "d": "3"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Para extraer verde (bits 3-5): 11010110 >> 3 = 00011010 = 26. Luego 26 AND 7 = 00000010 = 2. Los bits 3-5 del original son 010, que representan el valor 2.",
+    "tipo": "texto"
+  },
+  {
+    "id": "FUNDBINARIO_065",
+    "dificultad": 3,
+    "categoria": "Empaquetado de datos",
+    "pregunta": "Se quiere insertar el valor 6 (110) en los bits 4-6 del registro 00001011. Primero se limpia el campo y luego se inserta. ¿Cuál es el valor decimal del resultado?",
+    "opciones": {
+      "a": "96",
+      "b": "11",
+      "c": "107",
+      "d": "59"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "Los bits 4-6 ya están en 0, así que limpiarlos no cambia nada. Se posiciona 6: 6 << 4 = 01100000 = 96. Se inserta con OR: 00001011 OR 01100000 = 01101011 = 64+32+8+2+1 = 107.",
+    "tipo": "texto"
+  },
+  {
+    "id": "FUNDBINARIO_066",
+    "dificultad": 4,
+    "categoria": "Empaquetado de datos",
+    "pregunta": "El registro 10110100 almacena dos campos: A en bits 0-3 y B en bits 4-7. ¿Cuál es el valor decimal del campo A?",
+    "opciones": {
+      "a": "4",
+      "b": "11",
+      "c": "7",
+      "d": "13"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "Campo A (bits 0-3): 10110100 AND 00001111 = 00000100 = 4. Los bits 0-3 del registro son 0100, que en su campo representan el valor 4.",
+    "tipo": "texto"
+  },
+  {
+    "id": "FUNDBINARIO_067",
+    "dificultad": 4,
+    "categoria": "Empaquetado de datos",
+    "pregunta": "Del mismo registro 10110100 con A en bits 0-3 y B en bits 4-7, ¿cuál es el valor decimal del campo B?",
+    "opciones": {
+      "a": "7",
+      "b": "4",
+      "c": "13",
+      "d": "11"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "Campo B (bits 4-7): 10110100 >> 4 = 00001011 = 8+2+1 = 11. Los bits 4-7 del registro son 1011, que representan el valor 11.",
+    "tipo": "texto"
+  },
+  {
+    "id": "FUNDBINARIO_068",
+    "dificultad": 4,
+    "categoria": "Empaquetado de datos",
+    "pregunta": "Se quiere actualizar el campo A (bits 0-3) del registro 10110100 con el nuevo valor 9 (1001), conservando el campo B intacto. ¿Cuál es el resultado decimal?",
+    "opciones": {
+      "a": "10110100 (180)",
+      "b": "10111001 (185)",
+      "c": "10101001 (169)",
+      "d": "11000001 (193)"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Paso 1 — limpiar bits 0-3: 10110100 AND 11110000 = 10110000 (176). Paso 2 — insertar 9: 10110000 OR 00001001 = 10111001 = 128+32+16+8+1 = 185. El campo B (1011) queda intacto.",
+    "tipo": "texto"
+  },
+  {
+    "id": "FUNDBINARIO_069",
+    "dificultad": 4,
+    "categoria": "Empaquetado de datos",
+    "pregunta": "¿Cuántos valores distintos puede almacenar un campo de 3 bits dentro de un empaquetado?",
+    "opciones": {
+      "a": "3",
+      "b": "6",
+      "c": "8",
+      "d": "16"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "Un campo de 3 bits puede representar 2³ = 8 valores distintos, del 0 (000) al 7 (111). Este rango es independiente de en qué posición del registro esté ubicado el campo.",
+    "tipo": "texto"
+  },
+  {
+    "id": "FUNDBINARIO_070",
+    "dificultad": 4,
+    "categoria": "Empaquetado de datos",
+    "pregunta": "Se empacan en un byte: tipo=3 (0011) en bits 4-7 y valor=7 (0111) en bits 0-3. ¿Cuál es el byte resultante en decimal?",
+    "opciones": {
+      "a": "10",
+      "b": "37",
+      "c": "43",
+      "d": "55"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "tipo=3 en bits 4-7: 3 << 4 = 00110000 = 48. valor=7 en bits 0-3: 7 = 00000111. OR: 00110000 OR 00000111 = 00110111 = 32+16+4+2+1 = 55.",
+    "tipo": "texto"
+  },
+  {
+    "id": "FUNDBINARIO_071",
+    "dificultad": 5,
+    "categoria": "Empaquetado de datos",
+    "pregunta": "Un protocolo usa un byte así: bits 7-6 = versión (2 bits), bits 5-3 = tipo (3 bits), bits 2-0 = longitud (3 bits). El byte recibido es 10101101. ¿Cuál es el valor decimal del campo tipo?",
+    "opciones": {
+      "a": "4",
+      "b": "3",
+      "c": "5",
+      "d": "6"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "Campo tipo (bits 3-5): 10101101 >> 3 = 00010101 = 21. Luego 21 AND 7 = 5. Los bits 3-5 del original son 101 = 5.",
+    "tipo": "texto"
+  },
+  {
+    "id": "FUNDBINARIO_072",
+    "dificultad": 5,
+    "categoria": "Empaquetado de datos",
+    "pregunta": "Del mismo byte 10101101 (versión en bits 7-6, tipo en bits 5-3, longitud en bits 2-0), ¿cuál es el valor decimal del campo versión?",
+    "opciones": {
+      "a": "2",
+      "b": "3",
+      "c": "1",
+      "d": "0"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "Campo versión (bits 6-7): 10101101 >> 6 = 00000010 = 2. Luego 2 AND 3 (00000011) = 2. Los bits 6-7 del original son 10, que en ese campo de 2 bits representan el valor 2.",
+    "tipo": "texto"
+  },
+  {
+    "id": "FUNDBINARIO_073",
+    "dificultad": 5,
+    "categoria": "Empaquetado de datos",
+    "pregunta": "El registro 00110101 tiene un campo de 3 bits en las posiciones 2-4. Se extrae ese campo, se le suma 1 y se reinserta. ¿Cuál es el valor decimal del registro resultante?",
+    "opciones": {
+      "a": "45",
+      "b": "57",
+      "c": "61",
+      "d": "49"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Extraer bits 2-4: 00110101 >> 2 = 00001101 = 13; 13 AND 7 = 5 (campo actual). Nuevo valor: 5+1 = 6. Limpiar bits 2-4: 00110101 AND 11100011 = 00100001 = 33. Insertar 6: 6 << 2 = 00011000 = 24. Resultado: 33 OR 24 = 00111001 = 32+16+8+1 = 57.",
+    "tipo": "texto"
+  },
+  {
+    "id": "FUNDBINARIO_074",
+    "dificultad": 5,
+    "categoria": "Empaquetado de datos",
+    "pregunta": "El byte 11001011 empaqueta: estado (1 bit, posición 7), modo (3 bits, posiciones 4-6) y código (4 bits, posiciones 0-3). ¿Cuál es el valor decimal del campo modo?",
+    "opciones": {
+      "a": "5",
+      "b": "7",
+      "c": "3",
+      "d": "4"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "Campo modo (bits 4-6): 11001011 >> 4 = 00001100 = 12. Luego 12 AND 7 = 4. Los bits 4-6 del original son 100, que en ese campo de 3 bits representan el valor 4.",
+    "tipo": "texto"
+  },
+  {
+    "id": "FUNDBINARIO_075",
+    "dificultad": 5,
+    "categoria": "Empaquetado de datos",
+    "pregunta": "Un sensor empaqueta en un byte: temperatura (4 bits, posiciones 4-7) y humedad (4 bits, posiciones 0-3). El byte actual es 01110101. Se actualiza solo la temperatura al valor 9 (1001). ¿Cuál es el nuevo byte en decimal?",
+    "opciones": {
+      "a": "149",
+      "b": "157",
+      "c": "141",
+      "d": "133"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "Humedad actual (bits 0-3): 01110101 AND 00001111 = 5 (se conserva). Limpiar bits 4-7: 01110101 AND 00001111 = 00000101 = 5. Insertar temperatura 9: 9 << 4 = 10010000 = 144. Resultado: 5 OR 144 = 00000101 OR 10010000 = 10010101 = 128+16+4+1 = 149.",
+    "tipo": "texto"
+  },
+  {
+    "id": "FUNDBINARIO_076",
+    "dificultad": 1,
+    "categoria": "Punto flotante",
+    "pregunta": "¿Cuántos bits usa el formato IEEE 754 de precisión simple?",
+    "opciones": {
+      "a": "16",
+      "b": "64",
+      "c": "128",
+      "d": "32"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "IEEE 754 de precisión simple usa 32 bits distribuidos en: 1 bit de signo, 8 bits de exponente y 23 bits de mantisa (fracción). La precisión doble usa 64 bits.",
+    "tipo": "texto"
+  },
+  {
+    "id": "FUNDBINARIO_077",
+    "dificultad": 1,
+    "categoria": "Punto flotante",
+    "pregunta": "¿Qué indica el bit de signo en IEEE 754?",
+    "opciones": {
+      "a": "La magnitud del exponente",
+      "b": "Si el número es positivo (0) o negativo (1)",
+      "c": "Si el número está normalizado",
+      "d": "La cantidad de bits usados en la mantisa"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "El bit de signo es el bit más significativo del número flotante. Un 0 indica valor positivo y un 1 indica valor negativo. Es independiente del exponente y de la mantisa.",
+    "tipo": "texto"
+  },
+  {
+    "id": "FUNDBINARIO_078",
+    "dificultad": 1,
+    "categoria": "Punto flotante",
+    "pregunta": "¿Cuál es el valor del sesgo (bias) que se usa en el exponente de IEEE 754 de precisión simple?",
+    "opciones": {
+      "a": "127",
+      "b": "128",
+      "c": "255",
+      "d": "1023"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "En precisión simple el sesgo es 127. El campo de 8 bits del exponente almacena el valor real + 127. Así, un exponente real de 0 se guarda como 127, uno de -1 como 126, y uno de 2 como 129.",
+    "tipo": "texto"
+  },
+  {
+    "id": "FUNDBINARIO_079",
+    "dificultad": 1,
+    "categoria": "Punto flotante",
+    "pregunta": "¿Cuántos bits ocupa la mantisa (campo de fracción) en IEEE 754 de precisión simple?",
+    "opciones": {
+      "a": "8",
+      "b": "16",
+      "c": "23",
+      "d": "24"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "La mantisa ocupa 23 bits en precisión simple. Sin embargo, los números normalizados tienen un bit 1 implícito que no se almacena, por lo que la precisión efectiva equivale a 24 bits de significando.",
+    "tipo": "texto"
+  },
+  {
+    "id": "FUNDBINARIO_080",
+    "dificultad": 1,
+    "categoria": "Punto flotante",
+    "pregunta": "¿Qué número representa en IEEE 754 de precisión simple el patrón donde todos los 32 bits son 0?",
+    "opciones": {
+      "a": "1.0",
+      "b": "+0.0",
+      "c": "Infinito positivo",
+      "d": "El número más pequeño representable"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Todos los bits en 0 significa: signo=0 (positivo), exponente=0 (campo todo ceros, caso especial), mantisa=0. Por convención IEEE 754 esto representa +0.0. También existe -0.0, que tiene el bit de signo en 1 y el resto en 0.",
+    "tipo": "texto"
+  },
+  {
+    "id": "FUNDBINARIO_081",
+    "dificultad": 2,
+    "categoria": "Punto flotante",
+    "pregunta": "El bit más significativo del patrón IEEE 754 11000000010000000000000000000000 es 1. ¿Qué indica exclusivamente este bit?",
+    "opciones": {
+      "a": "Que el exponente es positivo",
+      "b": "Que la mantisa tiene un 1 implícito",
+      "c": "Que el número es negativo",
+      "d": "Que el número es mayor que 1"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "El bit de signo en 1 indica que el número es negativo, sin importar el valor del exponente ni de la mantisa. El signo en IEEE 754 funciona exactamente igual que en signo-magnitud.",
+    "tipo": "texto"
+  },
+  {
+    "id": "FUNDBINARIO_082",
+    "dificultad": 2,
+    "categoria": "Punto flotante",
+    "pregunta": "En precisión simple, el campo exponente contiene el patrón 10000001 (decimal 129). ¿Cuál es el exponente real?",
+    "opciones": {
+      "a": "2",
+      "b": "1",
+      "c": "256",
+      "d": "127"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "El exponente real = valor almacenado − sesgo = 129 − 127 = 2. El sesgo permite representar exponentes negativos sin necesitar un bit de signo separado para el exponente.",
+    "tipo": "texto"
+  },
+  {
+    "id": "FUNDBINARIO_083",
+    "dificultad": 2,
+    "categoria": "Punto flotante",
+    "pregunta": "En un número normalizado IEEE 754, ¿por qué no se almacena el bit 1 más significativo de la mantisa?",
+    "opciones": {
+      "a": "Porque ese bit es siempre 0 en números normalizados",
+      "b": "Para reducir el número de bits del exponente",
+      "c": "Porque varía según el signo del número",
+      "d": "Porque en números normalizados siempre es 1, guardarlo sería información redundante"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "Un número normalizado se expresa como 1.fracción × 2ⁿ. El 1 antes del punto siempre está presente en números normalizados, por lo que no hace falta almacenarlo. Esto le da un bit extra de precisión efectiva al campo de mantisa.",
+    "tipo": "texto"
+  },
+  {
+    "id": "FUNDBINARIO_084",
+    "dificultad": 2,
+    "categoria": "Punto flotante",
+    "pregunta": "En precisión simple el campo de exponente contiene 01111111 (decimal 127). ¿Cuál es el exponente real?",
+    "opciones": {
+      "a": "0",
+      "b": "1",
+      "c": "127",
+      "d": "-1"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "Exponente real = 127 − 127 = 0. Este valor representa 2⁰ = 1. Por eso, el número 1.0 en IEEE 754 de precisión simple tiene el campo exponente igual a 01111111.",
+    "tipo": "texto"
+  },
+  {
+    "id": "FUNDBINARIO_085",
+    "dificultad": 2,
+    "categoria": "Punto flotante",
+    "pregunta": "¿Qué indica en precisión simple que el campo de exponente sea 11111111 (todos unos)?",
+    "opciones": {
+      "a": "Que el número es el valor máximo representable",
+      "b": "Que el exponente real es 128",
+      "c": "Que el valor es infinito o NaN, no un número normal",
+      "d": "Que el número es denormalizado"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "El patrón 11111111 en el exponente es un valor reservado. Si la mantisa es todo ceros representa ±infinito (según el bit de signo); si la mantisa tiene algún 1 representa NaN (Not a Number). Ninguno de los dos es un número normal.",
+    "tipo": "texto"
+  },
+  {
+    "id": "FUNDBINARIO_086",
+    "dificultad": 3,
+    "categoria": "Punto flotante",
+    "pregunta": "¿Cuál es la representación IEEE 754 de precisión simple del número 6.5? (formato: signo | exponente | mantisa)",
+    "opciones": {
+      "a": "0 | 10000010 | 10100000000000000000000",
+      "b": "0 | 10000001 | 11010000000000000000000",
+      "c": "0 | 10000000 | 10100000000000000000000",
+      "d": "0 | 10000001 | 10100000000000000000000"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "6.5 = 110.1₂ = 1.101 × 2². Signo=0. Exponente real=2, almacenado=2+127=129=10000001. Mantisa (parte fraccionaria de 1.101)=101 seguido de 20 ceros=10100000000000000000000.",
+    "tipo": "texto"
+  },
+  {
+    "id": "FUNDBINARIO_087",
+    "dificultad": 3,
+    "categoria": "Punto flotante",
+    "pregunta": "¿Qué valor decimal representa el patrón IEEE 754 de precisión simple: 0 | 10000010 | 10000000000000000000000?",
+    "opciones": {
+      "a": "6.0",
+      "b": "12.0",
+      "c": "24.0",
+      "d": "3.0"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Signo=0 (+). Exponente almacenado=10000010=130, real=130−127=3. Mantisa=1.1 (bit implícito + primer bit almacenado). Valor=1.1₂ × 2³ = 1100₂ = 8+4 = 12.0.",
+    "tipo": "texto"
+  },
+  {
+    "id": "FUNDBINARIO_088",
+    "dificultad": 3,
+    "categoria": "Punto flotante",
+    "pregunta": "¿Cuál es la representación IEEE 754 de precisión simple del número −0.5? (formato: signo | exponente | mantisa)",
+    "opciones": {
+      "a": "1 | 01111110 | 00000000000000000000000",
+      "b": "0 | 01111110 | 00000000000000000000000",
+      "c": "1 | 01111111 | 00000000000000000000000",
+      "d": "1 | 10000000 | 00000000000000000000000"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "0.5 = 1.0 × 2⁻¹. Signo=1 (negativo). Exponente real=−1, almacenado=−1+127=126=01111110. Mantisa (parte fraccionaria de 1.0)=todo ceros. Resultado: 1 | 01111110 | 00000000000000000000000.",
+    "tipo": "texto"
+  },
+  {
+    "id": "FUNDBINARIO_089",
+    "dificultad": 3,
+    "categoria": "Punto flotante",
+    "pregunta": "¿Por qué IEEE 754 usa un exponente con sesgo (biased exponent) en lugar de signo-magnitud para el exponente?",
+    "opciones": {
+      "a": "Porque los exponentes negativos son imposibles de representar en binario sin sesgo",
+      "b": "Para aumentar el rango máximo de números representables",
+      "c": "Para poder comparar la magnitud de dos números flotantes directamente interpretando sus bits como enteros sin signo",
+      "d": "Para reducir la cantidad de bits necesarios en el campo de exponente"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "Con el sesgo, los exponentes quedan ordenados de menor a mayor como enteros positivos. Esto permite comparar magnitudes de flotantes usando comparaciones enteras sobre sus bits, simplificando el hardware de comparación.",
+    "tipo": "texto"
+  },
+  {
+    "id": "FUNDBINARIO_090",
+    "dificultad": 3,
+    "categoria": "Punto flotante",
+    "pregunta": "¿Qué valor decimal representa el patrón IEEE 754 de precisión simple: 0 | 01111110 | 10000000000000000000000?",
+    "opciones": {
+      "a": "0.5",
+      "b": "0.75",
+      "c": "1.5",
+      "d": "0.25"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Signo=0 (+). Exponente almacenado=01111110=126, real=126−127=−1. Mantisa=1.1 (bit implícito + primer bit). Valor=1.1₂ × 2⁻¹ = 0.11₂ = 0.5+0.25 = 0.75.",
+    "tipo": "texto"
+  },
+  {
+    "id": "FUNDBINARIO_091",
+    "dificultad": 4,
+    "categoria": "Punto flotante",
+    "pregunta": "¿Por qué el número decimal 0.1 no puede representarse de forma exacta en IEEE 754?",
+    "opciones": {
+      "a": "Porque 0.1 es mayor que el máximo representable en precisión simple",
+      "b": "Porque el campo de exponente no alcanza para números tan pequeños",
+      "c": "Porque el exponente mínimo de precisión simple no es lo suficientemente pequeño para representar 0.1",
+      "d": "Porque 0.1 en binario es una fracción periódica infinita (0.00011001100110011...) que debe truncarse al caber en los 23 bits de mantisa"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "Al convertir 0.1 a binario, se obtiene 0.000110011001100110011... (patrón 0011 que se repite infinitamente). Los 23 bits de mantisa no alcanzan para toda la fracción, por lo que se trunca o redondea, introduciendo un error de representación.",
+    "tipo": "texto"
+  },
+  {
+    "id": "FUNDBINARIO_092",
+    "dificultad": 4,
+    "categoria": "Punto flotante",
+    "pregunta": "¿Qué valor decimal representa el patrón IEEE 754 de precisión simple: 0 | 01111111 | 10000000000000000000000?",
+    "opciones": {
+      "a": "2.0",
+      "b": "1.0",
+      "c": "1.5",
+      "d": "0.75"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "Signo=0 (+). Exponente almacenado=01111111=127, real=127−127=0. Mantisa=1.1 (bit implícito + primer bit almacenado). Valor=1.1₂ × 2⁰ = 1+0.5 = 1.5.",
+    "tipo": "texto"
+  },
+  {
+    "id": "FUNDBINARIO_093",
+    "dificultad": 4,
+    "categoria": "Punto flotante",
+    "pregunta": "¿Cuál de las siguientes operaciones produce NaN (Not a Number) en IEEE 754?",
+    "opciones": {
+      "a": "1.0 / 0.0",
+      "b": "Sumar el número más grande positivo con otro positivo",
+      "c": "El número más grande dividido entre 2",
+      "d": "0.0 / 0.0"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "0.0 / 0.0 es una operación matemáticamente indeterminada y produce NaN. En cambio, 1.0 / 0.0 es una división de un valor finito entre cero, que en IEEE 754 produce +Infinito, no NaN.",
+    "tipo": "texto"
+  },
+  {
+    "id": "FUNDBINARIO_094",
+    "dificultad": 4,
+    "categoria": "Punto flotante",
+    "pregunta": "¿En qué se diferencian +0.0 y −0.0 en IEEE 754?",
+    "opciones": {
+      "a": "+0.0 y −0.0 tienen exactamente el mismo patrón de bits",
+      "b": "Tienen patrones de bits distintos (difiere el bit de signo) pero se consideran iguales al compararlos",
+      "c": "−0.0 no existe en IEEE 754",
+      "d": "+0.0 y −0.0 producen resultados diferentes en toda operación aritmética"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "+0.0 tiene todos los bits en 0; −0.0 tiene el bit de signo en 1 y el resto en 0. Son bit a bit distintos, pero IEEE 754 los declara iguales bajo la comparación ==. Sin embargo, pueden dar resultados diferentes en operaciones como 1/+0.0 = +∞ y 1/−0.0 = −∞.",
+    "tipo": "texto"
+  },
+  {
+    "id": "FUNDBINARIO_095",
+    "dificultad": 4,
+    "categoria": "Punto flotante",
+    "pregunta": "En IEEE 754 de doble precisión, ¿cuántos bits tiene el campo de exponente y cuál es su sesgo?",
+    "opciones": {
+      "a": "11 bits, sesgo 1023",
+      "b": "8 bits, sesgo 127",
+      "c": "10 bits, sesgo 511",
+      "d": "11 bits, sesgo 511"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "La doble precisión usa 64 bits: 1 de signo, 11 de exponente y 52 de mantisa. Con 11 bits el sesgo es 2¹⁰ − 1 = 1023. Esto amplía el rango representable respecto a la precisión simple (sesgo 127 con 8 bits).",
+    "tipo": "texto"
+  },
+  {
+    "id": "FUNDBINARIO_096",
+    "dificultad": 5,
+    "categoria": "Punto flotante",
+    "pregunta": "En muchos lenguajes, la expresión `0.1 + 0.2 == 0.3` evalúa a falso. ¿Cuál es la causa raíz?",
+    "opciones": {
+      "a": "Los compiladores redondean hacia abajo por defecto en sumas flotantes",
+      "b": "0.3 no puede almacenarse en ningún tipo numérico de punto flotante",
+      "c": "0.1 y 0.2 tienen errores de representación individuales que se acumulan al sumar, y el resultado no coincide bit a bit con la representación almacenada de 0.3",
+      "d": "La suma de flotantes siempre produce un resultado en un tipo de menor precisión"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "Tanto 0.1 como 0.2 tienen errores de redondeo al almacenarse en IEEE 754. Al sumarlos, los errores se combinan y el resultado difiere de la representación independiente de 0.3, también con su propio error. Ninguno de los tres es exacto, y los errores no se cancelan.",
+    "tipo": "texto"
+  },
+  {
+    "id": "FUNDBINARIO_097",
+    "dificultad": 5,
+    "categoria": "Punto flotante",
+    "pregunta": "Un número denormalizado en IEEE 754 tiene el campo de exponente en todo ceros. ¿Cuál es la diferencia clave respecto a un número normalizado al interpretar la mantisa?",
+    "opciones": {
+      "a": "No hay bit implícito 1; la mantisa se interpreta como 0.fracción × 2⁻¹²⁶ en precisión simple",
+      "b": "La mantisa se multiplica por 2¹²⁷ en vez de 2⁻¹²⁶",
+      "c": "El bit implícito cambia a 0 solo cuando el signo es negativo",
+      "d": "La mantisa completa vale cero independientemente de los bits almacenados"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "En números denormalizados, el bit implícito pasa de 1 a 0 y el exponente efectivo es −126 (fijo, no −127). Esto permite representar números muy cercanos a cero que quedan por debajo del rango normalizado, llenando el hueco alrededor del cero.",
+    "tipo": "texto"
+  },
+  {
+    "id": "FUNDBINARIO_098",
+    "dificultad": 5,
+    "categoria": "Punto flotante",
+    "pregunta": "¿Por qué comparar dos números flotantes con == puede dar resultados inesperados en programación?",
+    "opciones": {
+      "a": "El operador == no está definido para flotantes en los lenguajes de programación",
+      "b": "Las operaciones de punto flotante acumulan errores de redondeo, y dos cálculos matemáticamente equivalentes pueden producir representaciones en bits distintas",
+      "c": "Los flotantes se comparan por magnitud y no por valor exacto",
+      "d": "El bit de signo puede diferir aunque los valores sean matemáticamente iguales"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "== en flotantes compara los patrones de bits exactamente. Si el mismo valor se obtiene por dos caminos de cálculo distintos, los errores de redondeo acumulados pueden producir representaciones diferentes aunque matemáticamente sean iguales. La práctica recomendada es comparar con un margen: |a − b| < ε.",
+    "tipo": "texto"
+  },
+  {
+    "id": "FUNDBINARIO_099",
+    "dificultad": 5,
+    "categoria": "Punto flotante",
+    "pregunta": "¿Qué ocurre en IEEE 754 cuando el resultado de una operación excede el mayor número positivo representable en precisión simple?",
+    "opciones": {
+      "a": "El resultado se trunca al mayor número representable",
+      "b": "El programa se detiene con un error de hardware",
+      "c": "El resultado se convierte en +Infinito (campo exponente todo unos, mantisa todo ceros)",
+      "d": "El resultado se convierte en NaN"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "IEEE 754 define que el desbordamiento hacia arriba (overflow) produce +Infinito o −Infinito según el signo, no NaN. El patrón de +Infinito es: signo=0, exponente=11111111, mantisa=todo ceros. NaN se reserva para operaciones indeterminadas como 0/0.",
+    "tipo": "texto"
+  },
+  {
+    "id": "FUNDBINARIO_100",
+    "dificultad": 5,
+    "categoria": "Punto flotante",
+    "pregunta": "En precisión simple, al calcular 16777216.0 + 1.0, ¿cuál es el resultado almacenado?",
+    "opciones": {
+      "a": "16777217.0",
+      "b": "16777218.0",
+      "c": "16777215.0",
+      "d": "16777216.0"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "16777216 = 2²⁴ se representa como 1.0 × 2²⁴. Para sumar 1.0, hay que expresarlo en la misma escala: 1 = 2⁻²⁴ × 2²⁴, lo que requeriría el bit 24 de la mantisa. Como la mantisa solo tiene 23 bits, el 1 queda fuera de la precisión disponible y se descarta. El resultado es 16777216.0, indistinguible del valor original.",
+    "tipo": "texto"
+  }
+]

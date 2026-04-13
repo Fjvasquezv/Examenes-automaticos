@@ -275,6 +275,35 @@ El sistema proporciona:
 3. **Permisos**: La service account debe tener permisos de editor en el Google Sheet
 4. **Testing**: Prueba el examen antes de usar en producción
 
+## 🔒 Seguridad de cliente (modo no invasivo)
+
+El sistema incluye una capa de hardening en navegador, sin permisos de sistema operativo:
+
+- Pantalla completa (best effort)
+- Bloqueo de copiar/pegar/cortar y menu contextual
+- Bloqueo de atajos comunes de inspeccion/busqueda/guardar/imprimir
+- Deteccion de perdida de foco o cambio de pestana con alertas visuales
+- Advertencia al intentar cerrar/recargar la pagina
+
+Configuracion opcional por examen en el JSON:
+
+```json
+"seguridad_cliente": {
+  "habilitado": true,
+  "fullscreen_obligatorio": true,
+  "bloquear_copiar_pegar": true,
+  "bloquear_menu_contexto": true,
+  "bloquear_seleccion_texto": true,
+  "bloquear_atajos_comunes": true,
+  "detectar_perdida_foco": true,
+  "advertir_salida_pestana": true,
+  "mensaje_disuasion": "Modo examen activo. Evite cambiar de pestana o usar atajos no permitidos.",
+  "max_alertas_en_pantalla": 3
+}
+```
+
+Importante: esta capa disuade y reduce riesgo, pero no reemplaza un entorno kiosk/lockdown browser cuando se requiere alta seguridad.
+
 ## 🐛 Solución de Problemas
 
 ### Error: ModuleNotFoundError en Streamlit Cloud

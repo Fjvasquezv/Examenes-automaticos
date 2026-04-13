@@ -28,6 +28,9 @@
       }
     }
   },
+  "seguridad_cliente": {
+    "perfil": "quiz"
+  },
   "sistema_calificacion": {
     "tipo": "irt_simplificado",
     "parametros": {
