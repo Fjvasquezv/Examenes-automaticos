@@ -76,10 +76,10 @@
             "inicio": "2026-04-13 09:00",
             "fin": "2026-04-13 10:00",
             "temas": [
-                "Código binario",
-                "Operaciones binarias",
-                "Empaquetado y desempaquetado",
-                "Punto flotante completo"
+                "Sistema binario",
+                "Operaciones bit a bit",
+                "Empaquetado de datos",
+                "Punto flotante"
             ]
         }
     ]
