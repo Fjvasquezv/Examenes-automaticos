@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "nombre_examen": "Quizz Corte 2 - Programación",
+    "asignatura": "Programación y Algoritmos",
+    "institucion": "Universidad ECCI",
+    "codigo_asignatura": "PRG101"
+  },
+  "descripcion": {
+    "texto": "Evaluación modular de representación binaria y punto flotante.",
+    "temas": [
+      "Código binario",
+      "Operaciones binarias",
+      "Empaquetado y desempaquetado",
+      "Punto flotante completo"
+    ],
+    "duracion_estimada": "1 hora"
+  },
+  "parametros": {
+    "preguntas_minimas": 20,
+    "preguntas_maximas": 30,
+    "nivel_inicial": 3,
+    "umbral_estabilizacion": 0.2,
+    "ventana_estabilizacion": 3,
+    "distribucion_temas": {
+      "minimo_por_tema": 6,
+      "max_proporcion_tema": 0.4,
+      "pesos": {
+        "Código binario": 1.0,
+        "Operaciones binarias": 1.1,
+        "Empaquetado y desempaquetado": 1.0,
+        "Punto flotante completo": 1.2
+      }
+    }
+  },
+  "seguridad_cliente": {
+    "perfil": "quiz"
+  },
+  "sistema_calificacion": {
+    "tipo": "irt_simplificado",
+    "parametros": {
+      "max_iteraciones": 10
+    }
+  },
+  "persistencia": {
+    "metodo": "google_sheets",
+    "spreadsheet_id": "11LgtY-p59UKYCYY0GwZHCLN--KbZEPZb8poZJTEbyys"
+  },
+  "bancos_preguntas": [
+    "data/bancos/Programacion/CodBinario.json"
+  ],
+  "bancos_por_tema": {
+    "Código binario": [
+      "data/bancos/Programacion/CodBinario.json"
+    ],
+    "Operaciones binarias": [
+      "data/bancos/Programacion/CodBinario.json"
+    ],
+    "Empaquetado y desempaquetado": [
+      "data/bancos/Programacion/CodBinario.json"
+    ],
+    "Punto flotante completo": [
+      "data/bancos/Programacion/CodBinario.json"
+    ]
+  }
+}

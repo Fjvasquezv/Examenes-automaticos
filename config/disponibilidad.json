@@ -69,6 +69,18 @@
             "examen_config": "Programacion/supletorio.json",
             "inicio": "2025-03-20 14:00",
             "fin": "2025-03-20 16:00"
+        },
+        {
+            "nombre": "QUIZZ CORTE 2 - Programación",
+            "examen_config": "Programacion/quizz_corte_2.json",
+            "inicio": "2026-04-13 09:00",
+            "fin": "2026-04-13 10:00",
+            "temas": [
+                "Código binario",
+                "Operaciones binarias",
+                "Empaquetado y desempaquetado",
+                "Punto flotante completo"
+            ]
         }
     ]
 }
