@@ -1,0 +1,1127 @@
+[
+  {
+    "id": "TABVERD_001",
+    "dificultad": 1,
+    "categoria": "Operadores lógicos",
+    "pregunta": "¿Cuándo devuelve True el operador `and` en Python?",
+    "opciones": {
+      "a": "Cuando al menos uno de los dos operandos es True",
+      "b": "Cuando ambos operandos son True",
+      "c": "Cuando los dos operandos son distintos entre sí",
+      "d": "Siempre devuelve True independientemente de los operandos"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "El operador `and` aplica la conjunción lógica: solo devuelve True cuando los dos operandos son True. Si cualquiera de ellos es False, el resultado es False. Tabla completa: True and True = True; True and False = False; False and True = False; False and False = False.",
+    "tipo": "texto"
+  },
+  {
+    "id": "TABVERD_002",
+    "dificultad": 1,
+    "categoria": "Operadores lógicos",
+    "pregunta": "¿Cuándo devuelve True el operador `or` en Python?",
+    "opciones": {
+      "a": "Solo cuando ambos operandos son True",
+      "b": "Solo cuando el primer operando es True",
+      "c": "Cuando al menos uno de los dos operandos es True",
+      "d": "Cuando los dos operandos son distintos entre sí"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "El operador `or` aplica la disyunción lógica: devuelve True si al menos uno de los operandos es True. Solo devuelve False cuando ambos son False. Tabla completa: True or True = True; True or False = True; False or True = True; False or False = False.",
+    "tipo": "texto"
+  },
+  {
+    "id": "TABVERD_003",
+    "dificultad": 1,
+    "categoria": "Operadores lógicos",
+    "pregunta": "¿Qué hace el operador `not` aplicado a un valor booleano en Python?",
+    "opciones": {
+      "a": "Lo convierte a entero: True pasa a 1 y False pasa a 0",
+      "b": "Lo fuerza siempre a False",
+      "c": "Lo fuerza siempre a True",
+      "d": "Invierte su valor: True pasa a False y False pasa a True"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "El operador `not` aplica la negación lógica: invierte el valor booleano del operando. not True = False y not False = True. Es un operador unario (toma un solo operando).",
+    "tipo": "texto"
+  },
+  {
+    "id": "TABVERD_004",
+    "dificultad": 1,
+    "categoria": "Evaluación de expresiones",
+    "pregunta": "¿Cuál es el resultado de `True and False` en Python?",
+    "opciones": {
+      "a": "True",
+      "b": "False",
+      "c": "None",
+      "d": "Error de tipo"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "El operador `and` requiere que ambos operandos sean True para devolver True. Como False es uno de los operandos, el resultado es False. Regla: cualquier `and` con False da False.",
+    "tipo": "texto"
+  },
+  {
+    "id": "TABVERD_005",
+    "dificultad": 1,
+    "categoria": "Evaluación de expresiones",
+    "pregunta": "¿Cuál es el resultado de `False or False` en Python?",
+    "opciones": {
+      "a": "False",
+      "b": "True",
+      "c": "None",
+      "d": "Depende del contexto"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "El operador `or` devuelve True si al menos uno de los operandos es True. Como ambos son False, el resultado es False. Esta es la única combinación donde `or` produce False.",
+    "tipo": "texto"
+  },
+  {
+    "id": "TABVERD_006",
+    "dificultad": 2,
+    "categoria": "Evaluación de expresiones",
+    "pregunta": "¿Cuál es el resultado de `(True and False) or True` en Python?",
+    "opciones": {
+      "a": "False",
+      "b": "True",
+      "c": "None",
+      "d": "Error de sintaxis"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Se evalúa de adentro hacia afuera respetando la precedencia (and antes que or): True and False = False; luego False or True = True.",
+    "tipo": "texto"
+  },
+  {
+    "id": "TABVERD_007",
+    "dificultad": 2,
+    "categoria": "Evaluación de expresiones",
+    "pregunta": "¿Cuál es el resultado de `not (True and False)` en Python?",
+    "opciones": {
+      "a": "False",
+      "b": "None",
+      "c": "True",
+      "d": "Error de tipo"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "Primero se evalúa el paréntesis: True and False = False. Luego se aplica not: not False = True.",
+    "tipo": "texto"
+  },
+  {
+    "id": "TABVERD_008",
+    "dificultad": 2,
+    "categoria": "Evaluación de expresiones",
+    "pregunta": "Sean A = True y B = False. ¿Cuánto vale `A or B` en Python?",
+    "opciones": {
+      "a": "False",
+      "b": "None",
+      "c": "Error",
+      "d": "True"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "True or False = True. El operador `or` devuelve True cuando al menos uno de los operandos es True, y A = True cumple esa condición.",
+    "tipo": "texto"
+  },
+  {
+    "id": "TABVERD_009",
+    "dificultad": 2,
+    "categoria": "Tablas de verdad",
+    "pregunta": "¿Cuántas de las 4 combinaciones posibles de dos variables A y B producen True con el operador `or`?",
+    "opciones": {
+      "a": "1",
+      "b": "2",
+      "c": "3",
+      "d": "4"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "La única combinación que da False con `or` es cuando ambas variables son False: False or False = False. Las otras tres combinaciones (T,T), (T,F) y (F,T) producen True. Por eso 3 de las 4 filas de la tabla dan True.",
+    "tipo": "texto"
+  },
+  {
+    "id": "TABVERD_010",
+    "dificultad": 2,
+    "categoria": "Tablas de verdad",
+    "pregunta": "¿Para cuál de estas combinaciones de A y B produce True el operador `and`?",
+    "opciones": {
+      "a": "A = True, B = False",
+      "b": "A = False, B = True",
+      "c": "A = False, B = False",
+      "d": "A = True, B = True"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "El operador `and` requiere que ambos operandos sean True. Solo la combinación (True, True) satisface esa condición. Las otras tres combinaciones contienen al menos un False, por lo que producen False.",
+    "tipo": "texto"
+  },
+  {
+    "id": "TABVERD_011",
+    "dificultad": 3,
+    "categoria": "Evaluación de expresiones",
+    "pregunta": "Sean A = True, B = False, C = True. ¿Cuánto vale `(A and B) or C`?",
+    "opciones": {
+      "a": "False",
+      "b": "True",
+      "c": "None",
+      "d": "Error"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Paso 1: A and B = True and False = False. Paso 2: False or C = False or True = True.",
+    "tipo": "texto"
+  },
+  {
+    "id": "TABVERD_012",
+    "dificultad": 3,
+    "categoria": "Evaluación de expresiones",
+    "pregunta": "Sean A = False, B = True. ¿Cuánto vale `not A and not B` en Python?",
+    "opciones": {
+      "a": "False",
+      "b": "True",
+      "c": "None",
+      "d": "Error de tipo"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "not A = not False = True. not B = not True = False. True and False = False. Aunque not A es True, not B es False y el `and` requiere que ambos sean True.",
+    "tipo": "texto"
+  },
+  {
+    "id": "TABVERD_013",
+    "dificultad": 3,
+    "categoria": "Tablas de verdad",
+    "pregunta": "¿Cuántas de las 8 combinaciones posibles de tres variables A, B, C producen True con la expresión `A and B and C`?",
+    "opciones": {
+      "a": "1",
+      "b": "2",
+      "c": "4",
+      "d": "7"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "El operador `and` encadenado requiere que las tres variables sean True al mismo tiempo. Solo la combinación (True, True, True) satisface esa condición. Las otras 7 combinaciones contienen al menos un False.",
+    "tipo": "texto"
+  },
+  {
+    "id": "TABVERD_014",
+    "dificultad": 3,
+    "categoria": "Tablas de verdad",
+    "pregunta": "La siguiente tabla muestra los resultados de un operador para las 4 combinaciones de A y B: (T,T)→T; (T,F)→F; (F,T)→F; (F,F)→F. ¿Qué operador es?",
+    "opciones": {
+      "a": "or",
+      "b": "not",
+      "c": "==",
+      "d": "and"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "La tabla muestra que el resultado es True solo cuando ambas entradas son True, y False en todos los demás casos. Eso describe exactamente el operador `and`. El operador `or` daría True en tres filas (todas excepto F,F).",
+    "tipo": "texto"
+  },
+  {
+    "id": "TABVERD_015",
+    "dificultad": 3,
+    "categoria": "Evaluación de expresiones",
+    "pregunta": "Sean A = True, B = True. ¿Cuánto vale `(not A) or (not B)` en Python?",
+    "opciones": {
+      "a": "True",
+      "b": "None",
+      "c": "False",
+      "d": "Error"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "not A = not True = False. not B = not True = False. False or False = False. Ambas negaciones dan False y su disyunción también es False.",
+    "tipo": "texto"
+  },
+  {
+    "id": "TABVERD_016",
+    "dificultad": 4,
+    "categoria": "Evaluación de expresiones",
+    "pregunta": "Sean A = True, B = False, C = False. ¿Cuánto vale `(A or B) and (A or C)`?",
+    "opciones": {
+      "a": "True",
+      "b": "False",
+      "c": "None",
+      "d": "Error"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "A or B = True or False = True. A or C = True or False = True. True and True = True. Como A es True, ambos subparéntesis son True independientemente de B y C.",
+    "tipo": "texto"
+  },
+  {
+    "id": "TABVERD_017",
+    "dificultad": 4,
+    "categoria": "Tablas de verdad",
+    "pregunta": "¿Cuántas de las 8 combinaciones de tres variables A, B, C producen True con la expresión `A or B or C`?",
+    "opciones": {
+      "a": "6",
+      "b": "7",
+      "c": "8",
+      "d": "4"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "El `or` encadenado solo produce False cuando todas las variables son False. Solo la combinación (False, False, False) da ese resultado. Las otras 7 combinaciones contienen al menos un True.",
+    "tipo": "texto"
+  },
+  {
+    "id": "TABVERD_018",
+    "dificultad": 4,
+    "categoria": "Evaluación de expresiones",
+    "pregunta": "Sean A = True, B = True, C = False. ¿Cuánto vale `not (A and B) or C`?",
+    "opciones": {
+      "a": "False",
+      "b": "True",
+      "c": "None",
+      "d": "Error"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "A and B = True and True = True. not True = False. False or C = False or False = False. El resultado es False porque la negación de (A and B) es False y C también es False.",
+    "tipo": "texto"
+  },
+  {
+    "id": "TABVERD_019",
+    "dificultad": 4,
+    "categoria": "Tablas de verdad",
+    "pregunta": "La tabla de verdad de una expresión de 2 variables muestra: (T,T)→F; (T,F)→T; (F,T)→T; (F,F)→F. ¿Cuál de las siguientes expresiones corresponde a esa tabla?",
+    "opciones": {
+      "a": "A and B",
+      "b": "A or B",
+      "c": "A != B",
+      "d": "not (A and B)"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "La tabla produce True exactamente cuando A y B son distintos. `A != B` da False cuando son iguales (T,T) y (F,F), y True cuando son distintos (T,F) y (F,T). La opción `not (A and B)` falla en (F,F): not(False and False) = not False = True, pero la tabla indica False.",
+    "tipo": "texto"
+  },
+  {
+    "id": "TABVERD_020",
+    "dificultad": 4,
+    "categoria": "Tablas de verdad",
+    "pregunta": "La tabla de verdad de una expresión de 2 variables muestra: (T,T)→T; (T,F)→F; (F,T)→F; (F,F)→T. ¿Cuál de las siguientes expresiones corresponde a esa tabla?",
+    "opciones": {
+      "a": "A and B",
+      "b": "A == B",
+      "c": "A or B",
+      "d": "not A and not B"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "La tabla produce True cuando A y B tienen el mismo valor (ambos True o ambos False), y False cuando son distintos. Eso es exactamente `A == B`. La opción `not A and not B` solo da True en (F,F) y falla en (T,T).",
+    "tipo": "texto"
+  },
+  {
+    "id": "TABVERD_021",
+    "dificultad": 5,
+    "categoria": "Tablas de verdad",
+    "pregunta": "La siguiente tabla de 3 variables muestra: (T,T,T)→T; (T,T,F)→F; (T,F,T)→T; (T,F,F)→F; (F,T,T)→T; (F,T,F)→F; (F,F,T)→T; (F,F,F)→F. ¿Cuál expresión corresponde a esta tabla?",
+    "opciones": {
+      "a": "A and B and C",
+      "b": "A or B or C",
+      "c": "C",
+      "d": "A and C"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "Observando la tabla: la salida es True exactamente cuando C = True, sin importar los valores de A y B. Las 4 filas con C=True dan True y las 4 con C=False dan False. La expresión es simplemente C. Opción `A and C` falla en (F,T,T): False and True = False, pero la tabla indica True.",
+    "tipo": "texto"
+  },
+  {
+    "id": "TABVERD_022",
+    "dificultad": 5,
+    "categoria": "Tablas de verdad",
+    "pregunta": "¿Para cuántas de las 8 combinaciones de tres variables A, B, C es True la expresión `(A and B) or (B and C) or (A and C)`?",
+    "opciones": {
+      "a": "3",
+      "b": "4",
+      "c": "5",
+      "d": "6"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Esta expresión es True cuando al menos 2 de las 3 variables son True (función mayoría). Las combinaciones que la satisfacen son: (T,T,T), (T,T,F), (T,F,T) y (F,T,T). Las combinaciones con a lo sumo una variable True dan False. Total: 4 combinaciones.",
+    "tipo": "texto"
+  },
+  {
+    "id": "TABVERD_023",
+    "dificultad": 5,
+    "categoria": "Evaluación de expresiones",
+    "pregunta": "Sean A = False, B = True, C = True. ¿Cuánto vale `(A or B) and (not B or C) and (not A)`?",
+    "opciones": {
+      "a": "True",
+      "b": "False",
+      "c": "None",
+      "d": "Error"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "A or B = False or True = True. not B or C = False or True = True. not A = not False = True. True and True and True = True. Los tres factores son True, por lo que el resultado es True.",
+    "tipo": "texto"
+  },
+  {
+    "id": "TABVERD_024",
+    "dificultad": 5,
+    "categoria": "Tablas de verdad",
+    "pregunta": "Considerando la expresión `not (A or B)`, ¿para cuáles de las 4 combinaciones de A y B produce True?",
+    "opciones": {
+      "a": "Para A=True, B=True únicamente",
+      "b": "Para (True,False) y (False,True)",
+      "c": "Para ninguna combinación (siempre False)",
+      "d": "Solo para A=False, B=False"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "not (A or B) es True solo cuando (A or B) es False. El operador `or` da False únicamente cuando ambos operandos son False. Por tanto, not(False or False) = not False = True solo para (F,F). Las otras tres combinaciones producen (A or B)=True y por tanto not(A or B)=False.",
+    "tipo": "texto"
+  },
+  {
+    "id": "TABVERD_025",
+    "dificultad": 5,
+    "categoria": "Evaluación de expresiones",
+    "pregunta": "¿Cuál es la única combinación de A, B, C que hace False la expresión `A or B or not C`?",
+    "opciones": {
+      "a": "A=True, B=True, C=True",
+      "b": "A=False, B=False, C=False",
+      "c": "A=False, B=True, C=True",
+      "d": "A=False, B=False, C=True"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "Para que `A or B or not C` sea False, los tres términos deben ser False: A=False, B=False y not C=False. not C=False implica C=True. La única combinación es (False, False, True). Verificación: False or False or not True = False or False or False = False.",
+    "tipo": "texto"
+  },
+  {
+    "id": "TABVERD_026",
+    "dificultad": 1,
+    "categoria": "Equivalencias lógicas",
+    "pregunta": "¿Cuál es el resultado de `True == True` en Python?",
+    "opciones": {
+      "a": "True",
+      "b": "False",
+      "c": "1",
+      "d": "None"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "El operador `==` compara dos valores y devuelve True si son iguales. True es igual a True, por lo que el resultado es True.",
+    "tipo": "texto"
+  },
+  {
+    "id": "TABVERD_027",
+    "dificultad": 1,
+    "categoria": "Equivalencias lógicas",
+    "pregunta": "¿Cuál es el resultado de `True != False` en Python?",
+    "opciones": {
+      "a": "False",
+      "b": "None",
+      "c": "True",
+      "d": "Error"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "El operador `!=` devuelve True cuando los dos valores son distintos. True y False son valores distintos, así que True != False es True.",
+    "tipo": "texto"
+  },
+  {
+    "id": "TABVERD_028",
+    "dificultad": 1,
+    "categoria": "Operadores de bits",
+    "pregunta": "¿Cuál es el resultado del operador de bits `1 & 0` en Python?",
+    "opciones": {
+      "a": "1",
+      "b": "True",
+      "c": "False",
+      "d": "0"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "El operador `&` aplica AND bit a bit. Para los enteros 1 (binario: 1) y 0 (binario: 0), el AND bit a bit da 0 (ambos bits comparados: 1&0=0). El resultado es el entero 0.",
+    "tipo": "texto"
+  },
+  {
+    "id": "TABVERD_029",
+    "dificultad": 1,
+    "categoria": "Operadores de bits",
+    "pregunta": "¿Cuál es el resultado del operador de bits `0 | 1` en Python?",
+    "opciones": {
+      "a": "1",
+      "b": "0",
+      "c": "True",
+      "d": "False"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "El operador `|` aplica OR bit a bit. Para los enteros 0 (binario: 0) y 1 (binario: 1), el OR bit a bit da 1 (0|1=1). El resultado es el entero 1.",
+    "tipo": "texto"
+  },
+  {
+    "id": "TABVERD_030",
+    "dificultad": 1,
+    "categoria": "Operadores de bits",
+    "pregunta": "¿Cuál es la diferencia principal entre el operador `and` y el operador `&` en Python?",
+    "opciones": {
+      "a": "`and` es un operador lógico que trabaja con valores booleanos; `&` es un operador de bits que trabaja sobre la representación binaria de enteros",
+      "b": "`and` y `&` son completamente equivalentes en Python",
+      "c": "`&` es el operador lógico y `and` es el operador de bits",
+      "d": "`and` solo funciona con enteros y `&` solo con cadenas de texto"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "El operador `and` es un operador lógico de Python: opera sobre valores verdaderos o falsos y devuelve un booleano. El operador `&` es un operador de bits: compara los bits correspondientes de dos enteros de forma independiente. Por ejemplo, `5 & 3` compara los bits de 101₂ y 011₂ dando 001₂ = 1.",
+    "tipo": "texto"
+  },
+  {
+    "id": "TABVERD_031",
+    "dificultad": 2,
+    "categoria": "Equivalencias lógicas",
+    "pregunta": "¿Es `not (A == B)` equivalente a `A != B` en Python? Verificarlo para A=True, B=False.",
+    "opciones": {
+      "a": "No, para A=True, B=False las expresiones dan resultados distintos",
+      "b": "Sí, ambas dan True para A=True, B=False, y en general son siempre equivalentes",
+      "c": "Solo son equivalentes cuando ambos valores son False",
+      "d": "No son equivalentes porque `not` cambia el tipo de dato del resultado"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "not (A == B): not (True == False) = not False = True. A != B: True != False = True. Ambas dan True. En general, negar el resultado de `==` es exactamente lo que hace `!=`, por lo que siempre son equivalentes para cualquier combinación de A y B.",
+    "tipo": "texto"
+  },
+  {
+    "id": "TABVERD_032",
+    "dificultad": 2,
+    "categoria": "Evaluación de expresiones",
+    "pregunta": "Sean x = 5, y = 3. ¿Cuánto vale `(x > 3) and (y < 5)` en Python?",
+    "opciones": {
+      "a": "False",
+      "b": "True",
+      "c": "5",
+      "d": "3"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "x > 3: 5 > 3 es True. y < 5: 3 < 5 es True. True and True = True. Ambas condiciones se cumplen, por lo que la expresión completa es True.",
+    "tipo": "texto"
+  },
+  {
+    "id": "TABVERD_033",
+    "dificultad": 2,
+    "categoria": "Equivalencias lógicas",
+    "pregunta": "¿Es siempre True la expresión `(A and B) == (B and A)` para cualquier combinación de A y B?",
+    "opciones": {
+      "a": "No, el orden de los operandos afecta el resultado de `and`",
+      "b": "Solo es True cuando A es True",
+      "c": "Solo cuando ambos son False",
+      "d": "Sí, el operador `and` es conmutativo: el orden de los operandos no cambia el resultado"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "El operador `and` es conmutativo: `A and B` y `B and A` siempre producen el mismo resultado para cualquier combinación. La tabla completa confirma: T and T = T and T; T and F = F and T = False; F and T = T and F = False; F and F = F and F = False.",
+    "tipo": "texto"
+  },
+  {
+    "id": "TABVERD_034",
+    "dificultad": 2,
+    "categoria": "Operadores de bits",
+    "pregunta": "¿Cuál es el resultado de `(True & True) | (False & False)` en Python?",
+    "opciones": {
+      "a": "True",
+      "b": "False",
+      "c": "1",
+      "d": "0"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "True & True = True (1 & 1 = 1). False & False = False (0 & 0 = 0). True | False = True (1 | 0 = 1). El resultado final es True.",
+    "tipo": "texto"
+  },
+  {
+    "id": "TABVERD_035",
+    "dificultad": 2,
+    "categoria": "Equivalencias lógicas",
+    "pregunta": "¿Cuál de estas expresiones es equivalente a `not (A or B)`?",
+    "opciones": {
+      "a": "not A or not B",
+      "b": "not A and not B",
+      "c": "not A or B",
+      "d": "A and B"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "La lógica de `not (A or B)` es que el resultado es True solo cuando A es False Y B es False, es decir, cuando ambas negaciones son True simultáneamente: `not A and not B`. La opción `not A or not B` sería True cuando al menos uno es False, lo cual no coincide con `not (A or B)`.",
+    "tipo": "texto"
+  },
+  {
+    "id": "TABVERD_036",
+    "dificultad": 3,
+    "categoria": "Equivalencias lógicas",
+    "pregunta": "Sean A = True, B = False. ¿Son iguales los resultados de `not (A and B)` y `(not A) or (not B)`?",
+    "opciones": {
+      "a": "No, `not (A and B)` da False y `(not A) or (not B)` da True",
+      "b": "No, ambas dan False",
+      "c": "Sí, ambas dan True",
+      "d": "No, `not (A and B)` da True y `(not A) or (not B)` da False"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "not (A and B): not (True and False) = not False = True. (not A) or (not B): (not True) or (not False) = False or True = True. Ambas expresiones dan True para esta combinación, y de hecho son equivalentes para cualquier combinación de A y B.",
+    "tipo": "texto"
+  },
+  {
+    "id": "TABVERD_037",
+    "dificultad": 3,
+    "categoria": "Equivalencias lógicas",
+    "pregunta": "Sean A = False, B = False. ¿Son iguales los resultados de `not (A or B)` y `(not A) and (not B)`?",
+    "opciones": {
+      "a": "Sí, ambas dan True",
+      "b": "No, `not (A or B)` da False",
+      "c": "No, `(not A) and (not B)` da False",
+      "d": "No, dan resultados opuestos para estos valores"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "not (A or B): not (False or False) = not False = True. (not A) and (not B): (not False) and (not False) = True and True = True. Ambas dan True. Esta equivalencia es válida para cualquier combinación de A y B.",
+    "tipo": "texto"
+  },
+  {
+    "id": "TABVERD_038",
+    "dificultad": 3,
+    "categoria": "Tablas de verdad",
+    "pregunta": "¿Para cuáles combinaciones de A y B la expresión `(A or B) and not (A and B)` produce True?",
+    "opciones": {
+      "a": "Solo cuando A=True y B=True",
+      "b": "Cuando A=False y B=False únicamente",
+      "c": "Cuando A y B tienen valores distintos (uno True y el otro False)",
+      "d": "Cuando A=True y B=True, o cuando A=False y B=False"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "Evaluando las 4 combinaciones: (T,T): (T) and not(T) = T and F = F. (T,F): (T) and not(F) = T and T = T. (F,T): (T) and not(F) = T and T = T. (F,F): (F) and not(F) = F and T = F. La expresión es True solo cuando exactamente una variable es True, es decir, cuando tienen valores distintos.",
+    "tipo": "texto"
+  },
+  {
+    "id": "TABVERD_039",
+    "dificultad": 3,
+    "categoria": "Equivalencias lógicas",
+    "pregunta": "¿Es siempre True la expresión `(A != B) == (not (A == B))` para cualquier combinación de A y B?",
+    "opciones": {
+      "a": "No, solo cuando A=True y B=False",
+      "b": "No, depende del tipo de los valores",
+      "c": "No, `!=` y `not (==)` difieren en el orden de evaluación",
+      "d": "Sí, `!=` y `not (==)` son siempre equivalentes para valores booleanos"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "Por definición, `A != B` es equivalente a `not (A == B)`. Verificación: (T,T): False == not True = False == False = True. (T,F): True == not False = True == True = True. (F,T): True == True = True. (F,F): False == not True = False == False = True. Siempre True.",
+    "tipo": "texto"
+  },
+  {
+    "id": "TABVERD_040",
+    "dificultad": 3,
+    "categoria": "Equivalencias lógicas",
+    "pregunta": "Sean A = True, B = False. ¿Son iguales los resultados de `A and not B` y `not (not A or B)`?",
+    "opciones": {
+      "a": "Sí, ambas dan True",
+      "b": "No, `A and not B` da True pero `not (not A or B)` da False",
+      "c": "No, ambas dan False",
+      "d": "No, `A and not B` da False pero `not (not A or B)` da True"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "A and not B: True and not False = True and True = True. not (not A or B): not (not True or False) = not (False or False) = not False = True. Ambas dan True y de hecho son equivalentes algebraicamente: `A and not B` = `not (not A or B)` por las leyes de De Morgan.",
+    "tipo": "texto"
+  },
+  {
+    "id": "TABVERD_041",
+    "dificultad": 4,
+    "categoria": "Equivalencias lógicas",
+    "pregunta": "¿Son `not (A and B)` y `(not A) or (not B)` equivalentes para todas las combinaciones de A y B?",
+    "opciones": {
+      "a": "No, solo son iguales cuando ambas variables son True",
+      "b": "Sí, son equivalentes para todas las combinaciones",
+      "c": "No, difieren cuando A=True y B=True",
+      "d": "Solo son iguales cuando al menos una variable es False"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Verificación completa: (T,T): not(T)=F vs F or F=F ✓; (T,F): not(F)=T vs F or T=T ✓; (F,T): not(F)=T vs T or F=T ✓; (F,F): not(F)=T vs T or T=T ✓. Siempre coinciden. Esta equivalencia representa la lógica detrás de la ley de De Morgan para `and`.",
+    "tipo": "texto"
+  },
+  {
+    "id": "TABVERD_042",
+    "dificultad": 4,
+    "categoria": "Operadores de bits",
+    "pregunta": "¿Cuál es el resultado de `(True & False) | (True & True)` en Python?",
+    "opciones": {
+      "a": "False",
+      "b": "0",
+      "c": "True",
+      "d": "1"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "True & False = False (1 & 0 = 0). True & True = True (1 & 1 = 1). False | True = True (0 | 1 = 1). El resultado final es True.",
+    "tipo": "texto"
+  },
+  {
+    "id": "TABVERD_043",
+    "dificultad": 4,
+    "categoria": "Equivalencias lógicas",
+    "pregunta": "¿Es `(A or C) and (B or C)` equivalente a `C or (A and B)`? Verificar con A=False, B=False, C=False.",
+    "opciones": {
+      "a": "No, para A=False, B=False, C=False las expresiones dan resultados distintos",
+      "b": "No son equivalentes, solo coinciden en algunos casos",
+      "c": "Sí, son equivalentes, y para A=False, B=False, C=False ambas dan False",
+      "d": "Sí, pero solo cuando C=True"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "(A or C) and (B or C): (F or F) and (F or F) = F and F = False. C or (A and B): False or (False and False) = False or False = False. Ambas dan False. Estas expresiones son equivalentes para todas las combinaciones de A, B, C por la ley distributiva de `or` sobre `and`.",
+    "tipo": "texto"
+  },
+  {
+    "id": "TABVERD_044",
+    "dificultad": 4,
+    "categoria": "Equivalencias lógicas",
+    "pregunta": "¿Cuál de estas expresiones NO es equivalente a `not (A and B)`?",
+    "opciones": {
+      "a": "(not A) or (not B)",
+      "b": "not A or not B",
+      "c": "not (not (not (A and B)))",
+      "d": "(not A) and (not B)"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "Las opciones a y b son iguales y equivalentes a `not (A and B)` por De Morgan. La opción c aplica triple negación: not(not(not(X))) = not(X), así que es también equivalente. La opción d, `(not A) and (not B)`, es `not (A or B)` por De Morgan, no `not (A and B)`. Falla en (T,F): not(T) and not(F) = F and T = False, pero not(T and F) = not False = True.",
+    "tipo": "texto"
+  },
+  {
+    "id": "TABVERD_045",
+    "dificultad": 4,
+    "categoria": "Equivalencias lógicas",
+    "pregunta": "Si `(A == B) and (B == C)` es True para alguna combinación de A, B, C, ¿puede ser `A == C` False en esa misma combinación?",
+    "opciones": {
+      "a": "Sí, con A=True, B=True, C=False: las dos primeras condiciones dan True pero A==C da False",
+      "b": "Sí, con A=True, B=False, C=True",
+      "c": "No, si A==B y B==C entonces necesariamente A==C",
+      "d": "Sí, con A=False, B=False, C=True"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "Si A == B, entonces A y B tienen el mismo valor. Si B == C, entonces B y C tienen el mismo valor. Por transitividad, A y C deben tener el mismo valor, así que A == C es True. El contraejemplo del inciso a es incorrecto: si A=True y B=True entonces A==B=True, pero si C=False entonces B==C = True==False = False, así que la premisa `(A==B) and (B==C)` es False.",
+    "tipo": "texto"
+  },
+  {
+    "id": "TABVERD_046",
+    "dificultad": 5,
+    "categoria": "Equivalencias lógicas",
+    "pregunta": "¿Son siempre equivalentes `not (A and B and C)` y `(not A) or (not B) or (not C)`? Verificar con A=True, B=True, C=False.",
+    "opciones": {
+      "a": "No, para A=True, B=True, C=False dan resultados distintos",
+      "b": "Sí, y para A=True, B=True, C=False ambas dan True",
+      "c": "Son equivalentes solo cuando al menos una variable es False",
+      "d": "No son equivalentes; `not (A and B and C)` es más restrictiva"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "not (A and B and C): not (True and True and False) = not False = True. (not A) or (not B) or (not C): False or False or True = True. Ambas dan True. Esta equivalencia extiende la lógica de De Morgan a tres variables: la negación de un AND es el OR de las negaciones.",
+    "tipo": "texto"
+  },
+  {
+    "id": "TABVERD_047",
+    "dificultad": 5,
+    "categoria": "Tablas de verdad",
+    "pregunta": "La siguiente tabla de 3 variables tiene 5 filas con salida True: (T,T,T)→T; (T,T,F)→T; (T,F,T)→T; (T,F,F)→T; (F,T,T)→T; (F,T,F)→F; (F,F,T)→F; (F,F,F)→F. ¿Cuál expresión corresponde?",
+    "opciones": {
+      "a": "A and (B or C)",
+      "b": "(A or B) and C",
+      "c": "A or (B and C)",
+      "d": "(A and B) or C"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "Verificando `A or (B and C)`: las 4 filas con A=True dan True (T or cualquier cosa = T). Con A=False: (F,T,T): F or (T and T) = T ✓; (F,T,F): F or (T and F) = F ✓; (F,F,T): F or (F and T) = F ✓; (F,F,F): F or F = F ✓. Coincide con toda la tabla.",
+    "tipo": "texto"
+  },
+  {
+    "id": "TABVERD_048",
+    "dificultad": 5,
+    "categoria": "Equivalencias lógicas",
+    "pregunta": "¿Es `(A or B) and (A or C)` siempre equivalente a `A or (B and C)`?",
+    "opciones": {
+      "a": "No, con A=False, B=True, C=False dan resultados distintos",
+      "b": "Sí, son siempre equivalentes",
+      "c": "Solo son equivalentes cuando A=True",
+      "d": "No, con A=False, B=True, C=True dan resultados distintos"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Esta es la ley distributiva de `or` sobre `and`. Verificación del caso dudoso A=False, B=True, C=False: (F or T) and (F or F) = T and F = False; F or (T and F) = F or F = False ✓. Y A=False, B=True, C=True: (T) and (T) = T; F or T = T ✓. La equivalencia se cumple para todas las combinaciones.",
+    "tipo": "texto"
+  },
+  {
+    "id": "TABVERD_049",
+    "dificultad": 5,
+    "categoria": "Evaluación de expresiones",
+    "pregunta": "Sean A = True, B = True, C = False. ¿Cuánto vale `((A != B) or (B != C)) and not (A != C)`?",
+    "opciones": {
+      "a": "True",
+      "b": "None",
+      "c": "Error",
+      "d": "False"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "A != B: True != True = False. B != C: True != False = True. (A!=B) or (B!=C): False or True = True. A != C: True != False = True. not (A != C): not True = False. True and False = False.",
+    "tipo": "texto"
+  },
+  {
+    "id": "TABVERD_050",
+    "dificultad": 5,
+    "categoria": "Tablas de verdad",
+    "pregunta": "¿Cuántas de las 8 combinaciones de A, B, C satisfacen simultáneamente `A != B`, `B != C` y `A == C`?",
+    "opciones": {
+      "a": "0 (las tres condiciones son contradictorias entre sí)",
+      "b": "2",
+      "c": "4",
+      "d": "6"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Si A == C, entonces A y C tienen el mismo valor. Si además A != B y B != C, entonces B debe ser diferente de ese valor común. Las únicas posibilidades son: A=True, B=False, C=True (T!=F ✓, F!=T ✓, T==T ✓) y A=False, B=True, C=False (F!=T ✓, T!=F ✓, F==F ✓). Total: 2 combinaciones.",
+    "tipo": "texto"
+  },
+  {
+    "id": "TABVERD_051",
+    "dificultad": 1,
+    "categoria": "Álgebra booleana",
+    "pregunta": "En Python, ¿cuánto vale `A or True` para cualquier valor booleano de A?",
+    "opciones": {
+      "a": "Depende del valor de A",
+      "b": "False",
+      "c": "True",
+      "d": "A"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "El `or` con True siempre da True, sin importar el valor del otro operando (ley de dominancia). True or True = True y False or True = True. Esto se llama 'elemento dominante' de `or`.",
+    "tipo": "texto"
+  },
+  {
+    "id": "TABVERD_052",
+    "dificultad": 1,
+    "categoria": "Álgebra booleana",
+    "pregunta": "En Python, ¿cuánto vale `A and False` para cualquier valor booleano de A?",
+    "opciones": {
+      "a": "True",
+      "b": "False",
+      "c": "A",
+      "d": "Depende del valor de A"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "El `and` con False siempre da False, sin importar el valor del otro operando (ley de dominancia). True and False = False y False and False = False. False es el 'elemento dominante' de `and`.",
+    "tipo": "texto"
+  },
+  {
+    "id": "TABVERD_053",
+    "dificultad": 1,
+    "categoria": "Álgebra booleana",
+    "pregunta": "En Python, ¿cuánto vale `A or False` para cualquier valor booleano de A?",
+    "opciones": {
+      "a": "Siempre True",
+      "b": "Siempre False",
+      "c": "Simplifica a A: True si A es True, False si A es False",
+      "d": "Depende de otros factores del contexto"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "False es el elemento neutro (identidad) de `or`: hacer `or False` no cambia el valor del otro operando. True or False = True = A; False or False = False = A. La expresión `A or False` es siempre equivalente a simplemente A.",
+    "tipo": "texto"
+  },
+  {
+    "id": "TABVERD_054",
+    "dificultad": 1,
+    "categoria": "Álgebra booleana",
+    "pregunta": "En Python, ¿cuánto vale `A and True` para cualquier valor booleano de A?",
+    "opciones": {
+      "a": "Simplifica a A: True si A es True, False si A es False",
+      "b": "Siempre True",
+      "c": "Siempre False",
+      "d": "Siempre igual a not A"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "True es el elemento neutro (identidad) de `and`: hacer `and True` no cambia el valor del otro operando. True and True = True = A; False and True = False = A. La expresión `A and True` es siempre equivalente a simplemente A.",
+    "tipo": "texto"
+  },
+  {
+    "id": "TABVERD_055",
+    "dificultad": 1,
+    "categoria": "Álgebra booleana",
+    "pregunta": "¿Cuánto vale `not (not A)` para cualquier valor booleano de A?",
+    "opciones": {
+      "a": "Siempre True",
+      "b": "Siempre False",
+      "c": "not A",
+      "d": "A"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "Aplicar `not` dos veces cancela el efecto: not (not True) = not False = True; not (not False) = not True = False. La doble negación siempre devuelve el valor original (ley de doble negación).",
+    "tipo": "texto"
+  },
+  {
+    "id": "TABVERD_056",
+    "dificultad": 2,
+    "categoria": "Álgebra booleana",
+    "pregunta": "¿A qué simplifica la expresión `A or A` para cualquier valor booleano de A?",
+    "opciones": {
+      "a": "A",
+      "b": "Siempre True",
+      "c": "Siempre False",
+      "d": "not A"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "El `or` de un valor consigo mismo siempre da ese mismo valor (ley de idempotencia). True or True = True; False or False = False. `A or A` simplifica a A.",
+    "tipo": "texto"
+  },
+  {
+    "id": "TABVERD_057",
+    "dificultad": 2,
+    "categoria": "Álgebra booleana",
+    "pregunta": "¿A qué simplifica la expresión `A and A` para cualquier valor booleano de A?",
+    "opciones": {
+      "a": "Siempre True",
+      "b": "Siempre False",
+      "c": "not A",
+      "d": "A"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "El `and` de un valor consigo mismo siempre da ese mismo valor (ley de idempotencia). True and True = True; False and False = False. `A and A` simplifica a A.",
+    "tipo": "texto"
+  },
+  {
+    "id": "TABVERD_058",
+    "dificultad": 2,
+    "categoria": "Tautologías y contradicciones",
+    "pregunta": "¿Cuánto vale la expresión `A and (not A)` para cualquier valor booleano de A?",
+    "opciones": {
+      "a": "True",
+      "b": "False",
+      "c": "A",
+      "d": "not A"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Un valor y su negación nunca pueden ser True al mismo tiempo. Si A=True: True and not True = True and False = False. Si A=False: False and not False = False and True = False. La expresión `A and (not A)` es siempre False: es una contradicción.",
+    "tipo": "texto"
+  },
+  {
+    "id": "TABVERD_059",
+    "dificultad": 2,
+    "categoria": "Tautologías y contradicciones",
+    "pregunta": "¿Cuánto vale la expresión `A or (not A)` para cualquier valor booleano de A?",
+    "opciones": {
+      "a": "False",
+      "b": "A",
+      "c": "True",
+      "d": "not A"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "Un valor o su negación cubren todos los casos posibles. Si A=True: True or not True = True or False = True. Si A=False: False or not False = False or True = True. La expresión `A or (not A)` es siempre True: es una tautología.",
+    "tipo": "texto"
+  },
+  {
+    "id": "TABVERD_060",
+    "dificultad": 2,
+    "categoria": "Álgebra booleana",
+    "pregunta": "¿La expresión `(A and B) or A` simplifica siempre a A? Verificar para A=True, B=False.",
+    "opciones": {
+      "a": "No, para A=True, B=False la expresión da False",
+      "b": "Sí, pero solo cuando B es True",
+      "c": "No, la expresión siempre da True independientemente de A",
+      "d": "Sí, la expresión `(A and B) or A` simplifica siempre a A (ley de absorción)"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "Para A=True, B=False: (True and False) or True = False or True = True = A ✓. Para A=False, B=True: (False and True) or False = False or False = False = A ✓. La ley de absorción establece que `(A and B) or A = A` para cualquier combinación.",
+    "tipo": "texto"
+  },
+  {
+    "id": "TABVERD_061",
+    "dificultad": 3,
+    "categoria": "Álgebra booleana",
+    "pregunta": "¿A qué simplifica `(A and B) or (A and not B)` para cualquier A y B?",
+    "opciones": {
+      "a": "B",
+      "b": "A",
+      "c": "A and B",
+      "d": "True"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Aplicando la ley distributiva inversa: (A and B) or (A and not B) = A and (B or not B). Como `B or not B` es siempre True (tautología), el resultado es A and True = A. Verificación: (T,T): T or F = T = A ✓; (T,F): F or T = T = A ✓; (F,T): F or F = F = A ✓; (F,F): F or F = F = A ✓.",
+    "tipo": "texto"
+  },
+  {
+    "id": "TABVERD_062",
+    "dificultad": 3,
+    "categoria": "Álgebra booleana",
+    "pregunta": "¿A qué simplifica `A or (A and B)` para cualquier A y B?",
+    "opciones": {
+      "a": "A",
+      "b": "B",
+      "c": "A and B",
+      "d": "A or B"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "Ley de absorción: `A or (A and B) = A`. Si A=True, toda la expresión es True independientemente de B. Si A=False, entonces (A and B) = False, y False or False = False = A. En ambos casos el resultado es A.",
+    "tipo": "texto"
+  },
+  {
+    "id": "TABVERD_063",
+    "dificultad": 3,
+    "categoria": "Álgebra booleana",
+    "pregunta": "Verificar que `A and (B or C)` es igual a `(A and B) or (A and C)` para A=True, B=False, C=True.",
+    "opciones": {
+      "a": "Son distintas: la izquierda da True y la derecha da False",
+      "b": "Son distintas: la izquierda da False y la derecha da True",
+      "c": "Son iguales, ambas dan True",
+      "d": "Son iguales, ambas dan False"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "Izquierda: A and (B or C) = True and (False or True) = True and True = True. Derecha: (A and B) or (A and C) = (True and False) or (True and True) = False or True = True. Ambas dan True. Esta igualdad es la ley distributiva de `and` sobre `or`, válida para cualquier combinación.",
+    "tipo": "texto"
+  },
+  {
+    "id": "TABVERD_064",
+    "dificultad": 3,
+    "categoria": "Tautologías y contradicciones",
+    "pregunta": "¿Cuál de las siguientes expresiones es siempre False (contradicción) para cualquier combinación de A y B?",
+    "opciones": {
+      "a": "A or (not A)",
+      "b": "A and (A or B)",
+      "c": "not A or B",
+      "d": "(A or B) and (not A) and (not B)"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "La expresión (A or B) and (not A) and (not B) requiere que (not A) y (not B) sean ambas True, lo que implica A=False y B=False. Pero si A=False y B=False, entonces (A or B) = False, haciendo el `and` completo igual a False. Si A o B son True, alguno de los `not` da False. Siempre False: es una contradicción.",
+    "tipo": "texto"
+  },
+  {
+    "id": "TABVERD_065",
+    "dificultad": 3,
+    "categoria": "Tautologías y contradicciones",
+    "pregunta": "¿Cuántas filas de la tabla de verdad de 2 variables A y B producen True en la expresión `(A and not A) or (B and not B)`?",
+    "opciones": {
+      "a": "0",
+      "b": "1",
+      "c": "2",
+      "d": "4"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "`A and not A` es siempre False (contradicción) y `B and not B` también es siempre False. False or False = False para cualquier combinación de A y B. Las 4 filas de la tabla producen False, por lo que ninguna (0 filas) produce True.",
+    "tipo": "texto"
+  },
+  {
+    "id": "TABVERD_066",
+    "dificultad": 4,
+    "categoria": "Álgebra booleana",
+    "pregunta": "¿A qué simplifica `(A and B) or (not A and B)` para cualquier A y B?",
+    "opciones": {
+      "a": "A",
+      "b": "True",
+      "c": "B",
+      "d": "A and B"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "Aplicando la ley distributiva: (A and B) or (not A and B) = B and (A or not A). Como `A or not A` es siempre True, el resultado es B and True = B. Verificación: (T,T): T or F = T = B ✓; (T,F): F or F = F = B ✓; (F,T): F or T = T = B ✓; (F,F): F or F = F = B ✓.",
+    "tipo": "texto"
+  },
+  {
+    "id": "TABVERD_067",
+    "dificultad": 4,
+    "categoria": "Álgebra booleana",
+    "pregunta": "¿A qué simplifica `(not A or not B) and (not A or B)` para cualquier A y B?",
+    "opciones": {
+      "a": "not A",
+      "b": "not B",
+      "c": "A",
+      "d": "True"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "Aplicando la ley distributiva de `or` sobre `and`: (not A or not B) and (not A or B) = not A or (not B and B). Como `not B and B` es siempre False (contradicción), el resultado es not A or False = not A. Verificación: (T,T): F and T = F = not T ✓; (T,F): T and F = F = not T ✓; (F,T): T and T = T = not F ✓; (F,F): T and T = T = not F ✓.",
+    "tipo": "texto"
+  },
+  {
+    "id": "TABVERD_068",
+    "dificultad": 4,
+    "categoria": "Tautologías y contradicciones",
+    "pregunta": "La expresión `(A or B) or (not A and not B)` aplicada a todas las combinaciones de A y B, ¿qué tipo de función es?",
+    "opciones": {
+      "a": "Contradicción (siempre False)",
+      "b": "Contingencia (depende de los valores de A y B)",
+      "c": "Tautología (siempre True)",
+      "d": "No se puede determinar sin evaluar todas las combinaciones"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "(A or B) or (not A and not B) = (A or B) or not(A or B). Esto tiene la forma `X or not X`, que es siempre True. Verificación directa: (T,T): T or F = T; (T,F): T or F = T; (F,T): T or F = T; (F,F): F or T = T. Siempre True: tautología.",
+    "tipo": "texto"
+  },
+  {
+    "id": "TABVERD_069",
+    "dificultad": 4,
+    "categoria": "Equivalencias lógicas",
+    "pregunta": "¿Es la expresión `(A or B) and (not A or not B)` equivalente al XOR lógico (True solo cuando A y B tienen valores distintos)?",
+    "opciones": {
+      "a": "No, la expresión siempre da True",
+      "b": "Sí, produce True exactamente cuando A y B tienen valores distintos",
+      "c": "No, la expresión es una contradicción",
+      "d": "No, es equivalente a `A and B`"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Evaluando las 4 combinaciones: (T,T): (T) and (F) = False (iguales→False ✓); (T,F): (T) and (T) = True (distintos→True ✓); (F,T): (T) and (T) = True (distintos→True ✓); (F,F): (F) and (T) = False (iguales→False ✓). La expresión es True exactamente cuando A y B son distintos, que es el comportamiento del XOR.",
+    "tipo": "texto"
+  },
+  {
+    "id": "TABVERD_070",
+    "dificultad": 4,
+    "categoria": "Álgebra booleana",
+    "pregunta": "Aplicar la ley distributiva a `A and (B or C)` produce `(A and B) or (A and C)`. Verificar ambas formas para A=False, B=True, C=True.",
+    "opciones": {
+      "a": "La distribución da `(A or B) and (A or C)`, y ambas formas dan True para esos valores",
+      "b": "La distribución da `(A or B) and (A or C)`, y ambas formas dan False para esos valores",
+      "c": "La distribución da `(A and B) or (A and C)`, y ambas formas dan True para esos valores",
+      "d": "La distribución da `(A and B) or (A and C)`, y ambas formas dan False para esos valores"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "La distribución correcta es `(A and B) or (A and C)`. Verificando con A=False, B=True, C=True: Izquierda: False and (True or True) = False and True = False. Derecha: (False and True) or (False and True) = False or False = False. Ambas formas dan False.",
+    "tipo": "texto"
+  },
+  {
+    "id": "TABVERD_071",
+    "dificultad": 5,
+    "categoria": "Tautologías y contradicciones",
+    "pregunta": "¿Cuánto vale la expresión `not (A and not A) or (B and not B)` para cualquier combinación de A y B?",
+    "opciones": {
+      "a": "True (siempre): es una tautología",
+      "b": "False (siempre): es una contradicción",
+      "c": "Depende de los valores de A y B",
+      "d": "Es una contradicción para A=True y una tautología para A=False"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "`A and not A` es siempre False (contradicción). not False = True. `B and not B` es siempre False. True or False = True. La expresión completa vale True para cualquier combinación. El `not` convierte la contradicción interior en la tautología `not(A and not A) = True`.",
+    "tipo": "texto"
+  },
+  {
+    "id": "TABVERD_072",
+    "dificultad": 5,
+    "categoria": "Tablas de verdad",
+    "pregunta": "La siguiente tabla de 3 variables tiene exactamente 3 filas con salida True: (T,T,T)→T; (T,T,F)→F; (T,F,T)→T; (T,F,F)→F; (F,T,T)→T; (F,T,F)→F; (F,F,T)→F; (F,F,F)→F. ¿Cuál expresión corresponde?",
+    "opciones": {
+      "a": "A and B and C",
+      "b": "(A or B) and C",
+      "c": "A or B or C",
+      "d": "A and C"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Las filas True son (T,T,T), (T,F,T) y (F,T,T): todas tienen C=True y al menos uno de A o B True. `(A or B) and C`: (T,T,T): T and T = T ✓; (T,F,T): T and T = T ✓; (F,T,T): T and T = T ✓; (F,F,T): F and T = F ✓; todas con C=False dan F ✓. La opción `A and C` falla en (F,T,T): False and True = False, pero la tabla indica True.",
+    "tipo": "texto"
+  },
+  {
+    "id": "TABVERD_073",
+    "dificultad": 5,
+    "categoria": "Álgebra booleana",
+    "pregunta": "En la siguiente simplificación, ¿cuál paso contiene un error? Paso 1: `(A or B) and (not A or not B)`. Paso 2: se afirma que por absorción esto simplifica a `not A or not B`. Paso 3: por De Morgan, `not A or not B` = `not (A and B)`.",
+    "opciones": {
+      "a": "El paso 1 contiene un error de notación",
+      "b": "El paso 2 es incorrecto: la absorción no aplica de esa forma; `(A or B) and (not A or not B)` no simplifica a `not A or not B`",
+      "c": "El paso 3 es incorrecto: De Morgan no puede aplicarse a `not A or not B`",
+      "d": "No hay errores; la simplificación es correcta"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "La ley de absorción dice `A or (A and B) = A`, no que `X and Y = Y`. El paso 2 aplica absorción incorrectamente: `(A or B) and (not A or not B)` no es `not A or not B`. De hecho, como se vio en preguntas anteriores, `(A or B) and (not A or not B)` equivale al XOR (True cuando A y B son distintos), no a `not A or not B`. El paso 3 en sí sería correcto, pero parte de una premisa falsa.",
+    "tipo": "texto"
+  },
+  {
+    "id": "TABVERD_074",
+    "dificultad": 5,
+    "categoria": "Álgebra booleana",
+    "pregunta": "¿A qué simplifica `(A or B) and (A or not B) and (not A or B)`?",
+    "opciones": {
+      "a": "A",
+      "b": "A or B",
+      "c": "A and B",
+      "d": "True"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "Paso 1: `(A or B) and (A or not B)` = A or (B and not B) = A or False = A. Paso 2: A and (not A or B) = (A and not A) or (A and B) = False or (A and B) = A and B. Verificación: (T,T): T and T and T = T = T and T ✓; (T,F): T and T and F = F = T and F ✓; (F,T): T and F and T = F = F and T ✓; (F,F): F and T and T = F = F and F ✓.",
+    "tipo": "texto"
+  },
+  {
+    "id": "TABVERD_075",
+    "dificultad": 5,
+    "categoria": "Evaluación de expresiones",
+    "pregunta": "Sean A = True, B = True, C = False. ¿Cuánto vale `not (A and B) or (A and C)`?",
+    "opciones": {
+      "a": "True",
+      "b": "None",
+      "c": "Error de sintaxis",
+      "d": "False"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "not (A and B): not (True and True) = not True = False. A and C: True and False = False. False or False = False. Ambos términos del `or` son False, por lo que el resultado es False.",
+    "tipo": "texto"
+  }
+]

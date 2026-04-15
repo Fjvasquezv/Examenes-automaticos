@@ -1,0 +1,121 @@
+{
+  "metadata": {
+    "nombre_examen": "parcial_II",
+    "asignatura": "Programación y Algoritmos",
+    "institucion": "Universidad ECCI",
+    "codigo_asignatura": "PRG101"
+  },
+  "descripcion": {
+    "texto": "Parcial II de programación basado en fundamentos binarios y tablas de verdad.",
+    "temas": [
+      "Bit y byte",
+      "Sistema binario",
+      "Conversión binario-decimal",
+      "Conversión decimal-binario",
+      "Enteros sin signo",
+      "Operaciones bit a bit",
+      "Operadores de bits",
+      "Operadores lógicos",
+      "Empaquetado de datos",
+      "Álgebra booleana",
+      "Equivalencias lógicas",
+      "Evaluación de expresiones",
+      "Tautologías y contradicciones",
+      "Punto flotante",
+      "Tablas de verdad"
+    ],
+    "duracion_estimada": "1 hora 30 minutos"
+  },
+  "parametros": {
+    "preguntas_minimas": 35,
+    "preguntas_maximas": 45,
+    "nivel_inicial": 3,
+    "umbral_estabilizacion": 0.2,
+    "ventana_estabilizacion": 3,
+    "distribucion_temas": {
+      "minimo_por_tema": 2,
+      "max_proporcion_tema": 0.35,
+      "pesos": {
+        "Bit y byte": 0.5,
+        "Sistema binario": 0.5,
+        "Conversión binario-decimal": 0.8,
+        "Conversión decimal-binario": 0.8,
+        "Enteros sin signo": 0.9,
+        "Operaciones bit a bit": 1.4,
+        "Operadores de bits": 1.1,
+        "Operadores lógicos": 1.0,
+        "Empaquetado de datos": 1.3,
+        "Álgebra booleana": 1.3,
+        "Equivalencias lógicas": 1.3,
+        "Evaluación de expresiones": 1.2,
+        "Tautologías y contradicciones": 1.2,
+        "Punto flotante": 1.6,
+        "Tablas de verdad": 1.5
+      }
+    }
+  },
+  "seguridad_cliente": {
+    "perfil": "parcial"
+  },
+  "sistema_calificacion": {
+    "tipo": "irt_simplificado",
+    "parametros": {
+      "max_iteraciones": 10
+    }
+  },
+  "persistencia": {
+    "metodo": "google_sheets",
+    "spreadsheet_id": "11LgtY-p59UKYCYY0GwZHCLN--KbZEPZb8poZJTEbyys"
+  },
+  "bancos_preguntas": [
+    "data/bancos/Programacion/Fundamentos_binarios/Fundamentos_binarios.json",
+    "data/bancos/Programacion/Tablas_de_verdad/Tablas_de_verdad.json"
+  ],
+  "bancos_por_tema": {
+    "Bit y byte": [
+      "data/bancos/Programacion/Fundamentos_binarios/Fundamentos_binarios.json"
+    ],
+    "Sistema binario": [
+      "data/bancos/Programacion/Fundamentos_binarios/Fundamentos_binarios.json"
+    ],
+    "Conversión binario-decimal": [
+      "data/bancos/Programacion/Fundamentos_binarios/Fundamentos_binarios.json"
+    ],
+    "Conversión decimal-binario": [
+      "data/bancos/Programacion/Fundamentos_binarios/Fundamentos_binarios.json"
+    ],
+    "Enteros sin signo": [
+      "data/bancos/Programacion/Fundamentos_binarios/Fundamentos_binarios.json"
+    ],
+    "Operaciones bit a bit": [
+      "data/bancos/Programacion/Fundamentos_binarios/Fundamentos_binarios.json"
+    ],
+    "Operadores de bits": [
+      "data/bancos/Programacion/Tablas_de_verdad/Tablas_de_verdad.json"
+    ],
+    "Operadores lógicos": [
+      "data/bancos/Programacion/Tablas_de_verdad/Tablas_de_verdad.json"
+    ],
+    "Empaquetado de datos": [
+      "data/bancos/Programacion/Fundamentos_binarios/Fundamentos_binarios.json"
+    ],
+    "Álgebra booleana": [
+      "data/bancos/Programacion/Tablas_de_verdad/Tablas_de_verdad.json"
+    ],
+    "Equivalencias lógicas": [
+      "data/bancos/Programacion/Tablas_de_verdad/Tablas_de_verdad.json"
+    ],
+    "Evaluación de expresiones": [
+      "data/bancos/Programacion/Tablas_de_verdad/Tablas_de_verdad.json"
+    ],
+    "Tautologías y contradicciones": [
+      "data/bancos/Programacion/Tablas_de_verdad/Tablas_de_verdad.json"
+    ],
+    "Punto flotante": [
+      "data/bancos/Programacion/Fundamentos_binarios/Fundamentos_binarios.json"
+    ],
+    "Tablas de verdad": [
+      "data/bancos/Programacion/Tablas_de_verdad/Tablas_de_verdad.json"
+    ]
+  }
+}

@@ -21,18 +21,31 @@
     "nivel_inicial": 3,
     "umbral_estabilizacion": 0.2,
     "ventana_estabilizacion": 3,
+    "ventana_estabilizacion_dinamica": true,
+    "proporcion_ventana_estabilizacion": 0.35,
+    "ventana_estabilizacion_min": 4,
+    "ventana_estabilizacion_max": 10,
     "distribucion_temas": {
-      "minimo_por_tema": 2,
+      "minimo_por_tema": {
+        "Bit y byte": 1,
+        "Sistema binario": 1,
+        "Conversión binario-decimal": 1,
+        "Conversión decimal-binario": 1,
+        "Enteros sin signo": 1,
+        "Operaciones bit a bit": 3,
+        "Empaquetado de datos": 2,
+        "Punto flotante": 3
+      },
       "max_proporcion_tema": 0.35,
       "pesos": {
-        "Bit y byte": 0.7,
-        "Sistema binario": 0.7,
-        "Conversión binario-decimal": 1.0,
-        "Conversión decimal-binario": 1.0,
-        "Enteros sin signo": 0.9,
-        "Operaciones bit a bit": 1.2,
-        "Empaquetado de datos": 1.1,
-        "Punto flotante": 1.4
+        "Bit y byte": 0.40,
+        "Sistema binario": 0.40,
+        "Conversión binario-decimal": 0.80,
+        "Conversión decimal-binario": 0.80,
+        "Enteros sin signo": 0.80,
+        "Operaciones bit a bit": 2.00,
+        "Empaquetado de datos": 1.60,
+        "Punto flotante": 2.40
       }
     }
   },

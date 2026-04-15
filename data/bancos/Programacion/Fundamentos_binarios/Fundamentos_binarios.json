@@ -1498,5 +1498,380 @@
     "respuesta_correcta": "d",
     "explicacion": "16777216 = 2²⁴ se representa como 1.0 × 2²⁴. Para sumar 1.0, hay que expresarlo en la misma escala: 1 = 2⁻²⁴ × 2²⁴, lo que requeriría el bit 24 de la mantisa. Como la mantisa solo tiene 23 bits, el 1 queda fuera de la precisión disponible y se descarta. El resultado es 16777216.0, indistinguible del valor original.",
     "tipo": "texto"
+  },
+  {
+    "id": "FUNDBINARIO_101",
+    "dificultad": 1,
+    "categoria": "Conversión binario-decimal",
+    "pregunta": "¿Cuál es el valor decimal de la fracción binaria 0.1₂?",
+    "opciones": {
+      "a": "1",
+      "b": "0.5",
+      "c": "0.25",
+      "d": "0.1"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "En binario, los dígitos a la derecha del punto representan potencias negativas de 2. El primer dígito fraccionario vale 2⁻¹ = 0.5. Por eso 0.1₂ = 0.5 en decimal.",
+    "tipo": "texto"
+  },
+  {
+    "id": "FUNDBINARIO_102",
+    "dificultad": 1,
+    "categoria": "Conversión binario-decimal",
+    "pregunta": "¿Cuál es el valor decimal de la fracción binaria 0.11₂?",
+    "opciones": {
+      "a": "0.5",
+      "b": "0.25",
+      "c": "0.75",
+      "d": "1.0"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "0.11₂ = 1×2⁻¹ + 1×2⁻² = 0.5 + 0.25 = 0.75. Cada posición fraccionaria vale la mitad que la anterior: la primera vale 1/2, la segunda 1/4, la tercera 1/8, y así sucesivamente.",
+    "tipo": "texto"
+  },
+  {
+    "id": "FUNDBINARIO_103",
+    "dificultad": 1,
+    "categoria": "Sistema binario",
+    "pregunta": "En la suma binaria de un bit, ¿cuál es el resultado de 1 + 1?",
+    "opciones": {
+      "a": "Suma = 0, carry = 1 (se escribe 0 en la posición actual y se lleva 1 a la siguiente)",
+      "b": "Suma = 1, carry = 1",
+      "c": "Suma = 0, sin carry",
+      "d": "Suma = 1, sin carry"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "1 + 1 = 2 en decimal, que en binario es 10₂. Se escribe el 0 en la posición actual y se lleva (carry) el 1 a la siguiente posición de mayor peso. Esta es la única combinación de la suma binaria que genera un carry.",
+    "tipo": "texto"
+  },
+  {
+    "id": "FUNDBINARIO_104",
+    "dificultad": 1,
+    "categoria": "Operaciones bit a bit",
+    "pregunta": "Para verificar si el bit en la posición 2 (peso 4, contando desde 0 a la derecha) de un número de 8 bits está activo, ¿con qué valor se hace AND?",
+    "opciones": {
+      "a": "00000010",
+      "b": "00000100",
+      "c": "00001000",
+      "d": "11111011"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "La posición 2 tiene peso 2² = 4 = 00000100. Hacer AND con ese valor conserva solo el bit en esa posición y borra los demás (X AND 0 = 0, X AND 1 = X). Si el resultado es distinto de cero, el bit está activo; si es cero, está inactivo.",
+    "tipo": "texto"
+  },
+  {
+    "id": "FUNDBINARIO_105",
+    "dificultad": 1,
+    "categoria": "Sistema binario",
+    "pregunta": "¿Cuál es siempre el valor del bit en la posición 0 (el menos significativo) en cualquier número par representado en binario?",
+    "opciones": {
+      "a": "Depende de los otros bits del número",
+      "b": "1",
+      "c": "Varía según el número par específico",
+      "d": "0"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "El bit en la posición 0 representa 2⁰ = 1. Si está activo, el número es impar; si es 0, el número es par. Todo número par es múltiplo de 2 y no tiene componente de 1 en esa posición. Ejemplos: 6 = 110₂ (LSB=0), 10 = 1010₂ (LSB=0), 14 = 1110₂ (LSB=0).",
+    "tipo": "texto"
+  },
+  {
+    "id": "FUNDBINARIO_106",
+    "dificultad": 2,
+    "categoria": "Conversión binario-decimal",
+    "pregunta": "¿Cuál es el valor decimal de la fracción binaria 0.101₂?",
+    "opciones": {
+      "a": "0.5",
+      "b": "0.375",
+      "c": "0.625",
+      "d": "0.75"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "0.101₂ = 1×2⁻¹ + 0×2⁻² + 1×2⁻³ = 0.5 + 0 + 0.125 = 0.625. El cero en la posición central no aporta valor; los unos en las posiciones 1 y 3 valen 0.5 y 0.125 respectivamente.",
+    "tipo": "texto"
+  },
+  {
+    "id": "FUNDBINARIO_107",
+    "dificultad": 2,
+    "categoria": "Conversión decimal-binario",
+    "pregunta": "¿Cuál es la representación binaria del número decimal 0.625?",
+    "opciones": {
+      "a": "0.011",
+      "b": "0.110",
+      "c": "0.111",
+      "d": "0.101"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "Método de multiplicaciones sucesivas por 2: 0.625×2 = 1.25 → bit 1; 0.25×2 = 0.5 → bit 0; 0.5×2 = 1.0 → bit 1 (el proceso termina). Resultado: 0.101₂. Verificación: 0.5 + 0 + 0.125 = 0.625 ✓.",
+    "tipo": "texto"
+  },
+  {
+    "id": "FUNDBINARIO_108",
+    "dificultad": 2,
+    "categoria": "Enteros sin signo",
+    "pregunta": "¿Cuál es el resultado de sumar los números binarios 0011 + 0101?",
+    "opciones": {
+      "a": "1000",
+      "b": "0111",
+      "c": "1001",
+      "d": "0110"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "Sumando bit a bit de derecha a izquierda: pos 0: 1+1=10 (escribe 0, lleva 1); pos 1: 1+0+1=10 (escribe 0, lleva 1); pos 2: 0+1+1=10 (escribe 0, lleva 1); pos 3: 0+0+1=1. Resultado: 1000 = 3+5 = 8 en decimal ✓.",
+    "tipo": "texto"
+  },
+  {
+    "id": "FUNDBINARIO_109",
+    "dificultad": 2,
+    "categoria": "Enteros sin signo",
+    "pregunta": "¿Cuál es el resultado de sumar los números binarios 0110 + 0011?",
+    "opciones": {
+      "a": "1010",
+      "b": "1001",
+      "c": "0111",
+      "d": "1100"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Sumando bit a bit: pos 0: 0+1=1 (sin carry); pos 1: 1+1=10 (escribe 0, lleva 1); pos 2: 1+0+1=10 (escribe 0, lleva 1); pos 3: 0+0+1=1. Resultado: 1001 = 6+3 = 9 en decimal ✓.",
+    "tipo": "texto"
+  },
+  {
+    "id": "FUNDBINARIO_110",
+    "dificultad": 2,
+    "categoria": "Operaciones bit a bit",
+    "pregunta": "Se aplica NOT al patrón 10110010 en 8 bits. ¿Cuál es el valor decimal del resultado?",
+    "opciones": {
+      "a": "72",
+      "b": "75",
+      "c": "77",
+      "d": "79"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "NOT invierte todos los bits: 10110010 → 01001101. Valor decimal: 64+8+4+1 = 77. Atajo: NOT de N en 8 bits da 255 − N. Como 10110010 = 128+32+16+2 = 178, el resultado es 255 − 178 = 77 ✓.",
+    "tipo": "texto"
+  },
+  {
+    "id": "FUNDBINARIO_111",
+    "dificultad": 3,
+    "categoria": "Conversión decimal-binario",
+    "pregunta": "¿Cuál es la representación binaria del número decimal 5.75?",
+    "opciones": {
+      "a": "101.01",
+      "b": "100.11",
+      "c": "101.10",
+      "d": "101.11"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "Parte entera: 5 = 101₂. Parte fraccionaria: 0.75×2 = 1.5 → bit 1; 0.5×2 = 1.0 → bit 1 (termina). Fracción: 0.11₂. Resultado: 101.11₂. Verificación: 4+1+0.5+0.25 = 5.75 ✓.",
+    "tipo": "texto"
+  },
+  {
+    "id": "FUNDBINARIO_112",
+    "dificultad": 3,
+    "categoria": "Conversión binario-decimal",
+    "pregunta": "¿Cuál es el valor decimal de 11.011 en binario?",
+    "opciones": {
+      "a": "3.5",
+      "b": "3.25",
+      "c": "3.375",
+      "d": "3.75"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "11.011₂ = 1×2¹ + 1×2⁰ + 0×2⁻¹ + 1×2⁻² + 1×2⁻³ = 2 + 1 + 0 + 0.25 + 0.125 = 3.375.",
+    "tipo": "texto"
+  },
+  {
+    "id": "FUNDBINARIO_113",
+    "dificultad": 3,
+    "categoria": "Enteros sin signo",
+    "pregunta": "¿Cuál es el resultado decimal de sumar en binario 01111000 + 00001000?",
+    "opciones": {
+      "a": "128",
+      "b": "120",
+      "c": "136",
+      "d": "124"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "La suma desencadena un carry en cadena: pos 3: 1+1=10 (lleva 1); pos 4: 1+0+1=10 (lleva 1); pos 5: 1+0+1=10 (lleva 1); pos 6: 1+0+1=10 (lleva 1); pos 7: 0+0+1=1. Los cuatro unos consecutivos se convierten en ceros y generan un 1 en la posición 7. Resultado: 10000000 = 128. (01111000 = 120, 00001000 = 8, 120+8 = 128 ✓.)",
+    "tipo": "texto"
+  },
+  {
+    "id": "FUNDBINARIO_114",
+    "dificultad": 3,
+    "categoria": "Operaciones bit a bit",
+    "pregunta": "El número decimal 60 se almacena en 8 bits como 00111100. Se invierten todos sus bits y al resultado se le suma 1. ¿Cuál es el valor decimal del patrón de 8 bits obtenido?",
+    "opciones": {
+      "a": "195",
+      "b": "192",
+      "c": "194",
+      "d": "196"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "NOT(00111100) = 11000011 = 128+64+2+1 = 195. Luego 195+1 = 196 = 11000100 = 128+64+4. Este resultado tiene la propiedad de que 60+196 = 256, que en 8 bits queda como 0 al descartarse el bit de posición 8.",
+    "tipo": "texto"
+  },
+  {
+    "id": "FUNDBINARIO_115",
+    "dificultad": 3,
+    "categoria": "Operaciones bit a bit",
+    "pregunta": "¿Cómo se puede verificar con una sola operación AND si el número N (con N > 0) es potencia de 2?",
+    "opciones": {
+      "a": "Si el resultado de N AND N es 0",
+      "b": "Si el resultado de N AND (N+1) es 0",
+      "c": "Si el resultado de N AND (N−1) es 0",
+      "d": "Si el resultado de N AND 255 es 0"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "Las potencias de 2 tienen exactamente un bit en 1 (ej: 8 = 1000). El número N−1 invierte todos los bits desde esa posición hacia abajo (7 = 0111). Por eso N AND (N−1) = 0 solo cuando N es potencia de 2. Contraejemplo: 6 = 0110, 5 = 0101, 0110 AND 0101 = 0100 ≠ 0, así que 6 no es potencia de 2.",
+    "tipo": "texto"
+  },
+  {
+    "id": "FUNDBINARIO_116",
+    "dificultad": 4,
+    "categoria": "Conversión decimal-binario",
+    "pregunta": "Al convertir 0.1 decimal a binario usando multiplicaciones sucesivas por 2, ¿qué ocurre con el proceso?",
+    "opciones": {
+      "a": "El proceso termina en 4 pasos y produce 0.0001₂",
+      "b": "El proceso termina en 7 pasos y produce 0.0001101₂",
+      "c": "El proceso genera una secuencia que se repite indefinidamente, produciendo 0.000110011001100...₂",
+      "d": "El proceso termina en 10 pasos y produce 0.0001100110₂"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "Las multiplicaciones sucesivas son: 0.1×2=0.2→0; 0.2×2=0.4→0; 0.4×2=0.8→0; 0.8×2=1.6→1; 0.6×2=1.2→1; 0.2×2=0.4→0 (el estado 0.2 ya apareció en el paso 2 y el ciclo se repite). El patrón 0011 se repite infinitamente. 0.1 no tiene representación binaria exacta y finita.",
+    "tipo": "texto"
+  },
+  {
+    "id": "FUNDBINARIO_117",
+    "dificultad": 4,
+    "categoria": "Conversión binario-decimal",
+    "pregunta": "¿Cuál es el valor decimal de 110.101 en binario?",
+    "opciones": {
+      "a": "6.75",
+      "b": "6.25",
+      "c": "6.5",
+      "d": "6.625"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "Parte entera: 110₂ = 4+2 = 6. Parte fraccionaria: 1×2⁻¹ + 0×2⁻² + 1×2⁻³ = 0.5 + 0 + 0.125 = 0.625. Total: 6 + 0.625 = 6.625.",
+    "tipo": "texto"
+  },
+  {
+    "id": "FUNDBINARIO_118",
+    "dificultad": 4,
+    "categoria": "Enteros sin signo",
+    "pregunta": "¿Cuál es el resultado decimal de sumar los binarios 01100011 + 00110100?",
+    "opciones": {
+      "a": "151",
+      "b": "147",
+      "c": "153",
+      "d": "149"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "01100011 = 64+32+2+1 = 99. 00110100 = 32+16+4 = 52. La suma produce carry en la posición 5 que se propaga hasta la posición 7. Resultado: 10010111 = 128+16+4+2+1 = 151. Verificación: 99+52 = 151 ✓.",
+    "tipo": "texto"
+  },
+  {
+    "id": "FUNDBINARIO_119",
+    "dificultad": 4,
+    "categoria": "Operaciones bit a bit",
+    "pregunta": "Se niega el número decimal 50 en 8 bits (invertir todos los bits y sumar 1), obteniendo el patrón P. Luego se aplica la misma operación a P. ¿Cuál es el valor decimal del resultado final?",
+    "opciones": {
+      "a": "49",
+      "b": "50",
+      "c": "206",
+      "d": "51"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Paso 1: NOT(00110010) = 11001101; +1 = 11001110 = 206 (patrón P). Paso 2: NOT(11001110) = 00110001; +1 = 00110010 = 50. La doble negación recupera el número original, de forma equivalente a −(−x) = x en aritmética convencional.",
+    "tipo": "texto"
+  },
+  {
+    "id": "FUNDBINARIO_120",
+    "dificultad": 4,
+    "categoria": "Empaquetado de datos",
+    "pregunta": "El byte 10110111 almacena el campo X en los bits 5-3 (3 bits) y el campo Y en los bits 2-0 (3 bits). Se extraen ambos campos y se suman. ¿Cuál es la extracción correcta y qué ocurre al intentar guardar la suma en un campo de 3 bits?",
+    "opciones": {
+      "a": "X=3, Y=7, suma=10, no cabe en 3 bits",
+      "b": "X=6, Y=7, suma=13, sí cabe en 3 bits",
+      "c": "X=5, Y=7, suma=12, no cabe en 3 bits",
+      "d": "X=6, Y=7, suma=13, no cabe en 3 bits"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "X (bits 3-5): 10110111 >> 3 = 00010110; AND 00000111 = 00000110 = 6. Y (bits 0-2): 10110111 AND 00000111 = 00000111 = 7. Suma: 6+7 = 13. El máximo almacenable en 3 bits es 2³−1 = 7. Como 13 > 7, el resultado no cabe: los 4 bits de 13 (1101) truncados a 3 bits darían 101 = 5, un valor incorrecto.",
+    "tipo": "texto"
+  },
+  {
+    "id": "FUNDBINARIO_121",
+    "dificultad": 5,
+    "categoria": "Conversión decimal-binario",
+    "pregunta": "¿Cuántos bits de fracción binaria se necesitarían para representar exactamente el número decimal 0.1?",
+    "opciones": {
+      "a": "Infinitos, ya que 0.1 es una fracción binaria periódica que nunca termina",
+      "b": "10 bits son suficientes para representar con exactitud cualquier fracción decimal de un dígito",
+      "c": "7 bits, porque el método de multiplicaciones termina después de 7 pasos",
+      "d": "4 bits, ya que 0.1 se aproxima aceptablemente con 0.0001₂"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "La conversión genera el ciclo 0011 que se repite indefinidamente: 0.000110011001100... Ninguna cadena finita de bits puede representar 0.1 exactamente. Solo una fracción cuyo denominador (en forma reducida) sea potencia de 2 tiene representación binaria finita; 0.1 = 1/10 no cumple esa condición porque 10 = 2×5 incluye el factor 5.",
+    "tipo": "texto"
+  },
+  {
+    "id": "FUNDBINARIO_122",
+    "dificultad": 5,
+    "categoria": "Enteros sin signo",
+    "pregunta": "¿Cuál es el resultado decimal de sumar los binarios 01010101 + 00110011 + 00011101?",
+    "opciones": {
+      "a": "163",
+      "b": "165",
+      "c": "167",
+      "d": "161"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "01010101 = 64+16+4+1 = 85. 00110011 = 32+16+2+1 = 51. 00011101 = 16+8+4+1 = 29. Primera suma: 85+51 = 136 (10001000). Segunda suma: 136+29 = 165 (10100101 = 128+32+4+1). Verificación: 85+51+29 = 165 ✓.",
+    "tipo": "texto"
+  },
+  {
+    "id": "FUNDBINARIO_123",
+    "dificultad": 5,
+    "categoria": "Operaciones bit a bit",
+    "pregunta": "El número decimal 45 se almacena en 8 bits como 00101101. Se invierten todos sus bits y se suma 1, obteniendo el patrón P. Luego se suman los 8 bits de 45 y los 8 bits de P, descartando el bit en la posición 8 si aparece. ¿Cuál es el valor almacenado en 8 bits?",
+    "opciones": {
+      "a": "211",
+      "b": "45",
+      "c": "128",
+      "d": "0"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "NOT(00101101) = 11010010; +1 = 11010011 = 211 (patrón P). Suma: 00101101 + 11010011 = 100000000 (9 bits). El bit en la posición 8 no cabe en el registro de 8 bits y se descarta, dejando 00000000 = 0. Esto siempre ocurre: cualquier número de 8 bits sumado a su patrón invertido-más-uno da 256, cuyo único bit de 9 dígitos se pierde.",
+    "tipo": "texto"
+  },
+  {
+    "id": "FUNDBINARIO_124",
+    "dificultad": 5,
+    "categoria": "Operaciones bit a bit",
+    "pregunta": "Se tiene el número 10110101 en 8 bits. Se quiere construir un nuevo patrón de 8 bits donde los bits 6-4 contengan exactamente los bits 2-0 del número original, y el resto quede en 0. ¿Cuál es el valor decimal del patrón resultante?",
+    "opciones": {
+      "a": "80",
+      "b": "40",
+      "c": "160",
+      "d": "20"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "Paso 1 — extraer bits 0-2: 10110101 AND 00000111 = 00000101 = 5. Paso 2 — reubicar en bits 4-6: 5 << 4 = 01010000 = 64+16 = 80. El AND aísla el campo fuente y el desplazamiento lo lleva al campo destino, con ceros en el resto.",
+    "tipo": "texto"
+  },
+  {
+    "id": "FUNDBINARIO_125",
+    "dificultad": 5,
+    "categoria": "Operaciones bit a bit",
+    "pregunta": "Se aplican estas operaciones en secuencia: (1) XOR entre 01011010 y 00101101, (2) al resultado se le desplazan 3 posiciones a la derecha, (3) al resultado se le aplica AND con 00001111. ¿Cuál es el valor decimal final?",
+    "opciones": {
+      "a": "12",
+      "b": "14",
+      "c": "10",
+      "d": "8"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Paso 1: 01011010 XOR 00101101 = 01110111 = 64+32+16+4+2+1 = 119. Paso 2: 119 >> 3 = 00001110 = 14 (los 3 bits inferiores se descartan y entran ceros por la izquierda). Paso 3: 00001110 AND 00001111 = 00001110 = 14 (la máscara confirma que los 4 bits superiores ya eran 0). Resultado: 14.",
+    "tipo": "texto"
   }
 ]

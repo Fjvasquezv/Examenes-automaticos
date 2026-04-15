@@ -81,6 +81,12 @@
                 "Empaquetado de datos",
                 "Punto flotante"
             ]
+        },
+        {
+            "nombre": "parcial_II - Programación",
+            "examen_config": "Programacion/parcial_II.json",
+            "inicio": "2026-04-15 08:00",
+            "fin": "2026-04-15 10:00"
         }
     ]
 }
