@@ -1,0 +1,1502 @@
+[
+  {
+    "id": "op_bas_001",
+    "dificultad": 1,
+    "categoria": "Operaciones unitarias",
+    "pregunta": "Todo proceso industrial puede descomponerse en operaciones físicas o químicas que se repiten en diferentes industrias. ¿Qué nombre reciben estas operaciones recurrentes?",
+    "opciones": {
+      "a": "Procesos elementales de manufactura",
+      "b": "Operaciones unitarias",
+      "c": "Ciclos de transformación industrial",
+      "d": "Módulos de reacción química"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Las operaciones unitarias son operaciones físicas (y a veces químicas) que se repiten en muchos procesos industriales distintos, permitiendo analizar cualquier proceso como una combinación de estas operaciones comunes. Las otras opciones no corresponden a ningún concepto técnico establecido.",
+    "tipo": "texto"
+  },
+  {
+    "id": "op_bas_002",
+    "dificultad": 1,
+    "categoria": "Estructura del proceso",
+    "pregunta": "Un proceso industrial típico sigue una secuencia definida de etapas generales. ¿Cuál de las siguientes representa el orden correcto?",
+    "opciones": {
+      "a": "Reacciones químicas → acondicionamiento → materias primas → separación",
+      "b": "Materias primas → reacciones químicas → acondicionamiento → separación",
+      "c": "Materias primas → acondicionamiento → reacciones químicas → separación",
+      "d": "Acondicionamiento → materias primas → separación → reacciones químicas"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "El proceso estándar sigue: materias primas → acondicionamiento físico (preparación del material base) → reacciones químicas (transformación central) → operaciones de separación (obtención del producto final). La opción b es el distractor más común porque intercambia el acondicionamiento con la reacción.",
+    "tipo": "texto"
+  },
+  {
+    "id": "op_bas_003",
+    "dificultad": 1,
+    "categoria": "Clasificación de operaciones unitarias",
+    "pregunta": "Según la clasificación de operaciones unitarias por el tipo de fenómeno predominante, la evaporación se ubica en la categoría de transmisión de energía. ¿Por qué no se clasifica como transferencia de materia?",
+    "opciones": {
+      "a": "Porque en la evaporación ningún componente cambia de fase durante el proceso",
+      "b": "Porque el fenómeno dominante es el aporte de calor que provoca el cambio de fase, no el movimiento de un soluto entre fases distintas",
+      "c": "Porque la evaporación solo ocurre en mezclas donde el soluto es más volátil que el solvente",
+      "d": "Porque la evaporación no produce separación de componentes sino únicamente concentración del líquido"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "En la evaporación, el fenómeno central es el aporte de energía (calor) que genera el cambio de fase del solvente. La transferencia de materia implica el movimiento de un soluto entre fases diferentes por diferencia de concentración. La opción d parece razonable pero es incorrecta: la evaporación sí produce una separación (solvente vs. soluto concentrado).",
+    "tipo": "texto"
+  },
+  {
+    "id": "op_bas_004",
+    "dificultad": 1,
+    "categoria": "Clasificación de operaciones unitarias",
+    "pregunta": "La destilación, a diferencia de la evaporación, se clasifica como una operación de transmisión simultánea de materia y energía. ¿Cuál es la característica que justifica esta distinción?",
+    "opciones": {
+      "a": "Que la destilación siempre opera a presiones distintas de la atmosférica, lo que obliga a considerar efectos energéticos y másicos en conjunto",
+      "b": "Que en la destilación los componentes migran continuamente entre la fase líquida y la fase vapor según sus diferencias de volatilidad, mientras se transfiere calor al sistema",
+      "c": "Que la destilación usa reflujo para devolver parte del condensado, lo que crea un flujo adicional de materia que no existe en la evaporación",
+      "d": "Que la destilación separa componentes con puntos de ebullición muy cercanos, lo que obliga a combinar los fenómenos de calor y masa"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "En la destilación ocurren simultáneamente transferencia de energía (calor suministrado) y transferencia de materia (los componentes migran entre fases líquida y vapor según su volatilidad relativa). La opción c describe una característica real del proceso pero no es la razón de su clasificación; las opciones a y d son afirmaciones incorrectas.",
+    "tipo": "texto"
+  },
+  {
+    "id": "op_bas_005",
+    "dificultad": 1,
+    "categoria": "Fuerza impulsora y equilibrio",
+    "pregunta": "La velocidad de transferencia en cualquier operación unitaria es proporcional a la fuerza impulsora. ¿Qué ocurre con esa fuerza cuando el sistema alcanza el equilibrio?",
+    "opciones": {
+      "a": "La fuerza impulsora alcanza su valor máximo porque el sistema ha acumulado toda la energía disponible",
+      "b": "La fuerza impulsora se invierte, generando un flujo de retorno que estabiliza el sistema en ese punto",
+      "c": "La fuerza impulsora desaparece porque la diferencia entre la condición real y la condición de equilibrio se hace cero",
+      "d": "La fuerza impulsora permanece constante pero la resistencia del sistema aumenta hasta detener el proceso"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "La fuerza impulsora es la diferencia entre la condición actual del sistema y su condición de equilibrio. Cuando el sistema llega al equilibrio, esa diferencia vale cero, por lo que no existe ninguna fuerza que impulse la transferencia y el proceso se detiene.",
+    "tipo": "texto"
+  },
+  {
+    "id": "op_bas_006",
+    "dificultad": 1,
+    "categoria": "Equilibrio en sistemas bifásicos",
+    "pregunta": "El yodo (I₂, molécula apolar) se disuelve en una mezcla de agua (solvente polar) y cloroformo (solvente apolar, no miscible con el agua). En el equilibrio, la concentración de yodo en el cloroformo es 50 veces mayor que en el agua. ¿Cuál afirmación describe correctamente este estado?",
+    "opciones": {
+      "a": "El sistema no ha alcanzado el equilibrio porque las concentraciones de yodo en ambas fases son distintas",
+      "b": "El sistema está en equilibrio: no hay flujo neto de yodo entre las fases, aunque las concentraciones difieran",
+      "c": "El sistema seguirá evolucionando: el yodo migrará del cloroformo al agua hasta que las concentraciones se igualen",
+      "d": "El equilibrio en sistemas bifásicos requiere que la concentración total de yodo disminuya con el tiempo hasta estabilizarse"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "En sistemas bifásicos, el equilibrio no implica concentraciones iguales en ambas fases, sino ausencia de flujo neto entre ellas. El yodo es apolar como el cloroformo, por lo que tiene mayor afinidad por esa fase. Las opciones a y c explotan la intuición incorrecta de que equilibrio = concentraciones iguales.",
+    "tipo": "texto"
+  },
+  {
+    "id": "op_bas_007",
+    "dificultad": 1,
+    "categoria": "Absorción",
+    "pregunta": "¿Cuál de las siguientes describe correctamente la operación de absorción?",
+    "opciones": {
+      "a": "Un componente líquido volátil se evapora y se separa del resto de la mezcla por diferencia de punto de ebullición",
+      "b": "Un componente gaseoso se transfiere desde la fase gas hacia un solvente líquido que lo disuelve",
+      "c": "Dos líquidos inmiscibles se separan por diferencia de densidad al entrar en contacto en una columna",
+      "d": "Los iones de una solución acuosa se sustituyen por otros iones al pasar a través de un lecho sólido poroso"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "La absorción es la operación donde uno o más componentes de una fase gaseosa se transfieren a un solvente líquido que los disuelve. Las otras opciones describen operaciones reales del mismo dominio: a corresponde a evaporación/destilación, c a decantación y d a intercambio iónico.",
+    "tipo": "texto"
+  },
+  {
+    "id": "op_bas_008",
+    "dificultad": 1,
+    "categoria": "Torres de absorción",
+    "pregunta": "En una torre de platos, la concentración del gas cambia de forma escalonada: cada plato representa una etapa de contacto. ¿Cómo varía la concentración en una torre de relleno?",
+    "opciones": {
+      "a": "También de forma escalonada, pero con un número mucho mayor de etapas por metro de altura",
+      "b": "De forma discontinua, concentrándose el cambio únicamente en los puntos donde se redistribuye el líquido",
+      "c": "De forma continua a lo largo de toda la altura del lecho de relleno",
+      "d": "Sin variación apreciable en la mayor parte de la altura; el cambio ocurre solo en la entrada y la salida"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "En las torres de relleno, el contacto entre gas y líquido es continuo a lo largo de toda la altura del lecho, por lo que la concentración varía de forma gradual y continua. La opción a es el distractor más peligroso porque describe el relleno como una versión 'con más etapas' de los platos, lo cual no es correcto conceptualmente.",
+    "tipo": "texto"
+  },
+  {
+    "id": "op_bas_009",
+    "dificultad": 1,
+    "categoria": "Intercambio iónico",
+    "pregunta": "En el intercambio iónico, una solución acuosa pasa a través de una resina sólida porosa. ¿Cuál es el mecanismo que produce la separación?",
+    "opciones": {
+      "a": "Los iones se adsorben físicamente en la superficie de la resina sin que ocurra intercambio de partículas entre las fases",
+      "b": "Los iones de la solución reemplazan a los iones de la resina, que pasan a la solución, cambiando la composición iónica del líquido",
+      "c": "La resina actúa como membrana semipermeable, permitiendo el paso de los iones más pequeños y reteniendo los más grandes",
+      "d": "Los iones precipitan al contacto con la resina y se recuperan posteriormente mediante una disolución ácida"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "En el intercambio iónico, los iones de la solución son reemplazados por iones del mismo signo presentes en la resina; estos últimos pasan a la solución. La opción a describe adsorción, la c describe diálisis o ultrafiltración, y la d describe precipitación química; todas son operaciones reales pero distintas al intercambio iónico.",
+    "tipo": "texto"
+  },
+  {
+    "id": "op_bas_010",
+    "dificultad": 1,
+    "categoria": "Clasificación de operaciones unitarias",
+    "pregunta": "El flujo de fluidos a través de tuberías y equipos se clasifica como transporte de cantidad de movimiento, no como transferencia de materia o energía. ¿Cuál es la razón de esta distinción?",
+    "opciones": {
+      "a": "Porque los fluidos no pueden transferir materia entre fases distintas mientras se desplazan por tuberías cerradas",
+      "b": "Porque el flujo de fluidos no consume energía si la tubería está bien diseñada y las pérdidas por fricción son despreciables",
+      "c": "Porque la propiedad que se propaga en el fenómeno es el movimiento del fluido, impulsado por gradientes de presión o velocidad",
+      "d": "Porque esta clasificación aplica solo a gases; los líquidos se transportan por gravedad y pertenecen a otra categoría"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "En el transporte de cantidad de movimiento, la propiedad que se transfiere es el movimiento del fluido (velocidad, momento lineal), impulsado por gradientes de presión o velocidad. Esto lo distingue de la transferencia de materia (gradientes de concentración) y de la transmisión de energía (gradientes de temperatura).",
+    "tipo": "texto"
+  },
+  {
+    "id": "op_bas_011",
+    "dificultad": 2,
+    "categoria": "Estructura del proceso",
+    "pregunta": "En una planta de producción de azúcar, la caña se tritura mecánicamente antes de entrar al extractor. ¿En qué etapa del proceso se ubica esta trituración?",
+    "opciones": {
+      "a": "Reacción química, porque la trituración rompe los enlaces de la sacarosa liberando energía",
+      "b": "Operación de separación, porque la trituración libera el jugo de la fibra de caña",
+      "c": "Operación física de acondicionamiento, porque prepara la materia prima sin transformarla químicamente",
+      "d": "Transporte de cantidad de movimiento, porque aplica fuerzas mecánicas al material sólido"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "La trituración es una operación de acondicionamiento: prepara físicamente la materia prima para las etapas siguientes sin cambiar su composición química. La opción b suena razonable porque la trituración sí libera jugo, pero esa es su consecuencia práctica, no su clasificación en el esquema del proceso.",
+    "tipo": "texto"
+  },
+  {
+    "id": "op_bas_012",
+    "dificultad": 2,
+    "categoria": "Evaporación",
+    "pregunta": "Una planta láctea concentra leche eliminando agua por calentamiento. El objetivo es aumentar el contenido de sólidos; los sólidos de la leche no son volátiles y su punto de fusión supera los 200°C. ¿Qué operación unitaria describe mejor este proceso?",
+    "opciones": {
+      "a": "Destilación, porque hay cambio de fase del agua de líquido a vapor y luego condensación",
+      "b": "Rectificación, porque el vapor generado se condensa y se retira continuamente del sistema",
+      "c": "Evaporación, porque el objetivo es concentrar la solución eliminando el solvente más volátil (el agua)",
+      "d": "Absorción, porque el vapor de agua generado es capturado por la fase gaseosa circundante"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "La evaporación se usa para concentrar soluciones cuando el soluto tiene un punto de ebullición muy superior al del solvente. Aquí el agua (solvente, ebullición 100°C) es eliminada como vapor mientras los sólidos de la leche permanecen en la fase líquida. La destilación (opción a) implica separar componentes de volatilidad comparable, lo cual no aplica aquí.",
+    "tipo": "texto"
+  },
+  {
+    "id": "op_bas_013",
+    "dificultad": 2,
+    "categoria": "Destilación",
+    "pregunta": "En la rectificación, parte del condensado se devuelve a la columna (reflujo) para entrar en contacto con el vapor ascendente. En la destilación simple, ese retorno no existe. ¿Qué ventaja aporta el reflujo?",
+    "opciones": {
+      "a": "Reduce el consumo energético porque el líquido devuelto enfría el vapor sin necesitar un condensador externo",
+      "b": "Enriquece el vapor en los componentes más volátiles de forma continua al establecer múltiples contactos entre líquido y vapor a lo largo de la columna",
+      "c": "Permite operar la columna a presión atmosférica cuando la destilación simple requeriría vacío para el mismo producto",
+      "d": "Elimina la necesidad de controlar la temperatura porque el reflujo regula automáticamente el perfil térmico de la columna"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "El reflujo crea un flujo de líquido descendente que entra en contacto repetido con el vapor ascendente. En cada contacto, los componentes más volátiles pasan preferentemente al vapor y los menos volátiles al líquido, enriqueciendo progresivamente el vapor a medida que sube. Esto no ocurre en la destilación simple, donde el vapor sale sin ese enriquecimiento adicional.",
+    "tipo": "texto"
+  },
+  {
+    "id": "op_bas_014",
+    "dificultad": 2,
+    "categoria": "Fuerza impulsora y resistencia",
+    "pregunta": "En un sistema de transferencia de masa, la fuerza impulsora se mantiene constante pero la resistencia al transporte aumenta (por ejemplo, porque el lecho se compacta). ¿Qué ocurre con la velocidad de transferencia?",
+    "opciones": {
+      "a": "Aumenta, porque el sistema compensa automáticamente la mayor resistencia incrementando el flujo",
+      "b": "Permanece igual, porque en estado estacionario la velocidad es independiente de la resistencia",
+      "c": "Disminuye, porque la velocidad es proporcional a la fuerza impulsora e inversamente proporcional a la resistencia",
+      "d": "Se vuelve cero de forma inmediata, porque cualquier resistencia finita detiene completamente el proceso"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "La relación fundamental establece que la velocidad de transferencia = fuerza impulsora / resistencia. Si la fuerza impulsora es constante y la resistencia aumenta, la velocidad disminuye proporcionalmente. La opción d confunde 'resistencia alta' con 'resistencia infinita': solo una resistencia infinita detendría completamente el proceso.",
+    "tipo": "texto"
+  },
+  {
+    "id": "op_bas_015",
+    "dificultad": 2,
+    "categoria": "Equilibrio en sistemas monofásicos",
+    "pregunta": "Una solución de sal (NaCl) en agua se prepara vertiendo la sal en el fondo de un recipiente cerrado. Al inicio, la concentración es mayor en el fondo que en la superficie. ¿Qué ocurre con el tiempo si no hay agitación?",
+    "opciones": {
+      "a": "La concentración permanece no uniforme indefinidamente porque la sal es más densa y tiende a sedimentar",
+      "b": "La concentración se uniformiza gradualmente hasta ser igual en todo el volumen, porque en sistemas monofásicos el equilibrio implica uniformidad de concentraciones",
+      "c": "La sal precipita completamente en el fondo porque el equilibrio favorece la separación de fases en soluciones concentradas",
+      "d": "La concentración en la superficie aumenta porque el agua se evapora más rápido que la sal puede difundirse hacia arriba"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "En un sistema monofásico (una sola fase líquida homogénea), el equilibrio implica que la concentración se uniformiza en todo el volumen. La difusión de los iones de Na⁺ y Cl⁻ los llevará gradualmente desde las zonas de alta concentración (fondo) hacia las de baja concentración (superficie). Esto contrasta con el equilibrio bifásico, donde las concentraciones en cada fase pueden ser distintas.",
+    "tipo": "texto"
+  },
+  {
+    "id": "op_bas_016",
+    "dificultad": 2,
+    "categoria": "Bases de separación",
+    "pregunta": "Se necesita separar tres proteínas de distinto tamaño molecular disueltas en agua. Todas tienen la misma carga eléctrica neta y ninguna es volátil. ¿Qué base de separación es la más apropiada?",
+    "opciones": {
+      "a": "Volatilidad, aprovechando las diferencias en punto de ebullición entre las distintas proteínas",
+      "b": "Carga eléctrica, porque las proteínas en solución acuosa siempre presentan movilidad electroforética diferente",
+      "c": "Tamaño o forma molecular, usando procesos como ultrafiltración o diálisis que discriminan por tamaño",
+      "d": "Solubilidad en solventes orgánicos apolares, extrayendo cada proteína de forma selectiva"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "Dado que las proteínas no son volátiles (descarta a), tienen la misma carga (descarta b como base diferenciadora) y son polares/solubles en agua (descarta d con solventes apolares), la propiedad diferenciadora disponible es el tamaño molecular. La ultrafiltración y la diálisis separan moléculas por tamaño usando membranas con poros de tamaño controlado.",
+    "tipo": "texto"
+  },
+  {
+    "id": "op_bas_017",
+    "dificultad": 2,
+    "categoria": "Componentes internos de torres",
+    "pregunta": "En una torre de relleno, el líquido tiende a migrar hacia las paredes del equipo a medida que desciende, alejándose del centro donde está el lecho de relleno activo. ¿Qué dispositivo interno existe específicamente para corregir este problema?",
+    "opciones": {
+      "a": "El plato de soporte, que al sostener el peso del relleno redistribuye mecánicamente el líquido hacia el centro",
+      "b": "El plato de sujeción, que evita que el lecho se expanda y canalice el líquido hacia los bordes",
+      "c": "El redistribuidor, que recolecta el líquido acumulado en las paredes y lo reintroduce uniformemente al centro del relleno",
+      "d": "El distribuidor de entrada, que inyecta el líquido con suficiente presión para evitar que migre a las paredes desde el inicio"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "El redistribuidor está diseñado específicamente para interceptar el líquido que se ha canalizado hacia las paredes a lo largo del lecho y reintroducirlo uniformemente al centro. El distribuidor de entrada (opción d) solo actúa en la parte superior de la columna; no puede corregir la migración que ocurre a lo largo de la altura del relleno.",
+    "tipo": "texto"
+  },
+  {
+    "id": "op_bas_018",
+    "dificultad": 2,
+    "categoria": "Clasificación de operaciones unitarias",
+    "pregunta": "En una planta química, una bomba centrífuga impulsa agua a través de tuberías hacia un intercambiador de calor, donde el agua fría absorbe calor de una corriente caliente de aceite térmico. ¿Cómo se clasifican correctamente estas dos operaciones?",
+    "opciones": {
+      "a": "Ambas son transferencia de materia, porque en los dos casos el agua cambia de condición al pasar por el equipo",
+      "b": "Ambas son transmisión de energía, porque la bomba también aporta energía cinética al fluido",
+      "c": "La bomba es transporte de cantidad de movimiento; el intercambiador es transmisión de energía",
+      "d": "La bomba es transferencia de materia; el intercambiador es transporte de cantidad de movimiento"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "La bomba mueve el fluido aplicando fuerza: la propiedad transferida es el movimiento (cantidad de movimiento), por eso es transporte de cantidad de movimiento. El intercambiador transfiere calor desde el aceite hacia el agua sin mezclarlos ni cambiar su composición: es transmisión de energía. La opción b es el distractor más tentador porque la bomba sí aporta energía, pero el fenómeno dominante que la define como operación unitaria es el transporte de fluido.",
+    "tipo": "texto"
+  },
+  {
+    "id": "op_bas_019",
+    "dificultad": 2,
+    "categoria": "Evaporación vs destilación",
+    "pregunta": "Para concentrar una solución acuosa de sal de mesa (NaCl, sólido iónico cuyo punto de fusión es 801°C), la industria alimentaria usa evaporación y no destilación. ¿Cuál es la razón conceptual principal?",
+    "opciones": {
+      "a": "Porque la destilación no puede manejar soluciones acuosas; solo opera con mezclas de líquidos orgánicos miscibles",
+      "b": "Porque el NaCl tiene un punto de ebullición enormemente superior al del agua, por lo que el vapor generado es prácticamente agua pura y el objetivo es concentrar, no separar componentes de volatilidades similares",
+      "c": "Porque la destilación requiere reflujo, y el retorno del condensado contaminaría el producto con trazas de sal arrastradas",
+      "d": "Porque la evaporación consume menos energía que la destilación para cualquier tipo de solución acuosa industrial"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "La evaporación aplica cuando el soluto tiene un punto de ebullición muy superior al del solvente: el calor elimina el solvente puro como vapor, concentrando el soluto. La destilación se usa cuando se quiere separar componentes de volatilidades comparables. Como el NaCl es prácticamente no volátil, no hay mezcla de volatilidades que separar; la evaporación es la operación correcta.",
+    "tipo": "texto"
+  },
+  {
+    "id": "op_bas_020",
+    "dificultad": 2,
+    "categoria": "Teoría de la doble capa",
+    "pregunta": "Según la teoría de la doble capa, ¿dónde se localiza la resistencia a la transferencia de masa en un sistema gas-líquido?",
+    "opciones": {
+      "a": "En el núcleo del gas y en el núcleo del líquido, que son las regiones de mayor concentración de cada componente",
+      "b": "En la interfase misma, donde las moléculas deben superar la tensión superficial para cruzar de una fase a otra",
+      "c": "En películas delgadas a cada lado de la interfase, una en la fase gaseosa y otra en la fase líquida",
+      "d": "Solo en la fase con mayor viscosidad, que ofrece la mayor resistencia al movimiento molecular"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "La teoría de la doble capa postula que la resistencia a la transferencia de masa se concentra en dos películas delgadas: una del lado gaseoso y otra del lado líquido de la interfase. En la interfase misma se asume que el equilibrio se alcanza instantáneamente, por lo que no hay resistencia en ese punto. Las opciones a y d son incorrectas porque la turbulencia en los núcleos de cada fase mezcla eficientemente, reduciendo allí la resistencia.",
+    "tipo": "texto"
+  },
+  {
+    "id": "op_bas_021",
+    "dificultad": 3,
+    "categoria": "Heurísticas de separación",
+    "pregunta": "Una corriente de proceso llega al separador como mezcla de aceite de palma (líquido apolar, densidad 0.9 g/mL) y agua (líquido polar, densidad 1.0 g/mL), formando dos fases líquidas visibles y estables. ¿Qué indica la heurística para elegir la primera operación de separación?",
+    "opciones": {
+      "a": "Usar destilación, porque los dos líquidos tienen diferentes puntos de ebullición y la diferencia es aprovechable",
+      "b": "Usar extracción líquido-líquido con un tercer solvente, porque hay diferencias de solubilidad entre las fases",
+      "c": "Usar una separación mecánica, porque la alimentación ya se encuentra en dos fases y esa diferencia es la que debe explotarse primero",
+      "d": "Usar absorción con un gas, porque uno de los componentes puede transferirse preferentemente a una fase gaseosa"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "La heurística establece que si la alimentación ya llega en dos fases, debe emplearse una técnica de separación mecánica (como decantación o centrifugación) antes de considerar cualquier técnica de equilibrio. Introducir un agente externo o una operación térmica cuando ya existe una diferencia de fases explotable es innecesariamente complejo y costoso.",
+    "tipo": "texto"
+  },
+  {
+    "id": "op_bas_022",
+    "dificultad": 3,
+    "categoria": "Heurísticas de separación",
+    "pregunta": "Una mezcla de gases contiene 80% de metano (CH₄, apolar, punto de ebullición -161°C) y 20% de propano (C₃H₈, apolar, punto de ebullición -42°C). Aplicando la heurística de secuencia de separación, ¿cuál componente debería separarse primero?",
+    "opciones": {
+      "a": "El propano, porque al ser el componente minoritario requiere procesar un menor volumen y consume menos energía",
+      "b": "El metano, porque es simultáneamente el componente más abundante y el más volátil de la mezcla",
+      "c": "El propano, porque separar primero el componente menos volátil protege los equipos de condensaciones indeseadas aguas abajo",
+      "d": "El orden es indiferente porque ambos componentes son apolares y tienen propiedades físicas del mismo tipo"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "La heurística de secuencia recomienda separar primero el componente más abundante o el más volátil. En este caso el metano cumple ambas condiciones: es el 80% de la mezcla y tiene el punto de ebullición más bajo (-161°C vs -42°C del propano). Separarlo primero reduce el volumen de la corriente que continúa al siguiente equipo.",
+    "tipo": "texto"
+  },
+  {
+    "id": "op_bas_023",
+    "dificultad": 3,
+    "categoria": "Heurísticas de separación",
+    "pregunta": "Un ingeniero propone separar un gas licuándolo a -90°C para luego destilarlo. ¿Qué dice la heurística de condiciones operativas sobre esta elección?",
+    "opciones": {
+      "a": "Es la opción preferida porque trabajar por debajo de la temperatura ambiente mejora la selectividad y reduce el riesgo de descomposición térmica",
+      "b": "Es aceptable si no hay alternativa, pero la heurística recomienda operar cerca de las condiciones ambientales y, si se debe desviar, prefiere condiciones superiores a las ambientales antes que inferiores",
+      "c": "Es la única opción viable para gases, ya que sin licuarlos no existe diferencia de fases que permita ninguna separación",
+      "d": "Es preferible a trabajar a alta presión porque el frío no genera riesgos mecánicos adicionales en los equipos de separación"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "La heurística indica trabajar lo más cerca posible de las condiciones ambientales. Si es necesario desviarse, se prefieren condiciones superiores (mayor temperatura o presión) a las inferiores, porque operar a temperaturas criogénicas implica sistemas de refrigeración costosos, materiales especiales y mayores riesgos operativos. Las opciones a y d contienen afirmaciones incorrectas sobre las ventajas del frío.",
+    "tipo": "texto"
+  },
+  {
+    "id": "op_bas_024",
+    "dificultad": 3,
+    "categoria": "Heurísticas de separación",
+    "pregunta": "Para absorber NH₃ (amoníaco, gas polar, muy soluble en agua) de una corriente de aire, un ingeniero propone usar benceno (líquido apolar, tóxico, clasificado como carcinógeno) como solvente porque está disponible en la planta. ¿Qué problemas plantea esta elección según las heurísticas de diseño?",
+    "opciones": {
+      "a": "Ninguno relevante; cualquier líquido disponible es válido como solvente si reduce el costo de adquisición de materiales",
+      "b": "El benceno es apolar y el NH₃ es polar y muy soluble en agua, por lo que el benceno sería un solvente ineficiente; además, la heurística indica evitar agentes externos tóxicos o peligrosos",
+      "c": "El benceno tiene un punto de ebullición demasiado bajo (-5°C) para mantenerse líquido en las condiciones típicas de una torre de absorción industrial",
+      "d": "La heurística prohíbe sin excepciones el uso de solventes orgánicos en procesos de absorción de gases polares"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Hay dos problemas simultáneos: primero, el principio 'like dissolves like' indica que un solvente apolar como el benceno disolvería mal un gas polar como el NH₃, haciendo la absorción ineficiente. Segundo, la heurística sobre agentes externos señala que si se requiere añadir materia externa, deben descartarse los materiales tóxicos o peligrosos. El benceno viola ambos criterios. La opción c es incorrecta porque el punto de ebullición del benceno es 80°C.",
+    "tipo": "texto"
+  },
+  {
+    "id": "op_bas_025",
+    "dificultad": 3,
+    "categoria": "Resistencia controlante",
+    "pregunta": "El SO₂ (dióxido de azufre, gas polar) es muy soluble en agua: a temperatura ambiente se disuelve fácilmente formando ácido sulfuroso. En una torre de absorción que usa agua para capturar SO₂ de una corriente gaseosa, ¿en qué fase reside principalmente la resistencia a la transferencia de masa?",
+    "opciones": {
+      "a": "En la fase líquida, porque el SO₂ disuelto debe difundirse a través del agua para distribuirse uniformemente en el seno del líquido",
+      "b": "En la fase gaseosa, porque el SO₂ debe transportarse desde el seno del gas hasta la interfase para poder disolverse",
+      "c": "En ambas fases por igual, porque la alta solubilidad del SO₂ distribuye las resistencias de forma equitativa",
+      "d": "En la interfase, porque es el punto donde ocurre el cambio de fase y la transferencia es más lenta"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Cuando un gas es muy soluble en el solvente, se disuelve fácilmente en cuanto llega a la interfase: la resistencia en la fase líquida es baja porque el gas se incorpora sin dificultad. La etapa limitante pasa a ser el transporte del gas desde el seno de la corriente gaseosa hasta la interfase, es decir, la resistencia en la fase gaseosa es la dominante.",
+    "tipo": "texto"
+  },
+  {
+    "id": "op_bas_026",
+    "dificultad": 3,
+    "categoria": "Resistencia controlante",
+    "pregunta": "El O₂ (oxígeno, gas apolar) es poco soluble en agua: a 20°C solo se disuelven aproximadamente 9 mg por litro. En un proceso de aireación donde se transfiere O₂ desde burbujas de aire al agua de un reactor biológico, ¿en qué fase reside principalmente la resistencia a la transferencia de masa?",
+    "opciones": {
+      "a": "En la fase gaseosa, porque el O₂ debe difundirse desde el centro de la burbuja hacia su superficie antes de poder transferirse",
+      "b": "En la interfase, porque la baja solubilidad del O₂ genera una barrera energética en la frontera entre las fases",
+      "c": "En la fase líquida, porque la baja solubilidad del O₂ en agua hace que la resistencia a su disolución y difusión en el líquido sea la etapa dominante",
+      "d": "En ambas fases por igual, porque la naturaleza apolar del O₂ genera barreras similares en gas y en líquido"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "Cuando un gas es poco soluble en el solvente, la dificultad no está en transportarlo hasta la interfase (la fase gaseosa lo hace bien) sino en que el gas se disuelva y difunda en el líquido. La baja solubilidad indica que el líquido 'rechaza' al soluto, por lo que la resistencia en la fase líquida es la controlante. Este es el caso típico del O₂ en procesos de aireación.",
+    "tipo": "texto"
+  },
+  {
+    "id": "op_bas_027",
+    "dificultad": 3,
+    "categoria": "Heurísticas de separación",
+    "pregunta": "Una corriente de proceso de 8 000 kg/h contiene 40 kg/h de un solvente valioso que debe recuperarse. ¿Qué dice la heurística sobre cómo elegir el método de recuperación?",
+    "opciones": {
+      "a": "Usar un método cuyo costo escale con el volumen total de la corriente (8 000 kg/h) para aprovechar economías de escala",
+      "b": "Usar destilación convencional, porque es el método más robusto para recuperar solventes en cualquier concentración",
+      "c": "Usar un método cuyo costo aumente proporcionalmente a la cantidad de material a recuperar (40 kg/h), no al volumen total de la corriente que se procesa",
+      "d": "Descartar la recuperación y optar por destrucción química del solvente, ya que las trazas representan menos del 1% de la corriente"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "La heurística para recuperar cantidades en trazas establece que el costo del método debe escalar con la cantidad de material a recuperar, no con el tamaño total de la corriente. Si se elige un método cuyo costo depende del caudal total (8 000 kg/h), el proceso sería antieconómico para recuperar solo 40 kg/h. La opción d también sería incorrecta porque el solvente tiene valor y debe recuperarse.",
+    "tipo": "texto"
+  },
+  {
+    "id": "op_bas_028",
+    "dificultad": 3,
+    "categoria": "Heurísticas de separación",
+    "pregunta": "Una corriente acuosa contiene pequeñas cantidades de un pesticida organoclorado (apolar, tóxico, no tiene valor comercial) que debe eliminarse antes de verter el agua. ¿Qué tipo de método recomienda la heurística para este caso?",
+    "opciones": {
+      "a": "Extracción líquido-líquido con un solvente apolar, para transferir el pesticida a otra fase y concentrarlo para su disposición final",
+      "b": "Destilación, para separar el pesticida del agua aprovechando la diferencia de punto de ebullición entre ambos",
+      "c": "Reacciones químicas destructivas (como oxidación avanzada o incineración), por encima de las separaciones físicas convencionales cuando el contaminante no interesa recuperar",
+      "d": "Adsorción en carbón activado para concentrar el pesticida en el sólido y luego reinyectarlo al inicio del proceso"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "La heurística establece que para pequeñas cantidades de contaminantes que no interesa recuperar, se debe contemplar el uso de reacciones químicas destructivas por encima de separaciones físicas. La extracción (opción a) o la adsorción (opción d) solo trasladan el problema a otra corriente; la destrucción química elimina el contaminante definitivamente.",
+    "tipo": "texto"
+  },
+  {
+    "id": "op_bas_029",
+    "dificultad": 3,
+    "categoria": "Heurísticas de separación",
+    "pregunta": "Un laboratorio farmacéutico produce un anticuerpo monoclonal en lotes de 20 kg con una pureza requerida superior al 99.5%. ¿Qué tipo de técnica de separación recomienda la heurística para este caso?",
+    "opciones": {
+      "a": "Técnicas basadas en equilibrio como la destilación, porque son las más robustas y económicas independientemente de la escala",
+      "b": "Separación mecánica, porque los productos de bajo volumen siempre llegan como mezclas bifásicas en la industria farmacéutica",
+      "c": "Técnicas basadas en velocidad de transporte, apropiadas para productos de volumen pequeño, alto valor agregado y alta pureza requerida",
+      "d": "Técnicas basadas en equilibrio, porque los procesos continuos son siempre más económicos que los procesos por lotes sin importar el volumen"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "La heurística distingue dos casos para separaciones en una sola fase: si el producto se fabrica en grandes cantidades, se prefieren técnicas basadas en equilibrio; si el volumen es pequeño, el valor es alto y se requiere alta pureza (como los anticuerpos monoclonales), se recomiendan técnicas basadas en la velocidad de transporte, como la cromatografía o la ultrafiltración de membrana.",
+    "tipo": "texto"
+  },
+  {
+    "id": "op_bas_030",
+    "dificultad": 3,
+    "categoria": "Heurísticas de separación",
+    "pregunta": "Al diseñar la secuencia de separaciones de una mezcla líquida, la heurística establece un orden de prioridad para elegir la propiedad física a explotar. ¿Cuál es ese orden correcto?",
+    "opciones": {
+      "a": "Solubilidad en solventes comunes → punto de fusión → punto de ebullición → unión a superficies sólidas",
+      "b": "Punto de ebullición → punto de fusión → solubilidad en solventes comunes → unión a superficies sólidas",
+      "c": "Punto de fusión → punto de ebullición → unión a superficies sólidas → solubilidad en solventes comunes",
+      "d": "Unión a superficies sólidas → solubilidad → punto de fusión → punto de ebullición"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "La heurística prioriza: 1) punto de ebullición (diferencias de incluso menos de 10°C son aprovechables eficazmente por destilación), 2) punto de fusión, 3) solubilidad en solventes comunes, y 4) unión a superficies sólidas (cromatografía). Para las propiedades 2, 3 y 4 se requieren diferencias mucho más marcadas que para la ebullición. El orden refleja tanto la disponibilidad de equipos como la magnitud de diferencia necesaria.",
+    "tipo": "texto"
+  },
+  {
+    "id": "op_bas_051",
+    "dificultad": 1,
+    "categoria": "Componentes internos de torres",
+    "pregunta": "El distribuidor de líquido es uno de los componentes internos más críticos de una torre de relleno. ¿Cuál es su función?",
+    "opciones": {
+      "a": "Soportar el peso del lecho de relleno para que no colapse hacia el fondo de la columna",
+      "b": "Retener el relleno en su posición cuando el gas ejerce una fuerza ascendente sobre el lecho",
+      "c": "Introducir el líquido de manera uniforme sobre la superficie del relleno para evitar que se canalice hacia las paredes",
+      "d": "Separar físicamente la fase gaseosa de la fase líquida antes de que ambas entren en contacto con el relleno"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "El distribuidor de líquido garantiza que el líquido se reparta uniformemente sobre toda la sección transversal del relleno al entrar a la columna. Si el líquido no se distribuye bien desde el inicio, tenderá a canalizarse por las paredes, dejando zonas secas en el centro y reduciendo drásticamente la transferencia de masa.",
+    "tipo": "texto"
+  },
+  {
+    "id": "op_bas_052",
+    "dificultad": 1,
+    "categoria": "Componentes internos de torres",
+    "pregunta": "Los platos de soporte se ubican por debajo del lecho de relleno en una torre de contacto. ¿Cuál es su función específica?",
+    "opciones": {
+      "a": "Redistribuir el líquido que se ha acumulado en las paredes hacia el centro del lecho de relleno",
+      "b": "Sostener el peso del relleno sin obstruir el flujo de gas y líquido a través del lecho",
+      "c": "Evitar que el relleno ascienda cuando el gas ejerce presión desde abajo durante oleadas de presión",
+      "d": "Controlar la velocidad del gas para que entre uniformemente en contacto con el líquido descendente"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "El plato de soporte cumple una función estructural: sostiene el peso del lecho de relleno (que puede ser considerable) mientras permite que el gas suba y el líquido baje sin restricción. Su diseño debe equilibrar resistencia mecánica con mínima obstrucción al flujo.",
+    "tipo": "texto"
+  },
+  {
+    "id": "op_bas_053",
+    "dificultad": 1,
+    "categoria": "Destilación",
+    "pregunta": "En la rectificación, parte del condensado obtenido en el tope de la columna se devuelve al interior para entrar en contacto con el vapor ascendente. ¿Cómo se llama esa fracción de líquido que se devuelve?",
+    "opciones": {
+      "a": "Destilado",
+      "b": "Residuo de fondo",
+      "c": "Reflujo",
+      "d": "Permeado"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "El reflujo es la fracción del condensado que se devuelve a la columna. Su retorno genera el flujo de líquido descendente que entra en contacto continuo con el vapor ascendente, permitiendo el enriquecimiento progresivo del vapor en los componentes más volátiles. El destilado (opción a) es la fracción que sí se retira como producto.",
+    "tipo": "texto"
+  },
+  {
+    "id": "op_bas_054",
+    "dificultad": 1,
+    "categoria": "Torres de absorción",
+    "pregunta": "El relleno en una torre de absorción puede colocarse de dos formas generales según su disposición. ¿Cuáles son estas dos categorías?",
+    "opciones": {
+      "a": "Relleno continuo y relleno discontinuo, según si el lecho ocupa toda la altura de la columna o solo una sección",
+      "b": "Relleno al azar y relleno ordenado (estructurado), según si las piezas se vierten sin orientación definida o se instalan en estructuras regulares",
+      "c": "Relleno activo y relleno inerte, según si el material participa químicamente o no en la transferencia de masa",
+      "d": "Relleno seco y relleno húmedo, según si el solvente impregna el material antes de la operación o durante ella"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Las dos categorías de relleno son: al azar (las piezas se vierten en la columna sin orientación predefinida, como las sillas Intalox o sillas Berl) y ordenado o estructurado (se instalan como rejillas o mallas en una estructura regular). El relleno ordenado se usa cuando se requiere mínima caída de presión.",
+    "tipo": "texto"
+  },
+  {
+    "id": "op_bas_055",
+    "dificultad": 1,
+    "categoria": "Torres de absorción",
+    "pregunta": "El relleno en una columna de contacto continuo tiene un objetivo de diseño principal. ¿Cuál es?",
+    "opciones": {
+      "a": "Aumentar la temperatura del gas para favorecer su disolución en el solvente líquido",
+      "b": "Actuar como catalizador para acelerar la reacción química entre el gas y el solvente",
+      "c": "Proporcionar una gran área de contacto interfacial entre gas y líquido con la menor resistencia posible al flujo de ambas fases",
+      "d": "Separar mecánicamente las gotas de líquido arrastradas por el gas antes de que salgan por el tope de la columna"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "El objetivo del relleno es maximizar el área de contacto entre gas y líquido (para aumentar la transferencia de masa) mientras se minimiza la resistencia al flujo de ambas fases (para reducir la caída de presión). Estas dos metas guían el diseño de cualquier tipo de relleno, ya sea al azar o estructurado.",
+    "tipo": "texto"
+  },
+  {
+    "id": "op_bas_056",
+    "dificultad": 1,
+    "categoria": "Torres de absorción",
+    "pregunta": "En una columna de contacto, los platos de válvula y los platos perforados son dos diseños distintos. ¿Cuál es la diferencia principal entre ellos?",
+    "opciones": {
+      "a": "Los platos perforados solo pueden usarse con gases ligeros; los platos de válvula soportan cualquier tipo de gas o vapor",
+      "b": "Los platos de válvula tienen tapaderas móviles que se elevan según el caudal de vapor, mientras que los platos perforados tienen orificios fijos sin partes móviles",
+      "c": "Los platos perforados generan mayor turbulencia porque sus orificios son más pequeños que las válvulas de los platos de válvula",
+      "d": "Los platos de válvula son exclusivos de torres de relleno; los platos perforados solo se usan en torres de platos convencionales"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "La diferencia clave está en la apertura para el gas: los platos de válvula tienen tapaderas móviles que se levantan a medida que aumenta el caudal de vapor, adaptándose al flujo. Los platos perforados tienen orificios fijos que no se ajustan al caudal. Ambos se usan en columnas de contacto pero con diferentes rangos operativos.",
+    "tipo": "texto"
+  },
+  {
+    "id": "op_bas_057",
+    "dificultad": 1,
+    "categoria": "Bases de separación",
+    "pregunta": "Según la clasificación de operaciones de separación por la propiedad molecular que se aprovecha, ¿qué propiedad es la base de la filtración y la ultrafiltración?",
+    "opciones": {
+      "a": "Volatilidad, porque las partículas retenidas tienen un punto de ebullición diferente al del fluido que las transporta",
+      "b": "Carga eléctrica, porque las partículas en suspensión suelen estar cargadas eléctricamente en el fluido",
+      "c": "Tamaño o forma molecular, porque el medio filtrante retiene las partículas o moléculas que superan cierto tamaño",
+      "d": "Solubilidad, porque las partículas sólidas no se disuelven en el fluido y por eso pueden filtrarse"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "La filtración y la ultrafiltración se basan en la propiedad de tamaño o forma: el medio filtrante tiene poros de tamaño controlado que retienen físicamente las partículas o moléculas más grandes mientras dejan pasar las más pequeñas. La opción d describe una observación correcta (los sólidos no se disuelven) pero no es la base de separación operativa de la filtración.",
+    "tipo": "texto"
+  },
+  {
+    "id": "op_bas_058",
+    "dificultad": 1,
+    "categoria": "Bases de separación",
+    "pregunta": "La cromatografía separa componentes de una mezcla utilizando una columna con una fase estacionaria sólida y una fase móvil. ¿Qué propiedad molecular es la base de esta separación?",
+    "opciones": {
+      "a": "Volatilidad, porque los componentes más volátiles avanzan más rápido a través de la fase móvil",
+      "b": "Tamaño molecular exclusivamente, porque la fase estacionaria actúa como tamiz que retiene las moléculas más grandes",
+      "c": "Composición química y afinidad por la superficie sólida, porque cada componente interactúa con diferente intensidad con la fase estacionaria",
+      "d": "Punto de fusión, porque los componentes que solidifican primero quedan retenidos en la fase estacionaria fría"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "La cromatografía explota las diferencias en la afinidad de cada componente por la fase estacionaria sólida (unión a superficies). Los componentes con mayor afinidad viajan más lento y los de menor afinidad más rápido, logrando la separación. Esta base de separación requiere diferencias marcadas de afinidad, más difíciles de explotar que las diferencias de punto de ebullición.",
+    "tipo": "texto"
+  },
+  {
+    "id": "op_bas_059",
+    "dificultad": 1,
+    "categoria": "Torres de absorción",
+    "pregunta": "Los rellenos de cerámica se usan en torres que manejan fluidos corrosivos como ácidos o bases fuertes. ¿Por qué se prefiere la cerámica frente a los metales o los plásticos en esas condiciones?",
+    "opciones": {
+      "a": "Porque la cerámica es el material más económico para fabricar piezas de relleno a cualquier escala industrial",
+      "b": "Porque la cerámica resiste la corrosión de ácidos y bases fuertes, a diferencia de los metales que se corroen y los plásticos que se degradan con ciertos solventes o a altas temperaturas",
+      "c": "Porque la cerámica tiene mayor área superficial por unidad de volumen que los otros materiales, mejorando la transferencia de masa",
+      "d": "Porque la cerámica es el único material apto para relleno ordenado; los metales y los plásticos solo pueden usarse en relleno al azar"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "La cerámica se selecciona por su resistencia química: no se corroe con ácidos ni bases fuertes, a diferencia de los metales. Los plásticos tienen sus propias limitaciones: son sensibles a la temperatura y a ciertos solventes orgánicos. Para condiciones corrosivas severas, la cerámica es la elección indicada aunque puede ser más frágil mecánicamente que los metales.",
+    "tipo": "texto"
+  },
+  {
+    "id": "op_bas_060",
+    "dificultad": 1,
+    "categoria": "Bases de separación",
+    "pregunta": "La electrodiálisis y el intercambio iónico separan componentes con base en su carga eléctrica. ¿Cuáles son los parámetros clave para estas operaciones según la clasificación de bases de separación?",
+    "opciones": {
+      "a": "Las volatilidades relativas y los puntos de ebullición de los iones en solución acuosa",
+      "b": "La movilidad eléctrica de los iones y los potenciales de electrodo del sistema",
+      "c": "La diferencia de tamaño entre los iones que se quieren separar y los que deben permanecer en solución",
+      "d": "La solubilidad de los iones en solventes orgánicos apolares que actúan como fase extractante"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Las operaciones basadas en carga eléctrica (electrodiálisis, intercambio iónico) dependen de la movilidad eléctrica de los iones (con qué facilidad se mueven bajo un campo eléctrico) y de los potenciales de electrodo que determinan las fuerzas que actúan sobre las especies cargadas. Estas propiedades son las que permiten distinguir y separar iones de diferente naturaleza.",
+    "tipo": "texto"
+  },
+  {
+    "id": "op_bas_061",
+    "dificultad": 2,
+    "categoria": "Absorción",
+    "pregunta": "Una corriente de gas natural contiene H₂S (gas polar, muy soluble en agua). El gas se hace burbujear a través de agua en una columna para eliminar el H₂S. ¿Qué operación unitaria describe este proceso?",
+    "opciones": {
+      "a": "Destilación, porque hay un cambio de fase del H₂S de gaseoso a disuelto en agua",
+      "b": "Extracción líquido-líquido, porque el H₂S pasa de una fase a otra más favorable energéticamente",
+      "c": "Absorción, porque un componente gaseoso (H₂S) se transfiere desde la fase gas hacia un solvente líquido (agua) que lo disuelve",
+      "d": "Evaporación, porque el calor liberado por la disolución del H₂S provoca cambios de fase en el sistema"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "La absorción es exactamente la operación donde un componente de la fase gaseosa se transfiere a un solvente líquido. El H₂S polar es muy soluble en agua polar: al burbujear el gas a través del agua, el H₂S se disuelve preferentemente y queda retenido en la fase líquida. La destilación (opción a) implica separar componentes por volatilidad relativa, no transferirlos a un solvente.",
+    "tipo": "texto"
+  },
+  {
+    "id": "op_bas_062",
+    "dificultad": 2,
+    "categoria": "Componentes internos de torres",
+    "pregunta": "En una parada de emergencia con alto flujo de gas, parte del relleno de una torre ascendió y obstruyó la tubería de salida. ¿Qué componente interno hubiera evitado este evento?",
+    "opciones": {
+      "a": "El redistribuidor, que hubiera recolectado el relleno desplazado y lo hubiera devuelto al centro del lecho",
+      "b": "El plato de soporte, que al sostener el relleno desde abajo hubiera impedido su movimiento ascendente",
+      "c": "El plato de sujeción (limitador de lecho), diseñado específicamente para evitar que el relleno se desplace ante oleadas de presión del gas",
+      "d": "El distribuidor de líquido, que al regular el flujo de líquido hubiera amortiguado el pico de presión del gas"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "El plato de sujeción o limitador de lecho se ubica sobre el lecho y evita que el relleno ascienda ante presiones repentinas del gas. El plato de soporte (opción b) cumple la función opuesta: sostiene el relleno hacia abajo desde su base, pero no lo retiene contra el movimiento ascendente.",
+    "tipo": "texto"
+  },
+  {
+    "id": "op_bas_063",
+    "dificultad": 2,
+    "categoria": "Equilibrio en sistemas bifásicos",
+    "pregunta": "Se mezcla aceite de cocina (líquido apolar) con agua (líquido polar) y se añade un colorante liposoluble (apolar). Tras agitar y dejar reposar, el colorante queda casi totalmente en la fase de aceite. ¿Qué indica esto sobre el estado del sistema?",
+    "opciones": {
+      "a": "Que el sistema no ha alcanzado el equilibrio porque el colorante debería distribuirse de manera uniforme entre las dos fases",
+      "b": "Que el sistema está en equilibrio: el colorante apolar tiene mayor afinidad por el aceite apolar, y esa distribución desigual es el estado de equilibrio para ese par de fases",
+      "c": "Que el colorante es demasiado viscoso para difundirse al agua, por lo que el sistema tardará más tiempo en alcanzar el equilibrio",
+      "d": "Que el agua repele activamente al colorante y lo empuja hacia el aceite hasta que el proceso de separación se completa"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "En sistemas bifásicos, el equilibrio no implica igualdad de concentraciones: implica ausencia de flujo neto. El colorante apolar tiene mayor afinidad por el aceite apolar ('semejante disuelve semejante'), por lo que su distribución mayoritaria en el aceite es el estado de equilibrio. La opción a repite el error de confundir equilibrio bifásico con equilibrio monofásico.",
+    "tipo": "texto"
+  },
+  {
+    "id": "op_bas_064",
+    "dificultad": 2,
+    "categoria": "Clasificación de operaciones unitarias",
+    "pregunta": "El intercambio iónico transfiere iones entre una solución acuosa y una resina sólida. Según la clasificación de operaciones unitarias por el fenómeno predominante, ¿en qué categoría se ubica?",
+    "opciones": {
+      "a": "Transmisión de energía, porque el intercambio de iones libera o absorbe calor apreciable durante el proceso",
+      "b": "Transporte de cantidad de movimiento, porque los iones se mueven a través del líquido impulsados por gradientes de presión",
+      "c": "Transferencia de materia, porque el fenómeno dominante es el movimiento de iones entre fases por diferencia de concentración o afinidad",
+      "d": "Transmisión simultánea de materia y energía, porque el intercambio iónico siempre va acompañado de un cambio de temperatura apreciable en la solución"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "El intercambio iónico se clasifica como transferencia de materia: el fenómeno dominante es el movimiento de iones (materia) de una fase a otra. Aunque puede haber efectos térmicos menores, no son el fenómeno que define la operación. Lo que impulsa el proceso es la diferencia de afinidad de cada ion por la resina vs. por la solución.",
+    "tipo": "texto"
+  },
+  {
+    "id": "op_bas_065",
+    "dificultad": 2,
+    "categoria": "Fuerza impulsora y equilibrio",
+    "pregunta": "En una columna de absorción, el solvente entra limpio por el tope y sale cargado de soluto por el fondo. Si el solvente se satura con el gas absorbido sin renovarse, ¿qué efecto tiene esto sobre la transferencia de masa?",
+    "opciones": {
+      "a": "La transferencia aumenta porque el solvente cargado tiene mayor densidad y fluye más lentamente, generando mejor contacto con el gas",
+      "b": "La transferencia no cambia porque la capacidad de absorción del solvente no depende de cuánto soluto ya contiene",
+      "c": "La transferencia disminuye porque el solvente saturado se acerca al equilibrio con el gas, reduciendo la diferencia entre condición real y condición de equilibrio, es decir, la fuerza impulsora",
+      "d": "La transferencia se detiene completamente en el instante en que el solvente absorbe la primera molécula de gas"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "La fuerza impulsora es la diferencia entre la condición real del sistema y su condición de equilibrio. Un solvente saturado ya contiene tanto soluto como puede en equilibrio con el gas: esa diferencia se hace casi cero y la transferencia cae. Por eso las columnas de absorción operan con solvente fresco (bajo en soluto) para mantener alta la fuerza impulsora a lo largo de toda la columna.",
+    "tipo": "texto"
+  },
+  {
+    "id": "op_bas_066",
+    "dificultad": 2,
+    "categoria": "Bases de separación",
+    "pregunta": "En un laboratorio se inyecta una mezcla de pigmentos vegetales disueltos en hexano en una columna empacada con sílice (sólido polar). Los pigmentos se separan porque cada uno avanza a distinta velocidad según su afinidad por la sílice. ¿Qué operación unitaria describe este proceso?",
+    "opciones": {
+      "a": "Absorción, porque los pigmentos pasan de la fase líquida a la fase sólida dentro de la columna",
+      "b": "Intercambio iónico, porque los grupos funcionales de los pigmentos se intercambian con los grupos activos de la sílice",
+      "c": "Cromatografía, porque la separación se basa en la diferente afinidad de cada componente por la superficie de la fase estacionaria sólida",
+      "d": "Filtración, porque la sílice retiene físicamente las moléculas de pigmento más grandes y deja pasar las más pequeñas"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "La cromatografía separa componentes por su diferente afinidad (composición química) hacia una fase estacionaria sólida: los pigmentos con mayor afinidad por la sílice avanzan más lento y los de menor afinidad más rápido. La opción a describe absorción (gas a líquido) y la d confunde el mecanismo con filtración por tamaño.",
+    "tipo": "texto"
+  },
+  {
+    "id": "op_bas_067",
+    "dificultad": 2,
+    "categoria": "Heurísticas de separación",
+    "pregunta": "Un proceso de separación puede realizarse a 30°C y 1.2 bar (ligeramente por encima del ambiente) o a -20°C y 1.2 bar (por debajo del ambiente), con resultados de pureza similares. ¿Cuál opción favorece la heurística de condiciones operativas?",
+    "opciones": {
+      "a": "La de -20°C porque trabajar a menor temperatura reduce el consumo energético de los intercambiadores de calor del proceso",
+      "b": "La de 30°C porque es la más cercana a las condiciones ambientales y, si se debe desviar, la heurística prefiere condiciones superiores al ambiente antes que inferiores",
+      "c": "Ambas son equivalentes porque la heurística solo evalúa la presión de operación, no la temperatura",
+      "d": "La de -20°C porque la heurística prioriza minimizar la presión de operación, y ambas opciones están a la misma presión"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "La heurística de condiciones operativas tiene dos partes: trabajar lo más cerca posible de las condiciones ambientales, y si es necesario desviarse, preferir condiciones superiores (mayor temperatura o presión) a las inferiores. Operar a -20°C requiere sistemas de refrigeración costosos y presenta mayores riesgos; 30°C es ligeramente superior al ambiente y cumple ambas partes de la heurística.",
+    "tipo": "texto"
+  },
+  {
+    "id": "op_bas_068",
+    "dificultad": 2,
+    "categoria": "Destilación",
+    "pregunta": "Se destila una mezcla de acetona (polar, ebullición 56°C) y agua (polar, ebullición 100°C) por destilación simple: se calienta la mezcla, el vapor se condensa y se recoge. El destilado contiene acetona pero también una fracción considerable de agua. ¿Por qué no se obtiene acetona pura?",
+    "opciones": {
+      "a": "Porque la destilación simple no puede separar compuestos polares como la acetona y el agua",
+      "b": "Porque en la destilación simple el vapor generado ya contiene ambos componentes en proporciones determinadas por el equilibrio, y sin reflujo no hay etapas adicionales de enriquecimiento del vapor",
+      "c": "Porque la diferencia de 44°C entre los puntos de ebullición es insuficiente y se requiere un agente externo para mejorar la separación",
+      "d": "Porque la acetona y el agua siempre forman una mezcla azeotrópica que ningún método de destilación puede separar completamente"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "En la destilación simple, el vapor que se genera en el primer hervor ya contiene los dos componentes en las proporciones del equilibrio gas-líquido a esa temperatura. Sin reflujo, ese vapor se condensa directamente como destilado sin pasar por etapas adicionales de contacto que enriquecerían su contenido en acetona. La rectificación con reflujo resuelve esto al crear múltiples etapas de enriquecimiento.",
+    "tipo": "texto"
+  },
+  {
+    "id": "op_bas_069",
+    "dificultad": 2,
+    "categoria": "Bases de separación",
+    "pregunta": "Se separan proteínas de distinto peso molecular usando una membrana con poros de 10 nm: las proteínas pequeñas pasan a través y las grandes quedan retenidas. Según la clasificación de bases de separación, ¿qué propiedad se está aprovechando?",
+    "opciones": {
+      "a": "Volatilidad, porque las proteínas más ligeras son más volátiles y atraviesan la membrana con mayor facilidad",
+      "b": "Carga eléctrica, porque las proteínas de diferente tamaño tienen diferente número de cargas superficiales que interactúan con la membrana",
+      "c": "Tamaño o forma molecular, porque la membrana discrimina físicamente entre moléculas según si su tamaño supera o no el diámetro del poro",
+      "d": "Solubilidad, porque las proteínas grandes son menos solubles en el tampón acuoso y por eso no pueden atravesar la membrana"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "La ultrafiltración por membrana se basa en el tamaño o forma molecular: el poro tiene un diámetro de corte (10 nm en este caso) que retiene las moléculas más grandes y permite el paso de las más pequeñas. La propiedad diferenciadora no es la carga ni la solubilidad, sino el tamaño físico de cada molécula respecto al poro.",
+    "tipo": "texto"
+  },
+  {
+    "id": "op_bas_070",
+    "dificultad": 2,
+    "categoria": "Componentes internos de torres",
+    "pregunta": "Una torre de relleno tiene 10 metros de lecho activo. Un ingeniero propone eliminar los redistribuidores intermedios para reducir costos. ¿Qué consecuencia predice la teoría?",
+    "opciones": {
+      "a": "Ninguna; el distribuidor de entrada es suficiente para mantener una distribución uniforme del líquido en toda la altura del lecho",
+      "b": "El gas no podrá ascender correctamente porque los redistribuidores también regulan la velocidad del flujo gaseoso",
+      "c": "El líquido tenderá a migrar hacia las paredes a lo largo de los 10 metros, reduciendo el área de contacto efectiva y la eficiencia de la transferencia de masa",
+      "d": "El relleno colapsará porque los redistribuidores también cumplen la función estructural de soportar el peso del lecho"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "El distribuidor de entrada garantiza una distribución inicial uniforme, pero a lo largo de la altura del lecho el líquido naturalmente tiende a migrar hacia las paredes (coalescencia lateral). Sin redistribuidores intermedios que corrijan esto, la zona central del relleno queda seca y la transferencia de masa real cae muy por debajo del diseño. A mayor altura de lecho, más críticos son los redistribuidores.",
+    "tipo": "texto"
+  },
+  {
+    "id": "op_bas_071",
+    "dificultad": 3,
+    "categoria": "Heurísticas de separación",
+    "pregunta": "Una planta petroquímica produce 500 000 t/año de etileno (gas apolar) separándolo de una corriente gaseosa homogénea que también contiene propileno (gas apolar). Aplicando la heurística de selección de técnica de separación, ¿qué tipo de técnica corresponde?",
+    "opciones": {
+      "a": "Técnicas basadas en velocidad de transporte, porque los gases son más difíciles de separar que los líquidos y requieren membranas selectivas de alta tecnología",
+      "b": "Separación mecánica, porque las diferencias de densidad entre etileno y propileno gaseosos permiten separarlos físicamente",
+      "c": "Técnicas basadas en equilibrio, porque la alimentación es una sola fase gaseosa y el volumen de producción es grande",
+      "d": "Reacciones químicas destructivas, porque ninguna técnica física puede separar gases apolares de propiedades similares"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "La heurística establece: si la alimentación es una sola fase, considerar técnicas de equilibrio para productos de gran volumen. 500 000 t/año es claramente producción masiva, y la corriente es unifásica. Las técnicas basadas en velocidad se reservan para productos de bajo volumen, alto valor y alta pureza. La separación mecánica requiere dos fases ya presentes.",
+    "tipo": "texto"
+  },
+  {
+    "id": "op_bas_072",
+    "dificultad": 3,
+    "categoria": "Resistencia controlante",
+    "pregunta": "El CO₂ tiene solubilidad moderada en agua (1.7 g/L a 20°C): muy inferior al HCl (polar, >700 g/L) pero superior al N₂ (apolar, 0.018 g/L). En una torre de absorción de CO₂ con agua, ¿cómo se distribuye la resistencia a la transferencia de masa según la teoría de la doble capa?",
+    "opciones": {
+      "a": "La resistencia está completamente en la fase gaseosa porque el CO₂ es un gas y los gases siempre ofrecen la mayor resistencia al transporte",
+      "b": "La resistencia está completamente en la fase líquida porque cualquier gas con solubilidad menor a 10 g/L se considera poco soluble y la resistencia líquida domina",
+      "c": "Ambas fases ejercen resistencias de magnitudes comparables porque la solubilidad intermedia del CO₂ impide que alguna fase domine claramente",
+      "d": "La resistencia está en la interfase porque el CO₂ reacciona con el agua formando ácido carbónico, y esa reacción ocurre justo en la frontera entre las dos fases"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "La teoría de la doble capa establece tres casos: gas muy soluble → resistencia dominante en fase gaseosa; gas poco soluble → resistencia dominante en fase líquida; solubilidad intermedia → ambas fases ejercen resistencias de magnitudes similares. El CO₂ cae en este tercer caso: no se disuelve tan fácilmente como el HCl (que arrastraría toda la resistencia a la fase gaseosa) ni tan difícilmente como el N₂ (que la concentraría en la fase líquida).",
+    "tipo": "texto"
+  },
+  {
+    "id": "op_bas_073",
+    "dificultad": 3,
+    "categoria": "Heurísticas de separación",
+    "pregunta": "Se desea separar benceno (apolar, ebullición 80°C) de tolueno (apolar, ebullición 111°C), diferencia de 31°C. Un ingeniero propone añadir DMF (dimetilformamida, polar, no tóxica, recuperable) para aumentar la diferencia de volatilidad. ¿Qué dice la heurística sobre esta propuesta?",
+    "opciones": {
+      "a": "Es correcta porque la DMF es recuperable y no tóxica, que son las únicas condiciones que la heurística exige para añadir un agente externo",
+      "b": "La diferencia de 31°C ya supera el umbral donde la heurística acepta separaciones por punto de ebullición; añadir un agente externo introduce complejidad innecesaria cuando la destilación directa es viable",
+      "c": "Es incorrecta porque la heurística prohíbe usar solventes polares para separar mezclas de compuestos apolares bajo cualquier circunstancia",
+      "d": "La diferencia de 31°C es insuficiente para la destilación convencional según la heurística, que exige diferencias de al menos 50°C para evitar columnas de diseño complejo"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Dos heurísticas aplican en secuencia: 1) la diferencia de 31°C supera incluso el umbral de 10°C que la heurística acepta para la destilación por punto de ebullición, por lo que la destilación directa es viable; 2) la heurística sobre agentes externos indica evitar añadir materia externa al proceso si no es necesario. Dado que la separación directa es perfectamente factible, añadir la DMF viola la segunda heurística.",
+    "tipo": "texto"
+  },
+  {
+    "id": "op_bas_074",
+    "dificultad": 3,
+    "categoria": "Heurísticas de separación",
+    "pregunta": "Se desea separar naftaleno (apolar, punto de fusión 80°C, punto de ebullición 218°C) de antraceno (apolar, punto de fusión 216°C, punto de ebullición 342°C). La diferencia en punto de ebullición es 124°C y en punto de fusión es 136°C. ¿Cuál propiedad debe considerarse primero según la heurística de priorización?",
+    "opciones": {
+      "a": "Punto de fusión, porque la diferencia de 136°C es mayor que la de 124°C en punto de ebullición y la heurística prioriza la propiedad con mayor diferencia",
+      "b": "Punto de ebullición, porque la heurística establece esta propiedad como primera prioridad independientemente de qué diferencia sea numéricamente mayor",
+      "c": "Solubilidad en solventes comunes, porque ambos compuestos son sólidos apolares y la cromatografía sería más eficiente que cualquier método térmico",
+      "d": "Ambas propiedades son equivalentes en la heurística cuando las diferencias en ambas superan los 100°C"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "La heurística establece un orden fijo de prioridad: punto de ebullición → punto de fusión → solubilidad → unión a superficies. Este orden no depende de cuál diferencia sea numéricamente mayor, sino de cuál propiedad es más fácil de explotar tecnológicamente. El punto de ebullición se prioriza porque diferencias incluso menores de 10°C son aprovechables, mientras que para las otras propiedades se requieren diferencias mucho más marcadas.",
+    "tipo": "texto"
+  },
+  {
+    "id": "op_bas_075",
+    "dificultad": 3,
+    "categoria": "Heurísticas de separación",
+    "pregunta": "Dos líquidos tienen puntos de ebullición de 82°C y 89°C (diferencia de 7°C). Un técnico descarta la destilación argumentando que 'con menos de 10°C de diferencia la destilación no funciona'. ¿Es correcta esta afirmación?",
+    "opciones": {
+      "a": "Sí, porque se necesita una diferencia mínima de 10°C para que la destilación produzca separaciones con pureza industrialmente aceptable",
+      "b": "No; la heurística establece explícitamente que diferencias de incluso menos de 10°C en el punto de ebullición pueden aprovecharse eficazmente por destilación",
+      "c": "Sí, pero solo para compuestos apolares; los polares pueden separarse por destilación con diferencias menores de 10°C gracias a las interacciones dipolares",
+      "d": "No, pero se necesitaría una columna de más de 100 platos teóricos, lo que hace la separación técnicamente inviable a escala industrial"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "El técnico cita incorrectamente la heurística. La heurística dice lo contrario: diferencias de incluso menos de 10°C en el punto de ebullición pueden aprovecharse con eficacia por destilación. En contraste, para otras propiedades como punto de fusión, solubilidad o afinidad superficial, se requieren diferencias mucho más marcadas. La diferencia de 7°C es suficiente para evaluar la destilación como opción.",
+    "tipo": "texto"
+  },
+  {
+    "id": "op_bas_076",
+    "dificultad": 3,
+    "categoria": "Heurísticas de separación",
+    "pregunta": "Un taller artesanal produce 2 kg/semana de un aceite esencial (>98% pureza requerida, alto valor comercial) en solución con un solvente orgánico. La mezcla llega como una sola fase líquida homogénea. ¿Qué tipo de técnica de separación recomienda la heurística?",
+    "opciones": {
+      "a": "Técnicas basadas en equilibrio como la destilación, porque la mezcla es una sola fase y las técnicas de equilibrio son siempre la primera opción para mezclas homogéneas",
+      "b": "Separación mecánica, porque los aceites esenciales tienen diferente densidad que el solvente y pueden separarse por centrifugación",
+      "c": "Técnicas basadas en velocidad de transporte, porque el volumen de producción es pequeño, el producto tiene alto valor comercial y se requiere alta pureza",
+      "d": "Reacciones químicas destructivas del solvente, porque la heurística recomienda eliminar el solvente químicamente cuando los volúmenes son pequeños"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "La heurística para alimentaciones de una sola fase distingue dos casos: productos de gran volumen → técnicas de equilibrio; productos de bajo volumen, alto valor y alta pureza → técnicas basadas en velocidad de transporte. El aceite esencial cumple los tres criterios del segundo caso: 2 kg/semana (bajo volumen), alto valor comercial y pureza requerida del 98%. La opción a no distingue entre los dos casos de la heurística.",
+    "tipo": "texto"
+  },
+  {
+    "id": "op_bas_077",
+    "dificultad": 3,
+    "categoria": "Resistencia controlante",
+    "pregunta": "El NH₃ (gas polar) se absorbe con agua (polar): resistencia controlante en la fase gaseosa. Se reemplaza el agua por aceite de silicona (líquido apolar). ¿Cómo cambia la resistencia controlante con este cambio de solvente?",
+    "opciones": {
+      "a": "No cambia porque la solubilidad del NH₃ es una propiedad intrínseca del gas que no depende del solvente utilizado",
+      "b": "La resistencia se desplaza a la fase líquida porque el NH₃ polar tiene baja solubilidad en el aceite apolar, haciendo que la disolución en el líquido sea la etapa limitante",
+      "c": "La resistencia se desplaza a la interfase porque el aceite de silicona forma una película densa en la superficie que impide el paso del NH₃",
+      "d": "La resistencia desaparece porque el aceite de silicona es inerte y no genera ninguna barrera a la difusión de gases"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "La solubilidad no es una propiedad solo del gas: depende del par gas-solvente. El NH₃ polar es muy soluble en agua (polar): la resistencia estaba en la fase gaseosa. Al cambiar a aceite de silicona (apolar), el NH₃ polar es poco soluble en él ('semejante disuelve semejante'): la resistencia se desplaza a la fase líquida, porque ahora es la disolución del NH₃ en el aceite la etapa que limita la transferencia.",
+    "tipo": "texto"
+  },
+  {
+    "id": "op_bas_078",
+    "dificultad": 3,
+    "categoria": "Heurísticas de separación",
+    "pregunta": "En una destilación extractiva se añade etilenglicol (polar, no tóxico, ebullición 197°C) como agente separante. El diseñador propone recuperar el etilenglicol en la última etapa del tren de separación, muy lejos del punto donde se incorporó. ¿Qué dice la heurística sobre esta decisión?",
+    "opciones": {
+      "a": "No hay problema; la posición de la recuperación del agente externo no afecta la eficiencia siempre que se recupere antes de la disposición final del producto",
+      "b": "El diseño viola la heurística que establece que la materia externa añadida debe eliminarse del proceso tan pronto como sea factible, no dejarse circular por múltiples etapas innecesariamente",
+      "c": "El diseño es correcto porque la heurística solo exige que el agente externo sea recuperable, sin especificar en qué punto del tren de separación debe realizarse esa recuperación",
+      "d": "El etilenglicol no puede usarse como agente externo porque su punto de ebullición de 197°C supera el umbral de 150°C establecido por la heurística para agentes recuperables"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "La heurística sobre agentes externos tiene dos condiciones: no deben ser tóxicos o peligrosos, y deben eliminarse del proceso tan pronto como sea factible. Permitir que el etilenglicol circule por múltiples etapas innecesarias aumenta el inventario del proceso, eleva el riesgo operativo y complica el control. La recuperación debe hacerse lo antes posible después del punto donde se añadió.",
+    "tipo": "texto"
+  },
+  {
+    "id": "op_bas_079",
+    "dificultad": 3,
+    "categoria": "Heurísticas de separación",
+    "pregunta": "Una corriente de proceso llega como mezcla de vapor de agua y agua líquida en equilibrio (dos fases coexistentes: gas y líquido). ¿Qué indica la heurística como primera acción de separación?",
+    "opciones": {
+      "a": "Usar destilación para condensar completamente el vapor y luego separar los componentes volátiles del agua líquida por diferencia de ebullición",
+      "b": "Usar absorción para transferir los componentes del vapor hacia la fase líquida ya presente en la corriente",
+      "c": "Usar una separación mecánica porque la alimentación ya se encuentra en dos fases y esa diferencia física es la que debe aprovecharse primero",
+      "d": "Usar una membrana semipermeable para separar el vapor del líquido por diferencia de tamaño molecular entre el gas y el agua"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "La heurística establece: si la alimentación llega en dos fases, usar separación mecánica. En este caso hay dos fases coexistentes (vapor y líquido), por lo que el primer paso es separarlas mecánicamente (por ejemplo, con un separador de ciclón o de gravedad) antes de considerar cualquier técnica de equilibrio o velocidad. Añadir complejidad innecesaria cuando las fases ya están presentes viola esta heurística.",
+    "tipo": "texto"
+  },
+  {
+    "id": "op_bas_080",
+    "dificultad": 3,
+    "categoria": "Heurísticas de separación",
+    "pregunta": "Una corriente de 20 000 kg/h contiene 8 kg/h de benceno (apolar, tóxico, sin valor de recuperación en este proceso). ¿Qué combinación de criterios heurísticos aplica para decidir cómo eliminarlo?",
+    "opciones": {
+      "a": "Usar destilación porque es el método de equilibrio más económico para corrientes de gran volumen y el benceno tiene punto de ebullición bien definido",
+      "b": "Usar un método cuyo costo escale con el volumen total (20 000 kg/h) para aprovechar economías de escala en el procesamiento",
+      "c": "Son trazas sin valor de recuperación → la heurística recomienda destrucción química por encima de separación física; además el benceno es tóxico, lo que refuerza que no debe recircularse ni concentrarse en otra corriente",
+      "d": "Usar un método cuyo costo escale con los 8 kg/h de benceno para recuperarlo eficientemente, ya que la heurística de trazas aplica a cualquier componente minoritario independientemente de su valor"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "Se combinan dos heurísticas: 1) para contaminantes en trazas que no interesa recuperar, se recomiendan reacciones químicas destructivas por encima de las separaciones físicas; 2) la toxicidad del benceno refuerza esta decisión porque concentrarlo en otra corriente por separación física crearía un nuevo problema de manejo de residuos peligrosos. La opción d confunde esta situación con la heurística de trazas valiosas (que sí aplica cuando el componente tiene valor de recuperación).",
+    "tipo": "texto"
+  },
+  {
+    "id": "op_bas_031",
+    "dificultad": 4,
+    "categoria": "Resistencia controlante",
+    "pregunta": "En un proceso de absorción se usa agua (polar) para capturar CO₂ (gas apolar, poco soluble en agua: 1.7 g/L a 20°C). Un ingeniero observa que aumentar la velocidad del gas mejora poco la transferencia, pero aumentar la agitación del líquido sí la mejora notablemente. ¿Qué explica esta observación?",
+    "opciones": {
+      "a": "La mayor velocidad del gas no sirve porque aumenta la caída de presión y ese efecto cancela cualquier mejora en la turbulencia gaseosa",
+      "b": "La agitación del líquido mejora la transferencia porque la resistencia dominante está en la fase líquida; aumentar la velocidad del gas ayuda poco porque la resistencia gaseosa ya es pequeña en comparación",
+      "c": "Ambas acciones deberían tener el mismo efecto porque en todo sistema bifásico la resistencia está distribuida por igual entre las dos fases",
+      "d": "La velocidad del gas no ayuda porque el CO₂ ya saturó la interfase y la resistencia se localiza ahí, no dentro de ninguna de las fases"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "El CO₂ es poco soluble en agua (apolar en solvente polar): la resistencia dominante está en la fase líquida. Reducir esa resistencia (agitando el líquido, que adelgaza la película líquida) mejora significativamente la transferencia. Aumentar la velocidad del gas reduce la película gaseosa, pero como esa resistencia ya era pequeña, el efecto es marginal. El par observación-explicación valida directamente la teoría de la resistencia controlante.",
+    "tipo": "texto"
+  },
+  {
+    "id": "op_bas_032",
+    "dificultad": 4,
+    "categoria": "Heurísticas de separación",
+    "pregunta": "Una mezcla contiene 60% de n-hexano (apolar, punto de ebullición 69°C) y 40% de n-heptano (apolar, punto de ebullición 98°C). La heurística recomienda separar primero el componente más abundante o el más volátil. ¿Ambos criterios señalan al mismo componente en este caso?",
+    "opciones": {
+      "a": "No; el más abundante es el n-hexano (60%) pero el más volátil es el n-heptano porque su mayor cadena carbonada le da mayor energía de vaporización",
+      "b": "Sí; ambos criterios coinciden en el n-hexano: es el componente mayoritario (60%) y también el más volátil (ebullición 69°C vs 98°C del n-heptano)",
+      "c": "No; el más abundante es el n-hexano pero el más volátil es el n-heptano porque tiene mayor punto de ebullición",
+      "d": "Los criterios no aplican porque ambos componentes son apolares y la heurística solo distingue entre componentes de diferente polaridad"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "El n-hexano cumple ambas condiciones: es el componente mayoritario (60%) y tiene el punto de ebullición más bajo (69°C vs 98°C), lo que lo hace el más volátil. Mayor volatilidad corresponde a menor punto de ebullición, no mayor. Las opciones a y c explotan la confusión entre 'punto de ebullición alto' y 'más volátil', que es el error conceptual más frecuente en este tema.",
+    "tipo": "texto"
+  },
+  {
+    "id": "op_bas_033",
+    "dificultad": 4,
+    "categoria": "Equilibrio en sistemas bifásicos",
+    "pregunta": "Un técnico mezcla agua (polar) con tolueno (apolar, no miscible con agua) en un embudo de separación y añade un colorante polar. Tras agitar y dejar reposar, el colorante queda mayoritariamente en la fase acuosa. El técnico afirma: 'El sistema aún no está en equilibrio porque el colorante debería distribuirse por igual entre las dos fases.' ¿Qué error conceptual comete?",
+    "opciones": {
+      "a": "Ninguno; en equilibrio bifásico la concentración siempre debe igualarse en ambas fases para que no exista gradiente neto entre ellas",
+      "b": "Confunde equilibrio bifásico con equilibrio monofásico: en un sistema de dos fases, el equilibrio implica ausencia de flujo neto, no igualdad de concentraciones; la distribución desigual es justamente el estado de equilibrio para ese sistema",
+      "c": "Confunde la polaridad del colorante con su densidad: al ser polar debería flotar sobre el tolueno y no disolverse preferentemente en el agua",
+      "d": "Tiene razón: si el sistema estuviera en equilibrio, el colorante se distribuiría en proporción al volumen de cada fase, no mayoritariamente en una de ellas"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "El técnico aplica erróneamente la lógica del equilibrio monofásico (donde sí se uniformizan las concentraciones) a un sistema bifásico. En sistemas de dos fases inmiscibles, el equilibrio ocurre cuando no hay flujo neto entre fases, y las concentraciones en cada fase dependen de la afinidad química del soluto por cada solvente. Un colorante polar tiene mayor afinidad por el agua que por el tolueno apolar: su distribución desigual es el equilibrio, no una señal de que no se alcanzó.",
+    "tipo": "texto"
+  },
+  {
+    "id": "op_bas_034",
+    "dificultad": 4,
+    "categoria": "Fuerza impulsora y equilibrio",
+    "pregunta": "En una columna de absorción en operación continua, se dice que la columna 'trabaja alejada del equilibrio'. ¿Qué implica esto en términos de fuerza impulsora y eficiencia de transferencia?",
+    "opciones": {
+      "a": "Que la fuerza impulsora es pequeña y la transferencia es lenta, lo que obliga a usar una columna de mayor altura para compensar",
+      "b": "Que la diferencia entre la condición real del sistema y la de equilibrio es grande, por lo que la fuerza impulsora es alta y la transferencia ocurre a mayor velocidad",
+      "c": "Que la columna opera a temperaturas muy distintas a las del diseño, lo que reduce la selectividad del solvente hacia el gas que se quiere absorber",
+      "d": "Que el sistema ya alcanzó el equilibrio en la mayor parte de la altura y solo la zona de entrada sigue siendo activa para la transferencia"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "'Alejado del equilibrio' significa que la condición real del sistema dista mucho de la condición de equilibrio: esa diferencia es la fuerza impulsora. A mayor distancia del equilibrio, mayor fuerza impulsora y mayor velocidad de transferencia. Las columnas bien diseñadas mantienen esa diferencia grande usando caudales de solvente fresco que evitan que el líquido se sature y se acerque al equilibrio con el gas.",
+    "tipo": "texto"
+  },
+  {
+    "id": "op_bas_035",
+    "dificultad": 4,
+    "categoria": "Heurísticas de separación",
+    "pregunta": "En un proceso de captura de CO₂ se añade MEA (monoetanolamina, amina polar, no tóxica a las concentraciones de uso) al agua como solvente. La MEA reacciona con el CO₂ y luego se regenera por calentamiento para reutilizarse indefinidamente en el proceso. ¿Cumple este diseño con las heurísticas sobre agentes externos?",
+    "opciones": {
+      "a": "No cumple porque la heurística prohíbe añadir cualquier agente externo cuando el agua sola ya puede actuar como solvente",
+      "b": "No cumple porque la MEA es un agente externo y las heurísticas indican que nunca deben añadirse componentes que no estaban en la alimentación original",
+      "c": "Sí cumple: si el agente externo es necesario, la heurística exige que no sea tóxico o peligroso y que sea eliminado del proceso tan pronto como sea factible; la regeneración continua de la MEA satisface ese criterio",
+      "d": "No cumple porque la heurística exige que el agente externo se elimine del proceso de forma permanente e inmediata, sin posibilidad de recirculación ni regeneración"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "La heurística no prohíbe los agentes externos: los permite si son necesarios, con dos condiciones: que no sean tóxicos o peligrosos, y que sean eliminados del proceso tan pronto como sea factible. La MEA es recuperable y no tóxica a las concentraciones de uso, y el ciclo de regeneración-reutilización constituye precisamente esa 'eliminación factible' (en este caso, regeneración y recirculación). La opción d tergiversa la heurística al exigir eliminación permanente.",
+    "tipo": "texto"
+  },
+  {
+    "id": "op_bas_036",
+    "dificultad": 4,
+    "categoria": "Resistencia controlante",
+    "pregunta": "Se absorbe H₂S (gas polar, muy soluble en agua) con dos solventes distintos: agua pura y una solución de NaOH (base que reacciona con el H₂S casi instantáneamente en cuanto se disuelve). ¿Cómo cambia la resistencia controlante al pasar del agua pura a la solución de NaOH?",
+    "opciones": {
+      "a": "La resistencia se desplaza más hacia la fase líquida porque la reacción con NaOH consume H₂S y crea un gradiente que atrae más gas hacia el líquido",
+      "b": "La resistencia se concentra aún más en la fase gaseosa porque la reacción química consume el H₂S disuelto casi tan rápido como llega, manteniendo su concentración en el líquido cerca de cero y reduciendo aún más la resistencia líquida",
+      "c": "La resistencia no cambia porque la teoría de la doble capa no considera reacciones químicas en la fase líquida, solo la difusión física",
+      "d": "La resistencia se desplaza hacia la interfase porque la reacción ocurre justo en ese punto y no en el interior del líquido"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Con agua pura, el H₂S ya es muy soluble: la resistencia dominante está en la fase gaseosa. Al añadir NaOH, la reacción consume el H₂S disuelto casi instantáneamente, manteniendo su concentración en el seno del líquido prácticamente en cero. Esto maximiza la fuerza impulsora en la fase líquida y reduce su resistencia a casi cero, por lo que la resistencia gaseosa se vuelve aún más dominante que antes. La reacción química actúa como un 'sumidero' que potencia la absorción.",
+    "tipo": "texto"
+  },
+  {
+    "id": "op_bas_037",
+    "dificultad": 4,
+    "categoria": "Componentes internos de torres",
+    "pregunta": "Un operador reporta canalización en una torre de relleno: el líquido llega a la zona baja concentrado en las paredes y hay una zona central seca. Pide al equipo de mantenimiento que revise el 'distribuidor de líquido'. ¿Es correcta esta indicación?",
+    "opciones": {
+      "a": "Sí, porque el distribuidor de líquido en la entrada superior es el único componente que controla la distribución en toda la altura de la columna",
+      "b": "No completamente; si el problema se desarrolla a lo largo de la columna (el líquido parte bien distribuido pero migra a las paredes), el componente a revisar es el redistribuidor intermedio, no el distribuidor de entrada",
+      "c": "Sí, porque el distribuidor de líquido también actúa como redistribuidor en los puntos medios de la columna según el diseño estándar",
+      "d": "No; la canalización hacia las paredes es responsabilidad del plato de soporte, que al compactarse desvía el flujo hacia los bordes del lecho"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "El distribuidor de entrada solo actúa en la parte superior de la columna y garantiza una distribución inicial uniforme. La migración del líquido hacia las paredes es un fenómeno que se desarrolla a lo largo de la altura del relleno. Para corregirlo en puntos intermedios existen los redistribuidores, que recolectan el líquido acumulado en las paredes y lo reintroducen al centro. La indicación del operador es parcialmente incorrecta: el distribuidor de entrada puede estar bien y el problema estar en los redistribuidores.",
+    "tipo": "texto"
+  },
+  {
+    "id": "op_bas_038",
+    "dificultad": 4,
+    "categoria": "Heurísticas de separación",
+    "pregunta": "Se desea separar dos gases apolares con puntos de ebullición de -10°C y -3°C (diferencia de 7°C). Un ingeniero propone destilación criogénica operando a -50°C. ¿Cuántas heurísticas viola esta propuesta y cuáles son?",
+    "opciones": {
+      "a": "Viola dos: la diferencia de 7°C es insuficiente para destilación según la heurística, y operar a -50°C está por debajo del ambiente",
+      "b": "Viola una: la diferencia de 7°C es aprovechable (la heurística acepta diferencias de incluso menos de 10°C en el punto de ebullición), pero operar a -50°C viola la heurística de condiciones operativas que prefiere evitar condiciones inferiores al ambiente",
+      "c": "No viola ninguna: la diferencia de 7°C es aprovechable y la temperatura criogénica es necesaria para que los componentes sean líquidos en la columna",
+      "d": "Viola una: la diferencia de 7°C requiere usar punto de fusión en lugar de punto de ebullición según el orden de prioridad heurístico"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "La heurística de propiedades físicas acepta diferencias de punto de ebullición de incluso menos de 10°C: los 7°C son suficientes para considerar la destilación. Sin embargo, operar a -50°C viola la heurística de condiciones operativas, que recomienda trabajar cerca del ambiente y, si se debe desviar, preferir condiciones superiores (mayor temperatura o presión) antes que inferiores. Solo se viola una heurística, no dos.",
+    "tipo": "texto"
+  },
+  {
+    "id": "op_bas_039",
+    "dificultad": 4,
+    "categoria": "Heurísticas de separación",
+    "pregunta": "Una mezcla 50/50 de dos líquidos miscibles tiene una diferencia de punto de ebullición de 8°C. Un ingeniero propone añadir un tercer solvente (no tóxico, recuperable) que aumenta la diferencia de volatilidad para facilitar la separación. ¿Cómo deben aplicarse las heurísticas para evaluar esta propuesta?",
+    "opciones": {
+      "a": "La propuesta viola la heurística de agentes externos porque añadir un tercer componente siempre está prohibido cuando los componentes a separar son miscibles entre sí",
+      "b": "La propuesta es correcta de inmediato porque el solvente no es tóxico y es recuperable, que son las únicas condiciones que exige la heurística sobre agentes externos",
+      "c": "Primero debe evaluarse si la diferencia de 8°C es suficiente para la destilación directa (la heurística acepta menos de 10°C); solo si esa opción es insuficiente en la práctica se justifica añadir el agente externo",
+      "d": "La propuesta no aplica ninguna heurística porque los dos componentes son miscibles y eso excluye toda separación basada en equilibrio"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "Hay dos heurísticas en tensión: la de propiedades físicas (diferencia de 8°C es aprovechable por destilación directa) y la de agentes externos (evitar añadir materia extraña; si se añade, que no sea peligrosa y se recupere). La secuencia correcta es evaluar primero si la destilación directa es viable con esa diferencia de 8°C. Solo si resulta insuficiente en la práctica se justifica añadir el agente externo, que además debe ser no tóxico y recuperable.",
+    "tipo": "texto"
+  },
+  {
+    "id": "op_bas_040",
+    "dificultad": 4,
+    "categoria": "Evaporación vs destilación",
+    "pregunta": "Un estudiante propone separar NaCl (sal iónica, punto de fusión 801°C, prácticamente no volátil) disuelto en agua usando una columna de destilación de platos. ¿Cuántos errores conceptuales contiene esta propuesta?",
+    "opciones": {
+      "a": "Ninguno; la destilación puede separar cualquier mezcla disuelta si se suministra suficiente energía al sistema",
+      "b": "Uno: puede usar destilación, pero debería ser al vacío para reducir los puntos de ebullición y proteger la sal",
+      "c": "Dos: la destilación separa componentes de volatilidades comparables, pero el NaCl no es volátil (lo correcto sería evaporación); además, los platos se obstruirían con los cristales de sal que precipitan al evaporarse el agua",
+      "d": "Uno: el error es usar platos en lugar de relleno, que tolera mejor la presencia de sólidos disueltos en la corriente líquida"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "Hay dos errores simultáneos. Primero, un error de selección de operación: la destilación separa componentes de volatilidades similares; para separar un soluto no volátil de su solvente se usa evaporación. Segundo, un error de equipamiento: aunque se usara una columna de contacto, los platos quedarían obstruidos por los cristales de NaCl que precipitan a medida que el agua se evapora. Ambos errores reflejan no entender cuándo aplica cada operación ni sus implicaciones en el equipo.",
+    "tipo": "texto"
+  },
+  {
+    "id": "op_bas_081",
+    "dificultad": 4,
+    "categoria": "Heurísticas de separación",
+    "pregunta": "Una mezcla contiene 70% de isopropanol (polar, ebullición 82°C) y 30% de butanol (polar, ebullición 117°C). Al aplicar los dos criterios de la heurística de secuenciación, el componente más abundante es el isopropanol y el más volátil también es el isopropanol. ¿Qué consecuencia práctica tiene esta coincidencia?",
+    "opciones": {
+      "a": "No tiene consecuencia práctica; la heurística nunca genera conflicto en mezclas binarias de compuestos polares porque la polaridad alinea siempre ambos criterios",
+      "b": "Ambos criterios señalan al isopropanol sin ambigüedad, lo que simplifica la decisión de diseño: debe separarse primero sin necesidad de análisis adicional",
+      "c": "Cuando ambos criterios coinciden, la heurística recomienda ignorarlos y usar el punto de fusión como criterio de desempate para evitar sesgos",
+      "d": "El isopropanol debe separarse al final precisamente porque es simultáneamente el más abundante y el más volátil, lo que lo hace más difícil de obtener puro"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "La coincidencia de ambos criterios en el mismo componente elimina toda ambigüedad: la heurística apunta sin conflicto a separar el isopropanol primero. Esto contrasta con los casos donde los criterios señalan componentes distintos (por ejemplo, el más abundante no es el más volátil), que requieren un análisis adicional. La coincidencia es una ventaja de diseño, no una complicación.",
+    "tipo": "texto"
+  },
+  {
+    "id": "op_bas_082",
+    "dificultad": 4,
+    "categoria": "Evaporación vs destilación",
+    "pregunta": "Un ingeniero propone concentrar etanol (polar, ebullición 78°C) desde una solución acuosa diluida al 5% usando un evaporador, argumentando que 'la evaporación concentra el etanol igual que la destilación'. ¿Qué error conceptual comete?",
+    "opciones": {
+      "a": "Ninguno; la evaporación y la destilación son operaciones equivalentes para mezclas donde uno de los componentes es mayoritario",
+      "b": "El evaporador eliminará principalmente agua (el solvente mayoritario), concentrando los sólidos disueltos pero sin enriquecer selectivamente el etanol; para obtener etanol concentrado se necesita la destilación, que aprovecha la diferencia de volatilidad entre etanol y agua",
+      "c": "El error es usar un evaporador de efecto múltiple en lugar de uno de efecto simple; la multiplicidad de efectos invierte el sentido de separación en soluciones diluidas",
+      "d": "La evaporación es superior a la destilación para soluciones diluidas porque consume menos energía por unidad de masa separada y no requiere reflujo"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "La evaporación está diseñada para concentrar una solución eliminando el solvente (agua): el vapor que sale es mayoritariamente agua, y la solución residual queda con mayor concentración de solutos. No es equivalente a la destilación, que aprovecha la diferencia de volatilidad relativa para enriquecer el vapor en el componente más volátil (etanol). Para obtener etanol concentrado se necesita destilación, no evaporación.",
+    "tipo": "texto"
+  },
+  {
+    "id": "op_bas_083",
+    "dificultad": 4,
+    "categoria": "Heurísticas de separación",
+    "pregunta": "Se necesita separar vitamina B12 (polar, no volátil, peso molecular alto, con carga eléctrica neta conocida) de una solución acuosa. El proceso produce 50 kg/año con pureza requerida del 99.5%. ¿Cuál es el razonamiento correcto para elegir la técnica?",
+    "opciones": {
+      "a": "Usar destilación porque la vitamina B12 es polar y soluble en agua, y la destilación es la técnica de equilibrio más versátil para mezclas acuosas",
+      "b": "Usar evaporación porque el objetivo es concentrar la vitamina eliminando el agua, igual que en la producción de leche concentrada",
+      "c": "La vitamina no es volátil (descarta destilación y evaporación); tiene carga eléctrica (propiedad diferenciadora aprovechable); y el bajo volumen con alta pureza requerida apunta a técnicas de velocidad como cromatografía de intercambio iónico",
+      "d": "Usar filtración convencional porque cualquier molécula de peso molecular alto puede separarse del agua usando una tela filtro de malla fina estándar"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "El razonamiento encadena tres niveles: 1) la vitamina no es volátil → descarta destilación y evaporación; 2) tiene carga eléctrica conocida → esa es la propiedad diferenciadora aprovechable (intercambio iónico o electrodiálisis); 3) el bajo volumen (50 kg/año) y la alta pureza requerida (99.5%) → la heurística recomienda técnicas basadas en velocidad. La filtración convencional (opción d) no discrimina por carga eléctrica sino por tamaño.",
+    "tipo": "texto"
+  },
+  {
+    "id": "op_bas_084",
+    "dificultad": 4,
+    "categoria": "Resistencia controlante",
+    "pregunta": "En una torre que absorbe SO₂ (polar, muy soluble en agua) con agua, la tasa de absorción es menor a la esperada. Se evalúan dos acciones: (A) aumentar la velocidad del gas para generar mayor turbulencia en la fase gaseosa, o (B) aumentar la velocidad de circulación del solvente para renovarlo más rápido. ¿Cuál ataca directamente la causa raíz?",
+    "opciones": {
+      "a": "La acción A porque en cualquier sistema de absorción la resistencia gaseosa es siempre la dominante y aumentar la turbulencia gaseosa es siempre la solución correcta",
+      "b": "La acción A porque el SO₂ muy soluble tiene resistencia dominante en la fase gaseosa; reducir la película gaseosa con mayor turbulencia ataca directamente esa resistencia",
+      "c": "La acción B porque renovar el solvente mantiene baja la concentración de SO₂ en el líquido, preservando la fuerza impulsora y atacando la causa raíz del problema",
+      "d": "Ambas acciones son equivalentes porque en columnas de absorción la resistencia se distribuye siempre de forma equitativa entre las dos fases"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "El SO₂ es muy soluble en agua: la resistencia dominante está en la fase gaseosa. La acción A aumenta la turbulencia en esa fase, adelgazando la película gaseosa y reduciendo directamente la resistencia controlante. La acción B también puede ayudar (mantiene baja la concentración en el solvente), pero si el solvente circula a caudal normal y no está saturado, no es la causa raíz del problema. Identificar la fase de resistencia dominante es clave para elegir la acción correcta.",
+    "tipo": "texto"
+  },
+  {
+    "id": "op_bas_085",
+    "dificultad": 4,
+    "categoria": "Clasificación de operaciones unitarias",
+    "pregunta": "Un estudiante clasifica la absorción de SO₂ en agua como 'transmisión de energía' argumentando que al disolver el SO₂ se libera calor. ¿Qué error comete?",
+    "opciones": {
+      "a": "Ninguno; si hay transferencia de calor en la operación, esta debe clasificarse como transmisión de energía según la taxonomía de operaciones unitarias",
+      "b": "Confunde el fenómeno secundario (el calor de absorción) con el fenómeno dominante que define la operación: la transferencia de materia. La clasificación se basa en cuál fenómeno determina el diseño y la función del equipo, no en cuál fenómeno ocurre también",
+      "c": "El error es que el calor de absorción del SO₂ en agua es en realidad endotérmico, no exotérmico, por lo que el argumento energético no sería válido de ningún modo",
+      "d": "El error es que la transmisión de energía solo aplica cuando hay cambio de fase físico (líquido-gas o sólido-líquido), no cuando hay disolución de un gas en un líquido"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Las operaciones unitarias se clasifican por el fenómeno que las define y que determina el diseño del equipo, no por todos los fenómenos que ocurren. En la absorción, el fenómeno dominante es el movimiento de SO₂ de la fase gaseosa a la fase líquida por diferencia de concentración: transferencia de materia. El calor liberado es un efecto secundario que puede requerir consideraciones térmicas, pero no cambia la naturaleza de la operación.",
+    "tipo": "texto"
+  },
+  {
+    "id": "op_bas_086",
+    "dificultad": 4,
+    "categoria": "Equilibrio en sistemas bifásicos",
+    "pregunta": "Se desea extraer cafeína (ligeramente polar, soluble tanto en agua como en cloroformo apolar) de una solución acuosa por extracción líquido-líquido. Se evalúan: cloroformo (apolar, no miscible con agua) y etanol (polar, miscible con agua en cualquier proporción). ¿Cuál solvente es adecuado y por qué?",
+    "opciones": {
+      "a": "El etanol porque es polar como el agua y la cafeína tiene cierta polaridad, lo que facilita su transferencia entre fases de polaridad similar",
+      "b": "El cloroformo porque es inmiscible con el agua, condición necesaria para que existan dos fases separables, y la cafeína tiene afinidad suficiente por él para distribuirse hacia esa fase",
+      "c": "Cualquiera de los dos porque la extracción líquido-líquido no requiere inmiscibilidad; solo necesita que la cafeína se distribuya preferentemente hacia el solvente extractante",
+      "d": "El etanol porque su mayor polaridad genera una fuerza impulsora más alta para extraer la cafeína de la fase acuosa hacia la fase orgánica"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "La condición fundamental de la extracción líquido-líquido es que los dos solventes sean inmiscibles: si se mezclan en una sola fase, no hay dos fases entre las cuales distribuir el soluto. El etanol es miscible con el agua en cualquier proporción: al añadirlo a la solución acuosa, no forma una segunda fase sino una mezcla homogénea. El cloroformo es inmiscible con el agua: forma una segunda fase líquida separable, condición necesaria para la operación.",
+    "tipo": "texto"
+  },
+  {
+    "id": "op_bas_087",
+    "dificultad": 4,
+    "categoria": "Torres de absorción",
+    "pregunta": "Un proceso maneja un gas muy corrosivo y debe operar con la menor caída de presión posible porque trabaja a presión reducida. ¿Qué combinación de material de relleno y tipo de disposición es más adecuada?",
+    "opciones": {
+      "a": "Relleno metálico al azar porque los metales son más resistentes mecánicamente y el relleno al azar ofrece mayor área superficial por unidad de volumen que el estructurado",
+      "b": "Relleno de cerámica al azar porque la cerámica resiste la corrosión y el relleno al azar es el único tipo compatible con condiciones corrosivas",
+      "c": "Relleno de cerámica ordenado (estructurado) porque la cerámica resiste la corrosión química y el relleno estructurado se usa específicamente donde se requiere mínima pérdida de presión",
+      "d": "Relleno de plástico estructurado porque el plástico es el material más liviano y el relleno estructurado minimiza el peso total de la columna independientemente de la temperatura"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "Dos criterios se combinan: 1) el gas es muy corrosivo → el material debe resistir la corrosión; la cerámica es la elección para fluidos con ácidos o bases fuertes (los metales se corroen, los plásticos se degradan con ciertos solventes o a altas temperaturas); 2) mínima caída de presión → el relleno ordenado o estructurado se usa exactamente en aplicaciones donde la presión disponible es limitada. La opción b descarta incorrectamente el relleno estructurado para condiciones corrosivas.",
+    "tipo": "texto"
+  },
+  {
+    "id": "op_bas_088",
+    "dificultad": 4,
+    "categoria": "Componentes internos de torres",
+    "pregunta": "Un diseñador omite el distribuidor de líquido en una torre de absorción argumentando: 'el solvente entra por una tubería en la parte superior y la gravedad lo distribuirá uniformemente por el relleno'. ¿Qué consecuencia predice la teoría?",
+    "opciones": {
+      "a": "Ninguna en columnas de diámetro menor a 0.5 m; la gravedad sí distribuye uniformemente el líquido en columnas pequeñas sin necesidad de distribuidor",
+      "b": "El líquido entrará concentrado en el punto de inyección y fluirá preferentemente por las zonas adyacentes, dejando gran parte del relleno sin irrigar y reduciendo drásticamente el área de contacto efectiva entre gas y líquido",
+      "c": "El efecto es menor: la columna opera con 10-15% menos eficiencia, pero el diseño es técnicamente válido para separaciones donde no se requiere alta pureza",
+      "d": "La gravedad sí distribuye el líquido en rellenos al azar, pero no en rellenos estructurados; el error del diseñador es haber elegido el tipo de relleno incorrecto"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Sin distribuidor, el líquido entra en un punto localizado y fluye siguiendo el camino de menor resistencia, que corresponde a las zonas más cercanas al punto de entrada. El relleno alejado de ese punto queda seco o con muy poco líquido: no hay transferencia de masa en esas zonas. La pérdida de eficiencia no es del 10-15% sino potencialmente mayor al 50%, dependiendo del diámetro de la columna y la altura del lecho.",
+    "tipo": "texto"
+  },
+  {
+    "id": "op_bas_089",
+    "dificultad": 4,
+    "categoria": "Heurísticas de separación",
+    "pregunta": "Un proceso separa tres componentes en este orden: primero el componente C (el menos volátil, 15% de la mezcla), luego el B (volatilidad intermedia, 35%) y finalmente el A (el más volátil y el más abundante, 50%). ¿Cumple esta secuencia con la heurística?",
+    "opciones": {
+      "a": "Sí, porque separar primero el menos volátil es la práctica más segura para evitar contaminaciones cruzadas entre los productos de la separación",
+      "b": "No; la heurística recomienda separar primero el más volátil o el más abundante; el componente A cumple ambos criterios y debería separarse primero, no último",
+      "c": "Sí, porque la heurística establece que las separaciones deben ordenarse de menor a mayor volatilidad para aprovechar la secuencia natural de condensaciones del proceso",
+      "d": "La heurística de secuencia solo aplica a mezclas binarias; para mezclas de tres o más componentes no existe una regla establecida"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "El componente A es simultáneamente el más volátil y el más abundante (50%): la heurística lo señala sin ambigüedad como el primero a separar. La secuencia propuesta hace exactamente lo contrario: lo deja para el final, lo que significa que todos los equipos posteriores deben procesar corrientes más voluminosas de las necesarias. Separar A primero reduce el caudal en todas las etapas siguientes.",
+    "tipo": "texto"
+  },
+  {
+    "id": "op_bas_090",
+    "dificultad": 4,
+    "categoria": "Resistencia controlante",
+    "pregunta": "En una absorción de un gas apolar y poco soluble en agua, la tasa de transferencia es baja. Se proponen dos mejoras: (X) cambiar a un solvente apolar que disuelva bien el gas, o (Y) aumentar la temperatura del solvente para reducir su viscosidad. ¿Cuál ataca la causa raíz y qué condición adicional exige la heurística?",
+    "opciones": {
+      "a": "La opción Y porque reducir la viscosidad siempre mejora la transferencia de masa en cualquier sistema de absorción, independientemente de cuál fase tiene la resistencia dominante",
+      "b": "La opción X porque un gas apolar tiene mayor afinidad por un solvente apolar, lo que mejora su solubilidad y reduce la resistencia dominante en la fase líquida; sin embargo, la heurística de agentes externos exige que el solvente no sea tóxico ni peligroso y sea recuperable",
+      "c": "Ambas opciones son equivalentes porque en sistemas con resistencia en la fase líquida, la viscosidad y la solubilidad afectan por igual la resistencia de esa fase",
+      "d": "La opción Y porque aumentar la temperatura reduce la solubilidad del gas, lo que paradójicamente aumenta la diferencia con el equilibrio y eleva la fuerza impulsora de transferencia"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "El gas apolar es poco soluble en agua (polar): la resistencia dominante está en la fase líquida. Cambiar a un solvente apolar ataca la causa raíz porque mejora la afinidad química y la solubilidad del gas, reduciendo directamente la resistencia líquida. La opción Y (reducir viscosidad) puede mejorar marginalmente la difusión en el líquido, pero no resuelve la baja solubilidad que es el factor limitante. La heurística de agentes externos añade la condición: el solvente apolar debe ser no tóxico y recuperable.",
+    "tipo": "texto"
+  },
+  {
+    "id": "op_bas_041",
+    "dificultad": 5,
+    "categoria": "Heurísticas de separación",
+    "pregunta": "Una corriente líquida homogénea contiene: 65% agua (polar, ebullición 100°C), 30% etanol (polar, ebullición 78°C) y 5% de una sal mineral iónica (punto de fusión 600°C, prácticamente no volátil). Se desea recuperar los tres componentes. ¿Cuál es la secuencia de separación más coherente con las heurísticas?",
+    "opciones": {
+      "a": "Primero separar la sal por evaporación parcial del agua, luego destilar el etanol del agua restante",
+      "b": "Primero destilar el etanol por ser el más volátil (78°C), luego evaporar el agua de la mezcla agua-sal para recuperar la sal sólida",
+      "c": "Primero separar el agua por destilación por ser el componente más abundante (65%), luego concentrar la sal por evaporación del etanol restante",
+      "d": "Primero enfriar para precipitar la sal, luego destilar la mezcla etanol-agua resultante"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "La secuencia aplica tres heurísticas encadenadas: 1) la corriente es una sola fase líquida → técnicas de equilibrio; 2) separar primero el más volátil (etanol, 78°C) por destilación, que también es el criterio de punto de ebullición prioritario; 3) la mezcla restante agua-sal contiene un componente no volátil → se usa evaporación para eliminar el agua y recuperar la sal sólida. La opción c falla porque el agua tiene ebullición más alta que el etanol: intentar destilarla 'primero' implicaría llevarse también el etanol.",
+    "tipo": "texto"
+  },
+  {
+    "id": "op_bas_042",
+    "dificultad": 5,
+    "categoria": "Resistencia controlante",
+    "pregunta": "Un ingeniero diseña una torre de absorción para capturar SO₂ (gas polar, muy soluble en agua) usando aceite mineral (líquido apolar) como solvente en lugar de agua. ¿Cuáles son las dos consecuencias directas de este error en la operación de la torre?",
+    "opciones": {
+      "a": "El aceite absorberá el SO₂ con mayor eficiencia porque su mayor viscosidad adelgaza la película gaseosa; la única desventaja es el mayor costo del solvente comparado con el agua",
+      "b": "El SO₂ polar tendrá baja solubilidad en el aceite apolar, lo que reduce la fuerza impulsora de transferencia; además, la resistencia dominante pasará a ser la fase líquida porque el gas que antes era muy soluble ahora lo es poco en ese solvente",
+      "c": "El aceite generará espuma excesiva en la torre, obstruyendo el relleno; la transferencia de masa no se ve afectada porque depende solo de la geometría interna y el caudal de gas",
+      "d": "La resistencia seguirá siendo en la fase gaseosa porque la solubilidad del SO₂ es una propiedad intrínseca del gas y no cambia con el solvente que se elija"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "El principio 'semejante disuelve semejante' predice que un gas polar como el SO₂ tiene baja solubilidad en un solvente apolar como el aceite mineral. Esto produce dos efectos: 1) la fuerza impulsora de transferencia cae porque el equilibrio entre fases es desfavorable para absorber el SO₂; 2) la resistencia controlante se desplaza a la fase líquida, que ahora 'rechaza' al soluto polar. Con agua (solvente polar), el SO₂ se disolvía fácilmente y la resistencia estaba en la fase gaseosa. El aceite invierte ese comportamiento.",
+    "tipo": "texto"
+  },
+  {
+    "id": "op_bas_043",
+    "dificultad": 5,
+    "categoria": "Heurísticas de separación",
+    "pregunta": "Una mezcla contiene 65% de agua (polar, ebullición 100°C) y 35% de metanol (polar, ebullición 64.7°C). Al aplicar los dos criterios de la heurística de secuenciación, ¿qué se encuentra?",
+    "opciones": {
+      "a": "Ambos criterios señalan al agua: es la más abundante (65%) y además tiene el mayor punto de ebullición, lo que la hace el componente a separar primero",
+      "b": "Los criterios señalan componentes distintos: el más abundante es el agua (65%) pero el más volátil es el metanol (64.7°C); ante este conflicto, ambos criterios deben analizarse para determinar cuál separación genera las corrientes más convenientes para el proceso posterior",
+      "c": "La heurística siempre da prioridad al criterio de volatilidad sobre el de abundancia, por lo que el metanol debe separarse primero sin necesidad de análisis adicional",
+      "d": "La heurística siempre da prioridad al criterio de abundancia sobre la volatilidad, por lo que el agua debe separarse primero sin necesidad de análisis adicional"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Los dos criterios señalan componentes distintos: agua es la más abundante (65%) pero el metanol es el más volátil (64.7°C < 100°C). La opción a contiene una trampa: tener el punto de ebullición más alto no hace al agua más volátil sino menos (mayor punto de ebullición = menor volatilidad). Las opciones c y d asignan una jerarquía absoluta a uno de los criterios que la heurística no establece; ante el conflicto, la heurística requiere analizar cuál separación produce las corrientes de menor procesamiento posterior.",
+    "tipo": "texto"
+  },
+  {
+    "id": "op_bas_044",
+    "dificultad": 5,
+    "categoria": "Heurísticas de separación",
+    "pregunta": "Se desea separar tolueno (apolar, ebullición 111°C) de n-heptano (apolar, ebullición 98°C), diferencia de 13°C. Se evalúan: destilación convencional sin agente externo y destilación extractiva con un solvente selectivo. ¿Qué indica la heurística sobre cuál explorar primero y por qué?",
+    "opciones": {
+      "a": "La destilación extractiva primero, porque una diferencia de 13°C está por debajo del umbral de 20°C que la heurística exige para la destilación convencional entre compuestos apolares",
+      "b": "La destilación convencional primero: la diferencia de 13°C supera el umbral donde la heurística acepta separaciones por ebullición (incluso menos de 10°C es suficiente), y la heurística indica evitar agentes externos si no son necesarios",
+      "c": "Son equivalentes porque ambos componentes son apolares; la heurística no establece ninguna preferencia cuando la polaridad de los componentes es igual",
+      "d": "La destilación extractiva primero porque los compuestos apolares no se separan eficientemente por destilación convencional independientemente de la diferencia de ebullición"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Dos heurísticas convergen en la misma dirección: 1) la diferencia de 13°C supera incluso el umbral de 10°C que la heurística acepta para separaciones por punto de ebullición, por lo que la destilación convencional es viable; 2) la heurística sobre agentes externos indica evitar añadir materia extraña si no es necesario. Solo si la destilación convencional resulta insuficiente en la práctica se justifica añadir el solvente selectivo.",
+    "tipo": "texto"
+  },
+  {
+    "id": "op_bas_045",
+    "dificultad": 5,
+    "categoria": "Heurísticas de separación",
+    "pregunta": "Una corriente de 50 000 kg/h de agua de proceso contiene 25 kg/h de un catalizador de platino (metal muy valioso) disuelto. ¿Cuál es la decisión correcta según la heurística, y qué tipo de método debe emplearse?",
+    "opciones": {
+      "a": "Usar destilación porque escala bien con el volumen total y el costo es proporcional al caudal procesado, lo que resulta económico a esa escala",
+      "b": "Descartar la recuperación: 25 kg/h representa solo 0.05% de la corriente y el costo de cualquier método selectivo superaría el valor del platino recuperado",
+      "c": "Usar un método cuyo costo escale con la cantidad de platino a recuperar (25 kg/h) y no con el volumen total (50 000 kg/h), porque la heurística para trazas valiosas prioriza métodos selectivos de bajo costo proporcional a las trazas",
+      "d": "Usar destrucción química para eliminar el platino disuelto y evitar que se acumule y contamine las etapas siguientes del proceso"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "La heurística establece que para recuperar cantidades en trazas, el costo del método debe crecer con la cantidad de material a recuperar (25 kg/h de platino), no con el volumen total de la corriente (50 000 kg/h). Métodos como la adsorción selectiva o el intercambio iónico cumplen ese criterio. La opción a (destilación) tiene un costo proporcional al caudal total, lo que la hace antieconómica. La opción d es incorrecta porque el platino es valioso y debe recuperarse, no destruirse.",
+    "tipo": "texto"
+  },
+  {
+    "id": "op_bas_046",
+    "dificultad": 5,
+    "categoria": "Componentes internos de torres",
+    "pregunta": "En una torre de relleno en operación, una sobrepresión momentánea desplazó el lecho hacia arriba y parte del relleno salió por el tope de la columna. ¿Cuál componente interno falló y cuál era su función específica?",
+    "opciones": {
+      "a": "El distribuidor de líquido, que debería haber regulado el caudal de líquido para amortiguar la sobrepresión y proteger el lecho",
+      "b": "El plato de soporte, que al no sostener el peso del relleno permitió que el gas lo levantara y desplazara hacia arriba",
+      "c": "El redistribuidor intermedio, que al fallar permitió que el gas se concentrara en el centro y generara el pico de presión localizado",
+      "d": "El plato de sujeción o limitador de lecho, cuya función específica es evitar el desplazamiento o expansión del relleno ante oleadas de presión provenientes del gas"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "El plato de sujeción (también llamado limitador de lecho) se ubica sobre el lecho de relleno y está diseñado exactamente para este escenario: impedir que una oleada de presión del gas levante y desplace el relleno. El plato de soporte (opción b) está por debajo del lecho y soporta su peso, pero no retiene el relleno contra el movimiento ascendente. El fallo descrito es la función de contención del plato de sujeción.",
+    "tipo": "texto"
+  },
+  {
+    "id": "op_bas_047",
+    "dificultad": 5,
+    "categoria": "Heurísticas de separación",
+    "pregunta": "Una empresa biotecnológica produce insulina recombinante (proteína polar, no volátil, lotes de 5 kg, pureza requerida >99%) en solución acuosa homogénea. ¿Cuál es la secuencia de decisiones heurísticas correcta para seleccionar el tipo de técnica de separación?",
+    "opciones": {
+      "a": "1) La alimentación es unifásica → considerar técnicas de equilibrio o velocidad, no mecánicas; 2) producto de bajo volumen, alto valor y alta pureza → preferir técnicas basadas en velocidad de transporte",
+      "b": "1) La alimentación es unifásica → usar separación mecánica; 2) la proteína es polar → usar extracción con solvente apolar para separarla del agua",
+      "c": "1) La alimentación es unifásica → considerar técnicas de equilibrio; 2) producción en lotes → usar destilación como técnica de equilibrio estándar para productos biológicos",
+      "d": "1) Verificar si la proteína es volátil; 2) como no lo es, usar punto de fusión como base de separación según el orden de prioridad heurístico"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "La secuencia aplica dos niveles de la heurística: 1) la alimentación llega como una sola fase líquida → no aplica separación mecánica; debe considerarse equilibrio o velocidad; 2) las características del producto (5 kg por lote = bajo volumen, alto valor comercial, >99% pureza) apuntan exactamente al caso donde la heurística recomienda técnicas basadas en velocidad de transporte, como la cromatografía de afinidad. La opción c falla porque la insulina no es destilable y la producción en lotes pequeños no justifica técnicas de equilibrio a gran escala.",
+    "tipo": "texto"
+  },
+  {
+    "id": "op_bas_048",
+    "dificultad": 5,
+    "categoria": "Resistencia controlante",
+    "pregunta": "En una misma torre de absorción con agua como solvente se capturan simultáneamente CO₂ (apolar, poco soluble en agua: 1.7 g/L a 20°C) y HCl (polar, muy soluble en agua: más de 700 g/L a 20°C). ¿Cómo difiere la fase de resistencia controlante para cada gas?",
+    "opciones": {
+      "a": "Para ambos gases la resistencia es la misma porque comparten el mismo solvente y las mismas condiciones hidrodinámicas dentro de la torre",
+      "b": "Para el CO₂ (poco soluble) la resistencia controlante está en la fase líquida; para el HCl (muy soluble) la resistencia controlante está en la fase gaseosa",
+      "c": "Para ambos la resistencia está en la interfase porque es el punto donde los dos gases deben cruzar de fase y la resistencia siempre es máxima ahí",
+      "d": "Para el CO₂ la resistencia está en la fase gaseosa porque al ser apolar le cuesta más transportarse en el gas; para el HCl la resistencia está en la fase líquida porque al disolverse tanto modifica la composición de esa fase"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "La solubilidad determina la resistencia controlante, no las condiciones hidrodinámicas compartidas. El CO₂ es poco soluble en agua: una vez que llega a la interfase, le cuesta disolverse y difundirse en el líquido → resistencia en fase líquida. El HCl es muy soluble: se disuelve fácilmente en cuanto toca la interfase, por lo que la etapa limitante es su transporte desde el seno del gas hasta la interfase → resistencia en fase gaseosa. Dos gases en la misma torre pueden tener resistencias controlantes opuestas.",
+    "tipo": "texto"
+  },
+  {
+    "id": "op_bas_049",
+    "dificultad": 5,
+    "categoria": "Fuerza impulsora y equilibrio",
+    "pregunta": "Un ingeniero afirma: 'Si aumentamos la concentración del solvente en la torre de absorción, la fuerza impulsora aumentará porque habrá más solvente disponible para absorber el gas.' ¿Es correcta esta afirmación?",
+    "opciones": {
+      "a": "Sí, porque más solvente significa mayor capacidad de absorción total y por lo tanto la fuerza impulsora en cada punto de la columna es mayor",
+      "b": "No es completamente correcta: la fuerza impulsora depende de la diferencia entre la concentración real del gas y su valor de equilibrio con el solvente, no de la cantidad de solvente. Aumentar el caudal de solvente fresco sí puede mantener baja la concentración del soluto en el líquido, preservando así la fuerza impulsora, pero por un mecanismo distinto al que describe el ingeniero",
+      "c": "No; aumentar la concentración del solvente siempre reduce la fuerza impulsora porque el solvente más concentrado se acerca más al equilibrio con el gas antes de entrar a la columna",
+      "d": "Sí, pero solo si el gas es muy soluble; para gases poco solubles, la concentración del solvente no tiene ningún efecto sobre la fuerza impulsora de transferencia"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "El ingeniero confunde 'más solvente disponible' con 'mayor fuerza impulsora'. La fuerza impulsora es la diferencia entre la concentración real del gas en cada fase y la concentración de equilibrio: depende del estado actual del sistema, no del caudal total. Lo que sí funciona es usar un mayor caudal de solvente fresco (sin soluto): esto mantiene baja la concentración del soluto en el líquido, lo que aleja al sistema del equilibrio y preserva la fuerza impulsora. El efecto existe, pero el mecanismo que explica el ingeniero es incorrecto.",
+    "tipo": "texto"
+  },
+  {
+    "id": "op_bas_091",
+    "dificultad": 5,
+    "categoria": "Heurísticas de separación",
+    "pregunta": "Una mezcla líquida homogénea contiene: 60% agua (polar, ebullición 100°C), 25% etanol (polar, ebullición 78°C), 10% sal iónica (no volátil, punto de fusión alto) y 5% de un colorante polar de alto valor (no volátil, con carga eléctrica conocida). Se quieren recuperar todos los componentes. ¿Cuál secuencia aplica mejor las heurísticas?",
+    "opciones": {
+      "a": "1) Separar el colorante primero por ser el más valioso; 2) destilar el etanol; 3) evaporar el agua para concentrar la sal",
+      "b": "1) Destilar el etanol (más volátil, 78°C); 2) evaporar el agua de la mezcla agua-sal-colorante; 3) separar el colorante de la sal por cromatografía de intercambio iónico (bajo volumen + alto valor + carga eléctrica conocida)",
+      "c": "1) Evaporar el agua (mayoritaria, 60%) para concentrar todos los demás componentes juntos; 2) destilar el etanol del residuo; 3) separar la sal del colorante",
+      "d": "1) Precipitar la sal por enfriamiento; 2) extraer el colorante con un solvente orgánico; 3) destilar la mezcla etanol-agua restante"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "La secuencia encadena tres heurísticas: 1) el más volátil primero — etanol (78°C) se destila antes que el agua (100°C); 2) la mezcla restante agua-sal-colorante contiene dos no volátiles — evaporar el agua los concentra a ambos; 3) para el colorante (5%, alto valor, carga eléctrica): bajo volumen + alta pureza requerida + propiedad diferenciadora = carga eléctrica → técnica de velocidad como cromatografía de intercambio iónico. La opción c falla porque evaporar el agua primero también arrastraría el etanol, más volátil que ella.",
+    "tipo": "texto"
+  },
+  {
+    "id": "op_bas_092",
+    "dificultad": 5,
+    "categoria": "Torres de absorción",
+    "pregunta": "Una torre de absorción de NH₃ (polar, muy soluble en agua) opera con: solvente entrando al 80% de su capacidad de absorción máxima, sin distribuidor de líquido, y temperatura de operación de -10°C. ¿Cuántos problemas tiene el diseño y cuáles son?",
+    "opciones": {
+      "a": "Un solo problema: la temperatura de -10°C viola la heurística de condiciones operativas",
+      "b": "Un solo problema: el solvente casi saturado reduce la fuerza impulsora disponible para la transferencia",
+      "c": "Tres problemas independientes: el solvente al 80% de saturación reduce la fuerza impulsora; la ausencia del distribuidor genera canalización que reduce el área de contacto efectiva; y -10°C viola la heurística de condiciones operativas (preferir condiciones superiores al ambiente antes que inferiores)",
+      "d": "Dos problemas: la temperatura y la saturación del solvente; la ausencia del distribuidor no es crítica porque el relleno redistribuye el líquido por sí solo a lo largo de la columna"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "Los tres problemas son independientes y se suman: 1) solvente al 80% de saturación → concentración de NH₃ en el líquido ya es alta → la diferencia real vs equilibrio (fuerza impulsora) es pequeña → transferencia lenta; 2) sin distribuidor → el líquido se canaliza hacia las paredes → zonas secas en el centro → área de contacto efectiva cae; 3) -10°C está por debajo del ambiente → viola la heurística que prefiere desviaciones hacia condiciones superiores. Cada uno afecta la operación por un mecanismo distinto.",
+    "tipo": "texto"
+  },
+  {
+    "id": "op_bas_093",
+    "dificultad": 5,
+    "categoria": "Resistencia controlante",
+    "pregunta": "Se diseña un proceso para absorber benceno gaseoso (apolar, poco soluble en agua, muy soluble en aceites minerales apolares) de una corriente de aire. Se evalúan: agua (polar, no tóxica, barata) y aceite mineral (apolar, no tóxico, recuperable). Combinando la teoría de la doble capa con las heurísticas, ¿cuál es el razonamiento completo para elegir el solvente?",
+    "opciones": {
+      "a": "El agua porque no es un agente externo costoso y la heurística siempre favorece el solvente más económico disponible en el proceso",
+      "b": "El aceite mineral porque el benceno apolar tiene mayor afinidad por el aceite apolar, lo que reduce la resistencia dominante en fase líquida originada por la baja solubilidad del benceno en agua; además el aceite cumple la heurística de agentes externos al ser no tóxico y recuperable",
+      "c": "El agua porque la heurística de agentes externos indica evitar añadir solventes orgánicos cuando existe una alternativa acuosa disponible",
+      "d": "Ambos solventes son equivalentes porque la resistencia controlante del benceno apolar está siempre en la fase gaseosa, independientemente del solvente usado"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Dos teorías convergen: 1) benceno apolar + agua polar → baja solubilidad → resistencia dominante en fase líquida; cambiar al aceite apolar mejora la afinidad ('semejante disuelve semejante'), reduce la resistencia líquida y aumenta la fuerza impulsora; 2) la heurística de agentes externos permite usar el aceite si no es tóxico y es recuperable: ambas condiciones se cumplen. La opción c malinterpreta la heurística: esta no prohíbe solventes orgánicos, sino los tóxicos y los no recuperables.",
+    "tipo": "texto"
+  },
+  {
+    "id": "op_bas_094",
+    "dificultad": 5,
+    "categoria": "Heurísticas de separación",
+    "pregunta": "Un proceso sigue cuatro pasos: (1) mezcla gaseosa homogénea, 1 000 000 t/año → técnica de equilibrio; (2) separar primero el componente C, el menos volátil y el minoritario (10%); (3) añadir DMSO (polar, tóxico a las concentraciones de proceso, recuperable) para mejorar la siguiente separación; (4) operar el siguiente separador a 60°C. ¿Cuáles pasos violan heurísticas?",
+    "opciones": {
+      "a": "Solo el paso (4): operar a 60°C está por encima del ambiente y la heurística exige condiciones exactamente ambientales",
+      "b": "Los pasos (2) y (3): el paso (2) viola la heurística de secuencia porque C no es ni el más volátil ni el más abundante; el paso (3) viola la heurística de agentes externos porque el DMSO es tóxico a las concentraciones de uso",
+      "c": "Solo el paso (3): el DMSO tóxico viola la heurística de agentes externos; los demás pasos son correctos",
+      "d": "Los pasos (1) y (4): la técnica de equilibrio es incorrecta para 1 000 000 t/año y 60°C está demasiado lejos del ambiente"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Paso (1): correcto — mezcla unifásica + gran volumen → técnica de equilibrio. Paso (2): viola la heurística de secuencia — C es el menos volátil y el minoritario (10%); la heurística indica separar primero el más volátil o el más abundante. Paso (3): viola la heurística de agentes externos — el DMSO es tóxico a las concentraciones de uso; la heurística exige descartar materiales tóxicos o peligrosos. Paso (4): no viola — 60°C está ligeramente por encima del ambiente, que es exactamente lo que la heurística prefiere cuando se debe desviar de las condiciones ambientales.",
+    "tipo": "texto"
+  },
+  {
+    "id": "op_bas_095",
+    "dificultad": 5,
+    "categoria": "Resistencia controlante",
+    "pregunta": "Un ingeniero diseña la absorción de un gas apolar poco soluble en agua con dos decisiones: (A) usa agua como solvente; (B) para compensar la baja tasa de absorción, aumenta la velocidad de circulación del solvente. ¿Cuál es la falla fundamental y qué consecuencia persiste después de aplicar la acción B?",
+    "opciones": {
+      "a": "No hay falla; aumentar la velocidad del solvente compensa cualquier deficiencia de solubilidad en sistemas de absorción a escala industrial",
+      "b": "La falla está en la decisión A: el gas apolar es poco soluble en agua polar, por lo que la resistencia dominante está en la fase líquida. La acción B reduce la resistencia hidrodinámica por convección pero no mejora la afinidad química gas-solvente; la baja fuerza impulsora derivada de la baja solubilidad persiste como limitación de fondo",
+      "c": "La falla está en la decisión B: aumentar la velocidad del solvente incrementa la caída de presión en la torre, lo que reduce la fuerza impulsora del gas y empeora la absorción neta",
+      "d": "Ambas decisiones son correctas; la combinación de agua y alta velocidad de circulación resuelve el problema de baja solubilidad para cualquier gas apolar"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "La causa raíz es la incompatibilidad química: un gas apolar tiene baja afinidad por el agua polar, generando baja solubilidad y resistencia dominante en la fase líquida. Aumentar la velocidad del solvente reduce la resistencia de la película líquida por convección (efecto positivo pero parcial), pero la solubilidad del gas en el solvente es una propiedad termodinámica que no cambia con el caudal. El sistema seguirá con baja fuerza impulsora. La solución correcta es cambiar el solvente a uno con mayor afinidad por el gas apolar.",
+    "tipo": "texto"
+  },
+  {
+    "id": "op_bas_096",
+    "dificultad": 5,
+    "categoria": "Heurísticas de separación",
+    "pregunta": "Una mezcla contiene: 55% n-butano (apolar, ebullición -1°C), 30% n-pentano (apolar, ebullición 36°C) y 15% n-hexano (apolar, ebullición 69°C). Aplicando la heurística de secuencia para separar los tres componentes, ¿cuál es el orden correcto y por qué?",
+    "opciones": {
+      "a": "Primero el n-hexano (menos volátil), luego el n-pentano, finalmente el n-butano: separar de menor a mayor volatilidad protege los equipos de condensaciones inesperadas en las etapas iniciales",
+      "b": "Primero el n-butano: es el más volátil (ebullición -1°C) y el más abundante (55%), ambos criterios coinciden sin conflicto. Luego el n-pentano y finalmente el n-hexano",
+      "c": "Primero el n-pentano (posición intermedia): dividir la mezcla en dos fracciones antes de atacar los extremos de volatilidad es la práctica más eficiente energéticamente",
+      "d": "El orden es indiferente porque los tres son apolares; la heurística solo aplica cuando los componentes tienen distintas polaridades"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "El n-butano es simultáneamente el más volátil (-1°C, menor punto de ebullición = mayor volatilidad) y el más abundante (55%): los dos criterios de la heurística convergen. Separarlo primero reduce el caudal que procesan todos los equipos posteriores. Luego se aplica el mismo criterio al par restante: n-pentano (más volátil, 36°C) antes que n-hexano. La opción a invierte el orden, obligando a los primeros equipos a procesar el caudal total innecesariamente.",
+    "tipo": "texto"
+  },
+  {
+    "id": "op_bas_097",
+    "dificultad": 5,
+    "categoria": "Heurísticas de separación",
+    "pregunta": "Una mezcla contiene: 45% agua (polar, ebullición 100°C), 40% tolueno (apolar, ebullición 111°C, prácticamente inmiscible con agua) y 15% sal iónica (no volátil). El ingeniero propone: 'Primero evaporo el agua para concentrar la sal; luego destilo el tolueno del residuo.' ¿Qué problemas conceptuales tiene este razonamiento?",
+    "opciones": {
+      "a": "Ninguno; la secuencia es correcta: eliminar primero el agua simplifica la separación posterior del tolueno",
+      "b": "El razonamiento ignora que tolueno y agua son prácticamente inmiscibles (apolar vs polar): ya existen dos fases líquidas separables mecánicamente; además, al evaporar el agua, el tolueno (ebullición 111°C, similar al agua) también se vaporizaría parcialmente, complicando la separación",
+      "c": "El único error es el orden: debe destilarse el tolueno (111°C) antes de evaporar el agua (100°C) porque tiene mayor punto de ebullición",
+      "d": "El proceso es correcto pero ineficiente; debe hacerse en una sola columna de destilación reactiva con múltiples efectos para ahorrar energía"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Hay dos problemas encadenados: 1) tolueno y agua son prácticamente inmiscibles → ya hay dos fases líquidas → la heurística dice separación mecánica primero, sin necesidad de operaciones térmicas costosas; 2) si se intenta evaporar el agua de todas formas, el tolueno (ebullición 111°C, muy cercana a la del agua) también se vaporiza parcialmente y se mezcla con el vapor de agua, complicando la separación. La heurística de 'alimentación bifásica → separación mecánica' resuelve el problema con mucho menor costo y complejidad.",
+    "tipo": "texto"
+  },
+  {
+    "id": "op_bas_098",
+    "dificultad": 5,
+    "categoria": "Torres de absorción",
+    "pregunta": "Una torre de absorción que operaba correctamente presenta simultáneamente: (1) caída de la eficiencia de absorción; (2) temperatura no uniforme en la salida del líquido; (3) zonas secas visibles en el centro del relleno. ¿Cuál es la causa raíz más probable que explica los tres síntomas a la vez?",
+    "opciones": {
+      "a": "Fallo del plato de sujeción: sin retener el relleno, se generaron huecos que crean caminos preferentes para el gas y reducen el contacto gas-líquido",
+      "b": "Fallo del distribuidor de entrada o deterioro de un redistribuidor intermedio: la mala distribución del líquido deja relleno seco en el centro (síntoma 3); las zonas secas no tienen transferencia de masa (síntoma 1); el líquido sale a temperaturas distintas según si pasó por zona activa o seca (síntoma 2)",
+      "c": "Fallo del plato de soporte: al ceder, el relleno se compactó en el fondo y la zona central quedó sin material de contacto, generando los tres síntomas",
+      "d": "Saturación progresiva del solvente: la fuerza impulsora cae (síntoma 1), genera gradientes de temperatura por calor de absorción (síntoma 2) y la tensión superficial del solvente saturado crea zonas secas (síntoma 3)"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Los tres síntomas son coherentes con una única causa: mala distribución del líquido. Si el distribuidor o redistribuidor falla, el líquido fluye solo por parte del relleno, dejando el centro seco (síntoma 3). Las zonas secas no tienen contacto gas-líquido: la eficiencia de absorción cae (síntoma 1). El líquido que pasó por zonas activas absorbe calor de absorción y sale más caliente que el que pasó por zonas secas: temperatura no uniforme en la salida (síntoma 2). La opción d no explica el síntoma 3: la saturación no crea zonas secas físicas.",
+    "tipo": "texto"
+  },
+  {
+    "id": "op_bas_099",
+    "dificultad": 5,
+    "categoria": "Heurísticas de separación",
+    "pregunta": "Una corriente gaseosa contiene: 70% N₂ (apolar, inerte, ebullición -196°C), 25% CO₂ (apolar, ebullición -78°C, poco soluble en agua) y 5% NH₃ (polar, muy soluble en agua). El proceso propuesto es: (1) absorber el NH₃ con agua; (2) separar CO₂ del N₂ por destilación a -120°C; (3) usar el N₂ resultante como gas de protección en un reactor anterior del mismo proceso. ¿Cuál es la evaluación correcta del diseño?",
+    "opciones": {
+      "a": "El diseño es correcto en sus tres pasos y es coherente con todas las heurísticas aplicables",
+      "b": "El paso (1) es correcto. El paso (2) viola la heurística de condiciones operativas: -120°C está muy por debajo del ambiente y debe evaluarse si existe una alternativa menos extrema. El paso (3) no viola la heurística de agentes externos porque el N₂ es un producto del mismo proceso, no materia externa introducida desde fuera",
+      "c": "El paso (1) viola la heurística porque la resistencia del NH₃ en la fase gaseosa hace que la absorción con agua sea ineficiente",
+      "d": "El paso (3) viola la heurística de agentes externos porque el N₂ se introduce en otro paso del proceso, lo que lo convierte en un agente externo según la definición de la heurística"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Paso (1): correcto — NH₃ muy soluble en agua → absorción viable; resistencia en fase gaseosa pero la operación funciona bien. Paso (2): viola la heurística de condiciones operativas — -120°C está muy por debajo del ambiente; la heurística recomienda operar cerca del ambiente y preferir desviaciones hacia condiciones superiores. Paso (3): no viola la heurística de agentes externos — el N₂ ya es parte del proceso y se reutiliza internamente; no se introduce materia desde el exterior. La opción c confunde 'resistencia en fase gaseosa' con 'la operación no funciona': la absorción funciona, aunque la resistencia esté en esa fase.",
+    "tipo": "texto"
+  },
+  {
+    "id": "op_bas_100",
+    "dificultad": 5,
+    "categoria": "Heurísticas de separación",
+    "pregunta": "Una corriente contiene: 60% agua (polar), 30% etanol (polar, ebullición 78°C), 8% sal iónica (no volátil) y 2% de un insecticida organoclorado (apolar, tóxico, sin valor comercial). El diseño propuesto es: (1) destilar el etanol primero; (2) evaporar el agua para concentrar la sal; (3) extraer el insecticida con hexano (apolar, inflamable, recuperable) para concentrarlo; (4) recuperar el hexano al final del tren de separación. ¿Cuáles pasos violan heurísticas?",
+    "opciones": {
+      "a": "Solo el paso (4): el hexano debe recuperarse antes, no al final del proceso",
+      "b": "Los pasos (1) y (2) son correctos. Los pasos (3) y (4) violan heurísticas: (3) el insecticida sin valor y tóxico debe destruirse químicamente, no extraerse; además el hexano es inflamable, lo que viola la heurística de evitar agentes peligrosos; (4) la heurística exige eliminar el agente externo tan pronto como sea factible, no al final",
+      "c": "Solo el paso (3) viola una heurística: el hexano inflamable es peligroso y no debe usarse en ningún proceso de extracción",
+      "d": "Los cuatro pasos son correctos y el diseño aplica coherentemente todas las heurísticas estudiadas"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Pasos (1) y (2) son correctos: destilar el más volátil primero (etanol, 78°C) aplica la heurística de secuencia; luego evaporar el agua concentra la sal no volátil. Paso (3) viola dos heurísticas: la heurística de contaminantes sin valor recomienda destrucción química sobre separación física; además el hexano inflamable viola la heurística de agentes externos que exige descartar materiales tóxicos o peligrosos. Paso (4) viola la heurística de eliminar el agente externo tan pronto como sea factible: el hexano debería recuperarse inmediatamente después de usarse, no al final de todo el tren.",
+    "tipo": "texto"
+  },
+  {
+    "id": "op_bas_050",
+    "dificultad": 5,
+    "categoria": "Heurísticas de separación",
+    "pregunta": "Un proceso recibe una mezcla gaseosa de 55% N₂ (apolar, ebullición -196°C, inerte), 40% CO₂ (apolar, ebullición -78°C, poco soluble en agua) y 5% SO₂ (polar, muy soluble en agua). El ingeniero propone: Paso 1) absorber el SO₂ con agua; Paso 2) separar el CO₂ del N₂ por destilación a -150°C; Paso 3) usar el N₂ recuperado en el Paso 2 como gas de arrastre en el Paso 1. ¿Qué paso viola una heurística y cuál es?",
+    "opciones": {
+      "a": "El Paso 1 viola la heurística: el SO₂ muy soluble en agua hace que la resistencia esté en la fase gaseosa, lo cual impide la absorción",
+      "b": "El Paso 2 viola la heurística de condiciones operativas: la destilación a -150°C se desvía hacia condiciones muy por debajo del ambiente; la heurística recomienda operar cerca del ambiente y preferir desviaciones hacia condiciones superiores antes que inferiores",
+      "c": "El Paso 3 viola la heurística de agentes externos porque el N₂ es un componente que se añade artificialmente al Paso 1",
+      "d": "Ningún paso viola una heurística; el diseño es consistente con todas las reglas de selección y secuenciación estudiadas"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "El Paso 1 es correcto: absorber SO₂ muy soluble con agua es apropiado (resistencia en fase gaseosa, técnica de equilibrio para corriente unifásica). El Paso 3 tampoco viola la heurística de agentes externos porque el N₂ proviene del mismo proceso, no es un material externo introducido desde fuera. El Paso 2 sí viola la heurística de condiciones operativas: -150°C está muy por debajo del ambiente, implica refrigeración criogénica costosa y la heurística indica que si se debe desviar de las condiciones ambientales, es preferible hacerlo hacia condiciones superiores (mayor temperatura o presión).",
+    "tipo": "texto"
+  }
+]

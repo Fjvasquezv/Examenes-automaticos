@@ -1,0 +1,52 @@
+{
+  "metadata": {
+    "nombre_examen": "Parcial I Corte 2 - Introducción a la Tecnología",
+    "asignatura": "Introducción a la Tecnología",
+    "institucion": "Universidad ECCI",
+    "codigo_asignatura": "INTRO101"
+  },
+  "descripcion": {
+    "texto": "Parcial I del segundo corte de Introducción a la Tecnología.",
+    "temas": [
+      "Operaciones básicas"
+    ],
+    "duracion_estimada": "2 horas"
+  },
+  "parametros": {
+    "preguntas_minimas": 20,
+    "preguntas_maximas": 30,
+    "nivel_inicial": 3,
+    "umbral_estabilizacion": 2.5,
+    "ventana_estabilizacion": 3,
+    "ventana_estabilizacion_dinamica": true,
+    "proporcion_ventana_estabilizacion": 0.45,
+    "ventana_estabilizacion_min": 3,
+    "max_desviacion_nivel_pregunta": 3,
+    "distribucion_temas": {
+      "pesos": {
+        "Operaciones básicas": 1.0
+      }
+    }
+  },
+  "seguridad_cliente": {
+    "perfil": "parcial"
+  },
+  "sistema_calificacion": {
+    "tipo": "irt_simplificado",
+    "parametros": {
+      "max_iteraciones": 10
+    }
+  },
+  "persistencia": {
+    "metodo": "google_sheets",
+    "spreadsheet_id": "11LgtY-p59UKYCYY0GwZHCLN--KbZEPZb8poZJTEbyys"
+  },
+  "bancos_preguntas": [
+    "data/bancos/Introduccion/Operaciones_basicas.json"
+  ],
+  "bancos_por_tema": {
+    "Operaciones básicas": [
+      "data/bancos/Introduccion/Operaciones_basicas.json"
+    ]
+  }
+}
