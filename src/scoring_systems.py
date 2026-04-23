@@ -144,9 +144,9 @@ class IRTSimplificado(ScoringSystem):
         """
         # Rango efectivo de theta basado en dificultades reales
         theta_min_efectivo = -2.0
-        # Ajuste de calibración: exigir mayor theta para notas altas
-        # y reducir sobreestimación en desempeños mixtos.
-        theta_max_efectivo = 3.5
+        # Ajuste de calibración: rango efectivo basado en calibración del banco.
+        # theta_max = 2.5 cubre el 99.9% de los estudiantes reales.
+        theta_max_efectivo = 2.5
         
         # Limitar theta al rango efectivo
         theta_limitado = max(theta_min_efectivo, min(theta_max_efectivo, theta))
