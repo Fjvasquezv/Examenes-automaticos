@@ -1,0 +1,2102 @@
+[
+  {
+    "id": "as_101",
+    "dificultad": 1,
+    "categoria": "Conceptos de EDOs",
+    "pregunta": "¿Qué determina el orden de una ecuación diferencial ordinaria (EDO)?",
+    "opciones": {
+      "A": "El grado de la derivada de mayor orden que aparece en la ecuación",
+      "B": "El número de términos que contiene el lado derecho de la ecuación",
+      "C": "La potencia a la que está elevada la variable dependiente en la ecuación",
+      "D": "El número de variables independientes que aparecen en la ecuación"
+    },
+    "respuesta_correcta": "A",
+    "explicacion": "El orden de una EDO está dado por la derivada de mayor grado presente. Una EDO de primer orden tiene como máximo dy/dt; una de segundo orden tiene d²y/dt², y así sucesivamente. No depende del número de términos ni de la potencia de la variable dependiente."
+  },
+  {
+    "id": "as_102",
+    "dificultad": 1,
+    "categoria": "Conceptos de EDOs",
+    "pregunta": "¿Qué caracteriza a una ecuación diferencial lineal?",
+    "opciones": {
+      "A": "Que la variable dependiente y sus derivadas aparecen únicamente elevadas a la primera potencia",
+      "B": "Que la solución obtenida siempre es una función lineal del tiempo",
+      "C": "Que todos los coeficientes que acompañan a las derivadas son constantes numéricas",
+      "D": "Que la ecuación tiene exactamente una solución para cualquier condición inicial dada"
+    },
+    "respuesta_correcta": "A",
+    "explicacion": "Una EDO es lineal cuando la variable dependiente y todas sus derivadas aparecen solo a la primera potencia y no están multiplicadas entre sí. Puede tener coeficientes variables (funciones de t) y seguir siendo lineal; la linealidad aplica a la variable dependiente, no a los coeficientes."
+  },
+  {
+    "id": "as_103",
+    "dificultad": 1,
+    "categoria": "Conceptos de EDOs",
+    "pregunta": "¿Qué son las condiciones iniciales de una EDO?",
+    "opciones": {
+      "A": "Los valores de la variable dependiente y sus derivadas en el instante t = 0",
+      "B": "Los límites dentro de los cuales la solución de la ecuación es matemáticamente válida",
+      "C": "Las restricciones que determinan cuántos términos contiene la solución general",
+      "D": "Las constantes que multiplican a cada derivada dentro de la ecuación diferencial"
+    },
+    "respuesta_correcta": "A",
+    "explicacion": "Las condiciones iniciales especifican el estado del sistema en t = 0: el valor de la salida y(0) y, si la ecuación es de orden mayor, los valores de dy/dt(0), d²y/dt²(0), etc. Son necesarias para seleccionar la solución particular dentro de la familia de soluciones generales."
+  },
+  {
+    "id": "as_104",
+    "dificultad": 1,
+    "categoria": "Conceptos de EDOs",
+    "pregunta": "¿Qué representa la solución homogénea de una EDO?",
+    "opciones": {
+      "A": "La respuesta del sistema cuando la entrada externa es igual a cero",
+      "B": "La respuesta del sistema debida únicamente a la señal de entrada aplicada",
+      "C": "La solución que se obtiene cuando todos los coeficientes de la ecuación son iguales",
+      "D": "La parte de la solución que depende exclusivamente de la frecuencia de la entrada"
+    },
+    "respuesta_correcta": "A",
+    "explicacion": "La solución homogénea (o respuesta libre) es la solución de la EDO igualada a cero en el lado derecho. Describe cómo evoluciona el sistema por sí solo, sin forzamiento externo, a partir de las condiciones iniciales. Su forma depende solo de las características internas del sistema."
+  },
+  {
+    "id": "as_105",
+    "dificultad": 1,
+    "categoria": "Conceptos de EDOs",
+    "pregunta": "¿Qué representa la solución particular de una EDO?",
+    "opciones": {
+      "A": "La respuesta del sistema causada por la entrada o forzamiento externo aplicado",
+      "B": "La respuesta del sistema cuando las condiciones iniciales son todas iguales a cero",
+      "C": "La solución que se obtiene al igualar el lado izquierdo de la ecuación a cero",
+      "D": "La parte de la solución que se mantiene constante a medida que pasa el tiempo"
+    },
+    "respuesta_correcta": "A",
+    "explicacion": "La solución particular (o respuesta forzada) es una solución específica de la EDO completa que satisface el término de forzamiento (la entrada). Su forma depende del tipo de entrada aplicada (escalón, rampa, senoidal, etc.). La solución completa es la suma de la homogénea y la particular."
+  },
+  {
+    "id": "as_106",
+    "dificultad": 1,
+    "categoria": "Conceptos de EDOs",
+    "pregunta": "¿Cuántas condiciones iniciales se requieren para resolver completamente una EDO de segundo orden?",
+    "opciones": {
+      "A": "Dos: el valor de la variable de salida y el de su primera derivada en t = 0",
+      "B": "Una: únicamente el valor de la variable de salida en el instante inicial t = 0",
+      "C": "Tres: los valores de la salida y de sus dos primeras derivadas en t = 0",
+      "D": "Ninguna: las EDOs de segundo orden tienen solución única sin condiciones iniciales"
+    },
+    "respuesta_correcta": "A",
+    "explicacion": "Una EDO de orden n requiere exactamente n condiciones iniciales para determinar la solución única. Para una EDO de segundo orden se necesitan y(0) y dy/dt(0). Sin ellas, la solución general contiene dos constantes arbitrarias que no pueden determinarse."
+  },
+  {
+    "id": "as_201",
+    "dificultad": 1,
+    "categoria": "Sistemas de Primer Orden",
+    "pregunta": "¿Qué representa la constante de tiempo τ en un sistema de primer orden?",
+    "opciones": {
+      "A": "El tiempo en que la respuesta alcanza aproximadamente el 63% de su valor final",
+      "B": "El tiempo en que la respuesta alcanza exactamente el 100% de su valor final",
+      "C": "El tiempo mínimo que tarda el sistema en detectar y comenzar a responder a la entrada",
+      "D": "El tiempo durante el cual la salida permanece igual al valor inicial antes de cambiar"
+    },
+    "respuesta_correcta": "A",
+    "explicacion": "En t = τ la respuesta exponencial al escalón alcanza 1 − e⁻¹ ≈ 63.2% del cambio total. Este valor surge directamente de la forma matemática de la solución. La constante de tiempo es una medida directa de la velocidad de respuesta del sistema."
+  },
+  {
+    "id": "as_202",
+    "dificultad": 1,
+    "categoria": "Sistemas de Primer Orden",
+    "pregunta": "¿Qué representa la ganancia estática K en un sistema de primer orden?",
+    "opciones": {
+      "A": "La relación entre el cambio en la salida y el cambio en la entrada cuando el sistema se estabiliza",
+      "B": "El tiempo que tarda la salida en comenzar a responder al primer cambio en la entrada",
+      "C": "La velocidad máxima con que puede cambiar la variable de salida del sistema",
+      "D": "El valor inicial de la salida antes de aplicar cualquier señal de entrada al sistema"
+    },
+    "respuesta_correcta": "A",
+    "explicacion": "La ganancia estática K = Δy/Δu indica cuánto cambia la salida por cada unidad de cambio en la entrada, una vez que el sistema llega al nuevo estado estacionario. Es el factor de amplificación o atenuación del sistema en condiciones de equilibrio."
+  },
+  {
+    "id": "as_203",
+    "dificultad": 1,
+    "categoria": "Sistemas de Primer Orden",
+    "pregunta": "¿Cuál es la forma estándar de la ecuación diferencial de un sistema de primer orden?",
+    "opciones": {
+      "A": "τ·(dy/dt) + y = K·u",
+      "B": "(dy/dt) + τ·y = u/K",
+      "C": "τ²·(d²y/dt²) + y = K·u",
+      "D": "(dy/dt) = K·u − τ·y²"
+    },
+    "respuesta_correcta": "A",
+    "explicacion": "La forma estándar τ·(dy/dt) + y = K·u agrupa explícitamente los dos parámetros del sistema: τ como constante de tiempo (velocidad de respuesta) y K como ganancia estática (amplitud de la respuesta). Las opciones B y D alteran la estructura del modelo; la opción C corresponde a un sistema de segundo orden."
+  },
+  {
+    "id": "as_204",
+    "dificultad": 1,
+    "categoria": "Sistemas de Primer Orden",
+    "pregunta": "¿Cómo afecta un valor mayor de τ a la velocidad de respuesta de un sistema de primer orden?",
+    "opciones": {
+      "A": "La respuesta se vuelve más lenta: tarda más tiempo en alcanzar su valor final",
+      "B": "La respuesta se vuelve más rápida: alcanza su valor final en menos tiempo",
+      "C": "La respuesta alcanza un valor final mayor que el que tendría con τ pequeño",
+      "D": "La respuesta comienza a oscilar, cosa que no ocurre con valores pequeños de τ"
+    },
+    "respuesta_correcta": "A",
+    "explicacion": "La constante de tiempo τ escala directamente el tiempo de respuesta. Si τ se duplica, el sistema tarda el doble en alcanzar el mismo porcentaje de su valor final. τ grande indica un sistema lento (inercia alta); τ pequeño indica un sistema rápido."
+  },
+  {
+    "id": "as_205",
+    "dificultad": 1,
+    "categoria": "Sistemas de Primer Orden",
+    "pregunta": "¿Cuántas derivadas contiene la ecuación diferencial que describe un sistema de primer orden?",
+    "opciones": {
+      "A": "Una sola derivada: la primera derivada de la variable de salida respecto al tiempo",
+      "B": "Dos derivadas: la primera y la segunda derivada de la variable de salida",
+      "C": "Ninguna derivada: los sistemas de primer orden se describen con ecuaciones algebraicas",
+      "D": "Una derivada de la entrada y una derivada de la salida al mismo tiempo"
+    },
+    "respuesta_correcta": "A",
+    "explicacion": "Un sistema de primer orden tiene una EDO de orden 1: solo aparece dy/dt como derivada de la salida. Si hubiera d²y/dt², sería de segundo orden. La presencia de derivadas en la entrada (du/dt) no cambia el orden del sistema respecto a la salida."
+  },
+  {
+    "id": "as_206",
+    "dificultad": 1,
+    "categoria": "Sistemas de Primer Orden",
+    "pregunta": "Si la ganancia estática K de un sistema es igual a 4, ¿qué indica ese valor?",
+    "opciones": {
+      "A": "Que la salida cambia 4 unidades por cada unidad de cambio en la entrada al estabilizarse",
+      "B": "Que el sistema tarda 4 unidades de tiempo en responder a cualquier cambio en la entrada",
+      "C": "Que la respuesta alcanza su valor final en exactamente 4 constantes de tiempo",
+      "D": "Que la velocidad inicial de cambio de la salida es 4 veces mayor que la constante de tiempo"
+    },
+    "respuesta_correcta": "A",
+    "explicacion": "K = 4 significa que si la entrada cambia 1 unidad, la salida cambia 4 unidades en el nuevo estado estacionario. Por ejemplo, si u sube de 0 a 2, la salida subirá 8 unidades. K no tiene relación directa con la velocidad de respuesta, que depende de τ."
+  },
+  {
+    "id": "as_301",
+    "dificultad": 1,
+    "categoria": "Respuesta de Primer Orden",
+    "pregunta": "¿Cómo es la forma de la curva de respuesta al escalón de un sistema de primer orden?",
+    "opciones": {
+      "A": "Crece de forma exponencial hacia un valor final, sin oscilaciones ni sobreimpulso",
+      "B": "Crece de forma lineal hasta alcanzar el valor final y luego permanece constante",
+      "C": "Sube rápidamente hasta un máximo, luego baja y se estabiliza en el valor final",
+      "D": "Permanece constante un tiempo y luego sube abruptamente hasta el valor final"
+    },
+    "respuesta_correcta": "A",
+    "explicacion": "La respuesta al escalón de un sistema de primer orden es y(t) = K·Δu·(1 − e^(−t/τ)): una exponencial creciente que se aproxima asintóticamente al valor final sin nunca superarlo ni oscilar. La pendiente es máxima al inicio y decrece continuamente."
+  },
+  {
+    "id": "as_302",
+    "dificultad": 1,
+    "categoria": "Respuesta de Primer Orden",
+    "pregunta": "¿Cómo es la pendiente (velocidad de cambio) de la respuesta al escalón de un sistema de primer orden?",
+    "opciones": {
+      "A": "Es máxima al inicio y disminuye progresivamente hasta llegar a cero en el valor final",
+      "B": "Es mínima al inicio y va aumentando hasta alcanzar un valor máximo al final",
+      "C": "Es constante durante toda la respuesta hasta que la salida llega al valor final",
+      "D": "Es cero al inicio y aumenta gradualmente hasta un valor máximo antes de bajar"
+    },
+    "respuesta_correcta": "A",
+    "explicacion": "La derivada de y(t) = K·Δu·(1 − e^(−t/τ)) es dy/dt = (K·Δu/τ)·e^(−t/τ), que es máxima en t = 0 y decae exponencialmente. Esto explica por qué la curva parte con la mayor inclinación y se aplana a medida que se acerca al valor final."
+  },
+  {
+    "id": "as_303",
+    "dificultad": 1,
+    "categoria": "Respuesta de Primer Orden",
+    "pregunta": "¿Cuántas constantes de tiempo aproximadamente tarda un sistema de primer orden en alcanzar el 95% de su valor final?",
+    "opciones": {
+      "A": "Aproximadamente 3 constantes de tiempo",
+      "B": "Aproximadamente 1 constante de tiempo",
+      "C": "Aproximadamente 5 constantes de tiempo",
+      "D": "Aproximadamente 10 constantes de tiempo"
+    },
+    "respuesta_correcta": "A",
+    "explicacion": "En t = 3τ, la respuesta vale 1 − e⁻³ ≈ 0.950, es decir el 95% del valor final. En t = τ llega al 63%; en t = 5τ llega al 99.3%. Conocer estos hitos permite estimar cuánto tarda un sistema en responder sin necesidad de calcular la exponencial completa."
+  },
+  {
+    "id": "as_304",
+    "dificultad": 1,
+    "categoria": "Respuesta de Primer Orden",
+    "pregunta": "Si se duplica la constante de tiempo τ, ¿qué ocurre con la respuesta al escalón?",
+    "opciones": {
+      "A": "La respuesta tarda el doble de tiempo en alcanzar cualquier porcentaje de su valor final",
+      "B": "La respuesta alcanza un valor final que es el doble del original",
+      "C": "La velocidad inicial de cambio de la salida se duplica al comienzo de la respuesta",
+      "D": "La forma de la curva cambia de exponencial a lineal cuando τ es suficientemente grande"
+    },
+    "respuesta_correcta": "A",
+    "explicacion": "La escala temporal de la respuesta es proporcional a τ. Si τ se duplica, todos los tiempos de la respuesta se duplican: llegar al 63% toma 2τ, llegar al 95% toma 6τ, etc. El valor final (determinado por K) no cambia; solo cambia la velocidad con que se alcanza."
+  },
+  {
+    "id": "as_305",
+    "dificultad": 1,
+    "categoria": "Respuesta de Primer Orden",
+    "pregunta": "¿Qué influencia tiene la ganancia K sobre la curva de respuesta al escalón?",
+    "opciones": {
+      "A": "K determina el valor final que alcanza la salida, pero no cambia la rapidez de la respuesta",
+      "B": "K determina qué tan rápido responde el sistema, pero no cambia el valor final de la salida",
+      "C": "K afecta simultáneamente la velocidad de respuesta y el valor final de la salida",
+      "D": "K solo tiene efecto visible cuando la constante de tiempo τ es mayor que la unidad"
+    },
+    "respuesta_correcta": "A",
+    "explicacion": "En y(t) = K·Δu·(1 − e^(−t/τ)), la ganancia K escala el valor final (K·Δu) pero no modifica la forma temporal de la curva, que depende solo de τ. Duplicar K duplica el valor final sin cambiar cuánto tarda el sistema en llegar ahí."
+  },
+  {
+    "id": "as_306",
+    "dificultad": 1,
+    "categoria": "Respuesta de Primer Orden",
+    "pregunta": "¿Cuál de las siguientes describe correctamente la curva de respuesta al escalón de un sistema de primer orden?",
+    "opciones": {
+      "A": "Parte del valor inicial, sube con pendiente decreciente y se estabiliza asintóticamente",
+      "B": "Parte del valor inicial, sube con pendiente constante y termina abruptamente en el valor final",
+      "C": "Parte de cero, oscila con amplitud decreciente y se estabiliza en el valor final",
+      "D": "Parte de un máximo inicial, decrece exponencialmente hasta alcanzar el valor final"
+    },
+    "respuesta_correcta": "A",
+    "explicacion": "La respuesta exponencial comienza en el valor inicial del sistema, sube con la máxima pendiente al inicio y va aplanándose progresivamente (pendiente decreciente) hasta aproximarse asintóticamente al valor final sin superarlo ni cortarlo. No hay máximo inicial, oscilaciones, ni corte abrupto."
+  },
+  {
+    "id": "as_401",
+    "dificultad": 1,
+    "categoria": "Sistemas de Segundo Orden",
+    "pregunta": "¿Cuántas derivadas contiene la ecuación diferencial que describe un sistema de segundo orden?",
+    "opciones": {
+      "A": "Dos: la primera derivada y la segunda derivada de la variable de salida",
+      "B": "Una sola: únicamente la segunda derivada de la variable de salida",
+      "C": "Tres: la primera, la segunda y la tercera derivada de la variable de salida",
+      "D": "Una derivada de la salida y una derivada de la entrada al mismo tiempo"
+    },
+    "respuesta_correcta": "A",
+    "explicacion": "Un sistema de segundo orden tiene una EDO con términos dy/dt y d²y/dt². El orden está dado por la derivada de mayor grado (segunda), pero la ecuación generalmente incluye también la primera derivada. Presencia de d²y/dt² es lo que lo distingue del primer orden."
+  },
+  {
+    "id": "as_402",
+    "dificultad": 1,
+    "categoria": "Sistemas de Segundo Orden",
+    "pregunta": "¿Cuántas condiciones iniciales se necesitan para resolver la EDO de un sistema de segundo orden?",
+    "opciones": {
+      "A": "Dos: el valor inicial de la salida y el valor inicial de su primera derivada",
+      "B": "Una: únicamente el valor inicial de la variable de salida en t = 0",
+      "C": "Cuatro: los valores de la salida y de sus tres primeras derivadas en t = 0",
+      "D": "Ninguna: los sistemas de segundo orden siempre arrancan desde el equilibrio"
+    },
+    "respuesta_correcta": "A",
+    "explicacion": "Una EDO de orden n requiere exactamente n condiciones iniciales. Para una EDO de segundo orden se necesitan y(0) (posición inicial) y dy/dt(0) (velocidad inicial). Sin ambas condiciones, la solución general tiene dos constantes arbitrarias indeterminadas."
+  },
+  {
+    "id": "as_403",
+    "dificultad": 1,
+    "categoria": "Sistemas de Segundo Orden",
+    "pregunta": "¿Qué diferencia principal existe entre la respuesta de un sistema de segundo orden y uno de primer orden?",
+    "opciones": {
+      "A": "El sistema de segundo orden puede oscilar; el de primer orden nunca presenta oscilaciones",
+      "B": "El sistema de segundo orden siempre responde más rápido que el de primer orden",
+      "C": "El sistema de segundo orden siempre alcanza un valor final mayor que el de primer orden",
+      "D": "El sistema de segundo orden no necesita condiciones iniciales para ser resuelto"
+    },
+    "respuesta_correcta": "A",
+    "explicacion": "La diferencia fundamental es la posibilidad de oscilación. Un sistema de primer orden tiene una respuesta exponencial monotónica (sin oscilaciones). Un sistema de segundo orden puede tener respuesta oscilatoria (la salida sube y baja antes de estabilizarse) dependiendo de las características de la ecuación."
+  },
+  {
+    "id": "as_404",
+    "dificultad": 1,
+    "categoria": "Sistemas de Segundo Orden",
+    "pregunta": "¿Qué es la ecuación característica de la EDO de un sistema de segundo orden?",
+    "opciones": {
+      "A": "El polinomio de grado 2 que se obtiene al igualar a cero la parte homogénea de la ecuación",
+      "B": "La ecuación que relaciona la ganancia estática del sistema con su constante de tiempo",
+      "C": "La expresión que describe la forma de la curva de respuesta ante una entrada escalón",
+      "D": "El conjunto de condiciones iniciales que determinan el comportamiento transitorio del sistema"
+    },
+    "respuesta_correcta": "A",
+    "explicacion": "La ecuación característica se obtiene sustituyendo y = e^(st) en la parte homogénea de la EDO e igualándola a cero. Para un sistema de segundo orden resulta un polinomio de grado 2 en s. Sus raíces determinan si la respuesta libre es oscilatoria o no oscilatoria."
+  },
+  {
+    "id": "as_405",
+    "dificultad": 1,
+    "categoria": "Sistemas de Segundo Orden",
+    "pregunta": "¿Qué se observa en la curva de respuesta cuando un sistema de segundo orden es oscilatorio?",
+    "opciones": {
+      "A": "La salida sube y baja varias veces alrededor del valor final antes de estabilizarse",
+      "B": "La salida tarda más tiempo en estabilizarse pero nunca supera el valor final",
+      "C": "La salida alcanza exactamente dos máximos consecutivos antes de llegar al valor final",
+      "D": "La salida parte siempre desde un valor negativo al inicio de la respuesta"
+    },
+    "respuesta_correcta": "A",
+    "explicacion": "En la respuesta oscilatoria la salida supera el valor final (sobreimpulso), luego cae por debajo de él, vuelve a subir, etc., con amplitud decreciente hasta estabilizarse. Este comportamiento de vaivén es la característica visual definitoria de un sistema oscilatorio."
+  },
+  {
+    "id": "as_406",
+    "dificultad": 1,
+    "categoria": "Sistemas de Segundo Orden",
+    "pregunta": "¿Cuál es la diferencia visual entre la respuesta oscilatoria y la no oscilatoria en un sistema de segundo orden?",
+    "opciones": {
+      "A": "En la oscilatoria la salida supera el valor final antes de estabilizarse; en la no oscilatoria se acerca sin superarlo",
+      "B": "En la oscilatoria el sistema llega más rápido al valor final; en la no oscilatoria tarda más",
+      "C": "En la oscilatoria el valor final es mayor; en la no oscilatoria el valor final es menor",
+      "D": "En la oscilatoria se necesitan dos condiciones iniciales; en la no oscilatoria solo se necesita una"
+    },
+    "respuesta_correcta": "A",
+    "explicacion": "La distinción clave es si la salida supera o no el valor final. En la respuesta no oscilatoria (sobreamortiguada o críticamente amortiguada), la curva se acerca monótonamente sin cruzar el valor final. En la oscilatoria (subamortiguada), la curva oscila alrededor del valor final, cruzándolo varias veces."
+  },
+  {
+    "id": "as_501",
+    "dificultad": 1,
+    "categoria": "Respuestas Dinámicas",
+    "pregunta": "¿Qué es una entrada tipo escalón en un sistema dinámico?",
+    "opciones": {
+      "A": "Un cambio repentino y permanente en la entrada desde un valor inicial a un valor nuevo",
+      "B": "Una entrada que aumenta linealmente con el tiempo desde cero hasta un valor máximo",
+      "C": "Un pulso de entrada de muy corta duración y gran amplitud que luego regresa a cero",
+      "D": "Una entrada que varía de forma periódica entre dos valores con igual duración en cada estado"
+    },
+    "respuesta_correcta": "A",
+    "explicacion": "El escalón unitario sube de 0 a 1 en t = 0 y permanece en 1 para todo t > 0. Representa un cambio abrupto y sostenido en la entrada: como abrir repentinamente una válvula a una nueva posición fija. Es la entrada de prueba más común porque es fácil de aplicar y analizar."
+  },
+  {
+    "id": "as_502",
+    "dificultad": 1,
+    "categoria": "Respuestas Dinámicas",
+    "pregunta": "¿Qué es una entrada tipo impulso en un sistema dinámico?",
+    "opciones": {
+      "A": "Una perturbación de muy corta duración y gran amplitud cuya área total es igual a uno",
+      "B": "Un cambio repentino y permanente en la entrada que nunca regresa a su valor original",
+      "C": "Una entrada que aumenta linealmente con el tiempo a una velocidad constante",
+      "D": "Una señal periódica que alterna entre dos valores con igual duración en cada estado"
+    },
+    "respuesta_correcta": "A",
+    "explicacion": "El impulso unitario (delta de Dirac) se define como un pulso de duración infinitesimal y amplitud infinita cuya área es 1. Modela perturbaciones instantáneas como un golpe o una inyección muy rápida. La respuesta al impulso de un sistema es su característica dinámica más fundamental."
+  },
+  {
+    "id": "as_503",
+    "dificultad": 1,
+    "categoria": "Respuestas Dinámicas",
+    "pregunta": "¿Qué es una entrada tipo rampa en un sistema dinámico?",
+    "opciones": {
+      "A": "Una entrada que aumenta de forma continua y lineal con el tiempo a velocidad constante",
+      "B": "Un cambio instantáneo y permanente en la entrada a partir de un instante dado",
+      "C": "Una perturbación de muy breve duración y gran magnitud que regresa a cero rápidamente",
+      "D": "Una entrada que sube hasta un valor máximo y luego baja simétricamente hasta cero"
+    },
+    "respuesta_correcta": "A",
+    "explicacion": "La rampa unitaria es u(t) = t para t ≥ 0: crece linealmente sin límite. Representa una entrada que aumenta constantemente, como un set point que sube a ritmo fijo. Es más exigente que el escalón porque el sistema debe seguir una referencia que nunca deja de cambiar."
+  },
+  {
+    "id": "as_504",
+    "dificultad": 1,
+    "categoria": "Respuestas Dinámicas",
+    "pregunta": "¿Para qué se utiliza principalmente la respuesta al impulso de un sistema?",
+    "opciones": {
+      "A": "Para caracterizar completamente el comportamiento dinámico del sistema",
+      "B": "Para determinar el valor final que alcanzará la salida ante cualquier entrada constante",
+      "C": "Para medir la velocidad máxima con que puede cambiar la variable de salida",
+      "D": "Para verificar que las condiciones iniciales del sistema son todas iguales a cero"
+    },
+    "respuesta_correcta": "A",
+    "explicacion": "La respuesta al impulso (función de peso o núcleo del sistema) contiene toda la información dinámica del sistema lineal. Conociendo la respuesta al impulso h(t), se puede calcular la respuesta a cualquier entrada mediante convolución: y(t) = ∫ h(τ)·u(t−τ)dτ."
+  },
+  {
+    "id": "as_505",
+    "dificultad": 1,
+    "categoria": "Respuestas Dinámicas",
+    "pregunta": "¿Cuál es la diferencia principal entre aplicar una entrada escalón y una entrada rampa a un sistema?",
+    "opciones": {
+      "A": "Ante el escalón la salida se estabiliza en un valor fijo; ante la rampa debe seguir una señal que crece continuamente",
+      "B": "La respuesta al escalón siempre es más rápida que la respuesta a la rampa para el mismo sistema",
+      "C": "La respuesta a la rampa siempre alcanza un valor final mayor que la respuesta al escalón",
+      "D": "La respuesta al escalón puede ser oscilatoria; la respuesta a la rampa nunca lo es"
+    },
+    "respuesta_correcta": "A",
+    "explicacion": "Ante un escalón la salida converge hacia un valor constante. Ante una rampa la referencia nunca para de crecer, por lo que el sistema debe seguir una señal en movimiento continuo. Esto hace que el error en seguimiento de rampa sea más difícil de eliminar que el error ante un escalón."
+  },
+  {
+    "id": "as_506",
+    "dificultad": 1,
+    "categoria": "Respuestas Dinámicas",
+    "pregunta": "¿Qué tipo de entrada se usa típicamente para evaluar cómo responde un sistema ante un cambio de set point?",
+    "opciones": {
+      "A": "Entrada tipo escalón, porque representa un cambio repentino y permanente en la referencia",
+      "B": "Entrada tipo rampa, porque el sistema debe seguir una referencia que cambia continuamente",
+      "C": "Entrada tipo impulso, porque resume toda la dinámica del sistema en un experimento",
+      "D": "Entrada tipo senoidal, porque permite evaluar la respuesta a todas las frecuencias a la vez"
+    },
+    "respuesta_correcta": "A",
+    "explicacion": "Un cambio de set point es un cambio repentino y permanente en la referencia: exactamente lo que modela el escalón. La respuesta al escalón muestra métricas clave como tiempo de subida, sobreimpulso y tiempo de establecimiento. Por eso el escalón es la prueba estándar para evaluar el desempeño ante cambios de referencia."
+  },
+  {
+    "id": "as_107",
+    "dificultad": 2,
+    "categoria": "Conceptos de EDOs",
+    "pregunta": "Dada la ecuación diferencial d²y/dt² + 5(dy/dt) + 6y = 3u, ¿cuál es su orden?",
+    "opciones": {
+      "A": "Segundo orden, porque la derivada de mayor grado presente en la ecuación es d²y/dt²",
+      "B": "Primer orden, porque la primera derivada dy/dt tiene el coeficiente más grande (5) de la ecuación",
+      "C": "Tercer orden, porque hay exactamente tres términos con la variable y en el lado izquierdo",
+      "D": "Orden cero, porque el lado derecho solo contiene la variable de entrada multiplicada por 3"
+    },
+    "respuesta_correcta": "A",
+    "explicacion": "El orden de una EDO es el grado de la derivada de mayor orden que aparece. Aquí d²y/dt² es la derivada de mayor grado, así que es de segundo orden. El número de términos (3 en el lado izq.) o el tamaño de los coeficientes (5 en dy/dt) no determinan el orden."
+  },
+  {
+    "id": "as_108",
+    "dificultad": 2,
+    "categoria": "Conceptos de EDOs",
+    "pregunta": "¿La ecuación dy/dt + y² = u es lineal o no lineal? ¿Por qué?",
+    "opciones": {
+      "A": "No lineal, porque el término y² tiene la variable dependiente elevada a una potencia mayor que uno",
+      "B": "Lineal, porque la derivada dy/dt aparece únicamente a la primera potencia en la ecuación",
+      "C": "No lineal, porque el lado derecho contiene solo la variable de entrada u sin derivar",
+      "D": "Lineal, porque los coeficientes que multiplican a cada término son todos iguales a uno"
+    },
+    "respuesta_correcta": "A",
+    "explicacion": "La linealidad exige que la variable dependiente y todas sus derivadas aparezcan solo a la primera potencia y sin multiplicarse entre sí. El término y² viola esta condición: y está elevada al cuadrado, lo que hace la ecuación no lineal. El hecho de que dy/dt sea lineal no es suficiente."
+  },
+  {
+    "id": "as_109",
+    "dificultad": 2,
+    "categoria": "Conceptos de EDOs",
+    "pregunta": "Dada la ecuación 2(dy/dt) + 3y = 5u, ¿cuál es su parte homogénea?",
+    "opciones": {
+      "A": "2(dy/dt) + 3y = 0, igualando el lado derecho de la ecuación a cero",
+      "B": "3y = 5u, porque agrupa la variable dependiente con la variable de entrada",
+      "C": "2(dy/dt) = 5u, porque relaciona la derivada de la salida directamente con la entrada",
+      "D": "5u = 0, porque la parte homogénea elimina el término de forzamiento externo"
+    },
+    "respuesta_correcta": "A",
+    "explicacion": "La parte homogénea se obtiene igualando a cero el lado de la entrada (el forzamiento): 2(dy/dt) + 3y = 0. Describe la dinámica libre del sistema sin entrada. Su solución (homogénea) determina la forma del transitorio."
+  },
+  {
+    "id": "as_110",
+    "dificultad": 2,
+    "categoria": "Conceptos de EDOs",
+    "pregunta": "La solución de una EDO es y(t) = C₁·e^(−2t) + C₂·e^(−3t) + 4. ¿Cuál es la parte homogénea?",
+    "opciones": {
+      "A": "C₁·e^(−2t) + C₂·e^(−3t), porque es la solución cuando la entrada es igual a cero",
+      "B": "C₁·e^(−2t), porque es el único término con el decaimiento más lento de la solución",
+      "C": "La constante 4, porque es el único valor que permanece cuando las exponenciales decaen",
+      "D": "C₂·e^(−3t) + 4, porque agrupa el término de mayor velocidad con el valor estacionario"
+    },
+    "respuesta_correcta": "A",
+    "explicacion": "La solución homogénea corresponde a los términos que satisfacen la parte homogénea de la EDO (con entrada cero). Son las exponenciales C₁·e^(−2t) + C₂·e^(−3t). La constante 4 es la solución particular, que refleja el efecto de la entrada en estado estacionario."
+  },
+  {
+    "id": "as_111",
+    "dificultad": 2,
+    "categoria": "Conceptos de EDOs",
+    "pregunta": "Para la EDO d³y/dt³ + 4(d²y/dt²) + 5(dy/dt) + 2y = u, ¿cuántas condiciones iniciales se necesitan?",
+    "opciones": {
+      "A": "Tres: y(0), dy/dt(0) y d²y/dt²(0), porque la EDO es de tercer orden",
+      "B": "Una: únicamente y(0), porque es el único valor medible del sistema en t = 0",
+      "C": "Cuatro: y(0), dy/dt(0), d²y/dt²(0) y d³y/dt³(0), porque hay cuatro términos en la ecuación",
+      "D": "Dos: y(0) y el valor final y(∞), porque son los extremos que delimitan la solución"
+    },
+    "respuesta_correcta": "A",
+    "explicacion": "El número de condiciones iniciales requeridas es igual al orden de la EDO. Esta ecuación es de tercer orden (d³y/dt³ es la derivada de mayor grado), así que necesita exactamente tres condiciones iniciales. No se cuenta el número de términos ni se incluye el valor final."
+  },
+  {
+    "id": "as_112",
+    "dificultad": 2,
+    "categoria": "Conceptos de EDOs",
+    "pregunta": "¿Cuál de estas ecuaciones diferenciales es NO lineal?",
+    "opciones": {
+      "A": "d²y/dt² + y·(dy/dt) + 3y = u, porque dy/dt está multiplicada por la variable dependiente y",
+      "B": "5(d²y/dt²) + 3(dy/dt) + 7y = 2u, porque los coeficientes son valores enteros mayores que uno",
+      "C": "(d²y/dt²) + t·(dy/dt) + y = u, porque el coeficiente de dy/dt cambia con el tiempo",
+      "D": "2(dy/dt) + 4y = sin(t)·u, porque la entrada está multiplicada por una función trigonométrica"
+    },
+    "respuesta_correcta": "A",
+    "explicacion": "Solo A es no lineal: el término y·(dy/dt) es producto de la variable dependiente y su derivada, lo que viola la condición de linealidad. B es lineal con coeficientes constantes. C es lineal con coeficiente variable en t (la linealidad aplica a y, no a los coeficientes). D también es lineal: sin(t) multiplica a la entrada u, no a la salida y."
+  },
+  {
+    "id": "as_207",
+    "dificultad": 2,
+    "categoria": "Sistemas de Primer Orden",
+    "pregunta": "Dada la ecuación 4(dy/dt) + y = 3u, ¿cuál es la constante de tiempo τ?",
+    "opciones": {
+      "A": "τ = 4, porque es el coeficiente que acompaña a la derivada dy/dt en la ecuación",
+      "B": "τ = 3, porque es el coeficiente que multiplica a la variable de entrada u",
+      "C": "τ = 1, porque es el coeficiente que acompaña a la variable de salida y",
+      "D": "τ = 4/3, porque es la relación entre el coeficiente de dy/dt y el coeficiente de u"
+    },
+    "respuesta_correcta": "A",
+    "explicacion": "En la forma estándar τ·(dy/dt) + y = K·u, el coeficiente de dy/dt es directamente τ. Comparando con 4(dy/dt) + y = 3u, se identifica τ = 4. El coeficiente de u es la ganancia K = 3, no τ. El coeficiente de y siempre es 1 en la forma estándar."
+  },
+  {
+    "id": "as_208",
+    "dificultad": 2,
+    "categoria": "Sistemas de Primer Orden",
+    "pregunta": "Dada la misma ecuación 4(dy/dt) + y = 3u, ¿cuál es la ganancia estática K?",
+    "opciones": {
+      "A": "K = 3, porque es el coeficiente que multiplica a la variable de entrada u",
+      "B": "K = 4, porque es el coeficiente que multiplica a la derivada dy/dt en la ecuación",
+      "C": "K = 1/3, porque es el inverso del coeficiente que aparece junto a la entrada u",
+      "D": "K = 3/4, porque es la relación entre el coeficiente de la entrada y el de la derivada"
+    },
+    "respuesta_correcta": "A",
+    "explicacion": "En la forma estándar τ·(dy/dt) + y = K·u, la ganancia K es el coeficiente que multiplica a u. En 4(dy/dt) + y = 3u se identifica K = 3. Significa que ante un escalón unitario el sistema llegará a un valor final de 3. El coeficiente de dy/dt es τ = 4, no la ganancia."
+  },
+  {
+    "id": "as_209",
+    "dificultad": 2,
+    "categoria": "Sistemas de Primer Orden",
+    "pregunta": "Dos sistemas de primer orden tienen τ₁ = 2 s y τ₂ = 7 s. ¿Cuál responde más rápido y por qué?",
+    "opciones": {
+      "A": "El de τ₁ = 2 s, porque una constante de tiempo menor indica menor inercia y respuesta más ágil",
+      "B": "El de τ₂ = 7 s, porque una constante de tiempo mayor acumula más energía para responder",
+      "C": "Ambos responden igual de rápido, porque la velocidad depende solo de la ganancia K",
+      "D": "No se puede comparar la velocidad sin conocer el valor de la ganancia K de cada sistema"
+    },
+    "respuesta_correcta": "A",
+    "explicacion": "τ escala directamente el tiempo de respuesta. Con τ₁ = 2 s el sistema llega al 63% en 2 s y al 95% en 6 s. Con τ₂ = 7 s tarda 7 s y 21 s respectivamente. La ganancia K determina el valor final, no la velocidad. La comparación de velocidad depende solo de τ."
+  },
+  {
+    "id": "as_210",
+    "dificultad": 2,
+    "categoria": "Sistemas de Primer Orden",
+    "pregunta": "Un sistema de primer orden con K = 2 recibe un escalón de Δu = 5. ¿Cuál será el cambio en la salida al estabilizarse?",
+    "opciones": {
+      "A": "Δy = 10, porque el cambio en la salida es K × Δu = 2 × 5",
+      "B": "Δy = 5, porque el valor final es igual al valor del escalón aplicado",
+      "C": "Δy = 2, porque el valor final es igual a la ganancia K del sistema",
+      "D": "Δy = 2.5, porque el valor final es la mitad del producto K × Δu"
+    },
+    "respuesta_correcta": "A",
+    "explicacion": "La ganancia estática K define cuánto cambia la salida por cada unidad de cambio en la entrada: Δy = K·Δu = 2 × 5 = 10. No es el valor de la entrada ni de K por sí solos. τ no interviene en el valor final, solo en cuánto tiempo tarda en alcanzarlo."
+  },
+  {
+    "id": "as_211",
+    "dificultad": 2,
+    "categoria": "Sistemas de Primer Orden",
+    "pregunta": "Para el sistema 0.5(dy/dt) + y = 2u, si se duplica solo el coeficiente de u (queda 4u), ¿qué cambia en la respuesta al escalón?",
+    "opciones": {
+      "A": "El valor final se duplica, porque K pasó de 2 a 4 y el valor final es K × Δu",
+      "B": "La respuesta se vuelve el doble de rápida, porque la entrada tiene mayor amplitud",
+      "C": "La constante de tiempo se duplica, porque hay más cambio que procesar en la salida",
+      "D": "No cambia nada, porque la velocidad y el valor final dependen solo del coeficiente de dy/dt"
+    },
+    "respuesta_correcta": "A",
+    "explicacion": "Cambiar el coeficiente de u de 2 a 4 duplica la ganancia K: el valor final cambia de K·Δu a 2K·Δu. τ sigue siendo 0.5 porque el coeficiente de dy/dt no cambió, así que la velocidad de respuesta es la misma. Solo escala la amplitud final."
+  },
+  {
+    "id": "as_212",
+    "dificultad": 2,
+    "categoria": "Sistemas de Primer Orden",
+    "pregunta": "Para la ecuación 0.5(dy/dt) + y = 2u, ¿cuáles son los valores correctos de τ y K?",
+    "opciones": {
+      "A": "τ = 0.5 y K = 2, porque τ es el coeficiente de dy/dt y K es el coeficiente de u",
+      "B": "τ = 2 y K = 0.5, porque τ es el coeficiente de u y K es el coeficiente de dy/dt",
+      "C": "τ = 0.5 y K = 0.5, porque ambos parámetros corresponden al coeficiente menor",
+      "D": "τ = 1 y K = 2, porque la forma estándar exige coeficiente unitario en y"
+    },
+    "respuesta_correcta": "A",
+    "explicacion": "Comparando con la forma estándar τ·(dy/dt) + y = K·u: el coeficiente de dy/dt es τ = 0.5 y el coeficiente de u es K = 2. La opción B invierte los roles. La opción D comete el error de confundir el coeficiente de y (que en la forma estándar ya es 1) con τ."
+  },
+  {
+    "id": "as_307",
+    "dificultad": 2,
+    "categoria": "Respuesta de Primer Orden",
+    "pregunta": "Un sistema de primer orden tiene τ = 2 s y K = 1. Se aplica un escalón unitario (Δu = 1). ¿Cuánto vale aproximadamente la salida en t = 2 s?",
+    "opciones": {
+      "A": "≈ 0.63, porque en t = τ la respuesta siempre alcanza el 63% del valor final",
+      "B": "≈ 1.00, porque la respuesta llega al 100% cuando transcurre exactamente una constante de tiempo",
+      "C": "≈ 0.50, porque en t = τ la curva exponencial cruza exactamente la mitad del valor final",
+      "D": "≈ 0.86, porque en t = τ la respuesta ya completó más del 80% del cambio total"
+    },
+    "respuesta_correcta": "A",
+    "explicacion": "y(τ) = K·Δu·(1 − e⁻¹) = 1·1·(1 − 0.368) ≈ 0.632. En t = τ siempre se alcanza el 63.2% del cambio total, independientemente del valor de τ y K. Este resultado se obtiene directamente de evaluar la exponencial en t = τ."
+  },
+  {
+    "id": "as_308",
+    "dificultad": 2,
+    "categoria": "Respuesta de Primer Orden",
+    "pregunta": "La respuesta al escalón de un sistema de primer orden alcanza el 63% de su valor final en t = 4 s. ¿Cuál es su constante de tiempo τ?",
+    "opciones": {
+      "A": "τ = 4 s, porque por definición τ es el tiempo en que se alcanza el 63% del valor final",
+      "B": "τ = 8 s, porque el tiempo al 63% es siempre la mitad de la constante de tiempo real",
+      "C": "τ = 2 s, porque el tiempo al 63% equivale al doble de la constante de tiempo",
+      "D": "τ = 0.63 s, porque τ es la fracción del valor final expresada como tiempo"
+    },
+    "respuesta_correcta": "A",
+    "explicacion": "La constante de tiempo τ se define precisamente como el tiempo en que la respuesta al escalón alcanza el 63.2% del valor final. Si ese punto ocurre en t = 4 s, entonces τ = 4 s directamente. Es la forma experimental más directa de medir τ."
+  },
+  {
+    "id": "as_309",
+    "dificultad": 2,
+    "categoria": "Respuesta de Primer Orden",
+    "pregunta": "Un sistema de primer orden con K = 3 recibe un escalón de Δu = 4. ¿Cuál es el cambio en la salida cuando el sistema se estabiliza?",
+    "opciones": {
+      "A": "Δy = 12, porque el valor final es K × Δu = 3 × 4",
+      "B": "Δy = 4, porque el valor final es igual al valor del escalón aplicado",
+      "C": "Δy = 3, porque el valor final es igual a la ganancia estática K del sistema",
+      "D": "Δy = 7, porque el valor final es la suma de K y Δu cuando ambos son positivos"
+    },
+    "respuesta_correcta": "A",
+    "explicacion": "Δy_final = K × Δu = 3 × 4 = 12. La ganancia K es el factor que convierte el cambio en la entrada en el cambio en la salida al estabilizarse. Ni el valor de K solo (3) ni el de Δu solo (4) son el resultado; se necesita el producto."
+  },
+  {
+    "id": "as_310",
+    "dificultad": 2,
+    "categoria": "Respuesta de Primer Orden",
+    "pregunta": "Un sistema de primer orden tiene τ = 3 s. ¿Cuánto tiempo aproximado tarda en alcanzar el 95% de su valor final?",
+    "opciones": {
+      "A": "≈ 9 s, porque el 95% se alcanza en aproximadamente 3τ = 3 × 3",
+      "B": "≈ 3 s, porque el 95% se alcanza exactamente en una constante de tiempo",
+      "C": "≈ 15 s, porque el 95% se alcanza en aproximadamente 5τ = 5 × 3",
+      "D": "≈ 6 s, porque el 95% se alcanza en aproximadamente 2τ = 2 × 3"
+    },
+    "respuesta_correcta": "A",
+    "explicacion": "En t = 3τ la respuesta vale 1 − e⁻³ ≈ 0.950, es decir el 95% del valor final. Con τ = 3 s, esto ocurre en t = 9 s. En t = τ se alcanza el 63%; en t = 2τ el 86.5%; en t = 5τ el 99.3%. El hito del 95% es útil como criterio práctico de estabilización."
+  },
+  {
+    "id": "as_311",
+    "dificultad": 2,
+    "categoria": "Respuesta de Primer Orden",
+    "pregunta": "Un sistema tiene τ = 0.1 s y K = 2. Se aplica un escalón Δu = 3 en t = 0 y se observa la respuesta entre t = 0 y t = 10 s. ¿Cómo luce la curva?",
+    "opciones": {
+      "A": "Sube casi instantáneamente al valor final (≈ 6) y permanece constante el resto del tiempo",
+      "B": "Sube lentamente durante los 10 segundos y apenas alcanza el 63% al final del intervalo",
+      "C": "Oscila alrededor del valor 6 con amplitud decreciente durante todo el intervalo observado",
+      "D": "Sube linealmente y alcanza el valor final (≈ 6) al final del intervalo de 10 segundos"
+    },
+    "respuesta_correcta": "A",
+    "explicacion": "Con τ = 0.1 s, el 95% del cambio ocurre en 3τ = 0.3 s. En una ventana de 10 s, el transitorio es prácticamente invisible: la salida parece saltar de golpe a K·Δu = 6 en t ≈ 0. Un τ muy pequeño hace que el sistema responda casi instantáneamente a escala humana."
+  },
+  {
+    "id": "as_312",
+    "dificultad": 2,
+    "categoria": "Respuesta de Primer Orden",
+    "pregunta": "La respuesta al escalón de un sistema muestra que en t = 6 s la salida ha alcanzado el 86.5% del valor final. ¿Cuál es τ?",
+    "opciones": {
+      "A": "τ = 3 s, porque el 86.5% corresponde a t = 2τ y 6 s = 2 × 3 s",
+      "B": "τ = 6 s, porque el 86.5% se alcanza en exactamente una constante de tiempo",
+      "C": "τ = 12 s, porque el 86.5% se alcanza en la mitad de la constante de tiempo",
+      "D": "τ = 9 s, porque el 86.5% corresponde a dos tercios de la constante de tiempo"
+    },
+    "respuesta_correcta": "A",
+    "explicacion": "En t = 2τ la respuesta vale 1 − e⁻² ≈ 0.865, el 86.5%. Si ese punto ocurre en t = 6 s, entonces 2τ = 6 s → τ = 3 s. Es el mismo principio que para el 63% en t = τ, pero usando el hito del 86.5% que corresponde a dos constantes de tiempo."
+  },
+  {
+    "id": "as_407",
+    "dificultad": 2,
+    "categoria": "Sistemas de Segundo Orden",
+    "pregunta": "Para resolver completamente el sistema d²y/dt² + 4(dy/dt) + 4y = u, ¿cuántas condiciones iniciales se necesitan y cuáles son?",
+    "opciones": {
+      "A": "Dos: y(0) y dy/dt(0), porque es una EDO de segundo orden",
+      "B": "Una: y(0), porque la segunda derivada puede calcularse algebraicamente desde la ecuación",
+      "C": "Cuatro: una condición por cada coeficiente que aparece en el lado izquierdo",
+      "D": "Ninguna: el sistema parte del equilibrio si la entrada es cero antes de t = 0"
+    },
+    "respuesta_correcta": "A",
+    "explicacion": "Una EDO de segundo orden tiene dos constantes arbitrarias en su solución general, así que necesita exactamente dos condiciones iniciales para determinarlas. Estas son y(0) (posición o valor inicial de la salida) y dy/dt(0) (velocidad inicial). El número de términos en la ecuación no determina este requerimiento."
+  },
+  {
+    "id": "as_408",
+    "dificultad": 2,
+    "categoria": "Sistemas de Segundo Orden",
+    "pregunta": "La ecuación característica de un sistema de segundo orden es s² + 6s + 8 = 0 con raíces s₁ = −2 y s₂ = −4. ¿Qué tipo de respuesta libre tiene el sistema?",
+    "opciones": {
+      "A": "No oscilatoria, porque las dos raíces son reales y negativas",
+      "B": "Oscilatoria, porque la ecuación característica tiene dos raíces distintas",
+      "C": "Oscilatoria, porque el coeficiente del término lineal en s es positivo (6)",
+      "D": "No oscilatoria, porque el término independiente de la ecuación (8) es mayor que cero"
+    },
+    "respuesta_correcta": "A",
+    "explicacion": "Raíces reales en la ecuación característica producen términos exponenciales puras en la solución (e^(−2t) y e^(−4t)), que decaen monótonamente sin oscilar. Las oscilaciones aparecen solo cuando las raíces son complejas (tienen parte imaginaria). Que las raíces sean distintas no implica oscilación."
+  },
+  {
+    "id": "as_409",
+    "dificultad": 2,
+    "categoria": "Sistemas de Segundo Orden",
+    "pregunta": "La ecuación característica de un sistema de segundo orden es s² + 2s + 10 = 0 con raíces s = −1 ± 3j. ¿Qué tipo de respuesta libre tiene el sistema?",
+    "opciones": {
+      "A": "Oscilatoria, porque las raíces tienen parte imaginaria no nula (±3j)",
+      "B": "No oscilatoria, porque la parte real de las raíces (−1) es negativa",
+      "C": "No oscilatoria, porque el coeficiente del término independiente (10) es positivo",
+      "D": "No oscilatoria, porque la suma de todos los coeficientes de la ecuación es positiva"
+    },
+    "respuesta_correcta": "A",
+    "explicacion": "Raíces complejas s = α ± jβ producen una solución de la forma e^(αt)·[cos(βt) + sen(βt)], que es oscilatoria. La parte imaginaria ±3j es la que genera las oscilaciones; la parte real −1 solo determina si el sistema es estable (decae) o no. El signo de los coeficientes por sí solo no determina el tipo de respuesta."
+  },
+  {
+    "id": "as_410",
+    "dificultad": 2,
+    "categoria": "Sistemas de Segundo Orden",
+    "pregunta": "El sistema A tiene respuesta al escalón oscilatoria y el sistema B se acerca monótonamente al valor final. ¿Cuál tiene raíces reales en su ecuación característica?",
+    "opciones": {
+      "A": "El sistema B, porque raíces reales producen solución exponencial sin oscilaciones",
+      "B": "El sistema A, porque las oscilaciones indican que las raíces son reales y de signos opuestos",
+      "C": "Ambos sistemas, porque todos los sistemas de segundo orden tienen raíces reales",
+      "D": "Ninguno, porque el tipo de raíces depende únicamente del coeficiente de la entrada"
+    },
+    "respuesta_correcta": "A",
+    "explicacion": "Raíces reales → solución exponencial → respuesta monótona (no oscilatoria). Raíces complejas → solución con senos/cosenos → respuesta oscilatoria. El sistema B (no oscilatorio) corresponde a raíces reales; el A (oscilatorio) a raíces complejas. No todos los sistemas de segundo orden tienen raíces reales."
+  },
+  {
+    "id": "as_411",
+    "dificultad": 2,
+    "categoria": "Sistemas de Segundo Orden",
+    "pregunta": "Dada la ecuación d²y/dt² + 5(dy/dt) + 6y = 3u, ¿de qué orden es y cuántas condiciones iniciales requiere?",
+    "opciones": {
+      "A": "Segundo orden, requiere y(0) y dy/dt(0)",
+      "B": "Tercer orden, requiere y(0), dy/dt(0) y d²y/dt²(0)",
+      "C": "Primer orden, requiere solo y(0), porque la variable independiente es una sola",
+      "D": "Segundo orden, requiere y(0), dy/dt(0) y u(0)"
+    },
+    "respuesta_correcta": "A",
+    "explicacion": "La presencia de d²y/dt² como derivada de mayor grado indica segundo orden. Una EDO de segundo orden necesita exactamente dos condiciones iniciales: y(0) y dy/dt(0). El valor inicial de la entrada u(0) no es una condición inicial del sistema en este sentido; las condiciones iniciales aplican a la variable dependiente y."
+  },
+  {
+    "id": "as_412",
+    "dificultad": 2,
+    "categoria": "Sistemas de Segundo Orden",
+    "pregunta": "¿Cuál de las siguientes ecuaciones corresponde a un sistema de segundo orden?",
+    "opciones": {
+      "A": "d²y/dt² + 3(dy/dt) + 2y = u, porque tiene d²y/dt² como derivada de mayor grado",
+      "B": "5(dy/dt) + 2y = 3u, porque tiene el mayor número de términos en el lado izquierdo",
+      "C": "dy/dt + 4y = 2(du/dt) + u, porque la entrada u también tiene una derivada",
+      "D": "y + 3u = 4, porque contiene tanto la variable de salida como la variable de entrada"
+    },
+    "respuesta_correcta": "A",
+    "explicacion": "El orden de un sistema se determina por la derivada de mayor grado de la variable de salida y. Solo A contiene d²y/dt². B y C son de primer orden (máximo dy/dt en la salida). D es orden cero (ecuación algebraica sin derivadas). La presencia de du/dt en C no eleva el orden del sistema respecto a y."
+  },
+  {
+    "id": "as_507",
+    "dificultad": 2,
+    "categoria": "Respuestas Dinámicas",
+    "pregunta": "Una válvula está cerrada (0%) y en t = 0 se abre al 40% manteniéndose en esa posición indefinidamente. ¿Qué tipo de entrada representa este cambio para el sistema?",
+    "opciones": {
+      "A": "Entrada escalón, porque es un cambio repentino y permanente desde un valor a otro",
+      "B": "Entrada rampa, porque la válvula recorre mecánicamente la distancia de 0% a 40%",
+      "C": "Entrada impulso, porque el cambio de posición de la válvula ocurre en un instante preciso",
+      "D": "Entrada periódica, porque la válvula puede volver a cerrarse y abrirse en el futuro"
+    },
+    "respuesta_correcta": "A",
+    "explicacion": "Una entrada escalón es un cambio repentino y permanente: la válvula pasa de 0% a 40% en t = 0 y se queda ahí. La duración del movimiento mecánico de la válvula generalmente es despreciable frente a la dinámica del proceso. Un impulso vuelve a cero; una rampa crece continuamente."
+  },
+  {
+    "id": "as_508",
+    "dificultad": 2,
+    "categoria": "Respuestas Dinámicas",
+    "pregunta": "El set point de temperatura de un proceso sube 2°C por minuto de forma continua a partir de t = 0. ¿Qué tipo de entrada representa esta variación?",
+    "opciones": {
+      "A": "Entrada rampa, porque la referencia aumenta linealmente con el tiempo a velocidad constante",
+      "B": "Entrada escalón, porque la referencia cambia a partir de un instante inicial definido",
+      "C": "Entrada impulso, porque el cambio de set point comienza en un instante preciso t = 0",
+      "D": "Entrada escalón repetido, porque cada minuto la temperatura sube 2°C adicionales"
+    },
+    "respuesta_correcta": "A",
+    "explicacion": "Una rampa es una señal que crece linealmente con el tiempo: u(t) = a·t, donde a es la pendiente. Aquí u(t) = 2·t °C/min es exactamente una rampa de pendiente 2. El hecho de que empiece en t = 0 no la convierte en escalón; el escalón es un cambio permanente a un valor fijo, no a uno que sigue creciendo."
+  },
+  {
+    "id": "as_509",
+    "dificultad": 2,
+    "categoria": "Respuestas Dinámicas",
+    "pregunta": "Se inyecta una pequeña cantidad de trazador en un reactor durante 0.05 s y luego se detiene. El tiempo de residencia del reactor es varios minutos. ¿Qué entrada se está aproximando?",
+    "opciones": {
+      "A": "Entrada impulso, porque la duración de la inyección es despreciable frente a la dinámica del sistema",
+      "B": "Entrada escalón, porque la concentración del trazador cambia repentinamente en t = 0",
+      "C": "Entrada rampa, porque la concentración del trazador aumenta durante el tiempo de inyección",
+      "D": "Entrada periódica, porque el experimento puede repetirse en ciclos sucesivos"
+    },
+    "respuesta_correcta": "A",
+    "explicacion": "Un impulso es una perturbación de duración muy breve comparada con la escala temporal del sistema. Con 0.05 s de inyección frente a varios minutos de tiempo de residencia, la inyección es prácticamente instantánea para el reactor. Por eso la respuesta del reactor al trazador aproxima la respuesta al impulso."
+  },
+  {
+    "id": "as_510",
+    "dificultad": 2,
+    "categoria": "Respuestas Dinámicas",
+    "pregunta": "Se aplica un escalón de Δu = 5 a un sistema y se observa que la salida cambia Δy = 15 al estabilizarse. ¿Cuál es la ganancia estática K del sistema?",
+    "opciones": {
+      "A": "K = 3, porque K = Δy / Δu = 15 / 5",
+      "B": "K = 5, porque la ganancia corresponde al valor del escalón aplicado al sistema",
+      "C": "K = 15, porque la ganancia corresponde al cambio total observado en la salida",
+      "D": "K = 75, porque la ganancia es el producto del cambio en la entrada por el de la salida"
+    },
+    "respuesta_correcta": "A",
+    "explicacion": "Por definición K = Δy / Δu: cuánto cambia la salida por unidad de cambio en la entrada. K = 15/5 = 3. Este experimento —aplicar un escalón y medir el cambio en la salida al estabilizarse— es el procedimiento estándar para identificar la ganancia estática experimentalmente."
+  },
+  {
+    "id": "as_511",
+    "dificultad": 2,
+    "categoria": "Respuestas Dinámicas",
+    "pregunta": "Si se quiere medir experimentalmente la constante de tiempo τ de un sistema de primer orden, ¿qué procedimiento es el más directo?",
+    "opciones": {
+      "A": "Aplicar un escalón y medir el tiempo en que la salida alcanza el 63% del cambio total",
+      "B": "Aplicar una rampa y medir la diferencia entre la entrada y la salida cuando se estabilizan",
+      "C": "Aplicar un impulso y medir el tiempo en que la respuesta alcanza su valor máximo",
+      "D": "Aplicar una entrada senoidal y medir el desfase entre la entrada y la salida"
+    },
+    "respuesta_correcta": "A",
+    "explicacion": "τ se define como el tiempo para llegar al 63% del valor final ante un escalón. Aplicar el escalón y leer en la curva el instante en que la salida alcanza ese porcentaje da τ directamente, sin ecuaciones adicionales. Los otros métodos (rampa, impulso, senoidal) también caracterizan el sistema pero son indirectos para obtener τ."
+  },
+  {
+    "id": "as_512",
+    "dificultad": 2,
+    "categoria": "Respuestas Dinámicas",
+    "pregunta": "En la respuesta al escalón de un sistema de primer orden, ¿qué porcentaje del valor final se ha alcanzado cuando transcurre exactamente t = τ?",
+    "opciones": {
+      "A": "Aproximadamente 63%, porque y(τ) = K·Δu·(1 − e⁻¹) ≈ 0.632",
+      "B": "Aproximadamente 50%, porque en t = τ la curva exponencial cruza la mitad del cambio",
+      "C": "Aproximadamente 37%, porque e⁻¹ ≈ 0.37 es el valor de la exponencial en t = τ",
+      "D": "Aproximadamente 100%, porque τ es el tiempo en que el sistema completa su respuesta"
+    },
+    "respuesta_correcta": "A",
+    "explicacion": "y(τ) = K·Δu·(1 − e⁻¹) = K·Δu·(1 − 0.368) = 0.632·K·Δu: el 63.2% del valor final. La opción C confunde el valor residual (e⁻¹ ≈ 0.37, lo que falta por alcanzar) con el porcentaje alcanzado. La opción D confunde τ con el tiempo de establecimiento total (que es ≈ 5τ para el 99%)."
+  },
+  {
+    "id": "as_113",
+    "dificultad": 3,
+    "categoria": "Conceptos de EDOs",
+    "pregunta": "La solución homogénea de un sistema de primer orden es y_h(t) = C·e^(−0.5t). ¿Qué se puede concluir sobre el transitorio del sistema?",
+    "opciones": {
+      "A": "El transitorio tiene constante de tiempo τ = 2 s y decae a cero de forma exponencial sin oscilar",
+      "B": "El transitorio oscila con frecuencia de 0.5 rad/s hasta que la energía inicial se disipa",
+      "C": "El transitorio crece exponencialmente porque el exponente tiene signo negativo",
+      "D": "El transitorio tiene constante de tiempo τ = 0.5 s porque ese es el coeficiente del tiempo"
+    },
+    "respuesta_correcta": "A",
+    "explicacion": "De y_h = C·e^(−0.5t) se identifica que el exponente es −t/τ = −0.5t, por tanto τ = 1/0.5 = 2 s. El signo negativo del exponente garantiza que la exponencial decae a cero sin oscilar (no hay parte imaginaria). La opción D confunde el coeficiente de velocidad (0.5) con τ; son recíprocos."
+  },
+  {
+    "id": "as_114",
+    "dificultad": 3,
+    "categoria": "Conceptos de EDOs",
+    "pregunta": "Sistema A tiene solución homogénea y_h = C·e^(−t) y sistema B tiene y_h = C·e^(−5t). ¿Cuál tiene el transitorio más corto y por qué?",
+    "opciones": {
+      "A": "El sistema B, porque el exponente −5t decae cinco veces más rápido que −t",
+      "B": "El sistema A, porque el coeficiente del tiempo (1) es menor que el del sistema B (5)",
+      "C": "Ambos tienen el mismo transitorio porque la constante C es la misma en los dos",
+      "D": "No se puede comparar sin conocer el valor de la constante C de cada sistema"
+    },
+    "respuesta_correcta": "A",
+    "explicacion": "En B, τ = 1/5 = 0.2 s; en A, τ = 1/1 = 1 s. Un τ menor implica decaimiento más rápido: B llega al 95% del decaimiento en 3×0.2 = 0.6 s, mientras A tarda 3 s. La opción B confunde el coeficiente del exponente con τ (son inversos). C y D son incorrectas porque la amplitud C no afecta la velocidad de decaimiento."
+  },
+  {
+    "id": "as_115",
+    "dificultad": 3,
+    "categoria": "Conceptos de EDOs",
+    "pregunta": "Si todas las condiciones iniciales de un sistema de primer orden son iguales a cero, ¿qué papel juega la solución homogénea?",
+    "opciones": {
+      "A": "Es nula: la respuesta está determinada completamente por la solución particular",
+      "B": "Sigue presente con amplitud pequeña para garantizar que se satisfagan las condiciones iniciales",
+      "C": "Toma el valor de la entrada en t = 0 para compensar el arranque desde cero",
+      "D": "Desaparece solo en sistemas de primer orden; en órdenes superiores persiste aunque las CI sean cero"
+    },
+    "respuesta_correcta": "A",
+    "explicacion": "Con condiciones iniciales cero, las constantes C de la solución homogénea resultan todas iguales a cero al aplicar dichas condiciones, haciendo y_h = 0. La solución completa colapsa a solo la particular. Esto tiene sentido físico: si el sistema parte del equilibrio, toda la respuesta es debida a la entrada."
+  },
+  {
+    "id": "as_116",
+    "dificultad": 3,
+    "categoria": "Conceptos de EDOs",
+    "pregunta": "Después de que transcurre mucho tiempo (t >> 5τ), ¿qué parte de la solución total de una EDO estable persiste?",
+    "opciones": {
+      "A": "Solo la solución particular, porque la homogénea ha decaído a cero",
+      "B": "Solo la solución homogénea, porque la particular depende de la entrada que puede apagarse",
+      "C": "Ambas por igual, porque la suma siempre debe satisfacer la ecuación diferencial completa",
+      "D": "Ninguna de las dos: cuando t → ∞ la solución completa también tiende siempre a cero"
+    },
+    "respuesta_correcta": "A",
+    "explicacion": "En un sistema estable las exponenciales de la solución homogénea decaen a cero. Lo que queda para t grande es únicamente la solución particular, que refleja la respuesta forzada por la entrada. Si la entrada es un escalón constante, la particular es una constante (el nuevo estado estacionario)."
+  },
+  {
+    "id": "as_117",
+    "dificultad": 3,
+    "categoria": "Conceptos de EDOs",
+    "pregunta": "Un estudiante afirma: 'en un sistema estable, la solución homogénea no importa porque siempre desaparece'. ¿Cómo se evalúa esta afirmación?",
+    "opciones": {
+      "A": "Es parcialmente incorrecta: la homogénea sí importa para describir el transitorio, aunque desaparezca al final",
+      "B": "Es completamente correcta: en sistemas estables solo la solución particular tiene relevancia práctica",
+      "C": "Es completamente incorrecta: en un sistema estable la homogénea nunca desaparece del todo",
+      "D": "Es correcta únicamente si las condiciones iniciales son distintas de cero desde el principio"
+    },
+    "respuesta_correcta": "A",
+    "explicacion": "La homogénea sí es importante: describe el comportamiento transitorio del sistema (cuánto tarda en estabilizarse, si oscila, la forma del arranque). En control de procesos, el transitorio es crítico porque durante ese tiempo la variable puede estar fuera de especificación. Que desaparezca en régimen permanente no significa que sea irrelevante."
+  },
+  {
+    "id": "as_118",
+    "dificultad": 3,
+    "categoria": "Conceptos de EDOs",
+    "pregunta": "En la solución completa y(t) = y_h(t) + y_p(t), si se duplican todas las condiciones iniciales, ¿qué cambia?",
+    "opciones": {
+      "A": "La solución homogénea se duplica, pero la particular no cambia porque no depende de las condiciones iniciales",
+      "B": "La solución particular se duplica para ajustarse a los nuevos valores impuestos por las condiciones",
+      "C": "Toda la solución se duplica porque condiciones iniciales mayores escalan toda la respuesta",
+      "D": "Nada cambia: las condiciones iniciales definen la forma de la curva pero no su amplitud"
+    },
+    "respuesta_correcta": "A",
+    "explicacion": "Las constantes de la solución homogénea se determinan aplicando las condiciones iniciales a la solución completa. Si las CI se duplican, esas constantes se duplican y con ellas y_h. La particular y_p depende solo de la entrada, no de las CI, por lo que permanece igual. La solución completa cambia, pero solo en su componente homogénea."
+  },
+  {
+    "id": "as_213",
+    "dificultad": 3,
+    "categoria": "Sistemas de Primer Orden",
+    "pregunta": "Un sistema de primer orden tiene una constante de tiempo τ muy pequeña (cercana a cero). ¿Cómo se puede interpretar este comportamiento dinámico?",
+    "opciones": {
+      "A": "El sistema casi no tiene inercia: responde casi instantáneamente y se comporta como un sistema estático",
+      "B": "El sistema es inestable: una constante de tiempo muy pequeña indica que la salida crece sin límite",
+      "C": "El sistema oscila rápidamente porque una τ pequeña genera respuestas oscilatorias de alta frecuencia",
+      "D": "El sistema tiene alta inercia: una τ pequeña indica que acumula poca energía por unidad de tiempo"
+    },
+    "respuesta_correcta": "A",
+    "explicacion": "τ es una medida de la inercia del sistema. Cuando τ → 0, el transitorio desaparece y la salida responde casi instantáneamente a la entrada: y ≈ K·u en todo momento. El sistema se aproxima a un sistema puramente estático (ganancia pura). No hay inestabilidad ni oscilación en un sistema de primer orden."
+  },
+  {
+    "id": "as_214",
+    "dificultad": 3,
+    "categoria": "Sistemas de Primer Orden",
+    "pregunta": "Dos sistemas tienen K = 3, pero τ_A = 1 s y τ_B = 4 s. Se aplica el mismo escalón Δu = 2. ¿Cómo se comparan sus respuestas?",
+    "opciones": {
+      "A": "Ambos llegan al mismo valor final (6), pero A alcanza cada porcentaje del cambio cuatro veces más rápido que B",
+      "B": "A llega a un valor final mayor porque su menor constante de tiempo amplifica la respuesta",
+      "C": "B llega a un valor final mayor porque la mayor inercia acumula energía durante el transitorio",
+      "D": "A oscila antes de estabilizarse porque una constante de tiempo menor genera respuestas oscilatorias"
+    },
+    "respuesta_correcta": "A",
+    "explicacion": "El valor final es K·Δu = 3×2 = 6 en ambos casos; K es igual, así que el destino es el mismo. La diferencia es solo la velocidad: A llega al 63% en 1 s y B en 4 s. τ escala el tiempo de respuesta pero no el valor final. Los sistemas de primer orden nunca oscilan."
+  },
+  {
+    "id": "as_215",
+    "dificultad": 3,
+    "categoria": "Sistemas de Primer Orden",
+    "pregunta": "Dos sistemas tienen τ = 2 s, pero K_A = 1 y K_B = 4. Se aplica el mismo escalón Δu = 3. ¿Cómo difieren sus respuestas?",
+    "opciones": {
+      "A": "Ambos responden con la misma velocidad, pero B alcanza un valor final cuatro veces mayor que A",
+      "B": "B responde cuatro veces más rápido porque una ganancia mayor impulsa la salida con más fuerza",
+      "C": "A se estabiliza antes porque su valor final (3) es menor y tarda menos en llegar ahí",
+      "D": "Ambas respuestas son idénticas en todo, incluyendo el valor final, porque τ es igual"
+    },
+    "respuesta_correcta": "A",
+    "explicacion": "K escala el valor final (A: 1×3 = 3; B: 4×3 = 12) pero no la velocidad de respuesta, que depende solo de τ. Ambas curvas tienen exactamente la misma forma temporal (el 63% en t = 2 s) pero B tiene una amplitud cuatro veces mayor. Son como la misma curva estirada verticalmente."
+  },
+  {
+    "id": "as_216",
+    "dificultad": 3,
+    "categoria": "Sistemas de Primer Orden",
+    "pregunta": "Un sistema tiene τ = 5 s y K = 0.5. Se aplica un escalón de Δu = 10. ¿Cómo es la respuesta al escalón?",
+    "opciones": {
+      "A": "La salida sube exponencialmente hasta Δy = 5 y alcanza el 63% de ese cambio en t = 5 s",
+      "B": "La salida sube hasta Δy = 10 en t = 5 s porque K solo afecta la velocidad de respuesta",
+      "C": "La salida llega a Δy = 0.5 porque K indica qué fracción del valor final se alcanza en τ",
+      "D": "La salida sube hasta Δy = 5 y alcanza el 63% de ese cambio en t = 0.5 s"
+    },
+    "respuesta_correcta": "A",
+    "explicacion": "Δy_final = K·Δu = 0.5×10 = 5. El tiempo para alcanzar el 63% de ese cambio es exactamente τ = 5 s. La opción B confunde K con τ. La opción C confunde K con un porcentaje de la respuesta. La opción D calcula mal el tiempo usando τ/K en vez de τ directamente."
+  },
+  {
+    "id": "as_217",
+    "dificultad": 3,
+    "categoria": "Sistemas de Primer Orden",
+    "pregunta": "La pendiente inicial de la respuesta al escalón es K·Δu/τ. Si τ es grande, ¿qué implica esto para el arranque de la respuesta?",
+    "opciones": {
+      "A": "La pendiente inicial es pequeña: el sistema comienza a responder lentamente desde t = 0",
+      "B": "La pendiente inicial es grande: el sistema arranca rápido aunque luego se desacelere",
+      "C": "La pendiente inicial no depende de τ: solo depende de la ganancia K y del escalón Δu",
+      "D": "La pendiente inicial es negativa: el sistema cae momentáneamente antes de subir al valor final"
+    },
+    "respuesta_correcta": "A",
+    "explicacion": "Si τ es grande, K·Δu/τ es pequeño: la curva parte casi horizontal y sube lentamente. Esto es consistente con la respuesta lenta de un sistema con mucha inercia. Nótese que la pendiente inicial es K·Δu/τ; si se traza la tangente en t=0, intercepta el valor final justo en t = τ, lo que es una propiedad geométrica útil."
+  },
+  {
+    "id": "as_218",
+    "dificultad": 3,
+    "categoria": "Sistemas de Primer Orden",
+    "pregunta": "Un sistema tiene K = 0.3. Ante un escalón de Δu = 10, ¿qué implica K < 1 para el comportamiento de la salida?",
+    "opciones": {
+      "A": "La salida final (3) es menor que el cambio en la entrada (10): el sistema atenúa la señal",
+      "B": "La salida final es mayor que 10 porque K actúa como amplificador durante el transitorio",
+      "C": "El sistema no puede responder porque una ganancia menor que 1 indica inestabilidad",
+      "D": "La salida oscila porque una ganancia inferior a 1 genera respuestas oscilatorias en primer orden"
+    },
+    "respuesta_correcta": "A",
+    "explicacion": "K < 1 significa que el cambio en la salida es menor que el cambio en la entrada: Δy = 0.3×10 = 3 < 10. El sistema atenúa. Esto es perfectamente normal y estable; muchos procesos tienen ganancias menores que 1. Los sistemas de primer orden no oscilan independientemente del valor de K."
+  },
+  {
+    "id": "as_313",
+    "dificultad": 3,
+    "categoria": "Respuesta de Primer Orden",
+    "pregunta": "La respuesta al escalón de un sistema muestra: (1) la salida cambia Δy = 8 al estabilizarse ante Δu = 4, y (2) alcanza el 63% del cambio en t = 3 s. ¿Cuáles son τ y K?",
+    "opciones": {
+      "A": "τ = 3 s y K = 2, porque el tiempo al 63% da τ directamente y K = Δy/Δu = 8/4",
+      "B": "τ = 3 s y K = 0.5, porque K = Δu/Δy = 4/8 es la relación inversa de los cambios",
+      "C": "τ = 8 s y K = 2, porque el valor final (8) determina τ y K se calcula como antes",
+      "D": "τ = 3 s y K = 4, porque K es el valor del escalón de entrada aplicado al sistema"
+    },
+    "respuesta_correcta": "A",
+    "explicacion": "τ se lee directamente: es el tiempo en que se alcanza el 63% del cambio, en este caso t = 3 s. K se calcula como K = Δy/Δu = 8/4 = 2 (cuánto cambia la salida por unidad de cambio en la entrada). La opción B invierte el numerador y denominador. El valor final no determina τ."
+  },
+  {
+    "id": "as_314",
+    "dificultad": 3,
+    "categoria": "Respuesta de Primer Orden",
+    "pregunta": "La tangente trazada en t = 0 sobre la curva de respuesta al escalón intercepta el valor final exactamente en t = τ. ¿Qué utilidad práctica tiene esta propiedad?",
+    "opciones": {
+      "A": "Permite estimar τ gráficamente trazando la tangente en el origen, sin calcular el 63%",
+      "B": "Permite calcular K como la pendiente de esa tangente dividida entre el escalón Δu",
+      "C": "Indica que la respuesta es lineal para t < τ y exponencial solo a partir de t = τ",
+      "D": "Muestra que la respuesta al impulso tiene la misma pendiente inicial que la del escalón"
+    },
+    "respuesta_correcta": "A",
+    "explicacion": "La tangente en el origen tiene pendiente K·Δu/τ. Si se prolonga hasta el nivel del valor final K·Δu, el tiempo de intersección es (K·Δu)/(K·Δu/τ) = τ. Esto ofrece un método gráfico alternativo para leer τ: basta trazar la tangente inicial y ver dónde corta el nivel del valor final, sin necesidad de calcular el 63%."
+  },
+  {
+    "id": "as_315",
+    "dificultad": 3,
+    "categoria": "Respuesta de Primer Orden",
+    "pregunta": "La respuesta al escalón de un sistema llega a un valor final de 2 ante un escalón de Δu = 5. ¿Qué indica esto sobre el sistema?",
+    "opciones": {
+      "A": "K = 0.4: el sistema atenúa la entrada, lo cual es físicamente normal en muchos procesos",
+      "B": "El sistema está mal modelado porque la salida siempre debe igualar o superar a la entrada",
+      "C": "La constante de tiempo es τ = 2/5 porque τ es la relación entre la salida y la entrada",
+      "D": "El sistema tiene un error de calibración porque en equilibrio la salida debe igualar a la entrada"
+    },
+    "respuesta_correcta": "A",
+    "explicacion": "K = Δy/Δu = 2/5 = 0.4. Una ganancia menor que 1 es completamente válida y frecuente: significa que el proceso atenúa la señal. Por ejemplo, una válvula de control puede abrir solo una fracción del flujo máximo ante una señal máxima. No hay error ni mal modelado."
+  },
+  {
+    "id": "as_316",
+    "dificultad": 3,
+    "categoria": "Respuesta de Primer Orden",
+    "pregunta": "Matemáticamente y(t) = K·Δu·(1−e^(−t/τ)) nunca alcanza el valor final. ¿Por qué en la práctica se habla de 'tiempo de establecimiento'?",
+    "opciones": {
+      "A": "Porque se acepta que la respuesta está establecida cuando el error residual es suficientemente pequeño (p. ej. < 5%)",
+      "B": "Porque en t = 5τ la exponencial llega exactamente a cero y la respuesta es exactamente el valor final",
+      "C": "Porque la expresión exponencial solo es válida para t < 5τ; después el modelo cambia de forma",
+      "D": "Porque τ es el tiempo exacto en que el sistema termina su respuesta transitoria por definición"
+    },
+    "respuesta_correcta": "A",
+    "explicacion": "La exponencial e^(−t/τ) nunca es exactamente cero, pero para t = 5τ vale e⁻⁵ ≈ 0.007 (0.7% restante). En ingeniería se acepta convencionalmente que con menos del 2% o 5% de error el sistema está 'establecido'. Es una definición práctica, no una verdad matemática exacta."
+  },
+  {
+    "id": "as_317",
+    "dificultad": 3,
+    "categoria": "Respuesta de Primer Orden",
+    "pregunta": "Sistema A tiene τ = 1 s y K = 5; sistema B tiene τ = 3 s y K = 2. Ante el mismo escalón Δu = 4, ¿cuál llega primero al 50% de su respectivo valor final?",
+    "opciones": {
+      "A": "El sistema A, porque con τ = 1 s alcanza el 50% de su valor final en ≈ 0.69 s, frente a ≈ 2.1 s de B",
+      "B": "El sistema B, porque su valor final (8) es menor que el de A (20) y es más fácil de alcanzar",
+      "C": "Ambos llegan al 50% simultáneamente porque ese porcentaje no depende del valor final",
+      "D": "El sistema A solo llega primero al 50% si su valor final es mayor que el del sistema B"
+    },
+    "respuesta_correcta": "A",
+    "explicacion": "El tiempo para alcanzar el 50% del cambio es t₅₀ = τ·ln(2) ≈ 0.693·τ, independientemente de K y Δu. Para A: t₅₀ ≈ 0.69 s; para B: t₅₀ ≈ 2.08 s. A es más rápido en llegar al 50% de su propio valor final. La magnitud del valor final no afecta la escala temporal, solo el valor absoluto de la salida."
+  },
+  {
+    "id": "as_318",
+    "dificultad": 3,
+    "categoria": "Respuesta de Primer Orden",
+    "pregunta": "La respuesta al escalón de un sistema es y(t) = 6·(1 − e^(−t/4)) ante un escalón de Δu = 3. ¿Cuáles son τ, K y el valor final?",
+    "opciones": {
+      "A": "τ = 4 s, K = 2 y valor final = 6, porque τ está en el exponente, K = valor_final/Δu = 6/3 y valor final = 6",
+      "B": "τ = 4 s, K = 6 y valor final = 6, porque K es el coeficiente que multiplica la expresión",
+      "C": "τ = 1/4 s, K = 2 y valor final = 6, porque τ es el inverso del coeficiente en el exponente",
+      "D": "τ = 4 s, K = 3 y valor final = 9, porque K debe ser igual al valor del escalón aplicado"
+    },
+    "respuesta_correcta": "A",
+    "explicacion": "La forma y(t) = K·Δu·(1 − e^(−t/τ)) muestra que el coeficiente en el exponente es 1/τ → τ = 4 s. El valor final es 6 (cuando t → ∞). K = valor_final/Δu = 6/3 = 2. La opción B confunde el coeficiente externo K·Δu (= 6) con K. La opción C invierte τ."
+  },
+  {
+    "id": "as_413",
+    "dificultad": 3,
+    "categoria": "Sistemas de Segundo Orden",
+    "pregunta": "¿Qué determina que un sistema de segundo orden tenga respuesta oscilatoria o no oscilatoria ante un escalón?",
+    "opciones": {
+      "A": "El tipo de raíces de la ecuación característica: raíces complejas producen oscilación, raíces reales no",
+      "B": "El valor de la ganancia K: una ganancia alta produce oscilación y una baja no la genera",
+      "C": "El valor de las condiciones iniciales: si son no nulas el sistema oscila, si son cero no oscila",
+      "D": "La amplitud del escalón aplicado: escalones grandes provocan oscilación y pequeños no la generan"
+    },
+    "respuesta_correcta": "A",
+    "explicacion": "La naturaleza de las raíces de la ecuación característica determina el tipo de respuesta libre. Raíces reales → exponenciales puras → respuesta monótona. Raíces complejas → senos y cosenos → respuesta oscilatoria. La ganancia K, las condiciones iniciales y la amplitud del escalón no cambian el carácter oscilatorio o no del sistema."
+  },
+  {
+    "id": "as_414",
+    "dificultad": 3,
+    "categoria": "Sistemas de Segundo Orden",
+    "pregunta": "Las raíces de la ecuación característica de un sistema de segundo orden son iguales: s₁ = s₂ = −a. ¿Cómo es la respuesta al escalón?",
+    "opciones": {
+      "A": "No oscilatoria, y es el caso más rápido posible sin oscilar: el límite entre respuesta lenta y oscilatoria",
+      "B": "Más lenta que cualquier respuesta no oscilatoria porque raíces iguales generan mayor amortiguamiento",
+      "C": "Oscilatoria con frecuencia muy baja, porque las raíces iguales generan oscilaciones lentas",
+      "D": "Idéntica a la respuesta de un sistema de primer orden con τ = 1/a"
+    },
+    "respuesta_correcta": "A",
+    "explicacion": "Raíces reales iguales corresponden al caso críticamente amortiguado: la respuesta es no oscilatoria pero es el límite justo antes de que aparezcan oscilaciones. Si el amortiguamiento disminuye un poco, las raíces se vuelven complejas y aparecen oscilaciones. Si aumenta, las raíces se separan y la respuesta es más lenta. Es el punto óptimo para muchas aplicaciones de control."
+  },
+  {
+    "id": "as_415",
+    "dificultad": 3,
+    "categoria": "Sistemas de Segundo Orden",
+    "pregunta": "¿Por qué un sistema de segundo orden oscilatorio supera el valor final (sobreimpulso) durante la respuesta al escalón?",
+    "opciones": {
+      "A": "El sistema tiene inercia dinámica: cuando la salida llega al valor final todavía tiene velocidad y sigue avanzando",
+      "B": "La ganancia K es mayor que 1, por lo que el valor final amplificado supera el nivel de referencia",
+      "C": "La entrada escalón aporta energía extra que empuja la salida más allá del valor de referencia",
+      "D": "El sobreimpulso ocurre porque la segunda derivada de la salida es positiva al cruzar el valor final"
+    },
+    "respuesta_correcta": "A",
+    "explicacion": "La analogía física es la de una masa en movimiento: cuando llega al punto de equilibrio (valor final), tiene velocidad acumulada y no puede detenerse instantáneamente. Esa inercia la lleva más allá. En sistemas eléctricos o fluidicos la interpretación es análoga. No tiene que ver con K > 1 ni con la energía de la entrada."
+  },
+  {
+    "id": "as_416",
+    "dificultad": 3,
+    "categoria": "Sistemas de Segundo Orden",
+    "pregunta": "Se aplica el mismo escalón a un sistema de primer orden y a uno de segundo orden oscilatorio, ambos con igual ganancia K. ¿En qué difieren sus respuestas?",
+    "opciones": {
+      "A": "El de primer orden sube sin oscilar; el de segundo orden puede superar el valor final y oscilar antes de estabilizarse",
+      "B": "El de primer orden llega antes al valor final porque tiene menor complejidad matemática",
+      "C": "El de segundo orden alcanza un valor final mayor porque tiene dos derivadas que amplifican la respuesta",
+      "D": "El de primer orden oscila menos porque su única derivada limita la velocidad de cambio"
+    },
+    "respuesta_correcta": "A",
+    "explicacion": "Con la misma K, ambos sistemas tienen el mismo valor final (K·Δu). La diferencia está en la trayectoria: el de primer orden sube exponencialmente de forma monótona; el de segundo orden oscilatorio sube, supera el valor final (sobreimpulso), baja, vuelve a subir, etc. hasta estabilizarse. El segundo orden puede ser más rápido o más lento dependiendo de sus parámetros."
+  },
+  {
+    "id": "as_417",
+    "dificultad": 3,
+    "categoria": "Sistemas de Segundo Orden",
+    "pregunta": "Ante un escalón, la salida de un proceso sube, supera el valor final en un 20%, baja, lo supera nuevamente en un 8% y luego se estabiliza. ¿Qué se puede concluir sobre el sistema?",
+    "opciones": {
+      "A": "Es un sistema de segundo orden oscilatorio: la respuesta cruza el valor final múltiples veces",
+      "B": "Es un sistema de primer orden con ganancia K muy alta que produce el exceso inicial",
+      "C": "Es un sistema no lineal porque un sistema lineal no puede superar el valor de referencia",
+      "D": "Es un sistema inestable porque supera el valor final dos veces antes de estabilizarse"
+    },
+    "respuesta_correcta": "A",
+    "explicacion": "El comportamiento descrito (superar el valor final varias veces con amplitud decreciente) es la firma característica de un sistema de segundo orden oscilatorio estable. Los sistemas de primer orden nunca superan el valor final. Un sistema lineal sí puede oscilar alrededor del valor final. El hecho de que las oscilaciones decrezcan confirma que es estable."
+  },
+  {
+    "id": "as_418",
+    "dificultad": 3,
+    "categoria": "Sistemas de Segundo Orden",
+    "pregunta": "En la EDO a·(d²y/dt²) + b·(dy/dt) + c·y = u, ¿qué efecto tiene aumentar el coeficiente b del término dy/dt?",
+    "opciones": {
+      "A": "Aumenta el amortiguamiento: la respuesta tiende a oscilar menos y a ser más monótona",
+      "B": "Aumenta la velocidad de respuesta porque dy/dt representa la velocidad de cambio de la salida",
+      "C": "Aumenta el valor final de la respuesta porque b modifica directamente la ganancia del sistema",
+      "D": "No tiene efecto apreciable porque dy/dt siempre vale cero cuando el sistema se estabiliza"
+    },
+    "respuesta_correcta": "A",
+    "explicacion": "El término b·(dy/dt) actúa como amortiguamiento (análogo a la fricción en sistemas mecánicos): frena la velocidad de cambio. Al aumentar b, el sistema se frena más y tiende a no oscilar. Con b muy grande la respuesta se vuelve lenta y monótona (sobreamortiguada). Con b pequeño la respuesta es oscilatoria. b no afecta el valor final (que depende de c)."
+  },
+  {
+    "id": "as_513",
+    "dificultad": 3,
+    "categoria": "Respuestas Dinámicas",
+    "pregunta": "Un sistema de primer orden recibe una entrada rampa. Después del transitorio, la salida crece a la misma velocidad que la entrada pero siempre detrás de ella. ¿Cómo se interpreta esto?",
+    "opciones": {
+      "A": "El sistema sigue la rampa con un error de posición permanente que no desaparece con el tiempo",
+      "B": "El sistema alcanzará la entrada exactamente cuando t → ∞ porque el error decrece continuamente",
+      "C": "El error desaparece solo si la ganancia K del sistema es exactamente igual a 1",
+      "D": "El comportamiento indica que el sistema es inestable porque el error no converge a cero"
+    },
+    "respuesta_correcta": "A",
+    "explicacion": "Ante una rampa, un sistema de primer orden entra en un régimen donde la salida crece a la misma velocidad que la entrada (la 'sigue') pero con un retraso fijo de τ·K unidades. Este error de posición constante nunca desaparece: es un error de seguimiento permanente. Para reducirlo habría que disminuir τ (responder más rápido)."
+  },
+  {
+    "id": "as_514",
+    "dificultad": 3,
+    "categoria": "Respuestas Dinámicas",
+    "pregunta": "Un sistema de primer orden tiene τ = 0.5 s. Se aplica primero un escalón y se observa el transitorio. Luego se aplica un impulso al mismo sistema. ¿Cómo se relacionan cualitativamente las dos respuestas?",
+    "opciones": {
+      "A": "La respuesta al impulso parte de un máximo en t = 0 y decae exponencialmente con la misma τ que el escalón",
+      "B": "La respuesta al impulso es completamente distinta porque el impulso no se parece al escalón",
+      "C": "La respuesta al impulso es la integral de la respuesta al escalón, por lo que sube antes de decaer",
+      "D": "La respuesta al impulso no puede relacionarse con la del escalón sin conocer la ganancia K"
+    },
+    "respuesta_correcta": "A",
+    "explicacion": "La respuesta al impulso es la derivada de la respuesta al escalón. Si el escalón produce y_s(t) = K(1−e^(−t/τ)), la respuesta al impulso es dy_s/dt = (K/τ)·e^(−t/τ): parte del máximo K/τ en t = 0 y decae con la misma constante τ. Comparten el mismo τ porque es una propiedad del sistema, no de la entrada."
+  },
+  {
+    "id": "as_515",
+    "dificultad": 3,
+    "categoria": "Respuestas Dinámicas",
+    "pregunta": "La respuesta al impulso de un sistema decae exponencialmente desde un valor máximo en t = 0. ¿En qué tiempo la respuesta al impulso cae al 37% de su valor máximo inicial?",
+    "opciones": {
+      "A": "En t = τ, porque la respuesta al impulso es K/τ·e^(−t/τ) y e⁻¹ ≈ 0.37 cuando t = τ",
+      "B": "En t = 2τ, porque la respuesta al impulso decae más lento que la del escalón",
+      "C": "En t = τ/2, porque la respuesta al impulso parte de un valor mayor que la del escalón",
+      "D": "No se puede determinar sin conocer el valor exacto de la ganancia K del sistema"
+    },
+    "respuesta_correcta": "A",
+    "explicacion": "La respuesta al impulso es h(t) = (K/τ)·e^(−t/τ). En t = τ: h(τ) = (K/τ)·e⁻¹ ≈ 0.37·(K/τ), es decir el 37% del valor inicial K/τ. Coincide con el mismo τ del sistema, ya que la exponencial de decaimiento es la misma. El valor de K afecta la amplitud pero no el tiempo de decaimiento."
+  },
+  {
+    "id": "as_516",
+    "dificultad": 3,
+    "categoria": "Respuestas Dinámicas",
+    "pregunta": "Se aplica primero un escalón y luego una rampa con la misma pendiente inicial al mismo sistema. ¿Qué diferencia cualitativa se observa en las respuestas?",
+    "opciones": {
+      "A": "Ante el escalón la salida se estabiliza en un valor fijo; ante la rampa sigue creciendo con un rezago constante respecto a la entrada",
+      "B": "La respuesta a la rampa se estabiliza más rápido porque la entrada crece y fuerza al sistema continuamente",
+      "C": "La respuesta al escalón tiene mayor valor final porque la entrada constante aporta más energía",
+      "D": "Ambas respuestas son iguales al inicio porque las dos entradas comparten la misma pendiente inicial"
+    },
+    "respuesta_correcta": "A",
+    "explicacion": "El escalón es una entrada constante; la salida converge a K·Δu y se estabiliza. La rampa es una entrada que crece sin parar; la salida nunca alcanza un valor fijo, sino que sigue creciendo con un desfase constante (el rezago de seguimiento τ·K·a). La identidad de pendientes iniciales no implica idénticas respuestas a largo plazo."
+  },
+  {
+    "id": "as_517",
+    "dificultad": 3,
+    "categoria": "Respuestas Dinámicas",
+    "pregunta": "Un ingeniero necesita determinar τ y K de un sistema con un solo experimento. ¿Qué entrada le conviene aplicar y por qué?",
+    "opciones": {
+      "A": "El escalón: de la curva se lee τ (tiempo al 63%) y K (relación Δy/Δu al estabilizarse)",
+      "B": "El impulso: el valor inicial da K directamente y el tiempo al 37% da τ sin ambigüedad",
+      "C": "La rampa: la pendiente final da K y el retraso entre entrada y salida da τ directamente",
+      "D": "Cualquier entrada sirve por igual; la elección depende solo de la disponibilidad del equipo"
+    },
+    "respuesta_correcta": "A",
+    "explicacion": "El escalón es el experimento estándar de identificación: la curva de respuesta muestra el valor final (→ K = Δy/Δu) y el tiempo al 63% (→ τ) de forma directa y visual. El impulso es difícil de generar con precisión en la práctica. La rampa requiere esperar el régimen transitorio y medir el desfase, que es menos directo."
+  },
+  {
+    "id": "as_518",
+    "dificultad": 3,
+    "categoria": "Respuestas Dinámicas",
+    "pregunta": "Ante el mismo escalón, el sistema A muestra respuesta oscilatoria y el sistema B sube monotónicamente. ¿Qué se puede inferir sobre los dos sistemas?",
+    "opciones": {
+      "A": "A es de segundo orden oscilatorio; B puede ser de primer orden o de segundo orden no oscilatorio",
+      "B": "A tiene mayor ganancia K que B porque el sobreimpulso indica amplificación de la señal",
+      "C": "B es necesariamente de primer orden porque los sistemas de segundo orden siempre oscilan",
+      "D": "A tiene mayor constante de tiempo τ que B porque las oscilaciones se deben a una respuesta lenta"
+    },
+    "respuesta_correcta": "A",
+    "explicacion": "La oscilación confirma que A es de segundo orden oscilatorio (no es posible en primer orden). B puede ser de primer orden (que nunca oscila) o de segundo orden no oscilatorio (raíces reales). Solo con la respuesta monótona no se puede distinguir entre ambos casos; habría que observar si la curva tiene la forma exacta de una exponencial simple o de suma de dos exponenciales."
+  },
+  {
+    "id": "as_119",
+    "dificultad": 4,
+    "categoria": "Conceptos de EDOs",
+    "pregunta": "Sistema A tiene solución homogénea y_h = C·e^(−t) y sistema B tiene y_h = C₁·e^(−t) + C₂·e^(−3t). Ambos tienen la misma solución particular. ¿Cómo difieren sus transitorios?",
+    "opciones": {
+      "A": "B tiene transitorio más complejo con dos modos de decaimiento; A tiene uno solo; ambos llegan al mismo estado final",
+      "B": "B tiene transitorio más corto porque dos términos exponenciales se anulan más rápido que uno solo",
+      "C": "A tiene transitorio más largo porque con un solo término hay menos formas de disipar la energía",
+      "D": "Ambos tienen transitorios idénticos porque la velocidad de decaimiento depende solo de las condiciones iniciales"
+    },
+    "respuesta_correcta": "A",
+    "explicacion": "B es de segundo orden: su transitorio es combinación lineal de dos exponenciales con tasas de decaimiento distintas (1 y 3), lo que puede producir formas no monotónicas dependiendo de las CI. A es de primer orden: su transitorio es siempre una sola exponencial. Como la solución particular es igual, ambos convergen al mismo estado final."
+  },
+  {
+    "id": "as_120",
+    "dificultad": 4,
+    "categoria": "Conceptos de EDOs",
+    "pregunta": "En la EDO 2(dy/dt) + b·y = u, con b = 3 el sistema es estable. Si b cambia a −3, ¿qué ocurre con la solución homogénea?",
+    "opciones": {
+      "A": "Crece sin límite porque la raíz de la ecuación característica pasa a ser positiva (s = +1.5)",
+      "B": "Sigue decayendo porque solo el coeficiente de dy/dt determina la estabilidad del sistema",
+      "C": "Se vuelve oscilatoria porque el signo negativo en b introduce una parte imaginaria en las raíces",
+      "D": "No cambia porque b solo afecta el valor final de la respuesta, no el transitorio"
+    },
+    "respuesta_correcta": "A",
+    "explicacion": "La ecuación característica es 2s + b = 0 → s = −b/2. Con b = 3: s = −1.5 (estable, decae). Con b = −3: s = +1.5 (inestable, crece). El signo de b determina el signo de la raíz y con ello la estabilidad. Un coeficiente b negativo en el término y convierte la disipación en una fuente de energía: el sistema se dispara."
+  },
+  {
+    "id": "as_121",
+    "dificultad": 4,
+    "categoria": "Conceptos de EDOs",
+    "pregunta": "Para la EDO τ(dy/dt) + y = K·u, si la entrada es un escalón u(t) = A para t > 0, ¿qué forma tiene la solución particular y por qué?",
+    "opciones": {
+      "A": "Una constante y_p = K·A, porque ante entrada constante la derivada debe ser cero en el equilibrio",
+      "B": "Una exponencial y_p = K·A·e^(−t/τ), porque la particular tiene la misma forma que la homogénea",
+      "C": "Una rampa y_p = K·A·t, porque una entrada constante se acumula linealmente con el tiempo",
+      "D": "No existe solución particular porque el escalón no es una función suave en t = 0"
+    },
+    "respuesta_correcta": "A",
+    "explicacion": "Para una entrada constante A, se prueba y_p = C (constante). Sustituyendo: τ·0 + C = K·A → C = K·A. Tiene sentido: en equilibrio dy/dt = 0, por lo que y = K·u = K·A. La particular no tiene forma exponencial (esa es la homogénea); tampoco crece con el tiempo porque la entrada es fija."
+  },
+  {
+    "id": "as_122",
+    "dificultad": 4,
+    "categoria": "Conceptos de EDOs",
+    "pregunta": "Para la EDO τ(dy/dt) + y = K·u con entrada rampa u(t) = a·t, la solución particular tiene la forma y_p = K·a·t − K·a·τ. ¿Cómo se interpreta este resultado?",
+    "opciones": {
+      "A": "La salida sigue la rampa de entrada con la misma pendiente (K·a) pero desplazada τ unidades hacia adelante",
+      "B": "La salida sigue la rampa pero con pendiente K·a·τ, que es mayor que la pendiente de la entrada",
+      "C": "La salida llega al mismo valor que la entrada en cada instante porque y_p = K·u cuando t es grande",
+      "D": "La solución particular crece cuadráticamente porque la integral de una rampa es una parábola"
+    },
+    "respuesta_correcta": "A",
+    "explicacion": "y_p = K·a·t − K·a·τ = K·a·(t − τ). Esto es una rampa de la misma pendiente K·a que la entrada K·u = K·a·t, pero desplazada τ unidades de tiempo atrás. El error de seguimiento permanente es K·a·τ (una constante). El sistema nunca alcanza la entrada porque siempre va con ese retraso fijo."
+  },
+  {
+    "id": "as_123",
+    "dificultad": 4,
+    "categoria": "Conceptos de EDOs",
+    "pregunta": "El proceso tiene EDO τ₁(dy/dt) + y = K·u. Se agrega un sensor con EDO τ₂(dz/dt) + z = y (la salida del sensor z sigue a la salida del proceso y). ¿Qué orden tiene el modelo combinado en z?",
+    "opciones": {
+      "A": "Segundo orden: al sustituir y del proceso en la ecuación del sensor se obtiene una EDO de segundo orden en z",
+      "B": "Primer orden: el sensor solo escala la señal y no agrega dinámica al modelo combinado",
+      "C": "Orden cero: las dos EDOs de primer orden se cancelan entre sí al combinarse en serie",
+      "D": "Tercer orden: cada subsistema aporta su propio orden y se deben sumar (1 + 1 + 1 = 3)"
+    },
+    "respuesta_correcta": "A",
+    "explicacion": "Sustituyendo y = τ₂(dz/dt) + z en la ecuación del proceso: τ₁·d/dt(τ₂(dz/dt)+z) + (τ₂(dz/dt)+z) = K·u → τ₁τ₂(d²z/dt²) + (τ₁+τ₂)(dz/dt) + z = K·u. Resultado: EDO de segundo orden en z. En general, n sistemas de primer orden en serie dan un sistema de orden n. El sensor sí agrega dinámica."
+  },
+  {
+    "id": "as_124",
+    "dificultad": 4,
+    "categoria": "Conceptos de EDOs",
+    "pregunta": "La EDO del sistema es 3(dy/dt) + y = 2u. Condición inicial y(0) = 5. Se aplica escalón u(t) = 4 para t > 0. ¿Cómo es la respuesta completa y(t)?",
+    "opciones": {
+      "A": "Parte de y = 5, decae el exceso y converge a y = 8 con τ = 3 s (y_final = K·u = 2×4 = 8)",
+      "B": "Parte de y = 0 y sube a y = 8 porque la condición inicial no afecta la respuesta al escalón",
+      "C": "Parte de y = 5 y sube a y = 2×4 = 8 con τ = 2 s porque τ = K en la forma estándar",
+      "D": "Parte de y = 5 y converge a y = 4 porque el valor final es igual al valor del escalón aplicado"
+    },
+    "respuesta_correcta": "A",
+    "explicacion": "τ = 3 s, K = 2, y_final = 2×4 = 8. Solución: y(t) = 8 + C·e^(−t/3). Aplicando y(0) = 5: C = 5−8 = −3. Entonces y(t) = 8 − 3·e^(−t/3): parte de 5 (< 8) y sube hacia 8. La CI sí afecta la respuesta (determina C). τ = 3 viene del coeficiente de dy/dt, no de K."
+  },
+  {
+    "id": "as_219",
+    "dificultad": 4,
+    "categoria": "Sistemas de Primer Orden",
+    "pregunta": "Dos sistemas en serie: la salida del sistema 1 (τ₁ = 2 s, K₁ = 3) es la entrada del sistema 2 (τ₂ = 5 s, K₂ = 0.5). Se aplica escalón Δu = 4 al sistema 1. ¿Cuál es el valor final de la salida del sistema 2?",
+    "opciones": {
+      "A": "Δy₂ = K₁·K₂·Δu = 3 × 0.5 × 4 = 6, porque las ganancias se multiplican en serie",
+      "B": "Δy₂ = (K₁ + K₂)·Δu = 3.5 × 4 = 14, porque las ganancias se suman en conexión serie",
+      "C": "Δy₂ = K₂·Δu = 0.5 × 4 = 2, porque solo la ganancia del último sistema determina la salida",
+      "D": "Δy₂ = K₁·Δu = 3 × 4 = 12, porque el primer sistema amplifica la señal y el segundo la atenúa pero sin restar"
+    },
+    "respuesta_correcta": "A",
+    "explicacion": "En conexión serie las ganancias estáticas se multiplican: K_total = K₁×K₂ = 1.5. La salida del sistema 1 es Δy₁ = K₁×Δu = 12; esta es la entrada del sistema 2, que la multiplica por K₂ = 0.5, dando Δy₂ = 12×0.5 = 6. Equivalentemente K₁×K₂×Δu = 1.5×4 = 6."
+  },
+  {
+    "id": "as_220",
+    "dificultad": 4,
+    "categoria": "Sistemas de Primer Orden",
+    "pregunta": "El mismo sistema en serie (τ₁ = 2 s, τ₂ = 5 s) se compara con un solo sistema de primer orden con τ = 7 s. ¿Cómo difieren sus transitorios?",
+    "opciones": {
+      "A": "El sistema en serie es más lento y tiene forma de S; el sistema simple con τ = 7 s tiene forma exponencial clásica",
+      "B": "Son idénticos porque la suma de constantes de tiempo (2+5 = 7) produce la misma respuesta",
+      "C": "El sistema en serie es más rápido porque cada etapa procesa la señal más rápido que una sola",
+      "D": "El sistema en serie oscila mientras el de τ = 7 s no, aunque ambos son combinaciones de primer orden"
+    },
+    "respuesta_correcta": "A",
+    "explicacion": "Dos sistemas de primer orden en serie producen un sistema de segundo orden con raíces reales distintas (−1/τ₁ y −1/τ₂). La respuesta tiene forma de S (inflexión en el transitorio) y es más lenta que cualquier sistema simple de primer orden con τ = τ₁ + τ₂. La suma de τ no reproduce la misma curva: las dinámicas no se «suman» linealmente."
+  },
+  {
+    "id": "as_221",
+    "dificultad": 4,
+    "categoria": "Sistemas de Primer Orden",
+    "pregunta": "Un ingeniero quiere reducir τ a la mitad para responder más rápido. ¿Qué análisis adicional es indispensable antes de aplicar este cambio?",
+    "opciones": {
+      "A": "Verificar que el sistema sigue siendo estable y que los actuadores pueden responder a esa mayor velocidad",
+      "B": "Calcular el nuevo valor final para asegurarse de que la salida no exceda los límites del proceso",
+      "C": "Confirmar que las condiciones iniciales del sistema no cambien al modificar τ",
+      "D": "Comprobar que el orden del sistema no cambie, porque τ menor puede generar oscilaciones en primer orden"
+    },
+    "respuesta_correcta": "A",
+    "explicacion": "Reducir τ implica cambiar parámetros físicos del proceso (masa, capacitancia, resistencia). Hay que verificar: (1) que el modelo lineal siga siendo válido en el nuevo punto de operación, y (2) que los actuadores puedan imponer los cambios más rápidos que ahora se exigen. Un sistema de primer orden no oscila por tener τ pequeño, pero los actuadores reales tienen limitaciones de velocidad."
+  },
+  {
+    "id": "as_222",
+    "dificultad": 4,
+    "categoria": "Sistemas de Primer Orden",
+    "pregunta": "Ante un escalón, la respuesta de un proceso tiene forma de S: parte despacio, acelera, llega a una velocidad máxima y luego se frena hacia el valor final. ¿Qué indica esto?",
+    "opciones": {
+      "A": "El proceso no es de primer orden puro: la forma de S sugiere un segundo orden o tiempo muerto significativo",
+      "B": "El proceso es de primer orden con ganancia K muy alta, porque K grande produce la forma de S",
+      "C": "El proceso es de primer orden estándar: la forma de S es la apariencia normal de una curva exponencial",
+      "D": "Las condiciones iniciales no nulas distorsionan la respuesta esperada de un sistema de primer orden"
+    },
+    "respuesta_correcta": "A",
+    "explicacion": "Un sistema de primer orden puro siempre tiene pendiente máxima en t = 0 y decreciente hacia el final: no hay forma de S. La forma de S (con inflexión) aparece cuando hay dos modos de respuesta (segundo orden no oscilatorio con raíces reales distintas) o cuando hay tiempo muerto significativo. Ambos casos requieren un modelo más complejo."
+  },
+  {
+    "id": "as_223",
+    "dificultad": 4,
+    "categoria": "Sistemas de Primer Orden",
+    "pregunta": "Para control de temperatura: proceso A (τ = 1 s, K = 10) vs proceso B (τ = 8 s, K = 1.5). ¿Cuál presenta mayor desafío de control y por qué?",
+    "opciones": {
+      "A": "El proceso A: responde muy rápido y amplifica mucho, lo que estrecha el margen de estabilidad del lazo de control",
+      "B": "El proceso B: una τ grande hace que el controlador siempre actúe con información retrasada",
+      "C": "Ambos son igualmente difíciles porque la dificultad de control depende solo del producto K·τ",
+      "D": "El proceso A es más fácil porque responde rápido y le da al controlador información más fresca"
+    },
+    "respuesta_correcta": "A",
+    "explicacion": "Una ganancia alta (K = 10) significa que pequeños errores en la actuación producen grandes desviaciones en la salida; combinado con τ pequeño (respuesta rápida), el controlador tiene muy poco margen antes de que el sistema se vaya al límite. El proceso B responde lentamente pero amplifica poco: más fácil de estabilizar. K·τ no es el único indicador relevante."
+  },
+  {
+    "id": "as_224",
+    "dificultad": 4,
+    "categoria": "Sistemas de Primer Orden",
+    "pregunta": "Un proceso cambia de condiciones y su modelo pasa de (τ = 2 s, K = 4) a (τ = 4 s, K = 2). Ante el mismo escalón Δu = 5, ¿qué cambia en la respuesta?",
+    "opciones": {
+      "A": "El valor final se reduce a la mitad (de 20 a 10) y el tiempo de respuesta se duplica",
+      "B": "El valor final no cambia porque el producto τ × K = 8 se mantiene igual en ambos modelos",
+      "C": "El valor final se duplica porque al reducirse K a la mitad τ debe compensar con mayor amplitud",
+      "D": "Nada cambia porque la suma τ + K = 6 es igual en los dos modelos (2+4 = 4+2)"
+    },
+    "respuesta_correcta": "A",
+    "explicacion": "El valor final es K·Δu: antes 4×5 = 20; después 2×5 = 10. τ determina la velocidad: antes llega al 95% en 6 s, después en 12 s. Ambos cambian en la misma dirección: K menor → valor final menor; τ mayor → respuesta más lenta. τ×K es un parámetro con significado físico pero no conserva el valor final."
+  },
+  {
+    "id": "as_319",
+    "dificultad": 4,
+    "categoria": "Respuesta de Primer Orden",
+    "pregunta": "A un sistema (τ = 3 s, K = 2) se aplica escalón Δu = 5 en t = 0 y se elimina en t = 3 s (cuando y ≈ 6.32). ¿Cómo es la respuesta para t > 3 s?",
+    "opciones": {
+      "A": "Decae exponencialmente desde ≈ 6.32 hacia cero con la misma τ = 3 s",
+      "B": "Continúa subiendo hacia y = 10 porque el transitorio iniciado no puede interrumpirse",
+      "C": "Cae abruptamente a cero porque al eliminar la entrada el sistema pierde toda su energía",
+      "D": "Decae con τ = 6 s porque al eliminar la entrada la constante de tiempo efectiva se duplica"
+    },
+    "respuesta_correcta": "A",
+    "explicacion": "Cuando u = 0, la solución particular es cero y la solución es y(t) = y(3s)·e^(−(t−3)/τ) = 6.32·e^(−(t−3)/3). El sistema decae desde el valor actual con la misma τ = 3 s; τ es una propiedad del sistema, no de la entrada. La «memoria» del sistema está en su estado actual (y = 6.32), no en la historia de la entrada."
+  },
+  {
+    "id": "as_320",
+    "dificultad": 4,
+    "categoria": "Respuesta de Primer Orden",
+    "pregunta": "Si al mismo sistema se le aplica un escalón doble (2·Δu) respecto al escalón original Δu, ¿cómo cambia la respuesta?",
+    "opciones": {
+      "A": "El valor final se duplica pero la forma temporal (porcentaje alcanzado en cada t) es idéntica a la original",
+      "B": "El valor final se duplica y el sistema también llega más rápido porque hay más fuerza disponible",
+      "C": "El valor final se duplica y τ se reduce a la mitad porque el sistema debe procesar más cambio",
+      "D": "La forma de la curva cambia de exponencial a lineal cuando el escalón es suficientemente grande"
+    },
+    "respuesta_correcta": "A",
+    "explicacion": "Por linealidad, duplicar Δu duplica toda la respuesta en amplitud: y_nuevo(t) = 2·y_original(t). El porcentaje alcanzado en cada momento (63% en t = τ, 95% en t = 3τ) no cambia porque depende solo de τ, no de la amplitud. La forma normalizada es siempre 1−e^(−t/τ), independientemente de K y Δu."
+  },
+  {
+    "id": "as_321",
+    "dificultad": 4,
+    "categoria": "Respuesta de Primer Orden",
+    "pregunta": "De la respuesta al escalón (Δu = 2) se conocen: y(∞) = 7 y y(3 s) = 4. ¿Se puede determinar τ y cómo?",
+    "opciones": {
+      "A": "Sí: K = y(∞)/Δu = 3.5 y de y(3)/y(∞) = 4/7 ≈ 0.571 = 1−e^(−3/τ) se despeja τ ≈ 3.54 s",
+      "B": "No: se necesita conocer el valor de la salida exactamente en t = τ para determinar τ",
+      "C": "Sí, pero solo si el punto medido (t = 3 s) coincide exactamente con t = 2τ del sistema",
+      "D": "No: con un solo punto medido y el valor final no hay información suficiente para encontrar τ"
+    },
+    "respuesta_correcta": "A",
+    "explicacion": "Con el valor final y cualquier punto intermedio se puede despejar τ. K = 7/2 = 3.5. La fracción alcanzada: 4/7 ≈ 0.571 = 1−e^(−3/τ) → e^(−3/τ) = 0.429 → τ = 3/ln(1/0.429) ≈ 3.54 s. No es necesario que el punto sea exactamente en t = τ; la ecuación y(t₁)/y(∞) = 1−e^(−t₁/τ) es válida para cualquier t₁."
+  },
+  {
+    "id": "as_322",
+    "dificultad": 4,
+    "categoria": "Respuesta de Primer Orden",
+    "pregunta": "El mismo sistema lineal recibe simultáneamente un escalón Δu₁ = 3 (positivo) y Δu₂ = −1 (negativo) desde t = 0. ¿Cuál es el valor final de la salida?",
+    "opciones": {
+      "A": "K·(Δu₁ + Δu₂) = K·2, porque para sistemas lineales la respuesta a entradas sumadas es la suma de respuestas",
+      "B": "K·Δu₁ = 3K, porque el sistema responde al escalón mayor y el negativo solo actúa después",
+      "C": "K·|Δu₁ − Δu₂| = K·4, porque las entradas de signos opuestos se restan en módulo",
+      "D": "K·Δu₂ = −K, porque el último escalón sobreescribe el efecto del primero"
+    },
+    "respuesta_correcta": "A",
+    "explicacion": "El principio de superposición establece que la respuesta a la suma de entradas es la suma de las respuestas individuales (válido para sistemas lineales). La entrada neta es Δu₁ + Δu₂ = 3 + (−1) = 2, y el valor final es K×2. Los dos escalones son simultáneos: el sistema no los procesa secuencialmente; los suma algebráicamente desde t = 0."
+  },
+  {
+    "id": "as_323",
+    "dificultad": 4,
+    "categoria": "Respuesta de Primer Orden",
+    "pregunta": "Identificar τ y K de la respuesta al impulso h(t) = 5·e^(−t/2) de un sistema de primer orden.",
+    "opciones": {
+      "A": "τ = 2 s y K = 10, porque h(t) = (K/τ)·e^(−t/τ) → K/τ = 5 y τ = 2, entonces K = 5×2 = 10",
+      "B": "τ = 2 s y K = 5, porque el coeficiente que multiplica la exponencial es directamente K",
+      "C": "τ = 5 s y K = 2, porque el coeficiente frente a la exponencial da τ y el denominador da K",
+      "D": "τ = 2 s y K = 2.5, porque K = τ × coeficiente / 2 = 2×5/2"
+    },
+    "respuesta_correcta": "A",
+    "explicacion": "La respuesta al impulso de un sistema de primer orden es h(t) = (K/τ)·e^(−t/τ). Comparando con h(t) = 5·e^(−t/2): el exponente da τ = 2 s; el coeficiente da K/τ = 5 → K = 5×2 = 10. La opción B confunde K/τ con K. Este resultado es consistente con la respuesta al escalón y_s(∞) = K·Δu = 10·1 = 10."
+  },
+  {
+    "id": "as_324",
+    "dificultad": 4,
+    "categoria": "Respuesta de Primer Orden",
+    "pregunta": "Un sistema (τ = 2 s, K = 1.5) tiene respuesta al escalón estabilizada en y = 6. Luego se añade una rampa de pendiente a = 2 sobre la entrada constante. Después del transitorio, ¿con qué pendiente crece la salida?",
+    "opciones": {
+      "A": "Con pendiente K·a = 1.5×2 = 3, igual a la ganancia por la pendiente de la rampa",
+      "B": "Con pendiente a = 2, porque la salida siempre replica la pendiente de la entrada en régimen",
+      "C": "Con pendiente a/τ = 1, porque τ divide la pendiente de entrada en el estado estacionario",
+      "D": "La salida no sigue la rampa: se estabiliza en un nuevo valor constante porque el escalón previo lo fija"
+    },
+    "respuesta_correcta": "A",
+    "explicacion": "Ante una rampa u = a·t, la particular es y_p = K·a·t − K·a·τ: tiene pendiente K·a. Aquí K·a = 1.5×2 = 3. El sistema sigue la rampa escalada por K pero con un retraso constante de K·a·τ = 1.5×2×2 = 6 unidades. La solución de escalón previo solo afecta el punto de partida, no la pendiente de seguimiento."
+  },
+  {
+    "id": "as_419",
+    "dificultad": 4,
+    "categoria": "Sistemas de Segundo Orden",
+    "pregunta": "Un sistema de 2° orden tiene ecuación característica s² + 2s + 5 = 0 (raíces s = −1 ± 2j, oscilatoria). Si el coeficiente del término s aumenta de 2 a 8, la ecuación pasa a ser s² + 8s + 5 = 0. ¿Qué ocurre?",
+    "opciones": {
+      "A": "Las raíces pasan a ser reales negativas (≈ −0.7 y −7.3): la respuesta deja de oscilar",
+      "B": "Las raíces siguen siendo complejas pero con mayor parte imaginaria: la respuesta oscila más rápido",
+      "C": "El valor final cambia porque el coeficiente de s también afecta la ganancia estática del sistema",
+      "D": "La respuesta se vuelve inestable porque aumentar el coeficiente de amortiguamiento siempre desestabiliza"
+    },
+    "respuesta_correcta": "A",
+    "explicacion": "Discriminante de s² + 8s + 5 = 0: 64 − 20 = 44 > 0 → raíces reales: s = (−8 ± √44)/2 ≈ −0.68 y −7.32. Al pasar el discriminante de negativo (oscilación) a positivo (sin oscilación), las raíces dejan de ser complejas. Aumentar el coeficiente de amortiguamiento suppresses oscillation, no desestabiliza. La ganancia estática no depende de ese coeficiente."
+  },
+  {
+    "id": "as_420",
+    "dificultad": 4,
+    "categoria": "Sistemas de Segundo Orden",
+    "pregunta": "Dos sistemas de segundo orden: A tiene ecuación característica s² + 2s + 1 = 0 y B tiene s² + 2s + 10 = 0. ¿Cuál tiene respuesta oscilatoria al escalón?",
+    "opciones": {
+      "A": "El sistema B: discriminante de B es 4−40 = −36 < 0 (raíces complejas); el de A es 4−4 = 0 (raíz doble real)",
+      "B": "El sistema A: la raíz doble genera una resonancia que produce oscilaciones de baja frecuencia",
+      "C": "Ambos oscilan porque los dos tienen el mismo coeficiente de s (igual a 2) en sus ecuaciones",
+      "D": "Ninguno oscila porque el coeficiente de s es positivo en los dos sistemas"
+    },
+    "respuesta_correcta": "A",
+    "explicacion": "Para s² + bs + c = 0, el discriminante es b² − 4c. A: 4 − 4 = 0 → raíz doble real s = −1 (críticamente amortiguado, no oscila). B: 4 − 40 = −36 < 0 → raíces complejas s = −1 ± 3j (oscilatorio). El valor del término independiente c determina si el discriminante es positivo o negativo para el mismo b."
+  },
+  {
+    "id": "as_421",
+    "dificultad": 4,
+    "categoria": "Sistemas de Segundo Orden",
+    "pregunta": "Para la ecuación d²y/dt² + 4(dy/dt) + 4y = u, ¿la respuesta al escalón es oscilatoria o no? Justifique.",
+    "opciones": {
+      "A": "No oscilatoria: la ecuación característica s² + 4s + 4 = (s+2)² = 0 tiene raíz doble real s = −2",
+      "B": "Oscilatoria: la presencia de dos derivadas siempre produce oscilaciones en el transitorio",
+      "C": "Oscilatoria: el coeficiente del término y (4) es igual al cuadrado del coeficiente de dy/dt (2²), lo que genera resonancia",
+      "D": "No determinable: se necesitan las condiciones iniciales para saber si la respuesta oscila"
+    },
+    "respuesta_correcta": "A",
+    "explicacion": "s² + 4s + 4 = (s+2)² = 0 → raíz doble real s = −2. Raíces reales siempre producen respuesta no oscilatoria (exponenciales puras). Este es el caso críticamente amortiguado. El tipo de respuesta (oscilatoria/no oscilatoria) depende de las raíces del sistema, no de las condiciones iniciales."
+  },
+  {
+    "id": "as_422",
+    "dificultad": 4,
+    "categoria": "Sistemas de Segundo Orden",
+    "pregunta": "Para el sistema d²y/dt² + b(dy/dt) + 9y = u con b > 0, ¿para qué rango de b la respuesta al escalón es oscilatoria?",
+    "opciones": {
+      "A": "Para 0 < b < 6: el discriminante b² − 36 < 0 produce raíces complejas",
+      "B": "Para b > 6: el discriminante positivo genera raíces complejas que producen oscilaciones",
+      "C": "Para cualquier b > 0 porque la ecuación tiene dos derivadas que siempre generan oscilaciones",
+      "D": "Solo para b = 0 porque sin amortiguamiento el sistema oscila indefinidamente"
+    },
+    "respuesta_correcta": "A",
+    "explicacion": "Ecuación característica: s² + bs + 9 = 0. Discriminante: b² − 36. Raíces complejas (oscilatorio) cuando b² − 36 < 0 → b² < 36 → b < 6 (para b > 0). Para b ≥ 6 las raíces son reales y la respuesta es no oscilatoria. La frontera b = 6 es el caso críticamente amortiguado."
+  },
+  {
+    "id": "as_423",
+    "dificultad": 4,
+    "categoria": "Sistemas de Segundo Orden",
+    "pregunta": "En la EDO a(d²y/dt²) + b(dy/dt) + cy = u, si b = 0 (sin término de amortiguamiento), ¿qué ocurre con la respuesta al escalón?",
+    "opciones": {
+      "A": "El sistema oscila indefinidamente sin decaer porque no hay término que disipe la energía",
+      "B": "El sistema se vuelve inestable y la respuesta crece sin límite porque b = 0 implica ganancia infinita",
+      "C": "El sistema responde como uno de primer orden porque sin dy/dt la ecuación se simplifica a orden uno",
+      "D": "El sistema no responde a ninguna entrada porque b = 0 desacopla la salida de la entrada"
+    },
+    "respuesta_correcta": "A",
+    "explicacion": "Con b = 0: s² + c/a = 0 → s = ±j√(c/a), raíces puramente imaginarias. La respuesta es y = A·cos(ωt) + B·sen(ωt), una oscilación sinusoidal de amplitud constante. No es inestabilidad (que implica crecimiento), sino oscilación sostenida: el sistema es marginalmente estable. Un resorte sin fricción es el ejemplo físico clásico."
+  },
+  {
+    "id": "as_424",
+    "dificultad": 4,
+    "categoria": "Sistemas de Segundo Orden",
+    "pregunta": "Para d²y/dt² + 5(dy/dt) + cy = u con c > 0, ¿cuál es el valor mínimo de c para que la respuesta sea oscilatoria?",
+    "opciones": {
+      "A": "c > 6.25, porque el discriminante 25 − 4c < 0 exige c > 25/4 = 6.25",
+      "B": "c > 5, porque el coeficiente de amortiguamiento (5) debe ser menor que el término independiente",
+      "C": "c > 25, porque el discriminante b² = 25 debe ser superado por el doble del término independiente",
+      "D": "Para cualquier c > 0 la respuesta es oscilatoria porque el sistema tiene orden dos"
+    },
+    "respuesta_correcta": "A",
+    "explicacion": "Discriminante de s² + 5s + c: 25 − 4c. Para raíces complejas (oscilatorio): 25 − 4c < 0 → c > 25/4 = 6.25. Para c ≤ 6.25 las raíces son reales y la respuesta no oscila. El umbral es c = 6.25 (críticamente amortiguado). Por debajo de ese valor el amortiguamiento domina sobre la tendencia a oscilar."
+  },
+  {
+    "id": "as_519",
+    "dificultad": 4,
+    "categoria": "Respuestas Dinámicas",
+    "pregunta": "Del escalón se obtuvo τ = 4 s y K = 3. Un colega aplica un impulso y obtiene h(t) = A·e^(−t/B). ¿Qué valores de A y B son consistentes con los del escalón?",
+    "opciones": {
+      "A": "B = 4 s y A = K/τ = 3/4 = 0.75, porque τ es el mismo para ambas entradas y A = K/τ",
+      "B": "B = 4 s y A = 3, porque la ganancia K aparece directamente en la respuesta al impulso",
+      "C": "B = 4/3 s y A = 3, porque la respuesta al impulso tiene constante de tiempo K/τ = 3/4",
+      "D": "B = 3 s y A = 4, porque en la respuesta al impulso τ y K intercambian sus roles"
+    },
+    "respuesta_correcta": "A",
+    "explicacion": "h(t) = (K/τ)·e^(−t/τ). El exponente de decaimiento es 1/τ = 1/4 s → B = 4 s (mismo τ del sistema). El coeficiente es K/τ = 3/4 = 0.75 → A = 0.75. Los dos experimentos deben dar la misma τ porque es una propiedad del sistema, y A = K/τ, no K directamente."
+  },
+  {
+    "id": "as_520",
+    "dificultad": 4,
+    "categoria": "Respuestas Dinámicas",
+    "pregunta": "Un sistema lineal de primer orden respondió a escalón Δu₁ = 3 dando y₁(t), y a escalón Δu₂ = 5 dando y₂(t), en experimentos separados. Si se aplican ambos simultáneamente, ¿cuál es la respuesta?",
+    "opciones": {
+      "A": "y₁(t) + y₂(t), porque el principio de superposición aplica a sistemas lineales",
+      "B": "y₁(t) · y₂(t), porque los dos escalones interactúan multiplicativamente al ser simultáneos",
+      "C": "max(y₁(t), y₂(t)), porque el sistema solo puede procesar la entrada dominante en cada instante",
+      "D": "(y₁(t) + y₂(t)) / 2, porque el sistema promedia las dos entradas cuando llegan al mismo tiempo"
+    },
+    "respuesta_correcta": "A",
+    "explicacion": "La superposición es válida para cualquier sistema lineal: y(Δu₁ + Δu₂) = y(Δu₁) + y(Δu₂). Aplicar ambos escalones simultáneamente es equivalente a aplicar uno de amplitud Δu₁ + Δu₂ = 8; la respuesta es y₁ + y₂. Las opciones B, C y D corresponden a comportamientos no lineales que no aplican aquí."
+  },
+  {
+    "id": "as_521",
+    "dificultad": 4,
+    "categoria": "Respuestas Dinámicas",
+    "pregunta": "A un sistema (τ = 2 s, K = 1.5) se aplica un escalón Δu = 4 en t = 5 s (no en t = 0). Para t < 5 s la salida vale cero. ¿Cómo es la respuesta para t ≥ 5 s?",
+    "opciones": {
+      "A": "Idéntica en forma a la del escalón en t = 0 pero desplazada 5 s a la derecha: y(t) = 6·(1−e^(−(t−5)/2))",
+      "B": "Más lenta porque el sistema estuvo 5 s en reposo y acumuló inercia que frena la respuesta",
+      "C": "Más rápida porque el sistema llevaba 5 s estabilizado y responde con menos resistencia",
+      "D": "Diferente en forma porque el modelo cambia cuando la entrada se aplica fuera del intervalo t = 0"
+    },
+    "respuesta_correcta": "A",
+    "explicacion": "Para un sistema LTI (lineal e invariante en el tiempo), la respuesta a un escalón retardado es la misma respuesta al escalón en t = 0 pero trasladada en el tiempo. El retraso no cambia τ ni K; solo desplaza la curva. y(t) = K·Δu·(1−e^(−(t−t₀)/τ)) = 6·(1−e^(−(t−5)/2)) para t ≥ 5 s."
+  },
+  {
+    "id": "as_522",
+    "dificultad": 4,
+    "categoria": "Respuestas Dinámicas",
+    "pregunta": "Un pulso rectangular de amplitud 3 se aplica de t = 0 a t = 4 s y luego se elimina. ¿Cómo se puede calcular la respuesta usando solo la respuesta al escalón conocida del sistema?",
+    "opciones": {
+      "A": "Superponiendo un escalón positivo de amplitud 3 en t = 0 más un escalón negativo de amplitud 3 en t = 4 s",
+      "B": "Multiplicando la respuesta al escalón por la duración del pulso (4 s) y dividiendo entre τ",
+      "C": "Calculando la integral de la respuesta al impulso entre t = 0 y t = 4 s",
+      "D": "Usando la respuesta al impulso en t = 0 y sumándola a la respuesta al impulso en t = 4 s"
+    },
+    "respuesta_correcta": "A",
+    "explicacion": "Un pulso rectangular es la suma de un escalón positivo u₁(t) = 3 desde t = 0 y un escalón negativo u₂(t) = −3 desde t = 4 s. Por superposición: y_pulso(t) = y_escalón(t) − y_escalón(t−4). Esta descomposición permite calcular la respuesta a cualquier señal escalonada usando solo la respuesta al escalón unitario."
+  },
+  {
+    "id": "as_523",
+    "dificultad": 4,
+    "categoria": "Respuestas Dinámicas",
+    "pregunta": "¿Qué implica que una respuesta al escalón tenga forma de S (parte lenta, luego se acelera y finalmente se frena) para el tipo de experimento de identificación que se debe usar?",
+    "opciones": {
+      "A": "El modelo de primer orden puro no es adecuado; se necesita un modelo de segundo orden o con tiempo muerto para identificar correctamente",
+      "B": "El escalón no es el experimento correcto para este sistema; se debe usar una rampa para obtener la forma exponencial",
+      "C": "El sistema tiene ganancia K < 1 y por eso la respuesta parece más lenta de lo normal al inicio",
+      "D": "La forma de S confirma que el sistema es de primer orden porque todos los sistemas de primer orden muestran esa forma"
+    },
+    "respuesta_correcta": "A",
+    "explicacion": "Un primer orden puro siempre tiene la pendiente máxima en t = 0 (no hay forma de S). La inflexión en la curva indica que hay al menos dos modos dinámicos: podría ser un segundo orden con raíces reales distintas o un primer orden con tiempo muerto. En cualquier caso, ajustar un modelo de primer orden simple a esos datos daría parámetros erróneos."
+  },
+  {
+    "id": "as_524",
+    "dificultad": 4,
+    "categoria": "Respuestas Dinámicas",
+    "pregunta": "De la respuesta al escalón de un sistema de primer orden se obtienen K = 2 y τ = 3 s. Un estudiante afirma que con esos dos parámetros puede predecir la respuesta del sistema a cualquier entrada. ¿Es correcto?",
+    "opciones": {
+      "A": "Sí: K y τ definen completamente el modelo τ(dy/dt) + y = Ku, que es válido para cualquier entrada en un sistema lineal",
+      "B": "No: también se necesita la respuesta al impulso para predecir entradas arbitrarias distintas al escalón",
+      "C": "No: K y τ solo son válidos para entradas tipo escalón y no se pueden generalizar a otros tipos",
+      "D": "Solo si las condiciones iniciales son siempre cero; con CI no nulas se necesitan parámetros adicionales"
+    },
+    "respuesta_correcta": "A",
+    "explicacion": "Para un sistema LTI de primer orden, τ y K definen la EDO completamente: τ(dy/dt) + y = K·u. Esta ecuación predice la respuesta a cualquier entrada u(t), combinada con las condiciones iniciales. La respuesta al impulso ya está implícita en τ y K (h(t) = K/τ·e^(−t/τ)). Los parámetros del sistema no dependen del tipo de entrada con que se identificaron."
+  },
+  {
+    "id": "as_125",
+    "dificultad": 5,
+    "categoria": "Conceptos de EDOs",
+    "pregunta": "La solución completa de un sistema ante un escalón es y(t) = 5 + e^(−t)·[A·cos(3t) + B·sen(3t)]. ¿Qué revela esta expresión sobre el sistema?",
+    "opciones": {
+      "A": "Es de segundo orden oscilatorio estable: parte imaginaria ±3j indica oscilación, parte real −1 indica decaimiento, y la constante 5 es el estado estacionario",
+      "B": "Es inestable porque contiene funciones trigonométricas que no convergen a un valor fijo con el tiempo",
+      "C": "El valor final es cero porque las exponenciales siempre dominan sobre las constantes cuando t crece",
+      "D": "Es de primer orden porque tiene un solo coeficiente de amortiguamiento (−1) en la exponencial"
+    },
+    "respuesta_correcta": "A",
+    "explicacion": "La estructura y_h = e^(−t)[A·cos(3t)+B·sen(3t)] corresponde a raíces s = −1 ± 3j: parte real negativa garantiza estabilidad, parte imaginaria produce oscilación con frecuencia 3 rad/s. Cuando t → ∞ la homogénea decae y solo queda y_p = 5 (estado estacionario). Sistema de segundo orden oscilatorio estable."
+  },
+  {
+    "id": "as_126",
+    "dificultad": 5,
+    "categoria": "Conceptos de EDOs",
+    "pregunta": "Para a(d²y/dt²) + b(dy/dt) + cy = u con a, b, c todos positivos, ¿qué se puede afirmar sobre la estabilidad?",
+    "opciones": {
+      "A": "El sistema es estable: para segundo orden, coeficientes positivos es condición necesaria y suficiente de estabilidad",
+      "B": "El sistema puede ser inestable aunque todos los coeficientes sean positivos, si su magnitud no cumple cierta relación",
+      "C": "El sistema es estable solo si c > b, condición que depende de los valores específicos de cada coeficiente",
+      "D": "La estabilidad no puede determinarse sin calcular las raíces de la ecuación característica explícitamente"
+    },
+    "respuesta_correcta": "A",
+    "explicacion": "Para un sistema de segundo orden, el criterio de Routh establece que todas las raíces están en el semiplano izquierdo si y solo si todos los coeficientes del polinomio característico son positivos. Con a, b, c > 0 el sistema es necesaria y suficientemente estable. Para órdenes superiores (n ≥ 3) esto solo es condición necesaria."
+  },
+  {
+    "id": "as_127",
+    "dificultad": 5,
+    "categoria": "Conceptos de EDOs",
+    "pregunta": "Un tanque perfectamente mezclado tiene balance V(dC/dt) = F·C_in − F·C. ¿Cuáles son τ y K del sistema si la entrada es C_in y la salida es C?",
+    "opciones": {
+      "A": "τ = V/F y K = 1, porque reorganizando queda (V/F)(dC/dt) + C = C_in en forma estándar",
+      "B": "τ = F/V y K = F, porque la constante de tiempo es la razón flujo/volumen",
+      "C": "τ = V·F y K = 1/F, porque la constante de tiempo es el producto de ambas variables físicas",
+      "D": "τ = V/F y K = F/V, porque ambos parámetros dependen de la misma relación física V/F"
+    },
+    "respuesta_correcta": "A",
+    "explicacion": "Dividiendo entre F: (V/F)(dC/dt) + C = C_in. Comparando con τ(dy/dt) + y = K·u: τ = V/F (tiempo de residencia del tanque) y K = 1 (la concentración de salida en equilibrio iguala a la de entrada). τ = V/F es el tiempo promedio que tarda el fluido en pasar por el tanque."
+  },
+  {
+    "id": "as_128",
+    "dificultad": 5,
+    "categoria": "Conceptos de EDOs",
+    "pregunta": "Un proceso no lineal tiene EDO: τ(dy/dt) + y² = K·u. Linealizado alrededor de y₀ resulta: τ(dΔy/dt) + 2y₀·Δy = K·Δu. ¿Qué implica el factor 2y₀?",
+    "opciones": {
+      "A": "Tanto τ_ef = τ/(2y₀) como K_ef = K/(2y₀) dependen del punto de operación: el modelo cambia según dónde opera el proceso",
+      "B": "Solo la ganancia cambia con y₀; la constante de tiempo τ permanece igual porque solo depende del coeficiente de dy/dt",
+      "C": "El sistema linealizado es más estable que el no lineal porque 2y₀ > 1 para cualquier y₀ > 0.5",
+      "D": "El factor 2y₀ es un error en la linealización; la EDO linealizada correcta no debe depender del punto de operación"
+    },
+    "respuesta_correcta": "A",
+    "explicacion": "Dividiendo por 2y₀: (τ/2y₀)(dΔy/dt) + Δy = (K/2y₀)·Δu. En forma estándar: τ_ef = τ/(2y₀) y K_ef = K/(2y₀). Ambos parámetros del modelo linealizado dependen de y₀. Si el proceso opera a distintos puntos, el modelo cambia. Por eso los sistemas no lineales deben reidentificarse en cada punto de operación relevante."
+  },
+  {
+    "id": "as_129",
+    "dificultad": 5,
+    "categoria": "Conceptos de EDOs",
+    "pregunta": "¿Bajo qué condición es válido el principio de superposición para predecir la respuesta de un sistema?",
+    "opciones": {
+      "A": "Solo cuando el sistema es lineal: si la EDO tiene términos no lineales (y², y·dy/dt, etc.) la superposición falla",
+      "B": "Siempre que el sistema sea estable, independientemente de si la EDO es lineal o no lineal",
+      "C": "Solo cuando las condiciones iniciales son todas iguales a cero antes del experimento",
+      "D": "Solo para entradas de tipo escalón; para rampas e impulsos la superposición no es matemáticamente válida"
+    },
+    "respuesta_correcta": "A",
+    "explicacion": "La superposición es una propiedad exclusiva de los sistemas lineales. Para que y(u₁+u₂) = y(u₁)+y(u₂), la EDO debe ser lineal en y y sus derivadas. Si hay términos no lineales, la respuesta a la suma no es la suma de las respuestas. La estabilidad y el tipo de entrada no determinan si la superposición aplica."
+  },
+  {
+    "id": "as_130",
+    "dificultad": 5,
+    "categoria": "Conceptos de EDOs",
+    "pregunta": "Las raíces de la ecuación característica se denominan 'polos'. Para τ(dy/dt) + y = Ku, la ecuación es τs + 1 = 0 con polo en s = −1/τ. ¿Qué información práctica da este polo?",
+    "opciones": {
+      "A": "Estabilidad (polo en semiplano izquierdo, s < 0) y velocidad (τ = 1/|polo|): polo más alejado del origen → τ menor → sistema más rápido",
+      "B": "El polo indica solo la frecuencia de oscilación del sistema; no está relacionado con la estabilidad",
+      "C": "El polo es el punto donde la ganancia se vuelve infinita, lo que causa sobreimpulso en la respuesta",
+      "D": "La ubicación del polo no tiene relación directa con τ ni con la velocidad de respuesta del sistema"
+    },
+    "respuesta_correcta": "A",
+    "explicacion": "Un polo en s = −a (real negativo) implica: (1) estabilidad porque Re(s) < 0, y (2) τ = 1/a. Cuanto más lejos del origen, menor τ y más rápido el sistema. Para polos complejos, la parte real da el decaimiento y la parte imaginaria la frecuencia de oscilación."
+  },
+  {
+    "id": "as_225",
+    "dificultad": 5,
+    "categoria": "Sistemas de Primer Orden",
+    "pregunta": "De un proceso se sabe que su respuesta al escalón llega al 50% del valor final en t = 2 s. ¿Cuál es τ?",
+    "opciones": {
+      "A": "τ ≈ 2.89 s, porque el 50% se alcanza en t₅₀ = τ·ln(2) ≈ 0.693·τ, despejando τ = 2/0.693",
+      "B": "τ = 2 s, porque el tiempo al 50% siempre es igual a la constante de tiempo del sistema",
+      "C": "τ = 4 s, porque el tiempo al 50% es siempre la mitad de la constante de tiempo real",
+      "D": "τ no puede determinarse: el tiempo al 50% no está relacionado con τ de forma directa"
+    },
+    "respuesta_correcta": "A",
+    "explicacion": "En t₅₀: 0.5 = 1 − e^(−t₅₀/τ) → e^(−t₅₀/τ) = 0.5 → t₅₀ = τ·ln(2) ≈ 0.693·τ. Despejando τ = 2/0.693 ≈ 2.89 s. El 50% no ocurre en t = τ sino en t ≈ 0.693·τ. Cada porcentaje de la respuesta corresponde a un múltiplo distinto de τ."
+  },
+  {
+    "id": "as_226",
+    "dificultad": 5,
+    "categoria": "Sistemas de Primer Orden",
+    "pregunta": "Modelo identificado a 50°C: τ = 5 s, K = 2. La ganancia varía como K(T) = K(T₀) + α·ΔT con α = 0.02/°C. ¿Cuál es K a 80°C?",
+    "opciones": {
+      "A": "K(80°C) = 2 + 0.02·(80−50) = 2.6, porque K crece linealmente desde el punto de identificación",
+      "B": "K(80°C) = 2·(80/50) = 3.2, porque K escala proporcionalmente con la temperatura absoluta",
+      "C": "K(80°C) = 2 porque τ y K son constantes del sistema independientes de las condiciones de operación",
+      "D": "K(80°C) = 2 + 0.02·80 = 3.6, porque α multiplica la temperatura absoluta, no el incremento"
+    },
+    "respuesta_correcta": "A",
+    "explicacion": "ΔT = 80 − 50 = 30°C. K(80) = 2 + 0.02·30 = 2.6. El modelo es lineal en ΔT desde el punto de identificación. La opción D usa T absoluta en vez de ΔT: error común. La opción C ignora que los parámetros de procesos reales dependen de las condiciones de operación."
+  },
+  {
+    "id": "as_227",
+    "dificultad": 5,
+    "categoria": "Sistemas de Primer Orden",
+    "pregunta": "Tres sistemas de primer orden idénticos (τ = 1 s, K = 1) conectados en serie. ¿Qué orden tiene el sistema combinado y cómo es su respuesta al escalón?",
+    "opciones": {
+      "A": "Orden 3: respuesta con forma de S pronunciada, valor final = 1, más lento que cualquier primer orden simple con τ = 3 s",
+      "B": "Orden 1 equivalente con τ_total = 3 s: los τ se suman y la curva tiene la misma forma exponencial",
+      "C": "Orden 3: la cascada genera respuesta oscilatoria porque tres primeros órdenes en serie crean dinámica oscilatoria",
+      "D": "Orden 1 equivalente: el sistema más lento de la cadena domina y los otros dos se pueden ignorar"
+    },
+    "respuesta_correcta": "A",
+    "explicacion": "n sistemas de primer orden en serie producen un sistema de orden n. Con tres: orden 3, con tres polos reales en s = −1. La respuesta tiene forma de S (inflexión), valor final = 1, y es más lenta que un primer orden con τ = 3 s porque la cascada introduce retardos adicionales. No oscila porque los polos son reales."
+  },
+  {
+    "id": "as_228",
+    "dificultad": 5,
+    "categoria": "Sistemas de Primer Orden",
+    "pregunta": "Al ajustar un modelo de primer orden a datos de escalón, el ajuste es excelente para t > 2 s pero la respuesta real arranca más lento para t < 2 s. ¿Cuál es la causa más probable?",
+    "opciones": {
+      "A": "El proceso tiene tiempo muerto de ≈ 2 s no incluido en el modelo de primer orden puro",
+      "B": "La ganancia K fue sobreestimada; un K menor haría que el modelo arrancara más despacio",
+      "C": "El proceso es no lineal y el modelo falla al inicio por las condiciones iniciales",
+      "D": "τ fue subestimado; un τ mayor ajustaría mejor el arranque lento observado"
+    },
+    "respuesta_correcta": "A",
+    "explicacion": "El tiempo muerto (θ) causa que la salida no responda nada durante un intervalo inicial. El modelo puro predice respuesta desde t = 0, pero el proceso real no arranca hasta t ≈ θ = 2 s. La solución: modelo con tiempo muerto y(t) = K·Δu·(1−e^(−(t−θ)/τ)) para t > θ. Cambiar τ o K no puede reproducir esa ausencia de respuesta inicial."
+  },
+  {
+    "id": "as_229",
+    "dificultad": 5,
+    "categoria": "Sistemas de Primer Orden",
+    "pregunta": "Respuesta al escalón (Δu = 5, K = 2, y_final = 10): y(2 s) = 4 y y(6 s) = 7. ¿Son consistentes con un modelo de primer orden puro?",
+    "opciones": {
+      "A": "No: y(2) da τ ≈ 3.9 s y y(6) da τ ≈ 5.0 s; la inconsistencia sugiere tiempo muerto o modelo de orden superior",
+      "B": "Sí: la diferencia entre los dos τ estimados se debe al ruido y se puede promediar τ ≈ 4.5 s",
+      "C": "No: y(2) = 4 excede el 63% del valor final (6.3), lo que es imposible en primer orden con τ > 2 s",
+      "D": "Sí: ambos puntos están dentro del transitorio y cualquier par de puntos en esa región es consistente"
+    },
+    "respuesta_correcta": "A",
+    "explicacion": "y(2)/10 = 0.4 → τ = 2/ln(1/0.6) ≈ 3.91 s. y(6)/10 = 0.7 → τ = 6/ln(1/0.3) ≈ 4.98 s. Si fuera primer orden puro, ambos deberían dar el mismo τ. La discrepancia sugiere tiempo muerto no modelado: la respuesta real arrancó tarde, distorsionando el ajuste."
+  },
+  {
+    "id": "as_230",
+    "dificultad": 5,
+    "categoria": "Sistemas de Primer Orden",
+    "pregunta": "Un sistema eléctrico tiene τ = R·C. Si R se duplica y C se reduce a la mitad simultáneamente, ¿cómo cambia τ?",
+    "opciones": {
+      "A": "τ no cambia: τ_nuevo = (2R)·(C/2) = R·C = τ_original; la velocidad de respuesta es idéntica",
+      "B": "τ se duplica porque R y C contribuyen aditivamente a la constante de tiempo del sistema",
+      "C": "τ se reduce a la mitad porque el efecto neto de los dos cambios (×2 y ×0.5) es un factor 0.5",
+      "D": "τ cambia a √2·τ porque los cambios en R y C tienen efecto de raíz cuadrada sobre τ"
+    },
+    "respuesta_correcta": "A",
+    "explicacion": "τ = R·C es un producto, no una suma. τ_nuevo = (2R)·(C/2) = 2·(1/2)·R·C = R·C = τ. Los factores se cancelan exactamente. La dinámica no cambia a pesar de modificar ambos parámetros físicos: dos cambios aparentemente grandes pueden neutralizarse mutuamente."
+  },
+  {
+    "id": "as_325",
+    "dificultad": 5,
+    "categoria": "Respuesta de Primer Orden",
+    "pregunta": "Respuesta al escalón de un proceso: salida plana en cero durante 1 s, luego sube como exponencial hasta el valor final sin sobreimpulso. El ajuste desde t = 1 s da τ = 4 s y K = 2. ¿Cuál es el modelo más apropiado?",
+    "opciones": {
+      "A": "Primer orden con tiempo muerto: y(t) = K·Δu·(1−e^(−(t−1)/4)) para t > 1 s, con θ = 1 s, τ = 4 s, K = 2",
+      "B": "Primer orden puro con τ_efectivo = 5 s porque el tiempo muerto se debe incluir en la constante de tiempo",
+      "C": "Segundo orden no oscilatorio porque el retardo inicial indica presencia de dos modos dinámicos distintos",
+      "D": "Primer orden con τ = 4 s y K = 2 ignorando el tiempo plano porque es probablemente ruido de medición"
+    },
+    "respuesta_correcta": "A",
+    "explicacion": "El tiempo plano de 1 s es el tiempo muerto θ: el sistema no responde en absoluto durante ese intervalo. El modelo correcto es primer orden con tiempo muerto con θ = 1 s, τ = 4 s, K = 2. Incluir θ en τ produce un modelo inexacto que no refleja la física real del proceso."
+  },
+  {
+    "id": "as_326",
+    "dificultad": 5,
+    "categoria": "Respuesta de Primer Orden",
+    "pregunta": "La respuesta al escalón y(t) = 10·(1−e^(−t/5)) fue obtenida con Δu = 2. Si se aplica Δu_nuevo = 6, ¿cuál es la nueva respuesta?",
+    "opciones": {
+      "A": "y_nuevo(t) = 30·(1−e^(−t/5)), porque K = y_final/Δu = 10/2 = 5 y la nueva respuesta es K·6·(1−e^(−t/5)) = 30·(1−e^(−t/5))",
+      "B": "y_nuevo(t) = 10·(1−e^(−t/5)) + 20, porque el escalón adicional de 4 unidades agrega K·4 = 20 al valor final",
+      "C": "y_nuevo(t) = 10·(1−e^(−t/15)), porque τ escala proporcionalmente con el escalón: 5×(6/2) = 15",
+      "D": "y_nuevo(t) = 60·(1−e^(−t/5)), porque Δu se triplica y el coeficiente 10 se multiplica por K·factor"
+    },
+    "respuesta_correcta": "A",
+    "explicacion": "K = 10/2 = 5 y τ = 5 s. Para Δu_nuevo = 6: y_nuevo(∞) = K·6 = 30. La opción C confunde τ con Δu: τ es propiedad del sistema, no de la entrada. El escalón solo escala la amplitud, no la forma temporal."
+  },
+  {
+    "id": "as_327",
+    "dificultad": 5,
+    "categoria": "Respuesta de Primer Orden",
+    "pregunta": "Sistema (τ = 2 s, K = 3): escalón Δu₁ = +4 en t = 0 y escalón adicional Δu₂ = −2 en t = 1 s (antes de estabilizarse). ¿Cuál es el valor final?",
+    "opciones": {
+      "A": "y_final = K·(Δu₁ + Δu₂) = 3·(4−2) = 6, porque el valor final depende de la entrada neta total acumulada",
+      "B": "y_final = K·Δu₁ = 12, porque el primer escalón ya había comprometido el estado final del sistema",
+      "C": "y_final = K·Δu₂ = −6, porque el segundo escalón sobreescribe el efecto del primero",
+      "D": "y_final = y(1 s) + K·Δu₂ = 7.06 + 3·(−2) = 1.06, porque el nuevo final se calcula desde el estado actual"
+    },
+    "respuesta_correcta": "A",
+    "explicacion": "Por superposición, la entrada total neta es 4 + (−2) = 2. El valor final es K×2 = 6. La entrada neta determina el estado estacionario sin importar la secuencia de aplicación. La opción D confunde estado transitorio con condición inicial."
+  },
+  {
+    "id": "as_328",
+    "dificultad": 5,
+    "categoria": "Respuesta de Primer Orden",
+    "pregunta": "Sistema (τ = 2 s, K = 1.5) en y = 0. Escalón Δu = 4 en t = 0. En t = 10 s (y ≈ 6, estabilizado) se aplica otro escalón Δu = 2. ¿Cómo es la respuesta para t > 10 s?",
+    "opciones": {
+      "A": "Nuevo transitorio exponencial desde y = 6 hacia y_final = K·(4+2) = 9, con τ = 2 s",
+      "B": "El sistema converge a y = K·2 = 3, porque el segundo escalón reemplaza el estado anterior",
+      "C": "El sistema permanece en y = 6 porque ya está en estado estacionario y no acepta más cambios",
+      "D": "El sistema converge a y = 6 + K·2·τ = 6 + 6 = 12, porque τ amplifica el segundo escalón"
+    },
+    "respuesta_correcta": "A",
+    "explicacion": "La entrada total acumulada es 4 + 2 = 6. El nuevo estado final es K·6 = 9. Desde y = 6 se inicia un nuevo transitorio exponencial con τ = 2 s hacia y = 9. Los dos escalones se acumulan porque el sistema es LTI."
+  },
+  {
+    "id": "as_329",
+    "dificultad": 5,
+    "categoria": "Respuesta de Primer Orden",
+    "pregunta": "La respuesta al impulso de un sistema es h(t) = 2·e^(−t/4). La respuesta al escalón (Δu = 3) da valor final y(∞) = 24. ¿Son estos datos consistentes?",
+    "opciones": {
+      "A": "Sí: de h(t) se extrae τ = 4 s y K/τ = 2 → K = 8; entonces y(∞) = K·Δu = 8×3 = 24 ✓",
+      "B": "No: la respuesta al impulso da K = 2 directamente, y entonces y(∞) debería ser 2×3 = 6 ≠ 24",
+      "C": "No: de h(t) se extrae K = 2·τ = 8 pero y(∞) debería ser K·τ = 8·4 = 32 ≠ 24",
+      "D": "No: la respuesta al impulso da τ = 4 y K = 2, con y(∞) = K·Δu = 2×3 = 6 ≠ 24"
+    },
+    "respuesta_correcta": "A",
+    "explicacion": "h(t) = (K/τ)·e^(−t/τ) → τ = 4 s y K/τ = 2 → K = 8. Verificación: y(∞) = K·Δu = 8×3 = 24 ✓. Las opciones B y D confunden el coeficiente K/τ con K directamente. En la respuesta al impulso el coeficiente externo es K/τ, no K."
+  },
+  {
+    "id": "as_330",
+    "dificultad": 5,
+    "categoria": "Respuesta de Primer Orden",
+    "pregunta": "Usando múltiples puntos de la respuesta al escalón para estimar τ, se obtienen valores distintos según qué puntos se usen. ¿Cuál es la estrategia más robusta?",
+    "opciones": {
+      "A": "Aplicar τ = −t/ln(1−y(t)/y(∞)) a varios puntos, promediar y analizar la consistencia para detectar tiempo muerto u orden superior",
+      "B": "Usar siempre solo el punto al 63% del valor final porque es el único que define τ por definición exacta",
+      "C": "Elegir el punto que dé el τ más pequeño porque los puntos iniciales son los menos afectados por ruido",
+      "D": "Usar el punto donde la respuesta llega al 95% y dividirlo entre 3, porque eso siempre da τ exacto"
+    },
+    "respuesta_correcta": "A",
+    "explicacion": "Si el sistema es un primer orden puro, todos los puntos deben dar el mismo τ = −t/ln(1−y(t)/y(∞)). Si los estimados son inconsistentes, el modelo de primer orden no es adecuado. Usar múltiples puntos permite estimación robusta y diagnosticar la validez del modelo."
+  },
+  {
+    "id": "as_425",
+    "dificultad": 5,
+    "categoria": "Sistemas de Segundo Orden",
+    "pregunta": "La forma estándar del sistema de segundo orden es (1/ωₙ²)(d²y/dt²) + (2ζ/ωₙ)(dy/dt) + y = K·u. ¿Qué valor de ζ marca el límite entre respuesta oscilatoria y no oscilatoria?",
+    "opciones": {
+      "A": "ζ = 1: para ζ < 1 la respuesta es oscilatoria (subamortiguada), para ζ > 1 es no oscilatoria (sobreamortiguada)",
+      "B": "ζ = 0.5: ese valor separa los dos tipos de respuesta de forma óptima",
+      "C": "ζ = 0: sin amortiguamiento el sistema siempre oscila pero no hay límite entre los dos tipos",
+      "D": "ζ = 2: ese es el coeficiente de la primera derivada que aparece en la forma estándar"
+    },
+    "respuesta_correcta": "A",
+    "explicacion": "Las raíces son s = −ζωₙ ± ωₙ√(ζ²−1). Para ζ < 1: raíces complejas → oscilatoria (subamortiguada). Para ζ = 1: raíz doble real → críticamente amortiguado. Para ζ > 1: dos raíces reales distintas → sobreamortiguado. El comportamiento oscilatorio observado en clase corresponde a ζ < 1."
+  },
+  {
+    "id": "as_426",
+    "dificultad": 5,
+    "categoria": "Sistemas de Segundo Orden",
+    "pregunta": "El comportamiento oscilatorio observado en clase corresponde a ζ = 0.3. ¿Qué se predice sobre un sistema similar con ζ = 0.8?",
+    "opciones": {
+      "A": "Sigue siendo oscilatorio (ζ < 1) pero con mucho menos sobreimpulso y oscilaciones que se amortiguan más rápidamente",
+      "B": "Es no oscilatorio porque ζ > 0.5 siempre produce respuesta monótona sin sobreimpulso",
+      "C": "Oscila con mayor frecuencia porque un ζ mayor implica más energía almacenada por ciclo",
+      "D": "Oscila exactamente el doble de veces que con ζ = 0.4 porque la relación de amortiguamientos es 2:1"
+    },
+    "respuesta_correcta": "A",
+    "explicacion": "Ambos valores (0.3 y 0.8) son menores que 1, por lo que ambos son subamortiguados (oscilatorios). Sin embargo, ζ = 0.8 tiene mucho más amortiguamiento: el sobreimpulso es mucho menor y las oscilaciones decaen más rápido. El límite es ζ = 1, no ζ = 0.5."
+  },
+  {
+    "id": "as_427",
+    "dificultad": 5,
+    "categoria": "Sistemas de Segundo Orden",
+    "pregunta": "Los polos de un sistema de segundo orden son s = −1 ± 2j. ¿Cuáles son ωₙ y ζ?",
+    "opciones": {
+      "A": "ωₙ = √5 ≈ 2.24 rad/s y ζ ≈ 0.45, de las relaciones ζωₙ = 1 y ωₙ² = 1² + 2² = 5",
+      "B": "ωₙ = 2 rad/s y ζ = 0.5, porque la parte imaginaria da ωₙ directamente",
+      "C": "ωₙ = 1 rad/s y ζ = 2, porque la parte real da ωₙ y la imaginaria da ζ·ωₙ",
+      "D": "ωₙ = 3 rad/s y ζ = 1/3, porque ωₙ es la suma de los módulos de ambas partes: 1 + 2 = 3"
+    },
+    "respuesta_correcta": "A",
+    "explicacion": "Para s = −ζωₙ ± jωₙ√(1−ζ²): parte real = −ζωₙ = −1 y parte imaginaria = ωₙ√(1−ζ²) = 2. ωₙ² = 1² + 2² = 5 → ωₙ = √5 ≈ 2.24 rad/s. Luego ζ = 1/ωₙ ≈ 0.447. Las demás opciones confunden la correspondencia entre partes del polo y los parámetros del sistema."
+  },
+  {
+    "id": "as_428",
+    "dificultad": 5,
+    "categoria": "Sistemas de Segundo Orden",
+    "pregunta": "Para el sistema con ecuación característica s² + 2s + 10 = 0 (polos s = −1 ± 3j), ¿qué información práctica dan estos polos?",
+    "opciones": {
+      "A": "Sistema estable y oscilatorio: parte real −1 indica decaimiento con τ_dec = 1 s, parte imaginaria ±3 indica frecuencia de oscilación de 3 rad/s",
+      "B": "Sistema inestable porque la parte imaginaria indica oscilaciones que no decaen con el tiempo",
+      "C": "Sistema estable no oscilatorio: la frecuencia se calcula como la suma de la parte real e imaginaria",
+      "D": "Los polos solo sirven para calcular el valor final de la respuesta, no para predecir la forma del transitorio"
+    },
+    "respuesta_correcta": "A",
+    "explicacion": "Polos en s = −1 ± 3j: parte real negativa (−1) → estable (e^(−t) decae). Parte imaginaria (±3j) → oscilatoria con frecuencia 3 rad/s. La constante de decaimiento es τ_dec = 1/|parte real| = 1 s. Un polo complejo con parte real negativa siempre corresponde a oscilación amortiguada (estable y oscilatoria)."
+  },
+  {
+    "id": "as_429",
+    "dificultad": 5,
+    "categoria": "Sistemas de Segundo Orden",
+    "pregunta": "Se desea la respuesta más rápida posible sin sobreimpulso. ¿Cuál es el valor óptimo de ζ y por qué?",
+    "opciones": {
+      "A": "ζ = 1 (críticamente amortiguado): no oscila y es el más rápido entre todas las respuestas no oscilatorias",
+      "B": "ζ = 0 (sin amortiguamiento): sin disipación el sistema llega al valor final más rápido",
+      "C": "ζ = 0.5: valor medio que balancea velocidad y sobreimpulso de manera óptima para la mayoría de procesos",
+      "D": "ζ > 2: valores altos aseguran ausencia de sobreimpulso y la respuesta es siempre más rápida que con ζ = 1"
+    },
+    "respuesta_correcta": "A",
+    "explicacion": "Para ζ < 1 hay sobreimpulso (no cumple el requisito). Para ζ > 1 no hay sobreimpulso pero la respuesta es más lenta que para ζ = 1 (las raíces reales se alejan del origen). ζ = 1 (raíces dobles) es exactamente el límite: sin sobreimpulso y la más rápida posible dentro de las no oscilatorias."
+  },
+  {
+    "id": "as_430",
+    "dificultad": 5,
+    "categoria": "Sistemas de Segundo Orden",
+    "pregunta": "Un sistema de segundo orden tiene ωₙ = 5 rad/s y ζ = 0.2. ¿Cómo será cualitativamente la respuesta al escalón?",
+    "opciones": {
+      "A": "Oscilatoria con sobreimpulso notable y oscilaciones que se amortiguan lentamente porque ζ es pequeño",
+      "B": "No oscilatoria muy rápida: ωₙ grande implica respuesta veloz sin oscilaciones",
+      "C": "No oscilatoria porque ζ = 0.2 < 0.5 corresponde al rango críticamente amortiguado",
+      "D": "Inestable porque ζ < 1 indica que las raíces están en el semiplano derecho del plano complejo"
+    },
+    "respuesta_correcta": "A",
+    "explicacion": "ζ = 0.2 < 1 → subamortiguado → oscilatoria con sobreimpulso. Un ζ pequeño produce mucho sobreimpulso y oscilaciones que tardan en disiparse. ζ < 1 no implica inestabilidad: s = −1 ± j·4.9, con parte real negativa → estable y oscilatorio."
+  },
+  {
+    "id": "as_525",
+    "dificultad": 5,
+    "categoria": "Respuestas Dinámicas",
+    "pregunta": "Un proceso completamente desconocido debe identificarse con un solo experimento. ¿Cuál es la estrategia más informativa y práctica?",
+    "opciones": {
+      "A": "Respuesta al escalón: da K del valor final, τ del 63%, y la forma de la curva revela orden superior, tiempo muerto u oscilaciones",
+      "B": "Respuesta al impulso: contiene toda la dinámica del sistema y es el experimento más breve posible",
+      "C": "Respuesta a la rampa: el error de seguimiento estacionario da simultáneamente K y τ en un solo dato",
+      "D": "Respuesta senoidal a múltiples frecuencias: es la más completa y la más rápida de realizar en planta"
+    },
+    "respuesta_correcta": "A",
+    "explicacion": "El escalón es el estándar industrial: fácil de aplicar, da K del valor final, τ del 63%, y la forma diagnóstica el tipo de modelo (S → orden superior, sobreimpulso → oscilatorio, retardo → tiempo muerto). El impulso es completo teóricamente pero imposible de aplicar con precisión en planta."
+  },
+  {
+    "id": "as_526",
+    "dificultad": 5,
+    "categoria": "Respuestas Dinámicas",
+    "pregunta": "Se realizan los tres experimentos estándar en el mismo proceso y se obtienen τ y K ligeramente distintos en cada uno. ¿Cuál es la causa más probable?",
+    "opciones": {
+      "A": "El sistema no es perfectamente lineal ni invariante en el tiempo: distintos experimentos excitan distintos rangos de operación",
+      "B": "El impulso y el escalón siempre dan τ diferentes porque son fundamentalmente distintos en naturaleza matemática",
+      "C": "La rampa da K diferente porque K depende de la velocidad de la entrada, no es propiedad del sistema",
+      "D": "Las discrepancias se deben exclusivamente al ruido de medición y desaparecen con suficientes repeticiones"
+    },
+    "respuesta_correcta": "A",
+    "explicacion": "En un sistema LTI ideal, todos los experimentos dan los mismos τ y K. Las discrepancias indican que el modelo lineal es solo una aproximación local: distintos experimentos pueden excitar rangos no lineales distintos. El ruido solo explica variaciones estadísticas, no discrepancias sistemáticas."
+  },
+  {
+    "id": "as_527",
+    "dificultad": 5,
+    "categoria": "Respuestas Dinámicas",
+    "pregunta": "Sistema (τ = 3 s, K = 2) recibe: escalón +5 en t = 0, escalón −3 en t = 6 s, escalón +1 en t = 12 s. ¿Cuál es el valor final de la salida?",
+    "opciones": {
+      "A": "y_final = K·(5 − 3 + 1) = 2·3 = 6, por superposición: el valor final depende de la entrada neta acumulada",
+      "B": "y_final = K·5 = 10, porque el primer escalón (el de mayor amplitud) determina el estado final",
+      "C": "y_final = K·1 = 2, porque el último escalón aplicado reemplaza a los anteriores en el estado estacionario",
+      "D": "y_final = K·(5 + 3 + 1) = 18, porque todos los cambios de magnitud se suman sin importar el signo"
+    },
+    "respuesta_correcta": "A",
+    "explicacion": "Por superposición, el valor final es K multiplicado por la suma algebraica de todos los escalones: Δu_total = 5 − 3 + 1 = 3. y_final = 2·3 = 6. El estado estacionario final depende solo de la entrada neta total; los escalones negativos reducen el valor final."
+  },
+  {
+    "id": "as_528",
+    "dificultad": 5,
+    "categoria": "Respuestas Dinámicas",
+    "pregunta": "Ante un escalón, un proceso muestra: (1) salida plana por 0.5 s, (2) sube con forma de S durante 2 s, (3) llega al valor final sin sobreimpulso. ¿Cuál es el modelo más completo?",
+    "opciones": {
+      "A": "Segundo orden no oscilatorio con tiempo muerto de 0.5 s: el retardo explica (1), la S explica (2) con dos raíces reales, sin sobreimpulso confirma no oscilatorio",
+      "B": "Primer orden puro con τ = 2.5 s: el retardo inicial es parte de τ y la forma de S es la exponencial normal",
+      "C": "Segundo orden oscilatorio con tiempo muerto: la forma de S siempre precede al sobreimpulso",
+      "D": "Tercer orden sin tiempo muerto: los tres comportamientos distintos requieren tres modos independientes"
+    },
+    "respuesta_correcta": "A",
+    "explicacion": "(1) Tiempo muerto θ = 0.5 s: sin respuesta. (2) Forma de S indica dos modos de decaimiento reales: segundo orden con raíces reales distintas. (3) Sin sobreimpulso confirma raíces reales. El modelo mínimo: segundo orden no oscilatorio con tiempo muerto."
+  },
+  {
+    "id": "as_529",
+    "dificultad": 5,
+    "categoria": "Respuestas Dinámicas",
+    "pregunta": "La respuesta al escalón (Δu = 3) da τ = 2 s, K = 4, y_final = 12. La respuesta al impulso es h(t) = A·e^(−t/2). ¿Qué valor de A es consistente y qué verifica esto?",
+    "opciones": {
+      "A": "A = K/τ = 4/2 = 2; verifica que ambos experimentos caracterizan el mismo sistema con los mismos parámetros",
+      "B": "A = K = 4; la respuesta al impulso tiene la misma amplitud que la ganancia del sistema",
+      "C": "A = τ/K = 2/4 = 0.5; el coeficiente del impulso es la relación inversa entre τ y K",
+      "D": "A = K·τ = 4·2 = 8; el coeficiente del impulso es el producto de la ganancia por la constante de tiempo"
+    },
+    "respuesta_correcta": "A",
+    "explicacion": "h(t) = (K/τ)·e^(−t/τ) = (4/2)·e^(−t/2) = 2·e^(−t/2). Entonces A = 2. La consistencia entre experimentos verifica que el sistema es LTI. Una discrepancia indicaría no linealidad o error experimental."
+  },
+  {
+    "id": "as_530",
+    "dificultad": 5,
+    "categoria": "Respuestas Dinámicas",
+    "pregunta": "Ante un escalón Δu = 10, un proceso muestra: sube rápido, alcanza pico y = 15, oscila y se estabiliza en y = 8. ¿Qué se infiere sobre K, el tipo de sistema y el amortiguamiento?",
+    "opciones": {
+      "A": "K = 8/10 = 0.8; sistema de segundo orden oscilatorio (ζ < 1); sobreimpulso del 87.5% indica ζ muy pequeño",
+      "B": "K = 15/10 = 1.5; sistema de primer orden porque una ganancia mayor que 1 genera el sobreimpulso",
+      "C": "K = 8/10 = 0.8; sistema de primer orden porque el valor final es menor que el pico, lo cual es normal",
+      "D": "K = 15/10 = 1.5; la ganancia siempre se mide en el pico de la respuesta, no en el valor estacionario"
+    },
+    "respuesta_correcta": "A",
+    "explicacion": "K = y_final/Δu = 8/10 = 0.8 (el valor estacionario define K, no el pico). El sobreimpulso confirma segundo orden oscilatorio: un primer orden nunca supera el valor final. % sobreimpulso = (15−8)/8 × 100 = 87.5%, correspondiente a ζ muy pequeño (≈ 0.1). La ganancia siempre se mide en estado estacionario."
+  }
+]
