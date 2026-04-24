@@ -24,6 +24,7 @@ try:
         render_security_banner,
         apply_client_hardening,
         render_focus_counter_sentinel,
+        render_fingerprint_sentinel,
     )
     from src.data_persistence import DataPersistence
     from utils.validators import validate_codigo_estudiante
@@ -39,13 +40,14 @@ except ModuleNotFoundError:
         render_security_banner,
         apply_client_hardening,
         render_focus_counter_sentinel,
+        render_fingerprint_sentinel,
     )
     from data_persistence import DataPersistence
     from validators import validate_codigo_estudiante
     from exam_logger import ExamLogger
 
 
-def _serializar_estado_exam_logic(exam_logic) -> str:
+def _serializar_estado_exam_logic(exam_logic, pregunta_pendiente=None, opciones_pendientes=None) -> str:
     """Serializa el estado mínimo necesario para restaurar un examen en curso."""
     respuestas_minimas = []
     for r in exam_logic.preguntas_respondidas:
@@ -56,7 +58,6 @@ def _serializar_estado_exam_logic(exam_logic) -> str:
             'correcta': bool(r.get('correcta', False)),
             'nivel_en_pregunta': r.get('nivel_en_pregunta', 3),
             'letra_seleccionada': r.get('letra_seleccionada', ''),
-            'letra_correcta': r.get('letra_correcta', ''),
         })
 
     payload = {
@@ -70,10 +71,17 @@ def _serializar_estado_exam_logic(exam_logic) -> str:
         'categorias_evaluadas': list(exam_logic.categorias_evaluadas),
         'preguntas_respondidas': respuestas_minimas,
     }
+
+    if pregunta_pendiente and opciones_pendientes:
+        payload['pregunta_pendiente'] = {
+            'pregunta_id': pregunta_pendiente.get('id', ''),
+            'opciones_mezcladas': dict(opciones_pendientes),
+        }
+
     return json.dumps(payload, ensure_ascii=False)
 
 
-def _restaurar_estado_exam_logic(exam_logic, progreso: dict) -> bool:
+def _restaurar_estado_exam_logic(exam_logic, question_manager, progreso: dict) -> bool:
     """Restaura el estado de exam_logic desde una fila EN_CURSO de Sheets."""
     try:
         estado_json = progreso.get('Estado_JSON', '')
@@ -90,6 +98,21 @@ def _restaurar_estado_exam_logic(exam_logic, progreso: dict) -> bool:
             exam_logic.historial_notas = list(estado.get('historial_notas', []))
             exam_logic.categorias_evaluadas = set(estado.get('categorias_evaluadas', []))
             exam_logic.preguntas_respondidas = list(estado.get('preguntas_respondidas', []))
+
+            pregunta_pendiente = estado.get('pregunta_pendiente') or {}
+            pregunta_id = str(pregunta_pendiente.get('pregunta_id', '')).strip()
+            opciones_mezcladas = pregunta_pendiente.get('opciones_mezcladas') or {}
+            if pregunta_id and isinstance(opciones_mezcladas, dict):
+                pregunta_obj = question_manager.obtener_pregunta_por_id(pregunta_id)
+                if pregunta_obj is None:
+                    return False
+
+                pregunta_key = f"pregunta_actual_{exam_logic.pregunta_actual}"
+                opciones_key = f"opciones_pregunta_{exam_logic.pregunta_actual}"
+                st.session_state[pregunta_key] = pregunta_obj
+                st.session_state[opciones_key] = dict(opciones_mezcladas)
+                st.session_state[f'_ts_q_{exam_logic.pregunta_actual}'] = time.time()
+
             return True
 
         exam_logic.pregunta_actual = int(progreso.get('Preguntas_Respondidas', 0) or 0)
@@ -1661,6 +1684,14 @@ def _manejar_umbral_foco(config: dict, security_policy: dict, focus_count: int) 
             examen_id=str(config.get('_examen_id', '')),
             extra={"focus_losses": focus_count, "delta": delta},
         )
+        try:
+            persistence = DataPersistence(config)
+            persistence.actualizar_contador_cambios_foco(
+                st.session_state.get('codigo_estudiante', ''),
+                focus_count,
+            )
+        except Exception:
+            pass
 
     max_perm = int(security_policy.get("max_perdidas_foco_permitidas", 0))
     if max_perm > 0 and focus_count >= max_perm:
@@ -1700,6 +1731,44 @@ def ejecutar_examen(config, question_manager, ui, security_policy):
     focus_count = render_focus_counter_sentinel(security_policy)
     _manejar_umbral_foco(config, security_policy, focus_count)
 
+    # ── Fingerprint de sesion ─────────────────────────────────────────────────
+    fingerprint = render_fingerprint_sentinel(security_policy)
+    if fingerprint and not st.session_state.get('_fp_guardado'):
+        st.session_state['_fp_guardado'] = True
+        st.session_state['_fingerprint_sesion'] = fingerprint
+        _log_evento_operacion(
+            Path(__file__).parent,
+            "fingerprint_sesion",
+            "Fingerprint de cliente registrado",
+            codigo=codigo,
+            examen_id=str(config.get('_examen_id', '')),
+            extra={"fingerprint": fingerprint},
+        )
+        try:
+            persistence = DataPersistence(config)
+            persistence.actualizar_fingerprint_sesion(codigo, fingerprint)
+        except Exception:
+            pass
+    elif fingerprint and st.session_state.get('_fp_guardado'):
+        prev_fp = st.session_state.get('_fingerprint_sesion', '')
+        if prev_fp and fingerprint != prev_fp:
+            _log_evento_operacion(
+                Path(__file__).parent,
+                "alerta_seguridad",
+                "Cambio de fingerprint detectado durante el examen",
+                codigo=codigo,
+                examen_id=str(config.get('_examen_id', '')),
+                extra={"fp_previo": prev_fp, "fp_nuevo": fingerprint},
+            )
+            try:
+                persistence = DataPersistence(config)
+                persistence.registrar_alerta_seguridad(
+                    codigo, "cambio_fingerprint",
+                    f"fp_previo={prev_fp[:80]},fp_nuevo={fingerprint[:80]}"
+                )
+            except Exception:
+                pass
+
     if 'security_policy_logged' not in st.session_state:
         st.session_state.security_policy_logged = False
     if not st.session_state.security_policy_logged:
@@ -1719,7 +1788,7 @@ def ejecutar_examen(config, question_manager, ui, security_policy):
         progreso = st.session_state.pop('progreso_a_restaurar', None)
 
         if progreso:
-            restaurado = _restaurar_estado_exam_logic(st.session_state.exam_logic, progreso)
+            restaurado = _restaurar_estado_exam_logic(st.session_state.exam_logic, question_manager, progreso)
             if not restaurado:
                 st.warning("⚠️ No se pudo restaurar completamente el estado. Se continuará con estado parcial.")
         else:
@@ -1779,6 +1848,28 @@ def ejecutar_examen(config, question_manager, ui, security_policy):
         
         st.session_state[pregunta_key] = pregunta_obj
         st.session_state[opciones_key] = exam_logic.mezclar_opciones(pregunta_obj['opciones'])
+        # Registrar momento en que se muestra la pregunta para medir tiempo de respuesta
+        st.session_state[f'_ts_q_{exam_logic.pregunta_actual}'] = time.time()
+
+        try:
+            persistence = DataPersistence(config)
+            persistence.actualizar_progreso_examen(
+                st.session_state.codigo_estudiante,
+                exam_logic.pregunta_actual,
+                exam_logic.correctas,
+                exam_logic.incorrectas,
+                nivel_actual=exam_logic.nivel_actual,
+                nota_actual=exam_logic.historial_notas[-1] if exam_logic.historial_notas else 0.0,
+                preguntas_ids=exam_logic.preguntas_usadas,
+                theta_actual=exam_logic.theta_actual,
+                estado_json=_serializar_estado_exam_logic(
+                    exam_logic,
+                    pregunta_pendiente=pregunta_obj,
+                    opciones_pendientes=st.session_state[opciones_key],
+                )
+            )
+        except Exception as e:
+            _log_evento_operacion(Path(__file__).parent, "warning_persistencia", f"No se pudo persistir pregunta pendiente: {e}", codigo=st.session_state.codigo_estudiante, examen_id=str(config.get('_examen_id', '')))
     
     pregunta_obj = st.session_state[pregunta_key]
     opciones_mezcladas = st.session_state[opciones_key]
@@ -1819,10 +1910,14 @@ def ejecutar_examen(config, question_manager, ui, security_policy):
                 st.warning("⚠️ Debes seleccionar una opción antes de confirmar.")
                 st.stop()
 
+            _ts_inicio = st.session_state.get(f'_ts_q_{exam_logic.pregunta_actual}')
+            _tiempo_resp = round(time.time() - _ts_inicio, 1) if _ts_inicio else None
+
             exam_logic.procesar_respuesta(
                 pregunta_obj,
                 respuesta_seleccionada,
-                opciones_mezcladas
+                opciones_mezcladas,
+                tiempo_respuesta_s=_tiempo_resp,
             )
             
             if pregunta_key in st.session_state:
@@ -1881,7 +1976,11 @@ def guardar_resultados(config, exam_logic):
     try:
         # 1. PRIMERO: Calcular estadísticas
         stats = exam_logic.calcular_estadisticas_finales()
-        
+
+        # Inyectar métricas de seguridad en config para _preparar_datos
+        config['_fingerprint_sesion'] = st.session_state.get('_fingerprint_sesion', '')
+        config['_respuestas_rapidas'] = stats.get('respuestas_rapidas', 0)
+
         # 2. SEGUNDO: Guardar en session_state INMEDIATAMENTE (antes de cualquier st.write)
         st.session_state.final_stats = stats
         

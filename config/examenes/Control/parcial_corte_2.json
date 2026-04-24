@@ -24,7 +24,8 @@
     "max_desviacion_nivel_pregunta": 3
   },
   "seguridad_cliente": {
-    "perfil": "parcial"
+    "perfil": "parcial",
+    "retroalimentacion_final": "completa"
   },
   "sistema_calificacion": {
     "tipo": "irt_simplificado",

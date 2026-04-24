@@ -32,6 +32,7 @@ class QuestionManager:
         self.base_path = Path(base_path) if base_path else Path.cwd()
         self.preguntas_usadas_ids = set()
         self.preguntas = []
+        self.ultima_seleccion_metadata = {}
 
         if preguntas_data is not None:
             if not isinstance(preguntas_data, list) or len(preguntas_data) == 0:
@@ -110,6 +111,14 @@ class QuestionManager:
         Returns:
             Diccionario con la pregunta o None si no hay preguntas disponibles
         """
+        self.ultima_seleccion_metadata = {
+            'nivel_objetivo': nivel,
+            'theta': theta,
+            'categorias_prioritarias': sorted(categorias_prioritarias) if categorias_prioritarias else [],
+            'candidatos_totales': 0,
+            'metodo': 'sin_candidatos',
+        }
+
         # Asegurar que el nivel esté en rango válido
         nivel = max(1, min(5, nivel))
         max_desviacion_nivel = max(1, min(4, int(max_desviacion_nivel)))
@@ -155,6 +164,7 @@ class QuestionManager:
         if not preguntas_disponibles:
             # Si hay filtro de categorías, hacer fallback sin filtro
             if categorias_objetivo:
+                self.ultima_seleccion_metadata['metodo'] = 'fallback_sin_categoria'
                 return self.obtener_pregunta_por_nivel(
                     nivel,
                     preguntas_usadas,
@@ -163,6 +173,10 @@ class QuestionManager:
                     max_desviacion_nivel=max_desviacion_nivel
                 )
             return None
+
+        self.ultima_seleccion_metadata['candidatos_totales'] = len(preguntas_disponibles)
+        self.ultima_seleccion_metadata['niveles_candidatos'] = sorted({p.get('dificultad', nivel) for p in preguntas_disponibles})
+        self.ultima_seleccion_metadata['ids_candidatos'] = [p.get('id', '') for p in preguntas_disponibles[:5]]
         
         # Selección por máxima información si theta está disponible
         if theta is not None and len(preguntas_disponibles) > 1:
@@ -179,10 +193,22 @@ class QuestionManager:
             )
             # Elegir entre las top 3 para mantener variedad
             top_n = min(3, len(preguntas_ordenadas))
-            return random.choice(preguntas_ordenadas[:top_n])
+            elegida = random.choice(preguntas_ordenadas[:top_n])
+            self.ultima_seleccion_metadata.update({
+                'metodo': 'max_info_top_n',
+                'top_n': top_n,
+                'ids_top_n': [p.get('id', '') for p in preguntas_ordenadas[:top_n]],
+                'pregunta_elegida_id': elegida.get('id', ''),
+            })
+            return elegida
         
         # Sin theta: selección aleatoria
-        return random.choice(preguntas_disponibles)
+        elegida = random.choice(preguntas_disponibles)
+        self.ultima_seleccion_metadata.update({
+            'metodo': 'aleatoria_uniforme',
+            'pregunta_elegida_id': elegida.get('id', ''),
+        })
+        return elegida
     
     def obtener_pregunta_por_id(self, pregunta_id: str) -> Optional[Dict[str, Any]]:
         """

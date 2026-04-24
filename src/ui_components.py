@@ -188,6 +188,9 @@ class UIComponents:
         nota_final = stats['nota_final']
         color_nota = self._get_color_nota(nota_final)
         porcentaje = stats['porcentaje_correctas']
+        feedback_mode = str(
+            self.config.get('seguridad_cliente', {}).get('retroalimentacion_final', 'completa')
+        )
         
         # Header compacto con nota y métricas
         header_html = f"""
@@ -227,13 +230,15 @@ class UIComponents:
                     
                     with st.expander(f"{estado} Pregunta {i} - {detalle['categoria']} (Nivel {detalle['dificultad']})"):
                         st.markdown(f"**{detalle['pregunta']}**")
+                        st.caption(f"Tu selección: {detalle.get('letra_seleccionada', '-')}")
                         
                         if detalle['correcta']:
                             st.success("Tu respuesta fue correcta")
-                        else:
+                        elif feedback_mode == 'completa':
                             st.error(f"Respuesta correcta: {detalle['respuesta_correcta']}")
                         
-                        st.info(f"💡 {detalle['explicacion']}")
+                        if feedback_mode in ('completa', 'solo_explicacion'):
+                            st.info(f"💡 {detalle['explicacion']}")
             else:
                 st.info("No hay retroalimentación disponible")
         
@@ -262,6 +267,20 @@ class UIComponents:
             with col2:
                 st.markdown("#### 🔢 Estadísticas del Sistema")
                 self._mostrar_stats_sistema_compacto(stats['stats_sistema'])
+
+            auditoria = stats.get('auditoria_seleccion', [])
+            if auditoria:
+                st.markdown("#### 🎲 Auditoría de Selección")
+                filas_auditoria = []
+                for item in auditoria:
+                    filas_auditoria.append({
+                        'Pregunta': item.get('indice_pregunta', ''),
+                        'Método': item.get('metodo', ''),
+                        'Nivel objetivo': item.get('nivel_objetivo', ''),
+                        'Elegida': item.get('pregunta_elegida_id', ''),
+                        'Candidatos': item.get('candidatos_totales', ''),
+                    })
+                st.dataframe(pd.DataFrame(filas_auditoria), hide_index=True, use_container_width=True)
 
     def _mostrar_tabla_niveles(self, stats_por_nivel: Dict[int, Dict[str, Any]]):
         """Muestra tabla compacta de rendimiento por nivel"""

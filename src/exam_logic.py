@@ -80,6 +80,7 @@ class ExamLogic:
         self.max_desviacion_nivel_pregunta = int(
             max(1, min(4, config['parametros'].get('max_desviacion_nivel_pregunta', 3)))
         )
+        self.historial_seleccion_preguntas = []
         
         # Pregunta actual
         self.pregunta_actual_obj = None
@@ -110,6 +111,15 @@ class ExamLogic:
         self.pregunta_actual_obj = pregunta
         self.preguntas_usadas.append(pregunta['id'])
         self.preguntas_usadas_set.add(pregunta['id'])
+
+        metadata = dict(getattr(self.question_manager, 'ultima_seleccion_metadata', {}) or {})
+        metadata.update({
+            'indice_pregunta': self.pregunta_actual + 1,
+            'pregunta_elegida_id': pregunta['id'],
+            'dificultad_elegida': pregunta.get('dificultad', self.nivel_actual),
+            'categoria_elegida': pregunta.get('categoria', 'Sin categoría'),
+        })
+        self.historial_seleccion_preguntas.append(metadata)
         
         return pregunta
 
@@ -267,7 +277,8 @@ class ExamLogic:
         self,
         pregunta: Dict[str, Any],
         respuesta_seleccionada: str,
-        opciones_mezcladas: Dict[str, str]
+        opciones_mezcladas: Dict[str, str],
+        tiempo_respuesta_s: float = None,
     ) -> bool:
         """
         Procesa la respuesta del estudiante
@@ -312,6 +323,7 @@ class ExamLogic:
             'letra_seleccionada': respuesta_seleccionada,
             'letra_correcta': letra_correcta,
             'opciones_mostradas': dict(opciones_mezcladas),
+            'tiempo_respuesta_s': round(float(tiempo_respuesta_s), 1) if tiempo_respuesta_s is not None else None,
         }
         self.preguntas_respondidas.append(respuesta_info)
         
@@ -498,7 +510,17 @@ class ExamLogic:
                 'letra_seleccionada': respuesta.get('letra_seleccionada', ''),
                 'letra_correcta': respuesta.get('letra_correcta', ''),
                 'opciones_mostradas': respuesta.get('opciones_mostradas', {}),
+                'tiempo_respuesta_s': respuesta.get('tiempo_respuesta_s'),
             })
+
+        # Respuestas sospechosas por tiempo muy bajo
+        min_secs = float(self.config.get('seguridad_cliente', {}).get('min_segundos_por_pregunta', 5))
+        respuestas_rapidas = 0
+        if min_secs > 0:
+            respuestas_rapidas = sum(
+                1 for r in self.preguntas_respondidas
+                if r.get('tiempo_respuesta_s') is not None and r['tiempo_respuesta_s'] < min_secs
+            )
         
         return {
             'preguntas_respondidas': len(self.preguntas_respondidas),
@@ -515,7 +537,9 @@ class ExamLogic:
             'niveles_progresion': niveles_progresion,
             'preguntas_ids': [r['pregunta_id'] for r in self.preguntas_respondidas],
             'razon_terminacion': self._obtener_razon_terminacion(),
-            'detalle_respuestas': detalle_respuestas  # NUEVO
+            'detalle_respuestas': detalle_respuestas,  # NUEVO
+            'respuestas_rapidas': respuestas_rapidas,
+            'auditoria_seleccion': list(self.historial_seleccion_preguntas),
         }
     
     def _calcular_stats_por_nivel(self) -> Dict[int, Dict[str, Any]]:

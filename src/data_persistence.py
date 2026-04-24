@@ -21,10 +21,13 @@ class DataPersistence:
 
     COLUMNA_ESTADO = 14
     COLUMNA_ALERTA_SEG = 19   # columna T (nueva — alerta de seguridad)
+    COLUMNA_CAMBIOS_FOCO = 20  # columna U — contador de cambios de ventana/foco
+    COLUMNA_FINGERPRINT = 21   # columna V — fingerprint de sesión (userAgent+res)
+    COLUMNA_RESP_RAPIDAS = 22  # columna W — respuestas con tiempo sospechoso
     COLUMNA_AUTORIZADO_CONTINUAR = 16
     COLUMNA_ESTADO_JSON = 17
     COLUMNA_CLAVES_RESPUESTAS = 18
-    RANGO_DATOS = 'A:T'
+    RANGO_DATOS = 'A:W'
     MAX_REINTENTOS_API = 5
     RETRY_BASE_SECONDS = 0.4
     MIN_INTERVALO_REQUEST_SECONDS = 0.20
@@ -483,19 +486,28 @@ class DataPersistence:
         # Estado serializado (solo aplica EN_CURSO)
         datos.append('')
 
-        # Claves de respuesta: ID, letra elegida, letra correcta y opciones mostradas
+        # Claves de respuesta: ID, letra elegida y opciones mostradas.
+        # La letra correcta se reconstruye desde el banco si hace falta auditoria.
         claves = []
         for d in stats.get('detalle_respuestas', []):
             entry = {
                 'id': d.get('pregunta_id', ''),
                 'sel': d.get('letra_seleccionada', ''),
-                'ok': d.get('letra_correcta', ''),
             }
             opts = d.get('opciones_mostradas')
             if opts:
                 entry['opts'] = opts
             claves.append(entry)
         datos.append(json.dumps(claves, ensure_ascii=False) if claves else '')
+
+        # Alerta de seguridad (T) — se escribe via registrar_alerta_seguridad; aqui vacio
+        datos.append('')
+        # Cambios de foco (U) — se escribe via actualizar_contador_cambios_foco; aqui vacio
+        datos.append('')
+        # Fingerprint de sesion (V)
+        datos.append(str(self.config.get('_fingerprint_sesion', '')))
+        # Respuestas rapidas (W)
+        datos.append(int(self.config.get('_respuestas_rapidas', 0)))
 
         return datos
     
@@ -535,7 +547,7 @@ class DataPersistence:
                             'title': self.nombre_hoja,
                             'gridProperties': {
                                 'rowCount': 1000,
-                                'columnCount': 20
+                                'columnCount': 23
                             }
                         }
                     }
@@ -559,15 +571,15 @@ class DataPersistence:
             # Leer primera fila
             result = self._ejecutar_con_reintentos(self.service.spreadsheets().values().get(
                 spreadsheetId=self.spreadsheet_id,
-                range=f'{self.nombre_hoja}!A1:R1'
+                range=f'{self.nombre_hoja}!A1:W1'
             ), "verificar encabezados")
-            
+
             values = result.get('values', [])
             
             # Si está vacía, escribir encabezados
             if not values or not values[0]:
                 self._escribir_encabezados()
-            elif len(values[0]) < 18:
+            elif len(values[0]) < 23:
                 # Hoja antigua: actualizar encabezados al esquema actual
                 self._escribir_encabezados()
                 
@@ -596,7 +608,11 @@ class DataPersistence:
             'Sistema_Calificacion',
             'Autorizado_Continuar',
             'Estado_JSON',
-            'Claves_Respuestas'
+            'Claves_Respuestas',
+            'Alerta_Seguridad',
+            'Cambios_Foco',
+            'Fingerprint_Sesion',
+            'Respuestas_Rapidas',
         ]
         
         body = {
@@ -811,6 +827,85 @@ class DataPersistence:
                     valueInputOption='RAW',
                     body=body
                 ), "registrar_alerta_seguridad"
+            )
+            return True
+        except Exception:
+            return False
+
+    def actualizar_contador_cambios_foco(self, codigo_estudiante: str, count: int) -> bool:
+        """
+        Escribe el contador acumulado de cambios de ventana/foco en la columna U
+        de la fila EN_CURSO del estudiante.  Se llama en cada nuevo cambio de foco
+        para que el docente vea el valor actualizado en tiempo real.
+        """
+        try:
+            result = self._ejecutar_con_reintentos(
+                self.service.spreadsheets().values().get(
+                    spreadsheetId=self.spreadsheet_id,
+                    range=f'{self.nombre_hoja}!{self.RANGO_DATOS}'
+                ), "actualizar_contador_cambios_foco"
+            )
+            values = result.get('values', [])
+
+            fila_objetivo = None
+            for i in range(len(values) - 1, 0, -1):
+                row = values[i]
+                if len(row) > self.COLUMNA_ESTADO and len(row) > 1:
+                    if row[1] == codigo_estudiante and row[self.COLUMNA_ESTADO] == 'EN_CURSO':
+                        fila_objetivo = i + 1
+                        break
+
+            if not fila_objetivo:
+                return False
+
+            body = {'values': [[int(count)]], 'majorDimension': 'ROWS'}
+            self._ejecutar_con_reintentos(
+                self.service.spreadsheets().values().update(
+                    spreadsheetId=self.spreadsheet_id,
+                    range=f'{self.nombre_hoja}!U{fila_objetivo}',
+                    valueInputOption='RAW',
+                    body=body
+                ), "actualizar_contador_cambios_foco"
+            )
+            return True
+        except Exception:
+            return False
+
+    def actualizar_fingerprint_sesion(self, codigo_estudiante: str, fingerprint: str) -> bool:
+        """
+        Escribe el fingerprint de cliente (userAgent + resolucion) en la columna V
+        de la fila EN_CURSO del estudiante.  Se llama una vez al inicio del examen.
+        """
+        try:
+            result = self._ejecutar_con_reintentos(
+                self.service.spreadsheets().values().get(
+                    spreadsheetId=self.spreadsheet_id,
+                    range=f'{self.nombre_hoja}!{self.RANGO_DATOS}'
+                ), "actualizar_fingerprint_sesion"
+            )
+            values = result.get('values', [])
+
+            fila_objetivo = None
+            for i in range(len(values) - 1, 0, -1):
+                row = values[i]
+                if len(row) > self.COLUMNA_ESTADO and len(row) > 1:
+                    if row[1] == codigo_estudiante and row[self.COLUMNA_ESTADO] == 'EN_CURSO':
+                        fila_objetivo = i + 1
+                        break
+
+            if not fila_objetivo:
+                return False
+
+            # Truncar a 380 chars por seguridad
+            fp_safe = str(fingerprint)[:380]
+            body = {'values': [[fp_safe]], 'majorDimension': 'ROWS'}
+            self._ejecutar_con_reintentos(
+                self.service.spreadsheets().values().update(
+                    spreadsheetId=self.spreadsheet_id,
+                    range=f'{self.nombre_hoja}!V{fila_objetivo}',
+                    valueInputOption='RAW',
+                    body=body
+                ), "actualizar_fingerprint_sesion"
             )
             return True
         except Exception:

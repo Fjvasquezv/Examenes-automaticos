@@ -34,6 +34,10 @@ SECURITY_PROFILES: Dict[str, Dict[str, Any]] = {
         "detectar_perdida_foco": False,
         "advertir_salida_pestana": False,
         "max_perdidas_foco_permitidas": 0,
+        "detectar_multiples_pestanas": False,
+        "detectar_devtools": False,
+        "inactividad_max_minutos": 0,
+        "min_segundos_por_pregunta": 0,
     },
     "quiz": {
         "habilitado": True,
@@ -47,6 +51,10 @@ SECURITY_PROFILES: Dict[str, Dict[str, Any]] = {
         "detectar_perdida_foco": True,
         "advertir_salida_pestana": True,
         "max_perdidas_foco_permitidas": 0,   # registro sin bloqueo automatico
+        "detectar_multiples_pestanas": True,
+        "detectar_devtools": False,
+        "inactividad_max_minutos": 20,
+        "min_segundos_por_pregunta": 3,
     },
     "parcial": {
         "habilitado": True,
@@ -60,6 +68,10 @@ SECURITY_PROFILES: Dict[str, Dict[str, Any]] = {
         "detectar_perdida_foco": True,
         "advertir_salida_pestana": True,
         "max_perdidas_foco_permitidas": 5,   # bloquea al 5to cambio de foco
+        "detectar_multiples_pestanas": True,
+        "detectar_devtools": True,
+        "inactividad_max_minutos": 15,
+        "min_segundos_por_pregunta": 5,
     },
     "supletorio": {
         "habilitado": True,
@@ -73,6 +85,10 @@ SECURITY_PROFILES: Dict[str, Dict[str, Any]] = {
         "detectar_perdida_foco": True,
         "advertir_salida_pestana": True,
         "max_perdidas_foco_permitidas": 3,   # umbral mas estricto
+        "detectar_multiples_pestanas": True,
+        "detectar_devtools": True,
+        "inactividad_max_minutos": 10,
+        "min_segundos_por_pregunta": 5,
     },
 }
 
@@ -92,6 +108,10 @@ DEFAULT_SECURITY_POLICY: Dict[str, Any] = {
     "mensaje_disuasion": "Modo examen activo. Evite cambiar de pestana o usar atajos no permitidos.",
     "max_alertas_en_pantalla": 3,
     "max_perdidas_foco_permitidas": 0,  # 0 = sin bloqueo automatico
+    "detectar_multiples_pestanas": True,
+    "detectar_devtools": True,
+    "inactividad_max_minutos": 15,      # 0 = sin limite
+    "min_segundos_por_pregunta": 5,     # 0 = sin umbral
 }
 
 # ─── Constantes del sentinel bidireccional ───────────────────────────────────
@@ -100,6 +120,10 @@ DEFAULT_SECURITY_POLICY: Dict[str, Any] = {
 SENTINEL_LABEL = "___sec_fl___"
 # Clave de session_state para el valor del centinela.
 SENTINEL_KEY = "_sec_fl_v1"
+
+# Sentinel de texto para fingerprint (userAgent + resolucion).
+FINGERPRINT_LABEL = "___sec_fp___"
+FINGERPRINT_KEY = "_sec_fp_v1"
 
 
 # ─── Helpers internos ─────────────────────────────────────────────────────────
@@ -211,6 +235,29 @@ def render_focus_counter_sentinel(policy: Dict[str, Any]) -> int:
     return int(focus_count or 0)
 
 
+def render_fingerprint_sentinel(policy: Dict[str, Any]) -> str:
+    """
+    Renderiza un text_input OCULTO que JS rellena con el fingerprint del
+    cliente (userAgent + resolucion de pantalla) en el primer render.
+
+    Returns:
+        Cadena de fingerprint leida desde session_state, o "" si no aplica.
+    """
+    if not policy.get("habilitado", True):
+        return ""
+
+    if FINGERPRINT_KEY not in st.session_state:
+        st.session_state[FINGERPRINT_KEY] = ""
+
+    fp = st.text_input(
+        FINGERPRINT_LABEL,
+        key=FINGERPRINT_KEY,
+        label_visibility="collapsed",
+        max_chars=400,
+    )
+    return str(fp or "")
+
+
 def apply_client_hardening(policy: Dict[str, Any], codigo_estudiante: str = "") -> None:
     """
     Inyecta controles de seguridad del lado cliente via HTML/JS.
@@ -228,6 +275,7 @@ def apply_client_hardening(policy: Dict[str, Any], codigo_estudiante: str = "") 
 
     policy_json = json.dumps(policy, ensure_ascii=True)
     sentinel_label = SENTINEL_LABEL
+    fingerprint_label = FINGERPRINT_LABEL
     # Sanitizar el codigo para uso seguro en JS (solo alfanumericos y guiones)
     codigo_seguro = "".join(c for c in str(codigo_estudiante) if c.isalnum() or c in "-_").upper()
 
@@ -293,6 +341,7 @@ def apply_client_hardening(policy: Dict[str, Any], codigo_estudiante: str = "") 
       (function() {{
         const policy = {policy_json};
         const sentinelLabel = "{sentinel_label}";
+        const fingerprintLabel = "{fingerprint_label}";
         const codigoEstudiante = "{codigo_seguro}";
         const rootWindow = window.parent || window;
         const rootDoc   = rootWindow.document || document;
@@ -303,6 +352,7 @@ def apply_client_hardening(policy: Dict[str, Any], codigo_estudiante: str = "") 
             installed: false,
             toastAlerts: 0,
             focusLosses: parseInt(sessionStorage.getItem('_sec_fl') || '0'),
+            fingerprintSent: false,
           }};
         }}
         const state = rootWindow.__examSecurityState;
@@ -326,7 +376,7 @@ def apply_client_hardening(policy: Dict[str, Any], codigo_estudiante: str = "") 
           rootWindow.setTimeout(() => t.classList.remove("show"), 2400);
         }};
 
-        // ── Sentinel: encuentra el input numerico oculto ──────────────────────
+        // ── Sentinel numerico: encuentra el input de cambios de foco ──────────
         const findSentinel = () => {{
           const inputs = rootDoc.querySelectorAll('input[type="number"]');
           for (const inp of inputs) {{
@@ -339,14 +389,30 @@ def apply_client_hardening(policy: Dict[str, Any], codigo_estudiante: str = "") 
           }}
           return null;
         }};
+
+        // ── Sentinel de texto: encuentra el input de fingerprint ──────────────
+        const findFingerprintSentinel = () => {{
+          const inputs = rootDoc.querySelectorAll('input[type="text"]');
+          for (const inp of inputs) {{
+            const wrap = inp.closest('[data-testid="stTextInput"]');
+            if (!wrap) continue;
+            const lbl = wrap.querySelector('[data-testid="stWidgetLabel"]');
+            if (lbl && lbl.textContent && lbl.textContent.includes(fingerprintLabel)) {{
+              return inp;
+            }}
+          }}
+          return null;
+        }};
+
         const hideSentinel = (inp) => {{
           const c = inp.closest('[data-testid="stElementContainer"]') ||
-                    inp.closest('[data-testid="stNumberInput"]');
+                    inp.closest('[data-testid="stNumberInput"]') ||
+                    inp.closest('[data-testid="stTextInput"]');
           if (c) c.setAttribute('style',
             'position:absolute;width:0;height:0;overflow:hidden;visibility:hidden;opacity:0;pointer-events:none;'
           );
         }};
-        const pushToSentinel = (count) => {{
+        const pushToNumberSentinel = (count) => {{
           const s = findSentinel();
           if (!s) return;
           hideSentinel(s);
@@ -356,12 +422,22 @@ def apply_client_hardening(policy: Dict[str, Any], codigo_estudiante: str = "") 
             s.dispatchEvent(new Event('input', {{ bubbles: true }}));
           }} catch(e) {{}}
         }};
+        const pushToFingerprintSentinel = (fp) => {{
+          const s = findFingerprintSentinel();
+          if (!s) return;
+          hideSentinel(s);
+          try {{
+            const setter = Object.getOwnPropertyDescriptor(HTMLInputElement.prototype, 'value').set;
+            setter.call(s, fp);
+            s.dispatchEvent(new Event('input', {{ bubbles: true }}));
+          }} catch(e) {{}}
+        }};
 
         // Debounce: reporta al servidor 2 s despues del ultimo evento de foco
         let sentinelTimer = null;
         const schedulePush = () => {{
           if (sentinelTimer) clearTimeout(sentinelTimer);
-          sentinelTimer = rootWindow.setTimeout(() => pushToSentinel(state.focusLosses), 2000);
+          sentinelTimer = rootWindow.setTimeout(() => pushToNumberSentinel(state.focusLosses), 2000);
         }};
 
         // ── Accion al perder foco ─────────────────────────────────────────────
@@ -403,15 +479,30 @@ def apply_client_hardening(policy: Dict[str, Any], codigo_estudiante: str = "") 
           rootDoc.body.appendChild(wm);
         }}
 
-        // ── Ocultar sentinel en el primer render ──────────────────────────────
+        // ── Ocultar sentinels en el primer render ─────────────────────────────
         rootWindow.setTimeout(() => {{
           const s = findSentinel(); if (s) hideSentinel(s);
+          const fp = findFingerprintSentinel(); if (fp) hideSentinel(fp);
         }}, 500);
+
+        // ── Captura de fingerprint (una sola vez por sesion) ──────────────────
+        if (!state.fingerprintSent) {{
+          rootWindow.setTimeout(() => {{
+            const ua   = (navigator.userAgent || '').replace(/[^a-zA-Z0-9 _.;()/]/g, '').substring(0, 200);
+            const res  = rootWindow.screen.width + 'x' + rootWindow.screen.height;
+            const lang = navigator.language || '';
+            const tz   = Intl.DateTimeFormat().resolvedOptions().timeZone || '';
+            const fp   = (ua + '|' + res + '|' + lang + '|' + tz).substring(0, 380);
+            pushToFingerprintSentinel(fp);
+            state.fingerprintSent = true;
+          }}, 1200);
+        }}
 
         // ── Instalacion de listeners (solo una vez por sesion) ────────────────
         if (!state.installed) {{
           state.installed = true;
 
+          // ── Pantalla completa ─────────────────────────────────────────────
           if (policy.fullscreen_obligatorio) {{
             const oneShotFs = () => {{
               activateFullScreen();
@@ -426,6 +517,7 @@ def apply_client_hardening(policy: Dict[str, Any], codigo_estudiante: str = "") 
             }});
           }}
 
+          // ── Perdida de foco normal ────────────────────────────────────────
           if (policy.detectar_perdida_foco) {{
             rootWindow.addEventListener("blur", () =>
               onFocusLoss("Se detecto cambio de foco.")
@@ -436,10 +528,62 @@ def apply_client_hardening(policy: Dict[str, Any], codigo_estudiante: str = "") 
             }});
           }}
 
+          // ── Deteccion de multiples pestanas (BroadcastChannel) ────────────
+          if (policy.detectar_multiples_pestanas && rootWindow.BroadcastChannel) {{
+            const channelId = "exam_sec_" + (codigoEstudiante || "default");
+            const bc = new BroadcastChannel(channelId);
+            bc.postMessage({{ type: "exam_check" }});
+            bc.addEventListener("message", (evt) => {{
+              if (evt.data && evt.data.type === "exam_alive") {{
+                onFocusLoss("Multiples pestanas del examen detectadas.");
+              }} else if (evt.data && evt.data.type === "exam_check") {{
+                bc.postMessage({{ type: "exam_alive" }});
+              }}
+            }});
+          }}
+
+          // ── Deteccion de DevTools abiertos ────────────────────────────────
+          if (policy.detectar_devtools) {{
+            let devtoolsOpen = false;
+            const checkDevTools = () => {{
+              const widthDiff  = rootWindow.outerWidth  - rootWindow.innerWidth;
+              const heightDiff = rootWindow.outerHeight - rootWindow.innerHeight;
+              if (widthDiff > 160 || heightDiff > 200) {{
+                if (!devtoolsOpen) {{
+                  devtoolsOpen = true;
+                  showAlert("Se detectaron herramientas de desarrollador abiertas.");
+                  onFocusLoss("DevTools detectado.");
+                }}
+              }} else {{
+                devtoolsOpen = false;
+              }}
+            }};
+            rootWindow.setInterval(checkDevTools, 3000);
+          }}
+
+          // ── Deteccion de inactividad ──────────────────────────────────────
+          const inactividad = Number(policy.inactividad_max_minutos || 0);
+          if (inactividad > 0) {{
+            let lastActivity = Date.now();
+            const activityEvents = ["mousemove", "keydown", "mousedown", "touchstart", "scroll"];
+            activityEvents.forEach(evt =>
+              rootDoc.addEventListener(evt, () => {{ lastActivity = Date.now(); }}, {{ passive: true }})
+            );
+            rootWindow.setInterval(() => {{
+              const idleSecs = (Date.now() - lastActivity) / 1000;
+              if (idleSecs >= inactividad * 60) {{
+                onFocusLoss("Inactividad prolongada detectada (" + Math.floor(idleSecs / 60) + " min).");
+                lastActivity = Date.now(); // reset para no disparar en cada tick
+              }}
+            }}, 30000);
+          }}
+
+          // ── Menu contextual ───────────────────────────────────────────────
           if (policy.bloquear_menu_contexto) {{
             rootDoc.addEventListener("contextmenu", (e) => e.preventDefault(), true);
           }}
 
+          // ── Copiar / pegar ────────────────────────────────────────────────
           if (policy.bloquear_copiar_pegar) {{
             ["copy", "cut", "paste", "dragstart", "drop"].forEach((evt) => {{
               rootDoc.addEventListener(evt, (e) => {{
@@ -447,7 +591,6 @@ def apply_client_hardening(policy: Dict[str, Any], codigo_estudiante: str = "") 
                 showAlert("Accion bloqueada en modo examen.");
               }}, true);
             }});
-            // Limpiar portapapeles cuando el foco regresa a la ventana
             rootWindow.addEventListener("focus", () => {{
               try {{
                 if (navigator.clipboard && navigator.clipboard.writeText) {{
@@ -457,6 +600,7 @@ def apply_client_hardening(policy: Dict[str, Any], codigo_estudiante: str = "") 
             }});
           }}
 
+          // ── Atajos de teclado ─────────────────────────────────────────────
           if (policy.bloquear_atajos_comunes) {{
             rootDoc.addEventListener("keydown", (e) => {{
               const k     = (e.key || "").toLowerCase();
@@ -479,11 +623,10 @@ def apply_client_hardening(policy: Dict[str, Any], codigo_estudiante: str = "") 
             }}, true);
           }}
 
+          // ── Captura de pantalla ───────────────────────────────────────────
           if (policy.bloquear_captura_pantalla) {{
-            // Interceptar la API de captura de pantalla del navegador
             try {{
               if (navigator.mediaDevices) {{
-                const originalGetDisplayMedia = navigator.mediaDevices.getDisplayMedia.bind(navigator.mediaDevices);
                 navigator.mediaDevices.getDisplayMedia = async function(...args) {{
                   showAlert("Captura de pantalla bloqueada en modo examen.");
                   throw new DOMException("Bloqueado por modo examen.", "NotAllowedError");
@@ -492,6 +635,7 @@ def apply_client_hardening(policy: Dict[str, Any], codigo_estudiante: str = "") 
             }} catch(e) {{}}
           }}
 
+          // ── Advertencia al salir ──────────────────────────────────────────
           if (policy.advertir_salida_pestana) {{
             rootWindow.addEventListener("beforeunload", (e) => {{
               const msg = "Existe un examen en curso. Salir puede bloquear su intento.";

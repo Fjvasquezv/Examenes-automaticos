@@ -237,6 +237,14 @@ class ConfigLoader:
                     raise ValueError("seguridad_cliente.max_perdidas_foco_permitidas debe ser entero")
                 if max_fl < 0:
                     raise ValueError("seguridad_cliente.max_perdidas_foco_permitidas debe ser >= 0")
+
+            if 'retroalimentacion_final' in sec:
+                modos_validos = {'completa', 'solo_explicacion', 'solo_estado'}
+                modo = str(sec['retroalimentacion_final'])
+                if modo not in modos_validos:
+                    raise ValueError(
+                        f"seguridad_cliente.retroalimentacion_final debe ser uno de: {', '.join(sorted(modos_validos))}"
+                    )
     
     def crear_template_config(self, output_file: str = "config/examenes/examen_template.json") -> None:
         """
