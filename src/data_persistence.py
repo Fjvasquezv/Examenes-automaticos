@@ -182,7 +182,12 @@ class DataPersistence:
                 'EN_CURSO',  # razon_terminacion
                 self.config['sistema_calificacion']['tipo'],  # sistema
                 'NO',  # autorizado_continuar
-                ''  # estado_json
+                '',  # estado_json
+                '',  # claves_respuestas
+                '',  # alerta_seguridad
+                0,   # cambios_foco
+                '',  # fingerprint_sesion
+                0,   # respuestas_rapidas
             ]
             
             self._verificar_o_crear_hoja()
@@ -204,7 +209,10 @@ class DataPersistence:
         nota_actual: float = None,
         preguntas_ids: List[str] = None,
         theta_actual: float = None,
-        estado_json: str = None
+        estado_json: str = None,
+        cambios_foco: int = None,
+        respuestas_rapidas: int = None,
+        fingerprint_sesion: str = None,
     ) -> bool:
         """
         Actualiza el progreso del examen en curso
@@ -286,6 +294,24 @@ class DataPersistence:
                     updates.append({
                         'range': f'{self.nombre_hoja}!R{fila_a_actualizar}',
                         'values': [[estado_json]]
+                    })
+
+                if cambios_foco is not None:
+                    updates.append({
+                        'range': f'{self.nombre_hoja}!U{fila_a_actualizar}',
+                        'values': [[int(cambios_foco)]]
+                    })
+
+                if fingerprint_sesion is not None:
+                    updates.append({
+                        'range': f'{self.nombre_hoja}!V{fila_a_actualizar}',
+                        'values': [[str(fingerprint_sesion)[:380]]]
+                    })
+
+                if respuestas_rapidas is not None:
+                    updates.append({
+                        'range': f'{self.nombre_hoja}!W{fila_a_actualizar}',
+                        'values': [[int(respuestas_rapidas)]]
                     })
                 
                 body = {'data': updates, 'valueInputOption': 'RAW'}
@@ -400,7 +426,7 @@ class DataPersistence:
                 
                 if fila_a_actualizar:
                     # Actualizar la fila existente
-                    range_to_update = f'{self.nombre_hoja}!A{fila_a_actualizar}:S{fila_a_actualizar}'
+                    range_to_update = f'{self.nombre_hoja}!A{fila_a_actualizar}:W{fila_a_actualizar}'
                     body = {'values': [datos]}
                     self._ejecutar_con_reintentos(self.service.spreadsheets().values().update(
                         spreadsheetId=self.spreadsheet_id,

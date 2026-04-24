@@ -1723,6 +1723,17 @@ def _manejar_umbral_foco(config: dict, security_policy: dict, focus_count: int) 
         st.stop()
 
 
+def _contar_respuestas_rapidas(exam_logic, security_policy: dict) -> int:
+    min_secs = float(security_policy.get('min_segundos_por_pregunta', 0) or 0)
+    if min_secs <= 0:
+        return 0
+
+    return sum(
+        1 for r in exam_logic.preguntas_respondidas
+        if r.get('tiempo_respuesta_s') is not None and r['tiempo_respuesta_s'] < min_secs
+    )
+
+
 def ejecutar_examen(config, question_manager, ui, security_policy):
     """Ejecuta la lógica del examen"""
 
@@ -1866,7 +1877,10 @@ def ejecutar_examen(config, question_manager, ui, security_policy):
                     exam_logic,
                     pregunta_pendiente=pregunta_obj,
                     opciones_pendientes=st.session_state[opciones_key],
-                )
+                ),
+                cambios_foco=focus_count,
+                respuestas_rapidas=_contar_respuestas_rapidas(exam_logic, security_policy),
+                fingerprint_sesion=st.session_state.get('_fingerprint_sesion', ''),
             )
         except Exception as e:
             _log_evento_operacion(Path(__file__).parent, "warning_persistencia", f"No se pudo persistir pregunta pendiente: {e}", codigo=st.session_state.codigo_estudiante, examen_id=str(config.get('_examen_id', '')))
@@ -1939,7 +1953,10 @@ def ejecutar_examen(config, question_manager, ui, security_policy):
                     nota_actual=exam_logic.historial_notas[-1] if exam_logic.historial_notas else 0.0,
                     preguntas_ids=exam_logic.preguntas_usadas,
                     theta_actual=exam_logic.theta_actual,
-                    estado_json=_serializar_estado_exam_logic(exam_logic)
+                    estado_json=_serializar_estado_exam_logic(exam_logic),
+                    cambios_foco=focus_count,
+                    respuestas_rapidas=_contar_respuestas_rapidas(exam_logic, security_policy),
+                    fingerprint_sesion=st.session_state.get('_fingerprint_sesion', ''),
                 )
             except Exception as e:
                 _log_evento_operacion(Path(__file__).parent, "warning_persistencia", f"No se pudo actualizar progreso: {e}", codigo=st.session_state.codigo_estudiante, examen_id=str(config.get('_examen_id', '')))
