@@ -55,8 +55,8 @@
         {
             "nombre": "Parcial 1 - Control",
             "examen_config": "Control/parcial_1.json",
-            "inicio": "2026-03-27 16:45",
-            "fin": "2026-03-27 19:00"
+            "inicio": "2026-05-26 16:45",
+            "fin": "2026-05-26 19:00"
         },
         {
             "nombre": "Parcial 1 - Optimización",
