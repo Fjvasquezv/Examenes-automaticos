@@ -22,10 +22,10 @@
       "a": "int",
       "b": "str",
       "c": "float",
-      "d": "double"
+      "d": "complex"
     },
     "respuesta_correcta": "c",
-    "explicacion": "25.5 es un número con decimales, por lo tanto es de tipo float en Python."
+    "explicacion": "25.5 es un número con decimales, de tipo float en Python. 'complex' sería para números imaginarios como 2+3j."
   },
   {
     "id": "p003",
@@ -36,10 +36,10 @@
       "a": "7",
       "b": "10",
       "c": "25",
-      "d": "Error de sintaxis"
+      "d": "52"
     },
     "respuesta_correcta": "c",
-    "explicacion": "El operador ** es potenciación. 5 ** 2 = 5² = 25"
+    "explicacion": "El operador ** es potenciación. 5 ** 2 = 5² = 25. No confundir con * (multiplicación = 10) o + (suma = 7)."
   },
   {
     "id": "p004",
@@ -50,10 +50,10 @@
       "a": "int",
       "b": "float",
       "c": "str",
-      "d": "double"
+      "d": "complex"
     },
     "respuesta_correcta": "b",
-    "explicacion": "El operador / siempre retorna float en Python 3, incluso si el resultado es un número entero"
+    "explicacion": "El operador / siempre retorna float en Python 3, aunque el resultado sea entero. 10 / 2 = 5.0 (float), no 5 (int)."
   },
   {
     "id": "p005",
@@ -493,29 +493,29 @@
     "id": "p036",
     "dificultad": 5,
     "categoria": "POO composición",
-    "pregunta": "Examine esta relación de composición:\n\n```python\nclass Motor:\n    def __init__(self, potencia):\n        self.potencia = potencia\n\nclass Bomba:\n    def __init__(self, motor_potencia):\n        self.motor = Motor(motor_potencia)\n    \n    def get_potencia(self):\n        return self.motor.potencia\n\nB = Bomba(50)\nprint(B.get_potencia())\n```\n\n¿Qué imprime?",
+    "pregunta": "¿Qué imprime?\n\n```python\nclass Motor:\n    _log = []\n    def __init__(self, rpm):\n        self.rpm = rpm\n        Motor._log.append(rpm)\n\nclass Equipo:\n    def __init__(self):\n        self.m_principal = Motor(3000)\n        self.m_aux = Motor(1500)\n\ne1 = Equipo()\ne2 = Equipo()\nprint(len(Motor._log))\n```",
     "opciones": {
-      "a": "50",
-      "b": "Error de atributo",
-      "c": "None",
-      "d": "Motor"
+      "a": "2",
+      "b": "3",
+      "c": "4",
+      "d": "Error"
     },
-    "respuesta_correcta": "a",
-    "explicacion": "Bomba crea un objeto Motor con potencia=50 y get_potencia() retorna ese valor"
+    "respuesta_correcta": "c",
+    "explicacion": "Motor._log es un atributo de clase compartido. Cada Equipo crea 2 motores (m_principal y m_aux). Con 2 instancias de Equipo se registran 4 motores en total."
   },
   {
     "id": "p037",
     "dificultad": 5,
     "categoria": "POO métodos especiales",
-    "pregunta": "Examine esta clase con método especial:\n\n```python\nclass Muestra:\n    def __init__(self, id, concentracion):\n        self.id = id\n        self.concentracion = concentracion\n    \n    def __str__(self):\n        return f\"Muestra-{self.id}\"\n\nM = Muestra(\"A1\", 0.5)\nprint(M)\n```\n\n¿Qué imprime?",
+    "pregunta": "¿Qué imprime?\n\n```python\nclass Sensor:\n    def __str__(self):\n        return 'STR'\n    def __repr__(self):\n        return 'REPR'\n\ns = Sensor()\nprint(s, [s])\n```",
     "opciones": {
-      "a": "<Muestra object at 0x...>",
-      "b": "Muestra-A1",
-      "c": "A1",
-      "d": "0.5"
+      "a": "STR [STR]",
+      "b": "STR [REPR]",
+      "c": "REPR [REPR]",
+      "d": "REPR [STR]"
     },
     "respuesta_correcta": "b",
-    "explicacion": "El método __str__ define la representación en string del objeto. print(M) llama a __str__"
+    "explicacion": "print() llama __str__ para el objeto directo → 'STR'. Dentro de una lista, Python representa cada elemento con __repr__ → 'REPR'. La distinción entre __str__ (legible) y __repr__ (oficial) es clave."
   },
   {
     "id": "p038",
@@ -927,57 +927,57 @@
     "id": "p067",
     "dificultad": 5,
     "categoria": "POO",
-    "pregunta": "¿Qué imprime este código?\n\n```python\nclass Contador:\n    total = 0\n    \n    def __init__(self):\n        Contador.total += 1\n\nC1 = Contador()\nC2 = Contador()\nC3 = Contador()\nprint(Contador.total)\n```",
+    "pregunta": "¿Qué imprime?\n\n```python\nclass Config:\n    modo = 'simple'\n\n    def cambiar(self):\n        self.modo = 'avanzado'\n\nc1 = Config()\nc2 = Config()\nc1.cambiar()\nprint(Config.modo, c1.modo, c2.modo)\n```",
     "opciones": {
-      "a": "0",
-      "b": "1",
-      "c": "3",
-      "d": "Error"
+      "a": "avanzado avanzado avanzado",
+      "b": "simple simple simple",
+      "c": "simple avanzado simple",
+      "d": "avanzado avanzado simple"
     },
     "respuesta_correcta": "c",
-    "explicacion": "total es un atributo de clase compartido. Cada instancia incrementa el contador"
+    "explicacion": "self.modo = 'avanzado' crea un ATRIBUTO DE INSTANCIA en c1, no modifica el atributo de clase. Config.modo permanece 'simple'. c2.modo también lee el de clase: 'simple'. Solo c1.modo es 'avanzado'."
   },
   {
     "id": "p068",
     "dificultad": 5,
     "categoria": "POO",
-    "pregunta": "¿Qué imprime este código?\n\n```python\nclass Animal:\n    def sonido(self):\n        return \"Sonido\"\n\nclass Perro(Animal):\n    def sonido(self):\n        return \"Guau\"\n\np = Perro()\nprint(p.sonido())\n```",
+    "pregunta": "¿Qué imprime?\n\n```python\nclass A:\n    def m(self):\n        return 'A'\n\nclass B(A):\n    def m(self):\n        return 'B' + super().m()\n\nclass C(A):\n    def m(self):\n        return 'C' + super().m()\n\nclass D(B, C):\n    pass\n\nprint(D().m())\n```",
     "opciones": {
-      "a": "Sonido",
-      "b": "Guau",
-      "c": "SonidoGuau",
-      "d": "Error"
+      "a": "BA",
+      "b": "BCA",
+      "c": "BC",
+      "d": "BCBA"
     },
     "respuesta_correcta": "b",
-    "explicacion": "Polimorfismo: el método sonido() de Perro sobrescribe el de Animal"
+    "explicacion": "MRO de D: D→B→C→A. super() en B (con contexto D) apunta a C, no a A. B.m() retorna 'B' + C.m(). C.m() retorna 'C' + A.m() = 'CA'. Resultado final: 'BCA'."
   },
   {
     "id": "p069",
     "dificultad": 5,
     "categoria": "Funciones avanzadas",
-    "pregunta": "¿Qué imprime este código?\n\n```python\ndef exterior():\n    x = 10\n    def interior():\n        return x * 2\n    return interior()\n\nprint(exterior())\n```",
+    "pregunta": "¿Qué imprime?\n\n```python\nfunciones = [lambda: i for i in range(4)]\nprint(funciones[0](), funciones[2]())\n```",
     "opciones": {
-      "a": "10",
-      "b": "20",
-      "c": "Error",
-      "d": "None"
+      "a": "0 2",
+      "b": "0 3",
+      "c": "3 3",
+      "d": "Error"
     },
-    "respuesta_correcta": "b",
-    "explicacion": "Función anidada (closure): interior() accede a la variable x de exterior(). 10 * 2 = 20"
+    "respuesta_correcta": "c",
+    "explicacion": "Las lambdas capturan la variable i por referencia, no su valor en el momento. Al llamarlas, el for ya terminó y i vale 3 (último valor). Todas las lambdas retornan 3. Es el problema clásico de late binding en closures."
   },
   {
     "id": "p070",
     "dificultad": 5,
     "categoria": "POO",
-    "pregunta": "¿Qué imprime este código?\n\n```python\nclass Producto:\n    def __init__(self, nombre, precio):\n        self.nombre = nombre\n        self.precio = precio\n    \n    def __repr__(self):\n        return f\"{self.nombre}: ${self.precio}\"\n\np = Producto(\"Reactivo\", 100)\nprint(p)\n```",
+    "pregunta": "¿Qué imprime?\n\n```python\nclass Dato:\n    def __repr__(self):\n        return 'REPR'\n    def __str__(self):\n        return 'STR'\n\nd = Dato()\nprint(f'{d!r} / {d!s}')\n```",
     "opciones": {
-      "a": "<Producto object at 0x...>",
-      "b": "Reactivo: $100",
-      "c": "Reactivo",
-      "d": "100"
+      "a": "STR / REPR",
+      "b": "REPR / REPR",
+      "c": "REPR / STR",
+      "d": "STR / STR"
     },
-    "respuesta_correcta": "b",
-    "explicacion": "__repr__ define la representación oficial del objeto. print() llama a __repr__"
+    "respuesta_correcta": "c",
+    "explicacion": "En f-strings, el especificador !r llama __repr__ y !s llama __str__. f'{d!r}' → 'REPR', f'{d!s}' → 'STR'. Sin especificador, f'{d}' usaría __str__."
   },
   {
     "id": "p071",
@@ -997,15 +997,15 @@
     "id": "p072",
     "dificultad": 5,
     "categoria": "POO",
-    "pregunta": "¿Qué imprime este código?\n\n```python\nclass Test:\n    def __init__(self, valor):\n        self.__privado = valor\n    \n    def get_valor(self):\n        return self.__privado\n\nt = Test(42)\nprint(t.get_valor())\n```",
+    "pregunta": "¿Qué imprime?\n\n```python\nclass Base:\n    def __init__(self):\n        self.__valor = 10\n\n    def get(self):\n        return self.__valor\n\nclass Hija(Base):\n    def __init__(self):\n        super().__init__()\n        self.__valor = 20\n\nh = Hija()\nprint(h.get())\n```",
     "opciones": {
-      "a": "42",
-      "b": "None",
-      "c": "Error",
-      "d": "privado"
+      "a": "10",
+      "b": "20",
+      "c": "30",
+      "d": "AttributeError"
     },
     "respuesta_correcta": "a",
-    "explicacion": "El atributo __privado es privado pero accesible mediante el método get_valor()"
+    "explicacion": "Name mangling: Base.__valor se convierte en _Base__valor, y Hija.__valor en _Hija__valor. Son atributos DISTINTOS. get() accede a _Base__valor = 10, no al 20 de Hija."
   },
   {
     "id": "p073",
@@ -1823,29 +1823,29 @@
     "id": "p131",
     "dificultad": 5,
     "categoria": "Tipos de datos",
-    "pregunta": "¿Qué imprime este código?\n\n```python\nfrom decimal import Decimal\nx = Decimal('0.1') + Decimal('0.2')\nprint(x == Decimal('0.3'))\n```",
+    "pregunta": "¿Qué imprime?\n\n```python\nfrom decimal import Decimal, getcontext\ngetcontext().prec = 3\nx = Decimal('1') / Decimal('3')\nprint(x)\n```",
     "opciones": {
-      "a": "True",
-      "b": "False",
-      "c": "Error",
+      "a": "0.3333333333333333",
+      "b": "0.333",
+      "c": "0.33",
       "d": "0.3"
     },
-    "respuesta_correcta": "a",
-    "explicacion": "Decimal proporciona aritmética decimal exacta, evitando errores de punto flotante."
+    "respuesta_correcta": "b",
+    "explicacion": "getcontext().prec = 3 establece 3 dígitos significativos para la aritmética Decimal. 1 / 3 con precisión 3 produce 0.333 (3 cifras significativas, no decimales)."
   },
   {
     "id": "p132",
     "dificultad": 5,
     "categoria": "Tipos de datos",
-    "pregunta": "¿Qué imprime?\n\n```python\nclass MiClase:\n    pass\n\nobj = MiClase()\nprint(isinstance(obj, object))\n```",
+    "pregunta": "¿Qué imprime?\n\n```python\nprint(isinstance(True, int), isinstance(1, bool))\n```",
     "opciones": {
-      "a": "True",
-      "b": "False",
-      "c": "Error",
-      "d": "None"
+      "a": "True True",
+      "b": "True False",
+      "c": "False True",
+      "d": "False False"
     },
-    "respuesta_correcta": "a",
-    "explicacion": "En Python 3, todas las clases heredan de object implícitamente. Todo objeto es instancia de object."
+    "respuesta_correcta": "b",
+    "explicacion": "bool es subclase de int, por eso isinstance(True, int) = True. Pero el literal 1 es de tipo int, no bool: isinstance(1, bool) = False. True y False son las ÚNICAS instancias de bool."
   },
   {
     "id": "p133",
@@ -2999,15 +2999,15 @@
     "id": "p215",
     "dificultad": 5,
     "categoria": "Listas",
-    "pregunta": "¿Qué imprime?\n\n```python\nlista = list(zip([1, 2, 3], ['a', 'b', 'c']))\nprint(lista[1])\n```",
+    "pregunta": "¿Qué imprime?\n\n```python\na = [1, 2, 3, 4, 5]\nb = [10, 20, 30]\npares = list(zip(a, b))\nprint(len(pares), pares[-1])\n```",
     "opciones": {
-      "a": "(1, 'a')",
-      "b": "(2, 'b')",
-      "c": "[2, 'b']",
+      "a": "5 (5, None)",
+      "b": "3 (3, 30)",
+      "c": "3 (5, 30)",
       "d": "Error"
     },
     "respuesta_correcta": "b",
-    "explicacion": "zip combina elementos por posición. lista = [(1,'a'), (2,'b'), (3,'c')]. Índice 1 es (2,'b')."
+    "explicacion": "zip() se detiene al agotarse el iterable más corto (b tiene 3 elementos). Genera [(1,10), (2,20), (3,30)]. Longitud: 3. Último par: (3, 30)."
   },
   {
     "id": "p216",
@@ -3125,29 +3125,29 @@
     "id": "p224",
     "dificultad": 5,
     "categoria": "Tuplas",
-    "pregunta": "¿Qué imprime?\n\n```python\nlista = [(1, 'c'), (2, 'a'), (3, 'b')]\nlista.sort(key=lambda x: x[1])\nprint(lista[0])\n```",
+    "pregunta": "¿Qué imprime?\n\n```python\ndatos = [(3, 'b'), (1, 'a'), (4, 'a'), (2, 'b')]\ndatos.sort(key=lambda x: x[1])\nprint(datos[0], datos[2])\n```",
     "opciones": {
-      "a": "(1, 'c')",
-      "b": "(2, 'a')",
-      "c": "(3, 'b')",
-      "d": "Error"
+      "a": "(1, 'a') (3, 'b')",
+      "b": "(1, 'a') (2, 'b')",
+      "c": "(4, 'a') (2, 'b')",
+      "d": "(4, 'a') (3, 'b')"
     },
-    "respuesta_correcta": "b",
-    "explicacion": "Ordena por el segundo elemento (x[1]). 'a' < 'b' < 'c'. El primero es (2, 'a')."
+    "respuesta_correcta": "a",
+    "explicacion": "El sort de Python es ESTABLE: elementos con la misma clave mantienen su orden original. Items 'a': (1,'a'), (4,'a'). Items 'b': (3,'b'), (2,'b'). Resultado: [(1,'a'), (4,'a'), (3,'b'), (2,'b')]. datos[0]=(1,'a'), datos[2]=(3,'b')."
   },
   {
     "id": "p225",
     "dificultad": 5,
     "categoria": "Tuplas",
-    "pregunta": "¿Qué imprime?\n\n```python\ndef swap(a, b):\n    return b, a\n\nx, y = 10, 20\nx, y = swap(x, y)\nprint(x, y)\n```",
+    "pregunta": "¿Qué imprime?\n\n```python\nprimero, *medio, penultimo, ultimo = range(10)\nprint(primero, penultimo, len(medio))\n```",
     "opciones": {
-      "a": "10 20",
-      "b": "20 10",
-      "c": "(20, 10)",
-      "d": "Error"
+      "a": "0 8 7",
+      "b": "0 9 7",
+      "c": "0 8 8",
+      "d": "Error de desempaquetado"
     },
-    "respuesta_correcta": "b",
-    "explicacion": "swap retorna (20, 10) como tupla. Se desempaqueta: x=20, y=10."
+    "respuesta_correcta": "a",
+    "explicacion": "range(10) = [0,1,...,9]. primero=0, ultimo=9, penultimo=8. *medio captura todo lo intermedio: [1,2,3,4,5,6,7] → len=7. Resultado: 0 8 7."
   },
   {
     "id": "p226",
@@ -3279,15 +3279,15 @@
     "id": "p235",
     "dificultad": 5,
     "categoria": "Listas",
-    "pregunta": "¿Qué imprime?\n\n```python\nlista = [1, 2, 3]\nresultado = list(map(lambda x: x**2, lista))\nprint(sum(resultado))\n```",
+    "pregunta": "¿Qué imprime?\n\n```python\nnumeros = [1, 2, 3]\ncuadrados = map(lambda x: x**2, numeros)\nprint(sum(cuadrados))\nprint(sum(cuadrados))\n```",
     "opciones": {
-      "a": "6",
-      "b": "14",
-      "c": "36",
-      "d": "[1, 4, 9]"
+      "a": "14\n14",
+      "b": "14\n0",
+      "c": "0\n14",
+      "d": "Error"
     },
     "respuesta_correcta": "b",
-    "explicacion": "map aplica x² a cada elemento: [1, 4, 9]. sum([1, 4, 9]) = 14."
+    "explicacion": "map() devuelve un iterador que se consume una sola vez. Primer sum(): recorre [1,4,9] = 14. Segundo sum(): el iterador ya está agotado, retorna 0."
   },
   {
     "id": "p236",
@@ -3356,8 +3356,8 @@
       "c": "(2, 3)",
       "d": "Error"
     },
-    "respuesta_correcta": "b",
-    "explicacion": "Ordena por suma de coordenadas: (1,2)=3, (3,1)=4, (2,3)=5. Mínimo es (1,2)=3, pero ¡espera! (3,1)=4 también. Revisemos: sumas son 3, 4, 5. El menor es (1,2). Corrección: la respuesta es (1, 2)."
+    "respuesta_correcta": "a",
+    "explicacion": "Ordena por suma de coordenadas: (1,2)→3, (3,1)→4, (2,3)→5. El mínimo es (1,2). puntos[0] = (1, 2)."
   },
   {
     "id": "p241",
@@ -3629,15 +3629,15 @@
     "id": "p260",
     "dificultad": 5,
     "categoria": "Diccionarios",
-    "pregunta": "¿Qué imprime?\n\n```python\nfrom collections import OrderedDict\nd = OrderedDict()\nd['z'] = 1\nd['a'] = 2\nd['m'] = 3\nprint(list(d.keys())[0])\n```",
+    "pregunta": "¿Qué imprime?\n\n```python\nfrom collections import OrderedDict\nd = OrderedDict([('x', 1), ('y', 2), ('z', 3)])\nd.move_to_end('x')\nd.move_to_end('z', last=False)\nprint(list(d.keys()))\n```",
     "opciones": {
-      "a": "a",
-      "b": "z",
-      "c": "m",
+      "a": "['x', 'y', 'z']",
+      "b": "['z', 'y', 'x']",
+      "c": "['y', 'z', 'x']",
       "d": "Error"
     },
     "respuesta_correcta": "b",
-    "explicacion": "OrderedDict mantiene el orden de inserción. La primera clave insertada fue 'z'."
+    "explicacion": "move_to_end('x') mueve 'x' al final: ['y', 'z', 'x']. move_to_end('z', last=False) mueve 'z' al inicio: ['z', 'y', 'x']. last=False es específico de OrderedDict."
   },
   {
     "id": "p261",
@@ -3825,29 +3825,29 @@
     "id": "p274",
     "dificultad": 5,
     "categoria": "Strings",
-    "pregunta": "¿Qué imprime?\n\n```python\ns = 'hola mundo hola'\nprint(s.count('hola'))\n```",
+    "pregunta": "¿Qué imprime?\n\n```python\ns = 'aaa'\nprint(s.count('aa'))\n```",
     "opciones": {
       "a": "1",
       "b": "2",
-      "c": "4",
+      "c": "3",
       "d": "Error"
     },
-    "respuesta_correcta": "b",
-    "explicacion": "count() cuenta las ocurrencias de una subcadena. 'hola' aparece 2 veces."
+    "respuesta_correcta": "a",
+    "explicacion": "str.count() busca ocurrencias NO solapadas. Encuentra 'aa' en posición 0, luego reanuda la búsqueda desde la posición 2 (no desde 1). En 'aaa' solo hay 1 ocurrencia, no 2."
   },
   {
     "id": "p275",
     "dificultad": 5,
     "categoria": "Strings",
-    "pregunta": "¿Qué imprime?\n\n```python\ns = 'Python'\nprint(s.center(10, '*'))\n```",
+    "pregunta": "¿Qué imprime?\n\n```python\nvalor = 1234567.891\nprint(f'{valor:,.2f}')\n```",
     "opciones": {
-      "a": "**Python**",
-      "b": "Python****",
-      "c": "****Python",
-      "d": "*Python***"
+      "a": "1234567.89",
+      "b": "1,234,567.89",
+      "c": "1.234.567,89",
+      "d": "1234567,891"
     },
-    "respuesta_correcta": "a",
-    "explicacion": "center() centra el string en un ancho de 10, rellenando con '*'."
+    "respuesta_correcta": "b",
+    "explicacion": "En f-strings, ',' añade separador de miles (coma en estilo anglosajón), '.2f' redondea a 2 decimales. 1234567.891 → '1,234,567.89'."
   },
   {
     "id": "p276",
@@ -4049,15 +4049,15 @@
     "id": "p290",
     "dificultad": 5,
     "categoria": "Diccionarios",
-    "pregunta": "¿Qué imprime?\n\n```python\nd1 = {'a': 1, 'b': 2}\nd2 = d1.copy()\nd1['a'] = 99\nprint(d2['a'])\n```",
+    "pregunta": "¿Qué imprime?\n\n```python\nd1 = {'config': [1, 2, 3]}\nd2 = d1.copy()\nd2['config'].append(99)\nd2['nueva'] = True\nprint(len(d1), d1['config'][-1])\n```",
     "opciones": {
-      "a": "99",
-      "b": "1",
-      "c": "None",
-      "d": "Error"
+      "a": "1 3",
+      "b": "1 99",
+      "c": "2 99",
+      "d": "2 3"
     },
     "respuesta_correcta": "b",
-    "explicacion": "copy() crea una copia superficial independiente. Modificar d1 no afecta d2."
+    "explicacion": "copy() hace copia SUPERFICIAL: d1 y d2 comparten la misma lista en 'config'. Agregar 99 con append() afecta a d1['config']. d2['nueva'] crea una clave nueva solo en d2: d1 sigue teniendo 1 clave."
   },
   {
     "id": "p291",
@@ -4385,15 +4385,15 @@
     "id": "p314",
     "dificultad": 5,
     "categoria": "POO",
-    "pregunta": "¿Qué imprime?\n\n```python\nclass Singleton:\n    _instancia = None\n    \n    def __new__(cls):\n        if cls._instancia is None:\n            cls._instancia = super().__new__(cls)\n        return cls._instancia\n\na = Singleton()\nb = Singleton()\nprint(a is b)\n```",
+    "pregunta": "¿Qué imprime?\n\n```python\nclass A:\n    def __new__(cls):\n        instancia = super().__new__(cls)\n        instancia.valor = 42\n        return instancia\n\n    def __init__(self):\n        self.valor = 0\n\nobj = A()\nprint(obj.valor)\n```",
     "opciones": {
-      "a": "True",
-      "b": "False",
+      "a": "42",
+      "b": "0",
       "c": "None",
       "d": "Error"
     },
-    "respuesta_correcta": "a",
-    "explicacion": "Patrón Singleton: __new__ asegura que solo exista una instancia. a y b son el mismo objeto."
+    "respuesta_correcta": "b",
+    "explicacion": "__new__ crea la instancia (valor=42), pero __init__ se ejecuta DESPUÉS y sobreescribe valor=0. El valor final es 0. __new__ construye el objeto; __init__ lo inicializa."
   },
   {
     "id": "p315",

@@ -1,0 +1,126 @@
+{
+  "metadata": {
+    "nombre_examen": "Parcial 3 - Programacion CIII",
+    "asignatura": "Programacion CIII",
+    "institucion": "Universidad ECCI",
+    "codigo_asignatura": "CIII",
+    "fecha": "2026-05-27",
+    "horario": "08:00 - 10:00"
+  },
+  "descripcion": {
+    "texto": "Evaluacion adaptativa de programacion orientada a objetos, estructuras de datos avanzadas, funciones de orden superior, generadores, decoradores y manejo de excepciones en Python.",
+    "temas": [
+      "POO",
+      "Herencia y composicion",
+      "Metodos especiales",
+      "Funciones avanzadas y closures",
+      "Decoradores",
+      "Generadores",
+      "Listas, diccionarios y sets",
+      "Comprensiones",
+      "Cadenas",
+      "Excepciones",
+      "Tipos de datos y operadores"
+    ],
+    "duracion_estimada": "120 min"
+  },
+  "parametros": {
+    "preguntas_minimas": 40,
+    "preguntas_maximas": 60,
+    "nivel_inicial": 3,
+    "umbral_estabilizacion": 0.15,
+    "ventana_estabilizacion": 10,
+    "distribucion_temas": {
+      "minimo_por_tema": 0,
+      "max_proporcion_tema": 0.3,
+      "pesos": {
+        "POO": 1.5,
+        "POO __call__": 1.4,
+        "POO __new__": 1.4,
+        "POO abstractas": 1.4,
+        "POO avanzado": 1.5,
+        "POO comparación": 1.3,
+        "POO composición": 1.4,
+        "POO descriptores": 1.4,
+        "POO herencia": 1.4,
+        "POO herencia múltiple": 1.5,
+        "POO metaclases": 1.4,
+        "POO métodos de clase": 1.3,
+        "POO métodos especiales": 1.4,
+        "POO métodos privados": 1.3,
+        "POO property setter": 1.3,
+        "POO slots": 1.3,
+        "Funciones closure": 1.3,
+        "Funciones scope": 1.2,
+        "Funciones lambda": 1.1,
+        "Funciones lambda avanzadas": 1.3,
+        "Funciones avanzadas": 1.2,
+        "Funciones recursivas": 1.2,
+        "Funciones map": 1.0,
+        "Funciones filter": 1.0,
+        "Funciones reduce": 1.0,
+        "Funciones partial": 1.1,
+        "Funciones wraps": 1.1,
+        "Funciones zip": 1.0,
+        "Funciones múltiples retornos": 1.0,
+        "Funciones": 0.9,
+        "Decoradores básicos": 1.2,
+        "Decoradores apilados": 1.3,
+        "Decoradores con argumentos": 1.3,
+        "Generadores": 1.2,
+        "Generadores expresiones": 1.2,
+        "Generadores send": 1.3,
+        "Generadores yield from": 1.3,
+        "Context managers manual": 1.3,
+        "Excepciones": 1.0,
+        "Excepciones múltiples": 1.1,
+        "Excepciones raise": 1.1,
+        "Listas": 0.9,
+        "Listas anidadas": 1.0,
+        "Listas métodos": 0.9,
+        "Listas reverse": 0.8,
+        "Listas slicing": 1.0,
+        "List comprehension": 1.0,
+        "List comprehension avanzado": 1.1,
+        "Comprensiones": 0.9,
+        "Comprensiones anidadas": 1.0,
+        "Comprehension avanzado": 1.1,
+        "Diccionarios": 0.9,
+        "Diccionarios anidados": 1.0,
+        "Diccionarios avanzados": 1.1,
+        "Diccionarios comprehension": 1.0,
+        "Diccionarios métodos": 0.9,
+        "Diccionarios setdefault": 1.0,
+        "Sets": 0.9,
+        "Sets métodos": 0.9,
+        "Sets operaciones": 1.0,
+        "Tuplas": 0.8,
+        "Cadenas": 0.9,
+        "Cadenas avanzadas": 1.0,
+        "Cadenas métodos": 0.9,
+        "Strings": 0.9,
+        "Tipos de datos": 0.7,
+        "Operadores": 0.7,
+        "Operadores lógicos": 0.7,
+        "Control de flujo": 0.7,
+        "While": 0.7
+      }
+    }
+  },
+  "seguridad_cliente": {
+    "perfil": "parcial"
+  },
+  "sistema_calificacion": {
+    "tipo": "irt_simplificado",
+    "parametros": {
+      "max_iteraciones": 10
+    }
+  },
+  "persistencia": {
+    "metodo": "google_sheets",
+    "spreadsheet_id": "11LgtY-p59UKYCYY0GwZHCLN--KbZEPZb8poZJTEbyys"
+  },
+  "bancos_preguntas": [
+    "data/preguntas/Programación_CIII.json"
+  ]
+}

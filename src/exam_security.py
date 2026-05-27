@@ -220,19 +220,24 @@ def render_focus_counter_sentinel(policy: Dict[str, Any]) -> int:
         return 0
 
     if SENTINEL_KEY not in st.session_state:
-        st.session_state[SENTINEL_KEY] = 0
+      st.session_state[SENTINEL_KEY] = "0"
+    elif not isinstance(st.session_state[SENTINEL_KEY], str):
+      st.session_state[SENTINEL_KEY] = str(st.session_state[SENTINEL_KEY])
 
-    # El input se renderiza CON label_visibility="collapsed" para que el label
-    # no sea visible pero SI exista en el DOM (JS lo necesita para encontrarlo).
-    focus_count = st.number_input(
+    # Usamos text_input oculto en vez de number_input porque Streamlit no siempre
+    # renderiza number_input como input[type="number"], lo que vuelve frágil la
+    # detección del sentinel desde JS.
+    focus_count = st.text_input(
         SENTINEL_LABEL,
         key=SENTINEL_KEY,
-        min_value=0,
-        max_value=999,
-        step=1,
         label_visibility="collapsed",
+      max_chars=4,
     )
-    return int(focus_count or 0)
+
+    try:
+      return max(0, int(str(focus_count or "0").strip()))
+    except Exception:
+      return 0
 
 
 def render_fingerprint_sentinel(policy: Dict[str, Any]) -> str:
@@ -378,9 +383,10 @@ def apply_client_hardening(policy: Dict[str, Any], codigo_estudiante: str = "") 
 
         // ── Sentinel numerico: encuentra el input de cambios de foco ──────────
         const findSentinel = () => {{
-          const inputs = rootDoc.querySelectorAll('input[type="number"]');
+          const inputs = rootDoc.querySelectorAll('input');
           for (const inp of inputs) {{
-            const wrap = inp.closest('[data-testid="stNumberInput"]');
+            const wrap = inp.closest('[data-testid="stTextInput"]') ||
+                         inp.closest('[data-testid="stNumberInput"]');
             if (!wrap) continue;
             const lbl = wrap.querySelector('[data-testid="stWidgetLabel"]');
             if (lbl && lbl.textContent && lbl.textContent.includes(sentinelLabel)) {{
