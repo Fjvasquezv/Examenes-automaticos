@@ -100,8 +100,8 @@
         {
             "nombre": "Parcial Corte 2 - Control",
             "examen_config": "Control/parcial_corte_2.json",
-            "inicio": "2026-04-23 17:30",
-            "fin": "2026-04-23 22:00",
+            "inicio": "2026-05-26 17:30",
+            "fin": "2026-05-26 22:00",
             "temas": [
                 "Análisis de sistemas"
             ]
