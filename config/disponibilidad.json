@@ -5,8 +5,8 @@
         {
             "nombre": "Parcial1 - Introducción a la Tecnología",
             "examen_config": "Introduccion/Parcial1.json",
-            "inicio": "2026-03-13 06:50",
-            "fin": "2026-03-13 12:30",
+            "inicio": "2026-05-25 16:00",
+            "fin": "2026-05-25 17:30",
             "temas": [
                 "Paradigmas e historia de la IQ",
                 "Plan de estudios de la universidad",
@@ -49,14 +49,14 @@
         {
             "nombre": "QUIZZ 1 - Control",
             "examen_config": "Control/quizz_1.json",
-            "inicio": "2026-03-25 17:00",
-            "fin": "2026-03-26 18:15"
+            "inicio": "2026-05-26 16:00",
+            "fin": "2026-05-26 16:45"
         },
         {
             "nombre": "Parcial 1 - Control",
             "examen_config": "Control/parcial_1.json",
-            "inicio": "2026-03-27 17:00",
-            "fin": "2026-03-27 18:30"
+            "inicio": "2026-05-26 16:45",
+            "fin": "2026-05-26 19:00"
         },
         {
             "nombre": "Parcial 1 - Optimización",
@@ -100,8 +100,8 @@
         {
             "nombre": "Parcial Corte 2 - Control",
             "examen_config": "Control/parcial_corte_2.json",
-            "inicio": "2026-04-23 17:30",
-            "fin": "2026-04-23 22:00",
+            "inicio": "2026-05-26 17:30",
+            "fin": "2026-05-26 22:00",
             "temas": [
                 "Análisis de sistemas"
             ]
