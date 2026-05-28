@@ -91,8 +91,8 @@
         {
             "nombre": "Parcial I Corte 2 - Introducción a la Tecnología",
             "examen_config": "Introduccion/parcial_corte_2.json",
-            "inicio": "2026-04-17 08:00",
-            "fin": "2026-04-17 11:59",
+            "inicio": "2026-05-28 14:00",
+            "fin": "2026-05-28 16:00",
             "temas": [
                 "Operaciones básicas"
             ]
