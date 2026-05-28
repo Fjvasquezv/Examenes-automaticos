@@ -1,0 +1,752 @@
+[
+  {
+    "id": "ec_001",
+    "dificultad": 1,
+    "categoria": "Estructuras de Control",
+    "pregunta": "¿Cuál es la característica fundamental del control feedback (realimentación)?",
+    "opciones": {
+      "a": "Actua sobre la perturbacion antes de que afecte la variable controlada, calculando la correccion a partir de un modelo del proceso",
+      "b": "Opera sin necesidad de medir la variable controlada, generando la senal de control unicamente en funcion del setpoint configurado",
+      "c": "Usa la diferencia entre el setpoint y la variable medida para generar la accion de control y corregir el error en cada ciclo",
+      "d": "Mantiene una proporcion fija entre dos flujos del proceso, ajustando el caudal secundario cada vez que el primario cambia"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "El control feedback (lazo cerrado) cierra el lazo midiendo la variable controlada, comparando con el setpoint y usando el error resultante para calcular la acción de control. Su principio es corregir las desviaciones después de que ya ocurrieron, basándose en la medición continua de la variable.",
+    "tipo": "texto"
+  },
+  {
+    "id": "ec_002",
+    "dificultad": 1,
+    "categoria": "Estructuras de Control",
+    "pregunta": "¿Qué hace el control feedforward (prealimentación)?",
+    "opciones": {
+      "a": "Detecta la perturbacion antes de que afecte la variable controlada y actua preventivamente sobre el actuador para compensarla",
+      "b": "Mide la variable controlada en cada ciclo, compara con el setpoint y genera una correccion proporcional al error resultante",
+      "c": "Usa dos controladores en serie donde el primero genera el setpoint del segundo para mejorar el rechazo de perturbaciones",
+      "d": "Selecciona automaticamente entre varios controladores segun la condicion del proceso para garantizar estabilidad en todo el rango"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "El control feedforward detecta (mide) la perturbación y calcula una acción correctiva antes de que esa perturbación haya afectado la variable controlada. Su ventaja es anticiparse al problema; su limitación es que requiere un modelo del proceso y no corrige errores por otras causas no medidas.",
+    "tipo": "texto"
+  },
+  {
+    "id": "ec_003",
+    "dificultad": 1,
+    "categoria": "Estructuras de Control",
+    "pregunta": "En un control en cascada, ¿cuántos lazos de control hay y cómo se relacionan?",
+    "opciones": {
+      "a": "Un unico lazo cerrado que controla dos variables simultaneamente usando un solo sensor y un solo actuador en el mismo proceso",
+      "b": "Tres lazos independientes que actuan en paralelo sobre el mismo actuador y se coordinan mediante un selector de senales",
+      "c": "Dos lazos independientes con actuadores fisicamente distintos que actuan sin comunicacion ni coordinacion entre ellos",
+      "d": "Dos lazos: el controlador maestro mide la variable principal y su salida se convierte en el setpoint del controlador esclavo"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "El control en cascada usa dos lazos. El controlador maestro (primario) mide la variable principal y su salida es el setpoint del controlador esclavo (secundario). El esclavo controla una variable intermedia y actúa sobre el actuador. El maestro tiene un lazo lento (proceso principal) y el esclavo uno rápido (variable interna).",
+    "tipo": "texto"
+  },
+  {
+    "id": "ec_004",
+    "dificultad": 1,
+    "categoria": "Estructuras de Control",
+    "pregunta": "¿Cuál es el objetivo del control de relación (ratio control)?",
+    "opciones": {
+      "a": "Mantener constante la suma de dos flujos a un valor total fijo, independientemente de como cambien las condiciones del proceso",
+      "b": "Seleccionar el mayor de dos senales de proceso para determinar cual controlador tiene la prioridad de actuar sobre el actuador",
+      "c": "Alternar automaticamente entre las estructuras feedback y feedforward segun si la perturbacion es medible o no en el momento",
+      "d": "Mantener una proporcion fija entre dos flujos o variables del proceso, ajustando uno cuando el otro cambia"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "El control de relación (ratio) mantiene una proporción constante entre dos variables, generalmente dos flujos. Por ejemplo, si se requiere que el flujo de reactivo B sea siempre el 30% del flujo de reactivo A, el sistema de relación ajusta automáticamente el flujo B cada vez que el flujo A cambia para mantener ese porcentaje.",
+    "tipo": "texto"
+  },
+  {
+    "id": "ec_005",
+    "dificultad": 1,
+    "categoria": "Estructuras de Control",
+    "pregunta": "¿Qué es el control override (selectivo)?",
+    "opciones": {
+      "a": "Un sistema donde un controlador puede tomar el control del actuador cuando se cumple una condicion critica, desplazando al controlador normal",
+      "b": "Un sistema con dos sensores redundantes que miden la misma variable para generar una senal de control mas confiable por votacion",
+      "c": "Un sistema que opera en modo manual hasta que el operador lo habilita en automatico desde la sala de control",
+      "d": "Un sistema feedforward que anula la accion del feedback cuando detecta una perturbacion medible en el proceso"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "El control override (o selectivo) permite que un controlador de protección tome el control del actuador cuando una variable de proceso llega a un límite crítico, desplazando al controlador normal. El proceso opera normalmente con el controlador estándar; solo cuando hay riesgo interviene el override para proteger el proceso.",
+    "tipo": "texto"
+  },
+  {
+    "id": "ec_006",
+    "dificultad": 1,
+    "categoria": "Estructuras de Control",
+    "pregunta": "¿Cuál es la principal limitación del control feedback puro?",
+    "opciones": {
+      "a": "No puede eliminar el error permanente porque carece de accion integral que acumule el error en el tiempo para corregirlo",
+      "b": "Requiere conocer el modelo matematico exacto del proceso para calcular la accion de control en cada ciclo de muestreo",
+      "c": "Solo puede controlar variables de temperatura y no puede aplicarse a procesos de flujo, presion ni nivel industrial",
+      "d": "Siempre reacciona despues de que el error ya ocurrio, por lo que no puede evitar que la perturbacion afecte la variable inicialmente"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "El feedback corrige el error, pero para corregirlo primero necesita que ese error exista (la variable ya se desvió del setpoint). No puede evitar que la perturbación afecte la variable; solo puede corregir la desviación después de detectarla. Esto es especialmente problemático en procesos con grandes perturbaciones frecuentes.",
+    "tipo": "texto"
+  },
+  {
+    "id": "ec_007",
+    "dificultad": 1,
+    "categoria": "Estructuras de Control",
+    "pregunta": "¿Cuál es la principal ventaja del control en cascada sobre un simple lazo feedback?",
+    "opciones": {
+      "a": "El lazo esclavo rechaza perturbaciones en la variable secundaria antes de que se propaguen y afecten la variable principal del proceso",
+      "b": "Elimina la necesidad de un actuador en el proceso secundario porque el maestro puede actuar directamente sobre la variable final",
+      "c": "Permite controlar el proceso principal sin necesidad de instalar un sensor de la variable principal que se desea controlar",
+      "d": "Reduce el numero de controladores necesarios en la planta al compartir la logica de control entre los dos lazos del sistema"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "La ventaja clave del control en cascada es que el lazo esclavo (rápido) rechaza las perturbaciones que afectan la variable secundaria antes de que esas perturbaciones se propaguen y afecten la variable principal. El maestro (lento) mantiene la variable principal en setpoint; el esclavo (rápido) mantiene la variable interna y rechaza perturbaciones locales.",
+    "tipo": "texto"
+  },
+  {
+    "id": "ec_008",
+    "dificultad": 1,
+    "categoria": "Estructuras de Control",
+    "pregunta": "En la combinación feedback + feedforward, ¿cuál es el rol de cada parte?",
+    "opciones": {
+      "a": "Feedforward anticipa y compensa la perturbacion conocida y medible; feedback corrige los errores residuales y perturbaciones no medidas",
+      "b": "Feedback detecta y actua sobre la perturbacion mientras ocurre; feedforward corrige el error residual que feedback no pudo eliminar",
+      "c": "Feedback actua solo durante el arranque del proceso; feedforward actua en estado estacionario para mantener el setpoint exacto",
+      "d": "Son identicos en funcion de control; la combinacion solo agrega redundancia de senales para mayor confiabilidad operativa"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "En la combinación feedback+feedforward, las dos partes se complementan: el feedforward actúa preventivamente sobre perturbaciones conocidas y medibles, reduciendo el error inicial. El feedback corrige lo que el feedforward no compensó perfectamente (error residual) y también maneja perturbaciones no medidas. Juntos logran mejor desempeño que cualquiera solo.",
+    "tipo": "texto"
+  },
+  {
+    "id": "ec_009",
+    "dificultad": 1,
+    "categoria": "Estructuras de Control",
+    "pregunta": "¿En qué situación es más útil el control de relación (ratio)?",
+    "opciones": {
+      "a": "Cuando hay que mezclar dos flujos en una proporcion constante, como en combustion aire/gas o mezcla de reactivos quimicos",
+      "b": "Cuando se necesita controlar la temperatura de un reactor con perturbaciones externas frecuentes y de magnitud variable",
+      "c": "Cuando el proceso tiene tiempo muerto muy grande y el feedback puro resulta ineficiente por la lentitud de la respuesta",
+      "d": "Cuando se quiere proteger un equipo de sobrecargas mediante la seleccion automatica del controlador mas conservador"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "El control de relación es la solución natural para procesos de mezcla donde importa la proporción, no el valor absoluto de cada flujo: mezcla de combustible/aire en quemadores, dilución en reactores químicos, blend de productos en refinería. Si el flujo total cambia, el ratio mantiene la proporción correcta automáticamente.",
+    "tipo": "texto"
+  },
+  {
+    "id": "ec_010",
+    "dificultad": 1,
+    "categoria": "Estructuras de Control",
+    "pregunta": "¿Cuál es la principal limitación del control feedforward puro (sin feedback)?",
+    "opciones": {
+      "a": "Es demasiado lento para responder a perturbaciones rapidas porque necesita medir la variable controlada antes de actuar",
+      "b": "Solo puede controlar procesos con valvulas neumaticas y no puede aplicarse con valvulas electricas o de otro tipo de accionamiento",
+      "c": "Requiere mas de dos sensores instalados simultaneamente para calcular correctamente la magnitud de la accion correctiva preventiva",
+      "d": "No puede corregir errores causados por perturbaciones no medidas ni por imprecisiones del modelo del proceso que usa para calcular"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "El feedforward puro depende totalmente de su modelo del proceso: si el modelo es impreciso o hay perturbaciones no medidas, habrá un error permanente que el feedforward no puede corregir porque no mide la variable controlada. Por esto, casi siempre se combina con feedback para que este corrija los errores residuales.",
+    "tipo": "texto"
+  },
+  {
+    "id": "ec_011",
+    "dificultad": 2,
+    "categoria": "Estructuras de Control",
+    "pregunta": "Un proceso de temperatura de reactor tiene perturbaciones frecuentes y conocidas de la temperatura de la corriente de entrada. ¿Qué estructura de control es más apropiada?",
+    "opciones": {
+      "a": "Control feedback puro (PID simple), porque con suficiente ganancia puede rechazar cualquier perturbacion incluyendo las de temperatura de entrada",
+      "b": "Control override, porque protege el reactor de temperaturas extremas actuando cuando el feedback normal no es suficiente",
+      "c": "Control en cascada con temperatura de entrada como maestro, porque las perturbaciones ocurren en la variable que alimenta el proceso",
+      "d": "Control feedback + feedforward: feedforward mide la temperatura de entrada y actua preventivamente; feedback corrige el error residual"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "Si la perturbación (temperatura de entrada) es conocida y medible, el feedforward puede actuar antes de que la temperatura del reactor cambie. El feedback complementa corrigiendo lo que el feedforward no compensó perfectamente. Esta combinación da mejor desempeño que feedback solo, especialmente cuando las perturbaciones son frecuentes y grandes.",
+    "tipo": "texto"
+  },
+  {
+    "id": "ec_012",
+    "dificultad": 2,
+    "categoria": "Estructuras de Control",
+    "pregunta": "Un reactor usa control en cascada: TIC (maestro, temperatura) → FIC (esclavo, flujo de vapor). Una perturbación ocurre en la presión del vapor disponible. ¿Cuál de los lazos responde primero?",
+    "opciones": {
+      "a": "El TIC maestro responde primero porque controla la variable principal y tiene prioridad sobre el lazo esclavo del sistema",
+      "b": "Ambos lazos responden exactamente al mismo tiempo porque el DCS ejecuta los dos algoritmos en el mismo ciclo de control",
+      "c": "Ningun lazo responde inmediatamente; el sistema espera a que la perturbacion se estabilice antes de calcular la correccion",
+      "d": "El FIC esclavo responde primero porque detecta el cambio en el flujo de vapor antes de que la temperatura del producto cambie"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "Esta es precisamente la ventaja del cascada: el lazo esclavo (FIC, flujo) detecta y corrige el cambio de flujo de vapor antes de que ese cambio de flujo afecte la temperatura. El maestro (TIC, temperatura) no necesita actuar porque el esclavo ya rechazó la perturbación. Si fuera un solo lazo de temperatura, habría que esperar a que la temperatura cambiara para recién corregir.",
+    "tipo": "texto"
+  },
+  {
+    "id": "ec_013",
+    "dificultad": 2,
+    "categoria": "Estructuras de Control",
+    "pregunta": "Un sistema de combustión requiere que por cada 10 m³/h de gas combustible entren exactamente 105 m³/h de aire (relación aire/combustible = 10.5:1). El flujo de gas varía según la demanda. ¿Qué estructura de control mantiene automáticamente esta relación?",
+    "opciones": {
+      "a": "Control feedback de temperatura de llama, que detecta cuando la temperatura cambia y ajusta retrospectivamente la proporcion de aire",
+      "b": "Control override con selector de maximo entre los dos flujos, que activa el flujo mayor para garantizar exceso de comburente siempre",
+      "c": "Control en cascada con el controlador de gas como maestro y el controlador de aire como esclavo ajustando el caudal por separado",
+      "d": "Control de relacion (ratio): el flujo de gas es el flujo lider y el flujo de aire lo sigue manteniendo la relacion 10.5:1 automaticamente"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "El control de relación es la solución exacta para este caso: el flujo de gas (líder o wild) se mide y el sistema calcula automáticamente el setpoint del flujo de aire como 10.5 × flujo_gas. Cuando el flujo de gas cambia por demanda, el flujo de aire se ajusta instantáneamente para mantener la relación, sin esperar a que la temperatura de llama cambie.",
+    "tipo": "texto"
+  },
+  {
+    "id": "ec_014",
+    "dificultad": 2,
+    "categoria": "Estructuras de Control",
+    "pregunta": "Un compresor de gas tiene dos controladores: un PIC que controla la presión de descarga y un FIC que controla el flujo para proteger el compresor del surge (inestabilidad). ¿Qué estructura de control describe esta arquitectura?",
+    "opciones": {
+      "a": "Control override: en operacion normal actua el PIC de presion; cuando el flujo cae peligrosamente, el FIC antisurge toma el control del compresor",
+      "b": "Control en cascada: el PIC maestro ajusta el setpoint del FIC esclavo para coordinar el control de presion y flujo simultaneamente",
+      "c": "Control de relacion: el PIC calcula y mantiene la relacion presion/flujo constante para garantizar operacion estable del compresor",
+      "d": "Control feedback+feedforward: el PIC es el feedback de presion y el FIC actua como feedforward cuando el flujo disminuye"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "El control override en compresores es clásico: normalmente el PIC controla la presión de descarga. Si el flujo cae por debajo del mínimo de surge, el controlador de protección (FIC antisurge) 'toma el control' de la válvula de control y la abre para recircular gas, protegiendo el compresor. Cuando el flujo vuelve a rangos seguros, el PIC retoma el control.",
+    "tipo": "texto"
+  },
+  {
+    "id": "ec_015",
+    "dificultad": 2,
+    "categoria": "Estructuras de Control",
+    "pregunta": "¿Por qué el control feedforward solo es efectivo si la perturbación es medible?",
+    "opciones": {
+      "a": "Porque el feedforward actua basandose en la magnitud de la perturbacion medida para calcular cuanto corregir preventivamente",
+      "b": "Porque sin medicion de la perturbacion no se puede calibrar el controlador PID que ejecuta el algoritmo del lazo feedforward",
+      "c": "Porque la norma ISA-5.1 exige un sensor de perturbacion certificado para aprobar el diseno de cualquier sistema feedforward industrial",
+      "d": "Porque sin sensor de perturbacion el lazo feedforward se comporta identicamente a un control On-Off con histeria amplia configurada"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "El feedforward calcula la acción correctiva usando un modelo: corrección = f(perturbación_medida). Si la perturbación no se mide, no hay información para calcular cuánto corregir. En ese caso, no se puede implementar feedforward para esa perturbación y el feedback es la única opción para corregir sus efectos después de que ocurran.",
+    "tipo": "texto"
+  },
+  {
+    "id": "ec_016",
+    "dificultad": 2,
+    "categoria": "Estructuras de Control",
+    "pregunta": "En un lazo de control en cascada, ¿cuál debe ser la velocidad relativa del lazo esclavo respecto al maestro?",
+    "opciones": {
+      "a": "El esclavo debe ser mas lento que el maestro para que el maestro siempre tenga tiempo de calcular el nuevo setpoint antes de que el esclavo actue",
+      "b": "Deben tener exactamente la misma velocidad de respuesta para que se coordinen correctamente y no generen oscilaciones entre lazos",
+      "c": "El esclavo debe ser significativamente mas rapido que el maestro (3-5 veces o mas) para rechazar perturbaciones locales antes de que afecten al maestro",
+      "d": "La velocidad relativa no importa en el cascada; lo que define el desempeno es solo el valor del setpoint que el maestro envia al esclavo"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "Para que el cascada funcione correctamente, el lazo esclavo debe responder mucho más rápido que el maestro. Si el esclavo es lento, cuando el maestro cambia el setpoint del esclavo, la variable secundaria no seguirá rápido y el sistema no tendrá las ventajas del cascada. La regla general es que el esclavo sea al menos 3-5 veces más rápido que el maestro.",
+    "tipo": "texto"
+  },
+  {
+    "id": "ec_017",
+    "dificultad": 2,
+    "categoria": "Estructuras de Control",
+    "pregunta": "Un proceso de mezcla requiere que el flujo total sea 100 m³/h pero siempre con 70% del componente A y 30% del B. El flujo total puede variar. ¿Qué combinación de estructuras de control aplica?",
+    "opciones": {
+      "a": "Control de relacion para mantener la proporcion 70/30 combinado con control de flujo total para mantener los 100 m3/h simultaneamente",
+      "b": "Solo control de relacion para los dos flujos individuales, sin agregar ningun control adicional de flujo total del sistema",
+      "c": "Control en cascada donde el flujo total es el maestro y la relacion entre los flujos es ajustada por el lazo esclavo automaticamente",
+      "d": "Control override que selecciona entre flujo A o flujo B segun cual de los dos se encuentre fuera de su rango de operacion normal"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "Para controlar simultáneamente el flujo total y la proporción, se combina: un control de flujo total (feedback) que mantiene los 100 m³/h ajustando uno o ambos flujos, y un control de relación que mantiene la proporción 70/30. Estas dos estructuras se complementan: el total define cuánto fluye en conjunto y el ratio define cómo se reparte.",
+    "tipo": "texto"
+  },
+  {
+    "id": "ec_018",
+    "dificultad": 2,
+    "categoria": "Estructuras de Control",
+    "pregunta": "¿Cuándo es más apropiado usar control en cascada en lugar de un simple lazo feedback?",
+    "opciones": {
+      "a": "Cuando la variable principal es dificil de medir directamente y requiere un instrumento especialmente caro o de mantenimiento complejo",
+      "b": "Siempre que el tiempo de respuesta del proceso sea inferior a 5 minutos, independientemente del tipo de perturbaciones que afecten al proceso",
+      "c": "Cuando se necesita controlar mas de dos variables del proceso usando el mismo actuador fisico instalado en la linea de proceso",
+      "d": "Cuando el proceso tiene perturbaciones frecuentes en una variable intermedia medible y esa variable responde mas rapido que la principal"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "El cascada se justifica cuando hay perturbaciones en la variable secundaria (interna) que eventualmente afectan la variable principal, y cuando esa variable secundaria es medible y responde más rápido que la principal. El esclavo rechaza localmente la perturbación sin esperar a que la variable principal se desvíe, mejorando el control.",
+    "tipo": "texto"
+  },
+  {
+    "id": "ec_019",
+    "dificultad": 2,
+    "categoria": "Estructuras de Control",
+    "pregunta": "En un control override con selector de mínimo (auctioneering), dos controladores compiten por el actuador: C1 pide 70% y C2 pide 30%. ¿Qué señal llega a la válvula?",
+    "opciones": {
+      "a": "El promedio de las dos senales: 50%, calculado como la media aritmetica para evitar que ninguno de los dos controladores tenga ventaja",
+      "b": "La senal de C1 (70%) porque es el controlador primario y en el override siempre gana el controlador de mayor prioridad configurada",
+      "c": "La senal alterna entre C1 y C2 en cada ciclo de control para que ambos controladores tengan la misma participacion en el proceso",
+      "d": "La senal mas baja: 30% de C2, porque el selector de minimo siempre elige la senal de menor valor entre todas las que compiten"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "Un selector de mínimo (low selector) elige siempre la señal más baja de las que compiten. Si C1 pide 70% y C2 pide 30%, el selector de mínimo pasa al actuador el 30% de C2. El selector de máximo (high selector) haría lo opuesto. Esta lógica de selección es la base del control override: el controlador de protección 'gana' cuando su señal es seleccionada por el criterio del selector.",
+    "tipo": "texto"
+  },
+  {
+    "id": "ec_020",
+    "dificultad": 2,
+    "categoria": "Estructuras de Control",
+    "pregunta": "¿Por qué el control feedback+feedforward da mejor desempeño que solo feedback ante perturbaciones conocidas?",
+    "opciones": {
+      "a": "Porque el feedforward actua antes de que la perturbacion afecte la variable, reduciendo la desviacion inicial; el feedback solo actua despues del error",
+      "b": "Porque el feedforward elimina la necesidad del feedback y simplifica el lazo reduciendo el numero de controladores necesarios en planta",
+      "c": "Porque la combinacion aumenta la ganancia efectiva del PID permitiendo una respuesta mas agresiva sin riesgo de inestabilidad adicional",
+      "d": "Porque el feedforward genera una senal de anti-windup que previene la saturacion integral del controlador feedback en perturbaciones grandes"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "La combinación es superior porque actúa en dos momentos distintos: el feedforward actúa en el momento en que se detecta la perturbación (antes del error), reduciendo o eliminando la desviación inicial. El feedback actúa después, corrigiendo lo que el feedforward no pudo compensar perfectamente. La perturbación que con feedback solo causaría una desviación grande, con la combinación causa una desviación pequeña o nula.",
+    "tipo": "texto"
+  },
+  {
+    "id": "ec_021",
+    "dificultad": 3,
+    "categoria": "Estructuras de Control",
+    "pregunta": "Un proceso de temperatura de reactor usa feedback simple. El ingeniero nota que cada vez que el flujo de reactivo cambia, la temperatura tarda 15 minutos en recuperarse. Se decide agregar feedforward. ¿Qué variable debe medir el feedforward?",
+    "opciones": {
+      "a": "La temperatura de salida del reactor, igual que el feedback, para que el feedforward confirme la medicion del sensor principal del lazo",
+      "b": "El flujo del medio calefactor (vapor), porque es el actuador del proceso y el feedforward necesita conocer la posicion de la valvula",
+      "c": "El flujo de reactivo de entrada, porque es la perturbacion que provoca la desviacion de temperatura y puede medirse antes de que afecte al reactor",
+      "d": "La presion del reactor, porque esta relacionada con la temperatura y permite calcular indirectamente la energia liberada en la reaccion"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "El feedforward debe medir la variable que representa la perturbación que causa el problema. Si el flujo de reactivo al cambiar desestabiliza la temperatura, es precisamente esa variable la que hay que medir para anticiparse. Al detectar el cambio de flujo, el feedforward ajusta preventivamente el calefactor antes de que la temperatura del reactor se desvíe.",
+    "tipo": "texto"
+  },
+  {
+    "id": "ec_022",
+    "dificultad": 3,
+    "categoria": "Estructuras de Control",
+    "pregunta": "Un ingeniero evalúa si implementar control en cascada para un horno de proceso. La temperatura del horno es la variable principal (lazo lento, 20 min de respuesta). El flujo de combustible es la variable secundaria (lazo rápido, 30 segundos). ¿Tiene sentido el cascada aquí?",
+    "opciones": {
+      "a": "No, porque la diferencia de velocidad entre los lazos es tan grande que el cascada no puede coordinarse correctamente y generara inestabilidad",
+      "b": "No, porque el horno ya tiene feedback de temperatura y agregar cascada es redundante sin agregar valor real al control del proceso",
+      "c": "Si, porque el lazo de flujo de combustible (30 seg) es mucho mas rapido que el de temperatura (20 min), cumpliendo el requisito del cascada",
+      "d": "Solo si la temperatura del combustible tambien varia frecuentemente, de lo contrario el cascada no aporta beneficio significativo al proceso"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "El cascada es perfectamente apropiado aquí: el flujo de combustible responde 40 veces más rápido que la temperatura del horno (30 seg vs 20 min). El lazo esclavo de flujo rechazará cambios en la presión del gas, viscosidad del combustible y otras perturbaciones locales antes de que afecten la temperatura. El maestro de temperatura mantiene el setpoint global. La gran diferencia de velocidad garantiza que el cascada funcione correctamente.",
+    "tipo": "texto"
+  },
+  {
+    "id": "ec_023",
+    "dificultad": 3,
+    "categoria": "Estructuras de Control",
+    "pregunta": "¿Cuál es la diferencia entre control en cascada y control feedback+feedforward?",
+    "opciones": {
+      "a": "Son identicas en estructura; cascada y feedback+feedforward son dos nombres distintos que la industria usa para la misma arquitectura de control",
+      "b": "En cascada hay dos lazos cerrados con retroalimentacion; en feedback+feedforward el feedforward actua en lazo abierto sobre la perturbacion",
+      "c": "En cascada se usa tipicamente para temperatura y en feedback+feedforward se usa para flujo y presion segun el tipo de proceso industrial",
+      "d": "El cascada siempre tiene tres controladores en serie; el feedback+feedforward tiene exactamente uno de cada tipo con funciones distintas"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "La diferencia es estructural: en cascada hay dos lazos completamente cerrados, cada uno con su sensor y retroalimentación. En feedback+feedforward, el feedforward no es un lazo cerrado: actúa en lazo abierto midiendo la perturbación y calculando una acción correctiva sin retroalimentación de la variable controlada. El feedback cierra el lazo principal.",
+    "tipo": "texto"
+  },
+  {
+    "id": "ec_024",
+    "dificultad": 3,
+    "categoria": "Estructuras de Control",
+    "pregunta": "Un proceso de nivel tiene un controlador de nivel LIC que normalmente controla la válvula de salida. Un segundo controlador de presión PIC puede también actuar sobre la misma válvula cuando la presión del tanque supera un límite. ¿Cómo se selecciona cuál controlador opera en cada momento?",
+    "opciones": {
+      "a": "Mediante control en cascada: el LIC de nivel es el maestro y el PIC de presion es el esclavo que recibe el setpoint del maestro",
+      "b": "Mediante control de relacion: el sistema mantiene una proporcion fija y constante entre el valor de nivel y el valor de presion del tanque",
+      "c": "Mediante un selector de senal (override): el PIC toma el control cuando la presion supera el limite mediante un selector de maximo adecuado",
+      "d": "Mediante control feedback+feedforward: el PIC actua como feedforward de presion y el LIC cierra el lazo de feedback de nivel del tanque"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "Este es un caso clásico de control override (selectivo). En operación normal, el LIC controla el nivel. Cuando la presión supera el límite, el PIC genera una señal mayor (abre más la válvula) para aliviar la presión. Un selector de máximo pasa la señal mayor de los dos controladores a la válvula, haciendo que el PIC 'gane' el control. Cuando la presión vuelve a rango normal, el LIC retoma el control.",
+    "tipo": "texto"
+  },
+  {
+    "id": "ec_025",
+    "dificultad": 3,
+    "categoria": "Estructuras de Control",
+    "pregunta": "Un proceso de combustión usa control de relación aire/gas. El operador nota que aunque la relación es correcta, la temperatura de llama no siempre es la óptima. ¿Qué estructura adicional podría mejorar el control?",
+    "opciones": {
+      "a": "Agregar un lazo de cascada donde la temperatura de llama sea el maestro que ajusta dinamicamente el setpoint de la relacion aire/gas",
+      "b": "Reemplazar el control de relacion por un control override con selector de temperatura que cambia el modo de control segun la llama",
+      "c": "Agregar un lazo de feedback de temperatura completamente independiente que opere en paralelo con la relacion sin ninguna interaccion",
+      "d": "Cambiar el flujo lider de gas a aire para que el gas siga la relacion y la temperatura de llama se estabilice de forma natural"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "La solución es agregar un 'trim' de temperatura sobre el control de relación: un controlador de temperatura (maestro, lento) que ajusta dinámicamente la relación aire/gas (esclavo, rápido) para optimizar la temperatura de llama. El control de relación asegura que la proporción base sea correcta; el maestro de temperatura la ajusta finamente según la necesidad real del proceso.",
+    "tipo": "texto"
+  },
+  {
+    "id": "ec_026",
+    "dificultad": 3,
+    "categoria": "Estructuras de Control",
+    "pregunta": "En un control override con selector de mínimo, ambos controladores tienen anti-windup activo. ¿Por qué es importante el anti-windup en el controlador que NO está seleccionado en un momento dado?",
+    "opciones": {
+      "a": "Porque sin anti-windup el controlador no seleccionado acumula integral y al retomar el control genera un sobreimpulso que perturba el proceso",
+      "b": "Porque sin anti-windup el controlador no seleccionado interfiere activamente con la senal del controlador activo a traves del selector",
+      "c": "Porque el anti-windup desactiva completamente el controlador no seleccionado para ahorrar capacidad de calculo del sistema de control",
+      "d": "El anti-windup no es necesario en sistemas override porque el selector ya garantiza que solo un controlador este activo en cada momento"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "Cuando un controlador pierde el control (no está seleccionado), sigue calculando su error y si tiene acción integral, esta se acumula sin límite porque el actuador no responde a su señal. Cuando ese controlador vuelve a ser seleccionado, tiene una integral tan acumulada que genera una respuesta exagerada. El anti-windup limita esta acumulación para que la transición entre controladores sea suave.",
+    "tipo": "texto"
+  },
+  {
+    "id": "ec_027",
+    "dificultad": 3,
+    "categoria": "Estructuras de Control",
+    "pregunta": "Un ingeniero compara control feedback simple vs. control en cascada para un proceso de temperatura de aceite calentado por vapor. ¿Cuál es el argumento más sólido para elegir cascada?",
+    "opciones": {
+      "a": "El cascada siempre es superior al feedback simple en cualquier proceso y no requiere analisis adicional para justificar su implementacion",
+      "b": "Las variaciones de presion del vapor afectan el flujo de vapor antes de afectar la temperatura; el esclavo de flujo rechaza estas perturbaciones localmente",
+      "c": "El cascada reduce el costo de instrumentacion eliminando la necesidad del sensor de temperatura principal del proceso calentado",
+      "d": "El cascada es necesario porque el proceso de aceite es altamente no lineal y el feedback simple nunca puede controlarlo establemente"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "El argumento específico para elegir cascada en este proceso es que la presión del vapor varía (perturbación en la variable secundaria: flujo de vapor). Con feedback simple, esta variación de presión causa un cambio de flujo de vapor que eventualmente cambia la temperatura del aceite; recién entonces el controlador de temperatura corrige. Con cascada, el lazo de flujo detecta y corrige el cambio de flujo de vapor instantáneamente, protegiendo la temperatura.",
+    "tipo": "texto"
+  },
+  {
+    "id": "ec_028",
+    "dificultad": 3,
+    "categoria": "Estructuras de Control",
+    "pregunta": "Un control de relación tiene el flujo de gas como flujo 'líder' (wild) y el flujo de aire como flujo 'seguidor'. Si el medidor del flujo líder falla con lectura cero, ¿cuál es el efecto en el proceso?",
+    "opciones": {
+      "a": "El flujo de aire mantiene su ultimo valor configurado antes de la falla y opera en modo de retension hasta que el sensor sea reparado",
+      "b": "El sistema detecta la falla del flujo lider y cambia automaticamente al flujo de aire como nuevo lider del sistema de relacion",
+      "c": "El control de relacion activa automaticamente un modo de seguridad con el ratio predeterminado en la configuracion de emergencia",
+      "d": "El setpoint del flujo de aire se calculara como cero (ratio x 0), causando que el controlador cierre la valvula y se pierda el comburente"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "Si el flujo líder (gas) falla con lectura cero, el sistema de ratio calcula: setpoint_aire = ratio × 0 = 0. El controlador de aire intentará llevar el flujo de aire a cero, cerrando la válvula de aire y cortando el comburente. Esto ilustra la importancia del diagnóstico de fallas en el flujo líder y de implementar protecciones (alarmas de falla de sensor, límites mínimos) en sistemas de ratio.",
+    "tipo": "texto"
+  },
+  {
+    "id": "ec_029",
+    "dificultad": 3,
+    "categoria": "Estructuras de Control",
+    "pregunta": "¿Cuál es la diferencia entre control override con selector de máximo y selector de mínimo, y cuándo se usa cada uno?",
+    "opciones": {
+      "a": "Selector de maximo para procesos de alta presion y selector de minimo para procesos de baja presion industrial segun la norma ISA",
+      "b": "Selector de maximo elige la senal mas alta; selector de minimo elige la mas baja; se usa segun si el controlador de proteccion necesita mas o menos apertura del actuador",
+      "c": "Ambos son identicos en funcionamiento; el nombre depende solo de la marca o familia del controlador instalado en el sistema",
+      "d": "Selector de maximo para sistemas de control de temperatura; selector de minimo exclusivamente para sistemas de control de flujo"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "La selección depende de la acción de protección requerida. Si el controlador de protección necesita abrir más el actuador (por ejemplo: abrir válvula de recirculación en antisurge), se usa selector de máximo (el que pide más apertura gana). Si necesita cerrar más (por ejemplo: reducir calor ante temperatura alta), se usa selector de mínimo (el que pide menos apertura gana).",
+    "tipo": "texto"
+  },
+  {
+    "id": "ec_030",
+    "dificultad": 3,
+    "categoria": "Estructuras de Control",
+    "pregunta": "En un proceso con control feedback+feedforward, el modelo del feedforward está ligeramente incorrectamente calibrado (sobreestima la corrección). ¿Qué efecto tiene esto y cómo lo maneja el sistema?",
+    "opciones": {
+      "a": "El feedforward sobrecorregira la perturbacion generando un error en sentido contrario; el feedback corregira este error residual, resultando en control mejor que solo feedback",
+      "b": "El sistema se vuelve inestable inmediatamente porque el feedforward incorrecto genera un lazo de retroalimentacion positiva sin amortiguar",
+      "c": "El error de calibracion es critico y el sistema no puede funcionar con un feedforward mal calibrado aunque el feedback este activo",
+      "d": "El feedback se desactiva automaticamente para evitar el conflicto con el feedforward mal calibrado y proteger la estabilidad del proceso"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "Un feedforward imperfecto no es catastrófico precisamente porque el feedback complementa. Si el feedforward sobreestima y corrige de más, la variable se desvía en sentido contrario, pero el feedback detecta ese nuevo error y lo corrige. El resultado neto puede ser peor que un feedforward bien calibrado pero sigue siendo mejor que solo feedback. Esto es por qué el feedforward siempre se combina con feedback.",
+    "tipo": "texto"
+  },
+  {
+    "id": "ec_031",
+    "dificultad": 4,
+    "categoria": "Estructuras de Control",
+    "pregunta": "Un proceso de temperatura de un horno usa feedback simple. Las perturbaciones más frecuentes son variaciones de la temperatura ambiente (medible) y cambios en la composición del combustible (no medible). ¿Cuál es la estrategia óptima?",
+    "opciones": {
+      "a": "Solo feedback con ganancia P alta: con suficiente ganancia el feedback puede rechazar ambas perturbaciones incluida la composicion del combustible",
+      "b": "Solo feedforward de temperatura ambiente: no se puede implementar control adicional para la composicion del combustible porque no es medible",
+      "c": "Feedback+feedforward de temperatura ambiente: feedforward compensa la perturbacion medible; feedback corrige los residuales y la composicion no medible",
+      "d": "Control en cascada con temperatura ambiente como maestro y temperatura del horno como esclavo que ajusta el flujo de combustible"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "La estrategia óptima aprovecha lo que se puede medir: feedforward para la temperatura ambiente (medible, actúa preventivamente). Para la composición del combustible (no medible), no hay feedforward posible, pero el feedback corregirá sus efectos después de que ocurran. Esta combinación es mejor que solo feedback (que no puede anticipar la temperatura ambiente) y mejor que solo feedforward (que no puede manejar la composición del combustible).",
+    "tipo": "texto"
+  },
+  {
+    "id": "ec_032",
+    "dificultad": 4,
+    "categoria": "Estructuras de Control",
+    "pregunta": "Un ingeniero propone usar control en cascada para un proceso de nivel de tanque donde el nivel es el maestro y el flujo de entrada es el esclavo. El tiempo de respuesta del nivel es 2 horas y el del flujo es 5 segundos. ¿Cuál es el riesgo de diseño a tener en cuenta?",
+    "opciones": {
+      "a": "La diferencia de velocidad entre los lazos es insuficiente para que el cascada funcione correctamente y debe usarse feedback simple",
+      "b": "No hay riesgo alguno; la gran diferencia de velocidad (2 hs vs 5 seg) hace que el cascada funcione perfectamente sin consideraciones adicionales",
+      "c": "Al sintonizar el maestro muy lento hay riesgo de que parezca que no funciona; ademas cambios grandes de setpoint pueden saturar el esclavo sin limites adecuados",
+      "d": "El lazo de flujo esclavo es tan rapido que puede generar inestabilidad en el lazo de nivel al reaccionar mas rapido de lo que el proceso requiere"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "Con tiempos tan diferentes (2 horas vs 5 segundos), el cascada funciona bien pero hay consideraciones prácticas: la sintonización del maestro debe ser muy conservadora (integral lento), y la salida del maestro (setpoint del esclavo) debe tener límites apropiados para evitar que un cambio grande de nivel pida un flujo de entrada imposible o que sature el esclavo. La configuración de límites y el rate-limiting del setpoint del maestro son críticos.",
+    "tipo": "texto"
+  },
+  {
+    "id": "ec_033",
+    "dificultad": 4,
+    "categoria": "Estructuras de Control",
+    "pregunta": "En un proceso de mezcla de tres componentes, se requiere que los componentes A, B y C mantengan relaciones fijas entre sí (A:B:C = 5:3:2) y que el flujo total sea variable según demanda. ¿Cómo se estructura el control?",
+    "opciones": {
+      "a": "Tres controladores feedback independientes de flujo, uno por componente, sin ninguna coordinacion ni relacion entre los tres lazos",
+      "b": "Un controlador de relacion para la proporcion A:B y un feedback independiente para el flujo total de C sin interaccion con A ni B",
+      "c": "Un flujo lider A controlado segun la demanda total, con B y C siguiendo con control de relacion respecto a A (B=0.6A, C=0.4A)",
+      "d": "Control en cascada donde el flujo total es el maestro y los tres flujos individuales son esclavos independientes del mismo maestro"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "La estructura estándar para mezcla de múltiples componentes: A es el flujo líder (wild) determinado por la demanda total. B y C tienen controladores de relación que siguen a A manteniendo las proporciones B=0.6A (3/5) y C=0.4A (2/5). Cuando la demanda cambia y A varía, B y C se ajustan automáticamente para mantener las proporciones. El flujo total resulta de la suma A+B+C.",
+    "tipo": "texto"
+  },
+  {
+    "id": "ec_034",
+    "dificultad": 4,
+    "categoria": "Estructuras de Control",
+    "pregunta": "Un control override de temperatura tiene el TIC (controlador normal) y el TSHH (controlador de protección que actúa con selector de mínimo). El proceso opera normalmente pero el TSHH tiene acumulación de integral positiva enorme. ¿Qué ocurrirá cuando la temperatura suba y el TSHH deba 'tomar el control'?",
+    "opciones": {
+      "a": "El TSHH tomara el control instantaneamente y respondera de forma agresiva y correcta porque fue disenado para esa condicion critica",
+      "b": "Nada inusual; el anti-windup del TSHH habra limitado su integral durante el periodo inactivo y la transicion sera completamente suave",
+      "c": "El TSHH tardara en reaccionar porque su integral positiva acumulada significa que su senal empieza muy alta cuando deberia estar baja para proteger",
+      "d": "El TSHH se desactivara automaticamente al detectar la acumulacion excesiva de integral como medida de proteccion del sistema de seguridad"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "Sin anti-windup, el TSHH acumuló integral durante todo el tiempo que no estuvo seleccionado. Cuando necesita actuar (temperatura alta → selector de mínimo lo selecciona porque pide menos apertura), su señal calculada puede ser muy alta (integral positiva acumulada → pide mucha apertura) cuando debería pedir poca apertura para reducir el calor. Esto retarda la respuesta protectora. El anti-windup del controlador no seleccionado es crítico para el override.",
+    "tipo": "texto"
+  },
+  {
+    "id": "ec_035",
+    "dificultad": 4,
+    "categoria": "Estructuras de Control",
+    "pregunta": "Un proceso químico tiene control en cascada: TIC maestro (temperatura del producto) → FIC esclavo (flujo de vapor calefactor). El operador pone el FIC en modo manual para hacer pruebas. ¿Qué debe hacerse con el TIC maestro?",
+    "opciones": {
+      "a": "El TIC maestro puede permanecer en automatico sin problema; el cascada se adapta automaticamente al modo manual del esclavo sin windup",
+      "b": "El TIC maestro debe ponerse en manual o modo tracking porque si permanece en automatico acumulara integral mientras el esclavo este en manual",
+      "c": "El TIC maestro debe aumentar su ganancia proporcional para compensar la perdida de control del esclavo y mantener la temperatura estable",
+      "d": "El estado del TIC no importa cuando el FIC esta en manual porque los dos lazos del cascada son completamente independientes entre si"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Cuando el esclavo está en manual, el maestro en automático sigue calculando y su integral acumula error (la temperatura puede desviarse del setpoint del maestro pero el flujo de vapor no responde). Este windup del maestro causará un sobreimpulso cuando el esclavo vuelva a automático. La solución es poner el maestro en manual o en modo de seguimiento (tracking) donde su salida sigue al setpoint del esclavo manual sin acumular integral.",
+    "tipo": "texto"
+  },
+  {
+    "id": "ec_036",
+    "dificultad": 4,
+    "categoria": "Estructuras de Control",
+    "pregunta": "¿En qué situación práctica un control de relación puede ser insuficiente por sí solo y requiere combinarse con otro control?",
+    "opciones": {
+      "a": "Cuando hay mas de dos componentes en la mezcla, ya que el control de relacion estandar solo puede manejar exactamente dos flujos simultaneos",
+      "b": "Cuando el flujo lider puede cambiar de direccion e invertirse, ya que el ratio negativo no puede representarse en la mayoria de controladores",
+      "c": "Cuando la relacion optima entre componentes no es constante sino que depende de otra variable del proceso como temperatura o calidad del producto",
+      "d": "Cuando los dos flujos tienen unidades de medicion diferentes, ya que el control de relacion requiere unidades identicas en ambos flujos"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "El control de relación mantiene una proporción fija. Si la proporción óptima varía según condiciones del proceso (por ejemplo, el ratio aire/combustible óptimo cambia con la temperatura de llama o la composición del combustible), el ratio fijo puede ser incorrecto en ciertos momentos. La solución es combinar: control de ratio base + controlador de calidad/temperatura que 'trima' dinámicamente el ratio según las condiciones reales.",
+    "tipo": "texto"
+  },
+  {
+    "id": "ec_037",
+    "dificultad": 4,
+    "categoria": "Estructuras de Control",
+    "pregunta": "Un proceso criogénico tiene un LIC controlando el nivel de nitrógeno líquido y un TIC controlando la temperatura del producto. Ambos actúan sobre la misma válvula de entrada de nitrógeno. En operación normal el LIC controla. ¿Cuándo y cómo el TIC debe 'ganar' el control?",
+    "opciones": {
+      "a": "El TIC siempre debe tener prioridad sobre el LIC porque la temperatura es operativamente mas importante que el nivel del proceso criogenico",
+      "b": "Se implementa control override: si la temperatura sube sobre el limite critico el TIC pide mas apertura (selector de maximo) y gana al LIC",
+      "c": "Se implementa control en cascada donde el TIC es el maestro y el LIC es el esclavo que recibe el setpoint de nivel del controlador maestro",
+      "d": "No es posible que dos controladores actuen sobre la misma valvula; se deben instalar dos valvulas separadas, una para nivel y otra para temperatura"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "El control override con selector de máximo es la solución: LIC controla normalmente el nivel. Si la temperatura del producto sube (riesgo), el TIC calcula una señal que exige más apertura de la válvula (más nitrógeno) que la que el LIC está pidiendo. El selector de máximo pasa la señal del TIC, que 'gana' el control y abre más la válvula para enfriar. Cuando la temperatura vuelve a rango normal, el LIC retoma el control.",
+    "tipo": "texto"
+  },
+  {
+    "id": "ec_038",
+    "dificultad": 4,
+    "categoria": "Estructuras de Control",
+    "pregunta": "Un sistema de control feedback+feedforward de temperatura tiene bien calibrado su feedforward. Aun así, el operador nota que persiste un error permanente de 0.5°C. ¿Cuál es la causa probable y cómo se corrige?",
+    "opciones": {
+      "a": "El feedforward bien calibrado nunca deja error permanente; si hay offset el problema es definitivamente el sensor de temperatura del lazo",
+      "b": "El error indica que el feedforward esta sobrecompensando; hay que reducir su ganancia a cero y recalibrar el modelo del proceso completo",
+      "c": "La parte feedback no tiene accion integral o su Ti es muy grande; agregar o acelerar el integral del PID eliminara el error permanente",
+      "d": "El feedforward necesita recalibracion porque el modelo del proceso cambio y ya no compensa correctamente la perturbacion original"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "El feedforward anticipa perturbaciones pero no corrige errores de estado estacionario causados por otras fuentes (imprecisión del modelo, otras perturbaciones no medidas, cambios de setpoint). El error permanente de 0.5°C indica que el componente feedback (PID) no tiene suficiente acción integral para eliminar el offset. La solución es revisar y activar correctamente la acción integral del PID del lazo de feedback.",
+    "tipo": "texto"
+  },
+  {
+    "id": "ec_039",
+    "dificultad": 4,
+    "categoria": "Estructuras de Control",
+    "pregunta": "En un proceso industrial, ¿cuál es el criterio principal para decidir entre usar control en cascada vs. control feedback+feedforward?",
+    "opciones": {
+      "a": "El costo de implementacion: el cascada requiere mas instrumentos y siempre resulta mas caro que el feedforward equivalente",
+      "b": "Si la perturbacion principal ocurre en una variable interna medible entre el actuador y la variable principal, el cascada es apropiado; si es externa y medible, el feedforward",
+      "c": "El tipo de actuador disponible: valvulas modulantes requieren cascada y valvulas todo/nada requieren feedforward obligatoriamente",
+      "d": "La velocidad del proceso: los procesos lentos requieren cascada mientras que los procesos rapidos requieren feedforward para anticipar"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "La selección se basa en dónde ocurre la perturbación y cómo se propaga. Si la perturbación afecta una variable intermedia entre el actuador y la variable principal (por ejemplo, variación de presión que cambia el flujo de vapor en un proceso de temperatura), el cascada es apropiado. Si la perturbación es externa y llega al proceso de forma directa pero se puede medir antes de que afecte la variable (como temperatura de entrada), el feedforward es la solución natural.",
+    "tipo": "texto"
+  },
+  {
+    "id": "ec_040",
+    "dificultad": 4,
+    "categoria": "Estructuras de Control",
+    "pregunta": "Un sistema de control override tiene el TIC como controlador normal y el TSHH como controlador de protección con selector de mínimo. El TSHH está configurado con modo de acción inversa (sube temperatura → baja salida). ¿Cuándo y por qué el TSHH 'gana' la selección de mínimo?",
+    "opciones": {
+      "a": "El TSHH siempre gana en el selector de minimo porque tiene mayor prioridad hardcodeada en la configuracion del controlador selectivo",
+      "b": "Con accion inversa y temperatura alta, el TSHH calcula salida baja (cierra calor); esa senal baja es la que el selector de minimo selecciona",
+      "c": "El TSHH gana solo cuando la temperatura supera el umbral programado en el selector, independientemente de la senal de salida calculada",
+      "d": "El TSHH con accion inversa nunca puede ganar en un selector de minimo; requeriria un selector de maximo para poder tomar el control"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "La lógica es elegante: con acción inversa, temperatura alta → el TSHH calcula salida baja (quiere cerrar el actuador de calor). Esta salida baja es menor que la que el TIC normal calcula en operación normal. El selector de mínimo siempre pasa la señal más baja, que en este caso es la del TSHH de protección. Cuando la temperatura baja a rango normal, el TIC empieza a pedir valores más bajos que el TSHH y el TIC retoma el control.",
+    "tipo": "texto"
+  },
+  {
+    "id": "ec_041",
+    "dificultad": 5,
+    "categoria": "Estructuras de Control",
+    "pregunta": "Un reactor de polimerización tiene control en cascada (TIC maestro → FIC esclavo de vapor calefactor) y además control feedback+feedforward donde el feedforward mide la temperatura del monómero de entrada. El ingeniero propone combinar ambas estructuras. ¿Es esto posible y cuál sería la arquitectura?",
+    "opciones": {
+      "a": "No es posible combinar cascada y feedforward en el mismo lazo porque generan conflicto en la senal de control que llega al actuador",
+      "b": "Si es posible y optimo: feedforward actua sobre el setpoint del esclavo (FIC); el cascada TIC-FIC sigue rechazando perturbaciones internas de vapor",
+      "c": "Se deben usar tres controladores en cascada: temperatura de entrada como maestro 1, TIC como maestro 2 y FIC como esclavo final",
+      "d": "La combinacion solo es posible si se agregan dos lazos de control override adicionales para arbitrar entre las tres fuentes de senal"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Las estructuras de control se pueden combinar y complementar. El cascada (TIC→FIC) rechaza perturbaciones del sistema de vapor. El feedforward de temperatura de entrada actúa preventivamente ante cambios de la temperatura del monómero. Ambas estructuras atacan perturbaciones distintas. La señal feedforward se puede sumar al setpoint del esclavo (FIC) o a la salida del maestro (TIC). El feedback del TIC cierra el lazo y corrige los errores residuales de ambas perturbaciones.",
+    "tipo": "texto"
+  },
+  {
+    "id": "ec_042",
+    "dificultad": 5,
+    "categoria": "Estructuras de Control",
+    "pregunta": "Un sistema de combustión tiene control de relación aire/gas y también un controlador de O2 en gases de combustión. El analizador de O2 indica que la combustión no es óptima. ¿Cómo se integra el control de O2 con el control de relación?",
+    "opciones": {
+      "a": "Se reemplaza completamente el control de relacion por el control de O2; ambas estructuras no pueden coexistir en el mismo sistema de combustion",
+      "b": "El controlador de O2 ajusta dinamicamente el setpoint de la relacion aire/gas segun el exceso de oxigeno medido, usando el analisis como trim sobre la relacion base",
+      "c": "El control de O2 actua como override del control de relacion cuando el O2 sale de rango, tomando el control de forma exclusiva de la combustion",
+      "d": "El analizador de O2 se usa solo para generar alarmas y no debe conectarse al sistema de control de relacion para evitar inestabilidad"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "La arquitectura estándar para optimización de combustión: control de relación base (rápido) que mantiene la proporción aire/gas usando los flujos medidos directamente. El controlador de O2 (lento, por inercia del proceso y del analizador) actúa como 'trim' maestro que ajusta el setpoint de la relación según el exceso de oxígeno real medido. Si hay demasiado O2 (exceso de aire), reduce la relación; si hay poco, la aumenta. Es un cascada funcional: O2-trim → relación → flujo de aire.",
+    "tipo": "texto"
+  },
+  {
+    "id": "ec_043",
+    "dificultad": 5,
+    "categoria": "Estructuras de Control",
+    "pregunta": "En un sistema con control override de temperatura, el ingeniero observa que el controlador de protección TSHH interviene frecuentemente durante la operación normal. Esto no debería ocurrir. ¿Cuál es el diagnóstico más probable?",
+    "opciones": {
+      "a": "El proceso esta operando cerca del limite de temperatura critica; es completamente normal y esperado que el override actue frecuentemente en esas condiciones",
+      "b": "El TSHH tiene el setpoint muy bajo o el TIC no puede mantener la temperatura alejada del limite; indica falla del control normal o mal ajuste del umbral",
+      "c": "El selector de senal esta mal configurado y selecciona el TSHH cuando deberia seleccionar el TIC normal durante la operacion habitual",
+      "d": "La valvula de control esta desgastada y no responde correctamente al TIC normal, lo que obliga al override a intervenir frecuentemente"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "El control override de protección debe actuar raramente, solo en situaciones anómalas. Si actúa frecuentemente, hay algo mal: el TIC normal puede estar mal sintonizado (no puede mantener la temperatura bajo el umbral), el setpoint del TSHH puede estar demasiado cerca del rango normal de operación, o el proceso ha cambiado y el diseño del control ya no es adecuado. Es una señal de que el sistema de control normal necesita revisión antes de depender del override como operación habitual.",
+    "tipo": "texto"
+  },
+  {
+    "id": "ec_044",
+    "dificultad": 5,
+    "categoria": "Estructuras de Control",
+    "pregunta": "Un proceso tiene control de relación entre dos flujos. Los resultados de laboratorio muestran que la relación óptima para mantener la calidad del producto no es constante sino que depende de la temperatura del proceso. ¿Qué estructura de control avanzada resulta?",
+    "opciones": {
+      "a": "Se abandona el control de relacion y se implementa control de calidad directo basado en el analizador en linea del producto final",
+      "b": "Se usa un controlador de temperatura como override que anula el control de relacion cuando la temperatura supera el umbral configurado",
+      "c": "Se implementa una funcion de calculo que computa la relacion optima en funcion de la temperatura medida y la usa como setpoint dinamico del ratio",
+      "d": "Se cambia el control de relacion a control en cascada donde la temperatura es el maestro y el flujo es el esclavo del sistema"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "La solución es un bloque de cálculo (función de cómputo o gain scheduling de ratio) que toma como entrada la temperatura medida del proceso y calcula dinámicamente la relación óptima en tiempo real. Este setpoint calculado se alimenta al control de relación. Es más flexible que cascada (no requiere un controlador de temperatura que cambie el ratio lentamente) y más preciso que un ratio fijo. Es una forma de control de avance calculado.",
+    "tipo": "texto"
+  },
+  {
+    "id": "ec_045",
+    "dificultad": 5,
+    "categoria": "Estructuras de Control",
+    "pregunta": "Un proceso tiene simultáneamente: cascada TIC→FIC, control de relación FIC/FIC2, y override de protección TIC-protección con selector de mínimo. ¿Qué consideración de diseño es crítica para evitar interacciones problemáticas entre estas estructuras?",
+    "opciones": {
+      "a": "Las tres estructuras no pueden coexistir en el mismo lazo; se debe elegir la mas adecuada segun el tipo de perturbacion dominante del proceso",
+      "b": "La prioridad de actuacion y el actuador que controla cada estructura deben estar definidos; todos los controladores inactivos deben tener anti-windup adecuado",
+      "c": "Solo el controlador maestro del cascada necesita anti-windup; los controladores de override y relacion no acumulan integral de forma problematica",
+      "d": "Las estructuras complejas requieren que todos los controladores sean del mismo fabricante y version de firmware para garantizar compatibilidad"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "En sistemas con múltiples estructuras de control interactuando, el desafío crítico es la gestión de transiciones y windup. Cada controlador que no está activamente controlando el actuador debe rastrear el estado del proceso (tracking) y tener anti-windup para no acumular error. La cadena de prioridad (¿quién controla cuando?) debe estar completamente definida. Una transición suave (bumpless transfer) entre estructuras es esencial para evitar perturbaciones al proceso.",
+    "tipo": "texto"
+  },
+  {
+    "id": "ec_046",
+    "dificultad": 5,
+    "categoria": "Estructuras de Control",
+    "pregunta": "Un ingeniero analiza si usar control en cascada o feedback+feedforward para un secador de spray. La variable principal es la humedad del producto (medida, pero con 10 minutos de retardo analítico). La perturbación más frecuente es el caudal de alimentación (medible, respuesta rápida). ¿Cuál es la recomendación y por qué?",
+    "opciones": {
+      "a": "Control en cascada con caudal de alimentacion como maestro y temperatura de salida del aire como esclavo que recibe el setpoint del maestro",
+      "b": "Feedback puro de humedad con ganancia alta para compensar el retardo de 10 minutos del analizador sin necesidad de instrumentacion adicional",
+      "c": "Feedback+feedforward: feedforward de caudal actua preventivamente en segundos; feedback de humedad (lento) corrige a largo plazo el setpoint",
+      "d": "Control de relacion entre el caudal de alimentacion y el flujo de aire de secado para mantener la carga de secado constante en todo momento"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "Con 10 minutos de retardo en la medición de humedad, el feedback solo sería extremadamente lento e inefectivo para perturbaciones de caudal. El feedforward de caudal de alimentación puede actuar en segundos cuando el caudal cambia, ajustando la temperatura del aire de secado antes de que la humedad del producto se desvíe. El feedback de humedad (lento) mantiene el setpoint a largo plazo. Es la combinación ideal cuando hay un retardo grande de medición en la variable controlada principal.",
+    "tipo": "texto"
+  },
+  {
+    "id": "ec_047",
+    "dificultad": 5,
+    "categoria": "Estructuras de Control",
+    "pregunta": "En un proceso petroquímico complejo, el operador necesita mantener la temperatura de reacción (TIC) y simultáneamente proteger el equipo de sobretemperatura. Se implementa override. Durante una perturbación, el TSHH tomó el control durante 2 minutos. Al volver el TIC al control, hubo un sobreimpulso de 8°C. ¿Por qué ocurrió esto?",
+    "opciones": {
+      "a": "La ganancia del TIC es demasiado alta y genera sobreimpulso cada vez que retoma el control, independientemente del tiempo que el TSHH estuvo activo",
+      "b": "El TIC acumulo integral durante los 2 minutos que el TSHH tuvo el control (la temperatura no estaba en el setpoint del TIC) y libero esa acumulacion al retomar",
+      "c": "El sobreimpulso es inevitable en sistemas con override y debe aceptarse como el comportamiento normal de la transicion entre controladores",
+      "d": "El TSHH dejo la valvula en una posicion mecanicamente bloqueada que el TIC no puede modificar inmediatamente al retomar el control"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Durante los 2 minutos que el TSHH controló, la temperatura probablemente no era igual al setpoint del TIC, por lo que el TIC acumuló integral. Al retomar el control, lanzó toda esa integral acumulada como acción correctiva, generando el sobreimpulso de 8°C. La solución es implementar 'bumpless transfer' o tracking en el TIC: mientras el TSHH está activo, el TIC debe rastrear la salida del TSHH sin acumular integral, para que al retomar el control lo haga desde la posición actual sin sobreimpulso.",
+    "tipo": "texto"
+  },
+  {
+    "id": "ec_048",
+    "dificultad": 5,
+    "categoria": "Estructuras de Control",
+    "pregunta": "Un gerente de planta pide al equipo de ingeniería que evalúe qué estructura de control implementar para un nuevo proceso de reacción con estas características: perturbaciones conocidas de temperatura de refrigerante (medibles), variaciones de caudal de reactivo (medibles), y temperatura de reacción como variable principal con sensor lento (5 min de respuesta). ¿Cuál es la arquitectura recomendada?",
+    "opciones": {
+      "a": "Control On-Off con histeresis amplia; es mas robusto que el PID para procesos con multiples perturbaciones y sensor lento de temperatura",
+      "b": "Tres lazos feedback independientes sin estructuras especiales; cada variable necesita su propio controlador PID sin interaccion entre ellos",
+      "c": "Cascada de temperatura de refrigerante como esclavo mas feedback de temperatura de reaccion como maestro del sistema completo",
+      "d": "Feedback de temperatura de reaccion mas feedforward de temperatura de refrigerante y feedforward de caudal de reactivo para anticipar ambas perturbaciones medibles"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "Con dos perturbaciones conocidas y medibles, el feedforward es la herramienta correcta para ambas. El sensor lento de temperatura de reacción (5 min) limita la efectividad del feedback puro, pero con dos feedforward activos (refrigerante y reactivo), la mayoría de las perturbaciones se compensan antes de que la temperatura reaccione. El feedback cierra el lazo y maneja perturbaciones no medidas o errores del modelo. Esta arquitectura aprovecha toda la información disponible.",
+    "tipo": "texto"
+  },
+  {
+    "id": "ec_049",
+    "dificultad": 5,
+    "categoria": "Estructuras de Control",
+    "pregunta": "Un proceso de destilación tiene control de relación reflujo/destilado para mantener la pureza del producto de tope. Los análisis de laboratorio muestran que la pureza es correcta solo el 60% del tiempo. ¿Cuál es el análisis más probable del problema?",
+    "opciones": {
+      "a": "El control de relacion esta bien disenado; el 40% de las veces que la pureza es incorrecta se debe exclusivamente a fallas de instrumentos",
+      "b": "La relacion fija no es suficiente porque la composicion de la alimentacion varia; se necesita ajustar la relacion segun la composicion real o la temperatura del plato",
+      "c": "El problema es el PID del flujo de reflujo que no esta bien sintonizado y genera offset sistematico en el caudal que afecta la pureza del producto",
+      "d": "Se necesitan mas analizadores en linea para tener mejor medicion de la pureza del destilado y asi mejorar la correccion del control de relacion"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "El control de relación fija solo funciona bien cuando la composición de la alimentación es constante. En destilación real, la composición de la alimentación varía (cambios en crudo, en feedstock, etc.) y la relación de reflujo óptima cambia con ella. El 40% de fallas probablemente corresponde a períodos de alimentación variable. La solución es un control de calidad con analizador en línea o temperatura como variable de control con la relación como variable manipulada (o usando temperatura del plato de control como proxy de la pureza para ajustar el ratio).",
+    "tipo": "texto"
+  },
+  {
+    "id": "ec_050",
+    "dificultad": 5,
+    "categoria": "Estructuras de Control",
+    "pregunta": "Un ingeniero recibe el siguiente requerimiento: 'el proceso tiene tres variables que se afectan mutuamente (temperatura, presión y nivel de un reactor), con una sola válvula de control de vapor disponible, y múltiples perturbaciones, algunas medibles y otras no'. ¿Cuál es la respuesta técnica honesta?",
+    "opciones": {
+      "a": "Con un solo actuador es imposible controlar tres variables simultaoneamente; se debe elegir una sola variable como la mas importante y controlar esa",
+      "b": "Se puede controlar las tres variables con un solo PID de alta ganancia si las tres variables estan suficientemente correlacionadas entre si",
+      "c": "Se debe implementar control multivariable (MPC) o redisenar el proceso con mas actuadores, ya que controlar tres variables con uno es inviable con control clasico",
+      "d": "Se implementa cascada de tres niveles: temperatura como maestro, presion como esclavo nivel 1 y nivel como esclavo nivel 2 sobre la misma valvula"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "Este es un problema de grados de libertad: para controlar N variables independientes se necesitan al menos N actuadores independientes. Con una sola válvula de vapor, solo se puede controlar una variable a la vez con control clásico (las otras seguirán el comportamiento del proceso). La solución correcta es reconocer esta limitación y rediseñar el proceso para agregar actuadores (ejemplo: válvula de venteo para presión, válvula de descarga para nivel) o aplicar control predictivo multivariable (MPC) que gestione los compromisos entre variables.",
+    "tipo": "texto"
+  }
+]

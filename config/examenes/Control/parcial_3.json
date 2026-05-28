@@ -1,0 +1,58 @@
+{
+  "metadata": {
+    "nombre_examen": "Parcial 3 - Control de Procesos",
+    "asignatura": "Control de Procesos",
+    "institucion": "Universidad ECCI",
+    "codigo_asignatura": "CTR101"
+  },
+  "descripcion": {
+    "texto": "Parcial modular de Control de Procesos - Tercer Corte. Cubre controladores PID, norma ISA para PFDs y P&IDs, y estructuras de control avanzadas.",
+    "temas": [
+      "Controladores PID y Control On-Off",
+      "Norma ISA - PFDs y P&IDs",
+      "Estructuras de Control"
+    ],
+    "duracion_estimada": "2 horas"
+  },
+  "parametros": {
+    "preguntas_minimas": 35,
+    "preguntas_maximas": 50,
+    "nivel_inicial": 3,
+    "umbral_estabilizacion": 0.2,
+    "ventana_estabilizacion": 3,
+    "ventana_estabilizacion_dinamica": true,
+    "proporcion_ventana_estabilizacion": 0.45,
+    "ventana_estabilizacion_min": 3,
+    "max_desviacion_nivel_pregunta": 3
+  },
+  "seguridad_cliente": {
+    "perfil": "parcial",
+    "retroalimentacion_final": "completa"
+  },
+  "sistema_calificacion": {
+    "tipo": "irt_simplificado",
+    "parametros": {
+      "max_iteraciones": 10
+    }
+  },
+  "persistencia": {
+    "metodo": "google_sheets",
+    "spreadsheet_id": "11LgtY-p59UKYCYY0GwZHCLN--KbZEPZb8poZJTEbyys"
+  },
+  "bancos_preguntas": [
+    "data/bancos/Control/Control_PID_OnOff.json",
+    "data/bancos/Control/Control_Norma_ISA.json",
+    "data/bancos/Control/Control_Estructuras.json"
+  ],
+  "bancos_por_tema": {
+    "Controladores PID y Control On-Off": [
+      "data/bancos/Control/Control_PID_OnOff.json"
+    ],
+    "Norma ISA - PFDs y P&IDs": [
+      "data/bancos/Control/Control_Norma_ISA.json"
+    ],
+    "Estructuras de Control": [
+      "data/bancos/Control/Control_Estructuras.json"
+    ]
+  }
+}

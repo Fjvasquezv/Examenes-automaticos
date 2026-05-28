@@ -1,0 +1,752 @@
+[
+  {
+    "id": "pid_001",
+    "dificultad": 1,
+    "categoria": "Controladores PID y Control On-Off",
+    "pregunta": "¿Cuál es la principal característica del control On-Off?",
+    "opciones": {
+      "a": "Modula la apertura del actuador de forma proporcional al error medido, con corrección más intensa a medida que la variable se aleja del setpoint",
+      "b": "Activa o desactiva completamente el actuador según si la variable supera o cae bajo un umbral definido, sin estados intermedios",
+      "c": "Mantiene la salida del controlador constante mientras el error acumulado no supere un umbral, luego aplica una corrección única hasta volver al setpoint",
+      "d": "Genera una señal de corrección continua calculando la velocidad de cambio del error entre cada ciclo de muestreo del sensor"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "El control On-Off solo tiene dos estados: completamente encendido o completamente apagado. Actúa cuando la variable cruza un límite definido, sin valores intermedios. Su simplicidad lo hace económico, pero genera oscilaciones continuas alrededor del setpoint.",
+    "tipo": "texto"
+  },
+  {
+    "id": "pid_002",
+    "dificultad": 1,
+    "categoria": "Controladores PID y Control On-Off",
+    "pregunta": "¿Qué es el setpoint en un sistema de control?",
+    "opciones": {
+      "a": "El valor deseado al que se quiere llevar y mantener la variable controlada durante la operación",
+      "b": "La diferencia calculada entre el valor medido y el valor de referencia en cada ciclo de control del sistema",
+      "c": "El límite máximo que puede alcanzar la variable controlada antes de activar una alarma de alta en el sistema",
+      "d": "La velocidad de cambio máxima permitida para la variable controlada sin que el controlador genere una corrección de emergencia"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "El setpoint (punto de ajuste) es el valor objetivo que el sistema de control intenta alcanzar y mantener en la variable controlada. Por ejemplo, si se desea que una temperatura se mantenga a 80°C, ese valor es el setpoint.",
+    "tipo": "texto"
+  },
+  {
+    "id": "pid_003",
+    "dificultad": 1,
+    "categoria": "Controladores PID y Control On-Off",
+    "pregunta": "La acción proporcional (P) en un controlador PID genera una señal de salida que es:",
+    "opciones": {
+      "a": "Proporcional al tiempo que lleva el error sin corregirse, aumentando progresivamente hasta que la variable regresa al setpoint",
+      "b": "Igual a la integral del error acumulado desde el inicio del ciclo hasta el instante actual, dividida entre el tiempo integral configurado",
+      "c": "Proporcional a la magnitud del error actual entre el setpoint y el valor medido de la variable controlada",
+      "d": "Proporcional a la velocidad de cambio del error entre el instante actual y el instante anterior de muestreo del sensor"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "La acción proporcional produce una salida directamente proporcional al error actual: a mayor error, mayor corrección. Si el error es cero, la contribución proporcional también es cero. Esto la hace intuitiva pero deja un offset residual en estado estacionario.",
+    "tipo": "texto"
+  },
+  {
+    "id": "pid_004",
+    "dificultad": 1,
+    "categoria": "Controladores PID y Control On-Off",
+    "pregunta": "¿Qué problema característico tiene el control solo proporcional (P) ante una perturbación sostenida?",
+    "opciones": {
+      "a": "Deja un error permanente (offset) entre la variable y el setpoint que no puede eliminar mientras la perturbación persiste",
+      "b": "Genera oscilaciones crecientes que hacen que la variable se aleje indefinidamente del setpoint con cada ciclo de corrección",
+      "c": "Satura el actuador en su posición máxima y luego no puede reducir la señal de control aunque el error disminuya",
+      "d": "Responde con un retardo proporcional al tiempo integral configurado, haciendo que la corrección llegue cuando ya no es necesaria"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "Con control P-solo, el controlador necesita un error para generar salida. Si la perturbación desplaza el proceso, el controlador nunca puede llevar el error a cero porque al hacerlo su salida sería insuficiente para compensar la perturbación. Este error residual se llama offset.",
+    "tipo": "texto"
+  },
+  {
+    "id": "pid_005",
+    "dificultad": 1,
+    "categoria": "Controladores PID y Control On-Off",
+    "pregunta": "¿Para qué sirve la acción integral (I) en un controlador PID?",
+    "opciones": {
+      "a": "Para calcular la velocidad de cambio del error y generar una corrección anticipada antes de que la variable se desvíe del setpoint",
+      "b": "Para amplificar la respuesta proporcional cuando el error supera un umbral crítico y acelerar así la llegada al setpoint",
+      "c": "Para filtrar el ruido de alta frecuencia de la señal del sensor antes de que llegue al bloque de cálculo del controlador",
+      "d": "Para eliminar el error permanente acumulando el error a lo largo del tiempo y ajustando la salida hasta llevarlo a cero"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "La acción integral suma (integra) el error en el tiempo. Mientras exista cualquier error, la salida integral seguirá aumentando o disminuyendo. Esto garantiza que el error se lleve a cero en estado estacionario, eliminando el offset que deja la acción proporcional sola.",
+    "tipo": "texto"
+  },
+  {
+    "id": "pid_006",
+    "dificultad": 1,
+    "categoria": "Controladores PID y Control On-Off",
+    "pregunta": "La acción derivativa (D) en un controlador PID actúa sobre:",
+    "opciones": {
+      "a": "El promedio ponderado del error acumulado durante el período de muestreo, suavizando la respuesta para evitar movimientos bruscos del actuador",
+      "b": "La velocidad de cambio del error en el instante actual, generando una corrección proporcional a qué tan rápido varía la variable",
+      "c": "La diferencia entre el setpoint configurado y la posición actual del actuador, compensando la no linealidad del elemento final de control",
+      "d": "La desviación acumulada entre la señal de control ordenada y la posición real confirmada por el posicionador de la válvula"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "La acción derivativa responde a qué tan rápido está cambiando el error. Si el error cambia rápido, la D genera una corrección adicional para 'frenar' la variable antes de que sobrepase el setpoint. Es la acción anticipatoria del PID.",
+    "tipo": "texto"
+  },
+  {
+    "id": "pid_007",
+    "dificultad": 1,
+    "categoria": "Controladores PID y Control On-Off",
+    "pregunta": "¿Qué es la histéresis (banda diferencial) en un control On-Off?",
+    "opciones": {
+      "a": "El tiempo mínimo que debe transcurrir entre dos activaciones consecutivas del actuador para protegerlo del desgaste por ciclos rápidos",
+      "b": "La frecuencia máxima de ciclos del actuador por hora, calculada a partir de la vida útil especificada por el fabricante del elemento final",
+      "c": "La diferencia entre el umbral de encendido y el umbral de apagado del actuador en el control On-Off",
+      "d": "El valor máximo de oscilación de la variable alrededor del setpoint que el proceso puede tolerar sin impactar la calidad del producto"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "La histéresis define los dos umbrales de actuación: uno para encender y otro para apagar. La diferencia entre ellos crea una banda donde el actuador no cambia de estado, evitando un ciclo demasiado frecuente. Por ejemplo, encender a 18°C y apagar a 22°C implica una histéresis de 4°C.",
+    "tipo": "texto"
+  },
+  {
+    "id": "pid_008",
+    "dificultad": 1,
+    "categoria": "Controladores PID y Control On-Off",
+    "pregunta": "¿Cuál de los siguientes procesos es el candidato más adecuado para control On-Off?",
+    "opciones": {
+      "a": "Un reactor químico con temperatura crítica de ±0.1°C, donde el control On-Off puede ajustarse con histéresis muy pequeña para lograr la precisión requerida",
+      "b": "Un sistema de presión de gas industrial, donde el On-Off responde más rápido que el PID al no ejecutar cálculos de integración y derivación",
+      "c": "Una columna de destilación con composición crítica del producto, donde el On-Off simplifica la implementación y reduce la instrumentación necesaria",
+      "d": "Un calefactor de ambiente donde la oscilación de temperatura aceptable para el usuario es del orden de ±2°C alrededor del setpoint"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "El control On-Off es apropiado cuando la variación alrededor del setpoint es aceptable para el proceso. Un calefactor de ambiente puede tolerar ±2°C sin consecuencias graves. Los otros casos requieren control preciso y continuo (PID) porque las variaciones impactan en seguridad, calidad o rendimiento.",
+    "tipo": "texto"
+  },
+  {
+    "id": "pid_009",
+    "dificultad": 1,
+    "categoria": "Controladores PID y Control On-Off",
+    "pregunta": "En un controlador PID, ¿qué representa el término 'error'?",
+    "opciones": {
+      "a": "La diferencia entre el setpoint y el valor medido de la variable controlada en el instante actual del ciclo de control",
+      "b": "La diferencia entre la señal de control enviada al actuador y la posición real confirmada por el sensor de retroalimentación del elemento final",
+      "c": "La variación del valor medido entre dos ciclos de muestreo consecutivos, que indica la velocidad de cambio de la variable controlada",
+      "d": "La suma algebraica de todas las perturbaciones externas que afectan al proceso, estimada por el bloque de compensación del controlador"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "El error es la diferencia entre el valor deseado (setpoint) y el valor actual medido de la variable controlada. Es la señal de entrada del controlador PID sobre la cual calcula sus tres acciones (P, I y D). Si el error es cero, la variable está exactamente en el setpoint.",
+    "tipo": "texto"
+  },
+  {
+    "id": "pid_010",
+    "dificultad": 1,
+    "categoria": "Controladores PID y Control On-Off",
+    "pregunta": "¿Cuál es la ventaja principal del control PID frente al control On-Off?",
+    "opciones": {
+      "a": "Puede operar en lazo abierto sin sensor de retroalimentación cuando el proceso es suficientemente predecible y las perturbaciones son despreciables",
+      "b": "Su implementación es más económica porque no requiere posicionador ni conversor de señal para operar correctamente el actuador de proceso",
+      "c": "Ajusta el actuador de forma continua y proporcional al error, logrando mayor precisión y reduciendo el desgaste mecánico del actuador",
+      "d": "Elimina completamente el tiempo muerto del proceso y garantiza respuesta instantánea ante cualquier perturbación externa o cambio de setpoint"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "El PID modula el actuador de forma continua según el error, lo que permite mantener la variable mucho más cerca del setpoint con menor oscilación. Esto se traduce en mayor precisión y menor desgaste del actuador comparado con el On-Off, que cicla entre dos extremos.",
+    "tipo": "texto"
+  },
+  {
+    "id": "pid_011",
+    "dificultad": 2,
+    "categoria": "Controladores PID y Control On-Off",
+    "pregunta": "Un operador nota que la temperatura de un horno industrial oscila continuamente entre 195°C y 205°C, encendiéndose y apagándose el quemador de forma alternada. El setpoint es 200°C. ¿Qué tipo de control está en uso?",
+    "opciones": {
+      "a": "Control proporcional, porque la salida del quemador varía de forma continua entre mínimo y máximo según el error con el setpoint",
+      "b": "Control integral, porque el quemador acumula el error de temperatura hasta que supera un umbral y entonces actúa de golpe",
+      "c": "Control derivativo, porque el quemador responde a la velocidad de cambio de temperatura y anticipa el cruce del setpoint",
+      "d": "Control On-Off, porque el quemador solo tiene dos estados posibles: completamente encendido o completamente apagado"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "El comportamiento descrito (quemador completamente encendido o apagado, variable oscilando entre dos umbrales) es exactamente el patrón del control On-Off. No existe estado intermedio del actuador; la oscilación continua entre 195°C y 205°C es inherente a este modo de control.",
+    "tipo": "texto"
+  },
+  {
+    "id": "pid_012",
+    "dificultad": 2,
+    "categoria": "Controladores PID y Control On-Off",
+    "pregunta": "En un proceso de control de nivel, al aumentar la ganancia proporcional (Kp) más allá de cierto límite, ¿qué comportamiento se espera?",
+    "opciones": {
+      "a": "La respuesta se vuelve oscilatoria y puede llegar a ser inestable si Kp supera la ganancia crítica del lazo",
+      "b": "La respuesta se hace más lenta y amortiguada porque una ganancia alta frena la acción del integral y suaviza la corrección",
+      "c": "El offset aumenta progresivamente porque una ganancia muy alta satura la acción derivativa e impide la corrección proporcional",
+      "d": "La acción integral se cancela automáticamente para compensar el exceso de ganancia y evitar sobreimpulso en el nivel"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "Una ganancia proporcional excesiva hace que el controlador reaccione de forma exagerada: corrige demasiado, pasa el setpoint, corrige en sentido contrario, y así sucesivamente. Esto genera oscilaciones que pueden ser crecientes (inestabilidad) si Kp supera el límite de estabilidad del lazo.",
+    "tipo": "texto"
+  },
+  {
+    "id": "pid_013",
+    "dificultad": 2,
+    "categoria": "Controladores PID y Control On-Off",
+    "pregunta": "Un proceso presenta un error permanente (offset) que el operador quiere eliminar sin agregar oscilaciones. ¿Qué acción debe agregar o aumentar en el controlador?",
+    "opciones": {
+      "a": "Acción proporcional (P), aumentando la ganancia Kp hasta que el offset quede dentro del rango aceptable de operación",
+      "b": "Acción derivativa (D), que anticipa el comportamiento futuro del error y corrige preventivamente el desvío permanente",
+      "c": "Acción integral (I), que acumula el error en el tiempo y ajusta la salida continuamente hasta llevarlo a cero",
+      "d": "Banda muerta del controlador, ampliando la zona insensible para reducir la percepción del offset en el lazo"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "La acción integral es la única que garantiza llevar el error a cero en estado estacionario. Mientras exista offset, el integral sigue acumulando y ajustando la salida hasta eliminarlo. Aumentar P puede reducir el offset pero no eliminarlo completamente, y puede causar oscilaciones.",
+    "tipo": "texto"
+  },
+  {
+    "id": "pid_014",
+    "dificultad": 2,
+    "categoria": "Controladores PID y Control On-Off",
+    "pregunta": "¿En qué tipo de proceso es más probable que la acción derivativa (D) cause problemas operativos?",
+    "opciones": {
+      "a": "En procesos lentos con poca variación natural de la variable, donde la D genera movimiento innecesario del actuador al amplificar señales muy pequeñas",
+      "b": "En procesos con señal de medición ruidosa, donde la D amplifica las variaciones de alta frecuencia del ruido y genera correcciones agresivas e innecesarias",
+      "c": "En procesos con tiempo muerto pequeño y respuesta rápida, donde la D genera sobreimpulso al anticipar correcciones que el proceso ya realizó",
+      "d": "En procesos con cambios frecuentes de setpoint, donde la D genera un impulso cada vez que el setpoint cambia y daña el actuador"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "La acción D amplifica la velocidad de cambio del error. Si la señal del sensor contiene ruido, las variaciones rápidas del ruido son interpretadas como cambios rápidos del error, y la D genera correcciones grandes y frecuentes, causando movimiento innecesario y agresivo del actuador.",
+    "tipo": "texto"
+  },
+  {
+    "id": "pid_015",
+    "dificultad": 2,
+    "categoria": "Controladores PID y Control On-Off",
+    "pregunta": "Un tanque de agua usa una bomba de llenado con control On-Off. La bomba se activa cuando el nivel baja del 40% y se apaga cuando supera el 60%. ¿Cómo se llama la diferencia entre estos dos umbrales de actuación?",
+    "opciones": {
+      "a": "Offset del controlador, que indica el error permanente que el control On-Off deja en estado estacionario durante operación normal",
+      "b": "Error integral acumulado, que representa la suma del error desde que el nivel empezó a descender hasta que la bomba se activó",
+      "c": "Ganancia proporcional del lazo, que define qué tan fuerte responde la bomba ante cada porcentaje de desviación del nivel",
+      "d": "Banda muerta o histéresis del control On-Off, que define la zona donde el actuador no cambia de estado"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "La diferencia entre los umbrales de actuación (40% y 60%, es decir 20%) es la histéresis o banda muerta. Esta zona evita que el actuador cambie de estado continuamente cuando la variable oscila cerca del setpoint, reduciendo el desgaste. A mayor histéresis, menos ciclos pero mayor amplitud de oscilación.",
+    "tipo": "texto"
+  },
+  {
+    "id": "pid_016",
+    "dificultad": 2,
+    "categoria": "Controladores PID y Control On-Off",
+    "pregunta": "Un proceso de flujo de agua requiere mantener el caudal con precisión de ±0.5% del setpoint ante perturbaciones continuas. ¿Qué modo de control es más apropiado?",
+    "opciones": {
+      "a": "Control PI o PID, porque la acción integral elimina el error permanente y la proporcional garantiza la precisión de ±0.5% requerida",
+      "b": "Control On-Off con histéresis muy pequeña, que puede lograr la precisión requerida si la banda diferencial se ajusta correctamente",
+      "c": "Control proporcional puro con ganancia alta, que da respuesta rápida y mantiene el offset dentro del rango de precisión de ±0.5%",
+      "d": "Control On-Off con dos bandas diferenciales distintas, una para perturbaciones rápidas y otra para perturbaciones lentas sostenidas"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "Para una precisión de ±0.5%, el control On-Off es inadecuado porque su oscilación inherente supera ese margen. El PI o PID combina respuesta ante el error (P) con eliminación del error permanente (I), siendo la elección estándar para procesos de flujo con alta precisión y perturbaciones sostenidas.",
+    "tipo": "texto"
+  },
+  {
+    "id": "pid_017",
+    "dificultad": 2,
+    "categoria": "Controladores PID y Control On-Off",
+    "pregunta": "Al reducir el tiempo integral (Ti) en un controlador PI, ¿qué efecto tiene sobre la acción integral?",
+    "opciones": {
+      "a": "La acción integral se vuelve más lenta porque un Ti pequeño hace que el integrador tarde más en acumular suficiente corrección para eliminar el offset",
+      "b": "La acción integral se desactiva progresivamente hasta que con Ti cercano a cero el controlador opera como un P puro sin eliminar el offset",
+      "c": "La acción integral se vuelve más agresiva, corrigiendo el error permanente con mayor rapidez y con mayor riesgo de generar oscilaciones",
+      "d": "La acción integral se invierte y pasa a comportarse como una acción derivativa, respondiendo a la velocidad de cambio del error"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "El tiempo integral Ti indica cuánto tiempo necesita la acción integral para igualar la contribución proporcional. Un Ti pequeño significa que la integral actúa con mayor rapidez e intensidad para eliminar el offset. Un Ti muy pequeño puede provocar oscilaciones similares a las de una ganancia P excesiva.",
+    "tipo": "texto"
+  },
+  {
+    "id": "pid_018",
+    "dificultad": 2,
+    "categoria": "Controladores PID y Control On-Off",
+    "pregunta": "¿Cuál de estas situaciones describe mejor el fenómeno de 'windup' o saturación integral?",
+    "opciones": {
+      "a": "El controlador aumenta su ganancia proporcional automáticamente cuando el error supera un umbral, generando correcciones más agresivas que las esperadas",
+      "b": "La acción integral sigue acumulando error mientras el actuador está en su límite (saturado), generando una respuesta excesiva y lenta al salir de saturación",
+      "c": "La acción derivativa amplifica el ruido del sensor hasta saturar la señal de salida del controlador, haciendo que el actuador quede en posición extrema",
+      "d": "El controlador cicla entre los modos proporcional e integral de forma alternada porque la ganancia configurada supera el límite de estabilidad del lazo"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "El windup ocurre cuando el actuador está saturado (por ejemplo, válvula 100% abierta) pero el error no se corrige. El integral sigue acumulando como si el actuador pudiera hacer más. Cuando finalmente el proceso responde, la acción integral acumulada genera un sobreimpulso prolongado antes de corregirse.",
+    "tipo": "texto"
+  },
+  {
+    "id": "pid_019",
+    "dificultad": 2,
+    "categoria": "Controladores PID y Control On-Off",
+    "pregunta": "En un sistema de control On-Off, aumentar la histéresis (banda diferencial) tiene como efecto principal:",
+    "opciones": {
+      "a": "Reducir la amplitud de la oscilación de la variable y al mismo tiempo aumentar la frecuencia con que el actuador cicla entre encendido y apagado",
+      "b": "Mejorar la precisión del control acercando la variable al setpoint porque la banda más ancha amortigua las perturbaciones externas del proceso",
+      "c": "Activar automáticamente la acción integral cuando la variable supera los límites de la histéresis, eliminando el error residual del On-Off",
+      "d": "Reducir la frecuencia de ciclos del actuador a costa de mayor amplitud de oscilación de la variable controlada"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "Al ampliar la histéresis, la variable debe alejarse más del setpoint antes de que el actuador cambie de estado. Esto reduce la cantidad de veces que el actuador cicla (menos desgaste), pero la variable oscila con mayor amplitud. Es el compromiso clásico del On-Off: precisión vs. vida útil del actuador.",
+    "tipo": "texto"
+  },
+  {
+    "id": "pid_020",
+    "dificultad": 2,
+    "categoria": "Controladores PID y Control On-Off",
+    "pregunta": "Un controlador PID de presión produce movimientos innecesarios y rápidos de la válvula en respuesta a pequeñas variaciones del sensor, incluso cuando la presión está cerca del setpoint. ¿Qué acción es la más probable causante?",
+    "opciones": {
+      "a": "Acción derivativa excesiva (Td demasiado grande) que amplifica las variaciones de alta frecuencia del ruido del sensor de presión",
+      "b": "Ganancia proporcional demasiado baja que hace que el controlador compense con muchos movimientos pequeños en lugar de uno grande",
+      "c": "Acción integral excesiva (Ti demasiado pequeño) que cicla la válvula repetidamente intentando eliminar el mínimo error residual",
+      "d": "Tiempo muerto excesivo en el lazo que hace que el controlador no sepa cuándo su corrección ya surtió efecto y actúa de nuevo"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "La acción derivativa responde a la velocidad de cambio del error. Si el sensor tiene ruido, las variaciones rápidas del ruido son interpretadas como cambios rápidos del error, y la D genera correcciones grandes y frecuentes. Reducir Td o aplicar un filtro en la medición son las soluciones habituales.",
+    "tipo": "texto"
+  },
+  {
+    "id": "pid_021",
+    "dificultad": 3,
+    "categoria": "Controladores PID y Control On-Off",
+    "pregunta": "Un operador describe: 'la variable llega rápido al setpoint, lo supera, vuelve, lo supera de nuevo, y así varias veces antes de estabilizarse'. ¿Cómo se denomina este comportamiento y cuál es su causa más probable?",
+    "opciones": {
+      "a": "Respuesta sobreamortiguada; la acción derivativa está demasiado alta y frena el sistema antes de que llegue al setpoint en cada ciclo",
+      "b": "Error permanente sostenido; la ausencia de acción integral impide que el controlador lleve la variable al valor deseado",
+      "c": "Respuesta subamortiguada; ganancia proporcional demasiado alta o tiempo integral demasiado agresivo hacen que el controlador sobrecorrija repetidamente",
+      "d": "Windup integral por actuador saturado durante el cambio de setpoint, que libera la energía acumulada en forma de oscilaciones al salir de saturación"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "La respuesta subamortiguada (oscilaciones amortiguadas alrededor del setpoint) es típica de un lazo con ganancia P excesiva o tiempo integral demasiado agresivo. El controlador corrige en exceso repetidamente. Si las oscilaciones no se amortiguan, el lazo puede volverse inestable.",
+    "tipo": "texto"
+  },
+  {
+    "id": "pid_022",
+    "dificultad": 3,
+    "categoria": "Controladores PID y Control On-Off",
+    "pregunta": "Comparando un controlador P-solo con un controlador PI en el mismo proceso de temperatura, ¿cuál es una diferencia práctica real?",
+    "opciones": {
+      "a": "El P-solo siempre produce respuesta más suave sin oscilaciones porque no tiene la dinámica adicional del integrador que puede desestabilizar",
+      "b": "El PI puede causar oscilaciones adicionales si el tiempo integral es muy agresivo, algo que no ocurre con el P-solo con la misma ganancia",
+      "c": "El P-solo elimina el error permanente más rápido porque actúa directamente sobre el offset sin el retardo que introduce el integrador",
+      "d": "El PI no puede usarse ante perturbaciones sostenidas porque la integral se satura en proceso continuo dejando el offset sin corregir"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Un PI agrega una dinámica adicional al lazo. Si el tiempo integral Ti es demasiado agresivo (Ti pequeño), la acción integral puede causar oscilaciones que el P-solo no generaría con el mismo Kp. El costo de agregar I es que introduce un polo adicional que puede desestabilizar si no se sintoniza bien.",
+    "tipo": "texto"
+  },
+  {
+    "id": "pid_023",
+    "dificultad": 3,
+    "categoria": "Controladores PID y Control On-Off",
+    "pregunta": "Un proceso de temperatura usa control On-Off. El operador decide reducir la histéresis a la mitad. ¿Cuál será el efecto neto más probable?",
+    "opciones": {
+      "a": "La temperatura oscilará con mayor amplitud porque la banda más pequeña hace que el proceso acumule más energía antes de que el actuador cambie de estado",
+      "b": "Se eliminarán las oscilaciones porque la histéresis pequeña permite que el actuador mantenga la temperatura estable alrededor del setpoint",
+      "c": "No habrá cambio perceptible porque la amplitud de oscilación en el On-Off está determinada por la inercia térmica del proceso, no por la histéresis",
+      "d": "La temperatura oscilará menos pero el calentador ciclará con más frecuencia, aumentando el desgaste mecánico del actuador"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "Al reducir la histéresis, la diferencia entre los umbrales de encendido y apagado es menor, por lo que la variable debe alejarse menos del setpoint para activar el actuador. Esto reduce la amplitud de la oscilación pero hace que el actuador cicle mucho más frecuentemente, incrementando el desgaste mecánico.",
+    "tipo": "texto"
+  },
+  {
+    "id": "pid_024",
+    "dificultad": 3,
+    "categoria": "Controladores PID y Control On-Off",
+    "pregunta": "En un proceso de pH, la variable oscila de forma sostenida con amplitud constante alrededor del setpoint, sin tender a estabilizarse ni a divergir. ¿Qué condición describe este comportamiento?",
+    "opciones": {
+      "a": "Comportamiento normal del control integral en procesos lentos, donde la integral necesita varias oscilaciones para acumular suficiente corrección",
+      "b": "Oscilación marginalmente estable; el lazo está en el límite de estabilidad con la ganancia en su valor crítico",
+      "c": "Error permanente del control proporcional que el operador confunde con oscilación por la lentitud del proceso de pH",
+      "d": "Respuesta subamortiguada con factor de amortiguamiento muy bajo que eventualmente se estabilizará en estado estacionario"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Oscilaciones sostenidas con amplitud constante indican que el lazo está en el límite entre estable e inestable (margen de ganancia cero). Esto ocurre cuando la ganancia está en su valor crítico. Reducir la ganancia estabilizará el lazo; aumentarla generará oscilaciones crecientes (inestabilidad).",
+    "tipo": "texto"
+  },
+  {
+    "id": "pid_025",
+    "dificultad": 3,
+    "categoria": "Controladores PID y Control On-Off",
+    "pregunta": "Un controlador PID muestra este comportamiento: ante un cambio de setpoint, la variable sube lentamente, sin sobreimpulso, pero tarda el doble del tiempo esperado en llegar al setpoint. ¿Cuál es la causa más probable?",
+    "opciones": {
+      "a": "Ganancia proporcional demasiado baja o tiempo integral demasiado lento, resultando en una respuesta subgana que tarda en alcanzar el setpoint",
+      "b": "Tiempo derivativo demasiado grande que frena excesivamente la respuesta en todo el transitorio hasta que el error se reduce a un valor mínimo",
+      "c": "Ganancia proporcional demasiado alta que genera sobreamortiguamiento severo y alarga el tiempo de respuesta sin producir sobreimpulso visible",
+      "d": "Windup integral por actuador saturado que acumuló energía al inicio y ahora frena la respuesta mientras libera gradualmente la acumulación"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "Una respuesta lenta sin sobreimpulso es característica de un lazo subgana (undertuned): la ganancia P es insuficiente para impulsar la variable rápido, o el tiempo integral Ti es demasiado grande (integral lento). Aumentar Kp o reducir Ti aceleraría la respuesta, aunque podría introducir algo de sobreimpulso.",
+    "tipo": "texto"
+  },
+  {
+    "id": "pid_026",
+    "dificultad": 3,
+    "categoria": "Controladores PID y Control On-Off",
+    "pregunta": "¿Por qué el control On-Off es inadecuado para controlar la presión en un sistema de vapor donde las variaciones permitidas son menores a ±0.5% y los cambios son rápidos?",
+    "opciones": {
+      "a": "Porque el control On-Off no puede medir la presión directamente y necesita convertir la señal a temperatura antes de procesarla en el controlador",
+      "b": "Porque el control On-Off requiere actuadores de tres posiciones para vapor y ningún fabricante ofrece ese tipo de válvula en servicio de vapor saturado",
+      "c": "Porque los ciclos rápidos de la válvula causarían golpe de ariete y desgaste excesivo, y la oscilación inherente del On-Off supera el ±0.5% requerido",
+      "d": "Porque el control On-Off en vapor introduce retardos de respuesta mayores que los del PID y no puede seguir los cambios rápidos de la demanda"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "En un sistema de vapor rápido, el control On-Off generaría dos problemas graves: ciclos muy frecuentes de la válvula (golpe de ariete, desgaste acelerado) y una oscilación inherente que superaría el ±0.5% exigido. Un PID con actuador modulante es la solución apropiada.",
+    "tipo": "texto"
+  },
+  {
+    "id": "pid_027",
+    "dificultad": 3,
+    "categoria": "Controladores PID y Control On-Off",
+    "pregunta": "Un controlador PI tiene un tiempo integral Ti muy grande (acción integral muy lenta). Ante una perturbación sostenida que aleja la variable del setpoint, ¿qué se observará?",
+    "opciones": {
+      "a": "El error se elimina rápidamente pero aparece un sobreimpulso grande porque el integral lento libera toda la corrección acumulada de golpe al final",
+      "b": "El controlador se comporta como P-solo de forma permanente porque un Ti muy grande equivale a desactivar completamente la acción integral",
+      "c": "La acción derivativa compensa automáticamente la lentitud del integral acelerando la respuesta cuando detecta que el offset persiste demasiado tiempo",
+      "d": "El error permanente se corrige muy lentamente; la variable tarda mucho tiempo en volver al setpoint tras la perturbación sostenida"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "Un Ti grande significa que la integral necesita mucho tiempo para acumular suficiente corrección. El offset se eliminará eventualmente, pero la recuperación tras una perturbación será muy lenta. En procesos donde la recuperación rápida es crítica, un Ti excesivamente grande es tan problemático como uno demasiado pequeño.",
+    "tipo": "texto"
+  },
+  {
+    "id": "pid_028",
+    "dificultad": 3,
+    "categoria": "Controladores PID y Control On-Off",
+    "pregunta": "Un técnico reporta: 'desactivé la D y reduje la ganancia P para controlar el ruido, pero ahora hay offset'. ¿Qué acción es la solución más adecuada para eliminar el offset sin amplificar el ruido?",
+    "opciones": {
+      "a": "Reactivar la acción D con Td muy alto para que actúe sobre el promedio del error y no sobre el ruido de alta frecuencia del sensor",
+      "b": "Activar o aumentar la acción integral (I), que elimina el offset promediando el error en el tiempo sin amplificar las frecuencias altas del ruido",
+      "c": "Aumentar progresivamente la ganancia P hasta que el offset quede por debajo del umbral aceptable aunque el ruido en el actuador aumente levemente",
+      "d": "Cambiar a control On-Off con histéresis amplia para que el actuador no responda al ruido pero mantenga la variable cerca del setpoint"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "La acción integral actúa sobre el promedio del error en el tiempo, por lo que el ruido de alta frecuencia se cancela en la integración y no se amplifica. Es la solución ideal: elimina el offset sin los problemas de amplificación de ruido que tiene la D ni el riesgo de inestabilidad de aumentar P.",
+    "tipo": "texto"
+  },
+  {
+    "id": "pid_029",
+    "dificultad": 3,
+    "categoria": "Controladores PID y Control On-Off",
+    "pregunta": "¿Cuál es la diferencia práctica entre un controlador P y uno PD ante un cambio de setpoint?",
+    "opciones": {
+      "a": "El P responde más rápido que el PD porque la acción derivativa frena la respuesta durante todo el transitorio al calcular la desaceleración esperada",
+      "b": "El PD elimina el error permanente mientras que el P lo mantiene, porque la acción derivativa integra el error al final del transitorio",
+      "c": "El PD responde más rápido al inicio porque la D produce un impulso correctivo ante el cambio de setpoint, aunque amplifica el ruido del sensor",
+      "d": "No hay diferencia práctica ante cambios de setpoint porque la acción derivativa solo actúa ante perturbaciones externas, no ante cambios de referencia"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "Ante un cambio de setpoint, el error cambia rápido al inicio. La acción D detecta este cambio y genera un impulso correctivo adicional que acelera la respuesta inicial. Sin embargo, si la señal medida tiene ruido, la D lo amplifica. El PD responde más rápido que el P pero tiene mayor sensibilidad al ruido.",
+    "tipo": "texto"
+  },
+  {
+    "id": "pid_030",
+    "dificultad": 3,
+    "categoria": "Controladores PID y Control On-Off",
+    "pregunta": "En un proceso de nivel con control On-Off, la bomba de llenado cicla 30 veces por hora. Mantenimiento pide reducir el desgaste. ¿Qué ajuste del controlador es el correcto?",
+    "opciones": {
+      "a": "Aumentar la histéresis (banda diferencial) para que la bomba cicle menos veces por hora a costa de mayor variación de nivel",
+      "b": "Reducir la histéresis para aumentar la precisión del control y con ello reducir el esfuerzo que la bomba hace en cada ciclo",
+      "c": "Agregar acción integral al On-Off para que el controlador corrija el offset y así la bomba no necesite ciclar tan frecuentemente",
+      "d": "Aumentar la ganancia proporcional del control para que cada corrección sea más grande y la bomba necesite menos ciclos para compensar"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "En el control On-Off, aumentar la histéresis obliga a que el nivel se desvíe más antes de activar la bomba. Esto reduce directamente la frecuencia de ciclos. El nivel oscilará con mayor amplitud, pero el actuador tendrá mayor vida útil. Es el ajuste clásico de compromiso en sistemas On-Off.",
+    "tipo": "texto"
+  },
+  {
+    "id": "pid_031",
+    "dificultad": 4,
+    "categoria": "Controladores PID y Control On-Off",
+    "pregunta": "Un lazo de temperatura en un reactor presenta respuesta lenta, sin sobreimpulso, y un error permanente de 3°C con perturbaciones sostenidas. El técnico solo puede ajustar P, I y D. ¿Cuál es la secuencia de ajuste más lógica?",
+    "opciones": {
+      "a": "Activar I agresivo (Ti pequeño) directamente para eliminar el offset y acelerar la respuesta en una sola intervención sin tocar P ni D",
+      "b": "Reducir P para estabilizar primero el lazo, luego aumentar D para eliminar el offset y finalmente ajustar I para la velocidad de respuesta",
+      "c": "Aumentar D en primer lugar para anticipar el error y luego complementar con P hasta eliminar el offset sin necesidad de acción integral",
+      "d": "Aumentar P para acelerar la respuesta, agregar I para eliminar el offset y ajustar D solo si aparecen oscilaciones, ruido o inestabilidad"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "La secuencia estándar de sintonización: primero P para fijar la velocidad de respuesta, luego I para eliminar el offset, y finalmente D si es necesario para amortiguar. Activar I agresivo al inicio puede generar inestabilidad, y D no elimina el offset. Este enfoque incremental es el más controlado.",
+    "tipo": "texto"
+  },
+  {
+    "id": "pid_032",
+    "dificultad": 4,
+    "categoria": "Controladores PID y Control On-Off",
+    "pregunta": "Un proceso de flujo de gas tiene estas características: respuesta rápida, perturbaciones frecuentes, señal del sensor con algo de ruido, precisión requerida ±0.5%. El ingeniero evalúa PI vs PID. ¿Qué modo es más apropiado y por qué?",
+    "opciones": {
+      "a": "PI, porque en un proceso rápido con ruido la D amplificaría el ruido en cada ciclo sin aportar beneficio anticipatorio significativo sobre el proceso",
+      "b": "PID, porque la D mejora la respuesta ante perturbaciones frecuentes y el ruido es compensable con un filtro de medición barato y fácil de instalar",
+      "c": "P-solo, porque en procesos rápidos el integral es innecesario y el offset resultante está dentro del rango de precisión de ±0.5% requerido",
+      "d": "On-Off con histéresis de 0.5%, porque la oscilación resultante coincide con la precisión requerida y evita el problema del ruido en la D"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "En procesos rápidos con ruido, la acción D amplifica las variaciones de alta frecuencia del sensor, generando movimiento innecesario del actuador. Como el proceso ya es rápido, la D agrega poco beneficio de anticipación. El PI controla bien la velocidad de respuesta (P) y elimina el offset (I) sin el riesgo del ruido amplificado.",
+    "tipo": "texto"
+  },
+  {
+    "id": "pid_033",
+    "dificultad": 4,
+    "categoria": "Controladores PID y Control On-Off",
+    "pregunta": "Tras un cambio de setpoint en un lazo de presión, la variable sube correctamente pero sigue subiendo más allá del setpoint durante 10 minutos antes de bajar lentamente. Se sospecha windup integral. ¿Qué condición confirmaría el diagnóstico?",
+    "opciones": {
+      "a": "La ganancia P está configurada demasiado alta y el sobreimpulso crece con cada nueva corrección hasta alcanzar los 10 minutos de duración",
+      "b": "El actuador estuvo en su límite máximo (saturado) durante el transitorio mientras el integral seguía acumulando error sin poder corregir el proceso",
+      "c": "La acción D amplificó el cambio de setpoint generando un sobreimpulso en la dirección del cambio que el integral mantiene activo durante 10 minutos",
+      "d": "El sensor de presión tiene un retardo de 10 minutos que introduce una diferencia sostenida entre la presión real y la medida en el lazo"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "El windup se confirma cuando el actuador estuvo saturado durante un período prolongado mientras el error aún existía. La integral acumuló ese error sin poder corregirlo, y cuando el actuador salió de saturación, la acción integral era tan grande que generó un sobreimpulso prolongado hasta desacumularse.",
+    "tipo": "texto"
+  },
+  {
+    "id": "pid_034",
+    "dificultad": 4,
+    "categoria": "Controladores PID y Control On-Off",
+    "pregunta": "Un proceso de temperatura tiene control On-Off. El cliente exige variación máxima de ±0.2°C. La histéresis mínima posible con el actuador disponible es ±1°C. ¿Qué decisión de diseño es la correcta?",
+    "opciones": {
+      "a": "Mantener el control On-Off ajustando la histéresis al mínimo (±1°C), ya que la variación resultante de ±1°C es suficientemente cercana al ±0.2°C exigido",
+      "b": "Agregar un bloque de acción integral al On-Off para que corrija el offset y reduzca la oscilación sin necesidad de cambiar el tipo de actuador",
+      "c": "Reemplazar el control On-Off por un controlador PID con actuador de posición variable que permita modulación continua para cumplir la especificación",
+      "d": "Usar dos controladores On-Off en cascada con histéresis de ±0.5°C cada uno para dividir la variación total y alcanzar el ±0.2°C requerido"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "Si la histéresis mínima posible (±1°C) ya supera la variación permitida (±0.2°C), el control On-Off físicamente no puede cumplir la especificación. La solución es cambiar a control PID con un actuador modulante (posición continua), lo que elimina la oscilación inherente del On-Off. Las opciones B y D no son posibles con un actuador todo/nada.",
+    "tipo": "texto"
+  },
+  {
+    "id": "pid_035",
+    "dificultad": 4,
+    "categoria": "Controladores PID y Control On-Off",
+    "pregunta": "En un lazo de control de nivel, el operador aumentó la ganancia P para mejorar la respuesta. Ahora el nivel oscila con amplitud creciente. ¿Qué acción debe tomar primero para estabilizar el lazo?",
+    "opciones": {
+      "a": "Agregar acción integral agresiva (Ti pequeño) para contrarrestar las oscilaciones crecientes forzando la variable hacia el setpoint",
+      "b": "Reducir la ganancia P hasta que las oscilaciones desaparezcan y luego resintonizar gradualmente hasta encontrar el valor óptimo",
+      "c": "Aumentar el tiempo derivativo (Td) para que la acción D amortigüe las oscilaciones crecientes frenando la velocidad de cambio del nivel",
+      "d": "Cambiar el modo a On-Off para estabilizar el proceso mientras se diagnostica el problema del PID fuera de línea"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Oscilaciones con amplitud creciente indican inestabilidad activa. La primera prioridad es estabilizar el lazo reduciendo la ganancia P. Agregar integral agresivo empeoraría la inestabilidad; aumentar D puede ayudar pero no resolverá el problema si P sigue siendo la causa raíz. Cambiar a On-Off no es una solución profesional.",
+    "tipo": "texto"
+  },
+  {
+    "id": "pid_036",
+    "dificultad": 4,
+    "categoria": "Controladores PID y Control On-Off",
+    "pregunta": "Un ingeniero necesita controlar la temperatura de salida de un intercambiador de calor con respuesta lenta (15 min) y perturbaciones ocasionales de temperatura de entrada. ¿Cuál es la configuración PID más apropiada?",
+    "opciones": {
+      "a": "Alta ganancia P, Ti muy corto y Td grande para anticipar el comportamiento lento del intercambiador y responder agresivamente ante cualquier perturbación",
+      "b": "Solo acción D configurada con Td muy alto para anticipar los lentos cambios de temperatura sin necesidad de las acciones P e I adicionales",
+      "c": "Control On-Off con histéresis amplia para procesos lentos, ya que el PID es más efectivo en procesos rápidos con respuesta de menos de 2 minutos",
+      "d": "Ganancia P moderada, Ti moderado para eliminar el offset ante perturbaciones, sin D o con D mínima ya que el proceso es lento y la anticipación no aporta"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "En procesos lentos, la D agrega poco beneficio porque la velocidad de cambio del error es naturalmente baja. La configuración adecuada es P moderado para fijar la respuesta y I moderado para eliminar el offset ante perturbaciones ocasionales. La D se reserva para procesos rápidos donde anticipar es valioso.",
+    "tipo": "texto"
+  },
+  {
+    "id": "pid_037",
+    "dificultad": 4,
+    "categoria": "Controladores PID y Control On-Off",
+    "pregunta": "Un operador reporta que en el lazo PID de pH, tras cada cambio de setpoint, la variable demora mucho en responder. Al revisar, el actuador estuvo 100% abierto durante 5 min antes de que la variable comenzara a moverse. ¿Cuál es el problema y cómo se corrige?",
+    "opciones": {
+      "a": "Windup integral severo durante el tiempo muerto del proceso; implementar anti-windup para limitar la acumulación del integral mientras el actuador está saturado",
+      "b": "Ganancia proporcional insuficiente que hace que el controlador tarde en generar la señal necesaria para iniciar el movimiento de la variable de pH",
+      "c": "Acción derivativa excesiva que frena la respuesta inicial del lazo y alarga el tiempo necesario para que la variable empiece a moverse",
+      "d": "Setpoint configurado fuera del rango operativo de la válvula, que por eso no puede responder aunque el controlador ordene máxima apertura"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "5 minutos con el actuador al 100% mientras el pH no responde es el escenario perfecto para windup integral. El integral acumula todo ese error. Cuando el pH finalmente responde y el actuador sale de saturación, la integral acumulada genera una respuesta lenta y sobreimpulso. El anti-windup previene esta acumulación.",
+    "tipo": "texto"
+  },
+  {
+    "id": "pid_038",
+    "dificultad": 4,
+    "categoria": "Controladores PID y Control On-Off",
+    "pregunta": "Un compresor de refrigeración On-Off cicla 45 veces/hora. Mantenimiento permite máximo 10 ciclos/hora. Aumentar la histéresis no es posible porque ampliaría la variación de temperatura por encima de los límites del proceso. ¿Cuál es la alternativa correcta?",
+    "opciones": {
+      "a": "Reducir la histéresis al mínimo posible para que los ciclos sean más cortos y el compresor acumule menos desgaste por activación en cada intervención",
+      "b": "Instalar un segundo compresor On-Off en paralelo para que los 45 ciclos se distribuyan entre ambos y cada uno cicle solo 22 veces por hora",
+      "c": "Reemplazar el control On-Off por un PID con variador de frecuencia en el compresor para modular la capacidad de refrigeración de forma continua",
+      "d": "Elevar el setpoint de temperatura en 3°C para que el compresor deba activarse menos veces por hora y se reduzca la frecuencia de ciclos"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "Cuando el On-Off no puede cumplir simultáneamente las restricciones de ciclos y variación, el diseño debe cambiar a uno que module la capacidad. Un PID con variador de frecuencia (VFD) permite ajustar la velocidad del compresor continuamente, cumpliendo ambas restricciones sin las oscilaciones inherentes del On-Off.",
+    "tipo": "texto"
+  },
+  {
+    "id": "pid_039",
+    "dificultad": 4,
+    "categoria": "Controladores PID y Control On-Off",
+    "pregunta": "Un controlador PID de flujo presenta pequeñas oscilaciones rápidas en la salida que se transmiten a la válvula. El ingeniero sospecha que la D amplifica el ruido del caudalímetro. ¿Cuál es la solución más apropiada?",
+    "opciones": {
+      "a": "Aumentar el tiempo derivativo (Td) para que la D actúe sobre el promedio del error y ya no responda a las variaciones de alta frecuencia del ruido",
+      "b": "Reducir el tiempo integral (Ti) para que la acción I sea más agresiva y contrarreste las oscilaciones generadas por la D en cada ciclo de control",
+      "c": "Cambiar el modo a PI aumentando la ganancia P para mantener la misma velocidad de respuesta y la misma precisión que con el PID actual",
+      "d": "Aplicar un filtro de primer orden en la señal de medición o reducir el Td para atenuar el efecto del ruido en la acción derivativa"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "La solución directa es reducir Td (menos peso a la D) o aplicar un filtro en la medición para suavizar el ruido antes de que llegue al controlador. Aumentar Td empeoraría el problema, y agregar más integral no resuelve la amplificación de ruido por la D.",
+    "tipo": "texto"
+  },
+  {
+    "id": "pid_040",
+    "dificultad": 4,
+    "categoria": "Controladores PID y Control On-Off",
+    "pregunta": "Un proceso tiene disponibles: control On-Off y control PID, además de dos actuadores: válvula de globo con posicionador (modulante) y válvula de bola sin posicionador (todo/nada). ¿Qué combinación actuador-controlador es técnicamente correcta?",
+    "opciones": {
+      "a": "Válvula de globo con posicionador + control On-Off, aprovechando que el posicionador permite posiciones intermedias incluso con señal On-Off",
+      "b": "Válvula de globo con posicionador + control PID; válvula de bola sin posicionador + control On-Off, asignando cada actuador a su modo compatible",
+      "c": "Válvula de bola sin posicionador + control PID, ya que el algoritmo PID puede compensar mediante software la falta de posicionador en la válvula",
+      "d": "Cualquier combinación funciona sin diferencia práctica porque el tipo de controlador no depende del tipo de actuador instalado en campo"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "El control PID requiere un actuador modulante (posición continua), como la válvula de globo con posicionador. El control On-Off solo necesita encendido/apagado, compatible con la válvula de bola todo/nada. Usar PID con una válvula todo/nada o On-Off con una válvula modulante son combinaciones técnicamente incorrectas.",
+    "tipo": "texto"
+  },
+  {
+    "id": "pid_041",
+    "dificultad": 5,
+    "categoria": "Controladores PID y Control On-Off",
+    "pregunta": "Un reactor exotérmico controlado con PID de temperatura funciona bien a carga normal. Al aumentar la carga (mayor tasa de reacción), el lazo se vuelve inestable con oscilaciones crecientes, aunque los parámetros PID no cambiaron. ¿Cuál es la explicación más probable?",
+    "opciones": {
+      "a": "La ganancia del proceso cambia con la carga (proceso no lineal); la sintonización óptima para baja carga resulta inestable cuando la ganancia aumenta a alta carga",
+      "b": "El sensor de temperatura quedó expuesto al calor adicional de la reacción y está midiendo una temperatura diferente a la real del proceso",
+      "c": "El windup integral se activa automáticamente cuando la carga supera el 80% porque el actuador no puede seguir la demanda de corrección del controlador",
+      "d": "La acción derivativa pierde efectividad a alta carga porque la mayor tasa de reacción acelera el proceso y la D no puede anticipar los cambios tan rápidos"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "Los reactores exotérmicos son procesos no lineales: la ganancia del proceso varía con la tasa de reacción. Una sintonización del PID óptima a baja carga puede ser inestable a alta carga si la ganancia del proceso aumenta significativamente. Esto requiere control de ganancia programada o sintonización robusta para múltiples puntos de operación.",
+    "tipo": "texto"
+  },
+  {
+    "id": "pid_042",
+    "dificultad": 5,
+    "categoria": "Controladores PID y Control On-Off",
+    "pregunta": "Un lazo de presión PID funciona bien en estado estacionario. Ante cambios bruscos de setpoint aparece sobreimpulso excesivo y oscilaciones. Pero ante perturbaciones lentas, el lazo responde perfectamente. ¿Cuál es el ajuste más indicado?",
+    "opciones": {
+      "a": "Reducir la ganancia P para disminuir el sobreimpulso ante cambios de setpoint, aceptando que la respuesta a perturbaciones también se degradará proporcionalmente",
+      "b": "Eliminar la acción D para reducir el sobreimpulso, ya que la D amplifica los cambios bruscos de setpoint y es la causa principal del problema",
+      "c": "Implementar un filtro de referencia (setpoint filter) para suavizar el cambio de setpoint sin afectar la respuesta a perturbaciones que entran por otra ruta",
+      "d": "Aumentar el tiempo integral para que la acción I frene la respuesta ante cambios de setpoint y reduzca el sobreimpulso de forma automática"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "Cuando el lazo responde bien a perturbaciones pero mal a cambios bruscos de setpoint, la causa es que el escalón de setpoint llega directamente a P y D. Un filtro de referencia suaviza el setpoint (lo convierte en una rampa), reduciendo el sobreimpulso sin degradar la respuesta a perturbaciones que entran por otra ruta.",
+    "tipo": "texto"
+  },
+  {
+    "id": "pid_043",
+    "dificultad": 5,
+    "categoria": "Controladores PID y Control On-Off",
+    "pregunta": "Un operador reporta: cada vez que el compresor de un proceso cercano arranca, la temperatura del proceso sube 5°C y el PID tarda 20 minutos en recuperarla, aunque actúa correctamente. ¿Qué estrategia reduciría más eficazmente el impacto de esta perturbación conocida?",
+    "opciones": {
+      "a": "Aumentar la ganancia proporcional del PID para que reaccione con mayor intensidad al error de 5°C desde el primer instante que lo detecta",
+      "b": "Agregar un lazo feedforward que detecte el arranque del compresor y actúe preventivamente sobre el actuador antes de que la temperatura cambie",
+      "c": "Cambiar a control On-Off para que el actuador responda sin cálculos intermedios y compense la perturbación más rápido que el PID",
+      "d": "Instalar un segundo sensor de temperatura aguas arriba del proceso para cerrar un lazo de feedback adicional que detecte el calor del compresor"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "El feedback (PID) solo reacciona después de que el error ya ocurrió. Si la perturbación es conocida y medible (arranque del compresor), el feedforward permite actuar antes de que la temperatura cambie. La combinación feedback+feedforward es la estrategia más efectiva cuando la perturbación puede detectarse a tiempo.",
+    "tipo": "texto"
+  },
+  {
+    "id": "pid_044",
+    "dificultad": 5,
+    "categoria": "Controladores PID y Control On-Off",
+    "pregunta": "Un proceso On-Off cicla 45 veces/hora. Se requiere reducir la variación a ±1% y máximo 6 ciclos/hora. Opción A: reducir histéresis a ±1%; Opción B: reemplazar la bomba On-Off por una de velocidad variable con PID. ¿Cuál es el análisis correcto?",
+    "opciones": {
+      "a": "La opción A cumple ambas especificaciones porque la histéresis de ±1% reduce la variación y al mismo tiempo hace que los ciclos sean más cortos y menos frecuentes",
+      "b": "Ambas opciones cumplen las especificaciones con diferente costo; la A es preferible por ser más económica y no requerir cambio de equipos",
+      "c": "La opción B es técnicamente imposible en bombas industriales porque los variadores de frecuencia no son compatibles con algoritmos PID de nivel",
+      "d": "La opción A aumentaría los ciclos muy por encima del límite porque menor histéresis siempre implica más ciclos; solo la opción B cumple ambas especificaciones simultáneamente"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "Reducir la histéresis a ±1% haría que la bomba cicle mucho más de 6 veces/hora (probablemente decenas), violando la restricción de mantenimiento. En el control On-Off, menor variación siempre implica más ciclos. La única forma de cumplir ambas restricciones es eliminar el On-Off y usar un actuador modulante con PID.",
+    "tipo": "texto"
+  },
+  {
+    "id": "pid_045",
+    "dificultad": 5,
+    "categoria": "Controladores PID y Control On-Off",
+    "pregunta": "Un PID de pH muestra comportamiento errático: a veces responde normalmente y a veces produce sobreimpulsos enormes. El técnico descartó fallas de sensor y actuador. ¿Cuál de las siguientes causas explica mejor el comportamiento irregular?",
+    "opciones": {
+      "a": "La ganancia P varía automáticamente con la temperatura del proceso porque el controlador tiene compensación de temperatura activa sin que el operador lo sepa",
+      "b": "El pH es un proceso altamente no lineal: la ganancia del proceso varía órdenes de magnitud según el valor actual de pH, haciendo que la sintonización válida en un punto sea inestable en otro",
+      "c": "La acción integral se resetea automáticamente cuando el actuador cambia de dirección, generando respuestas inconsistentes dependiendo del historial reciente",
+      "d": "El tiempo muerto del proceso de pH varía aleatoriamente con la temperatura y concentración del reactivo, desestabilizando el lazo en condiciones específicas"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "El control de pH es el ejemplo clásico de proceso no lineal extremo: cerca de pH=7, pequeñas dosis de reactivo generan grandes cambios de pH (ganancia alta); lejos del punto neutro, se necesitan dosis mayores (ganancia baja). Un PID sintonizado para un punto de pH funciona mal en otros puntos, generando el comportamiento errático descrito.",
+    "tipo": "texto"
+  },
+  {
+    "id": "pid_046",
+    "dificultad": 5,
+    "categoria": "Controladores PID y Control On-Off",
+    "pregunta": "Un PID bien sintonizado queda inestable tras reemplazar la válvula de control (curva característica cambió de lineal a igual porcentaje). Sin cambiar la válvula, ¿cuál es la alternativa de control más apropiada?",
+    "opciones": {
+      "a": "Ampliar la histéresis configurada en el controlador para absorber la variación de ganancia que introduce la curva de igual porcentaje en distintos puntos",
+      "b": "Reducir la ganancia P al valor mínimo para que el lazo opere de forma estable en cualquier punto de apertura de la válvula aunque sea muy lento",
+      "c": "Implementar caracterización de la señal de control (linealización de la curva de la válvula) para compensar la diferencia de ganancia en distintos puntos de operación",
+      "d": "Cambiar a control On-Off porque su lógica todo/nada no depende de la curva característica y es robusta ante cambios en el actuador"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "Una válvula de igual porcentaje tiene ganancia variable: baja a apertura pequeña, alta a apertura grande. La caracterización de señal (tabla de compensación o función inversa) corrige esta no linealidad antes de que la señal llegue a la válvula, restaurando ganancia constante en todo el rango y permitiendo sintonización estable.",
+    "tipo": "texto"
+  },
+  {
+    "id": "pid_047",
+    "dificultad": 5,
+    "categoria": "Controladores PID y Control On-Off",
+    "pregunta": "Un horno de tratamiento térmico tiene tiempo muerto de 8 minutos. Las opciones son: (1) PID solo, (2) PID con predictor de Smith, (3) control On-Off. ¿Cuál es el orden correcto de efectividad para este proceso de alto tiempo muerto?",
+    "opciones": {
+      "a": "PID con predictor de Smith > PID solo > On-Off; el predictor compensa el tiempo muerto explícitamente permitiendo sintonización más agresiva y mejor desempeño",
+      "b": "On-Off > PID solo > PID con predictor de Smith porque el tiempo muerto grande hace que la complejidad del predictor no mejore el control real",
+      "c": "PID solo > PID con predictor de Smith porque el predictor añade complejidad innecesaria y su modelo simplificado introduce errores en procesos industriales reales",
+      "d": "On-Off > PID con predictor de Smith porque el tiempo muerto de 8 minutos hace que cualquier PID sea inherentemente inestable en este proceso de horno"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "El predictor de Smith usa un modelo interno del proceso para predecir la respuesta sin tiempo muerto, permitiendo al PID actuar sobre esa predicción. Esto elimina el efecto limitante del tiempo muerto en la sintonización. Con tiempos muertos grandes (8 min), esta estrategia mejora significativamente sobre un PID solo, mientras que el On-Off sería la opción más precaria.",
+    "tipo": "texto"
+  },
+  {
+    "id": "pid_048",
+    "dificultad": 5,
+    "categoria": "Controladores PID y Control On-Off",
+    "pregunta": "Al arrancar un reactor desde frío, el actuador estuvo al máximo 25 minutos antes de llegar al setpoint. Al alcanzarlo, aparece un sobreimpulso de 15°C que dura 30 minutos. En estado estacionario el control es perfecto. ¿Cuál es el diagnóstico y la solución correcta?",
+    "opciones": {
+      "a": "Ganancia proporcional excesiva; reducir Kp para disminuir el sobreimpulso durante el arranque sin afectar el comportamiento en estado estacionario",
+      "b": "Acción derivativa insuficiente; aumentar Td para frenar la subida de temperatura justo antes de llegar al setpoint y prevenir el sobreimpulso de 15°C",
+      "c": "Setpoint de arranque demasiado alto para la capacidad del proceso; reducir el objetivo inicial y hacer un arranque en rampa hasta el setpoint final",
+      "d": "Windup integral severo durante el arranque con actuador saturado; implementar anti-windup para limitar la acumulación del integral durante la saturación"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "El patrón es clásico de windup: actuador saturado por largo tiempo (25 min), sobreimpulso prolongado al llegar al setpoint (30 min de recuperación), comportamiento perfecto en estado estacionario. La integral acumuló 25 minutos de error máximo. La solución es anti-windup (clamping o back-calculation) que limita la integración cuando el actuador está saturado.",
+    "tipo": "texto"
+  },
+  {
+    "id": "pid_049",
+    "dificultad": 5,
+    "categoria": "Controladores PID y Control On-Off",
+    "pregunta": "Un proceso opera en dos regímenes: A (carga baja, proceso lento) y B (carga alta, proceso rápido). El PID sintonizado para el punto medio es muy lento en régimen A y oscila en régimen B. ¿Cuál es la estrategia más apropiada?",
+    "opciones": {
+      "a": "Sintonizar el PID para el régimen B y aceptar lentitud en A, ya que la inestabilidad en B es el riesgo más grave y prioritario a corregir",
+      "b": "Implementar control con ganancia programada (gain scheduling): conmutar entre dos juegos de parámetros PID según el régimen de operación detectado",
+      "c": "Usar control On-Off en régimen A y PID en régimen B mediante una conmutación manual que el operador realiza al cambiar de régimen",
+      "d": "Aumentar el tiempo integral al máximo para que el lazo sea igualmente lento en ambos regímenes y evitar las oscilaciones sin necesidad de conmutar"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "El gain scheduling es la solución estándar para procesos que operan en múltiples regímenes con dinámicas distintas. Se definen conjuntos de parámetros PID sintonizados para cada régimen y se conmuta entre ellos según una variable indicadora (carga, flujo, temperatura, etc.), logrando comportamiento óptimo en cada punto de operación.",
+    "tipo": "texto"
+  },
+  {
+    "id": "pid_050",
+    "dificultad": 5,
+    "categoria": "Controladores PID y Control On-Off",
+    "pregunta": "Un operador modifica parámetros de un PID en producción sin documentar el cambio. El lazo queda inestable y el siguiente turno no sabe qué fue modificado. Además del procedimiento de gestión del cambio, ¿qué característica técnica del sistema hubiera mitigado este problema?",
+    "opciones": {
+      "a": "Usar control On-Off en lugar de PID, ya que al no tener parámetros continuos ajustables el operador no puede modificar valores que desestabilicen el proceso",
+      "b": "Bloquear el acceso del operador a todos los parámetros del controlador y requerir clave de ingeniería para cualquier cambio, incluyendo el setpoint",
+      "c": "Un sistema con registro de auditoría (audit trail) de cambios de parámetros y con capacidad de restaurar la última sintonización válida conocida como estable",
+      "d": "Implementar control en cascada para que los parámetros del operador queden aislados en el lazo secundario y no puedan afectar la estabilidad del lazo principal"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "Un audit trail registra quién cambió qué parámetro y cuándo, permitiendo identificar el cambio dañino. Complementado con la capacidad de restaurar una sintonización previa validada (backup de parámetros), el sistema puede recuperarse rápidamente. Esta es una característica estándar de los DCS modernos que aplica gestión de cambios a nivel técnico.",
+    "tipo": "texto"
+  }
+]

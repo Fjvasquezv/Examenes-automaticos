@@ -1,0 +1,752 @@
+[
+  {
+    "id": "isa_001",
+    "dificultad": 1,
+    "categoria": "Norma ISA - PFDs y P&IDs",
+    "pregunta": "Â¿CuÃ¡l es la diferencia principal entre un PFD (Process Flow Diagram) y un P&ID (Piping and Instrumentation Diagram)?",
+    "opciones": {
+      "a": "El PFD muestra el flujo del proceso y equipos principales sin detalle de instrumentacion; el P&ID incluye toda la instrumentacion, valvulas y lazos de control",
+      "b": "El PFD es mas detallado que el P&ID porque incluye todos los diametros de tuberias, materiales y especificaciones de cada linea de proceso",
+      "c": "El P&ID se elabora solo durante la fase de diseno conceptual del proyecto; el PFD se usa exclusivamente durante la operacion diaria de la planta",
+      "d": "No hay diferencia tecnica real; ambos documentos muestran la misma informacion con diferente nivel estetico de presentacion"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "El PFD es una representaciÃ³n simplificada que muestra el flujo del proceso, equipos principales y condiciones de operaciÃ³n (temperatura, presiÃ³n, flujo). El P&ID es mucho mÃ¡s detallado: incluye todos los instrumentos, vÃ¡lvulas, lazos de control, tuberÃ­as y conexiones. Son documentos complementarios con propÃ³sitos distintos.",
+    "tipo": "texto"
+  },
+  {
+    "id": "isa_002",
+    "dificultad": 1,
+    "categoria": "Norma ISA - PFDs y P&IDs",
+    "pregunta": "En la norma ISA-5.1, Â¿quÃ© forma geomÃ©trica representa un instrumento instalado localmente en campo (no en sala de control)?",
+    "opciones": {
+      "a": "Un circulo simple sin linea interior, que indica un instrumento de campo accesible localmente por el operador de planta",
+      "b": "Un circulo con una linea horizontal en la mitad, que indica un instrumento montado en panel de control en sala de operaciones",
+      "c": "Un cuadrado, que indica un instrumento de campo con logica programable integrada como un controlador local digital",
+      "d": "Un circulo con doble contorno, que indica un instrumento de campo perteneciente a un sistema instrumentado de seguridad"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "SegÃºn ISA-5.1, un cÃ­rculo simple (burbuja) representa un instrumento de campo, accesible localmente. Un cÃ­rculo con una lÃ­nea horizontal en el medio representa un instrumento montado en panel de control. Esta distinciÃ³n es fundamental para interpretar la ubicaciÃ³n fÃ­sica de cada instrumento en el P&ID.",
+    "tipo": "texto"
+  },
+  {
+    "id": "isa_003",
+    "dificultad": 1,
+    "categoria": "Norma ISA - PFDs y P&IDs",
+    "pregunta": "En la estructura de un tag ISA (por ejemplo, TIC-101), Â¿quÃ© representa la primera letra?",
+    "opciones": {
+      "a": "El numero de loop al que pertenece el instrumento dentro del area de proceso donde esta instalado",
+      "b": "La funcion del instrumento dentro del lazo (indicador, controlador, transmisor o registrador)",
+      "c": "La variable medida o iniciada por el instrumento (temperatura, presion, flujo, nivel, etc.)",
+      "d": "El area de proceso o unidad de planta donde esta instalado fisicamente el instrumento"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "En la nomenclatura ISA, la primera letra indica la variable medida o iniciada: T=Temperatura, P=PresiÃ³n, F=Flujo, L=Nivel, A=AnÃ¡lisis, etc. Las letras siguientes indican la funciÃ³n: I=Indicador, C=Controlador, T=Transmisor, S=Switch, R=Registrador. En TIC-101: T=temperatura, I=indicador, C=controlador.",
+    "tipo": "texto"
+  },
+  {
+    "id": "isa_004",
+    "dificultad": 1,
+    "categoria": "Norma ISA - PFDs y P&IDs",
+    "pregunta": "Â¿QuÃ© significa el tag 'FT-201' en un P&ID segÃºn la norma ISA?",
+    "opciones": {
+      "a": "Controlador indicador de flujo del lazo 201, que mide y controla el caudal ajustando el actuador correspondiente",
+      "b": "Registrador de flujo del lazo 201, que almacena el historial de caudal para analisis de tendencias y auditoria",
+      "c": "Transmisor de flujo numero 201, que mide el caudal y envia la senal estandar (4-20 mA) al sistema de control",
+      "d": "Switch de flujo del lazo 201, que genera una senal discreta cuando el caudal supera o cae bajo un limite configurado"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "F = Flujo (Flow), T = Transmisor (Transmitter), 201 = nÃºmero de loop. Por tanto FT-201 es el Transmisor de Flujo del lazo 201. Es el instrumento que mide el caudal y envÃ­a la seÃ±al (generalmente 4-20 mA) al controlador u otro dispositivo receptor.",
+    "tipo": "texto"
+  },
+  {
+    "id": "isa_005",
+    "dificultad": 1,
+    "categoria": "Norma ISA - PFDs y P&IDs",
+    "pregunta": "Â¿CuÃ¡l es el propÃ³sito principal de un P&ID en una planta industrial?",
+    "opciones": {
+      "a": "Mostrar el balance de masa y energia del proceso con los caudales y temperaturas de diseno en cada corriente principal",
+      "b": "Indicar el costo de instalacion de cada instrumento y tuberia para facilitar la gestion del presupuesto del proyecto",
+      "c": "Servir como documento tecnico de referencia que muestra todos los instrumentos, valvulas, tuberias y lazos de control para operacion, mantenimiento e ingenieria",
+      "d": "Reemplazar los manuales de operacion y los procedimientos de seguridad con una representacion grafica completa del proceso"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "El P&ID es el documento de referencia central de una planta: lo usa operaciones para entender el proceso, mantenimiento para localizar e identificar equipos, ingenierÃ­a para modificaciones y proyectos, y seguridad para anÃ¡lisis de riesgos (HAZOP). Es el 'mapa' completo del proceso con toda su instrumentaciÃ³n.",
+    "tipo": "texto"
+  },
+  {
+    "id": "isa_006",
+    "dificultad": 1,
+    "categoria": "Norma ISA - PFDs y P&IDs",
+    "pregunta": "En un P&ID segÃºn ISA-5.1, Â¿quÃ© tipo de lÃ­nea representa una seÃ±al neumÃ¡tica (aire instrumentado)?",
+    "opciones": {
+      "a": "Las lineas de proceso se dibujan en color rojo y las de instrumentacion en color azul para diferenciarlas visualmente en el P&ID",
+      "b": "Las lineas de proceso se dibujan con trazo grueso continuo; las lineas de instrumentacion se dibujan con trazo discontinuo (puntos o guiones)",
+      "c": "Las lineas de proceso llevan flechas de direccion de flujo; las de instrumentacion no llevan ninguna flecha ni indicacion de direccion",
+      "d": "Las lineas de proceso tienen etiquetas con diametro y material; las de instrumentacion llevan el numero de lazo al que pertenecen"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "SegÃºn ISA-5.1, las seÃ±ales de instrumentaciÃ³n se representan con lÃ­neas discontinuas para diferenciarlas de las tuberÃ­as de proceso (lÃ­neas sÃ³lidas). Las seÃ±ales neumÃ¡ticas se muestran con una lÃ­nea de guiones, mientras que las seÃ±ales elÃ©ctricas (4-20 mA) se muestran con una lÃ­nea de puntos o con una lÃ­nea con doble raya segÃºn la versiÃ³n de la norma.",
+    "tipo": "texto"
+  },
+  {
+    "id": "isa_007",
+    "dificultad": 1,
+    "categoria": "Norma ISA - PFDs y P&IDs",
+    "pregunta": "Â¿QuÃ© indica un cÃ­rculo con una lÃ­nea horizontal en la mitad (burbuja dividida) en un P&ID segÃºn ISA-5.1?",
+    "opciones": {
+      "a": "Un instrumento montado en panel de control frontal, accesible al operador desde la sala de control",
+      "b": "Un instrumento de campo instalado en el proceso con acceso local solo para tecnicos de instrumentacion en campo",
+      "c": "Un instrumento de seguridad que requiere procedimiento especial de acceso y no puede ser intervenido por el operador",
+      "d": "Un instrumento con comunicacion digital bidireccional (HART o fieldbus) que transmite senal y configuracion simultaneamente"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "La burbuja con lÃ­nea horizontal representa un instrumento en panel de control (normalmente en sala de control), donde el operador puede verlo y/o manipularlo. La burbuja simple (sin lÃ­nea) es de campo. La burbuja con doble lÃ­nea representa un instrumento montado en sala de control pero no accesible al operador directamente.",
+    "tipo": "texto"
+  },
+  {
+    "id": "isa_008",
+    "dificultad": 1,
+    "categoria": "Norma ISA - PFDs y P&IDs",
+    "pregunta": "En un tag ISA, Â¿quÃ© indica el nÃºmero que aparece despuÃ©s de las letras (por ejemplo, el '101' en TIC-101)?",
+    "opciones": {
+      "a": "La ganancia proporcional configurada en el controlador durante la ultima sintonizacion del lazo de control",
+      "b": "La escala de medicion del instrumento expresada como porcentaje del rango maximo de la variable controlada",
+      "c": "El anio de instalacion del instrumento, que permite identificar equipos de generaciones anteriores en la planta",
+      "d": "El numero de identificacion del loop de control al que pertenece el instrumento, compartido por todos los instrumentos del lazo"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "El nÃºmero en un tag ISA identifica el loop de control. Todos los instrumentos del mismo lazo comparten el mismo nÃºmero de loop: TT-101 (transmisor de temperatura), TIC-101 (controlador indicador de temperatura) y TV-101 (vÃ¡lvula de temperatura) pertenecen todos al lazo 101.",
+    "tipo": "texto"
+  },
+  {
+    "id": "isa_009",
+    "dificultad": 1,
+    "categoria": "Norma ISA - PFDs y P&IDs",
+    "pregunta": "Â¿QuÃ© letra ISA representa la variable 'nivel' en un tag de instrumento?",
+    "opciones": {
+      "a": "N, que se usa en ISA-5.1 para identificar todos los instrumentos que miden o controlan el nivel en tanques y recipientes",
+      "b": "V, que representa variables volumetricas incluyendo el nivel cuando se expresa en metros cubicos acumulados",
+      "c": "L, que es la letra asignada en ISA-5.1 para la variable nivel (Level) en todas las mediciones de altura de liquido",
+      "d": "H, que representa variables hidraulicas incluyendo el nivel de liquido en recipientes abiertos y cerrados a presion"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "En la nomenclatura ISA-5.1: L = Level (Nivel), T = Temperature (Temperatura), P = Pressure (PresiÃ³n), F = Flow (Flujo), A = Analysis (AnÃ¡lisis), V = Vibration (VibraciÃ³n). Por tanto, un transmisor de nivel se identifica como LT, un controlador de nivel como LC, y un indicador de nivel como LI.",
+    "tipo": "texto"
+  },
+  {
+    "id": "isa_010",
+    "dificultad": 1,
+    "categoria": "Norma ISA - PFDs y P&IDs",
+    "pregunta": "Â¿CuÃ¡l es la audiencia principal de un PFD (Process Flow Diagram)?",
+    "opciones": {
+      "a": "Tecnicos de mantenimiento que necesitan localizar instrumentos especificos, identificar valvulas de bloqueo y planificar intervenciones de campo",
+      "b": "Operadores de planta que ejecutan los procedimientos de arranque y parada consultando el flujo detallado de cada corriente del proceso",
+      "c": "Ingenieros de proceso y gerencia tecnica que necesitan entender el flujo general del proceso, equipos principales y condiciones de diseno",
+      "d": "Inspectores de seguridad que verifican la instalacion correcta de valvulas de alivio y dispositivos de proteccion en campo"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "El PFD es un documento de alto nivel orientado a ingenieros de proceso y gerencia tÃ©cnica. Muestra el flujo general del proceso, equipos principales, condiciones tÃ­picas de operaciÃ³n y balances de masa/energÃ­a, sin el detalle de instrumentaciÃ³n que contiene el P&ID. Es el primer documento que se elabora en el diseÃ±o de una planta.",
+    "tipo": "texto"
+  },
+  {
+    "id": "isa_011",
+    "dificultad": 2,
+    "categoria": "Norma ISA - PFDs y P&IDs",
+    "pregunta": "Un tÃ©cnico lee en un P&ID el tag 'PIC-305'. Â¿QuÃ© funciÃ³n cumple este instrumento?",
+    "opciones": {
+      "a": "Indica y controla la presion del lazo 305, mostrando el valor al operador y generando la senal de control para el actuador",
+      "b": "Transmite la senal de presion del lazo 305 al sistema de control sin mostrar el valor localmente al operador de campo",
+      "c": "Registra el historial de presion del lazo 305 en un sistema de almacenamiento de datos para analisis de tendencias",
+      "d": "Activa una alarma discreta cuando la presion del lazo 305 supera el limite configurado en el ajuste de alta presion"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "P = PresiÃ³n, I = Indicador (muestra el valor al operador), C = Controlador (cierra el lazo de control). PIC-305 es un Controlador Indicador de PresiÃ³n del lazo 305: indica la presiÃ³n al operador y genera la seÃ±al de control para el actuador (vÃ¡lvula, compresor, etc.).",
+    "tipo": "texto"
+  },
+  {
+    "id": "isa_012",
+    "dificultad": 2,
+    "categoria": "Norma ISA - PFDs y P&IDs",
+    "pregunta": "En un P&ID se ven los siguientes instrumentos con el mismo nÃºmero de loop: LT-110, LIC-110 y LV-110. Â¿CÃ³mo se interpreta esta agrupaciÃ³n?",
+    "opciones": {
+      "a": "Forman un lazo de control de nivel completo: LT-110 mide y transmite, LIC-110 controla e indica, y LV-110 es la valvula de control que actua",
+      "b": "Son tres instrumentos independientes que miden distintas variables dentro del mismo equipo de proceso identificado como equipo 110",
+      "c": "Son instrumentos redundantes que miden el mismo nivel para un sistema de votacion 2 de 3 (2oo3) en la logica de seguridad",
+      "d": "El numero 110 indica el area de proceso donde estan instalados los tres instrumentos, no que pertenecen al mismo lazo de control"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "Los instrumentos con el mismo nÃºmero de loop pertenecen al mismo lazo de control. LT-110 = Transmisor de Nivel (mide y envÃ­a seÃ±al), LIC-110 = Controlador Indicador de Nivel (recibe seÃ±al, compara con setpoint, genera salida de control), LV-110 = VÃ¡lvula de Nivel (actuador que recibe la seÃ±al del controlador). Juntos forman el lazo cerrado de control de nivel.",
+    "tipo": "texto"
+  },
+  {
+    "id": "isa_013",
+    "dificultad": 2,
+    "categoria": "Norma ISA - PFDs y P&IDs",
+    "pregunta": "Â¿QuÃ© significa el sufijo 'H' o 'L' que a veces aparece junto al tag de un instrumento en un P&ID (por ejemplo, LAH-110 o LAL-110)?",
+    "opciones": {
+      "a": "H indica que el instrumento es de alta precision calibrado a norma NIST; L indica que es de precision estandar de planta industrial",
+      "b": "H y L son codigos internos de mantenimiento: H significa que el instrumento fue revisado recientemente; L que esta pendiente de revision",
+      "c": "H significa que el instrumento esta instalado en altura y requiere andamio para acceder; L que esta a nivel del suelo sin requerimiento especial",
+      "d": "H (High) indica alarma por valor alto de la variable; L (Low) indica alarma por valor bajo, como parte del sistema de alerta al operador"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "En la nomenclatura ISA, H y L como letras de modificaciÃ³n indican el tipo de alarma: A = Alarma, H = High (alto), L = Low (bajo). Por tanto: LAH-110 = Alarma de Nivel Alto del lazo 110; LAL-110 = Alarma de Nivel Bajo del lazo 110. TambiÃ©n existe LAHH (High-High) y LALL (Low-Low) para lÃ­mites crÃ­ticos.",
+    "tipo": "texto"
+  },
+  {
+    "id": "isa_014",
+    "dificultad": 2,
+    "categoria": "Norma ISA - PFDs y P&IDs",
+    "pregunta": "Un ingeniero revisa un P&ID y encuentra la secuencia: FT-220 â†’ FIC-220 â†’ FV-220 conectados por lÃ­neas de seÃ±al. Â¿QuÃ© proceso de control representa?",
+    "opciones": {
+      "a": "Un sistema de fuerza neumatica donde FT-220 genera la presion de actuacion, FIC-220 la regula y FV-220 la aplica al proceso",
+      "b": "Tres transmisores redundantes de flujo conectados en cascada para mejorar la precision de medicion del lazo 220",
+      "c": "Un sistema de filtrado donde FT-220 detecta el diferencial de presion, FIC-220 calcula la obstruccion y FV-220 abre el bypass",
+      "d": "Un lazo de control de flujo: FT-220 mide el caudal, FIC-220 controla e indica, y FV-220 es la valvula que ajusta el flujo"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "F = Flujo, T = Transmisor, I = Indicador, C = Controlador, V = VÃ¡lvula. La cadena FT (mide) â†’ FIC (controla y muestra) â†’ FV (actÃºa) es la estructura estÃ¡ndar de un lazo de control de flujo. FT-220 envÃ­a la seÃ±al al FIC-220, que compara con el setpoint y envÃ­a seÃ±al de correcciÃ³n a la FV-220.",
+    "tipo": "texto"
+  },
+  {
+    "id": "isa_015",
+    "dificultad": 2,
+    "categoria": "Norma ISA - PFDs y P&IDs",
+    "pregunta": "Â¿En quÃ© se diferencian el PFD y el P&ID en cuanto a la informaciÃ³n que muestran sobre las vÃ¡lvulas de un proceso?",
+    "opciones": {
+      "a": "El PFD muestra solo las valvulas principales de proceso; el P&ID muestra todas las valvulas incluyendo las de bloqueo, control, alivio y drenaje",
+      "b": "El PFD muestra todas las valvulas con su tag ISA y especificaciones; el P&ID omite las valvulas para simplificar la lectura de lazos",
+      "c": "Ambos documentos muestran exactamente el mismo conjunto de valvulas, diferenciandose solo en la simbologia utilizada",
+      "d": "El PFD muestra valvulas accionadas electricamente o neumaticamente; el P&ID muestra solo valvulas de operacion manual"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "El PFD incluye solo las vÃ¡lvulas principales de proceso para mostrar el flujo general. El P&ID es exhaustivo: incluye absolutamente todas las vÃ¡lvulas (control, bloqueo manual, doble bloqueo, drenaje, venteo, alivio de presiÃ³n, check) con sus tags ISA y especificaciones. Esta completitud es lo que hace al P&ID tan denso visualmente.",
+    "tipo": "texto"
+  },
+  {
+    "id": "isa_016",
+    "dificultad": 2,
+    "categoria": "Norma ISA - PFDs y P&IDs",
+    "pregunta": "Un operador ve en el P&ID el instrumento 'TE-305'. Â¿CuÃ¡l es la funciÃ³n de este instrumento?",
+    "opciones": {
+      "a": "Controlar la temperatura del lazo 305 ajustando automaticamente el actuador para mantener la variable en el setpoint configurado",
+      "b": "Registrar el historial de temperatura del lazo 305 en la base de datos del sistema para analisis de tendencias y auditoria",
+      "c": "Elemento sensor primario de temperatura del lazo 305, como un termopozo con termocupla o RTD en contacto directo con el proceso",
+      "d": "Transmitir la senal de temperatura del lazo 305 al sistema de control convirtiendo la senal del sensor a 4-20 mA estandar"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "T = Temperatura, E = Elemento (sensor primario). TE es el elemento sensible primario, generalmente el thermowell con termocupla o RTD que estÃ¡ en contacto directo con el proceso. Es diferente del TT (Transmisor de Temperatura) que convierte la seÃ±al del sensor en seÃ±al estÃ¡ndar (4-20 mA), aunque a veces ambos estÃ¡n integrados.",
+    "tipo": "texto"
+  },
+  {
+    "id": "isa_017",
+    "dificultad": 2,
+    "categoria": "Norma ISA - PFDs y P&IDs",
+    "pregunta": "Â¿QuÃ© representa una 'X' en el tag de un instrumento ISA, como en 'FX-101'?",
+    "opciones": {
+      "a": "Que el instrumento esta fuera de servicio o en mantenimiento preventivo programado durante el periodo actual de operacion",
+      "b": "Un instrumento experimental o de prueba temporal instalado durante una prueba de campo y pendiente de definicion definitiva",
+      "c": "Que el instrumento es de uso exclusivo del departamento de ingenieria y no puede ser manipulado por el operador de planta",
+      "d": "Una variable o funcion no clasificada en ISA-5.1, cuyo significado especifico se define en las notas del P&ID del proyecto"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "La letra X en ISA-5.1 estÃ¡ reservada para variables o funciones no clasificadas (unclassified), es decir, aquellas que no tienen una letra estÃ¡ndar asignada. Permite usar la nomenclatura ISA para instrumentos que miden o controlan variables especiales del proceso particular. Su significado se define en las notas del P&ID.",
+    "tipo": "texto"
+  },
+  {
+    "id": "isa_018",
+    "dificultad": 2,
+    "categoria": "Norma ISA - PFDs y P&IDs",
+    "pregunta": "En un P&ID, Â¿quÃ© indica cuando dos burbujas de instrumento estÃ¡n conectadas por una lÃ­nea con una X en el medio?",
+    "opciones": {
+      "a": "Que la conexion entre los instrumentos esta temporalmente inhabilitada o cortocircuitada por un bypass de mantenimiento activo",
+      "b": "Una conexion de alimentacion electrica de 24V DC compartida entre los dos instrumentos del mismo lazo de control",
+      "c": "Una senal hidraulica de alta presion (hydraulic signal) entre los dos instrumentos del lazo de control analogico",
+      "d": "Una conexion de senal interna de software; la funcion se realiza dentro del sistema de control digital sin conexion fisica externa"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "En ISA-5.1, la lÃ­nea con X indica una seÃ±al de software o que la funciÃ³n se realiza internamente en un sistema de control digital (DCS, PLC). Indica que no hay conexiÃ³n fÃ­sica de seÃ±al (cable, tubo) visible externamente entre los instrumentos: la comunicaciÃ³n es interna al sistema de control.",
+    "tipo": "texto"
+  },
+  {
+    "id": "isa_019",
+    "dificultad": 2,
+    "categoria": "Norma ISA - PFDs y P&IDs",
+    "pregunta": "Â¿CuÃ¡l de los siguientes tags ISA corresponde a una 'vÃ¡lvula de control de presiÃ³n'?",
+    "opciones": {
+      "a": "PT-401, que es el transmisor de presion que mide y envia la senal al controlador del lazo 401",
+      "b": "PIC-401, que es el controlador indicador de presion que genera la senal de control para el actuador del lazo 401",
+      "c": "PV-401, que es la valvula de control que recibe la senal del controlador y ajusta el flujo para controlar la presion",
+      "d": "PSV-401, que es la valvula de seguridad de presion que protege el equipo abriendo ante sobrepresion del lazo 401"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "P = PresiÃ³n, V = VÃ¡lvula (de control). PV-401 es la VÃ¡lvula de Control de PresiÃ³n del lazo 401, el elemento final de control que recibe la seÃ±al del controlador. PT-401 serÃ­a el transmisor de presiÃ³n, PIC-401 el controlador indicador, y PSV-401 una vÃ¡lvula de seguridad (Safety Valve) de presiÃ³n.",
+    "tipo": "texto"
+  },
+  {
+    "id": "isa_020",
+    "dificultad": 2,
+    "categoria": "Norma ISA - PFDs y P&IDs",
+    "pregunta": "Un tÃ©cnico encuentra en un P&ID el tag 'LSHH-115'. Â¿QuÃ© funciÃ³n cumple este instrumento?",
+    "opciones": {
+      "a": "Un transmisor de nivel de alta sensibilidad que mide con precision de +-0.1% del rango para el lazo critico 115",
+      "b": "Un registrador de nivel con alarma integrada que almacena el historial de eventos de alta presion del lazo 115",
+      "c": "Un controlador de nivel que opera solo cuando el nivel esta en la zona alta del rango del lazo 115",
+      "d": "Un switch de nivel que activa una funcion de seguridad critica cuando el nivel alcanza el limite maximo-maximo del lazo 115"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "L = Nivel, S = Switch (interruptor), H = High (alto), H = High (segundo H para High-High). LSHH-115 es un Switch de Nivel Alto-Alto del lazo 115, es decir, un interruptor que se activa solo cuando el nivel alcanza un valor crÃ­tico muy elevado. Se usa tÃ­picamente para disparar acciones de seguridad (parada de bomba, cierre de vÃ¡lvula de emergencia).",
+    "tipo": "texto"
+  },
+  {
+    "id": "isa_021",
+    "dificultad": 3,
+    "categoria": "Norma ISA - PFDs y P&IDs",
+    "pregunta": "Un ingeniero revisa un P&ID y encuentra: TT-301 (en burbuja de campo), TIC-301 (en burbuja de panel) y TV-301. Hay una lÃ­nea de seÃ±al de TT-301 a TIC-301 y otra de TIC-301 a TV-301. Â¿CuÃ¡l es la interpretaciÃ³n completa del lazo?",
+    "opciones": {
+      "a": "El TT-301 en campo mide la temperatura y envia senal al TIC-301 en panel, que controla la TV-301; es un lazo de control de temperatura en lazo cerrado estandar",
+      "b": "El TT-301 y el TIC-301 son instrumentos redundantes con la misma funcion; ambos envian senal paralela a la TV-301 para mayor confiabilidad",
+      "c": "El TT-301 mide en campo y el TIC-301 solo indica el valor en panel sin funcion de control; la TV-301 opera en modo manual independiente",
+      "d": "La TV-301 envia retroalimentacion de posicion al TIC-301, que la compara con la medicion del TT-301 para verificar que la valvula responde"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "La lectura correcta del lazo: TT-301 (transmisor de temperatura, en campo) mide la temperatura y envÃ­a seÃ±al al TIC-301 (controlador indicador de temperatura, en panel de control). El TIC-301 compara con el setpoint y envÃ­a seÃ±al de correcciÃ³n a la TV-301 (vÃ¡lvula de temperatura). Es un lazo cerrado de control de temperatura estÃ¡ndar.",
+    "tipo": "texto"
+  },
+  {
+    "id": "isa_022",
+    "dificultad": 3,
+    "categoria": "Norma ISA - PFDs y P&IDs",
+    "pregunta": "Â¿Por quÃ© el P&ID es mÃ¡s Ãºtil que el PFD para planificar un trabajo de mantenimiento en una vÃ¡lvula de control?",
+    "opciones": {
+      "a": "Porque el P&ID muestra las valvulas de bloqueo adyacentes, drenajes, venteos y el lazo completo necesario para aislar y despresurizar la valvula con seguridad",
+      "b": "Porque el PFD contiene el historial de mantenimiento de cada valvula y los plazos de proxima intervencion programada",
+      "c": "Porque el P&ID siempre esta mas actualizado que el PFD ya que se revisa con mayor frecuencia en las plantas industriales",
+      "d": "Porque el PFD solo existe en formato impreso y el P&ID esta disponible en el sistema digital de gestion de planta"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "Para mantenimiento, el P&ID es indispensable porque muestra todo el contexto de la vÃ¡lvula de control: vÃ¡lvulas de bloqueo upstream/downstream para aislarla, bypass de mantenimiento, drenajes para despresurizar, venteos, lazos de control afectados y bypass de proceso. El PFD no tiene este nivel de detalle necesario para ejecutar el trabajo con seguridad.",
+    "tipo": "texto"
+  },
+  {
+    "id": "isa_023",
+    "dificultad": 3,
+    "categoria": "Norma ISA - PFDs y P&IDs",
+    "pregunta": "Un P&ID muestra un lazo con: FT-501 (campo) â†’ FIC-501 (panel) â†’ FY-501 â†’ FV-501. Â¿QuÃ© representa el instrumento FY-501?",
+    "opciones": {
+      "a": "Un transmisor de flujo de respaldo del lazo 501, instalado en paralelo con el FT-501 para mayor confiabilidad de medicion",
+      "b": "Una alarma de flujo alto del lazo 501 que genera senal discreta cuando el caudal supera el limite configurado en el sistema",
+      "c": "Un convertidor o calculador de senal del lazo 501, como un I/P que convierte la senal electrica del controlador en senal neumatica para la valvula",
+      "d": "Un indicador de flujo remoto instalado en sala de control como segundo punto de lectura del caudal del lazo 501"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "Y en ISA-5.1 indica un convertidor, calculador o dispositivo auxiliar de seÃ±al. FY-501 puede ser un convertidor corriente-presiÃ³n (I/P) que convierte la seÃ±al elÃ©ctrica del controlador (4-20 mA) en seÃ±al neumÃ¡tica (3-15 psi) para operar la vÃ¡lvula FV-501, o un bloque de cÃ¡lculo dentro del sistema de control.",
+    "tipo": "texto"
+  },
+  {
+    "id": "isa_024",
+    "dificultad": 3,
+    "categoria": "Norma ISA - PFDs y P&IDs",
+    "pregunta": "Al comparar el mismo proceso en su PFD y en su P&ID, un ingeniero nota que el P&ID tiene aproximadamente 10 veces mÃ¡s sÃ­mbolos que el PFD. Â¿CuÃ¡l es la razÃ³n principal de esta diferencia?",
+    "opciones": {
+      "a": "El P&ID esta desactualizado y acumula instrumentos de modificaciones anteriores que nunca fueron eliminados del documento",
+      "b": "El PFD esta incompleto porque le faltan los instrumentos principales del proceso que deberian aparecer en ambos documentos",
+      "c": "El P&ID fue elaborado por un equipo de ingenieria mucho mas grande que el que elaboro el PFD, por lo que tiene mas nivel de detalle",
+      "d": "El P&ID incluye toda la instrumentacion, valvulas de bloqueo, drenajes, venteos y lazos de control que el PFD omite intencionalmente por ser de alto nivel"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "La diferencia es intencional y por diseÃ±o: el PFD es un documento de alto nivel para entender el proceso sin abrumar con detalles. El P&ID es el documento de ingenierÃ­a de detalle que no omite ningÃºn instrumento, vÃ¡lvula o conexiÃ³n. Cada uno tiene su propÃ³sito y audiencia especÃ­fica.",
+    "tipo": "texto"
+  },
+  {
+    "id": "isa_025",
+    "dificultad": 3,
+    "categoria": "Norma ISA - PFDs y P&IDs",
+    "pregunta": "Un P&ID muestra el instrumento 'PSHH-210' conectado a una lÃ³gica de disparo. Â¿QuÃ© indica esto sobre la funciÃ³n de seguridad del sistema?",
+    "opciones": {
+      "a": "Es un controlador de presion de alta resolucion que ajusta el proceso con mayor precision que un controlador PIC estandar del lazo 210",
+      "b": "Es un sensor de presion de respaldo que activa automaticamente cuando el transmisor principal PT-210 registra una falla de senal",
+      "c": "Es un registrador de presion que archiva todos los eventos en que la presion supero el limite alto del lazo 210 para auditoria",
+      "d": "Es un switch de presion que activa una funcion de seguridad critica (shutdown o disparo de emergencia) cuando la presion alcanza el nivel maximo-maximo"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "P = PresiÃ³n, S = Switch, H = High, H = High (High-High). PSHH es un switch de presiÃ³n de nivel crÃ­tico (High-High), que activa directamente funciones de seguridad como cierre de vÃ¡lvulas de emergencia, parada de equipos o disparos de sistemas de protecciÃ³n. El doble H indica que es el lÃ­mite mÃ¡s crÃ­tico, mÃ¡s alto que el simple PAH (alarma de presiÃ³n alta).",
+    "tipo": "texto"
+  },
+  {
+    "id": "isa_026",
+    "dificultad": 3,
+    "categoria": "Norma ISA - PFDs y P&IDs",
+    "pregunta": "Un estudiante interpreta el tag 'TRC-150' como 'Controlador de Temperatura del lazo 150'. Un colega le corrige. Â¿CuÃ¡l es la interpretaciÃ³n correcta?",
+    "opciones": {
+      "a": "El estudiante tiene razon; TRC-150 es un Controlador de Temperatura, ya que C es la letra de funcion mas importante y define el tipo de instrumento",
+      "b": "TRC-150 es un Registrador-Controlador de Temperatura del lazo 150; T=Temperatura, R=Registrador, C=Controlador, las letras de funcion son acumulativas",
+      "c": "TRC-150 es un Transmisor con Compensacion de Temperatura, donde R indica correccion de senal por temperatura de referencia interna",
+      "d": "TRC-150 es un Regulador de Temperatura con Comunicacion remota, donde R indica que el setpoint se recibe desde un sistema supervisor"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "T = Temperatura, R = Registrador (Recorder), C = Controlador. TRC-150 es un instrumento que combina tres funciones: mide la temperatura, la registra histÃ³ricamente y la controla. Son letras de funciÃ³n acumulativas: cada letra agrega una funciÃ³n al instrumento. En los DCS modernos, estas funciones suelen estar integradas en una sola pantalla o funciÃ³n de software.",
+    "tipo": "texto"
+  },
+  {
+    "id": "isa_027",
+    "dificultad": 3,
+    "categoria": "Norma ISA - PFDs y P&IDs",
+    "pregunta": "Â¿CuÃ¡l es la diferencia entre 'PSV' (Pressure Safety Valve) y 'PRV' (Pressure Relief Valve) en un P&ID?",
+    "opciones": {
+      "a": "No hay diferencia tecnica real; son terminos intercambiables que diferentes industrias o paises usan para referirse al mismo dispositivo",
+      "b": "La PSV tiene actuador electrico que recibe senal del sistema de control; la PRV opera de forma completamente mecanica sin senal externa",
+      "c": "La PSV abre de forma rapida y completa (accion pop) tipicamente para servicio de gases; la PRV abre progresivamente para liquidos, aunque a veces se usan indistintamente",
+      "d": "La PSV solo puede instalarse en lineas con diametro mayor a 4 pulgadas; la PRV se instala en lineas pequenas de instrumentacion y servicios"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "TÃ©cnicamente, la PSV (Safety Valve) abre de forma rÃ¡pida y total, tÃ­picamente para servicio en gases y vapor. La PRV (Relief Valve) abre progresivamente proporcionalmente al exceso de presiÃ³n, mÃ¡s tÃ­pica para lÃ­quidos. En la prÃ¡ctica industrial, los tÃ©rminos a veces se usan indistintamente. Ambas son dispositivos de seguridad pasivos que protegen el equipo contra sobrepresiÃ³n sin necesitar seÃ±al de control.",
+    "tipo": "texto"
+  },
+  {
+    "id": "isa_028",
+    "dificultad": 3,
+    "categoria": "Norma ISA - PFDs y P&IDs",
+    "pregunta": "En un P&ID se observa que la seÃ±al del FIC-302 va al FY-302 y luego a la FV-302. TambiÃ©n hay una lÃ­nea punteada del FIC-302 directamente al FV-302. Â¿QuÃ© indica la lÃ­nea punteada paralela al FY-302?",
+    "opciones": {
+      "a": "Una conexion de respaldo que se activa automaticamente si el FY-302 falla y la senal principal queda interrumpida",
+      "b": "Un cable de tierra de proteccion electrica que conecta la valvula FV-302 con el controlador para seguridad del operador",
+      "c": "Una conexion de comunicacion digital fieldbus que transmite datos de diagnostico de la valvula al sistema de gestion de activos",
+      "d": "Una senal de retroalimentacion de posicion del posicionador de la valvula FV-302 hacia el controlador FIC-302 para confirmacion de posicion"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "La lÃ­nea adicional punteada del FV-302 de vuelta al FIC-302 representa la retroalimentaciÃ³n de posiciÃ³n del posicionador de la vÃ¡lvula. El controlador recibe confirmaciÃ³n de la posiciÃ³n real de la vÃ¡lvula, no solo envÃ­a la seÃ±al de comando. Esto permite detectar si la vÃ¡lvula no se moviÃ³ como se ordenÃ³ (por ejemplo, por fricciÃ³n o falla del posicionador).",
+    "tipo": "texto"
+  },
+  {
+    "id": "isa_029",
+    "dificultad": 3,
+    "categoria": "Norma ISA - PFDs y P&IDs",
+    "pregunta": "Â¿CuÃ¡l es la diferencia correcta entre FC (Fail Close) y FO (Fail Open) en el contexto de las vÃ¡lvulas de control en un P&ID?",
+    "opciones": {
+      "a": "FC significa que la valvula cierra automaticamente si el controlador falla; FO no tiene significado estandar en ISA y es un codigo de mantenimiento",
+      "b": "FC indica que la valvula se cierra al perder la senal de control o alimentacion (falla segura hacia cerrado); FO indica que se abre al perder la senal",
+      "c": "FC es exclusivamente para valvulas en lineas de liquidos calientes o vaporizantes; FO se usa solo en lineas de gases y fluidos criogenicos",
+      "d": "FC y FO son modos de operacion manual que el operador selecciona desde la sala de control para mantenimiento o emergencia"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "FC (Fail Close) y FO (Fail Open) describen el comportamiento de la vÃ¡lvula al perder la seÃ±al de control o alimentaciÃ³n neumÃ¡tica/elÃ©ctrica. Es una caracterÃ­stica de seguridad crÃ­tica: una vÃ¡lvula de combustible normalmente es FC (se cierra si hay falla para prevenir incendio), mientras que una vÃ¡lvula de agua de enfriamiento es FO (se abre si hay falla para mantener el enfriamiento). Esta selecciÃ³n se documenta en el P&ID.",
+    "tipo": "texto"
+  },
+  {
+    "id": "isa_030",
+    "dificultad": 3,
+    "categoria": "Norma ISA - PFDs y P&IDs",
+    "pregunta": "En un P&ID, se encuentra el instrumento 'AT-601' seguido de 'AIC-601'. Â¿QuÃ© tipo de proceso controla este lazo?",
+    "opciones": {
+      "a": "Un lazo de control de altitud del equipo 601, donde A indica la altura y el controlador ajusta la posicion vertical del equipo de proceso",
+      "b": "Un lazo de control de analisis de composicion o calidad del proceso 601, donde A indica una variable analitica como pH, concentracion o densidad",
+      "c": "Un lazo de control automatico de temperatura del area 601, donde A es la abreviatura de automatico en la configuracion del controlador",
+      "d": "Un sistema de gestion integrada de alarmas del proceso 601, donde A indica la funcion de alarma general del area de proceso"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "A en la primera posiciÃ³n del tag ISA indica Analysis (AnÃ¡lisis): mediciÃ³n de una propiedad de composiciÃ³n o calidad como pH, concentraciÃ³n, pureza, densidad, humedad, etc. AT-601 serÃ­a el Transmisor de AnÃ¡lisis (por ejemplo, un analizador de pH o densÃ­metro) y AIC-601 el Controlador Indicador de AnÃ¡lisis del lazo 601.",
+    "tipo": "texto"
+  },
+  {
+    "id": "isa_031",
+    "dificultad": 4,
+    "categoria": "Norma ISA - PFDs y P&IDs",
+    "pregunta": "En un P&ID de un tanque de almacenamiento se observa: LT-410, LAH-410, LAL-410, LSHH-410 y LSLL-410. Â¿CuÃ¡l es la funciÃ³n de cada instrumento y cÃ³mo se relacionan entre sÃ­?",
+    "opciones": {
+      "a": "LT-410 mide y transmite el nivel de forma continua; LAH/LAL-410 son alarmas de operacion que alertan al operador; LSHH/LSLL-410 son switches de seguridad para disparos automaticos en niveles criticos extremos",
+      "b": "Los cinco instrumentos son transmisores de nivel redundantes que votan en logica 3 de 5 (3oo5) para determinar el nivel real y evitar falsas alarmas",
+      "c": "LT, LAH y LAL forman el sistema de control normal; LSHH y LSLL son solo indicadores visuales locales sin funcion de alarma ni disparo automatico",
+      "d": "LAH y LSHH miden exactamente lo mismo; LAL y LSLL tambien; la diferencia es solo la ubicacion fisica del sensor en la pared del tanque"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "El sistema de instrumentaciÃ³n de nivel del tanque tiene capas: LT-410 transmite la mediciÃ³n continua para control e indicaciÃ³n. LAH/LAL-410 son alarmas que alertan al operador para tomar acciÃ³n manual. LSHH-410 y LSLL-410 son switches independientes que activan funciones de seguridad automÃ¡ticas (cierre de vÃ¡lvulas, parada de bombas) cuando el nivel llega a valores peligrosos extremos. Esta arquitectura en capas es la prÃ¡ctica estÃ¡ndar de seguridad.",
+    "tipo": "texto"
+  },
+  {
+    "id": "isa_032",
+    "dificultad": 4,
+    "categoria": "Norma ISA - PFDs y P&IDs",
+    "pregunta": "Un ingeniero revisa un P&ID y encuentra que una vÃ¡lvula de control de temperatura (TV-305) tiene la notaciÃ³n 'FC' y estÃ¡ conectada a la lÃ­nea de vapor de calentamiento de un reactor. Â¿Por quÃ© esta selecciÃ³n de modo de falla es la correcta?",
+    "opciones": {
+      "a": "FC es incorrecto para vapor de calentamiento; deberia ser FO para garantizar que el reactor siga recibiendo calor si el controlador falla en un arranque frio",
+      "b": "FC es la unica opcion para valvulas de vapor; todas las valvulas en servicio de vapor deben ser FC por normativa API 598 de valvulas industriales",
+      "c": "FC significa que la valvula realiza un cierre preventivo cada 24 horas como parte del ciclo automatico de prueba del sistema de seguridad",
+      "d": "Al fallar la senal de control, la valvula cierra el paso de vapor, evitando que el reactor se sobrecaliente sin control y generando condicion mas segura"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "En un reactor, perder el control del calentamiento es peligroso: si la vÃ¡lvula de vapor falla abierta (FO), el reactor se sobrecalentarÃ­a sin lÃ­mite. Al seleccionar FC (Fail Close), ante cualquier falla de seÃ±al o alimentaciÃ³n, la vÃ¡lvula corta el vapor, deteniendo el calentamiento y dejando el reactor en condiciÃ³n mÃ¡s segura. La selecciÃ³n del modo de falla siempre se basa en quÃ© estado es mÃ¡s seguro para el proceso.",
+    "tipo": "texto"
+  },
+  {
+    "id": "isa_033",
+    "dificultad": 4,
+    "categoria": "Norma ISA - PFDs y P&IDs",
+    "pregunta": "Al revisar un P&ID, un ingeniero encuentra que el lazo de control de nivel de un tanque usa 'cascada': el LIC-220 es el controlador maestro y el FIC-221 es el controlador esclavo. Â¿CÃ³mo se representa esto en el P&ID?",
+    "opciones": {
+      "a": "El LIC-220 y el FIC-221 se combinan en una sola burbuja doble LF-220/221 que representa el lazo de cascada de forma integrada",
+      "b": "No existe forma estandar de representar cascada en ISA-5.1; se describe en documentos de filosofia de control separados del P&ID",
+      "c": "El LIC-220 aparece tachado con una X para indicar que no actua directamente sobre la valvula; solo el FIC-221 genera senal de control",
+      "d": "La salida del LIC-220 se conecta al punto de setpoint (SP) del FIC-221, con ambas burbujas separadas e identificadas con sus propios tags en el P&ID"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "En un P&ID, el control en cascada se muestra con la seÃ±al de salida del controlador maestro (LIC-220) llegando al punto de setpoint del controlador esclavo (FIC-221). Ambos instrumentos aparecen como burbujas separadas con sus propios tags, conectadas de forma que queda claro que la salida de uno es el setpoint del otro. La flecha de conexiÃ³n llega especÃ­ficamente al punto 'SP' del esclavo.",
+    "tipo": "texto"
+  },
+  {
+    "id": "isa_034",
+    "dificultad": 4,
+    "categoria": "Norma ISA - PFDs y P&IDs",
+    "pregunta": "Un tÃ©cnico nuevo interpreta que todos los instrumentos con el mismo nÃºmero de loop (por ejemplo, 301) estÃ¡n midiendo la misma variable. Un ingeniero lo corrige. Â¿CuÃ¡l es la interpretaciÃ³n correcta?",
+    "opciones": {
+      "a": "El tecnico tiene razon; todos los instrumentos del mismo loop miden la misma variable ya que el loop se define por la variable que controla",
+      "b": "Los instrumentos del mismo loop pertenecen al mismo lazo de control, pero pueden medir variables distintas si el lazo es complejo como cascada o ratio",
+      "c": "El numero de loop solo indica el area de la planta donde estan instalados; no implica ninguna relacion funcional entre los instrumentos",
+      "d": "Los instrumentos del mismo numero de loop son siempre redundantes que miden exactamente lo mismo para sistemas de votacion de seguridad"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "El nÃºmero de loop identifica el lazo de control, no la variable medida. En un lazo de control estÃ¡ndar simple, los instrumentos miden la misma variable (TT-101, TIC-101: ambos de temperatura). Pero en lazos complejos como cascada o ratio, pueden coexistir instrumentos de distintas variables bajo un mismo nÃºmero base o con sufijos, porque todos forman parte del mismo lazo funcional.",
+    "tipo": "texto"
+  },
+  {
+    "id": "isa_035",
+    "dificultad": 4,
+    "categoria": "Norma ISA - PFDs y P&IDs",
+    "pregunta": "Un ingeniero encuentra en un P&ID el sÃ­mbolo de una vÃ¡lvula de control con una 'A' dentro del sÃ­mbolo de actuador. Â¿QuÃ© indica esta 'A'?",
+    "opciones": {
+      "a": "Que la valvula tiene cuerpo de acero inoxidable austenitico (A-316 o similar) en lugar del acero carbono estandar del proyecto",
+      "b": "Que el actuador es del tipo A del catalogo del fabricante, que corresponde al modelo de mayor torque disponible en esa linea de producto",
+      "c": "Que la valvula tiene un posicionador con funcion de alarma integrada que monitorea la posicion real de la valvula continuamente",
+      "d": "Que el actuador es electrico (motor electrico) en lugar del actuador neumatico estandar, lo que cambia su senal de control y comportamiento ante falla de energia"
+    },
+    "respuesta_correcta": "d",
+    "explicacion": "En ISA-5.1, el sÃ­mbolo del actuador de una vÃ¡lvula indica su tipo de energÃ­a motriz. Un actuador neumÃ¡tico usa el sÃ­mbolo estÃ¡ndar de flecha. La letra 'A' dentro del actuador o junto a Ã©l puede indicar actuador elÃ©ctrico (motor). Esto es relevante para mantenimiento (necesita electricista, no instrumentista neumÃ¡tico) y para determinar su comportamiento ante falla de energÃ­a.",
+    "tipo": "texto"
+  },
+  {
+    "id": "isa_036",
+    "dificultad": 4,
+    "categoria": "Norma ISA - PFDs y P&IDs",
+    "pregunta": "Al hacer un HAZOP (Hazard and Operability Study) de un P&ID, el equipo identifica que si el FT-601 falla con lectura baja (low), el FIC-601 abrirÃ¡ la FV-601 al mÃ¡ximo. Â¿QuÃ© tipo de anÃ¡lisis de P&ID es este y quÃ© informaciÃ³n del P&ID fue necesaria para llegar a esta conclusiÃ³n?",
+    "opciones": {
+      "a": "El costo de reemplazo del instrumento FT-601 y los tiempos de entrega del proveedor para calcular el impacto economico de la falla",
+      "b": "La accion del controlador FIC-601 (directo o inverso) y el modo de falla de la valvula FV-601 (FC/FO) mostrados en el P&ID y la hoja de datos",
+      "c": "El numero de loops activos en el area y el presupuesto de ingenieria disponible para modificar el diseno si el HAZOP identifica un riesgo",
+      "d": "La ultima fecha de calibracion del FT-601 y el historial de fallas registrado en el sistema de mantenimiento de la planta"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "El HAZOP analiza quÃ© pasa cuando algo falla o se desvÃ­a. Para concluir que 'FT falla bajo â†’ FIC ordena mÃ¡s flujo â†’ FV se abre al mÃ¡ximo' se necesita saber: la acciÃ³n del controlador (directo o inverso) desde el P&ID/hoja de datos, el modo de falla de la vÃ¡lvula (FO en este caso) y la lÃ³gica del lazo. Esta informaciÃ³n estÃ¡ documentada en el P&ID y sus documentos asociados.",
+    "tipo": "texto"
+  },
+  {
+    "id": "isa_037",
+    "dificultad": 4,
+    "categoria": "Norma ISA - PFDs y P&IDs",
+    "pregunta": "Un P&ID muestra que la seÃ±al de salida de un FIC-710 llega a dos vÃ¡lvulas: FV-710A y FV-710B, con una lÃ³gica que indica 'FV-710A activa en 0-50%, FV-710B activa en 50-100%'. Â¿QuÃ© esquema de control representa esto?",
+    "opciones": {
+      "a": "Control en cascada donde FV-710A es la valvula maestra y FV-710B entra en servicio cuando la primera no puede satisfacer la demanda del proceso",
+      "b": "Control split-range (rango partido): el controlador opera dos valvulas en rangos complementarios de su senal de salida para ampliar el rango total",
+      "c": "Control redundante donde FV-710B entra en servicio automaticamente si el posicionador de FV-710A detecta una falla mecanica o de senal",
+      "d": "Control de relacion donde FV-710A maneja el flujo principal y FV-710B mantiene la proporcion de un componente secundario del proceso"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "El control split-range (rango partido) divide el rango de salida del controlador entre dos actuadores. Es comÃºn en procesos donde se necesita calentar (0-50%: vÃ¡lvula de agua frÃ­a cerrada) y enfriar (50-100%: vÃ¡lvula de refrigerante abierta), o donde se necesita una vÃ¡lvula pequeÃ±a para ajuste fino (0-50%) y una grande para mayor caudal (50-100%).",
+    "tipo": "texto"
+  },
+  {
+    "id": "isa_038",
+    "dificultad": 4,
+    "categoria": "Norma ISA - PFDs y P&IDs",
+    "pregunta": "Â¿Por quÃ© es crÃ­tico que el texto de la 'categoria' en los bancos de preguntas coincida exactamente con el nombre del tema configurado en el examen (bancos_por_tema), tal como lo indica la norma del sistema?",
+    "opciones": {
+      "a": "Porque el sistema aplica comparacion exacta de cadenas y una categoria diferente hace que esas preguntas no se asignen al tema correcto, rompiendo la distribucion del examen adaptativo",
+      "b": "Porque la norma ISA-5.1 exige que todos los documentos tecnicos del proyecto usen la misma nomenclatura para garantizar trazabilidad",
+      "c": "Porque el sistema borra automaticamente las preguntas con categoria diferente al nombre del tema durante la inicializacion del examen",
+      "d": "Solo afecta los reportes estadisticos de desempeno por tema; no impacta el funcionamiento operativo ni la seleccion de preguntas del examen"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "El sistema de exÃ¡menes adaptativos usa el campo 'categoria' para clasificar preguntas por tema y hacer la distribuciÃ³n segÃºn la configuraciÃ³n del examen (bancos_por_tema). Una discrepancia en el texto (mayÃºsculas, tildes, espacios) hace que el sistema no reconozca las preguntas como pertenecientes al tema, afectando la distribuciÃ³n y el funcionamiento del examen adaptativo.",
+    "tipo": "texto"
+  },
+  {
+    "id": "isa_039",
+    "dificultad": 4,
+    "categoria": "Norma ISA - PFDs y P&IDs",
+    "pregunta": "Al revisar un P&ID, un ingeniero nota que el transmisor de flujo FT-801 estÃ¡ representado con una burbuja doble (cÃ­rculo con doble contorno). Â¿QuÃ© indica esto segÃºn ISA-5.1?",
+    "opciones": {
+      "a": "Que el FT-801 tiene doble rango de medicion seleccionable en campo para cubrir diferentes condiciones de proceso con un solo instrumento",
+      "b": "Que el FT-801 es un instrumento del Sistema Instrumentado de Seguridad (SIS), separado del sistema de control de proceso normal y con requisitos de independencia",
+      "c": "Que el FT-801 esta montado en una ubicacion de dificil acceso que requiere andamio o plataforma especial para inspeccion y mantenimiento",
+      "d": "Que existe una version anterior del FT-801 que fue reemplazada; el doble contorno indica el instrumento nuevo instalado en la ultima modificacion"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "El sÃ­mbolo de burbuja con doble contorno (cÃ­rculo doble) en ISA-5.1 indica que el instrumento pertenece a un Sistema Instrumentado de Seguridad (SIS) o Safety Instrumented System. Esta distinciÃ³n es crÃ­tica porque los instrumentos SIS tienen requisitos de independencia, integridad y mantenimiento mÃ¡s estrictos que los instrumentos de control de proceso normal.",
+    "tipo": "texto"
+  },
+  {
+    "id": "isa_040",
+    "dificultad": 4,
+    "categoria": "Norma ISA - PFDs y P&IDs",
+    "pregunta": "Un ingeniero debe identificar en un P&ID dÃ³nde se puede instalar un medidor de flujo adicional sin interrumpir la operaciÃ³n. Â¿QuÃ© informaciÃ³n del P&ID necesita para tomar esta decisiÃ³n?",
+    "opciones": {
+      "a": "Solo el tag del instrumento existente en la linea y el numero de loop para verificar que no haya conflicto de identificacion con el nuevo instrumento",
+      "b": "Solo el PFD del proceso para ver el flujo general y determinar que linea tiene el caudal mas adecuado para instalar el nuevo medidor",
+      "c": "Las valvulas de bloqueo disponibles para aislar la linea, los tramos rectos para cumplir los requisitos de instalacion y si hay bypass para mantener el flujo durante la instalacion",
+      "d": "Solo el manual del fabricante del medidor de flujo para conocer los requisitos de instalacion sin necesidad de revisar el P&ID del proceso"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "El P&ID provee toda la informaciÃ³n necesaria para planificar la instalaciÃ³n: vÃ¡lvulas de bloqueo para aislar la lÃ­nea, espacios rectos de tuberÃ­a disponibles aguas arriba/abajo (requisito del medidor), puntos de conexiÃ³n disponibles, existencia de bypass para mantener el proceso durante el trabajo, y si hay otros instrumentos en la misma lÃ­nea que puedan interferir.",
+    "tipo": "texto"
+  },
+  {
+    "id": "isa_041",
+    "dificultad": 5,
+    "categoria": "Norma ISA - PFDs y P&IDs",
+    "pregunta": "Durante una revisiÃ³n de P&ID, un ingeniero nota que el tag TT-301 aparece como instrumento de campo pero su seÃ±al llega al TIC-301 (panel) por una lÃ­nea de puntos, y tambiÃ©n hay una lÃ­nea de puntos con X desde el TIC-301 hasta el DCS. Â¿QuÃ© indica la lÃ­nea con X?",
+    "opciones": {
+      "a": "Que la senal entre TIC-301 y DCS esta temporalmente cortada por un bypass de mantenimiento activo y debe reconectarse antes de operar",
+      "b": "Que la funcion del TIC-301 esta implementada como bloque de software interno en el DCS; la burbuja en panel representa solo la interfaz del operador",
+      "c": "Que existe una falla de comunicacion activa entre el TIC-301 y el DCS que el departamento de instrumentacion debe diagnosticar",
+      "d": "Que el TIC-301 es un instrumento de emergencia que solo establece comunicacion con el DCS cuando se activa una alarma de seguridad"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "La lÃ­nea con X en ISA-5.1 representa una seÃ±al de software o funciÃ³n interna de un sistema de control digital. Significa que la funciÃ³n del TIC-301 (como controlador) estÃ¡ implementada como un bloque funcional dentro del DCS, no como hardware independiente. La burbuja TIC-301 en panel representa la pantalla/interfaz de operador, pero el algoritmo PID corre en el DCS.",
+    "tipo": "texto"
+  },
+  {
+    "id": "isa_042",
+    "dificultad": 5,
+    "categoria": "Norma ISA - PFDs y P&IDs",
+    "pregunta": "Un P&ID muestra un lazo de control de temperatura con TT-501 (campo), TIC-501 (panel) y TV-501 (FC). Se agrega una nota: 'Override por TSH-502'. Â¿QuÃ© significa esta arquitectura de control?",
+    "opciones": {
+      "a": "El TIC-501 controla normalmente; si el TSH-502 detecta temperatura peligrosamente alta, toma el control y fuerza el cierre de TV-501 independientemente del TIC-501",
+      "b": "El TSH-502 es un transmisor de temperatura de respaldo que reemplaza automaticamente al TT-501 cuando este registra una falla de senal o descalibracion",
+      "c": "El TIC-501 y el TSH-502 promedian sus senales de salida antes de enviar la senal de control a la TV-501 para suavizar la accion de control",
+      "d": "El TSH-502 calibra automaticamente al TT-501 comparando sus mediciones y corrigiendo la desviacion cada vez que supera el 0.5% del rango"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "El override (o selector de alta/baja) es una estructura de control donde un segundo instrumento puede 'tomar el control' sobre el lazo normal bajo condiciones especÃ­ficas. El TIC-501 controla normalmente, pero si el TSH-502 (Temperature Switch High) detecta una temperatura peligrosamente alta, el override fuerza la TV-501 a cerrar (FC) independientemente de lo que el TIC-501 estÃ© calculando, protegiendo el proceso.",
+    "tipo": "texto"
+  },
+  {
+    "id": "isa_043",
+    "dificultad": 5,
+    "categoria": "Norma ISA - PFDs y P&IDs",
+    "pregunta": "Al comparar el PFD y el P&ID de la misma planta, un auditor detecta que hay una vÃ¡lvula de control (FV-620) en el P&ID que no aparece en el PFD. El ingeniero de proceso dice que esto es normal. Â¿CuÃ¡l es la explicaciÃ³n correcta?",
+    "opciones": {
+      "a": "El P&ID esta desactualizado; la FV-620 fue eliminada del proceso en una modificacion reciente y el P&ID no fue actualizado correctamente",
+      "b": "El PFD omite intencionalmente los detalles de instrumentacion y control; la FV-620 es parte del lazo de control que el PFD no muestra a ese nivel de abstraccion",
+      "c": "La FV-620 es un instrumento planificado para instalacion futura y no deberia aparecer en ninguno de los dos documentos hasta que sea instalada",
+      "d": "El PFD esta incompleto y debe ser actualizado para incluir todas las valvulas de control del proceso sin excepcion en la proxima revision"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "El PFD deliberadamente omite detalles de instrumentaciÃ³n y control para mantener la claridad del diagrama de flujo del proceso. Las vÃ¡lvulas de control, transmisores y lazos de control aparecen solo en el P&ID. Esta omisiÃ³n es correcta y por diseÃ±o: cada documento tiene su nivel de abstracciÃ³n. Un PFD con toda la instrumentaciÃ³n perderÃ­a su utilidad como documento de comprensiÃ³n del proceso.",
+    "tipo": "texto"
+  },
+  {
+    "id": "isa_044",
+    "dificultad": 5,
+    "categoria": "Norma ISA - PFDs y P&IDs",
+    "pregunta": "Un ingeniero revisa un P&ID y detecta que el lazo FIC-701 tiene la FV-701 como vÃ¡lvula de control, pero no encuentra ningÃºn FT-701 en el diagrama. Sin embargo, el lazo parece completo. Â¿CuÃ¡l es la explicaciÃ³n mÃ¡s probable?",
+    "opciones": {
+      "a": "El P&ID tiene un error de diseno grave; sin transmisor de medicion visible el lazo no puede cerrar el bucle de retroalimentacion correctamente",
+      "b": "El FT-701 esta en otra hoja del P&ID (referencia cruzada) conectado al FIC-701 mediante una marca de continuacion al borde del diagrama",
+      "c": "El FIC-701 es un controlador en lazo abierto que ajusta el flujo solo con la senal de setpoint sin necesitar retroalimentacion de medicion",
+      "d": "El transmisor FT-701 fue eliminado recientemente del proceso y el P&ID no ha sido actualizado para reflejar la configuracion actual"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "Los P&IDs de plantas grandes se dividen en mÃºltiples hojas. Un instrumento en una hoja puede recibir seÃ±ales de instrumentos en otras hojas, indicado mediante referencias cruzadas (marcas o flechas con el nÃºmero de hoja y tag correspondiente). Es completamente normal y correcto que el FT-701 estÃ© en otra hoja del P&ID, referenciado apropiadamente en la hoja donde aparece el FIC-701.",
+    "tipo": "texto"
+  },
+  {
+    "id": "isa_045",
+    "dificultad": 5,
+    "categoria": "Norma ISA - PFDs y P&IDs",
+    "pregunta": "Un equipo de ingenierÃ­a estÃ¡ en la fase conceptual de un nuevo proyecto. El gerente pide primero el PFD y luego el P&ID. Un ingeniero junior pregunta si pueden elaborar directamente el P&ID para ahorrar tiempo. Â¿Por quÃ© el orden correcto es PFD primero?",
+    "opciones": {
+      "a": "Porque la norma ISA requiere legalmente que el PFD sea aprobado por las autoridades regulatorias antes de comenzar a elaborar el P&ID del proyecto",
+      "b": "Porque el PFD establece y valida el concepto del proceso antes de invertir el tiempo de ingenieria en los detalles de instrumentacion del P&ID",
+      "c": "Porque el P&ID es mas dificil de elaborar y se necesita el PFD como plantilla base de donde se copian los equipos y corrientes del proceso",
+      "d": "Porque sin el PFD aprobado por el cliente, los proveedores de instrumentos no pueden cotizar los equipos ni confirmar disponibilidad"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "El PFD define el concepto del proceso: quÃ© se hace, en quÃ© equipos, bajo quÃ© condiciones. Solo una vez que el proceso estÃ¡ validado conceptualmente tiene sentido detallar la instrumentaciÃ³n en el P&ID. Si se elabora el P&ID antes de validar el PFD y luego el proceso cambia, habrÃ­a que rehacer todo el P&ID. La secuencia PFDâ†’P&ID es una prÃ¡ctica de ingenierÃ­a para gestionar eficientemente el esfuerzo de diseÃ±o.",
+    "tipo": "texto"
+  },
+  {
+    "id": "isa_046",
+    "dificultad": 5,
+    "categoria": "Norma ISA - PFDs y P&IDs",
+    "pregunta": "Un auditor de calidad revisa un P&ID 'as-built' (como quedÃ³ construido) y encuentra que varios instrumentos tienen tags que no siguen la nomenclatura ISA. El encargado argumenta que son instrumentos heredados con tags propios de la empresa. Â¿CuÃ¡l es el anÃ¡lisis correcto?",
+    "opciones": {
+      "a": "Es completamente inaceptable; todos los instrumentos de cualquier planta industrial deben cumplir ISA-5.1 sin excepcion para que el P&ID sea valido",
+      "b": "Es aceptable internamente si la empresa tiene su propio estandar documentado, aunque puede crear confusion con contratistas externos y en futuras ampliaciones",
+      "c": "La norma ISA-5.1 es solo una guia de buenas practicas sin ningun impacto real en la seguridad, mantenimiento o trazabilidad del proyecto",
+      "d": "Los tags heredados deben eliminarse inmediatamente del P&ID y reemplazarse por tags ISA en la primera revision documentada del sistema"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "ISA-5.1 es una norma ampliamente adoptada pero no es obligatoria por ley en la mayorÃ­a de jurisdicciones. Muchas empresas tienen estÃ¡ndares propios, especialmente en plantas antiguas. La situaciÃ³n es aceptable si el estÃ¡ndar interno estÃ¡ documentado, pero crea riesgos reales: contratistas externos no comprenderÃ¡n los tags, ampliaciones futuras pueden mezclar nomenclaturas, y auditorÃ­as externas (seguros, certificaciones) pueden generar observaciones.",
+    "tipo": "texto"
+  },
+  {
+    "id": "isa_047",
+    "dificultad": 5,
+    "categoria": "Norma ISA - PFDs y P&IDs",
+    "pregunta": "Durante un HAZOP de un P&ID de un reactor, el equipo identifica el escenario: 'sin flujo de reactivo B'. El P&ID muestra FT-830 (transmisor), FIC-830 (controlador) y FAL-830 (alarma de flujo bajo). El equipo pregunta: si el FT-830 falla con lectura alta (high), Â¿cÃ³mo afecta a la FAL-830 y al FIC-830?",
+    "opciones": {
+      "a": "La FAL-830 no se activara (ve alta lectura, no baja) y el FIC-830 reducira el actuador creyendo que hay exceso de flujo, agravando la falta real de flujo",
+      "b": "La FAL-830 se activa igualmente porque tiene un sensor independiente que no depende del FT-830 para comparar con el limite de alarma",
+      "c": "El FIC-830 mantiene su ultimo valor de salida en modo de retencion y la FAL-830 activa una alarma de falla de instrumento en la sala de control",
+      "d": "La FAL-830 detecta automaticamente la discrepancia entre la lectura del FT-830 y el estado real del actuador y activa alarma de falla de sensor"
+    },
+    "respuesta_correcta": "a",
+    "explicacion": "Este es un anÃ¡lisis clÃ¡sico de modo de falla de instrumento. Si FT-830 falla leyendo alto cuando realmente no hay flujo: el FIC-830 ve 'flujo mayor al setpoint' y cierra la vÃ¡lvula para reducirlo, lo que empeora la falta real de flujo. La FAL-830 recibe la misma seÃ±al del FT-830 (alto) y no se activa porque no detecta el bajo flujo real. Es por esto que los sistemas SIS usan transmisores independientes del sistema de control.",
+    "tipo": "texto"
+  },
+  {
+    "id": "isa_048",
+    "dificultad": 5,
+    "categoria": "Norma ISA - PFDs y P&IDs",
+    "pregunta": "Un P&ID muestra un lazo de control de presiÃ³n (PIC-901 â†’ PV-901 FO) en la lÃ­nea de descarga de un compresor. El PFD muestra que esta lÃ­nea alimenta un proceso crÃ­tico que no puede quedarse sin suministro. Â¿Por quÃ© la selecciÃ³n FO (Fail Open) es correcta para la PV-901 en este caso?",
+    "opciones": {
+      "a": "FO es incorrecto para compresores; todas las valvulas en descarga de compresores deben ser FC para evitar despresurizar el sistema",
+      "b": "FO garantiza que ante una falla de senal la valvula se abra completamente, priorizando el suministro continuo del proceso critico sobre el control exacto de presion",
+      "c": "FO es la unica opcion disponible para valvulas en lineas de descarga de compresores segun la norma API 618 para compresores reciprocantes",
+      "d": "FO en este contexto indica que la valvula cierra en falla de senal para proteger el compresor de reflujo desde el proceso aguas abajo"
+    },
+    "respuesta_correcta": "b",
+    "explicacion": "La selecciÃ³n FC vs FO siempre depende de quÃ© condiciÃ³n es mÃ¡s segura ante una falla. Si el proceso aguas abajo es crÃ­tico y no puede quedarse sin suministro, perder el control de la presiÃ³n (vÃ¡lvula abierta) puede ser menos peligroso que perder el suministro completamente (vÃ¡lvula cerrada). Esta decisiÃ³n de diseÃ±o se documenta en el P&ID y debe ser consistente con el anÃ¡lisis de riesgos del proceso.",
+    "tipo": "texto"
+  },
+  {
+    "id": "isa_049",
+    "dificultad": 5,
+    "categoria": "Norma ISA - PFDs y P&IDs",
+    "pregunta": "Un ingeniero compara el P&ID original de diseÃ±o ('as-designed') con el P&ID 'as-built' y encuentra diferencias: algunos instrumentos tienen tags distintos y hay vÃ¡lvulas de bloqueo adicionales no previstas en el diseÃ±o. Â¿CuÃ¡l es la implicaciÃ³n prÃ¡ctica mÃ¡s importante de estas diferencias?",
+    "opciones": {
+      "a": "Las diferencias son menores y no tienen impacto practico porque el proceso funciona igual aunque los tags en el plano difieran de los tags en campo",
+      "b": "El P&ID as-designed es el documento correcto; el as-built debe ser corregido para que coincida con el diseno original aprobado del proyecto",
+      "c": "Trabajar con un P&ID que no refleja la realidad fisica de la planta es un riesgo de seguridad: los procedimientos de aislamiento y el HAZOP basados en el pueden ser incorrectos",
+      "d": "La diferencia solo es relevante para el departamento de contabilidad al calcular el valor actualizado de los activos instalados en la planta"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "Un P&ID desactualizado es un riesgo real de seguridad. Los procedimientos de aislamiento para mantenimiento, los HAZOP, los anÃ¡lisis de cambios de proceso y los entrenamientos de operadores se basan en el P&ID. Si el P&ID no refleja la realidad, un tÃ©cnico puede creer que aislÃ³ correctamente un equipo cuando en realidad no lo hizo, porque en el campo hay vÃ¡lvulas adicionales no marcadas en el P&ID. Mantener el P&ID actualizado (as-built) es un requisito de gestiÃ³n de seguridad.",
+    "tipo": "texto"
+  },
+  {
+    "id": "isa_050",
+    "dificultad": 5,
+    "categoria": "Norma ISA - PFDs y P&IDs",
+    "pregunta": "Un nuevo ingeniero afirma que con el PFD tiene suficiente informaciÃ³n para hacer el anÃ¡lisis de riesgos HAZOP de la planta. Un ingeniero experimentado le contradice. Â¿Por quÃ© el P&ID es indispensable para el HAZOP?",
+    "opciones": {
+      "a": "Porque el HAZOP requiere el P&ID como requisito legal de la norma IEC 61882, sin el cual el informe no tiene validez ante las autoridades regulatorias",
+      "b": "Porque el PFD muestra suficiente informacion si se complementa con los manuales de operacion y las fichas tecnicas de cada equipo del proceso",
+      "c": "Porque el P&ID muestra todos los instrumentos, valvulas, lazos de control, modos de falla y conexiones necesarias para analizar sistematicamente las desviaciones del proceso",
+      "d": "Porque el P&ID contiene el numero de serie de cada instrumento necesario para la poliza de seguros y la documentacion legal del proyecto"
+    },
+    "respuesta_correcta": "c",
+    "explicacion": "El HAZOP es un anÃ¡lisis sistemÃ¡tico de desviaciones del proceso ('Â¿quÃ© pasa si hay mÃ¡s flujo?', 'Â¿quÃ© pasa si no hay temperatura?'). Para este anÃ¡lisis se necesita saber: quÃ© instrumentos detectan la desviaciÃ³n, si hay alarmas, si el sistema de control puede corregirla, quÃ© vÃ¡lvulas estÃ¡n disponibles, cuÃ¡les son los modos de falla de los instrumentos. Toda esa informaciÃ³n solo estÃ¡ en el P&ID. El PFD simplemente no tiene el nivel de detalle necesario.",
+    "tipo": "texto"
+  }
+]
