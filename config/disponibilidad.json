@@ -115,8 +115,8 @@
         {
             "nombre": "Parcial 3 - Control Grupo 1",
             "examen_config": "Control/parcial_3.json",
-            "inicio": "2026-05-28 06:00",
-            "fin": "2026-05-28 08:00",
+            "inicio": "2026-05-28 18:00",
+            "fin": "2026-05-28 20:00",
             "temas": [
                 "Controladores PID y Control On-Off",
                 "Norma ISA - PFDs y P&IDs",
@@ -126,8 +126,8 @@
         {
             "nombre": "Parcial 3 - Control Grupo 2",
             "examen_config": "Control/parcial_3.json",
-            "inicio": "2026-05-28 08:00",
-            "fin": "2026-05-28 10:00",
+            "inicio": "2026-05-28 20:00",
+            "fin": "2026-05-28 22:00",
             "temas": [
                 "Controladores PID y Control On-Off",
                 "Norma ISA - PFDs y P&IDs",
